@@ -220,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.lblPasswordMsg);
             this.Controls.Add(this.lblUsernameMsg);

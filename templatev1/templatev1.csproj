@@ -106,11 +106,11 @@
     <Compile Include="payment.Designer.cs">
       <DependentUpon>payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\CprofileAM.cs">
+    <Compile Include="Profile\CustomerManagAddress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\CprofileAM.Designer.cs">
-      <DependentUpon>CprofileAM.cs</DependentUpon>
+    <Compile Include="Profile\CustomerManagAddress.Designer.cs">
+      <DependentUpon>CustomerManagAddress.cs</DependentUpon>
     </Compile>
     <Compile Include="searchOrder.cs">
       <SubType>Form</SubType>
@@ -208,28 +208,28 @@
     <Compile Include="CreateCustomerAcc.Designer.cs">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Mang\SetModifyDiscount.cs">
+    <Compile Include="On-Sale Product Manag\SetModifyDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Mang\SetModifyDiscount.Designer.cs">
+    <Compile Include="On-Sale Product Manag\SetModifyDiscount.Designer.cs">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Mang\AddProduct.cs">
+    <Compile Include="On-Sale Product Manag\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Mang\AddProduct.Designer.cs">
+    <Compile Include="On-Sale Product Manag\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Mang\ModifyProduct.cs">
+    <Compile Include="On-Sale Product Manag\ModifyProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Mang\ModifyProduct.Designer.cs">
+    <Compile Include="On-Sale Product Manag\ModifyProduct.Designer.cs">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Mang\OnSaleMain.cs">
+    <Compile Include="On-Sale Product Manag\OnSaleMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Mang\OnSaleMain.Designer.cs">
+    <Compile Include="On-Sale Product Manag\OnSaleMain.Designer.cs">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
@@ -250,11 +250,11 @@
     <Compile Include="Form11.Designer.cs">
       <DependentUpon>Form11.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\Cprofile.cs">
+    <Compile Include="Profile\CustomerProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\Cprofile.Designer.cs">
-      <DependentUpon>Cprofile.cs</DependentUpon>
+    <Compile Include="Profile\CustomerProfile.Designer.cs">
+      <DependentUpon>CustomerProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\Storeprofile.cs">
       <SubType>Form</SubType>
@@ -324,8 +324,8 @@
     <EmbeddedResource Include="payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\CprofileAM.resx">
-      <DependentUpon>CprofileAM.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\CustomerManagAddress.resx">
+      <DependentUpon>CustomerManagAddress.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="searchOrder.resx">
       <DependentUpon>searchOrder.cs</DependentUpon>
@@ -375,16 +375,16 @@
     <EmbeddedResource Include="CreateCustomerAcc.resx">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Mang\SetModifyDiscount.resx">
+    <EmbeddedResource Include="On-Sale Product Manag\SetModifyDiscount.resx">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Mang\AddProduct.resx">
+    <EmbeddedResource Include="On-Sale Product Manag\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Mang\ModifyProduct.resx">
+    <EmbeddedResource Include="On-Sale Product Manag\ModifyProduct.resx">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Mang\OnSaleMain.resx">
+    <EmbeddedResource Include="On-Sale Product Manag\OnSaleMain.resx">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
@@ -396,8 +396,8 @@
     <EmbeddedResource Include="Form11.resx">
       <DependentUpon>Form11.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\Cprofile.resx">
-      <DependentUpon>Cprofile.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\CustomerProfile.resx">
+      <DependentUpon>CustomerProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\Storeprofile.resx">
       <DependentUpon>Storeprofile.cs</DependentUpon>

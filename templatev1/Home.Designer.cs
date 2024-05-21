@@ -240,7 +240,7 @@
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.ForeColor = System.Drawing.Color.White;
+            this.lblUid.ForeColor = System.Drawing.Color.Black;
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
@@ -252,7 +252,7 @@
             // 
             this.lblTimeDate.AutoSize = true;
             this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.ForeColor = System.Drawing.Color.White;
+            this.lblTimeDate.ForeColor = System.Drawing.Color.Black;
             this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
@@ -278,7 +278,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(3, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 22);
@@ -287,9 +287,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(977, 877);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(170, 37);
@@ -301,7 +301,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(590, 844);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(180, 20);
@@ -312,7 +312,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(590, 885);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(221, 20);
@@ -321,9 +321,9 @@
             // 
             // label8
             // 
-            this.label8.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label8.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(803, 884);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(153, 26);
@@ -333,9 +333,9 @@
             // 
             // label4
             // 
-            this.label4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(803, 844);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 26);
@@ -347,7 +347,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.ForeColor = System.Drawing.Color.Black;
             this.label5.Location = new System.Drawing.Point(231, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(96, 26);
@@ -367,7 +367,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(333, 125);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(130, 17);
@@ -378,7 +378,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(232, 187);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 19);
@@ -389,7 +389,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.ForeColor = System.Drawing.Color.Black;
             this.label9.Location = new System.Drawing.Point(423, 187);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(60, 19);
@@ -400,7 +400,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.ForeColor = System.Drawing.Color.Black;
             this.label10.Location = new System.Drawing.Point(606, 187);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(81, 19);
@@ -409,9 +409,9 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.ForeColor = System.Drawing.Color.Black;
             this.button2.Location = new System.Drawing.Point(977, 837);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(170, 37);
@@ -429,7 +429,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::templatev1.Properties.Resources.Daco_367903re;
+            this.pictureBox2.Image = global::templatev1.Properties.Resources.Daco_367903;
+            this.pictureBox2.InitialImage = global::templatev1.Properties.Resources.Daco_367903;
             this.pictureBox2.Location = new System.Drawing.Point(573, 154);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(31, 25);
@@ -441,7 +442,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkGray;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.textBox1);

@@ -380,7 +380,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(353, 26);
             this.label9.TabIndex = 33;
-            this.label9.Text = "Legend Motor Company Integrated system";
+            this.label9.Text = "Legend Motor Company Integrated System";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // button3
@@ -415,7 +415,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "About";
-            this.Text = "Form1";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
