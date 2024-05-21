@@ -423,11 +423,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.label6.Location = new System.Drawing.Point(974, 287);
+            this.label6.Location = new System.Drawing.Point(1013, 287);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 17);
+            this.label6.Size = new System.Drawing.Size(103, 17);
             this.label6.TabIndex = 122;
-            this.label6.Text = "[Click to modify detial]";
+            this.label6.Text = "[Click to Select]";
             // 
             // label7
             // 

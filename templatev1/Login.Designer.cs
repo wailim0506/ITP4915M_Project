@@ -29,36 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.palTime = new System.Windows.Forms.Panel();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.palLoc = new System.Windows.Forms.Panel();
+            this.lblFormTitle = new System.Windows.Forms.Label();
+            this.btnCreateCustomerAcc = new System.Windows.Forms.Button();
+            this.btnForgetPassword = new System.Windows.Forms.Button();
+            this.lblSystemTitle1 = new System.Windows.Forms.Label();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
+            this.chkRememberMe = new System.Windows.Forms.CheckBox();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblSystemTitle2 = new System.Windows.Forms.Label();
+            this.lblUsernameMsg = new System.Windows.Forms.Label();
+            this.lblPasswordMsg = new System.Windows.Forms.Label();
+            this.palTime.SuspendLayout();
+            this.palLoc.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel2
+            // palTime
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.panel2.Controls.Add(this.lblTimeDate);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1170, 40);
-            this.panel2.TabIndex = 1;
+            this.palTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.palTime.Controls.Add(this.lblTimeDate);
+            this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palTime.Location = new System.Drawing.Point(0, 0);
+            this.palTime.Margin = new System.Windows.Forms.Padding(2);
+            this.palTime.Name = "palTime";
+            this.palTime.Size = new System.Drawing.Size(1170, 40);
+            this.palTime.TabIndex = 1;
             // 
             // lblTimeDate
             // 
@@ -67,181 +69,204 @@
             this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(60, 22);
+            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
             this.lblTimeDate.TabIndex = 0;
-            this.lblTimeDate.Text = "label2";
+            this.lblTimeDate.Text = "TIME";
             // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // panel3
+            // palLoc
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 40);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1170, 38);
-            this.panel3.TabIndex = 2;
+            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.palLoc.Controls.Add(this.lblFormTitle);
+            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palLoc.Location = new System.Drawing.Point(0, 40);
+            this.palLoc.Name = "palLoc";
+            this.palLoc.Size = new System.Drawing.Size(1170, 38);
+            this.palLoc.TabIndex = 2;
             // 
-            // label2
+            // lblFormTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 22);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Login";
+            this.lblFormTitle.AutoSize = true;
+            this.lblFormTitle.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormTitle.Location = new System.Drawing.Point(6, 9);
+            this.lblFormTitle.Name = "lblFormTitle";
+            this.lblFormTitle.Size = new System.Drawing.Size(55, 22);
+            this.lblFormTitle.TabIndex = 0;
+            this.lblFormTitle.Text = "Login";
             // 
-            // button3
+            // btnCreateCustomerAcc
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(468, 558);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(233, 37);
-            this.button3.TabIndex = 21;
-            this.button3.Text = "Create Customer Account";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnCreateCustomerAcc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateCustomerAcc.Location = new System.Drawing.Point(461, 590);
+            this.btnCreateCustomerAcc.Name = "btnCreateCustomerAcc";
+            this.btnCreateCustomerAcc.Size = new System.Drawing.Size(220, 37);
+            this.btnCreateCustomerAcc.TabIndex = 21;
+            this.btnCreateCustomerAcc.Text = "Create Customer Account";
+            this.btnCreateCustomerAcc.UseVisualStyleBackColor = true;
+            this.btnCreateCustomerAcc.Click += new System.EventHandler(this.btnCreateCustomerAcc_Click);
             // 
-            // button2
+            // btnForgetPassword
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(468, 518);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(161, 37);
-            this.button2.TabIndex = 20;
-            this.button2.Text = "Forget Password";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnForgetPassword.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForgetPassword.Location = new System.Drawing.Point(461, 550);
+            this.btnForgetPassword.Name = "btnForgetPassword";
+            this.btnForgetPassword.Size = new System.Drawing.Size(161, 37);
+            this.btnForgetPassword.TabIndex = 20;
+            this.btnForgetPassword.Text = "Forget Password";
+            this.btnForgetPassword.UseVisualStyleBackColor = true;
+            this.btnForgetPassword.Click += new System.EventHandler(this.btnForgetPassword_Click);
             // 
-            // label1
+            // lblSystemTitle1
             // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(405, 257);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(380, 49);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Legend Motor Company";
+            this.lblSystemTitle1.Font = new System.Drawing.Font("Times New Roman", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemTitle1.ForeColor = System.Drawing.Color.Red;
+            this.lblSystemTitle1.Location = new System.Drawing.Point(405, 257);
+            this.lblSystemTitle1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSystemTitle1.Name = "lblSystemTitle1";
+            this.lblSystemTitle1.Size = new System.Drawing.Size(380, 49);
+            this.lblSystemTitle1.TabIndex = 19;
+            this.lblSystemTitle1.Text = "Legend Motor Company";
             // 
-            // button1
+            // btnLogin
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(590, 474);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 33);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Log in";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnLogin.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogin.Location = new System.Drawing.Point(596, 496);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(98, 33);
+            this.btnLogin.TabIndex = 18;
+            this.btnLogin.Text = "Log in";
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox2
+            // tbPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(466, 436);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(222, 27);
-            this.textBox2.TabIndex = 17;
+            this.tbPassword.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(459, 448);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(235, 27);
+            this.tbPassword.TabIndex = 17;
             // 
-            // textBox1
+            // tbUsername
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(466, 374);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(222, 27);
-            this.textBox1.TabIndex = 16;
+            this.tbUsername.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Location = new System.Drawing.Point(459, 374);
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.Size = new System.Drawing.Size(235, 27);
+            this.tbUsername.TabIndex = 16;
             // 
-            // checkBox1
+            // chkRememberMe
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(468, 480);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(113, 26);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "Stay Login";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chkRememberMe.AutoSize = true;
+            this.chkRememberMe.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkRememberMe.Location = new System.Drawing.Point(461, 502);
+            this.chkRememberMe.Name = "chkRememberMe";
+            this.chkRememberMe.Size = new System.Drawing.Size(128, 23);
+            this.chkRememberMe.TabIndex = 15;
+            this.chkRememberMe.Text = "Remember me";
+            this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(464, 411);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 22);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Password:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(457, 423);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(94, 22);
+            this.lblPassword.TabIndex = 14;
+            this.lblPassword.Text = "Password:";
             // 
-            // label4
+            // lblUsername
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(464, 349);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 22);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Username:";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(457, 349);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(94, 22);
+            this.lblUsername.TabIndex = 13;
+            this.lblUsername.Text = "Username:";
             // 
-            // label5
+            // lblSystemTitle2
             // 
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.label5.Location = new System.Drawing.Point(405, 297);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(380, 49);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Integrated system";
+            this.lblSystemTitle2.Font = new System.Drawing.Font("Times New Roman", 24.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSystemTitle2.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.lblSystemTitle2.Location = new System.Drawing.Point(405, 297);
+            this.lblSystemTitle2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSystemTitle2.Name = "lblSystemTitle2";
+            this.lblSystemTitle2.Size = new System.Drawing.Size(380, 49);
+            this.lblSystemTitle2.TabIndex = 22;
+            this.lblSystemTitle2.Text = "Integrated system";
+            // 
+            // lblUsernameMsg
+            // 
+            this.lblUsernameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblUsernameMsg.Location = new System.Drawing.Point(460, 404);
+            this.lblUsernameMsg.Name = "lblUsernameMsg";
+            this.lblUsernameMsg.Size = new System.Drawing.Size(221, 19);
+            this.lblUsernameMsg.TabIndex = 23;
+            // 
+            // lblPasswordMsg
+            // 
+            this.lblPasswordMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordMsg.Location = new System.Drawing.Point(460, 478);
+            this.lblPasswordMsg.Name = "lblPasswordMsg";
+            this.lblPasswordMsg.Size = new System.Drawing.Size(221, 15);
+            this.lblPasswordMsg.TabIndex = 24;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.lblPasswordMsg);
+            this.Controls.Add(this.lblUsernameMsg);
+            this.Controls.Add(this.lblSystemTitle1);
+            this.Controls.Add(this.lblSystemTitle2);
+            this.Controls.Add(this.btnCreateCustomerAcc);
+            this.Controls.Add(this.btnForgetPassword);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.tbPassword);
+            this.Controls.Add(this.tbUsername);
+            this.Controls.Add(this.chkRememberMe);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.palLoc);
+            this.Controls.Add(this.palTime);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Login";
-            this.Text = "Form1";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.palTime.ResumeLayout(false);
+            this.palTime.PerformLayout();
+            this.palLoc.ResumeLayout(false);
+            this.palLoc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel palTime;
         private System.Windows.Forms.Label lblTimeDate;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel palLoc;
+        private System.Windows.Forms.Label lblFormTitle;
+        private System.Windows.Forms.Button btnCreateCustomerAcc;
+        private System.Windows.Forms.Button btnForgetPassword;
+        private System.Windows.Forms.Label lblSystemTitle1;
+        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbUsername;
+        private System.Windows.Forms.CheckBox chkRememberMe;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblSystemTitle2;
+        private System.Windows.Forms.Label lblUsernameMsg;
+        private System.Windows.Forms.Label lblPasswordMsg;
     }
 }
 
