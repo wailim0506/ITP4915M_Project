@@ -130,6 +130,12 @@
     <Compile Include="searchSparePart_Result.Designer.cs">
       <DependentUpon>searchSparePart_Result.cs</DependentUpon>
     </Compile>
+    <Compile Include="testController.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="testController.Designer.cs">
+      <DependentUpon>testController.cs</DependentUpon>
+    </Compile>
     <Compile Include="User\StoreSearchU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     <EmbeddedResource Include="searchSparePart_Result.resx">
       <DependentUpon>searchSparePart_Result.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="testController.resx">
+      <DependentUpon>testController.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User\StoreSearchU.resx">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </EmbeddedResource>
@@ -454,6 +463,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Daco_367903re.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="lib\controller\controller\controller.csproj">
+      <Project>{795b0300-8375-4599-a4af-38a88eab2f07}</Project>
+      <Name>controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
