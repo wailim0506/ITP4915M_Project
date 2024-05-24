@@ -46,5 +46,113 @@ namespace templatev1.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Control")]
+        public global::System.Drawing.Color bgColor {
+            get {
+                return ((global::System.Drawing.Color)(this["bgColor"]));
+            }
+            set {
+                this["bgColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Black")]
+        public global::System.Drawing.Color textColor {
+            get {
+                return ((global::System.Drawing.Color)(this["textColor"]));
+            }
+            set {
+                this["textColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("GradientActiveCaption")]
+        public global::System.Drawing.Color navColor {
+            get {
+                return ((global::System.Drawing.Color)(this["navColor"]));
+            }
+            set {
+                this["navColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 192, 192")]
+        public global::System.Drawing.Color logoutColor {
+            get {
+                return ((global::System.Drawing.Color)(this["logoutColor"]));
+            }
+            set {
+                this["logoutColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("255, 255, 192")]
+        public global::System.Drawing.Color profileColor {
+            get {
+                return ((global::System.Drawing.Color)(this["profileColor"]));
+            }
+            set {
+                this["profileColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("59, 213, 184")]
+        public global::System.Drawing.Color navBarColor {
+            get {
+                return ((global::System.Drawing.Color)(this["navBarColor"]));
+            }
+            set {
+                this["navBarColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ControlLight")]
+        public global::System.Drawing.Color locTbColor {
+            get {
+                return ((global::System.Drawing.Color)(this["locTbColor"]));
+            }
+            set {
+                this["locTbColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("204, 204, 204")]
+        public global::System.Drawing.Color timeColor {
+            get {
+                return ((global::System.Drawing.Color)(this["timeColor"]));
+            }
+            set {
+                this["timeColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BWmode {
+            get {
+                return ((bool)(this["BWmode"]));
+            }
+            set {
+                this["BWmode"] = value;
+            }
+        }
     }
 }

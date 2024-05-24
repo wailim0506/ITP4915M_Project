@@ -32,15 +32,14 @@
             this.palNav = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
-            this.palSelect = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
-            this.btnUserManage = new System.Windows.Forms.Button();
-            this.btnStockManage = new System.Windows.Forms.Button();
-            this.btnOnSaleProdManage = new System.Windows.Forms.Button();
-            this.btnInvoiceManage = new System.Windows.Forms.Button();
-            this.btnOrderManage = new System.Windows.Forms.Button();
+            this.btnFunction5 = new System.Windows.Forms.Button();
+            this.btnFunction4 = new System.Windows.Forms.Button();
+            this.btnFunction3 = new System.Windows.Forms.Button();
+            this.btnFunction2 = new System.Windows.Forms.Button();
+            this.btnFunction1 = new System.Windows.Forms.Button();
             this.palTIME = new System.Windows.Forms.Panel();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
@@ -69,6 +68,11 @@
             this.lblDBDiscountID = new System.Windows.Forms.Label();
             this.btnSetModifyDis = new System.Windows.Forms.Button();
             this.picSearch = new System.Windows.Forms.PictureBox();
+            this.palSelect5 = new System.Windows.Forms.Panel();
+            this.palSelect4 = new System.Windows.Forms.Panel();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.palSelect1 = new System.Windows.Forms.Panel();
+            this.palSelect3 = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -81,17 +85,21 @@
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.palNav.Controls.Add(this.palSelect5);
+            this.palNav.Controls.Add(this.palSelect4);
+            this.palNav.Controls.Add(this.palSelect2);
+            this.palNav.Controls.Add(this.palSelect1);
+            this.palNav.Controls.Add(this.palSelect3);
             this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
-            this.palNav.Controls.Add(this.palSelect);
             this.palNav.Controls.Add(this.btnLogOut);
             this.palNav.Controls.Add(this.picHome);
             this.palNav.Controls.Add(this.lblCorpName);
-            this.palNav.Controls.Add(this.btnUserManage);
-            this.palNav.Controls.Add(this.btnStockManage);
-            this.palNav.Controls.Add(this.btnOnSaleProdManage);
-            this.palNav.Controls.Add(this.btnInvoiceManage);
-            this.palNav.Controls.Add(this.btnOrderManage);
+            this.palNav.Controls.Add(this.btnFunction5);
+            this.palNav.Controls.Add(this.btnFunction4);
+            this.palNav.Controls.Add(this.btnFunction3);
+            this.palNav.Controls.Add(this.btnFunction2);
+            this.palNav.Controls.Add(this.btnFunction1);
             this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
@@ -122,14 +130,6 @@
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
-            // 
-            // palSelect
-            // 
-            this.palSelect.BackColor = System.Drawing.Color.Red;
-            this.palSelect.Location = new System.Drawing.Point(0, 223);
-            this.palSelect.Name = "palSelect";
-            this.palSelect.Size = new System.Drawing.Size(10, 55);
-            this.palSelect.TabIndex = 3;
             // 
             // btnLogOut
             // 
@@ -168,79 +168,79 @@
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
             // 
-            // btnUserManage
+            // btnFunction5
             // 
-            this.btnUserManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnUserManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnUserManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManage.Location = new System.Drawing.Point(0, 371);
-            this.btnUserManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUserManage.Name = "btnUserManage";
-            this.btnUserManage.Size = new System.Drawing.Size(198, 55);
-            this.btnUserManage.TabIndex = 15;
-            this.btnUserManage.Text = "User Management";
-            this.btnUserManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUserManage.UseVisualStyleBackColor = false;
+            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction5.Name = "btnFunction5";
+            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.TabIndex = 15;
+            this.btnFunction5.Text = "User Management";
+            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction5.UseVisualStyleBackColor = false;
             // 
-            // btnStockManage
+            // btnFunction4
             // 
-            this.btnStockManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnStockManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnStockManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStockManage.Location = new System.Drawing.Point(0, 296);
-            this.btnStockManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockManage.Name = "btnStockManage";
-            this.btnStockManage.Size = new System.Drawing.Size(198, 55);
-            this.btnStockManage.TabIndex = 14;
-            this.btnStockManage.Text = "Stock Management";
-            this.btnStockManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStockManage.UseVisualStyleBackColor = false;
+            this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
+            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction4.Name = "btnFunction4";
+            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction4.TabIndex = 14;
+            this.btnFunction4.Text = "Stock Management";
+            this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction4.UseVisualStyleBackColor = false;
             // 
-            // btnOnSaleProdManage
+            // btnFunction3
             // 
-            this.btnOnSaleProdManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnOnSaleProdManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnOnSaleProdManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnSaleProdManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOnSaleProdManage.Location = new System.Drawing.Point(0, 223);
-            this.btnOnSaleProdManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOnSaleProdManage.Name = "btnOnSaleProdManage";
-            this.btnOnSaleProdManage.Size = new System.Drawing.Size(198, 55);
-            this.btnOnSaleProdManage.TabIndex = 13;
-            this.btnOnSaleProdManage.Text = "On-Sale Product Management";
-            this.btnOnSaleProdManage.UseVisualStyleBackColor = false;
+            this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
+            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction3.Name = "btnFunction3";
+            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction3.TabIndex = 13;
+            this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.UseVisualStyleBackColor = false;
             // 
-            // btnInvoiceManage
+            // btnFunction2
             // 
-            this.btnInvoiceManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnInvoiceManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnInvoiceManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInvoiceManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInvoiceManage.Location = new System.Drawing.Point(0, 150);
-            this.btnInvoiceManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnInvoiceManage.Name = "btnInvoiceManage";
-            this.btnInvoiceManage.Size = new System.Drawing.Size(198, 55);
-            this.btnInvoiceManage.TabIndex = 12;
-            this.btnInvoiceManage.Text = "Invoice Management";
-            this.btnInvoiceManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnInvoiceManage.UseVisualStyleBackColor = false;
+            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction2.Name = "btnFunction2";
+            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.TabIndex = 12;
+            this.btnFunction2.Text = "Invoice Management";
+            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction2.UseVisualStyleBackColor = false;
             // 
-            // btnOrderManage
+            // btnFunction1
             // 
-            this.btnOrderManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnOrderManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnOrderManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrderManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrderManage.Location = new System.Drawing.Point(0, 77);
-            this.btnOrderManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnOrderManage.Name = "btnOrderManage";
-            this.btnOrderManage.Size = new System.Drawing.Size(198, 55);
-            this.btnOrderManage.TabIndex = 11;
-            this.btnOrderManage.Text = "Order Management";
-            this.btnOrderManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOrderManage.UseVisualStyleBackColor = false;
+            this.btnFunction1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction1.Name = "btnFunction1";
+            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction1.TabIndex = 11;
+            this.btnFunction1.Text = "Order Management";
+            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction1.UseVisualStyleBackColor = false;
             // 
             // palTIME
             // 
@@ -529,6 +529,46 @@
             this.picSearch.TabIndex = 53;
             this.picSearch.TabStop = false;
             // 
+            // palSelect5
+            // 
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.TabIndex = 24;
+            // 
+            // palSelect4
+            // 
+            this.palSelect4.BackColor = System.Drawing.Color.Red;
+            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Name = "palSelect4";
+            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.TabIndex = 25;
+            // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 26;
+            // 
+            // palSelect1
+            // 
+            this.palSelect1.BackColor = System.Drawing.Color.Red;
+            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Name = "palSelect1";
+            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.TabIndex = 27;
+            // 
+            // palSelect3
+            // 
+            this.palSelect3.BackColor = System.Drawing.Color.Red;
+            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Name = "palSelect3";
+            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.TabIndex = 23;
+            // 
             // OnSaleP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -577,11 +617,11 @@
         private System.Windows.Forms.Panel palTIME;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.PictureBox picHome;
-        private System.Windows.Forms.Button btnUserManage;
-        private System.Windows.Forms.Button btnStockManage;
-        private System.Windows.Forms.Button btnOnSaleProdManage;
-        private System.Windows.Forms.Button btnInvoiceManage;
-        private System.Windows.Forms.Button btnOrderManage;
+        private System.Windows.Forms.Button btnFunction5;
+        private System.Windows.Forms.Button btnFunction4;
+        private System.Windows.Forms.Button btnFunction3;
+        private System.Windows.Forms.Button btnFunction2;
+        private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Label lblCorpName;
         private System.Windows.Forms.Label lblUid;
         private System.Windows.Forms.Label lblTimeDate;
@@ -589,7 +629,6 @@
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btnProFile;
-        private System.Windows.Forms.Panel palSelect;
         private System.Windows.Forms.PictureBox picBWMode;
         private System.Windows.Forms.Label lblDBItemQty;
         private System.Windows.Forms.Label lblDBStatus;
@@ -613,6 +652,11 @@
         private System.Windows.Forms.Label lblDBRange;
         private System.Windows.Forms.Label lblDBPercentage;
         private System.Windows.Forms.Label lblDBEndDate;
+        private System.Windows.Forms.Panel palSelect5;
+        private System.Windows.Forms.Panel palSelect4;
+        private System.Windows.Forms.Panel palSelect2;
+        private System.Windows.Forms.Panel palSelect1;
+        private System.Windows.Forms.Panel palSelect3;
     }
 }
 
