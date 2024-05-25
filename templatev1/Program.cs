@@ -14,9 +14,16 @@ namespace templatev1
         [STAThread]
         static void Main()
         {
+            
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            //Application.Run(new Login());
+            Application.Run(new test_Database_and_Controller());
         }
+
+        
     }
-}////
+}
+
+
