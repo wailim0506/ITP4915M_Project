@@ -46,58 +46,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="System page %28In Progress%29\About.cs">
+    <Compile Include="Online_Ordering_Platform\sparePartList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\About.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\sparePartList.Designer.cs">
+      <DependentUpon>sparePartList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="System_page %28In Progress%29\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="System_page %28In Progress%29\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Manag\confirmedOrder.cs">
+    <Compile Include="Order_Manag\confirmedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\confirmedOrder.Designer.cs">
+    <Compile Include="Order_Manag\confirmedOrder.Designer.cs">
       <DependentUpon>confirmedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Manag\confirmedOrderDetail.cs">
+    <Compile Include="Order_Manag\confirmedOrderDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\confirmedOrderDetail.Designer.cs">
+    <Compile Include="Order_Manag\confirmedOrderDetail.Designer.cs">
       <DependentUpon>confirmedOrderDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Manag\deliverman.cs">
+    <Compile Include="Order_Manag\deliverman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\deliverman.Designer.cs">
+    <Compile Include="Order_Manag\deliverman.Designer.cs">
       <DependentUpon>deliverman.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\cart.cs">
+    <Compile Include="Online_Ordering_Platform\cart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\cart.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\cart.Designer.cs">
       <DependentUpon>cart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\giveFeedback.cs">
+    <Compile Include="Online_Ordering_Platform\giveFeedback.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\giveFeedback.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\giveFeedback.Designer.cs">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Manag\incomingOrder.cs">
+    <Compile Include="Order_Manag\incomingOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\incomingOrder.Designer.cs">
+    <Compile Include="Order_Manag\incomingOrder.Designer.cs">
       <DependentUpon>incomingOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="System page %28In Progress%29\PasswordRecovery.cs">
+    <Compile Include="System_page %28In Progress%29\PasswordRecovery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\PasswordRecovery.Designer.cs">
+    <Compile Include="System_page %28In Progress%29\PasswordRecovery.Designer.cs">
       <DependentUpon>PasswordRecovery.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\payment.cs">
+    <Compile Include="Online_Ordering_Platform\payment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\payment.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\payment.Designer.cs">
       <DependentUpon>payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\CustomerManagAddress.cs">
@@ -106,22 +112,22 @@
     <Compile Include="Profile\CustomerManagAddress.Designer.cs">
       <DependentUpon>CustomerManagAddress.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchOrder.cs">
+    <Compile Include="Online_Ordering_Platform\searchOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchOrder.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\searchOrder.Designer.cs">
       <DependentUpon>searchOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchSparePart.cs">
+    <Compile Include="Online_Ordering_Platform\searchSparePart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchSparePart.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\searchSparePart.Designer.cs">
       <DependentUpon>searchSparePart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchSparePart_Result.cs">
+    <Compile Include="Online_Ordering_Platform\searchSparePart_Result.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\searchSparePart_Result.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\searchSparePart_Result.Designer.cs">
       <DependentUpon>searchSparePart_Result.cs</DependentUpon>
     </Compile>
     <Compile Include="test_Database_and_Controller.cs">
@@ -130,124 +136,124 @@
     <Compile Include="test_Database_and_Controller.Designer.cs">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\StoreSearchU.cs">
+    <Compile Include="User_Manag\StoreSearchU.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\StoreSearchU.Designer.cs">
+    <Compile Include="User_Manag\StoreSearchU.Designer.cs">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Manag\StockAdd.cs">
+    <Compile Include="Stock_Manag\StockAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Manag\StockAdd.Designer.cs">
+    <Compile Include="Stock_Manag\StockAdd.Designer.cs">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Manag\StoremanStockMain.cs">
+    <Compile Include="Stock_Manag\StoremanStockMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Manag\StoremanStockMain.Designer.cs">
+    <Compile Include="Stock_Manag\StoremanStockMain.Designer.cs">
       <DependentUpon>StoremanStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Manag\StoremanModify.cs">
+    <Compile Include="Stock_Manag\StoremanModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Manag\StoremanModify.Designer.cs">
+    <Compile Include="Stock_Manag\StoremanModify.Designer.cs">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Manag\SalesManagModify.cs">
+    <Compile Include="Stock_Manag\SalesManagModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Manag\SalesManagModify.Designer.cs">
+    <Compile Include="Stock_Manag\SalesManagModify.Designer.cs">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock Manag\SalesManagStockMain.cs">
+    <Compile Include="Stock_Manag\SalesManagStockMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock Manag\SalesManagStockMain.Designer.cs">
+    <Compile Include="Stock_Manag\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\CUserModify.cs">
+    <Compile Include="User_Manag\CUserModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\CUserModify.Designer.cs">
+    <Compile Include="User_Manag\CUserModify.Designer.cs">
       <DependentUpon>CUserModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\UserModify.cs">
+    <Compile Include="User_Manag\UserModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\UserModify.Designer.cs">
+    <Compile Include="User_Manag\UserModify.Designer.cs">
       <DependentUpon>UserModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\DeptManagerMain.cs">
+    <Compile Include="User_Manag\DeptManagerMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\DeptManagerMain.Designer.cs">
+    <Compile Include="User_Manag\DeptManagerMain.Designer.cs">
       <DependentUpon>DeptManagerMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\SAccManage.cs">
+    <Compile Include="User_Manag\SAccManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\SAccManage.Designer.cs">
+    <Compile Include="User_Manag\SAccManage.Designer.cs">
       <DependentUpon>SAccManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\Ccreatesub.cs">
+    <Compile Include="User_Manag\Ccreatesub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\Ccreatesub.Designer.cs">
+    <Compile Include="User_Manag\Ccreatesub.Designer.cs">
       <DependentUpon>Ccreatesub.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Manag\ScreateAccount.cs">
+    <Compile Include="User_Manag\ScreateAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User Manag\ScreateAccount.Designer.cs">
+    <Compile Include="User_Manag\ScreateAccount.Designer.cs">
       <DependentUpon>ScreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="System page %28In Progress%29\CreateCustomerAcc.cs">
+    <Compile Include="System_page %28In Progress%29\CreateCustomerAcc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\CreateCustomerAcc.Designer.cs">
+    <Compile Include="System_page %28In Progress%29\CreateCustomerAcc.Designer.cs">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Manag\SetModifyDiscount.cs">
+    <Compile Include="On-Sale_Product_Manag\SetModifyDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Manag\SetModifyDiscount.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\SetModifyDiscount.Designer.cs">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Manag\AddProduct.cs">
+    <Compile Include="On-Sale_Product_Manag\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Manag\AddProduct.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Manag\ModifyProduct.cs">
+    <Compile Include="On-Sale_Product_Manag\ModifyProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Manag\ModifyProduct.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\ModifyProduct.Designer.cs">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale Product Manag\OnSaleMain.cs">
+    <Compile Include="On-Sale_Product_Manag\OnSaleMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale Product Manag\OnSaleMain.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\OnSaleMain.Designer.cs">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="System page %28In Progress%29\Home.cs">
+    <Compile Include="System_page %28In Progress%29\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\Home.Designer.cs">
+    <Compile Include="System_page %28In Progress%29\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="System page %28In Progress%29\Login.cs">
+    <Compile Include="System_page %28In Progress%29\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\Login.Designer.cs">
+    <Compile Include="System_page %28In Progress%29\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="System page %28In Progress%29\LoginHistory.cs">
+    <Compile Include="System_page %28In Progress%29\LoginHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System page %28In Progress%29\LoginHistory.Designer.cs">
+    <Compile Include="System_page %28In Progress%29\LoginHistory.Designer.cs">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\CustomerProfile.cs">
@@ -264,136 +270,139 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Order Manag\viewDIC.cs">
+    <Compile Include="Order_Manag\viewDIC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\viewDIC.Designer.cs">
+    <Compile Include="Order_Manag\viewDIC.Designer.cs">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\viewInvoice.cs">
+    <Compile Include="Online_Ordering_Platform\viewInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\viewInvoice.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\viewInvoice.Designer.cs">
       <DependentUpon>viewInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order Manag\viewOrder_Confirm_Reject.cs">
+    <Compile Include="Order_Manag\viewOrder_Confirm_Reject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order Manag\viewOrder_Confirm_Reject.Designer.cs">
+    <Compile Include="Order_Manag\viewOrder_Confirm_Reject.Designer.cs">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs">
+    <Compile Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.Designer.cs">
       <DependentUpon>ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online Ordering Platform\viewSparePart.cs">
+    <Compile Include="Online_Ordering_Platform\viewSparePart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online Ordering Platform\viewSparePart.Designer.cs">
+    <Compile Include="Online_Ordering_Platform\viewSparePart.Designer.cs">
       <DependentUpon>viewSparePart.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="System page %28In Progress%29\About.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartList.resx">
+      <DependentUpon>sparePartList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="System_page %28In Progress%29\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\confirmedOrder.resx">
+    <EmbeddedResource Include="Order_Manag\confirmedOrder.resx">
       <DependentUpon>confirmedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\confirmedOrderDetail.resx">
+    <EmbeddedResource Include="Order_Manag\confirmedOrderDetail.resx">
       <DependentUpon>confirmedOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\deliverman.resx">
+    <EmbeddedResource Include="Order_Manag\deliverman.resx">
       <DependentUpon>deliverman.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\cart.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\cart.resx">
       <DependentUpon>cart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\giveFeedback.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\giveFeedback.resx">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\incomingOrder.resx">
+    <EmbeddedResource Include="Order_Manag\incomingOrder.resx">
       <DependentUpon>incomingOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System page %28In Progress%29\PasswordRecovery.resx">
+    <EmbeddedResource Include="System_page %28In Progress%29\PasswordRecovery.resx">
       <DependentUpon>PasswordRecovery.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\payment.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\CustomerManagAddress.resx">
       <DependentUpon>CustomerManagAddress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\searchOrder.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\searchOrder.resx">
       <DependentUpon>searchOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\searchSparePart.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\searchSparePart.resx">
       <DependentUpon>searchSparePart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\searchSparePart_Result.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\searchSparePart_Result.resx">
       <DependentUpon>searchSparePart_Result.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\StoreSearchU.resx">
+    <EmbeddedResource Include="User_Manag\StoreSearchU.resx">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Manag\StockAdd.resx">
+    <EmbeddedResource Include="Stock_Manag\StockAdd.resx">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Manag\StoremanStockMain.resx">
+    <EmbeddedResource Include="Stock_Manag\StoremanStockMain.resx">
       <DependentUpon>StoremanStockMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Manag\StoremanModify.resx">
+    <EmbeddedResource Include="Stock_Manag\StoremanModify.resx">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Manag\SalesManagModify.resx">
+    <EmbeddedResource Include="Stock_Manag\SalesManagModify.resx">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock Manag\SalesManagStockMain.resx">
+    <EmbeddedResource Include="Stock_Manag\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\CUserModify.resx">
+    <EmbeddedResource Include="User_Manag\CUserModify.resx">
       <DependentUpon>CUserModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\UserModify.resx">
+    <EmbeddedResource Include="User_Manag\UserModify.resx">
       <DependentUpon>UserModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\DeptManagerMain.resx">
+    <EmbeddedResource Include="User_Manag\DeptManagerMain.resx">
       <DependentUpon>DeptManagerMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\SAccManage.resx">
+    <EmbeddedResource Include="User_Manag\SAccManage.resx">
       <DependentUpon>SAccManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\Ccreatesub.resx">
+    <EmbeddedResource Include="User_Manag\Ccreatesub.resx">
       <DependentUpon>Ccreatesub.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Manag\ScreateAccount.resx">
+    <EmbeddedResource Include="User_Manag\ScreateAccount.resx">
       <DependentUpon>ScreateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System page %28In Progress%29\CreateCustomerAcc.resx">
+    <EmbeddedResource Include="System_page %28In Progress%29\CreateCustomerAcc.resx">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Manag\SetModifyDiscount.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\SetModifyDiscount.resx">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Manag\AddProduct.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Manag\ModifyProduct.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\ModifyProduct.resx">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale Product Manag\OnSaleMain.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\OnSaleMain.resx">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System page %28In Progress%29\Home.resx">
+    <EmbeddedResource Include="System_page %28In Progress%29\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System page %28In Progress%29\Login.resx">
+    <EmbeddedResource Include="System_page %28In Progress%29\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System page %28In Progress%29\LoginHistory.resx">
+    <EmbeddedResource Include="System_page %28In Progress%29\LoginHistory.resx">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\CustomerProfile.resx">
@@ -407,19 +416,19 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\viewDIC.resx">
+    <EmbeddedResource Include="Order_Manag\viewDIC.resx">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\viewInvoice.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\viewInvoice.resx">
       <DependentUpon>viewInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order Manag\viewOrder_Confirm_Reject.resx">
+    <EmbeddedResource Include="Order_Manag\viewOrder_Confirm_Reject.resx">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.resx">
       <DependentUpon>ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online Ordering Platform\viewSparePart.resx">
+    <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart.resx">
       <DependentUpon>viewSparePart.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
