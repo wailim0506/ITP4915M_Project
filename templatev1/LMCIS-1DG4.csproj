@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Online_Ordering_Platform\sparePartList.cs">
+    <Compile Include="Online_Ordering_Platform\sparePartListA.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\sparePartList.Designer.cs">
-      <DependentUpon>sparePartList.cs</DependentUpon>
+    <Compile Include="Online_Ordering_Platform\sparePartListA.Designer.cs">
+      <DependentUpon>sparePartListA.cs</DependentUpon>
     </Compile>
     <Compile Include="System_page %28In Progress%29\About.cs">
       <SubType>Form</SubType>
@@ -117,12 +117,6 @@
     </Compile>
     <Compile Include="Online_Ordering_Platform\searchOrder.Designer.cs">
       <DependentUpon>searchOrder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\searchSparePart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\searchSparePart.Designer.cs">
-      <DependentUpon>searchSparePart.cs</DependentUpon>
     </Compile>
     <Compile Include="Online_Ordering_Platform\searchSparePart_Result.cs">
       <SubType>Form</SubType>
@@ -300,8 +294,8 @@
     <Compile Include="Online_Ordering_Platform\viewSparePart.Designer.cs">
       <DependentUpon>viewSparePart.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Online_Ordering_Platform\sparePartList.resx">
-      <DependentUpon>sparePartList.cs</DependentUpon>
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartListA.resx">
+      <DependentUpon>sparePartListA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_page %28In Progress%29\About.resx">
       <DependentUpon>About.cs</DependentUpon>
@@ -335,9 +329,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\searchOrder.resx">
       <DependentUpon>searchOrder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\searchSparePart.resx">
-      <DependentUpon>searchSparePart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\searchSparePart_Result.resx">
       <DependentUpon>searchSparePart_Result.cs</DependentUpon>
