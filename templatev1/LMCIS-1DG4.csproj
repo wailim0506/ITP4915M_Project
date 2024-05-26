@@ -476,5 +476,65 @@
       <Name>controller</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400002jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400005.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

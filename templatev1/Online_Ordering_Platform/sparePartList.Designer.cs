@@ -51,9 +51,6 @@ namespace templatev1.Online_Ordering_Platform
             this.lblLoc = new System.Windows.Forms.Label();
             this.palLoc = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.lblKeyword = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.tbKeyword = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -292,34 +289,6 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Size = new System.Drawing.Size(1324, 38);
             this.palLoc.TabIndex = 73;
             // 
-            // lblKeyword
-            // 
-            this.lblKeyword.AutoSize = true;
-            this.lblKeyword.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKeyword.Location = new System.Drawing.Point(351, 280);
-            this.lblKeyword.Name = "lblKeyword";
-            this.lblKeyword.Size = new System.Drawing.Size(107, 27);
-            this.lblKeyword.TabIndex = 68;
-            this.lblKeyword.Text = "Keyword:";
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(904, 272);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 42);
-            this.btnSearch.TabIndex = 70;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
-            // tbKeyword
-            // 
-            this.tbKeyword.Location = new System.Drawing.Point(478, 272);
-            this.tbKeyword.Multiline = true;
-            this.tbKeyword.Name = "tbKeyword";
-            this.tbKeyword.Size = new System.Drawing.Size(406, 42);
-            this.tbKeyword.TabIndex = 69;
-            // 
             // sparePartList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -328,9 +297,6 @@ namespace templatev1.Online_Ordering_Platform
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palLoc);
-            this.Controls.Add(this.lblKeyword);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.tbKeyword);
             this.Name = "sparePartList";
             this.Text = "sparePartList";
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -341,7 +307,6 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -368,8 +333,5 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Label lblKeyword;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox tbKeyword;
     }
 }
