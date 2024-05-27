@@ -33,6 +33,10 @@ namespace templatev1.Online_Ordering_Platform
             this.lblC2NameLabel = new System.Windows.Forms.Label();
             this.lblC4PriceLabel = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblC4Category = new System.Windows.Forms.Label();
+            this.lblC4Num = new System.Windows.Forms.Label();
+            this.lblC4Price = new System.Windows.Forms.Label();
+            this.lblC4Name = new System.Windows.Forms.Label();
             this.txtC4Num = new System.Windows.Forms.TextBox();
             this.btnC4AddCart = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -42,6 +46,10 @@ namespace templatev1.Online_Ordering_Platform
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblC5Category = new System.Windows.Forms.Label();
+            this.lblC5Num = new System.Windows.Forms.Label();
+            this.lblC5Price = new System.Windows.Forms.Label();
+            this.lblC5Name = new System.Windows.Forms.Label();
             this.lblC5PriceLabel = new System.Windows.Forms.Label();
             this.txtC5Num = new System.Windows.Forms.TextBox();
             this.btnC5AddCart = new System.Windows.Forms.Button();
@@ -51,6 +59,10 @@ namespace templatev1.Online_Ordering_Platform
             this.lblC5NameLabel = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblC3Category = new System.Windows.Forms.Label();
+            this.lblC3Num = new System.Windows.Forms.Label();
+            this.lblC3Price = new System.Windows.Forms.Label();
+            this.lblC3Name = new System.Windows.Forms.Label();
             this.lblC3PriceLabel = new System.Windows.Forms.Label();
             this.txtC3Num = new System.Windows.Forms.TextBox();
             this.btnC3AddCart = new System.Windows.Forms.Button();
@@ -90,6 +102,10 @@ namespace templatev1.Online_Ordering_Platform
             this.button2 = new System.Windows.Forms.Button();
             this.lblC2CategoryLabel = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblC2Category = new System.Windows.Forms.Label();
+            this.lblC2Num = new System.Windows.Forms.Label();
+            this.lblC2Price = new System.Windows.Forms.Label();
+            this.lblC2Name = new System.Windows.Forms.Label();
             this.txtC1Num = new System.Windows.Forms.TextBox();
             this.btnC1AddCart = new System.Windows.Forms.Button();
             this.btnA1View = new System.Windows.Forms.Button();
@@ -97,27 +113,11 @@ namespace templatev1.Online_Ordering_Platform
             this.lblC1NumLabel = new System.Windows.Forms.Label();
             this.lblC1NameLabel = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.palLoc = new System.Windows.Forms.Panel();
             this.lblC1Category = new System.Windows.Forms.Label();
             this.lblC1Num = new System.Windows.Forms.Label();
             this.lblC1Price = new System.Windows.Forms.Label();
             this.lblC1Name = new System.Windows.Forms.Label();
-            this.lblC2Category = new System.Windows.Forms.Label();
-            this.lblC2Num = new System.Windows.Forms.Label();
-            this.lblC2Price = new System.Windows.Forms.Label();
-            this.lblC2Name = new System.Windows.Forms.Label();
-            this.lblC3Category = new System.Windows.Forms.Label();
-            this.lblC3Num = new System.Windows.Forms.Label();
-            this.lblC3Price = new System.Windows.Forms.Label();
-            this.lblC3Name = new System.Windows.Forms.Label();
-            this.lblC4Category = new System.Windows.Forms.Label();
-            this.lblC4Num = new System.Windows.Forms.Label();
-            this.lblC4Price = new System.Windows.Forms.Label();
-            this.lblC4Name = new System.Windows.Forms.Label();
-            this.lblC5Category = new System.Windows.Forms.Label();
-            this.lblC5Num = new System.Windows.Forms.Label();
-            this.lblC5Price = new System.Windows.Forms.Label();
-            this.lblC5Name = new System.Windows.Forms.Label();
+            this.palLoc = new System.Windows.Forms.Panel();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.groupBox5.SuspendLayout();
@@ -175,6 +175,38 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox4.TabIndex = 88;
             this.groupBox4.TabStop = false;
             // 
+            // lblC4Category
+            // 
+            this.lblC4Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC4Category.Location = new System.Drawing.Point(80, 282);
+            this.lblC4Category.Name = "lblC4Category";
+            this.lblC4Category.Size = new System.Drawing.Size(202, 20);
+            this.lblC4Category.TabIndex = 108;
+            // 
+            // lblC4Num
+            // 
+            this.lblC4Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC4Num.Location = new System.Drawing.Point(103, 314);
+            this.lblC4Num.Name = "lblC4Num";
+            this.lblC4Num.Size = new System.Drawing.Size(152, 20);
+            this.lblC4Num.TabIndex = 107;
+            // 
+            // lblC4Price
+            // 
+            this.lblC4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC4Price.Location = new System.Drawing.Point(65, 373);
+            this.lblC4Price.Name = "lblC4Price";
+            this.lblC4Price.Size = new System.Drawing.Size(200, 20);
+            this.lblC4Price.TabIndex = 106;
+            // 
+            // lblC4Name
+            // 
+            this.lblC4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC4Name.Location = new System.Drawing.Point(59, 346);
+            this.lblC4Name.Name = "lblC4Name";
+            this.lblC4Name.Size = new System.Drawing.Size(223, 20);
+            this.lblC4Name.TabIndex = 105;
+            // 
             // txtC4Num
             // 
             this.txtC4Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,6 +217,7 @@ namespace templatev1.Online_Ordering_Platform
             this.txtC4Num.TabIndex = 72;
             this.txtC4Num.Text = "1";
             this.txtC4Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtC4Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC4Num_KeyPress);
             // 
             // btnC4AddCart
             // 
@@ -278,6 +311,38 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox5.TabIndex = 89;
             this.groupBox5.TabStop = false;
             // 
+            // lblC5Category
+            // 
+            this.lblC5Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC5Category.Location = new System.Drawing.Point(80, 282);
+            this.lblC5Category.Name = "lblC5Category";
+            this.lblC5Category.Size = new System.Drawing.Size(202, 20);
+            this.lblC5Category.TabIndex = 108;
+            // 
+            // lblC5Num
+            // 
+            this.lblC5Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC5Num.Location = new System.Drawing.Point(103, 314);
+            this.lblC5Num.Name = "lblC5Num";
+            this.lblC5Num.Size = new System.Drawing.Size(152, 20);
+            this.lblC5Num.TabIndex = 107;
+            // 
+            // lblC5Price
+            // 
+            this.lblC5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC5Price.Location = new System.Drawing.Point(65, 373);
+            this.lblC5Price.Name = "lblC5Price";
+            this.lblC5Price.Size = new System.Drawing.Size(200, 20);
+            this.lblC5Price.TabIndex = 106;
+            // 
+            // lblC5Name
+            // 
+            this.lblC5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC5Name.Location = new System.Drawing.Point(59, 346);
+            this.lblC5Name.Name = "lblC5Name";
+            this.lblC5Name.Size = new System.Drawing.Size(223, 20);
+            this.lblC5Name.TabIndex = 105;
+            // 
             // lblC5PriceLabel
             // 
             this.lblC5PriceLabel.AutoSize = true;
@@ -298,6 +363,7 @@ namespace templatev1.Online_Ordering_Platform
             this.txtC5Num.TabIndex = 72;
             this.txtC5Num.Text = "1";
             this.txtC5Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtC5Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC5Num_KeyPress);
             // 
             // btnC5AddCart
             // 
@@ -381,6 +447,38 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox3.TabIndex = 87;
             this.groupBox3.TabStop = false;
             // 
+            // lblC3Category
+            // 
+            this.lblC3Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC3Category.Location = new System.Drawing.Point(83, 282);
+            this.lblC3Category.Name = "lblC3Category";
+            this.lblC3Category.Size = new System.Drawing.Size(202, 20);
+            this.lblC3Category.TabIndex = 108;
+            // 
+            // lblC3Num
+            // 
+            this.lblC3Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC3Num.Location = new System.Drawing.Point(106, 314);
+            this.lblC3Num.Name = "lblC3Num";
+            this.lblC3Num.Size = new System.Drawing.Size(152, 20);
+            this.lblC3Num.TabIndex = 107;
+            // 
+            // lblC3Price
+            // 
+            this.lblC3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC3Price.Location = new System.Drawing.Point(68, 373);
+            this.lblC3Price.Name = "lblC3Price";
+            this.lblC3Price.Size = new System.Drawing.Size(200, 20);
+            this.lblC3Price.TabIndex = 106;
+            // 
+            // lblC3Name
+            // 
+            this.lblC3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC3Name.Location = new System.Drawing.Point(62, 346);
+            this.lblC3Name.Name = "lblC3Name";
+            this.lblC3Name.Size = new System.Drawing.Size(223, 20);
+            this.lblC3Name.TabIndex = 105;
+            // 
             // lblC3PriceLabel
             // 
             this.lblC3PriceLabel.AutoSize = true;
@@ -401,6 +499,7 @@ namespace templatev1.Online_Ordering_Platform
             this.txtC3Num.TabIndex = 72;
             this.txtC3Num.Text = "1";
             this.txtC3Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtC3Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC3Num_KeyPress);
             // 
             // btnC3AddCart
             // 
@@ -772,6 +871,7 @@ namespace templatev1.Online_Ordering_Platform
             this.txtC2Num.TabIndex = 72;
             this.txtC2Num.Text = "1";
             this.txtC2Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtC2Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC2Num_KeyPress);
             // 
             // btnC2AddCart
             // 
@@ -824,6 +924,38 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox2.TabIndex = 86;
             this.groupBox2.TabStop = false;
             // 
+            // lblC2Category
+            // 
+            this.lblC2Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC2Category.Location = new System.Drawing.Point(80, 282);
+            this.lblC2Category.Name = "lblC2Category";
+            this.lblC2Category.Size = new System.Drawing.Size(202, 20);
+            this.lblC2Category.TabIndex = 108;
+            // 
+            // lblC2Num
+            // 
+            this.lblC2Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC2Num.Location = new System.Drawing.Point(103, 314);
+            this.lblC2Num.Name = "lblC2Num";
+            this.lblC2Num.Size = new System.Drawing.Size(152, 20);
+            this.lblC2Num.TabIndex = 107;
+            // 
+            // lblC2Price
+            // 
+            this.lblC2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC2Price.Location = new System.Drawing.Point(65, 373);
+            this.lblC2Price.Name = "lblC2Price";
+            this.lblC2Price.Size = new System.Drawing.Size(200, 20);
+            this.lblC2Price.TabIndex = 106;
+            // 
+            // lblC2Name
+            // 
+            this.lblC2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblC2Name.Location = new System.Drawing.Point(59, 346);
+            this.lblC2Name.Name = "lblC2Name";
+            this.lblC2Name.Size = new System.Drawing.Size(223, 20);
+            this.lblC2Name.TabIndex = 105;
+            // 
             // txtC1Num
             // 
             this.txtC1Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -834,6 +966,7 @@ namespace templatev1.Online_Ordering_Platform
             this.txtC1Num.TabIndex = 69;
             this.txtC1Num.Text = "1";
             this.txtC1Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtC1Num.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtC1Num_KeyPress);
             // 
             // btnC1AddCart
             // 
@@ -906,16 +1039,6 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox1.TabIndex = 85;
             this.groupBox1.TabStop = false;
             // 
-            // palLoc
-            // 
-            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.palLoc.Controls.Add(this.lblLoc);
-            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(0, 0);
-            this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(1428, 38);
-            this.palLoc.TabIndex = 84;
-            // 
             // lblC1Category
             // 
             this.lblC1Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -948,133 +1071,15 @@ namespace templatev1.Online_Ordering_Platform
             this.lblC1Name.Size = new System.Drawing.Size(223, 20);
             this.lblC1Name.TabIndex = 105;
             // 
-            // lblC2Category
+            // palLoc
             // 
-            this.lblC2Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC2Category.Location = new System.Drawing.Point(80, 282);
-            this.lblC2Category.Name = "lblC2Category";
-            this.lblC2Category.Size = new System.Drawing.Size(202, 20);
-            this.lblC2Category.TabIndex = 108;
-            // 
-            // lblC2Num
-            // 
-            this.lblC2Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC2Num.Location = new System.Drawing.Point(103, 314);
-            this.lblC2Num.Name = "lblC2Num";
-            this.lblC2Num.Size = new System.Drawing.Size(152, 20);
-            this.lblC2Num.TabIndex = 107;
-            // 
-            // lblC2Price
-            // 
-            this.lblC2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC2Price.Location = new System.Drawing.Point(65, 373);
-            this.lblC2Price.Name = "lblC2Price";
-            this.lblC2Price.Size = new System.Drawing.Size(200, 20);
-            this.lblC2Price.TabIndex = 106;
-            // 
-            // lblC2Name
-            // 
-            this.lblC2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC2Name.Location = new System.Drawing.Point(59, 346);
-            this.lblC2Name.Name = "lblC2Name";
-            this.lblC2Name.Size = new System.Drawing.Size(223, 20);
-            this.lblC2Name.TabIndex = 105;
-            // 
-            // lblC3Category
-            // 
-            this.lblC3Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC3Category.Location = new System.Drawing.Point(83, 282);
-            this.lblC3Category.Name = "lblC3Category";
-            this.lblC3Category.Size = new System.Drawing.Size(202, 20);
-            this.lblC3Category.TabIndex = 108;
-            // 
-            // lblC3Num
-            // 
-            this.lblC3Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC3Num.Location = new System.Drawing.Point(106, 314);
-            this.lblC3Num.Name = "lblC3Num";
-            this.lblC3Num.Size = new System.Drawing.Size(152, 20);
-            this.lblC3Num.TabIndex = 107;
-            // 
-            // lblC3Price
-            // 
-            this.lblC3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC3Price.Location = new System.Drawing.Point(68, 373);
-            this.lblC3Price.Name = "lblC3Price";
-            this.lblC3Price.Size = new System.Drawing.Size(200, 20);
-            this.lblC3Price.TabIndex = 106;
-            // 
-            // lblC3Name
-            // 
-            this.lblC3Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC3Name.Location = new System.Drawing.Point(62, 346);
-            this.lblC3Name.Name = "lblC3Name";
-            this.lblC3Name.Size = new System.Drawing.Size(223, 20);
-            this.lblC3Name.TabIndex = 105;
-            // 
-            // lblC4Category
-            // 
-            this.lblC4Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC4Category.Location = new System.Drawing.Point(80, 282);
-            this.lblC4Category.Name = "lblC4Category";
-            this.lblC4Category.Size = new System.Drawing.Size(202, 20);
-            this.lblC4Category.TabIndex = 108;
-            // 
-            // lblC4Num
-            // 
-            this.lblC4Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC4Num.Location = new System.Drawing.Point(103, 314);
-            this.lblC4Num.Name = "lblC4Num";
-            this.lblC4Num.Size = new System.Drawing.Size(152, 20);
-            this.lblC4Num.TabIndex = 107;
-            // 
-            // lblC4Price
-            // 
-            this.lblC4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC4Price.Location = new System.Drawing.Point(65, 373);
-            this.lblC4Price.Name = "lblC4Price";
-            this.lblC4Price.Size = new System.Drawing.Size(200, 20);
-            this.lblC4Price.TabIndex = 106;
-            // 
-            // lblC4Name
-            // 
-            this.lblC4Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC4Name.Location = new System.Drawing.Point(59, 346);
-            this.lblC4Name.Name = "lblC4Name";
-            this.lblC4Name.Size = new System.Drawing.Size(223, 20);
-            this.lblC4Name.TabIndex = 105;
-            // 
-            // lblC5Category
-            // 
-            this.lblC5Category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC5Category.Location = new System.Drawing.Point(80, 282);
-            this.lblC5Category.Name = "lblC5Category";
-            this.lblC5Category.Size = new System.Drawing.Size(202, 20);
-            this.lblC5Category.TabIndex = 108;
-            // 
-            // lblC5Num
-            // 
-            this.lblC5Num.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC5Num.Location = new System.Drawing.Point(103, 314);
-            this.lblC5Num.Name = "lblC5Num";
-            this.lblC5Num.Size = new System.Drawing.Size(152, 20);
-            this.lblC5Num.TabIndex = 107;
-            // 
-            // lblC5Price
-            // 
-            this.lblC5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC5Price.Location = new System.Drawing.Point(65, 373);
-            this.lblC5Price.Name = "lblC5Price";
-            this.lblC5Price.Size = new System.Drawing.Size(200, 20);
-            this.lblC5Price.TabIndex = 106;
-            // 
-            // lblC5Name
-            // 
-            this.lblC5Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblC5Name.Location = new System.Drawing.Point(59, 346);
-            this.lblC5Name.Name = "lblC5Name";
-            this.lblC5Name.Size = new System.Drawing.Size(223, 20);
-            this.lblC5Name.TabIndex = 105;
+            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.palLoc.Controls.Add(this.lblLoc);
+            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palLoc.Location = new System.Drawing.Point(0, 0);
+            this.palLoc.Name = "palLoc";
+            this.palLoc.Size = new System.Drawing.Size(1428, 38);
+            this.palLoc.TabIndex = 84;
             // 
             // sparePartListC
             // 

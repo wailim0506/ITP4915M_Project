@@ -89,5 +89,76 @@ namespace templatev1.Online_Ordering_Platform
                 this.Close();
             }
         }
+
+        private void btnB1AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtB1Num.Text.ToString()} {lblB1Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnB2AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtB2Num.Text.ToString()} {lblB2Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnB3AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtB3Num.Text.ToString()} {lblB3Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnB4AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtB4Num.Text.ToString()} {lblB4Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnB5AddCArt_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtB5Num.Text.ToString()} {lblB5Name.Text.ToString()}  added to cart");
+        }
+
+
+        //only allow integer input for txtB1-5Num
+        private void txtB1Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtB2Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void txtB3Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void txtB4Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
+
+        private void txtB5Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; 
+            }
+        }
     }
 }
+
+
+            

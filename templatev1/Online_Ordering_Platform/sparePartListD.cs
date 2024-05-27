@@ -119,5 +119,50 @@ namespace templatev1.Online_Ordering_Platform
             MessageBox.Show($"{txtD5Num.Text.ToString()} {lblD5Name.Text.ToString()}  added to cart");
 
         }
+
+        private void txtD1Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtD2Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtD3Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtD4Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtD5Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
     }
 }

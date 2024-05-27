@@ -92,5 +92,81 @@ namespace templatev1.Online_Ordering_Platform
             }
 
         }
+
+        private void btnA1AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtA1Num.Text.ToString()} {lblA1Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnA2AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtA2Num.Text.ToString()} {lblA2Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnA3AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtA3Num.Text.ToString()} {lblA3Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnA4AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtA4Num.Text.ToString()} {lblA4Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnA5AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtA5Num.Text.ToString()} {lblA5Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void txtA1Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtA2Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtA3Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtA4Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void txtA5Num_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
     }
 }
+
