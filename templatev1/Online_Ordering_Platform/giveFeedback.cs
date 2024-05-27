@@ -27,6 +27,17 @@ namespace templatev1
             }else if(wordCount <= 0)
             {
                 MessageBox.Show("Please enter something"); //alert the user the textbox is empty
+            }
+            else
+            {
+                controller.feedbackController controller = new controller.feedbackController(); //create controller object
+                Boolean addFeedback = controller.addFeedback("LMC00001",feedback);
+                if (addFeedback == true)
+                {
+                    tbFB.Text = "";
+                    lblWordCount.Text = $"Word Count: 0";
+                    MessageBox.Show("Feedback Sent.");
+                }
             }        
         }
 
