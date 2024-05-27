@@ -43,7 +43,7 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
 
         private void btnAddQty_Click(object sender, EventArgs e)
         {
-            if (tbQty.Text != "")
+            if (tbQty.Text != "") //check have quantity input
             {
                 int qty = int.Parse(tbQty.Text.ToString());
                 qty++;
@@ -60,9 +60,9 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
 
         private void btnMinusQty_Click(object sender, EventArgs e)
         {
-            if (tbQty.Text != "")
+            if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) == 0)
+                if (int.Parse(tbQty.Text.ToString()) == 0) //check quantity input equal 0, do not perform anything if equal to 0
                 {
                     return;
                 }
@@ -78,16 +78,21 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
-            if (tbQty.Text != "")
+            if (tbQty.Text != "")  //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) == 0)
+                if (int.Parse(tbQty.Text.ToString()) == 0)  //check quantity input equal 0
                 {
                     MessageBox.Show("Quantity cannot be zero.");
                 }
                 else
                 {
-                    int qty = int.Parse(tbQty.Text.ToString());
+                    if (int.Parse(tbQty.Text.ToString()) > int.Parse(lblOnSalesQty.Text.ToString())) {  //check quantity input is larger than on sales quantity
+                        MessageBox.Show($"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text.ToString()})");
+                        return;
+                    }
+                    int qty = int.Parse(tbQty.Text.ToString());   //quantity input is smaller than on sales quantity
                     MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.");
+                    tbQty.Text = "";
                 }
             }
             else
