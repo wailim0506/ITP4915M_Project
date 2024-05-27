@@ -16,5 +16,49 @@ namespace templatev1
         {
             InitializeComponent();
         }
+
+        private void btnSend_Click(object sender, EventArgs e)
+        {
+            string feedback = tbFB.Text.ToString();
+            int wordCount = CountWords(feedback);
+            if (wordCount > 100)
+            {
+                MessageBox.Show("Word Amount Exceed."); //alert the user not exceed word count 
+            }else if(wordCount <= 0)
+            {
+                MessageBox.Show("Please enter something"); //alert the user the textbox is empty
+            }        
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbFB.Text = "";
+            lblWordCount.Text = $"Word Count: 0";
+        }
+
+
+        private void tbFB_TextChanged(object sender, EventArgs e) //show word count instantly after typeing a new word
+        {
+            string feedback = tbFB.Text.ToString();
+            int wordCount = CountWords(feedback);
+            lblWordCount.Text = $"Word Count: {wordCount}";
+        }
+
+        public static int CountWords(string text)
+        {
+            // Check if the input text is null or empty
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                return 0;
+            }
+
+            // Split the text into words based on delimiters
+            string[] words = text.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Return the number of words
+            return words.Length;
+        }
+
+        
     }
 }

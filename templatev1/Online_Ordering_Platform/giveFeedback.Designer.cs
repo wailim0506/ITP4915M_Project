@@ -55,6 +55,7 @@ namespace templatev1
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.lblWordCount = new System.Windows.Forms.Label();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -65,7 +66,7 @@ namespace templatev1
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(650, 518);
+            this.btnBack.Location = new System.Drawing.Point(642, 490);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 37);
             this.btnBack.TabIndex = 62;
@@ -75,41 +76,45 @@ namespace templatev1
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(750, 518);
+            this.btnClear.Location = new System.Drawing.Point(742, 490);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(94, 37);
             this.btnClear.TabIndex = 61;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // lblTitGiveFB
             // 
             this.lblTitGiveFB.AutoSize = true;
             this.lblTitGiveFB.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitGiveFB.Location = new System.Drawing.Point(375, 223);
+            this.lblTitGiveFB.Location = new System.Drawing.Point(367, 195);
             this.lblTitGiveFB.Name = "lblTitGiveFB";
-            this.lblTitGiveFB.Size = new System.Drawing.Size(314, 23);
+            this.lblTitGiveFB.Size = new System.Drawing.Size(464, 23);
             this.lblTitGiveFB.TabIndex = 59;
-            this.lblTitGiveFB.Text = "Please provide your feedback below:";
+            this.lblTitGiveFB.Text = "Please provide your feedback below (Max 100 words):";
             // 
             // tbFB
             // 
-            this.tbFB.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.tbFB.Location = new System.Drawing.Point(379, 251);
+            this.tbFB.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbFB.Location = new System.Drawing.Point(371, 223);
+            this.tbFB.MaxLength = 1000;
             this.tbFB.Multiline = true;
             this.tbFB.Name = "tbFB";
             this.tbFB.Size = new System.Drawing.Size(565, 254);
             this.tbFB.TabIndex = 58;
+            this.tbFB.TextChanged += new System.EventHandler(this.tbFB_TextChanged);
             // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(850, 518);
+            this.btnSend.Location = new System.Drawing.Point(842, 490);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(94, 37);
             this.btnSend.TabIndex = 60;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // palLoc
             // 
@@ -186,7 +191,7 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 941);
+            this.palNav.Size = new System.Drawing.Size(198, 593);
             this.palNav.TabIndex = 63;
             // 
             // picBWMode
@@ -205,7 +210,7 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 794);
+            this.btnProFile.Location = new System.Drawing.Point(0, 441);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
@@ -219,7 +224,7 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 483);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
@@ -243,7 +248,7 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 892);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 539);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
@@ -342,11 +347,22 @@ namespace templatev1
             this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button4.UseVisualStyleBackColor = false;
             // 
+            // lblWordCount
+            // 
+            this.lblWordCount.AutoSize = true;
+            this.lblWordCount.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWordCount.Location = new System.Drawing.Point(367, 499);
+            this.lblWordCount.Name = "lblWordCount";
+            this.lblWordCount.Size = new System.Drawing.Size(134, 23);
+            this.lblWordCount.TabIndex = 66;
+            this.lblWordCount.Text = "Word Count: 0";
+            // 
             // giveFeedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.ClientSize = new System.Drawing.Size(1170, 593);
+            this.Controls.Add(this.lblWordCount);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
@@ -397,5 +413,6 @@ namespace templatev1
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lblWordCount;
     }
 }
