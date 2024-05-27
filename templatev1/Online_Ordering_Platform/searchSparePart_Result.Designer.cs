@@ -450,6 +450,7 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
