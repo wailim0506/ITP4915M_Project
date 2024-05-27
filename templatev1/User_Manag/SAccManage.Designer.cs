@@ -30,12 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
+            this.palSelect5 = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.palSelect4 = new System.Windows.Forms.Panel();
             this.btnProFile = new System.Windows.Forms.Button();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.palSelect1 = new System.Windows.Forms.Panel();
+            this.palSelect3 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnFunction5 = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.btnFunction4 = new System.Windows.Forms.Button();
             this.lblCorpName = new System.Windows.Forms.Label();
-            this.btnUserManage = new System.Windows.Forms.Button();
+            this.btnFunction3 = new System.Windows.Forms.Button();
+            this.btnFunction2 = new System.Windows.Forms.Button();
+            this.btnFunction1 = new System.Windows.Forms.Button();
             this.palTime = new System.Windows.Forms.Panel();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
@@ -64,15 +73,6 @@
             this.lblDBAccID = new System.Windows.Forms.Label();
             this.btnAddStaffAcc = new System.Windows.Forms.Button();
             this.lblDeptMsg = new System.Windows.Forms.Label();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.palSelect3 = new System.Windows.Forms.Panel();
-            this.btnFunction5 = new System.Windows.Forms.Button();
-            this.btnFunction4 = new System.Windows.Forms.Button();
-            this.btnFunction3 = new System.Windows.Forms.Button();
-            this.btnFunction2 = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -98,13 +98,21 @@
             this.palNav.Controls.Add(this.lblCorpName);
             this.palNav.Controls.Add(this.btnFunction3);
             this.palNav.Controls.Add(this.btnFunction2);
-            this.palNav.Controls.Add(this.btnUserManage);
+            this.palNav.Controls.Add(this.btnFunction1);
             this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 0;
+            // 
+            // palSelect5
+            // 
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.TabIndex = 168;
             // 
             // picBWMode
             // 
@@ -115,6 +123,14 @@
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
+            // 
+            // palSelect4
+            // 
+            this.palSelect4.BackColor = System.Drawing.Color.Red;
+            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Name = "palSelect4";
+            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.TabIndex = 169;
             // 
             // btnProFile
             // 
@@ -130,6 +146,30 @@
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
             // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 170;
+            // 
+            // palSelect1
+            // 
+            this.palSelect1.BackColor = System.Drawing.Color.Red;
+            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Name = "palSelect1";
+            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.TabIndex = 171;
+            // 
+            // palSelect3
+            // 
+            this.palSelect3.BackColor = System.Drawing.Color.Red;
+            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Name = "palSelect3";
+            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.TabIndex = 167;
+            // 
             // btnLogOut
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -143,6 +183,22 @@
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnFunction5
+            // 
+            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction5.Name = "btnFunction5";
+            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.TabIndex = 176;
+            this.btnFunction5.Text = "User Management";
+            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction5.UseVisualStyleBackColor = false;
             // 
             // picHome
             // 
@@ -156,6 +212,21 @@
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
             // 
+            // btnFunction4
+            // 
+            this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
+            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction4.Name = "btnFunction4";
+            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction4.TabIndex = 175;
+            this.btnFunction4.Text = "Stock Management";
+            this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction4.UseVisualStyleBackColor = false;
+            // 
             // lblCorpName
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -167,20 +238,49 @@
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
             // 
-            // btnUserManage
+            // btnFunction3
             // 
-            this.btnUserManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnUserManage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnUserManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserManage.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUserManage.Location = new System.Drawing.Point(0, 77);
-            this.btnUserManage.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUserManage.Name = "btnUserManage";
-            this.btnUserManage.Size = new System.Drawing.Size(198, 55);
-            this.btnUserManage.TabIndex = 15;
-            this.btnUserManage.Text = "User Management";
-            this.btnUserManage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnUserManage.UseVisualStyleBackColor = false;
+            this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
+            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction3.Name = "btnFunction3";
+            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction3.TabIndex = 174;
+            this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.UseVisualStyleBackColor = false;
+            // 
+            // btnFunction2
+            // 
+            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction2.Name = "btnFunction2";
+            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.TabIndex = 173;
+            this.btnFunction2.Text = "Invoice Management";
+            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction2.UseVisualStyleBackColor = false;
+            // 
+            // btnFunction1
+            // 
+            this.btnFunction1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction1.Name = "btnFunction1";
+            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction1.TabIndex = 15;
+            this.btnFunction1.Text = "User Management";
+            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction1.UseVisualStyleBackColor = false;
             // 
             // palTime
             // 
@@ -468,105 +568,6 @@
             this.lblDeptMsg.TabIndex = 164;
             this.lblDeptMsg.Text = "*Only available when type is staff";
             // 
-            // palSelect5
-            // 
-            this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
-            this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
-            this.palSelect5.TabIndex = 168;
-            // 
-            // palSelect4
-            // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 169;
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 170;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 171;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 167;
-            // 
-            // btnFunction5
-            // 
-            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
-            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction5.Name = "btnFunction5";
-            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction5.TabIndex = 176;
-            this.btnFunction5.Text = "User Management";
-            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction5.UseVisualStyleBackColor = false;
-            // 
-            // btnFunction4
-            // 
-            this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
-            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction4.Name = "btnFunction4";
-            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction4.TabIndex = 175;
-            this.btnFunction4.Text = "Stock Management";
-            this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction4.UseVisualStyleBackColor = false;
-            // 
-            // btnFunction3
-            // 
-            this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
-            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction3.Name = "btnFunction3";
-            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction3.TabIndex = 174;
-            this.btnFunction3.Text = "On-Sale Product Management";
-            this.btnFunction3.UseVisualStyleBackColor = false;
-            // 
-            // btnFunction2
-            // 
-            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
-            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction2.TabIndex = 173;
-            this.btnFunction2.Text = "Invoice Management";
-            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction2.UseVisualStyleBackColor = false;
-            // 
             // SAccManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -629,7 +630,7 @@
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.PictureBox picBWMode;
-        private System.Windows.Forms.Button btnUserManage;
+        private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Label lblClickToSelect;
         private System.Windows.Forms.RadioButton rdoCustomer;
         private System.Windows.Forms.RadioButton rdoStaff;

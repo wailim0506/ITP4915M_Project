@@ -1,6 +1,6 @@
 ﻿namespace templatev1
 {
-    partial class OnSaleP
+    partial class OnSaleMain
     {
         /// <summary>
         /// Required designer variable.
@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
+            this.palSelect5 = new System.Windows.Forms.Panel();
+            this.palSelect4 = new System.Windows.Forms.Panel();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.palSelect1 = new System.Windows.Forms.Panel();
+            this.palSelect3 = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -68,11 +73,6 @@
             this.lblDBDiscountID = new System.Windows.Forms.Label();
             this.btnSetModifyDis = new System.Windows.Forms.Button();
             this.picSearch = new System.Windows.Forms.PictureBox();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.palSelect3 = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -106,6 +106,46 @@
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 0;
+            // 
+            // palSelect5
+            // 
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.TabIndex = 24;
+            // 
+            // palSelect4
+            // 
+            this.palSelect4.BackColor = System.Drawing.Color.Red;
+            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Name = "palSelect4";
+            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.TabIndex = 25;
+            // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 26;
+            // 
+            // palSelect1
+            // 
+            this.palSelect1.BackColor = System.Drawing.Color.Red;
+            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Name = "palSelect1";
+            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.TabIndex = 27;
+            // 
+            // palSelect3
+            // 
+            this.palSelect3.BackColor = System.Drawing.Color.Red;
+            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Name = "palSelect3";
+            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.TabIndex = 23;
             // 
             // picBWMode
             // 
@@ -529,47 +569,7 @@
             this.picSearch.TabIndex = 53;
             this.picSearch.TabStop = false;
             // 
-            // palSelect5
-            // 
-            this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
-            this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
-            this.palSelect5.TabIndex = 24;
-            // 
-            // palSelect4
-            // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 25;
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 26;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 27;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 23;
-            // 
-            // OnSaleP
+            // OnSaleMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -593,7 +593,7 @@
             this.Controls.Add(this.lblDBItemID);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "OnSaleP";
+            this.Name = "OnSaleMain";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);

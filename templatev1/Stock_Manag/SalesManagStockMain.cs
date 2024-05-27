@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace templatev1
 {
-    public partial class StockMain : Form
+    public partial class StockSalesMain : Form
     {
-        public StockMain()
+        public StockSalesMain()
         {
             InitializeComponent();
         }

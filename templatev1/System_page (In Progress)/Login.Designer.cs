@@ -250,7 +250,7 @@
             this.btnTest6.TabIndex = 5;
             this.btnTest6.Text = "Login as delivery man";
             this.btnTest6.UseVisualStyleBackColor = true;
-            this.btnTest6.Click += new System.EventHandler(this.btnTest6_Click);
+            this.btnTest6.Click += new System.EventHandler(this.btnTest6_Click_1);
             // 
             // btnTest5
             // 
@@ -261,7 +261,7 @@
             this.btnTest5.TabIndex = 4;
             this.btnTest5.Text = "Login as department manager";
             this.btnTest5.UseVisualStyleBackColor = true;
-            this.btnTest5.Click += new System.EventHandler(this.btnTest5_Click);
+            this.btnTest5.Click += new System.EventHandler(this.btnTest5_Click_1);
             // 
             // btnTest4
             // 
@@ -272,7 +272,7 @@
             this.btnTest4.TabIndex = 3;
             this.btnTest4.Text = "Login as storeman";
             this.btnTest4.UseVisualStyleBackColor = true;
-            this.btnTest4.Click += new System.EventHandler(this.btnTest4_Click);
+            this.btnTest4.Click += new System.EventHandler(this.btnTest4_Click_1);
             // 
             // btnTest3
             // 
@@ -283,7 +283,7 @@
             this.btnTest3.TabIndex = 2;
             this.btnTest3.Text = "Login as order processing clerk";
             this.btnTest3.UseVisualStyleBackColor = true;
-            this.btnTest3.Click += new System.EventHandler(this.button4_Click);
+            this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
             // 
             // btnTest2
             // 
@@ -294,7 +294,7 @@
             this.btnTest2.TabIndex = 1;
             this.btnTest2.Text = "Login as Sale Manager";
             this.btnTest2.UseVisualStyleBackColor = true;
-            this.btnTest2.Click += new System.EventHandler(this.button2_Click);
+            this.btnTest2.Click += new System.EventHandler(this.btnTest2_Click);
             // 
             // btnTest1
             // 
@@ -305,7 +305,7 @@
             this.btnTest1.TabIndex = 0;
             this.btnTest1.Text = "Login as customer";
             this.btnTest1.UseVisualStyleBackColor = true;
-            this.btnTest1.Click += new System.EventHandler(this.button1_Click);
+            this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
             // 
             // Login
             // 

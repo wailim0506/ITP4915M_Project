@@ -1,6 +1,6 @@
 ﻿namespace templatev1
 {
-    partial class StockMain
+    partial class StockSalesMain
     {
         /// <summary>
         /// Required designer variable.

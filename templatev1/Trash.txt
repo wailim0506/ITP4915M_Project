@@ -1,0 +1,180 @@
+﻿        public static string UID;      //The user ID.
+        public static string uName;      //The users name.
+        public static bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
+        public static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5;        //Text in the button.
+
+
+
+            UID = uName = funbtn1 = funbtn2 = funbtn3 = funbtn4 = funbtn5 = "";
+            showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = false;
+
+
+
+
+            Properties.Settings.Default.textColor = Color.Black;
+            Properties.Settings.Default.bgColor = SystemColors.Control;
+            Properties.Settings.Default.navBarColor = Color.FromArgb(59, 213, 184);
+            Properties.Settings.Default.navColor = SystemColors.GradientActiveCaption;
+            Properties.Settings.Default.timeColor = Color.FromArgb(204, 204, 204);
+            Properties.Settings.Default.locTbColor = SystemColors.ControlLight;
+            Properties.Settings.Default.logoutColor = Color.FromArgb(255, 192, 192);
+            Properties.Settings.Default.profileColor = Color.FromArgb(255, 255, 192);
+            Properties.Settings.Default.BWmode = false;
+
+            //Return the value of determineFun.
+        public static dynamic showFun()
+        { 
+            return new {btn1show = showbtn1, btn1value = funbtn1, btn2show = showbtn2, btn2value = funbtn2, btn3show = showbtn3, btn3value = funbtn3,
+                btn4show = showbtn4, btn4value = funbtn4, btn5show = showbtn5, btn5value = funbtn5, };
+        }
+
+        public static dynamic getUserInfo()
+        {
+            return new {userName = uName, uID = UID};
+        }
+
+
+
+
+
+                //To determine which button needs to be shown.
+        private void determineFun(int jobTitle)
+        {
+            switch (jobTitle)
+            {
+                case 1:     //Customer
+                    showbtn1 = showbtn2 = showbtn3 = true;
+                    funbtn1 = "Order Management";
+                    funbtn2 = "Invoice Management";
+                    funbtn3 = "User Managemnet";
+                    break;
+                case 2:     //Sales manager
+                    showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = true;
+                    funbtn1 = "Order Management";
+                    funbtn2 = "Invoice Management";
+                    funbtn3 = "On-Sale Product Management";
+                    funbtn4 = "Stock Management";
+                    funbtn5 = "User Managemnet";
+                    break;
+                case 3:     //Order processing clerk
+                    showbtn1 = showbtn2 = true;
+                    funbtn1 = "Order Management";
+                    funbtn2 = "User Managemne";
+                    break;
+                case 4:     //Storeman
+                    showbtn1 = showbtn2 = showbtn3 = true;
+                    funbtn1 = "Order Management";
+                    funbtn2 = "Stock Management";
+                    funbtn3 = "User Managemnet";
+                    break;
+                case 5:     //Department manager
+                    showbtn1 = true;
+                    funbtn1 = "User Managemnet";
+                    break;
+                case 6:     //Delivery man
+                    showbtn1 = true;
+                    funbtn1 = "Order Management";
+                    break;
+            }
+        }
+
+
+
+                    /*
+
+            if (tbUsername.Text.Equals("LMC00001") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Ben";
+                determineFun(1);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+
+            if (tbUsername.Text.Equals("LMS00001") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Ryan";
+                determineFun(2);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+
+            if (tbUsername.Text.Equals("LMS00002") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Kit";
+                determineFun(3);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+
+            if (tbUsername.Text.Equals("LMS00003") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Polly";
+                determineFun(4);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+
+            if (tbUsername.Text.Equals("LMS00004") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Ned";
+                determineFun(5);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+
+            if (tbUsername.Text.Equals("LMS00005") && string.IsNullOrEmpty(tbPassword.Text) == false)
+            {
+                UID = tbUsername.Text;
+                uName = "Hob";
+                determineFun(6);
+
+                Form Home = new Home();
+                this.Hide();
+                //Swap the current form to another.
+                Home.StartPosition = FormStartPosition.Manual;
+                Home.Location = this.Location;
+                Home.Size = this.Size;
+                Home.ShowDialog();
+                this.Close();
+            }
+            */

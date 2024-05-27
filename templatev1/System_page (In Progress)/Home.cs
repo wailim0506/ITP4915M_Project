@@ -18,11 +18,37 @@ namespace templatev1
         {
             InitializeComponent();
         }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            UID = controller.accountController.getUID();
+            uName = controller.accountController.getName();
+            lblUid.Text = "UID: " + UID;
+            lblWelUser.Text = "Welcome, " + uName + "!";
+
+
+            //For determine which button needs to be shown.
+            dynamic btnFun = controller.UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
+
+
+
+
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -48,30 +74,73 @@ namespace templatev1
             this.Close();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-            uName = UID = "";
-            timer1.Enabled = true;
-
-            dynamic userInfo = Login.getUserInfo();
-            uName = userInfo.userName;
-            UID = userInfo.uID;
-            lblUid.Text = "UID: " + UID;
-            lblWelUser.Text = "Welcome, " + uName + "!";
-
-            //For determine which button needs to be shown.
-
-            dynamic btnFun = Login.showFun();
-            btnFunction1.Visible = btnFun.btn1show;
-            btnFunction1.Text = btnFun.btn1value;
-            btnFunction2.Visible = btnFun.btn2show;
-            btnFunction2.Text = btnFun.btn2value;
-            btnFunction3.Visible = btnFun.btn3show;
-            btnFunction3.Text = btnFun.btn3value;
-            btnFunction4.Visible = btnFun.btn4show;
-            btnFunction4.Text = btnFun.btn4value;
-            btnFunction5.Visible = btnFun.btn5show;
-            btnFunction5.Text = btnFun.btn5value;
+            controller.UIController.setMode(Properties.Settings.Default.BWmode);
+            BWMode();
         }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        private void BWMode()
+        {
+            dynamic value = controller.UIController.getMode();
+            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Properties.Settings.Default.BWmode = value.BWmode;
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void getPage(string Function)
+        {
+            Form next = new Home();
+            switch (Function)
+            {
+                case "Order Management":
+
+
+
+                    break;
+                case "Invoice Management":
+
+                    break;
+                case "On-Sale Product Management":
+                    next = new OnSaleMain();
+                    break;
+                case "Stock Management":
+                    next = new StockManMain();
+                    break;
+                case "User Managemnet":
+                    next = new SAccManage();
+                    break;
+            }
+
+            this.Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = this.Location;
+            next.Size = this.Size;
+            next.ShowDialog();
+            this.Close();
+        }
+
+
     }
 }

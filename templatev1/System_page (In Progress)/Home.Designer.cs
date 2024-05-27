@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
@@ -61,7 +61,7 @@
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.palNav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
@@ -71,7 +71,7 @@
             // palNav
             // 
             this.palNav.BackColor = global::templatev1.Properties.Settings.Default.navColor;
-            this.palNav.Controls.Add(this.pictureBox1);
+            this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
             this.palNav.Controls.Add(this.btnLogOut);
             this.palNav.Controls.Add(this.picHome);
@@ -89,15 +89,16 @@
             this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 0;
             // 
-            // pictureBox1
+            // picBWMode
             // 
-            this.pictureBox1.Image = global::templatev1.Properties.Resources.LB;
-            this.pictureBox1.Location = new System.Drawing.Point(143, 24);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(49, 46);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            this.picBWMode.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnProFile
             // 
@@ -168,6 +169,7 @@
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -199,6 +201,7 @@
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -231,6 +234,7 @@
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palTime
             // 
@@ -482,7 +486,7 @@
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palTime.ResumeLayout(false);
             this.palTime.PerformLayout();
@@ -512,7 +516,7 @@
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblWelUser;
         private System.Windows.Forms.Button btnProFile;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picBWMode;
         private System.Windows.Forms.Button btnChangePass;
         private System.Windows.Forms.Label lblTitLastLogin;
         private System.Windows.Forms.Label lblTitLastPassChange;
