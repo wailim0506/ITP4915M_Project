@@ -31,5 +31,69 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             lblOnSalesQty.Text = controller.getOnSalesQty("A00001");
 
         }
+
+        private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Check if the entered character is a number or control (backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Ignore the input
+            }
+        }
+
+        private void btnAddQty_Click(object sender, EventArgs e)
+        {
+            if (tbQty.Text != "")
+            {
+                int qty = int.Parse(tbQty.Text.ToString());
+                qty++;
+                tbQty.Text = qty.ToString();
+            }
+            else
+            {
+                int qty = 0;
+                qty++;
+                tbQty.Text = qty.ToString();
+            }
+            
+        }
+
+        private void btnMinusQty_Click(object sender, EventArgs e)
+        {
+            if (tbQty.Text != "")
+            {
+                if (int.Parse(tbQty.Text.ToString()) == 0)
+                {
+                    return;
+                }
+                else
+                {
+                    int qty = int.Parse(tbQty.Text.ToString());
+                    qty--;
+                    tbQty.Text = qty.ToString();
+                }
+                
+            }
+        }
+
+        private void btnAddCart_Click(object sender, EventArgs e)
+        {
+            if (tbQty.Text != "")
+            {
+                if (int.Parse(tbQty.Text.ToString()) == 0)
+                {
+                    MessageBox.Show("Quantity cannot be zero.");
+                }
+                else
+                {
+                    int qty = int.Parse(tbQty.Text.ToString());
+                    MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please input the quantity.");
+            }
+        }
     }
 }

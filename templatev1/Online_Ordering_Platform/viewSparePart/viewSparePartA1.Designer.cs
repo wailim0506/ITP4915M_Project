@@ -52,8 +52,8 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             this.picItem = new System.Windows.Forms.PictureBox();
             this.btnAddFavourit = new System.Windows.Forms.Button();
             this.grpSparePartInfo = new System.Windows.Forms.GroupBox();
-            this.btnAddQty = new System.Windows.Forms.Button();
             this.btnMinusQty = new System.Windows.Forms.Button();
+            this.btnAddQty = new System.Windows.Forms.Button();
             this.lblQty = new System.Windows.Forms.Label();
             this.tbQty = new System.Windows.Forms.TextBox();
             this.btnAddCart = new System.Windows.Forms.Button();
@@ -365,23 +365,27 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             this.grpSparePartInfo.TabStop = false;
             this.grpSparePartInfo.Text = "Spare Part Info";
             // 
-            // btnAddQty
-            // 
-            this.btnAddQty.Location = new System.Drawing.Point(783, 265);
-            this.btnAddQty.Name = "btnAddQty";
-            this.btnAddQty.Size = new System.Drawing.Size(34, 39);
-            this.btnAddQty.TabIndex = 32;
-            this.btnAddQty.Text = "-";
-            this.btnAddQty.UseVisualStyleBackColor = true;
-            // 
             // btnMinusQty
             // 
-            this.btnMinusQty.Location = new System.Drawing.Point(932, 265);
+            this.btnMinusQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinusQty.Location = new System.Drawing.Point(783, 265);
             this.btnMinusQty.Name = "btnMinusQty";
             this.btnMinusQty.Size = new System.Drawing.Size(34, 39);
-            this.btnMinusQty.TabIndex = 31;
-            this.btnMinusQty.Text = "+";
+            this.btnMinusQty.TabIndex = 32;
+            this.btnMinusQty.Text = "-";
             this.btnMinusQty.UseVisualStyleBackColor = true;
+            this.btnMinusQty.Click += new System.EventHandler(this.btnMinusQty_Click);
+            // 
+            // btnAddQty
+            // 
+            this.btnAddQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddQty.Location = new System.Drawing.Point(932, 265);
+            this.btnAddQty.Name = "btnAddQty";
+            this.btnAddQty.Size = new System.Drawing.Size(34, 39);
+            this.btnAddQty.TabIndex = 31;
+            this.btnAddQty.Text = "+";
+            this.btnAddQty.UseVisualStyleBackColor = true;
+            this.btnAddQty.Click += new System.EventHandler(this.btnAddQty_Click);
             // 
             // lblQty
             // 
@@ -397,9 +401,12 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             // 
             this.tbQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQty.Location = new System.Drawing.Point(823, 270);
+            this.tbQty.MaxLength = 4;
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(103, 30);
             this.tbQty.TabIndex = 29;
+            this.tbQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQty_KeyPress);
             // 
             // btnAddCart
             // 
@@ -410,6 +417,7 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             this.btnAddCart.TabIndex = 27;
             this.btnAddCart.Text = "Add to Cart";
             this.btnAddCart.UseVisualStyleBackColor = true;
+            this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
             // 
             // lblTitCountry
             // 
@@ -598,9 +606,9 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
             this.Controls.Add(this.btnBackSearch);
             this.Controls.Add(this.btnAddCart);
             this.Controls.Add(this.tbQty);
-            this.Controls.Add(this.btnAddQty);
-            this.Controls.Add(this.lblQty);
             this.Controls.Add(this.btnMinusQty);
+            this.Controls.Add(this.lblQty);
+            this.Controls.Add(this.btnAddQty);
             this.Name = "viewSparePartA1";
             this.Text = "viewSparePartA1";
             this.Load += new System.EventHandler(this.viewSparePartA1_Load);
@@ -661,8 +669,8 @@ namespace templatev1.Online_Ordering_Platform.viewSparePart
         private System.Windows.Forms.Label lblTitManu;
         private System.Windows.Forms.Label lblTitName;
         private System.Windows.Forms.Label lblTitCat;
-        private System.Windows.Forms.Button btnAddQty;
         private System.Windows.Forms.Button btnMinusQty;
+        private System.Windows.Forms.Button btnAddQty;
         private System.Windows.Forms.Label lblQty;
         private System.Windows.Forms.TextBox tbQty;
         private System.Windows.Forms.Button btnAddCart;
