@@ -30,7 +30,7 @@ namespace templatev1.Online_Ordering_Platform
 
 
 
-            lblD1Category.Text += "D";
+            lblD1Category.Text = "D";
             lblD2Category.Text += "D";
             lblD3Category.Text += "D";
             lblD4Category.Text += "D";
@@ -89,6 +89,35 @@ namespace templatev1.Online_Ordering_Platform
                 sparePartListC.ShowDialog();
                 this.Close();
             }
+        }
+
+        private void btnD1AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtD1Num.Text.ToString()} {lblD1Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnD2AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtD2Num.Text.ToString()} {lblD2Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnD3AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtD3Num.Text.ToString()} {lblD3Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnD4AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtD4Num.Text.ToString()} {lblD4Name.Text.ToString()}  added to cart");
+
+        }
+
+        private void btnD5AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtD5Num.Text.ToString()} {lblD5Name.Text.ToString()}  added to cart");
+
         }
     }
 }

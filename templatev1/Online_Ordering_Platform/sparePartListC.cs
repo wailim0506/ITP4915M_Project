@@ -93,5 +93,32 @@ namespace templatev1.Online_Ordering_Platform
 
 
         }
+
+        private void btnC1AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtC1Num.Text.ToString()} {lblC1Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnC2AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtC2Num.Text.ToString()} {lblC2Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnC3AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtC3Num.Text.ToString()} {lblC3Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnC4AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtC4Num.Text.ToString()} {lblC4Name.Text.ToString()}  added to cart");
+        }
+
+        private void btnC5AddCart_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"{txtC5Num.Text.ToString()} {lblC5Name.Text.ToString()}  added to cart");
+        }
     }
 }
+
+

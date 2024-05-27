@@ -33,27 +33,33 @@ namespace templatev1.Online_Ordering_Platform
             this.txtA2Num = new System.Windows.Forms.TextBox();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblB3Price = new System.Windows.Forms.Label();
             this.txtA3Num = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lblB3Category = new System.Windows.Forms.Label();
             this.lblB3Num = new System.Windows.Forms.Label();
             this.lblB3Name = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblB4Price = new System.Windows.Forms.Label();
             this.txtA4Num = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.lblB4Category = new System.Windows.Forms.Label();
             this.lblB4Num = new System.Windows.Forms.Label();
             this.lblB4Name = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblB5Price = new System.Windows.Forms.Label();
             this.txtA5Num = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.lblB5Category = new System.Windows.Forms.Label();
             this.lblB5Num = new System.Windows.Forms.Label();
             this.lblB5Name = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblChooseCategory = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -65,54 +71,48 @@ namespace templatev1.Online_Ordering_Platform
             this.palSelect3 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.palNav = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblB2Price = new System.Windows.Forms.Label();
             this.lblB2Category = new System.Windows.Forms.Label();
             this.lblB2Num = new System.Windows.Forms.Label();
             this.lblB2Name = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.lblLoc = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblB1Price = new System.Windows.Forms.Label();
             this.txtA1Num = new System.Windows.Forms.TextBox();
             this.btnA1AddCart = new System.Windows.Forms.Button();
             this.btnA1View = new System.Windows.Forms.Button();
             this.lblB1Category = new System.Windows.Forms.Label();
             this.lblB1Num = new System.Windows.Forms.Label();
             this.lblB1Name = new System.Windows.Forms.Label();
+            this.picA1 = new System.Windows.Forms.PictureBox();
             this.palLoc = new System.Windows.Forms.Panel();
             this.palDate = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.picA1 = new System.Windows.Forms.PictureBox();
-            this.lblB1Price = new System.Windows.Forms.Label();
-            this.lblB2Price = new System.Windows.Forms.Label();
-            this.lblB3Price = new System.Windows.Forms.Label();
-            this.lblB4Price = new System.Windows.Forms.Label();
-            this.lblB5Price = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.palNav.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.palLoc.SuspendLayout();
-            this.palDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picA1)).BeginInit();
+            this.palLoc.SuspendLayout();
+            this.palDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtA2Num
@@ -138,6 +138,7 @@ namespace templatev1.Online_Ordering_Platform
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(121, 28);
             this.cmbCategory.TabIndex = 91;
+            this.cmbCategory.Text = "Category B";
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // groupBox3
@@ -155,6 +156,16 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox3.Size = new System.Drawing.Size(288, 461);
             this.groupBox3.TabIndex = 87;
             this.groupBox3.TabStop = false;
+            // 
+            // lblB3Price
+            // 
+            this.lblB3Price.AutoSize = true;
+            this.lblB3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB3Price.Location = new System.Drawing.Point(6, 364);
+            this.lblB3Price.Name = "lblB3Price";
+            this.lblB3Price.Size = new System.Drawing.Size(61, 20);
+            this.lblB3Price.TabIndex = 94;
+            this.lblB3Price.Text = "Price: ¥";
             // 
             // txtA3Num
             // 
@@ -217,6 +228,17 @@ namespace templatev1.Online_Ordering_Platform
             this.lblB3Name.TabIndex = 1;
             this.lblB3Name.Text = "Name: ";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox2.Image = global::templatev1.Properties.Resources._200003;
+            this.pictureBox2.Location = new System.Drawing.Point(3, 16);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(282, 263);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblB4Price);
@@ -232,6 +254,16 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox4.Size = new System.Drawing.Size(288, 463);
             this.groupBox4.TabIndex = 88;
             this.groupBox4.TabStop = false;
+            // 
+            // lblB4Price
+            // 
+            this.lblB4Price.AutoSize = true;
+            this.lblB4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB4Price.Location = new System.Drawing.Point(6, 373);
+            this.lblB4Price.Name = "lblB4Price";
+            this.lblB4Price.Size = new System.Drawing.Size(61, 20);
+            this.lblB4Price.TabIndex = 94;
+            this.lblB4Price.Text = "Price: ¥";
             // 
             // txtA4Num
             // 
@@ -294,6 +326,17 @@ namespace templatev1.Online_Ordering_Platform
             this.lblB4Name.TabIndex = 1;
             this.lblB4Name.Text = "Name: ";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox3.Image = global::templatev1.Properties.Resources._200004;
+            this.pictureBox3.Location = new System.Drawing.Point(3, 16);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(282, 263);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 0;
+            this.pictureBox3.TabStop = false;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -319,6 +362,16 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox5.Size = new System.Drawing.Size(288, 463);
             this.groupBox5.TabIndex = 89;
             this.groupBox5.TabStop = false;
+            // 
+            // lblB5Price
+            // 
+            this.lblB5Price.AutoSize = true;
+            this.lblB5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB5Price.Location = new System.Drawing.Point(6, 373);
+            this.lblB5Price.Name = "lblB5Price";
+            this.lblB5Price.Size = new System.Drawing.Size(61, 20);
+            this.lblB5Price.TabIndex = 94;
+            this.lblB5Price.Text = "Price: ¥";
             // 
             // txtA5Num
             // 
@@ -380,6 +433,17 @@ namespace templatev1.Online_Ordering_Platform
             this.lblB5Name.Size = new System.Drawing.Size(59, 20);
             this.lblB5Name.TabIndex = 1;
             this.lblB5Name.Text = "Name: ";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox4.Image = global::templatev1.Properties.Resources._200005;
+            this.pictureBox4.Location = new System.Drawing.Point(3, 16);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(282, 263);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 0;
+            this.pictureBox4.TabStop = false;
             // 
             // label1
             // 
@@ -494,6 +558,28 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav.Size = new System.Drawing.Size(198, 1045);
             this.palNav.TabIndex = 82;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
             // lblCorpName
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -581,6 +667,16 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox2.TabIndex = 86;
             this.groupBox2.TabStop = false;
             // 
+            // lblB2Price
+            // 
+            this.lblB2Price.AutoSize = true;
+            this.lblB2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB2Price.Location = new System.Drawing.Point(6, 364);
+            this.lblB2Price.Name = "lblB2Price";
+            this.lblB2Price.Size = new System.Drawing.Size(61, 20);
+            this.lblB2Price.TabIndex = 93;
+            this.lblB2Price.Text = "Price: ¥";
+            // 
             // lblB2Category
             // 
             this.lblB2Category.AutoSize = true;
@@ -610,6 +706,17 @@ namespace templatev1.Online_Ordering_Platform
             this.lblB2Name.Size = new System.Drawing.Size(59, 20);
             this.lblB2Name.TabIndex = 1;
             this.lblB2Name.Text = "Name: ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::templatev1.Properties.Resources._200002;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(282, 263);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // lblUid
             // 
@@ -658,6 +765,16 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox1.Size = new System.Drawing.Size(288, 461);
             this.groupBox1.TabIndex = 85;
             this.groupBox1.TabStop = false;
+            // 
+            // lblB1Price
+            // 
+            this.lblB1Price.AutoSize = true;
+            this.lblB1Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblB1Price.Location = new System.Drawing.Point(6, 364);
+            this.lblB1Price.Name = "lblB1Price";
+            this.lblB1Price.Size = new System.Drawing.Size(61, 20);
+            this.lblB1Price.TabIndex = 70;
+            this.lblB1Price.Text = "Price: ¥";
             // 
             // txtA1Num
             // 
@@ -720,6 +837,17 @@ namespace templatev1.Online_Ordering_Platform
             this.lblB1Name.TabIndex = 1;
             this.lblB1Name.Text = "Name: ";
             // 
+            // picA1
+            // 
+            this.picA1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.picA1.Image = global::templatev1.Properties.Resources._200001;
+            this.picA1.Location = new System.Drawing.Point(3, 16);
+            this.picA1.Name = "picA1";
+            this.picA1.Size = new System.Drawing.Size(282, 263);
+            this.picA1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picA1.TabIndex = 0;
+            this.picA1.TabStop = false;
+            // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -743,133 +871,6 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Size = new System.Drawing.Size(1428, 40);
             this.palDate.TabIndex = 83;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox2.Image = global::templatev1.Properties.Resources._200003;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 16);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(282, 263);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox3.Image = global::templatev1.Properties.Resources._200004;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 16);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(282, 263);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox4.Image = global::templatev1.Properties.Resources._200005;
-            this.pictureBox4.Location = new System.Drawing.Point(3, 16);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(282, 263);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 0;
-            this.pictureBox4.TabStop = false;
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox1.Image = global::templatev1.Properties.Resources._200002;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(282, 263);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // picA1
-            // 
-            this.picA1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.picA1.Image = global::templatev1.Properties.Resources._200001;
-            this.picA1.Location = new System.Drawing.Point(3, 16);
-            this.picA1.Name = "picA1";
-            this.picA1.Size = new System.Drawing.Size(282, 263);
-            this.picA1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picA1.TabIndex = 0;
-            this.picA1.TabStop = false;
-            // 
-            // lblB1Price
-            // 
-            this.lblB1Price.AutoSize = true;
-            this.lblB1Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB1Price.Location = new System.Drawing.Point(6, 364);
-            this.lblB1Price.Name = "lblB1Price";
-            this.lblB1Price.Size = new System.Drawing.Size(61, 20);
-            this.lblB1Price.TabIndex = 70;
-            this.lblB1Price.Text = "Price: ¥";
-            // 
-            // lblB2Price
-            // 
-            this.lblB2Price.AutoSize = true;
-            this.lblB2Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB2Price.Location = new System.Drawing.Point(6, 364);
-            this.lblB2Price.Name = "lblB2Price";
-            this.lblB2Price.Size = new System.Drawing.Size(61, 20);
-            this.lblB2Price.TabIndex = 93;
-            this.lblB2Price.Text = "Price: ¥";
-            // 
-            // lblB3Price
-            // 
-            this.lblB3Price.AutoSize = true;
-            this.lblB3Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB3Price.Location = new System.Drawing.Point(6, 364);
-            this.lblB3Price.Name = "lblB3Price";
-            this.lblB3Price.Size = new System.Drawing.Size(61, 20);
-            this.lblB3Price.TabIndex = 94;
-            this.lblB3Price.Text = "Price: ¥";
-            // 
-            // lblB4Price
-            // 
-            this.lblB4Price.AutoSize = true;
-            this.lblB4Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB4Price.Location = new System.Drawing.Point(6, 373);
-            this.lblB4Price.Name = "lblB4Price";
-            this.lblB4Price.Size = new System.Drawing.Size(61, 20);
-            this.lblB4Price.TabIndex = 94;
-            this.lblB4Price.Text = "Price: ¥";
-            // 
-            // lblB5Price
-            // 
-            this.lblB5Price.AutoSize = true;
-            this.lblB5Price.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblB5Price.Location = new System.Drawing.Point(6, 373);
-            this.lblB5Price.Name = "lblB5Price";
-            this.lblB5Price.Size = new System.Drawing.Size(61, 20);
-            this.lblB5Price.TabIndex = 94;
-            this.lblB5Price.Text = "Price: ¥";
-            // 
             // sparePartListB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -892,26 +893,26 @@ namespace templatev1.Online_Ordering_Platform
             this.Load += new System.EventHandler(this.sparePartListB_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picA1)).EndInit();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picA1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
