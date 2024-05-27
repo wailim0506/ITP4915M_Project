@@ -10,49 +10,51 @@ using System.Windows.Forms;
 
 namespace templatev1.Online_Ordering_Platform
 {
-    public partial class sparePartListB : Form
+    public partial class sparePartListC : Form
     {
-        public sparePartListB()
+        public sparePartListC()
         {
             InitializeComponent();
         }
 
-        private void sparePartListB_Load(object sender, EventArgs e)
+        private void sparePartListC_Load(object sender, EventArgs e)
         {
             controller.SparePartListController controller = new controller.SparePartListController(); //create controller object
-            List<string> name = controller.getName("B");
-            lblB1Name.Text += name.ElementAt(0);
-            lblB2Name.Text += name.ElementAt(1);
-            lblB3Name.Text += name.ElementAt(2);
-            lblB4Name.Text += name.ElementAt(3);
-            lblB5Name.Text += name.ElementAt(4);
+            List<string> name = controller.getName("C");
+            lblC1Name.Text += name.ElementAt(0);
+            lblC2Name.Text += name.ElementAt(1);
+            lblC3Name.Text += name.ElementAt(2);
+            lblC4Name.Text += name.ElementAt(3);
+            lblC5Name.Text += name.ElementAt(4);
 
 
 
 
-            lblB1Category.Text += "B";
-            lblB2Category.Text += "B";
-            lblB3Category.Text += "B";
-            lblB4Category.Text += "B";
-            lblB5Category.Text += "B";
+            lblC1Category.Text += "C";
+            lblC2Category.Text += "C";
+            lblC3Category.Text += "C";
+            lblC4Category.Text += "C";
+            lblC5Category.Text += "C";
 
-            List<string> num = controller.getNum("B");
-            lblB1Num.Text += num.ElementAt(0);
-            lblB2Num.Text += num.ElementAt(1);
-            lblB3Num.Text += num.ElementAt(2);
-            lblB4Num.Text += num.ElementAt(3);
-            lblB5Num.Text += num.ElementAt(4);
+            List<string> num = controller.getNum("C");
+            lblC1Num.Text += num.ElementAt(0);
+            lblC2Num.Text += num.ElementAt(1);
+            lblC3Num.Text += num.ElementAt(2);
+            lblC4Num.Text += num.ElementAt(3);
+            lblC5Num.Text += num.ElementAt(4);
 
-            List<int> price = controller.getPrice("B");
-            lblB1Price.Text += price.ElementAt(0).ToString();
-            lblB2Price.Text += price.ElementAt(1).ToString();
-            lblB3Price.Text += price.ElementAt(2).ToString();
-            lblB4Price.Text += price.ElementAt(3).ToString();
-            lblB5Price.Text += price.ElementAt(4).ToString();
+            List<int> price = controller.getPrice("C");
+            lblC1Price.Text += price.ElementAt(0).ToString();
+            lblC2Price.Text += price.ElementAt(1).ToString();
+            lblC3Price.Text += price.ElementAt(2).ToString();
+            lblC4Price.Text += price.ElementAt(3).ToString();
+            lblC5Price.Text += price.ElementAt(4).ToString();
+
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             if (cmbCategory.Text == "Category A") //if user want to view spare part category A
             {
                 Form sparePartListA = new sparePartListA();
@@ -65,15 +67,15 @@ namespace templatev1.Online_Ordering_Platform
                 this.Close();
             }
 
-            if (cmbCategory.Text == "Category C") //if user want to view spare part category C
+            if (cmbCategory.Text == "Category B") //if user want to view spare part category B
             {
-                Form sparePartListC = new sparePartListC();
+                Form sparePartListB = new sparePartListB();
                 this.Hide();
                 //Swap the current form to another.
-                sparePartListC.StartPosition = FormStartPosition.Manual;
-                sparePartListC.Location = this.Location;
-                sparePartListC.Size = this.Size;
-                sparePartListC.ShowDialog();
+                sparePartListB.StartPosition = FormStartPosition.Manual;
+                sparePartListB.Location = this.Location;
+                sparePartListB.Size = this.Size;
+                sparePartListB.ShowDialog();
                 this.Close();
             }
 
@@ -88,6 +90,8 @@ namespace templatev1.Online_Ordering_Platform
                 sparePartListD.ShowDialog();
                 this.Close();
             }
+
+
         }
     }
 }

@@ -31,7 +31,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             this.components = new System.ComponentModel.Container();
             this.txtA2Num = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtA3Num = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -126,18 +126,19 @@ namespace templatev1.Online_Ordering_Platform
             this.txtA2Num.Text = "1";
             this.txtA2Num.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // comboBox1
+            // cmbCategory
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Category B",
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Category A",
             "Category C",
             "Category D"});
-            this.comboBox1.Location = new System.Drawing.Point(1206, 112);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 28);
-            this.comboBox1.TabIndex = 91;
+            this.cmbCategory.Location = new System.Drawing.Point(1206, 112);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(121, 28);
+            this.cmbCategory.TabIndex = 91;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -875,7 +876,7 @@ namespace templatev1.Online_Ordering_Platform
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1428, 1123);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbCategory);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
@@ -919,7 +920,7 @@ namespace templatev1.Online_Ordering_Platform
         #endregion
 
         private System.Windows.Forms.TextBox txtA2Num;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbCategory;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtA3Num;
         private System.Windows.Forms.Button button3;
