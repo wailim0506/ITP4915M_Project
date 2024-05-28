@@ -76,6 +76,18 @@
     <Compile Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.Designer.cs">
       <DependentUpon>viewSparePartA1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Stock_Manag\editSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock_Manag\editSupplier.Designer.cs">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Stock_Manag\viewSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock_Manag\viewSupplier.Designer.cs">
+      <DependentUpon>viewSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="System_page %28In Progress%29\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -332,6 +344,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.resx">
       <DependentUpon>viewSparePartA1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock_Manag\editSupplier.resx">
+      <DependentUpon>editSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock_Manag\viewSupplier.resx">
+      <DependentUpon>viewSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_page %28In Progress%29\About.resx">
       <DependentUpon>About.cs</DependentUpon>

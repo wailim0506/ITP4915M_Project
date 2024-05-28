@@ -72,6 +72,7 @@
     <Compile Include="abstractController.cs" />
     <Compile Include="accountController.cs" />
     <Compile Include="feedbackController.cs" />
+    <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SparePartListController.cs" />

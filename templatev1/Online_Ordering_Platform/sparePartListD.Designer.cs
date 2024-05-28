@@ -778,7 +778,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav.Location = new System.Drawing.Point(0, 78);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 1045);
+            this.palNav.Size = new System.Drawing.Size(198, 1022);
             this.palNav.TabIndex = 82;
             // 
             // palSelect4
@@ -851,8 +851,12 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Location = new System.Drawing.Point(0, 38);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(1428, 40);
+            this.palDate.Size = new System.Drawing.Size(1411, 40);
             this.palDate.TabIndex = 83;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // lblLoc
             // 
@@ -1087,7 +1091,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(0, 0);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(1428, 38);
+            this.palLoc.Size = new System.Drawing.Size(1411, 38);
             this.palLoc.TabIndex = 84;
             // 
             // sparePartListD
@@ -1095,7 +1099,7 @@ namespace templatev1.Online_Ordering_Platform
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1428, 1123);
+            this.ClientSize = new System.Drawing.Size(1428, 1061);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.lblChooseCategory);
