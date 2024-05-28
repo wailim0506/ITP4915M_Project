@@ -53,7 +53,7 @@ namespace controller
             string feedbackID = feedBackIDGenerator();
             string customerID = custID;
             string content = feedback;
-            string feedbackDate = DateTime.Now.ToString(); //convert date time to string 
+            string feedbackDate = DateTime.Now.ToString("dd/MM/yyyy"); //convert date time to string 
 
             string sqlCmd = "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
 
