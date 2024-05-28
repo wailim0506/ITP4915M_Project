@@ -44,7 +44,8 @@ namespace controller
         public DataTable test3()  //method name can change
         {
             DataTable dt = new DataTable();  //just copy here
-            string sqlCmd = "SELECT categoryID, name FROM spare_part WHERE categoryID = 'C'"; //the sql query you want to run
+            string sqlCmd = "SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
+                    "FROM staff S, department D, staff_account SA WHERE S.deptID = D.deptID AND S.staffID='LMS00001' AND SA.staffID='LMS00001'";
             adr = new MySqlDataAdapter(sqlCmd, conn); //just copy here
             adr.Fill(dt); //just copy
             return dt;   //just copy

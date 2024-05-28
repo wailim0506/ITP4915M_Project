@@ -130,11 +130,11 @@
     <Compile Include="Online_Ordering_Platform\payment.Designer.cs">
       <DependentUpon>payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\CustomerManagAddress.cs">
+    <Compile Include="Profile\AddressManag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\CustomerManagAddress.Designer.cs">
-      <DependentUpon>CustomerManagAddress.cs</DependentUpon>
+    <Compile Include="Profile\AddressManag.Designer.cs">
+      <DependentUpon>AddressManag.cs</DependentUpon>
     </Compile>
     <Compile Include="Online_Ordering_Platform\searchOrder.cs">
       <SubType>Form</SubType>
@@ -274,16 +274,16 @@
     <Compile Include="System_page %28In Progress%29\LoginHistory.Designer.cs">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\CustomerProfile.cs">
+    <Compile Include="Profile\ProFileMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\CustomerProfile.Designer.cs">
-      <DependentUpon>CustomerProfile.cs</DependentUpon>
+    <Compile Include="Profile\ProFileMain.Designer.cs">
+      <DependentUpon>ProFileMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\StaffProfile.cs">
+    <Compile Include="Trash\StaffProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\StaffProfile.Designer.cs">
+    <Compile Include="Trash\StaffProfile.Designer.cs">
       <DependentUpon>StaffProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -360,8 +360,8 @@
     <EmbeddedResource Include="Online_Ordering_Platform\payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\CustomerManagAddress.resx">
-      <DependentUpon>CustomerManagAddress.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\AddressManag.resx">
+      <DependentUpon>AddressManag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\searchOrder.resx">
       <DependentUpon>searchOrder.cs</DependentUpon>
@@ -432,10 +432,10 @@
     <EmbeddedResource Include="System_page %28In Progress%29\LoginHistory.resx">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\CustomerProfile.resx">
-      <DependentUpon>CustomerProfile.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\ProFileMain.resx">
+      <DependentUpon>ProFileMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\StaffProfile.resx">
+    <EmbeddedResource Include="Trash\StaffProfile.resx">
       <DependentUpon>StaffProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -564,7 +564,7 @@
     <None Include="Resources\400005.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Trash.txt" />
+    <Content Include="Trash\Trash.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

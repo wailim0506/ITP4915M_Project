@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace templatev1
 {
-    public partial class CprofileAM : Form
+    public partial class AddressManage : Form
     {
-        public CprofileAM()
+        public AddressManage()
         {
             InitializeComponent();
         }

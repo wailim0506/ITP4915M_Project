@@ -14,6 +14,7 @@ namespace templatev1
     {
         public static readonly string sysInsDate = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         controller.accountController accController;
+        controller.UIController UIController;
         
 
         public Login()
@@ -57,7 +58,8 @@ namespace templatev1
             }
             else if (accController.login(tbUsername.Text, tbPassword.Text))        //Checking the password
             {
-                Form Home = new Home();
+                UIController = new controller.UIController(accController);
+                Form Home = new Home(accController);
                 this.Hide();
                 //Swap the current form to another.
                 Home.StartPosition = FormStartPosition.Manual;

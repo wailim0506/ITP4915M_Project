@@ -13,15 +13,31 @@ namespace templatev1
     public partial class Home : Form
     {
         private string uName, UID;
+        controller.accountController accountController;
 
         public Home()
         {
             InitializeComponent();
         }
+
+        public Home(controller.accountController account)
+        {
+            InitializeComponent();
+            accountController = account;
+        }
+
+        private void remove(string tbname) {
+
+
+        
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            UID = controller.accountController.getUID();
+            //Get UID and Name
+            UID = accountController.getUID();
             uName = controller.accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblWelUser.Text = "Welcome, " + uName + "!";
@@ -44,6 +60,7 @@ namespace templatev1
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            
         }
 
 
@@ -85,6 +102,7 @@ namespace templatev1
             getPage(btnFunction1.Text);
         }
 
+        //For Dark Color function
         private void BWMode()
         {
             dynamic value = controller.UIController.getMode();
@@ -107,6 +125,18 @@ namespace templatev1
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            Form proFile = new proFileMain();
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
         }
 
         private void getPage(string Function)

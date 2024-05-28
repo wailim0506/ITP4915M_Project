@@ -1,6 +1,6 @@
 ﻿namespace templatev1
 {
-    partial class CprofileAM
+    partial class AddressManage
     {
         /// <summary>
         /// Required designer variable.
@@ -644,7 +644,7 @@
             this.lblTitA3Detail.TabIndex = 32;
             this.lblTitA3Detail.Text = "Detailed Address:";
             // 
-            // CprofileAM
+            // AddressManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -659,7 +659,7 @@
             this.Controls.Add(this.palNav);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "CprofileAM";
+            this.Name = "AddressManage";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);

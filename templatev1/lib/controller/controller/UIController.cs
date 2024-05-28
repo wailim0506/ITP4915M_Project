@@ -10,27 +10,35 @@ using MySqlConnector;
 
 namespace controller
 {
-    public class UIController
+    public class UIController : abstractController
     {
         //For DataBase
-        private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
-        MySqlConnection conn = new MySqlConnection(connString);
-        MySqlDataAdapter adr;
         private static string sqlStr;
 
         private static bool BWMode;
         private static bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
         private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5;        //Text in the button.
+        private static string AccountType;
+
+        controller.accountController accountController;
 
         public UIController()
         {
             funbtn1 = funbtn2 = funbtn3 = funbtn4 = funbtn5 = sqlStr = "";
             showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
+            AccountType = "";
         }
+
+        public UIController(accountController account)
+        {
+            accountController = account;
+        }
+
+
 
         public void setPermission(string UserID)
         {
-            if (UserID.StartsWith("LMC"))     //Customer
+            if (AccountType.Equals("Customer"))     //Customer
                 determineFun("C");
             else       //Staff
             {
@@ -42,6 +50,10 @@ namespace controller
                 determineFun(dt.Rows[0]["permissionID"].ToString());
             }
 
+        }
+        public void setType(string AccType)
+        {
+            AccountType = AccType;
         }
 
         public static void setMode(bool value)
@@ -134,6 +146,42 @@ namespace controller
                 return 4;
             else
                 return 5;
+        }
+
+        public static dynamic proFile()
+        {
+            dynamic expando = new ExpandoObject();
+            if (AccountType.Equals("C"))
+            {
+                expando.TitJobTitel = false;
+                expando.JobTitel = false;
+                expando.TitDept = false;
+                expando.Dept = false;
+                expando.NGDateOfBirth = true;
+                expando.TitPayment = true;
+                expando.Payment = true;
+                expando.TitAddress = true;
+                expando.Address = true;
+                expando.ManagAddress = true;
+            }
+            else
+            {
+                expando.TitJobTitel = true;
+                expando.JobTitel = true;
+                expando.TitDept = true;
+                expando.Dept = true;
+                expando.NGDateOfBirth = false;
+                expando.TitPayment = false;
+                expando.Payment = false;
+                expando.TitAddress = false;
+                expando.Address = false;
+                expando.ManagAddress = false;
+            }
+
+
+
+
+                return expando;
         }
 
 

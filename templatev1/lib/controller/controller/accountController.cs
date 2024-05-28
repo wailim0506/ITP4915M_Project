@@ -8,25 +8,22 @@ using MySqlConnector;
 
 namespace controller
 {
-    public class accountController
+    public class accountController : abstractController
     {
         //For DataBase
-        private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
-        MySqlConnection conn = new MySqlConnection(connString);
-        MySqlDataAdapter adr;
         private static string sqlStr;
 
         public bool IsLogin;
-        private static string firstName;
-        private static string lastName;
-        public static string UserID;
+        private static string firstName, lastName, UserID, AccountType;
 
         controller.UIController UIController;
+        controller.proFileController proFileController;
 
         public accountController()
         {
             IsLogin = false;
-            sqlStr = UserID = "";
+            sqlStr = "";
+            firstName = lastName = UserID = AccountType = "";
         
         }
 
@@ -57,10 +54,13 @@ namespace controller
                 {
                     IsLogin = true;
                     UserID = UID;
-                    UserName();
 
                     UIController = new controller.UIController();
+                    proFileController = new controller.proFileController();
+
+                    UserName();
                     UIController.setPermission(UserID);
+
 
 
                 }
@@ -79,10 +79,16 @@ namespace controller
             if (UserID.StartsWith("LMC"))         //A customer account
             {
                 sqlStr = "SELECT firstName, lastName FROM customer WHERE customerID = '" + UserID + "'";
+                AccountType = "Customer";
+                UIController.setType(AccountType);
+                //proFileController.setType(AccountType);
             }
             else     //A staff account
             {
                 sqlStr = "SELECT firstName, lastName FROM staff WHERE staffID = '" + UserID + "'";
+                AccountType = "Staff";
+                UIController.setType(AccountType);
+                proFileController.setType(AccountType);
             }
 
             adr = new MySqlDataAdapter(sqlStr, conn);
@@ -98,9 +104,10 @@ namespace controller
             return lastName + " " + firstName;
         }
 
-        public static string getUID()
+        public string getUID()
         {
             return UserID;
         }
+
     }
 }
