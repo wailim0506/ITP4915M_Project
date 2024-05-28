@@ -116,6 +116,10 @@ namespace templatev1
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -375,6 +379,7 @@ namespace templatev1
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "giveFeedback";
             this.Text = "Legend Motor Company Online Ordering Platform";
+            this.Load += new System.EventHandler(this.giveFeedback_Load);
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
