@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using MySqlConnector;
+using System.Windows.Forms;
 
 namespace controller
 {
     public class accountController : abstractController
     {
         //For DataBase
-        private static string sqlStr;
+        private string sqlStr;
 
         public bool IsLogin;
-        private static string firstName, lastName, UserID, AccountType;
+        private string firstName, lastName, UserID, AccountType;
 
         controller.UIController UIController;
         controller.proFileController proFileController;
@@ -27,10 +28,10 @@ namespace controller
         
         }
 
-        public bool login(string UID, string Pass)
+        public bool login(string UID, string Pass, controller.UIController UI)
         {
-            try
-            {
+            //try
+            //{
                 DataTable dt = new DataTable();
 
                 if (UID.StartsWith("LMC"))         //A customer account
@@ -48,15 +49,15 @@ namespace controller
                 adr.Fill(dt);
                 adr.Dispose();
 
-                if (dt.Rows.Count < 1)
+                if (dt.Rows.Count < 1)          //Account NOT found
                     return IsLogin;
-                else if (Pass.Equals(dt.Rows[0]["password"]) && dt.Rows[0]["status"].Equals("active"))
+                else if (Pass.Equals(dt.Rows[0]["password"]) && dt.Rows[0]["status"].Equals("active"))          //Account found
                 {
                     IsLogin = true;
                     UserID = UID;
 
-                    UIController = new controller.UIController();
-                    proFileController = new controller.proFileController();
+                    UIController = UI;
+                    //proFileController = new controller.proFileController();
 
                     UserName();
                     UIController.setPermission(UserID);
@@ -65,11 +66,11 @@ namespace controller
 
                 }
                 return IsLogin;
-            }
-            catch (Exception e)
-            {
-                return IsLogin;     //Some error occurs retrn false to login
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    return IsLogin;     //Some error occurs retrn false to login
+            //}
         }
 
         private void UserName()
@@ -82,13 +83,14 @@ namespace controller
                 AccountType = "Customer";
                 UIController.setType(AccountType);
                 //proFileController.setType(AccountType);
+
             }
             else     //A staff account
             {
                 sqlStr = "SELECT firstName, lastName FROM staff WHERE staffID = '" + UserID + "'";
                 AccountType = "Staff";
                 UIController.setType(AccountType);
-                proFileController.setType(AccountType);
+                //proFileController.setType(AccountType);
             }
 
             adr = new MySqlDataAdapter(sqlStr, conn);
@@ -99,7 +101,7 @@ namespace controller
             firstName = dt.Rows[0]["firstName"].ToString();
         }
 
-        public static string getName()
+        public string getName()
         {
             return lastName + " " + firstName;
         }

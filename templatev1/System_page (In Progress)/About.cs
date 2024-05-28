@@ -13,29 +13,41 @@ namespace templatev1
     public partial class About : Form
     {
         public static string UID;      //The user ID.
+        controller.accountController accountController;
+        controller.UIController UIController;
 
         public About()
         {
             InitializeComponent();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public About(controller.accountController accountController, controller.UIController UIController)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            InitializeComponent();
+            this.accountController = accountController;
+            this.UIController = UIController;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
+            Initialization();
 
             lblPlatform.Text = Environment.OSVersion.ToString();
             lblInsDate.Text = Login.getInsDate();
             TimeSpan diff = DateTime.Now - DateTime.Parse(Login.getInsDate());
             var hours = diff.Hours;
             lblTotalOpTime.Text = hours.ToString() + " Hours";
+        }
+
+        private void Initialization()
+        {
+            timer1.Enabled = true;
+
+            UID = accountController.getUID();
+            lblUid.Text = "UID: " + UID;
 
             //For determine which button needs to be shown.
-            dynamic btnFun = controller.UIController.showFun();
+            dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -62,7 +74,7 @@ namespace templatev1
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            Form home = new Home();
+            Form home = new Home(accountController, UIController);
             this.Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -74,13 +86,13 @@ namespace templatev1
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            controller.UIController.setMode(Properties.Settings.Default.BWmode);
+            UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
 
         private void BWMode()
         {
-            dynamic value = controller.UIController.getMode();
+            dynamic value = UIController.getMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
@@ -90,6 +102,11 @@ namespace templatev1
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
             Properties.Settings.Default.BWmode = value.BWmode;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
     }

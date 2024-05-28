@@ -516,12 +516,6 @@
     <None Include="Resources\LBWhite.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="lib\controller\controller\controller.csproj">
-      <Project>{795b0300-8375-4599-a4af-38a88eab2f07}</Project>
-      <Name>controller</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\100001.png" />
   </ItemGroup>
   <ItemGroup>
@@ -583,6 +577,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Trash\Trash.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="lib\controller\controller\controller.csproj">
+      <Project>{795b0300-8375-4599-a4af-38a88eab2f07}</Project>
+      <Name>controller</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

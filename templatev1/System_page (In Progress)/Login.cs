@@ -13,6 +13,9 @@ namespace templatev1
     public partial class Login : Form
     {
         public static readonly string sysInsDate = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+
+        private bool IsLogin;
+
         controller.accountController accController;
         controller.UIController UIController;
         
@@ -21,29 +24,22 @@ namespace templatev1
         {
             InitializeComponent();
         }
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             accController = new controller.accountController();
+            UIController = new controller.UIController(accController);
+
+            IsLogin = false;
             timer1.Enabled = true;
             tbPassword.PasswordChar = '*';
 
-            //For remember me function.
-            if (string.IsNullOrEmpty(Properties.Settings.Default.Usesrname) == false)
-            {
-                chkRememberMe.CheckState = CheckState.Checked;
-                tbUsername.Text = Properties.Settings.Default.Usesrname;
-                tbPassword.Text = Properties.Settings.Default.Password;
-            }
+            rememberMe();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Clean the content in the label.
+            //Clean the error message in the label.
             lblUsernameMsg.Text = "";
             lblPasswordMsg.Text = "";
 
@@ -56,10 +52,12 @@ namespace templatev1
             {
                 lblPasswordMsg.Text = "Please enter your password.";
             }
-            else if (accController.login(tbUsername.Text, tbPassword.Text))        //Checking the password
+            else if (accController.login(tbUsername.Text, tbPassword.Text, UIController))        //Checking the password
             {
-                UIController = new controller.UIController(accController);
-                Form Home = new Home(accController);
+                IsLogin = true;
+                rememberMe();
+
+                Form Home = new Home(accController, UIController);
                 this.Hide();
                 //Swap the current form to another.
                 Home.StartPosition = FormStartPosition.Manual;
@@ -73,19 +71,34 @@ namespace templatev1
                 tbPassword.Clear();
                 lblPasswordMsg.Text = "Invalid username or password.";
             }
+        }
 
-            //For remember me function.
-            if (chkRememberMe.Checked == true)
+        //For remember me function.
+        private void rememberMe()
+        {
+            if (IsLogin)
             {
-                Properties.Settings.Default.Usesrname = tbUsername.Text;
-                Properties.Settings.Default.Password = tbPassword.Text;
-                Properties.Settings.Default.Save();
+                if (chkRememberMe.Checked == true)
+                {
+                    Properties.Settings.Default.Usesrname = tbUsername.Text;
+                    Properties.Settings.Default.Password = tbPassword.Text;
+                    Properties.Settings.Default.Save();
+                }
+                else
+                    Properties.Settings.Default.Reset();
             }
             else
             {
-                Properties.Settings.Default.Reset();
+                if (string.IsNullOrEmpty(Properties.Settings.Default.Usesrname) == false)
+                {
+                    chkRememberMe.CheckState = CheckState.Checked;
+                    tbUsername.Text = Properties.Settings.Default.Usesrname;
+                    tbPassword.Text = Properties.Settings.Default.Password;
+                }
             }
         }
+
+
 
         private void btnForgetPassword_Click(object sender, EventArgs e)
         {
@@ -116,7 +129,10 @@ namespace templatev1
             return sysInsDate;
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
 
 
 

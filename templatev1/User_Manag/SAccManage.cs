@@ -28,7 +28,7 @@ namespace templatev1
             palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             setIndicator(controller.UIController.getIndicator("User Managemnet"));
 
-            //For determine which button needs to be shown.
+            /*For determine which button needs to be shown.
             dynamic btnFun = controller.UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
@@ -40,6 +40,7 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+            */
         }
 
         private void setIndicator(int btnNo)

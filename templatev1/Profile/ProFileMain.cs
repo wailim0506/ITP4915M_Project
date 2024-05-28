@@ -31,11 +31,11 @@ namespace templatev1
         {
             timer1.Enabled = true;
 
-            initialization();
+            Initialization();
 
             //Get UID and Name
             //UID = controller.accountController.getUID();
-            uName = controller.accountController.getName();
+            //uName = controller.accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblUserUID.Text = UID;
         }
@@ -59,7 +59,7 @@ namespace templatev1
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            controller.UIController.setMode(Properties.Settings.Default.BWmode);
+            //controller.UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
 
@@ -77,7 +77,7 @@ namespace templatev1
 
         
 
-        private void initialization()
+        private void Initialization()
         {
             dynamic info = controller.proFileController.getUserInfo();
             lblAccType.Text = info.accountType;
@@ -93,7 +93,7 @@ namespace templatev1
 
 
 
-            //For determine which button needs to be shown.
+            /*For determine which button needs to be shown.
             dynamic btnFun = controller.UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
@@ -105,6 +105,7 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+            */
 
             //For swap the form betwee staff and customer
             dynamic show = controller.UIController.proFile();
@@ -138,6 +139,7 @@ namespace templatev1
         //For Dark Color function
         private void BWMode()
         {
+            /*
             dynamic value = controller.UIController.getMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
@@ -148,6 +150,7 @@ namespace templatev1
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
             Properties.Settings.Default.BWmode = value.BWmode;
+            */
         }
 
     }

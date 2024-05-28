@@ -13,10 +13,10 @@ namespace controller
     public class UIController : abstractController
     {
         //For DataBase
-        private static string sqlStr;
+        private string sqlStr;
 
-        private static bool BWMode;
-        private static bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
+        private bool BWMode;
+        private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
         private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5;        //Text in the button.
         private static string AccountType;
 
@@ -56,12 +56,12 @@ namespace controller
             AccountType = AccType;
         }
 
-        public static void setMode(bool value)
+        public void setMode(bool value)
         {
             BWMode = value;
         }
 
-        public static dynamic getMode()
+        public dynamic getMode()
         {
             if (BWMode)
             {
@@ -185,7 +185,7 @@ namespace controller
         }
 
 
-        public static dynamic showFun()
+        public dynamic showFun()
         {
             dynamic expando = new ExpandoObject();
             expando.btn1show = showbtn1;

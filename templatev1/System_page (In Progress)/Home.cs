@@ -14,37 +14,37 @@ namespace templatev1
     {
         private string uName, UID;
         controller.accountController accountController;
+        controller.UIController UIController;
 
         public Home()
         {
             InitializeComponent();
         }
 
-        public Home(controller.accountController account)
+        public Home(controller.accountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
-            accountController = account;
+            this.accountController = accountController;
+            this.UIController = UIController;
         }
-
-        private void remove(string tbname) {
-
-
-        
-        }
-
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Initialization();
+        }
+
+        private void Initialization()
+        {
             timer1.Enabled = true;
-            //Get UID and Name
+
             UID = accountController.getUID();
-            uName = controller.accountController.getName();
+            uName = accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblWelUser.Text = "Welcome, " + uName + "!";
 
 
             //For determine which button needs to be shown.
-            dynamic btnFun = controller.UIController.showFun();
+            dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -56,13 +56,6 @@ namespace templatev1
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-            
-        }
-
 
 
 
@@ -81,7 +74,7 @@ namespace templatev1
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
-            Form about = new About();
+            Form about = new About(accountController, UIController);
             this.Hide();
             //Swap the current form to another.
             about.StartPosition = FormStartPosition.Manual;
@@ -93,7 +86,7 @@ namespace templatev1
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            controller.UIController.setMode(Properties.Settings.Default.BWmode);
+            UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
 
@@ -105,7 +98,7 @@ namespace templatev1
         //For Dark Color function
         private void BWMode()
         {
-            dynamic value = controller.UIController.getMode();
+            dynamic value = UIController.getMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
@@ -171,6 +164,11 @@ namespace templatev1
             this.Close();
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+
+        }
 
     }
 }
