@@ -12,9 +12,80 @@ namespace templatev1.Stock_Manag
 {
     public partial class editSupplier : Form
     {
-        public editSupplier()
+        string supplierID;
+        DataTable dt;
+        controller.supplierController controller;
+        public editSupplier(string supplierID)  
         {
             InitializeComponent();
+            this.supplierID = supplierID;
+            controller = new controller.supplierController();
+            lblSupplierNumber.Text = supplierID;
+        }
+
+        private void editSupplier_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            tbName.Text = controller.getSupplierName(supplierID);
+            tbPhone.Text = controller.getSupplierPhone(supplierID);
+            tbAddress.Text = controller.getSupplierAddress(supplierID);
+            lblCountry.Text = controller.getSupplierCountry(supplierID);
+        }
+
+        private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (controller.updateSupplier(supplierID, tbName.Text.ToString(), tbPhone.Text.ToString(), tbAddress.Text.ToString()) && tbName.Text.ToString() !="" && tbPhone.Text.ToString() != "" && tbAddress.Text.ToString() != "")
+            {
+                MessageBox.Show("Edit succeessfull.");
+                Form viewSupplier = new viewSupplier();
+                this.Hide();
+                viewSupplier.StartPosition = FormStartPosition.Manual;
+                viewSupplier.Location = this.Location;
+                viewSupplier.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                if (tbName.Text.ToString() == "" || tbPhone.Text.ToString() == "" || tbAddress.Text.ToString() == "") {
+                    MessageBox.Show("Please don't leave blank");
+                }
+                else
+                {
+                    MessageBox.Show("Please try again.");
+                }
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("All unsaved change will be lost!\nAre you sure you want to cancel editing?","Confirmation", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                Form viewSupplier = new viewSupplier();
+                this.Hide();
+                viewSupplier.StartPosition = FormStartPosition.Manual;
+                viewSupplier.Location = this.Location;
+                viewSupplier.ShowDialog();
+                this.Close();
+            }
+            else if (result == DialogResult.No)
+            {
+                return;
+            }
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
     }
 }

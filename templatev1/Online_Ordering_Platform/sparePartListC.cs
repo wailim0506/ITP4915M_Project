@@ -122,46 +122,44 @@ namespace templatev1.Online_Ordering_Platform
 
         private void txtC1Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the entered character is a number or control (backspace)
+            
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignore the input
+                e.Handled = true; 
             }
         }
 
         private void txtC2Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the entered character is a number or control (backspace)
+            
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignore the input
+                e.Handled = true; 
             }
         }
 
         private void txtC3Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the entered character is a number or control (backspace)
+            
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignore the input
+                e.Handled = true; 
             }
         }
 
         private void txtC4Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the entered character is a number or control (backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignore the input
+                e.Handled = true; 
             }
         }
 
         private void txtC5Num_KeyPress(object sender, KeyPressEventArgs e)
         {
-            // Check if the entered character is a number or control (backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                e.Handled = true; // Ignore the input
+                e.Handled = true; 
             }
         }
 

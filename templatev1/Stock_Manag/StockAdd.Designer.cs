@@ -54,16 +54,10 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.cmbDangerLevel = new System.Windows.Forms.ComboBox();
-            this.cmbRecordLevel = new System.Windows.Forms.ComboBox();
-            this.cmbCountry = new System.Windows.Forms.ComboBox();
-            this.tbLoc = new System.Windows.Forms.TextBox();
-            this.tbSuppiler = new System.Windows.Forms.TextBox();
             this.tbName = new System.Windows.Forms.TextBox();
             this.lblTitCatID = new System.Windows.Forms.Label();
             this.lblTitPartNumber = new System.Windows.Forms.Label();
             this.lblPartNumber = new System.Windows.Forms.Label();
-            this.lblTitCountry = new System.Windows.Forms.Label();
-            this.lblTitLoc = new System.Windows.Forms.Label();
             this.lblTitSuppiler = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.lblTitPrice = new System.Windows.Forms.Label();
@@ -79,6 +73,7 @@
             this.lblTitDangerLevel = new System.Windows.Forms.Label();
             this.lblTitQty = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cmbSuppiler = new System.Windows.Forms.ComboBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -367,44 +362,10 @@
             // 
             this.cmbDangerLevel.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbDangerLevel.FormattingEnabled = true;
-            this.cmbDangerLevel.Location = new System.Drawing.Point(378, 364);
+            this.cmbDangerLevel.Location = new System.Drawing.Point(378, 276);
             this.cmbDangerLevel.Name = "cmbDangerLevel";
             this.cmbDangerLevel.Size = new System.Drawing.Size(224, 27);
             this.cmbDangerLevel.TabIndex = 129;
-            // 
-            // cmbRecordLevel
-            // 
-            this.cmbRecordLevel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.cmbRecordLevel.FormattingEnabled = true;
-            this.cmbRecordLevel.Location = new System.Drawing.Point(378, 326);
-            this.cmbRecordLevel.Name = "cmbRecordLevel";
-            this.cmbRecordLevel.Size = new System.Drawing.Size(224, 27);
-            this.cmbRecordLevel.TabIndex = 128;
-            // 
-            // cmbCountry
-            // 
-            this.cmbCountry.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.cmbCountry.FormattingEnabled = true;
-            this.cmbCountry.Location = new System.Drawing.Point(378, 240);
-            this.cmbCountry.Name = "cmbCountry";
-            this.cmbCountry.Size = new System.Drawing.Size(224, 27);
-            this.cmbCountry.TabIndex = 127;
-            // 
-            // tbLoc
-            // 
-            this.tbLoc.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbLoc.Location = new System.Drawing.Point(378, 290);
-            this.tbLoc.Name = "tbLoc";
-            this.tbLoc.Size = new System.Drawing.Size(224, 27);
-            this.tbLoc.TabIndex = 126;
-            // 
-            // tbSuppiler
-            // 
-            this.tbSuppiler.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbSuppiler.Location = new System.Drawing.Point(378, 206);
-            this.tbSuppiler.Name = "tbSuppiler";
-            this.tbSuppiler.Size = new System.Drawing.Size(224, 27);
-            this.tbSuppiler.TabIndex = 125;
             // 
             // tbName
             // 
@@ -445,40 +406,20 @@
             this.lblPartNumber.Text = "XXXXXXX";
             this.lblPartNumber.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTitCountry
-            // 
-            this.lblTitCountry.AutoSize = true;
-            this.lblTitCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCountry.Location = new System.Drawing.Point(254, 241);
-            this.lblTitCountry.Name = "lblTitCountry";
-            this.lblTitCountry.Size = new System.Drawing.Size(102, 44);
-            this.lblTitCountry.TabIndex = 110;
-            this.lblTitCountry.Text = "Country Of \r\nOrigin:";
-            // 
-            // lblTitLoc
-            // 
-            this.lblTitLoc.AutoSize = true;
-            this.lblTitLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitLoc.Location = new System.Drawing.Point(255, 291);
-            this.lblTitLoc.Name = "lblTitLoc";
-            this.lblTitLoc.Size = new System.Drawing.Size(85, 22);
-            this.lblTitLoc.TabIndex = 121;
-            this.lblTitLoc.Text = "Location:";
-            // 
             // lblTitSuppiler
             // 
             this.lblTitSuppiler.AutoSize = true;
             this.lblTitSuppiler.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitSuppiler.Location = new System.Drawing.Point(254, 207);
             this.lblTitSuppiler.Name = "lblTitSuppiler";
-            this.lblTitSuppiler.Size = new System.Drawing.Size(84, 22);
+            this.lblTitSuppiler.Size = new System.Drawing.Size(104, 22);
             this.lblTitSuppiler.TabIndex = 109;
-            this.lblTitSuppiler.Text = "Suppiler:";
+            this.lblTitSuppiler.Text = "SuppilerID:";
             // 
             // tbPrice
             // 
             this.tbPrice.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbPrice.Location = new System.Drawing.Point(329, 403);
+            this.tbPrice.Location = new System.Drawing.Point(329, 315);
             this.tbPrice.Name = "tbPrice";
             this.tbPrice.Size = new System.Drawing.Size(106, 27);
             this.tbPrice.TabIndex = 120;
@@ -487,16 +428,16 @@
             // 
             this.lblTitPrice.AutoSize = true;
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPrice.Location = new System.Drawing.Point(254, 407);
+            this.lblTitPrice.Location = new System.Drawing.Point(254, 319);
             this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(77, 21);
+            this.lblTitPrice.Size = new System.Drawing.Size(74, 21);
             this.lblTitPrice.TabIndex = 119;
             this.lblTitPrice.Text = "Price: ￥";
             // 
             // tbQty
             // 
             this.tbQty.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbQty.Location = new System.Drawing.Point(366, 439);
+            this.tbQty.Location = new System.Drawing.Point(366, 351);
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(44, 27);
             this.tbQty.TabIndex = 118;
@@ -514,7 +455,7 @@
             // btnMinusQty
             // 
             this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinusQty.Location = new System.Drawing.Point(419, 436);
+            this.btnMinusQty.Location = new System.Drawing.Point(419, 348);
             this.btnMinusQty.Name = "btnMinusQty";
             this.btnMinusQty.Size = new System.Drawing.Size(33, 33);
             this.btnMinusQty.TabIndex = 117;
@@ -524,7 +465,7 @@
             // btnAddQty
             // 
             this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddQty.Location = new System.Drawing.Point(327, 436);
+            this.btnAddQty.Location = new System.Drawing.Point(327, 348);
             this.btnAddQty.Name = "btnAddQty";
             this.btnAddQty.Size = new System.Drawing.Size(33, 33);
             this.btnAddQty.TabIndex = 116;
@@ -536,7 +477,7 @@
             this.lstDis.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.lstDis.FormattingEnabled = true;
             this.lstDis.ItemHeight = 21;
-            this.lstDis.Location = new System.Drawing.Point(360, 514);
+            this.lstDis.Location = new System.Drawing.Point(360, 426);
             this.lstDis.Name = "lstDis";
             this.lstDis.Size = new System.Drawing.Size(438, 172);
             this.lstDis.TabIndex = 115;
@@ -545,7 +486,7 @@
             // 
             this.lblTitRecordLevel.AutoSize = true;
             this.lblTitRecordLevel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitRecordLevel.Location = new System.Drawing.Point(254, 327);
+            this.lblTitRecordLevel.Location = new System.Drawing.Point(254, 239);
             this.lblTitRecordLevel.Name = "lblTitRecordLevel";
             this.lblTitRecordLevel.Size = new System.Drawing.Size(119, 22);
             this.lblTitRecordLevel.TabIndex = 108;
@@ -555,7 +496,7 @@
             // 
             this.lblTitDis.AutoSize = true;
             this.lblTitDis.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDis.Location = new System.Drawing.Point(254, 514);
+            this.lblTitDis.Location = new System.Drawing.Point(254, 426);
             this.lblTitDis.Name = "lblTitDis";
             this.lblTitDis.Size = new System.Drawing.Size(96, 21);
             this.lblTitDis.TabIndex = 114;
@@ -565,7 +506,7 @@
             // 
             this.cmbStatus.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(329, 475);
+            this.cmbStatus.Location = new System.Drawing.Point(329, 387);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(106, 27);
             this.cmbStatus.TabIndex = 113;
@@ -574,7 +515,7 @@
             // 
             this.lblTitStatus.AutoSize = true;
             this.lblTitStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitStatus.Location = new System.Drawing.Point(254, 477);
+            this.lblTitStatus.Location = new System.Drawing.Point(254, 389);
             this.lblTitStatus.Name = "lblTitStatus";
             this.lblTitStatus.Size = new System.Drawing.Size(60, 21);
             this.lblTitStatus.TabIndex = 112;
@@ -584,7 +525,7 @@
             // 
             this.lblTitDangerLevel.AutoSize = true;
             this.lblTitDangerLevel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDangerLevel.Location = new System.Drawing.Point(254, 365);
+            this.lblTitDangerLevel.Location = new System.Drawing.Point(254, 277);
             this.lblTitDangerLevel.Name = "lblTitDangerLevel";
             this.lblTitDangerLevel.Size = new System.Drawing.Size(123, 22);
             this.lblTitDangerLevel.TabIndex = 106;
@@ -594,7 +535,7 @@
             // 
             this.lblTitQty.AutoSize = true;
             this.lblTitQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitQty.Location = new System.Drawing.Point(254, 441);
+            this.lblTitQty.Location = new System.Drawing.Point(254, 353);
             this.lblTitQty.Name = "lblTitQty";
             this.lblTitQty.Size = new System.Drawing.Size(68, 21);
             this.lblTitQty.TabIndex = 111;
@@ -610,27 +551,30 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // cmbSuppiler
+            // 
+            this.cmbSuppiler.FormattingEnabled = true;
+            this.cmbSuppiler.Location = new System.Drawing.Point(378, 207);
+            this.cmbSuppiler.Name = "cmbSuppiler";
+            this.cmbSuppiler.Size = new System.Drawing.Size(224, 23);
+            this.cmbSuppiler.TabIndex = 130;
+            // 
             // StockAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.cmbSuppiler);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.cmbDangerLevel);
-            this.Controls.Add(this.cmbRecordLevel);
-            this.Controls.Add(this.cmbCountry);
-            this.Controls.Add(this.tbLoc);
-            this.Controls.Add(this.tbSuppiler);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.lblTitCatID);
             this.Controls.Add(this.lblTitPartNumber);
             this.Controls.Add(this.lblPartNumber);
-            this.Controls.Add(this.lblTitCountry);
-            this.Controls.Add(this.lblTitLoc);
             this.Controls.Add(this.lblTitSuppiler);
             this.Controls.Add(this.tbPrice);
             this.Controls.Add(this.lblTitPrice);
@@ -685,16 +629,10 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.ComboBox cmbDangerLevel;
-        private System.Windows.Forms.ComboBox cmbRecordLevel;
-        private System.Windows.Forms.ComboBox cmbCountry;
-        private System.Windows.Forms.TextBox tbLoc;
-        private System.Windows.Forms.TextBox tbSuppiler;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label lblTitCatID;
         private System.Windows.Forms.Label lblTitPartNumber;
         private System.Windows.Forms.Label lblPartNumber;
-        private System.Windows.Forms.Label lblTitCountry;
-        private System.Windows.Forms.Label lblTitLoc;
         private System.Windows.Forms.Label lblTitSuppiler;
         private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.Label lblTitPrice;
@@ -715,6 +653,7 @@
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Panel palSelect3;
+        private System.Windows.Forms.ComboBox cmbSuppiler;
     }
 }
 
