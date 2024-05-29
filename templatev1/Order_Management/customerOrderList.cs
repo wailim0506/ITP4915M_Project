@@ -22,6 +22,7 @@ namespace templatev1.Online_Ordering_Platform
             InitializeComponent();
             controller = new controller.orderListController();
             UID = "LMC00001"; //hard code for testing
+            //UID = "LMC00003"; //hard code for testing
         }
 
         public customerOrderList(controller.accountController accountController, controller.UIController UIController)
@@ -30,7 +31,7 @@ namespace templatev1.Online_Ordering_Platform
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new controller.orderListController();
-            
+            //UID = accountController.getUID();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -41,7 +42,6 @@ namespace templatev1.Online_Ordering_Platform
         private void customerOrderList_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
             int numOfOrder = controller.countOrder(UID);
             dtOrder = controller.getOrder(UID);
 
@@ -61,7 +61,6 @@ namespace templatev1.Online_Ordering_Platform
                 Label lblStatus = new Label() { Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}", Location = new System.Drawing.Point(656, yPosition - 7), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(130, 35), TextAlign = ContentAlignment.MiddleCenter };
                 Button btnView = new Button() { Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(804, yPosition-2), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
                 btnView.Click += new EventHandler(this.btnView_Click);
-                //Button Button = new Button { Name = $"radioButton{i}", Text = "", Location = new System.Drawing.Point(873, yPosition - 1), BackColor = Color.Transparent, Size = new System.Drawing.Size(14, 17) };
 
                 grpOrder.Controls.Add(lblID);
                 grpOrder.Controls.Add(lblDate);
@@ -80,14 +79,32 @@ namespace templatev1.Online_Ordering_Platform
             if (clickedButton != null)
             {
                 string buttonName = clickedButton.Name;
-                MessageBox.Show(getIndex(buttonName).ToString());
+                int index = getIndex(buttonName);
+                if (index != -1) {
+                    int i = 0;
+
+                    foreach (Control control in grpOrder.Controls)
+                    {
+                        if (control.Name == $"lblID{index}")
+                        {
+                            Form customerViewOrder = new Order_Management.customerViewOrder(control.Text, accountController, UIController);
+                            this.Hide();
+                            customerViewOrder.StartPosition = FormStartPosition.Manual;
+                            customerViewOrder.Location = this.Location;
+                            customerViewOrder.ShowDialog();
+                            this.Close();
+                            return;
+                        }
+                        ++i;
+                    }
+                }
             }
         }
 
         private int getIndex(string btnName)
         {
             int i = 1;
-            foreach (Control control in grpOrder.Controls) //find which button is checked                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            while (true)
             {
                 if (btnName == $"btnView{i}")
                 {
