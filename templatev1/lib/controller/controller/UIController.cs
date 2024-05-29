@@ -32,6 +32,9 @@ namespace controller
         public UIController(accountController account)
         {
             accountController = account;
+            funbtn1 = funbtn2 = funbtn3 = funbtn4 = funbtn5 = sqlStr = "";
+            showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
+            AccountType = "";
         }
 
 
@@ -148,10 +151,10 @@ namespace controller
                 return 5;
         }
 
-        public static dynamic proFile()
+        public dynamic proFile()
         {
             dynamic expando = new ExpandoObject();
-            if (AccountType.Equals("C"))
+            if (AccountType.Equals("Customer"))
             {
                 expando.TitJobTitel = false;
                 expando.JobTitel = false;
@@ -163,6 +166,7 @@ namespace controller
                 expando.TitAddress = true;
                 expando.Address = true;
                 expando.ManagAddress = true;
+                expando.Delete = true;
             }
             else
             {
@@ -176,6 +180,7 @@ namespace controller
                 expando.TitAddress = false;
                 expando.Address = false;
                 expando.ManagAddress = false;
+                expando.Delete = false;
             }
 
 

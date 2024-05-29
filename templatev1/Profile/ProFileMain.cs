@@ -13,7 +13,9 @@ namespace templatev1
     public partial class proFileMain : Form
     {
         private string uName, UID;
-
+        controller.accountController accountController;
+        controller.UIController UIController;
+        controller.proFileController proFileController;
         
         
 
@@ -22,22 +24,18 @@ namespace templatev1
             InitializeComponent();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public proFileMain(controller.accountController accountController, controller.UIController UIController, controller.proFileController proFileController)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            InitializeComponent();
+
+            this.accountController = accountController;
+            this.UIController = UIController;
+            this.proFileController = proFileController;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-
             Initialization();
-
-            //Get UID and Name
-            //UID = controller.accountController.getUID();
-            //uName = controller.accountController.getName();
-            lblUid.Text = "UID: " + UID;
-            lblUserUID.Text = UID;
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
@@ -79,7 +77,13 @@ namespace templatev1
 
         private void Initialization()
         {
-            dynamic info = controller.proFileController.getUserInfo();
+            timer1.Enabled = true;
+            UID = accountController.getUID();
+            uName = accountController.getName();
+            lblUid.Text = "UID: " + UID;
+            lblUserUID.Text = UID;
+
+            dynamic info = proFileController.getUserInfo();
             lblAccType.Text = info.accountType;
             lblJobTitle.Text = info.jobTitle;
             lblDept.Text = info.dept;
@@ -90,11 +94,13 @@ namespace templatev1
             tbPhone.Text = info.phone;
             dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null); 
             lblCreateDate.Text = (info.createDate).ToString("dd/MM/yyyy");
+            chkNGDateOfBirth.Checked = info.NGDateOfBirth;
+            lblAddress.Text = info.address;
+            cmbPayment.Text = info.payment;
 
 
-
-            /*For determine which button needs to be shown.
-            dynamic btnFun = controller.UIController.showFun();
+            //For determine which button needs to be shown.
+            dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -105,10 +111,10 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-            */
+            
 
             //For swap the form betwee staff and customer
-            dynamic show = controller.UIController.proFile();
+            dynamic show = UIController.proFile();
             lblTitJobTitle.Visible = show.TitJobTitel;
             lblJobTitle.Visible = show.JobTitel;
             lblTitDept.Visible = show.TitDept;
@@ -119,13 +125,14 @@ namespace templatev1
             lblTitAddress.Visible = show.TitAddress;
             lblAddress.Visible = show.Address;
             btnManagAddress.Visible = show.ManagAddress;
+            btnDelete.Visible = show.Delete;
 
 
         }
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            Form home = new Home();
+            Form home = new Home(accountController, UIController);
             this.Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -139,8 +146,7 @@ namespace templatev1
         //For Dark Color function
         private void BWMode()
         {
-            /*
-            dynamic value = controller.UIController.getMode();
+            dynamic value = UIController.getMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
@@ -149,8 +155,11 @@ namespace templatev1
             Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            */
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
     }

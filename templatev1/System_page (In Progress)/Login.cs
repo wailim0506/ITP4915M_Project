@@ -16,9 +16,8 @@ namespace templatev1
 
         private bool IsLogin;
 
-        controller.accountController accController;
+        controller.accountController accountController;
         controller.UIController UIController;
-        
 
         public Login()
         {
@@ -27,8 +26,8 @@ namespace templatev1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            accController = new controller.accountController();
-            UIController = new controller.UIController(accController);
+            accountController = new controller.accountController();
+            UIController = new controller.UIController(accountController);
 
             IsLogin = false;
             timer1.Enabled = true;
@@ -52,12 +51,13 @@ namespace templatev1
             {
                 lblPasswordMsg.Text = "Please enter your password.";
             }
-            else if (accController.login(tbUsername.Text, tbPassword.Text, UIController))        //Checking the password
+            else if (accountController.login(tbUsername.Text, tbPassword.Text, UIController))        //Checking the password
             {
                 IsLogin = true;
                 rememberMe();
+                accountController.setLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
-                Form Home = new Home(accController, UIController);
+                Form Home = new Home(accountController, UIController);
                 this.Hide();
                 //Swap the current form to another.
                 Home.StartPosition = FormStartPosition.Manual;
@@ -170,6 +170,14 @@ namespace templatev1
         {
             tbUsername.Text = "LMS00005";
             tbPassword.Text = "asdf1234!";
+        }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnLogin_Click(this, new EventArgs());
+            }
         }
         //------------------------------------------------------------------
     }

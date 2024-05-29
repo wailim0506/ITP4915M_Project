@@ -15,6 +15,7 @@ namespace templatev1
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
+        controller.proFileController proFileController;
 
         public Home()
         {
@@ -35,12 +36,14 @@ namespace templatev1
 
         private void Initialization()
         {
+
             timer1.Enabled = true;
 
             UID = accountController.getUID();
             uName = accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblWelUser.Text = "Welcome, " + uName + "!";
+            lblLastLogin.Text = accountController.getLog();
 
 
             //For determine which button needs to be shown.
@@ -122,7 +125,11 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            Form proFile = new proFileMain();
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
             this.Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
@@ -144,9 +151,13 @@ namespace templatev1
                     break;
                 case "Invoice Management":
 
+
+
                     break;
                 case "On-Sale Product Management":
-                    next = new OnSaleMain();
+
+
+
                     break;
                 case "Stock Management":
                     next = new StockManMain();
@@ -161,6 +172,22 @@ namespace templatev1
             next.Location = this.Location;
             next.Size = this.Size;
             next.ShowDialog();
+            this.Close();
+        }
+
+        private void btnChangePass_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
             this.Close();
         }
 

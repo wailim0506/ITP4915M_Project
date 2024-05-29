@@ -15,17 +15,17 @@ namespace controller
         private string sqlStr;
 
         public bool IsLogin;
-        private string firstName, lastName, UserID, AccountType;
+        private string accountID, firstName, lastName, UserID, AccountType;
+
+        private MySqlCommand cmd;
 
         controller.UIController UIController;
-        controller.proFileController proFileController;
 
         public accountController()
         {
             IsLogin = false;
             sqlStr = "";
-            firstName = lastName = UserID = AccountType = "";
-        
+            accountID = firstName = lastName = UserID = AccountType = "";
         }
 
         public bool login(string UID, string Pass, controller.UIController UI)
@@ -57,13 +57,9 @@ namespace controller
                     UserID = UID;
 
                     UIController = UI;
-                    //proFileController = new controller.proFileController();
 
-                    UserName();
+                    UserInfo();
                     UIController.setPermission(UserID);
-
-
-
                 }
                 return IsLogin;
             //}
@@ -73,32 +69,32 @@ namespace controller
             //}
         }
 
-        private void UserName()
+        private void UserInfo()
         {
             DataTable dt = new DataTable();
 
             if (UserID.StartsWith("LMC"))         //A customer account
             {
-                sqlStr = "SELECT firstName, lastName FROM customer WHERE customerID = '" + UserID + "'";
+                sqlStr = "SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = '" + UserID + "' AND C.customerID = '" + UserID + "'";
                 AccountType = "Customer";
                 UIController.setType(AccountType);
-                //proFileController.setType(AccountType);
 
             }
             else     //A staff account
             {
-                sqlStr = "SELECT firstName, lastName FROM staff WHERE staffID = '" + UserID + "'";
+                sqlStr = "SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = '" + UserID + "' AND S.staffID = '" + UserID + "'";
                 AccountType = "Staff";
                 UIController.setType(AccountType);
-                //proFileController.setType(AccountType);
             }
 
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
+            conn.Close();
 
             lastName = dt.Rows[0]["lastName"].ToString();
             firstName = dt.Rows[0]["firstName"].ToString();
+            accountID = dt.Rows[0]["accountID"].ToString();
         }
 
         public string getName()
@@ -109,6 +105,47 @@ namespace controller
         public string getUID()
         {
             return UserID;
+        }
+
+        public string getType()
+        {
+            return AccountType;
+        }
+
+
+        public void setLog(string Date)
+        {
+            conn.Open();
+
+            if(UserID.StartsWith("LMC"))
+                sqlStr = "INSERT INTO customer_login_history VALUES('" + accountID + "', ' " + Date + "')";
+            else
+                sqlStr = "INSERT INTO staff_login_history VALUES('" + accountID + "', ' " + Date + "')";
+
+            cmd = new MySqlCommand(sqlStr, conn);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
+
+        public string getLog()
+        {
+            DataTable dt = new DataTable();
+
+            if (UserID.StartsWith("LMC"))         //A customer account
+            {
+                sqlStr = "SELECT loginDate FROM customer_login_history WHERE customerAccountID = '" + accountID + "' ORDER BY loginDATE DESC";
+            }
+            else
+            {
+                sqlStr = "SELECT loginDate FROM staff_login_history WHERE staffAccountID = '" + accountID + "' ORDER BY loginDATE DESC";
+            }
+
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+            conn.Close();
+
+            return dt.Rows[0]["loginDate"].ToString();
         }
 
         public DataTable getStaffDetail(string id) //use in OrderListController     //id = staff account id
