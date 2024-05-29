@@ -17,7 +17,7 @@ namespace templatev1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
-            Application.Run(new Stock_Manag.viewSupplier());
+            Application.Run(new Online_Ordering_Platform.sparePartListD());
         }
     }
 }

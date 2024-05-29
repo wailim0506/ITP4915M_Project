@@ -12,9 +12,19 @@ namespace templatev1
 {
     public partial class giveFeedback : Form
     {
+        private string uName, UID;
+        controller.accountController accountController;
+        controller.UIController UIController;
         public giveFeedback()
         {
             InitializeComponent();
+        }
+
+        public giveFeedback(controller.accountController accountController, controller.UIController UIController)
+        {
+            InitializeComponent();
+            this.accountController = accountController;
+            this.UIController = UIController;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -78,6 +88,7 @@ namespace templatev1
         private void giveFeedback_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true; //timer
+            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
         }
     }
 }

@@ -12,14 +12,26 @@ namespace templatev1.Online_Ordering_Platform
 {
     public partial class sparePartListB : Form
     {
+        private string uName, UID;
+        controller.accountController accountController;
+        controller.UIController UIController;
         public sparePartListB()
         {
             InitializeComponent();
         }
 
+        public sparePartListB(controller.accountController accountController, controller.UIController UIController)
+        {
+            InitializeComponent();
+            this.accountController = accountController;
+            this.UIController = UIController;
+        }
+
         private void sparePartListB_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
+
             controller.SparePartListController controller = new controller.SparePartListController(); //create controller object
             List<string> name = controller.getName("B");
             lblB1Name.Text += name.ElementAt(0);
@@ -56,7 +68,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (cmbCategory.Text == "Category A") //if user want to view spare part category A
             {
-                Form sparePartListA = new sparePartListA();
+                Form sparePartListA = new sparePartListA(accountController, UIController);
                 this.Hide();
                 //Swap the current form to another.
                 sparePartListA.StartPosition = FormStartPosition.Manual;
@@ -68,7 +80,7 @@ namespace templatev1.Online_Ordering_Platform
 
             if (cmbCategory.Text == "Category C") //if user want to view spare part category C
             {
-                Form sparePartListC = new sparePartListC();
+                Form sparePartListC = new sparePartListC(accountController, UIController);
                 this.Hide();
                 //Swap the current form to another.
                 sparePartListC.StartPosition = FormStartPosition.Manual;
@@ -80,7 +92,7 @@ namespace templatev1.Online_Ordering_Platform
 
             if (cmbCategory.Text == "Category D") //if user want to view spare part category D
             {
-                Form sparePartListD = new sparePartListD();
+                Form sparePartListD = new sparePartListD(accountController, UIController);
                 this.Hide();
                 //Swap the current form to another.
                 sparePartListD.StartPosition = FormStartPosition.Manual;

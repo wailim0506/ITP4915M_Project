@@ -15,12 +15,25 @@ namespace templatev1.Stock_Manag
         string supplierID;
         DataTable dt;
         controller.supplierController controller;
+        private string uName, UID;
+        controller.accountController accountController;
+        controller.UIController UIController;
         public editSupplier(string supplierID)  
         {
             InitializeComponent();
             this.supplierID = supplierID;
             controller = new controller.supplierController();
             lblSupplierNumber.Text = supplierID;
+        }
+
+        public editSupplier(string supplierID, controller.accountController accountController, controller.UIController UIController)
+        {
+            InitializeComponent();
+            this.supplierID = supplierID;
+            controller = new controller.supplierController();
+            lblSupplierNumber.Text = supplierID;
+            this.accountController = accountController;
+            this.UIController = UIController;
         }
 
         private void editSupplier_Load(object sender, EventArgs e)
@@ -30,6 +43,7 @@ namespace templatev1.Stock_Manag
             tbPhone.Text = controller.getSupplierPhone(supplierID);
             tbAddress.Text = controller.getSupplierAddress(supplierID);
             lblCountry.Text = controller.getSupplierCountry(supplierID);
+            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
         }
 
         private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)

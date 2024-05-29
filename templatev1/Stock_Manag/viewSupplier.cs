@@ -14,6 +14,9 @@ namespace templatev1.Stock_Manag
     {
         DataTable dt;
         controller.supplierController controller;
+        private string uName, UID;
+        controller.accountController accountController;
+        controller.UIController UIController;
 
         public viewSupplier()
         {
@@ -21,9 +24,18 @@ namespace templatev1.Stock_Manag
             controller = new controller.supplierController();
         }
 
+        public viewSupplier(controller.accountController accountController, controller.UIController UIController)
+        {
+            InitializeComponent();
+            controller = new controller.supplierController();
+            this.accountController = accountController;
+            this.UIController = UIController;
+        }
+
         private void viewSupplier_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
             int numOfSupplier = controller.countSupplier();
             dt = controller.getSupplierList();
 
@@ -59,7 +71,7 @@ namespace templatev1.Stock_Manag
                     if (control.Name == $"lblID{index}")
                     {
                         label = (Label)control;
-                        Form editSupplier = new editSupplier(control.Text.ToString());
+                        Form editSupplier = new editSupplier(control.Text.ToString(), accountController,UIController);
                         this.Hide();
                         editSupplier.StartPosition = FormStartPosition.Manual;
                         editSupplier.Location = this.Location;
@@ -131,7 +143,7 @@ namespace templatev1.Stock_Manag
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Form addSupplier = new addSupplier();
+            Form addSupplier = new addSupplier(accountController, UIController);
             this.Hide();
             addSupplier.StartPosition = FormStartPosition.Manual;
             addSupplier.Location = this.Location;
