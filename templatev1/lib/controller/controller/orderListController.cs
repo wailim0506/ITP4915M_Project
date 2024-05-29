@@ -44,23 +44,23 @@ namespace controller
             return dt;
         }
 
-        public string getStaffAccountID(string id) //staff account id
+        public string getStafftID(string id) //staff account id
         {
-            controller.accountController ac = new controller.accountController();
+            accountController ac = new accountController();
             DataTable dt = ac.getStaffDetail(id);
             return dt.Rows[0][0].ToString();
         }
 
         public string getStaffName(string id) //staff account id
         {
-            controller.accountController ac = new controller.accountController();
+            accountController ac = new accountController();
             DataTable dt = ac.getStaffDetail(id);
             return $"{dt.Rows[0][2].ToString()} {dt.Rows[0][3].ToString()}";
         }
 
         public string getStaffContact(string id)
         {
-            controller.accountController ac = new controller.accountController();
+            accountController ac = new accountController();
             DataTable dt = ac.getStaffDetail(id);
             return dt.Rows[0][6].ToString();
         }

@@ -125,6 +125,14 @@ namespace controller
             adr.Fill(dt);
             return dt;
         }
-
+        
+        public DataTable getCustomerDetail(string id) //use in viewOrderController   //id = customerID
+        {
+            DataTable dt = new DataTable();
+            string sqlCmd = $"SELECT * FROM customer WHERE customerID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return dt;
+        }
     }
 }

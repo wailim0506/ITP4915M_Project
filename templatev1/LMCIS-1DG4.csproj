@@ -82,6 +82,12 @@
     <Compile Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.Designer.cs">
       <DependentUpon>viewSparePartA1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\customerViewOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\customerViewOrder.Designer.cs">
+      <DependentUpon>customerViewOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Stock_Manag\addSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -353,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerOrderList.resx">
       <DependentUpon>customerOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\customerViewOrder.resx">
+      <DependentUpon>customerViewOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock_Manag\addSupplier.resx">
       <DependentUpon>addSupplier.cs</DependentUpon>
