@@ -51,11 +51,9 @@ namespace templatev1
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.palSelect3 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
@@ -63,6 +61,8 @@ namespace templatev1
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.palNav = new System.Windows.Forms.Panel();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.palOrderInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -75,9 +75,9 @@ namespace templatev1
             this.splitContainer3.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
+            this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            this.palNav.SuspendLayout();
             this.SuspendLayout();
             // 
             // palOrderInfo
@@ -299,16 +299,6 @@ namespace templatev1
             this.palSelect1.Size = new System.Drawing.Size(10, 55);
             this.palSelect1.TabIndex = 4;
             // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -344,18 +334,6 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -467,6 +445,28 @@ namespace templatev1
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
             // confirmedOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -480,6 +480,7 @@ namespace templatev1
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "confirmedOrder";
             this.Text = "Legend Motor Company Integrated System";
+            this.Load += new System.EventHandler(this.confirmedOrder_Load);
             this.palOrderInfo.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -495,9 +496,9 @@ namespace templatev1
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
+            this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.palNav.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -39,7 +39,7 @@ namespace templatev1.Stock_Manag
             int numOfSupplier = controller.countSupplier();
             dt = controller.getSupplierList();
 
-            //create label that contain supplier info in database
+            //create label 
             int yPosition = 15;
             for (int i = 1; i <= numOfSupplier; i++)
             {

@@ -111,5 +111,20 @@ namespace controller
             return UserID;
         }
 
+        public DataTable getStaffDetail(string id) //use in OrderListController     //id = staff account id
+        {
+            DataTable dt = new DataTable();
+            string sqlCmd = $"SELECT staffID FROM staff_account WHERE staffAccountID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            string staffID = dt.Rows[0][0].ToString();
+            //get detail
+            sqlCmd = $"SELECT * FROM staff WHERE staffID = \'{staffID}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            dt = new DataTable();
+            adr.Fill(dt);
+            return dt;
+        }
+
     }
 }

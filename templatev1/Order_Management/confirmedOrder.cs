@@ -16,5 +16,10 @@ namespace templatev1
         {
             InitializeComponent();
         }
+
+        private void confirmedOrder_Load(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+        }
     }
 }

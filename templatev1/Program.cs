@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using templatev1.Online_Ordering_Platform;
 
 namespace templatev1
 {
@@ -17,7 +18,8 @@ namespace templatev1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
-            Application.Run(new Online_Ordering_Platform.sparePartListD());
+            Application.Run(new customerOrderList());
+            
         }
     }
 }
