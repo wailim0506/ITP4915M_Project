@@ -31,16 +31,20 @@ namespace templatev1.Order_Management
             this.UIController = UIController;
             this.controller = new controller.viewOrderController();
             //UID = accountController.getUID();
-            //lblUid.Text = UID;
+            
 
             UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
+            lblUid.Text = $"Uid: {UID}";
             this.orderID = orderID;
         }
 
+        
 
         private void customerViewOrder_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true; 
+            lblLoc.Text += $" {orderID.ToString()}";
             DataTable dt =  controller.getOrder(orderID);
 
             //order basic info
@@ -104,19 +108,32 @@ namespace templatev1.Order_Management
                 grpSparePart.Controls.Add(lblUnitPrice);
                 grpSparePart.Controls.Add(lblRowTotalPrice);
             }
-            lblOrderTotalPriceLabel.Location = new System.Drawing.Point( //no overlap with grpSparePart
-                lblOrderTotalPriceLabel.Location.X,
-                grpSparePart.Location.Y + grpSparePart.Height + 10 
-            );
+            lblOrderTotalPriceLabel.Location = new System.Drawing.Point(lblOrderTotalPriceLabel.Location.X, grpSparePart.Location.Y + grpSparePart.Height + 10 );//no overlap with grpSparePart
 
-            lblOrderTotalPrice.Location = new System.Drawing.Point(
-                lblOrderTotalPrice.Location.X,
-                grpSparePart.Location.Y + grpSparePart.Height + 10 
-            );
+            lblOrderTotalPrice.Location = new System.Drawing.Point( lblOrderTotalPrice.Location.X, grpSparePart.Location.Y + grpSparePart.Height + 10);
 
             lblOrderTotalPrice.Text += orderTotalPrice.ToString();
+
+            lblCorpName.Location = new System.Drawing.Point(lblCorpName.Location.X, btnEdit.Location.Y); //move if screen larger
+            btnProFile.Location = new System.Drawing.Point(btnProFile.Location.X, lblCorpName.Location.Y-60);
+            btnLogOut.Location = new System.Drawing.Point(btnLogOut.Location.X, btnProFile.Location.Y - 46); 
         }
-        
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss"); 
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            this.Hide();
+            customerOrderList.StartPosition = FormStartPosition.Manual;
+            customerOrderList.Location = this.Location;
+            customerOrderList.ShowDialog();
+            this.Close();
+        }
+
 
 
 

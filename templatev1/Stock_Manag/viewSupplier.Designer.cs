@@ -90,7 +90,7 @@ namespace templatev1.Stock_Manag
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 764);
+            this.palNav.Size = new System.Drawing.Size(198, 774);
             this.palNav.TabIndex = 1;
             // 
             // palSelect5
@@ -424,7 +424,7 @@ namespace templatev1.Stock_Manag
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1289, 764);
+            this.ClientSize = new System.Drawing.Size(1289, 774);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);

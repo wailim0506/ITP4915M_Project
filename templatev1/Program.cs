@@ -17,8 +17,8 @@ namespace templatev1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            //Application.Run(new Online_Ordering_Platform.sparePartListA());
+            //Application.Run(new Login());
+            Application.Run(new customerOrderList());
         }
     }
 }

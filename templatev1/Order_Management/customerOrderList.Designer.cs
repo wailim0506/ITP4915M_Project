@@ -233,7 +233,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.lblTimeDate.AutoSize = true;
             this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 10);
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
             this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
@@ -243,8 +243,8 @@ namespace templatev1.Online_Ordering_Platform
             // palDate
             // 
             this.palDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.palDate.Controls.Add(this.lblLoc);
             this.palDate.Controls.Add(this.lblUid);
-            this.palDate.Controls.Add(this.lblTimeDate);
             this.palDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.palDate.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.palDate.Location = new System.Drawing.Point(198, 41);
@@ -259,14 +259,14 @@ namespace templatev1.Online_Ordering_Platform
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 10);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(161, 22);
+            this.lblLoc.Size = new System.Drawing.Size(271, 22);
             this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Order Management";
+            this.lblLoc.Text = "Order Management -> Order List";
             // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.palLoc.Controls.Add(this.lblLoc);
+            this.palLoc.Controls.Add(this.lblTimeDate);
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 0);
             this.palLoc.Name = "palLoc";

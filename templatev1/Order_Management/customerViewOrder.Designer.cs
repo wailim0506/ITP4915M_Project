@@ -80,6 +80,9 @@ namespace templatev1.Order_Management
             this.lblDelivermanContact = new System.Windows.Forms.Label();
             this.lblShippingDate = new System.Windows.Forms.Label();
             this.lblExpressNum = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnViewInvoice = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palNav.SuspendLayout();
@@ -180,7 +183,7 @@ namespace templatev1.Order_Management
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 924);
+            this.palNav.Size = new System.Drawing.Size(198, 891);
             this.palNav.TabIndex = 34;
             // 
             // palSelect5
@@ -336,6 +339,10 @@ namespace templatev1.Order_Management
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // lblOrderDateLabel
             // 
             this.lblOrderDateLabel.AutoSize = true;
@@ -362,9 +369,9 @@ namespace templatev1.Order_Management
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 10);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(161, 22);
+            this.lblLoc.Size = new System.Drawing.Size(346, 22);
             this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Order Management";
+            this.lblLoc.Text = "Order Management -> Order List -> Order";
             // 
             // palDate
             // 
@@ -575,9 +582,8 @@ namespace templatev1.Order_Management
             this.lblDelivermanID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanID.Location = new System.Drawing.Point(893, 123);
             this.lblDelivermanID.Name = "lblDelivermanID";
-            this.lblDelivermanID.Size = new System.Drawing.Size(117, 20);
+            this.lblDelivermanID.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanID.TabIndex = 62;
-            this.lblDelivermanID.Text = "Deliverman ID :";
             // 
             // lblDelivermanName
             // 
@@ -585,9 +591,8 @@ namespace templatev1.Order_Management
             this.lblDelivermanName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanName.Location = new System.Drawing.Point(893, 170);
             this.lblDelivermanName.Name = "lblDelivermanName";
-            this.lblDelivermanName.Size = new System.Drawing.Size(117, 20);
+            this.lblDelivermanName.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanName.TabIndex = 63;
-            this.lblDelivermanName.Text = "Deliverman ID :";
             // 
             // lblDelivermanContact
             // 
@@ -595,9 +600,8 @@ namespace templatev1.Order_Management
             this.lblDelivermanContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanContact.Location = new System.Drawing.Point(893, 217);
             this.lblDelivermanContact.Name = "lblDelivermanContact";
-            this.lblDelivermanContact.Size = new System.Drawing.Size(117, 20);
+            this.lblDelivermanContact.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanContact.TabIndex = 64;
-            this.lblDelivermanContact.Text = "Deliverman ID :";
             // 
             // lblShippingDate
             // 
@@ -605,9 +609,8 @@ namespace templatev1.Order_Management
             this.lblShippingDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShippingDate.Location = new System.Drawing.Point(893, 262);
             this.lblShippingDate.Name = "lblShippingDate";
-            this.lblShippingDate.Size = new System.Drawing.Size(117, 20);
+            this.lblShippingDate.Size = new System.Drawing.Size(0, 20);
             this.lblShippingDate.TabIndex = 65;
-            this.lblShippingDate.Text = "Deliverman ID :";
             // 
             // lblExpressNum
             // 
@@ -615,16 +618,52 @@ namespace templatev1.Order_Management
             this.lblExpressNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpressNum.Location = new System.Drawing.Point(893, 311);
             this.lblExpressNum.Name = "lblExpressNum";
-            this.lblExpressNum.Size = new System.Drawing.Size(117, 20);
+            this.lblExpressNum.Size = new System.Drawing.Size(0, 20);
             this.lblExpressNum.TabIndex = 66;
-            this.lblExpressNum.Text = "Deliverman ID :";
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.AutoSize = true;
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(848, 834);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(94, 49);
+            this.btnReturn.TabIndex = 67;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // btnViewInvoice
+            // 
+            this.btnViewInvoice.AutoSize = true;
+            this.btnViewInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewInvoice.Location = new System.Drawing.Point(958, 834);
+            this.btnViewInvoice.Name = "btnViewInvoice";
+            this.btnViewInvoice.Size = new System.Drawing.Size(107, 49);
+            this.btnViewInvoice.TabIndex = 68;
+            this.btnViewInvoice.Text = "View Invoice";
+            this.btnViewInvoice.UseVisualStyleBackColor = true;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.AutoSize = true;
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(1076, 834);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(94, 49);
+            this.btnEdit.TabIndex = 69;
+            this.btnEdit.Text = "Edit Order";
+            this.btnEdit.UseVisualStyleBackColor = true;
             // 
             // customerViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1273, 924);
+            this.ClientSize = new System.Drawing.Size(1273, 891);
+            this.Controls.Add(this.btnEdit);
+            this.Controls.Add(this.btnViewInvoice);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblExpressNum);
             this.Controls.Add(this.lblShippingDate);
             this.Controls.Add(this.lblDelivermanContact);
@@ -723,5 +762,8 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Label lblDelivermanContact;
         private System.Windows.Forms.Label lblShippingDate;
         private System.Windows.Forms.Label lblExpressNum;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnViewInvoice;
+        private System.Windows.Forms.Button btnEdit;
     }
 }

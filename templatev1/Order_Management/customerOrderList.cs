@@ -23,6 +23,7 @@ namespace templatev1.Online_Ordering_Platform
             controller = new controller.orderListController();
             UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
+            lblUid.Text = $"Uid: {UID}";
         }
 
         public customerOrderList(controller.accountController accountController, controller.UIController UIController)
@@ -32,6 +33,8 @@ namespace templatev1.Online_Ordering_Platform
             this.UIController = UIController;
             controller = new controller.orderListController();
             //UID = accountController.getUID();
+            UID = "LMC00001"; //hard code for testing
+            lblUid.Text = $"Uid: {UID}";
         }
 
         private void timer1_Tick(object sender, EventArgs e)
