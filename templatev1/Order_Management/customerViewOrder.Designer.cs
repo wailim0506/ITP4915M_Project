@@ -35,8 +35,6 @@ namespace templatev1.Order_Management
             this.lblStaffLabel = new System.Windows.Forms.Label();
             this.grpSparePart = new System.Windows.Forms.GroupBox();
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -83,11 +81,16 @@ namespace templatev1.Order_Management
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnViewInvoice = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.pnlSP = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.grpSparePart.SuspendLayout();
             this.palNav.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStatusLabel
@@ -122,10 +125,10 @@ namespace templatev1.Order_Management
             // 
             // grpSparePart
             // 
-            this.grpSparePart.AutoSize = true;
-            this.grpSparePart.Location = new System.Drawing.Point(242, 477);
+            this.grpSparePart.Controls.Add(this.pnlSP);
+            this.grpSparePart.Location = new System.Drawing.Point(218, 486);
             this.grpSparePart.Name = "grpSparePart";
-            this.grpSparePart.Size = new System.Drawing.Size(928, 285);
+            this.grpSparePart.Size = new System.Drawing.Size(940, 285);
             this.grpSparePart.TabIndex = 40;
             this.grpSparePart.TabStop = false;
             // 
@@ -138,28 +141,6 @@ namespace templatev1.Order_Management
             this.lblOrderIDLabel.Size = new System.Drawing.Size(78, 20);
             this.lblOrderIDLabel.TabIndex = 37;
             this.lblOrderIDLabel.Text = "Order ID :";
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 26);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 50);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 14);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 61);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
             // 
             // palNav
             // 
@@ -224,7 +205,7 @@ namespace templatev1.Order_Management
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 644);
+            this.btnProFile.Location = new System.Drawing.Point(0, 728);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 37);
@@ -246,7 +227,7 @@ namespace templatev1.Order_Management
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 690);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 774);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 37);
@@ -258,7 +239,7 @@ namespace templatev1.Order_Management
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 750);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 834);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 53);
@@ -360,7 +341,7 @@ namespace templatev1.Order_Management
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 43);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(1075, 41);
+            this.palLoc.Size = new System.Drawing.Size(976, 41);
             this.palLoc.TabIndex = 44;
             // 
             // lblLoc
@@ -383,7 +364,7 @@ namespace templatev1.Order_Management
             this.palDate.Location = new System.Drawing.Point(198, 0);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(1075, 43);
+            this.palDate.Size = new System.Drawing.Size(976, 43);
             this.palDate.TabIndex = 43;
             // 
             // lblUid
@@ -431,7 +412,7 @@ namespace templatev1.Order_Management
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(248, 463);
+            this.label1.Location = new System.Drawing.Point(259, 472);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 20);
             this.label1.TabIndex = 47;
@@ -441,7 +422,7 @@ namespace templatev1.Order_Management
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(337, 463);
+            this.label2.Location = new System.Drawing.Point(348, 472);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 20);
             this.label2.TabIndex = 48;
@@ -451,9 +432,9 @@ namespace templatev1.Order_Management
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(440, 463);
+            this.label3.Location = new System.Drawing.Point(451, 472);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(306, 20);
+            this.label3.Size = new System.Drawing.Size(300, 20);
             this.label3.TabIndex = 49;
             this.label3.Text = "Name";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -461,9 +442,9 @@ namespace templatev1.Order_Management
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(752, 463);
+            this.label4.Location = new System.Drawing.Point(757, 472);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 20);
+            this.label4.Size = new System.Drawing.Size(106, 20);
             this.label4.TabIndex = 50;
             this.label4.Text = "Quantity";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -471,7 +452,7 @@ namespace templatev1.Order_Management
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(893, 463);
+            this.label5.Location = new System.Drawing.Point(869, 472);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(144, 20);
             this.label5.TabIndex = 51;
@@ -481,9 +462,9 @@ namespace templatev1.Order_Management
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(1043, 463);
+            this.label6.Location = new System.Drawing.Point(1019, 472);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(127, 20);
+            this.label6.Size = new System.Drawing.Size(114, 20);
             this.label6.TabIndex = 52;
             this.label6.Text = "Total Price";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -491,7 +472,7 @@ namespace templatev1.Order_Management
             // lblOrderTotalPrice
             // 
             this.lblOrderTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTotalPrice.Location = new System.Drawing.Point(1043, 765);
+            this.lblOrderTotalPrice.Location = new System.Drawing.Point(1006, 774);
             this.lblOrderTotalPrice.Name = "lblOrderTotalPrice";
             this.lblOrderTotalPrice.Size = new System.Drawing.Size(127, 20);
             this.lblOrderTotalPrice.TabIndex = 53;
@@ -502,7 +483,7 @@ namespace templatev1.Order_Management
             // 
             this.lblOrderTotalPriceLabel.AutoSize = true;
             this.lblOrderTotalPriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTotalPriceLabel.Location = new System.Drawing.Point(954, 765);
+            this.lblOrderTotalPriceLabel.Location = new System.Drawing.Point(904, 774);
             this.lblOrderTotalPriceLabel.Name = "lblOrderTotalPriceLabel";
             this.lblOrderTotalPriceLabel.Size = new System.Drawing.Size(109, 20);
             this.lblOrderTotalPriceLabel.TabIndex = 54;
@@ -552,11 +533,11 @@ namespace templatev1.Order_Management
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(760, 311);
+            this.label11.Location = new System.Drawing.Point(753, 311);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 20);
+            this.label11.Size = new System.Drawing.Size(134, 20);
             this.label11.TabIndex = 59;
-            this.label11.Text = "Expree Number :";
+            this.label11.Text = "Express Number :";
             // 
             // label12
             // 
@@ -573,7 +554,7 @@ namespace templatev1.Order_Management
             this.lblShippingAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShippingAddress.Location = new System.Drawing.Point(893, 358);
             this.lblShippingAddress.Name = "lblShippingAddress";
-            this.lblShippingAddress.Size = new System.Drawing.Size(277, 92);
+            this.lblShippingAddress.Size = new System.Drawing.Size(263, 92);
             this.lblShippingAddress.TabIndex = 61;
             // 
             // lblDelivermanID
@@ -624,8 +605,9 @@ namespace templatev1.Order_Management
             // btnReturn
             // 
             this.btnReturn.AutoSize = true;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(848, 834);
+            this.btnReturn.Location = new System.Drawing.Point(723, 830);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(94, 49);
             this.btnReturn.TabIndex = 67;
@@ -636,8 +618,9 @@ namespace templatev1.Order_Management
             // btnViewInvoice
             // 
             this.btnViewInvoice.AutoSize = true;
+            this.btnViewInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewInvoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewInvoice.Location = new System.Drawing.Point(958, 834);
+            this.btnViewInvoice.Location = new System.Drawing.Point(939, 830);
             this.btnViewInvoice.Name = "btnViewInvoice";
             this.btnViewInvoice.Size = new System.Drawing.Size(107, 49);
             this.btnViewInvoice.TabIndex = 68;
@@ -647,20 +630,67 @@ namespace templatev1.Order_Management
             // btnEdit
             // 
             this.btnEdit.AutoSize = true;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(1076, 834);
+            this.btnEdit.Location = new System.Drawing.Point(1052, 830);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 49);
             this.btnEdit.TabIndex = 69;
             this.btnEdit.Text = "Edit Order";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
+            // pnlSP
+            // 
+            this.pnlSP.AutoScroll = true;
+            this.pnlSP.Location = new System.Drawing.Point(3, 8);
+            this.pnlSP.Name = "pnlSP";
+            this.pnlSP.Size = new System.Drawing.Size(935, 270);
+            this.pnlSP.TabIndex = 0;
+            // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 26);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 50);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 14);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 61);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.AutoSize = true;
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(823, 830);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(110, 49);
+            this.btnDelete.TabIndex = 70;
+            this.btnDelete.Text = "Delete Order";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // customerViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1273, 891);
+            this.ClientSize = new System.Drawing.Size(1174, 891);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnViewInvoice);
             this.Controls.Add(this.btnReturn);
@@ -695,16 +725,18 @@ namespace templatev1.Order_Management
             this.Controls.Add(this.lblOrderIDLabel);
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.lblOrderDateLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "customerViewOrder";
             this.Text = "customerViewOrder";
             this.Load += new System.EventHandler(this.customerViewOrder_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
+            this.grpSparePart.ResumeLayout(false);
             this.palNav.ResumeLayout(false);
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,5 +797,7 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnViewInvoice;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.Panel pnlSP;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

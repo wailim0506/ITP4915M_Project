@@ -52,17 +52,19 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.picHome = new System.Windows.Forms.PictureBox();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblStaffContact = new System.Windows.Forms.Label();
-            this.lblStaff = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
-            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.pnlOrder = new System.Windows.Forms.Panel();
             this.lblOrderID = new System.Windows.Forms.Label();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.lblStaff = new System.Windows.Forms.Label();
+            this.lblStaffContact = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.palDate.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.grpOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // palSelect5
@@ -103,7 +105,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 644);
+            this.btnProFile.Location = new System.Drawing.Point(0, 606);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 37);
@@ -125,7 +127,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 690);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 652);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 37);
@@ -137,7 +139,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 750);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 712);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 53);
@@ -250,7 +252,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Location = new System.Drawing.Point(198, 41);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(979, 43);
+            this.palDate.Size = new System.Drawing.Size(929, 43);
             this.palDate.TabIndex = 26;
             // 
             // lblLoc
@@ -270,7 +272,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 0);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(979, 41);
+            this.palLoc.Size = new System.Drawing.Size(929, 41);
             this.palLoc.TabIndex = 27;
             // 
             // timer1
@@ -299,7 +301,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 806);
+            this.palNav.Size = new System.Drawing.Size(198, 766);
             this.palNav.TabIndex = 25;
             // 
             // picBWMode
@@ -324,69 +326,78 @@ namespace templatev1.Online_Ordering_Platform
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
             // 
-            // lblStatus
+            // grpOrder
             // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(908, 111);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(56, 20);
-            this.lblStatus.TabIndex = 33;
-            this.lblStatus.Text = "Status";
+            this.grpOrder.Controls.Add(this.pnlOrder);
+            this.grpOrder.Location = new System.Drawing.Point(208, 129);
+            this.grpOrder.Name = "grpOrder";
+            this.grpOrder.Size = new System.Drawing.Size(890, 625);
+            this.grpOrder.TabIndex = 31;
+            this.grpOrder.TabStop = false;
+            // 
+            // pnlOrder
+            // 
+            this.pnlOrder.AutoScroll = true;
+            this.pnlOrder.Location = new System.Drawing.Point(6, 10);
+            this.pnlOrder.Name = "pnlOrder";
+            this.pnlOrder.Size = new System.Drawing.Size(879, 607);
+            this.pnlOrder.TabIndex = 0;
+            // 
+            // lblOrderID
+            // 
+            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderID.Location = new System.Drawing.Point(224, 111);
+            this.lblOrderID.Name = "lblOrderID";
+            this.lblOrderID.Size = new System.Drawing.Size(109, 20);
+            this.lblOrderID.TabIndex = 28;
+            this.lblOrderID.Text = "Order ID";
+            this.lblOrderID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Location = new System.Drawing.Point(339, 111);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(112, 20);
+            this.lblOrderDate.TabIndex = 29;
+            this.lblOrderDate.Text = "Order Date";
+            this.lblOrderDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblStaff
+            // 
+            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaff.Location = new System.Drawing.Point(457, 111);
+            this.lblStaff.Name = "lblStaff";
+            this.lblStaff.Size = new System.Drawing.Size(180, 20);
+            this.lblStaff.TabIndex = 30;
+            this.lblStaff.Text = "Staff Incharge";
+            this.lblStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblStaffContact
             // 
             this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffContact.Location = new System.Drawing.Point(722, 111);
+            this.lblStaffContact.Location = new System.Drawing.Point(643, 111);
             this.lblStaffContact.Name = "lblStaffContact";
-            this.lblStaffContact.Size = new System.Drawing.Size(177, 20);
+            this.lblStaffContact.Size = new System.Drawing.Size(219, 20);
             this.lblStaffContact.TabIndex = 32;
             this.lblStaffContact.Text = "Staff Contact";
+            this.lblStaffContact.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblStaff
+            // lblStatus
             // 
-            this.lblStaff.AutoSize = true;
-            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(533, 111);
-            this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(111, 20);
-            this.lblStaff.TabIndex = 30;
-            this.lblStaff.Text = "Staff Incharge";
-            // 
-            // grpOrder
-            // 
-            this.grpOrder.AutoSize = true;
-            this.grpOrder.Location = new System.Drawing.Point(208, 129);
-            this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(910, 621);
-            this.grpOrder.TabIndex = 31;
-            this.grpOrder.TabStop = false;
-            // 
-            // lblOrderDate
-            // 
-            this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDate.Location = new System.Drawing.Point(373, 111);
-            this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(88, 20);
-            this.lblOrderDate.TabIndex = 29;
-            this.lblOrderDate.Text = "Order Date";
-            // 
-            // lblOrderID
-            // 
-            this.lblOrderID.AutoSize = true;
-            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(228, 109);
-            this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(70, 20);
-            this.lblOrderID.TabIndex = 28;
-            this.lblOrderID.Text = "Order ID";
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(868, 111);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(115, 20);
+            this.lblStatus.TabIndex = 33;
+            this.lblStatus.Text = "Status";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // customerOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1177, 806);
+            this.ClientSize = new System.Drawing.Size(1127, 766);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStaffContact);
             this.Controls.Add(this.lblStaff);
@@ -406,8 +417,8 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
+            this.grpOrder.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -435,11 +446,12 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel palNav;
-        private System.Windows.Forms.Label lblStatus;
-        private System.Windows.Forms.Label lblStaffContact;
-        private System.Windows.Forms.Label lblStaff;
         private System.Windows.Forms.GroupBox grpOrder;
-        private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.Panel pnlOrder;
         private System.Windows.Forms.Label lblOrderID;
+        private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.Label lblStaff;
+        private System.Windows.Forms.Label lblStaffContact;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

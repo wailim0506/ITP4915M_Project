@@ -33,10 +33,10 @@ namespace templatev1
             int wordCount = CountWords(feedback);
             if (wordCount > 100)
             {
-                MessageBox.Show("Word Amount Exceed."); //alert the user not exceed word count 
+                MessageBox.Show("Word Amount Exceed.","Too Many Words", MessageBoxButtons.OK, MessageBoxIcon.Error); //alert the user not exceed word count 
             }else if(wordCount <= 0)
             {
-                MessageBox.Show("Please enter something"); //alert the user the textbox is empty
+                MessageBox.Show("Please enter something","Empty Feedback", MessageBoxButtons.OK, MessageBoxIcon.Error); //alert the user the textbox is empty
             }
             else
             {

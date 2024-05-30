@@ -17,19 +17,14 @@ namespace controller
             int count = 0;
             string sqlCmd = "SELECT COUNT(*) FROM feedback";
             try
-            {
-                // Open the connection
+            {                
                 conn.Open();
-
-                // Create the MySqlCommand object
                 using (MySqlCommand cmd = new MySqlCommand(sqlCmd, conn))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        // Read all rows from the result set
+                    {                        
                         while (reader.Read())
-                        {
-                            // Get the value from the first column at each row
+                        {         
                             count = reader.GetInt32(0);
                         }
                     }
@@ -41,40 +36,33 @@ namespace controller
             }
             finally
             {
-                conn.Close(); //close connection
+                conn.Close(); 
             }
-
             return count;
         }
 
         public Boolean addFeedback(string custID, string feedback)
-        {
-            //Data to be inserted
+        {            
             string feedbackID = feedBackIDGenerator();
             string customerID = custID;
             string content = feedback;
-            string feedbackDate = DateTime.Now.ToString("dd/MM/yyyy"); //convert date time to string 
+            string feedbackDate = DateTime.Now.ToString("dd/MM/yyyy"); //today date 
 
             string sqlCmd = "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
 
             try
-            {
-                // Create a new MySqlConnection
+            {    
                 using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    // Open the connection
+                {   
                     connection.Open();
-
-                    // Create a MySqlCommand object
                     using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
                     {
-                        // Add parameters to prevent SQL injection
+                        
                         command.Parameters.AddWithValue("@feedbackID", feedbackID);
                         command.Parameters.AddWithValue("@customerID", customerID);
                         command.Parameters.AddWithValue("@content", content);
                         command.Parameters.AddWithValue("@feedbackDate", feedbackDate);
 
-                        //exceute
                         command.ExecuteNonQuery();
                     }
                 }
@@ -85,7 +73,7 @@ namespace controller
             }
             finally
             {
-                conn.Close(); //close connection
+                conn.Close(); 
             }
             return true;
         }

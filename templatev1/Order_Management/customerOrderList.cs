@@ -49,7 +49,7 @@ namespace templatev1.Online_Ordering_Platform
             dtOrder = controller.getOrder(UID);
 
             //create label
-            int yPosition = 15;
+            int yPosition = 6;
             for (int i = 1; i <= numOfOrder; i++)
             {
                 string staffAccountID = dtOrder.Rows[i - 1][2].ToString(); 
@@ -57,20 +57,20 @@ namespace templatev1.Online_Ordering_Platform
                 string[] d = orderDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be disp;ay
                 orderDate = d[0];
 
-                Label lblID = new Label() { Name = $"lblID{i}", Text = $"{dtOrder.Rows[i - 1][0]}", Location = new System.Drawing.Point(16, yPosition), Font = new Font("Microsoft Sans Serif", 11) };
-                Label lblDate = new Label() { Name = $"lblDate{i}", Text = $"{orderDate}", Location = new System.Drawing.Point(170, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(140, 50) };
-                Label lblStaff = new Label() { Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID), Location = new System.Drawing.Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 50) };
-                Label lblContact = new Label() { Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID), Location = new System.Drawing.Point(517, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 50) };
-                Label lblStatus = new Label() { Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}", Location = new System.Drawing.Point(656, yPosition - 7), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(130, 35), TextAlign = ContentAlignment.MiddleCenter };
-                Button btnView = new Button() { Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(804, yPosition-2), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
+                Label lblID = new Label() { Name = $"lblID{i}", Text = $"{dtOrder.Rows[i - 1][0]}", Location = new System.Drawing.Point(10, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(109, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblDate = new Label() { Name = $"lblDate{i}", Text = $"{orderDate}", Location = new System.Drawing.Point(125, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(112, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblStaff = new Label() { Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID), Location = new System.Drawing.Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(180, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblContact = new Label() { Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID), Location = new System.Drawing.Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(219, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblStatus = new Label() { Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}", Location = new System.Drawing.Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(115, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Button btnView = new Button() { Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(775, yPosition-3), Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
                 btnView.Click += new EventHandler(this.btnView_Click);
-
-                grpOrder.Controls.Add(lblID);
-                grpOrder.Controls.Add(lblDate);
-                grpOrder.Controls.Add(lblStaff);
-                grpOrder.Controls.Add(lblContact);
-                grpOrder.Controls.Add(lblStatus);
-                grpOrder.Controls.Add(btnView);
+                
+                pnlOrder.Controls.Add(lblID);
+                pnlOrder.Controls.Add(lblDate);
+                pnlOrder.Controls.Add(lblStaff);
+                pnlOrder.Controls.Add(lblContact);
+                pnlOrder.Controls.Add(lblStatus);
+                pnlOrder.Controls.Add(btnView);
                 yPosition += 50;
             }
         }
@@ -86,7 +86,7 @@ namespace templatev1.Online_Ordering_Platform
                 if (index != -1) {
                     int i = 0;
 
-                    foreach (Control control in grpOrder.Controls)
+                    foreach (Control control in pnlOrder.Controls)
                     {
                         if (control.Name == $"lblID{index}")
                         {
