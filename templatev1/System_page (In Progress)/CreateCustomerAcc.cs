@@ -12,19 +12,24 @@ namespace templatev1
 {
     public partial class CreateCustomerAcc : Form
     {
+        controller.RecoveryController recoveryController;
+
         public CreateCustomerAcc()
         {
             InitializeComponent();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public CreateCustomerAcc(controller.RecoveryController recoveryController)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            InitializeComponent();
+            this.recoveryController = recoveryController;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            lblUID.Text = "LMC" + recoveryController.getLMCID().ToString("D4");
+            lblCrateDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -38,5 +43,11 @@ namespace templatev1
             Login.ShowDialog();
             this.Close();
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+        }
+
     }
 }

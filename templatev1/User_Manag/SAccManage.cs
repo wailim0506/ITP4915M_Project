@@ -12,9 +12,22 @@ namespace templatev1
 {
     public partial class SAccManage : Form
     {
+        private string uName, UID;
+        controller.accountController accountController;
+        controller.UIController UIController;
+
         public SAccManage()
         {
             InitializeComponent();
+            palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+        }
+
+        public SAccManage(controller.accountController accountController, controller.UIController UIController)
+        {
+            InitializeComponent();
+            palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            this.accountController = accountController;
+            this.UIController = UIController;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -24,12 +37,20 @@ namespace templatev1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-            palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
-            setIndicator(controller.UIController.getIndicator("User Managemnet"));
+            Initialization();
+        }
 
-            /*For determine which button needs to be shown.
-            dynamic btnFun = controller.UIController.showFun();
+        private void Initialization()
+        {
+            setIndicator(UIController.getIndicator("User Managemnet"));
+            timer1.Enabled = true;
+            UID = accountController.getUID();
+            uName = accountController.getName();
+            lblUid.Text = "UID: " + UID;
+
+
+            //For determine which button needs to be shown.
+            dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -40,7 +61,7 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-            */
+
         }
 
         private void setIndicator(int btnNo)

@@ -42,7 +42,6 @@
             this.lblTitUID = new System.Windows.Forms.Label();
             this.lblTitCreateDate = new System.Windows.Forms.Label();
             this.chkNGDateOfBirth = new System.Windows.Forms.CheckBox();
-            this.calDateOfBirth = new System.Windows.Forms.MonthCalendar();
             this.lblTitDateOfBirth = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
@@ -69,6 +68,7 @@
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbConfirmPass = new System.Windows.Forms.TextBox();
             this.grpPass = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.palTIME.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpContact.SuspendLayout();
@@ -125,8 +125,8 @@
             // 
             // btnRemoveIMG
             // 
-            this.btnRemoveIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnRemoveIMG.Location = new System.Drawing.Point(1016, 341);
+            this.btnRemoveIMG.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.btnRemoveIMG.Location = new System.Drawing.Point(971, 389);
             this.btnRemoveIMG.Name = "btnRemoveIMG";
             this.btnRemoveIMG.Size = new System.Drawing.Size(142, 29);
             this.btnRemoveIMG.TabIndex = 93;
@@ -135,11 +135,14 @@
             // 
             // cmbPayment
             // 
-            this.cmbPayment.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPayment.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbPayment.FormattingEnabled = true;
             this.cmbPayment.Items.AddRange(new object[] {
-            "Master"});
-            this.cmbPayment.Location = new System.Drawing.Point(190, 567);
+            "AmericanExpress",
+            "MasterCard",
+            "UnionPay",
+            "Visa"});
+            this.cmbPayment.Location = new System.Drawing.Point(196, 451);
             this.cmbPayment.Name = "cmbPayment";
             this.cmbPayment.Size = new System.Drawing.Size(140, 27);
             this.cmbPayment.TabIndex = 92;
@@ -148,7 +151,7 @@
             // 
             this.lblPaymant.AutoSize = true;
             this.lblPaymant.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPaymant.Location = new System.Drawing.Point(54, 570);
+            this.lblPaymant.Location = new System.Drawing.Point(60, 454);
             this.lblPaymant.Name = "lblPaymant";
             this.lblPaymant.Size = new System.Drawing.Size(130, 19);
             this.lblPaymant.TabIndex = 91;
@@ -158,29 +161,27 @@
             // 
             this.lblUID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblUID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUID.Location = new System.Drawing.Point(166, 133);
+            this.lblUID.Location = new System.Drawing.Point(172, 169);
             this.lblUID.Name = "lblUID";
             this.lblUID.Size = new System.Drawing.Size(153, 26);
             this.lblUID.TabIndex = 89;
-            this.lblUID.Text = "LM0001";
             this.lblUID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCrateDate
             // 
             this.lblCrateDate.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblCrateDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCrateDate.Location = new System.Drawing.Point(166, 164);
+            this.lblCrateDate.Location = new System.Drawing.Point(172, 200);
             this.lblCrateDate.Name = "lblCrateDate";
             this.lblCrateDate.Size = new System.Drawing.Size(153, 26);
             this.lblCrateDate.TabIndex = 88;
-            this.lblCrateDate.Text = "2024/01/01";
             this.lblCrateDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitUID
             // 
             this.lblTitUID.AutoSize = true;
             this.lblTitUID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitUID.Location = new System.Drawing.Point(54, 137);
+            this.lblTitUID.Location = new System.Drawing.Point(60, 173);
             this.lblTitUID.Name = "lblTitUID";
             this.lblTitUID.Size = new System.Drawing.Size(43, 19);
             this.lblTitUID.TabIndex = 87;
@@ -190,7 +191,7 @@
             // 
             this.lblTitCreateDate.AutoSize = true;
             this.lblTitCreateDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCreateDate.Location = new System.Drawing.Point(54, 168);
+            this.lblTitCreateDate.Location = new System.Drawing.Point(60, 204);
             this.lblTitCreateDate.Name = "lblTitCreateDate";
             this.lblTitCreateDate.Size = new System.Drawing.Size(95, 19);
             this.lblTitCreateDate.TabIndex = 86;
@@ -199,54 +200,48 @@
             // chkNGDateOfBirth
             // 
             this.chkNGDateOfBirth.AutoSize = true;
-            this.chkNGDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkNGDateOfBirth.Location = new System.Drawing.Point(58, 399);
+            this.chkNGDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.chkNGDateOfBirth.Location = new System.Drawing.Point(170, 406);
             this.chkNGDateOfBirth.Name = "chkNGDateOfBirth";
-            this.chkNGDateOfBirth.Size = new System.Drawing.Size(123, 24);
+            this.chkNGDateOfBirth.Size = new System.Drawing.Size(117, 23);
             this.chkNGDateOfBirth.TabIndex = 85;
             this.chkNGDateOfBirth.Text = "Not provided";
             this.chkNGDateOfBirth.UseVisualStyleBackColor = true;
             // 
-            // calDateOfBirth
-            // 
-            this.calDateOfBirth.Location = new System.Drawing.Point(191, 360);
-            this.calDateOfBirth.Name = "calDateOfBirth";
-            this.calDateOfBirth.TabIndex = 84;
-            // 
             // lblTitDateOfBirth
             // 
             this.lblTitDateOfBirth.AutoSize = true;
-            this.lblTitDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.lblTitDateOfBirth.Location = new System.Drawing.Point(54, 360);
+            this.lblTitDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitDateOfBirth.Location = new System.Drawing.Point(60, 383);
             this.lblTitDateOfBirth.Name = "lblTitDateOfBirth";
-            this.lblTitDateOfBirth.Size = new System.Drawing.Size(108, 20);
+            this.lblTitDateOfBirth.Size = new System.Drawing.Size(104, 19);
             this.lblTitDateOfBirth.TabIndex = 83;
             this.lblTitDateOfBirth.Text = "Date of Birth:";
             // 
             // tbLastName
             // 
-            this.tbLastName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLastName.Location = new System.Drawing.Point(143, 265);
+            this.tbLastName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbLastName.Location = new System.Drawing.Point(170, 301);
             this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(177, 26);
+            this.tbLastName.Size = new System.Drawing.Size(200, 27);
             this.tbLastName.TabIndex = 82;
             // 
             // tbFirstName
             // 
-            this.tbFirstName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFirstName.Location = new System.Drawing.Point(143, 225);
+            this.tbFirstName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbFirstName.Location = new System.Drawing.Point(170, 262);
             this.tbFirstName.Name = "tbFirstName";
-            this.tbFirstName.Size = new System.Drawing.Size(177, 26);
+            this.tbFirstName.Size = new System.Drawing.Size(200, 27);
             this.tbFirstName.TabIndex = 81;
             // 
             // cmbGender
             // 
-            this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
             "Male",
             "Female"});
-            this.cmbGender.Location = new System.Drawing.Point(143, 307);
+            this.cmbGender.Location = new System.Drawing.Point(170, 340);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
             this.cmbGender.TabIndex = 80;
@@ -255,7 +250,7 @@
             // 
             this.lblAccTypeSys.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblAccTypeSys.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccTypeSys.Location = new System.Drawing.Point(167, 101);
+            this.lblAccTypeSys.Location = new System.Drawing.Point(172, 138);
             this.lblAccTypeSys.Name = "lblAccTypeSys";
             this.lblAccTypeSys.Size = new System.Drawing.Size(153, 26);
             this.lblAccTypeSys.TabIndex = 79;
@@ -293,72 +288,72 @@
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(58, 610);
+            this.grpContact.Location = new System.Drawing.Point(50, 538);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(531, 209);
+            this.grpContact.Size = new System.Drawing.Size(545, 209);
             this.grpContact.TabIndex = 76;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
             // 
             // tbAddress2
             // 
-            this.tbAddress2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress2.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.tbAddress2.Location = new System.Drawing.Point(132, 150);
             this.tbAddress2.Name = "tbAddress2";
-            this.tbAddress2.Size = new System.Drawing.Size(302, 26);
+            this.tbAddress2.Size = new System.Drawing.Size(302, 27);
             this.tbAddress2.TabIndex = 97;
             // 
             // tbAddress1
             // 
-            this.tbAddress1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress1.Location = new System.Drawing.Point(132, 120);
+            this.tbAddress1.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbAddress1.Location = new System.Drawing.Point(132, 117);
             this.tbAddress1.Name = "tbAddress1";
-            this.tbAddress1.Size = new System.Drawing.Size(302, 26);
+            this.tbAddress1.Size = new System.Drawing.Size(302, 27);
             this.tbAddress1.TabIndex = 95;
             // 
             // tbEmail
             // 
-            this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbEmail.Location = new System.Drawing.Point(132, 81);
+            this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbEmail.Location = new System.Drawing.Point(132, 80);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(281, 26);
+            this.tbEmail.Size = new System.Drawing.Size(281, 27);
             this.tbEmail.TabIndex = 96;
             // 
             // tbPhone
             // 
-            this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.tbPhone.Location = new System.Drawing.Point(132, 43);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(140, 26);
+            this.tbPhone.Size = new System.Drawing.Size(188, 27);
             this.tbPhone.TabIndex = 34;
             // 
             // lblTitAddress
             // 
             this.lblTitAddress.AutoSize = true;
-            this.lblTitAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitAddress.Location = new System.Drawing.Point(6, 120);
+            this.lblTitAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitAddress.Location = new System.Drawing.Point(10, 120);
             this.lblTitAddress.Name = "lblTitAddress";
-            this.lblTitAddress.Size = new System.Drawing.Size(63, 19);
+            this.lblTitAddress.Size = new System.Drawing.Size(69, 19);
             this.lblTitAddress.TabIndex = 25;
             this.lblTitAddress.Text = "Address:";
             // 
             // lblTitPhone
             // 
             this.lblTitPhone.AutoSize = true;
-            this.lblTitPhone.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPhone.Location = new System.Drawing.Point(6, 46);
+            this.lblTitPhone.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitPhone.Location = new System.Drawing.Point(10, 46);
             this.lblTitPhone.Name = "lblTitPhone";
-            this.lblTitPhone.Size = new System.Drawing.Size(50, 19);
+            this.lblTitPhone.Size = new System.Drawing.Size(57, 19);
             this.lblTitPhone.TabIndex = 23;
             this.lblTitPhone.Text = "Phone:";
             // 
             // lblTitEmail
             // 
             this.lblTitEmail.AutoSize = true;
-            this.lblTitEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitEmail.Location = new System.Drawing.Point(6, 84);
+            this.lblTitEmail.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitEmail.Location = new System.Drawing.Point(10, 83);
             this.lblTitEmail.Name = "lblTitEmail";
-            this.lblTitEmail.Size = new System.Drawing.Size(99, 19);
+            this.lblTitEmail.Size = new System.Drawing.Size(112, 19);
             this.lblTitEmail.TabIndex = 24;
             this.lblTitEmail.Text = "Email Address:";
             // 
@@ -366,7 +361,7 @@
             // 
             this.lblTitAccType.AutoSize = true;
             this.lblTitAccType.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitAccType.Location = new System.Drawing.Point(54, 105);
+            this.lblTitAccType.Location = new System.Drawing.Point(60, 142);
             this.lblTitAccType.Name = "lblTitAccType";
             this.lblTitAccType.Size = new System.Drawing.Size(107, 19);
             this.lblTitAccType.TabIndex = 75;
@@ -376,7 +371,7 @@
             // 
             this.lblTitGender.AutoSize = true;
             this.lblTitGender.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitGender.Location = new System.Drawing.Point(54, 310);
+            this.lblTitGender.Location = new System.Drawing.Point(60, 343);
             this.lblTitGender.Name = "lblTitGender";
             this.lblTitGender.Size = new System.Drawing.Size(64, 19);
             this.lblTitGender.TabIndex = 74;
@@ -386,7 +381,7 @@
             // 
             this.lblTitLastName.AutoSize = true;
             this.lblTitLastName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitLastName.Location = new System.Drawing.Point(54, 268);
+            this.lblTitLastName.Location = new System.Drawing.Point(60, 304);
             this.lblTitLastName.Name = "lblTitLastName";
             this.lblTitLastName.Size = new System.Drawing.Size(83, 19);
             this.lblTitLastName.TabIndex = 73;
@@ -396,7 +391,7 @@
             // 
             this.lblTitFirstName.AutoSize = true;
             this.lblTitFirstName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitFirstName.Location = new System.Drawing.Point(54, 228);
+            this.lblTitFirstName.Location = new System.Drawing.Point(60, 265);
             this.lblTitFirstName.Name = "lblTitFirstName";
             this.lblTitFirstName.Size = new System.Drawing.Size(86, 19);
             this.lblTitFirstName.TabIndex = 72;
@@ -406,7 +401,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.groupBox1.Controls.Add(this.btnUploadIMG);
-            this.groupBox1.Location = new System.Drawing.Point(964, 90);
+            this.groupBox1.Location = new System.Drawing.Point(919, 138);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -416,7 +411,7 @@
             // 
             // btnUploadIMG
             // 
-            this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.btnUploadIMG.Location = new System.Drawing.Point(52, 82);
             this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(4);
             this.btnUploadIMG.Name = "btnUploadIMG";
@@ -428,37 +423,37 @@
             // lblTitPass
             // 
             this.lblTitPass.AutoSize = true;
-            this.lblTitPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPass.Location = new System.Drawing.Point(25, 43);
+            this.lblTitPass.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitPass.Location = new System.Drawing.Point(25, 46);
             this.lblTitPass.Name = "lblTitPass";
-            this.lblTitPass.Size = new System.Drawing.Size(72, 19);
+            this.lblTitPass.Size = new System.Drawing.Size(79, 19);
             this.lblTitPass.TabIndex = 97;
             this.lblTitPass.Text = "Password:";
             // 
             // lblTitConfirmPass
             // 
             this.lblTitConfirmPass.AutoSize = true;
-            this.lblTitConfirmPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitConfirmPass.Location = new System.Drawing.Point(25, 79);
+            this.lblTitConfirmPass.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitConfirmPass.Location = new System.Drawing.Point(25, 83);
             this.lblTitConfirmPass.Name = "lblTitConfirmPass";
-            this.lblTitConfirmPass.Size = new System.Drawing.Size(124, 19);
+            this.lblTitConfirmPass.Size = new System.Drawing.Size(139, 19);
             this.lblTitConfirmPass.TabIndex = 96;
             this.lblTitConfirmPass.Text = "Confirm password:";
             // 
             // tbPass
             // 
-            this.tbPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbPass.Location = new System.Drawing.Point(179, 40);
+            this.tbPass.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbPass.Location = new System.Drawing.Point(179, 43);
             this.tbPass.Name = "tbPass";
-            this.tbPass.Size = new System.Drawing.Size(177, 26);
+            this.tbPass.Size = new System.Drawing.Size(177, 27);
             this.tbPass.TabIndex = 98;
             // 
             // tbConfirmPass
             // 
-            this.tbConfirmPass.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbConfirmPass.Location = new System.Drawing.Point(179, 76);
+            this.tbConfirmPass.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbConfirmPass.Location = new System.Drawing.Point(179, 80);
             this.tbConfirmPass.Name = "tbConfirmPass";
-            this.tbConfirmPass.Size = new System.Drawing.Size(177, 26);
+            this.tbConfirmPass.Size = new System.Drawing.Size(177, 27);
             this.tbConfirmPass.TabIndex = 99;
             // 
             // grpPass
@@ -468,18 +463,27 @@
             this.grpPass.Controls.Add(this.lblTitConfirmPass);
             this.grpPass.Controls.Add(this.tbPass);
             this.grpPass.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpPass.Location = new System.Drawing.Point(621, 610);
+            this.grpPass.Location = new System.Drawing.Point(636, 538);
             this.grpPass.Name = "grpPass";
             this.grpPass.Size = new System.Drawing.Size(476, 209);
             this.grpPass.TabIndex = 100;
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Password";
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(170, 377);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 100;
+            // 
             // CreateCustomerAcc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.grpPass);
             this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.cmbPayment);
@@ -489,7 +493,6 @@
             this.Controls.Add(this.lblTitUID);
             this.Controls.Add(this.lblTitCreateDate);
             this.Controls.Add(this.chkNGDateOfBirth);
-            this.Controls.Add(this.calDateOfBirth);
             this.Controls.Add(this.lblTitDateOfBirth);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
@@ -538,7 +541,6 @@
         private System.Windows.Forms.Label lblTitUID;
         private System.Windows.Forms.Label lblTitCreateDate;
         private System.Windows.Forms.CheckBox chkNGDateOfBirth;
-        private System.Windows.Forms.MonthCalendar calDateOfBirth;
         private System.Windows.Forms.Label lblTitDateOfBirth;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbFirstName;
@@ -565,6 +567,7 @@
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.TextBox tbConfirmPass;
         private System.Windows.Forms.GroupBox grpPass;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
 

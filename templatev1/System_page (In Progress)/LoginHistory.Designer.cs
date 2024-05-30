@@ -1,6 +1,6 @@
 ﻿namespace templatev1
 {
-    partial class Form11
+    partial class LogHis
     {
         /// <summary>
         /// Required designer variable.
@@ -35,25 +35,25 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
+            this.btnFunction5 = new System.Windows.Forms.Button();
+            this.btnFunction4 = new System.Windows.Forms.Button();
+            this.btnFunction3 = new System.Windows.Forms.Button();
+            this.btnFunction2 = new System.Windows.Forms.Button();
+            this.btnFunction1 = new System.Windows.Forms.Button();
             this.palTime = new System.Windows.Forms.Panel();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
-            this.lstDataBase = new System.Windows.Forms.ListBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.btnFunction5 = new System.Windows.Forms.Button();
-            this.btnFunction4 = new System.Windows.Forms.Button();
-            this.btnFunction3 = new System.Windows.Forms.Button();
-            this.btnFunction2 = new System.Windows.Forms.Button();
-            this.btnFunction1 = new System.Windows.Forms.Button();
+            this.dgvLog = new System.Windows.Forms.DataGridView();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -125,6 +125,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -136,94 +137,6 @@
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
-            // 
-            // palTime
-            // 
-            this.palTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.palTime.Controls.Add(this.lblUid);
-            this.palTime.Controls.Add(this.lblTimeDate);
-            this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palTime.Location = new System.Drawing.Point(198, 0);
-            this.palTime.Margin = new System.Windows.Forms.Padding(2);
-            this.palTime.Name = "palTime";
-            this.palTime.Size = new System.Drawing.Size(972, 40);
-            this.palTime.TabIndex = 1;
-            // 
-            // lblUid
-            // 
-            this.lblUid.AutoSize = true;
-            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(814, 9);
-            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(45, 22);
-            this.lblUid.TabIndex = 1;
-            this.lblUid.Text = "Uid:";
-            // 
-            // lblTimeDate
-            // 
-            this.lblTimeDate.AutoSize = true;
-            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
-            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
-            this.lblTimeDate.TabIndex = 0;
-            this.lblTimeDate.Text = "TIME";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // palLoc
-            // 
-            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.palLoc.Controls.Add(this.lblLoc);
-            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 40);
-            this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
-            this.palLoc.TabIndex = 2;
-            // 
-            // lblLoc
-            // 
-            this.lblLoc.AutoSize = true;
-            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(6, 9);
-            this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(241, 22);
-            this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Home -> View Login History";
-            // 
-            // lstDataBase
-            // 
-            this.lstDataBase.FormattingEnabled = true;
-            this.lstDataBase.ItemHeight = 15;
-            this.lstDataBase.Location = new System.Drawing.Point(248, 135);
-            this.lstDataBase.Name = "lstDataBase";
-            this.lstDataBase.Size = new System.Drawing.Size(862, 619);
-            this.lstDataBase.TabIndex = 110;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblDate.Location = new System.Drawing.Point(244, 110);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(47, 22);
-            this.lblDate.TabIndex = 111;
-            this.lblDate.Text = "Date";
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTime.Location = new System.Drawing.Point(453, 110);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(50, 22);
-            this.lblTime.TabIndex = 112;
-            this.lblTime.Text = "Time";
             // 
             // btnFunction5
             // 
@@ -299,20 +212,106 @@
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
-            // Form11
+            // palTime
+            // 
+            this.palTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.palTime.Controls.Add(this.lblUid);
+            this.palTime.Controls.Add(this.lblTimeDate);
+            this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palTime.Location = new System.Drawing.Point(198, 0);
+            this.palTime.Margin = new System.Windows.Forms.Padding(2);
+            this.palTime.Name = "palTime";
+            this.palTime.Size = new System.Drawing.Size(972, 40);
+            this.palTime.TabIndex = 1;
+            // 
+            // lblUid
+            // 
+            this.lblUid.AutoSize = true;
+            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUid.Location = new System.Drawing.Point(814, 9);
+            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUid.Name = "lblUid";
+            this.lblUid.Size = new System.Drawing.Size(45, 22);
+            this.lblUid.TabIndex = 1;
+            this.lblUid.Text = "Uid:";
+            // 
+            // lblTimeDate
+            // 
+            this.lblTimeDate.AutoSize = true;
+            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTimeDate.Name = "lblTimeDate";
+            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
+            this.lblTimeDate.TabIndex = 0;
+            this.lblTimeDate.Text = "TIME";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // palLoc
+            // 
+            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.palLoc.Controls.Add(this.lblLoc);
+            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Name = "palLoc";
+            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.TabIndex = 2;
+            // 
+            // lblLoc
+            // 
+            this.lblLoc.AutoSize = true;
+            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Name = "lblLoc";
+            this.lblLoc.Size = new System.Drawing.Size(241, 22);
+            this.lblLoc.TabIndex = 0;
+            this.lblLoc.Text = "Home -> View Login History";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lblDate.Location = new System.Drawing.Point(285, 110);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(87, 22);
+            this.lblDate.TabIndex = 111;
+            this.lblDate.Text = "DateTime";
+            // 
+            // dgvLog
+            // 
+            this.dgvLog.AllowUserToAddRows = false;
+            this.dgvLog.AllowUserToDeleteRows = false;
+            this.dgvLog.AllowUserToResizeColumns = false;
+            this.dgvLog.AllowUserToResizeRows = false;
+            this.dgvLog.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLog.ColumnHeadersVisible = false;
+            this.dgvLog.GridColor = System.Drawing.SystemColors.Window;
+            this.dgvLog.Location = new System.Drawing.Point(289, 135);
+            this.dgvLog.Name = "dgvLog";
+            this.dgvLog.ReadOnly = true;
+            this.dgvLog.RowHeadersVisible = false;
+            this.dgvLog.RowTemplate.Height = 23;
+            this.dgvLog.Size = new System.Drawing.Size(790, 735);
+            this.dgvLog.TabIndex = 113;
+            // 
+            // LogHis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.dgvLog);
             this.Controls.Add(this.lblDate);
-            this.Controls.Add(this.lstDataBase);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form11";
+            this.Name = "LogHis";
             this.Text = "loginHistory";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
@@ -322,6 +321,7 @@
             this.palTime.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,14 +341,13 @@
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.ListBox lstDataBase;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Button btnFunction5;
         private System.Windows.Forms.Button btnFunction4;
         private System.Windows.Forms.Button btnFunction3;
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
+        private System.Windows.Forms.DataGridView dgvLog;
     }
 }
 

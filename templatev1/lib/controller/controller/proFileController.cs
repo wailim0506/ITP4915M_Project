@@ -45,14 +45,14 @@ namespace controller
 
             if (accountType.Equals("Staff"))          //Staff info
             {
-                sqlStr = "SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
-                    "FROM staff S, department D, staff_account SA WHERE S.deptID = D.deptID AND S.staffID='" + UID + "' AND SA.staffID='" + UID + "'";
+                sqlStr = $"SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
+                    $"FROM staff S, department D, staff_account SA WHERE S.deptID = D.deptID AND S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\'";
 
             }
             else          //Customer info
             {
-                sqlStr = "SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress" +
-                    " FROM customer_account CA, customer C WHERE CA.customerID = '" + UID + "' AND C.customerID = '" + UID + "'";
+                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress " +
+                    $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);

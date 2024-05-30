@@ -442,6 +442,7 @@
             this.btnViewFullRec.TabIndex = 40;
             this.btnViewFullRec.Text = "View Full Record";
             this.btnViewFullRec.UseVisualStyleBackColor = false;
+            this.btnViewFullRec.Click += new System.EventHandler(this.btnViewFullRec_Click);
             // 
             // tbSearch
             // 

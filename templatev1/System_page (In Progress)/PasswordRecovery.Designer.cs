@@ -148,7 +148,7 @@
             this.lblFinfMsg.ForeColor = System.Drawing.Color.Red;
             this.lblFinfMsg.Location = new System.Drawing.Point(34, 35);
             this.lblFinfMsg.Name = "lblFinfMsg";
-            this.lblFinfMsg.Size = new System.Drawing.Size(283, 19);
+            this.lblFinfMsg.Size = new System.Drawing.Size(515, 19);
             this.lblFinfMsg.TabIndex = 110;
             // 
             // btnFind
@@ -165,7 +165,7 @@
             // tbUserID
             // 
             this.tbUserID.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbUserID.Location = new System.Drawing.Point(169, 61);
+            this.tbUserID.Location = new System.Drawing.Point(179, 61);
             this.tbUserID.Name = "tbUserID";
             this.tbUserID.Size = new System.Drawing.Size(177, 27);
             this.tbUserID.TabIndex = 108;
@@ -176,14 +176,14 @@
             this.lblUserID.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.lblUserID.Location = new System.Drawing.Point(34, 64);
             this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(66, 20);
+            this.lblUserID.Size = new System.Drawing.Size(139, 20);
             this.lblUserID.TabIndex = 107;
-            this.lblUserID.Text = "UserID:";
+            this.lblUserID.Text = "UserID (Require):";
             // 
             // tbPhone
             // 
             this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbPhone.Location = new System.Drawing.Point(169, 127);
+            this.tbPhone.Location = new System.Drawing.Point(179, 127);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(177, 27);
             this.tbPhone.TabIndex = 105;
@@ -191,7 +191,7 @@
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbEmail.Location = new System.Drawing.Point(169, 94);
+            this.tbEmail.Location = new System.Drawing.Point(179, 94);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(177, 27);
             this.tbEmail.TabIndex = 104;
@@ -218,7 +218,7 @@
             this.lblChangePassMsg.ForeColor = System.Drawing.Color.Red;
             this.lblChangePassMsg.Location = new System.Drawing.Point(34, 35);
             this.lblChangePassMsg.Name = "lblChangePassMsg";
-            this.lblChangePassMsg.Size = new System.Drawing.Size(167, 19);
+            this.lblChangePassMsg.Size = new System.Drawing.Size(495, 19);
             this.lblChangePassMsg.TabIndex = 111;
             // 
             // btnChangePass

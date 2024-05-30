@@ -18,6 +18,7 @@ namespace templatev1
 
         controller.accountController accountController;
         controller.UIController UIController;
+        controller.RecoveryController recoveryController;
 
         public Login()
         {
@@ -36,6 +37,7 @@ namespace templatev1
             rememberMe();
         }
 
+        //Login the system.
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Clean the error message in the label.
@@ -57,6 +59,7 @@ namespace templatev1
                 rememberMe();
                 accountController.setLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
+                //Back to login page
                 Form Home = new Home(accountController, UIController);
                 this.Hide();
                 //Swap the current form to another.
@@ -78,16 +81,16 @@ namespace templatev1
         {
             if (IsLogin)
             {
-                if (chkRememberMe.Checked == true)
+                if (chkRememberMe.Checked == true)          //Store to local
                 {
                     Properties.Settings.Default.Usesrname = tbUsername.Text;
                     Properties.Settings.Default.Password = tbPassword.Text;
                     Properties.Settings.Default.Save();
                 }
                 else
-                    Properties.Settings.Default.Reset();
+                    Properties.Settings.Default.Reset();        //Clean local data
             }
-            else
+            else        //Read from local
             {
                 if (string.IsNullOrEmpty(Properties.Settings.Default.Usesrname) == false)
                 {
@@ -98,11 +101,12 @@ namespace templatev1
             }
         }
 
-
-
+        //Forget password.
         private void btnForgetPassword_Click(object sender, EventArgs e)
         {
-            Form PasswordRecovery = new PasswordRe();
+            recoveryController = new controller.RecoveryController();
+
+            Form PasswordRecovery = new PasswordRe(recoveryController);
             this.Hide();
             //Swap the current form to another.
             PasswordRecovery.StartPosition = FormStartPosition.Manual;
@@ -112,9 +116,12 @@ namespace templatev1
             this.Close();
         }
 
+        //Create a customer account.
         private void btnCreateCustomerAcc_Click(object sender, EventArgs e)
         {
-            Form CreateCustoemrAcc = new CreateCustomerAcc();
+            recoveryController = new controller.RecoveryController();
+
+            Form CreateCustoemrAcc = new CreateCustomerAcc(recoveryController);
             this.Hide();
             //Swap the current form to another.
             CreateCustoemrAcc.StartPosition = FormStartPosition.Manual;
@@ -124,14 +131,14 @@ namespace templatev1
             this.Close();
         }
 
-        public static string getInsDate()
+        public static string getInsDate() //-----------------------------------------------------
         {
             return sysInsDate;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
 

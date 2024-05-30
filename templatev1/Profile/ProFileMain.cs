@@ -93,7 +93,7 @@ namespace templatev1
             cmbGender.Text = info.sex;
             tbPhone.Text = info.phone;
             dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null); 
-            lblCreateDate.Text = (info.createDate).ToString("dd/MM/yyyy");
+            lblCreateDate.Text = (info.createDate).ToString("yyyy/MM/dd");
             chkNGDateOfBirth.Checked = info.NGDateOfBirth;
             lblAddress.Text = info.address;
             cmbPayment.Text = info.payment;
@@ -159,7 +159,7 @@ namespace templatev1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
     }

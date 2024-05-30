@@ -43,6 +43,7 @@ namespace templatev1
             uName = accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblWelUser.Text = "Welcome, " + uName + "!";
+            lblLastPassChange.Text = accountController.getPwdChange().ToString("yyyy/MM/dd");
             lblLastLogin.Text = accountController.getLog();
 
 
@@ -163,7 +164,7 @@ namespace templatev1
                     next = new StockManMain();
                     break;
                 case "User Managemnet":
-                    next = new SAccManage();
+                    next = new SAccManage(accountController, UIController);
                     break;
             }
 
@@ -191,9 +192,21 @@ namespace templatev1
             this.Close();
         }
 
+        private void btnViewFullRec_Click(object sender, EventArgs e)
+        {
+            Form LogHis = new LogHis(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            LogHis.StartPosition = FormStartPosition.Manual;
+            LogHis.Location = this.Location;
+            LogHis.Size = this.Size;
+            LogHis.ShowDialog();
+            this.Close();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
 
         }
 

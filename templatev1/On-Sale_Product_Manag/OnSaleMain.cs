@@ -26,7 +26,7 @@ namespace templatev1
         {
             timer1.Enabled = true;
             palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
-            setIndicator(controller.UIController.getIndicator("On-Sale Product Management"));
+            //setIndicator(controller.UIController.getIndicator("On-Sale Product Management"));
             
         }
 

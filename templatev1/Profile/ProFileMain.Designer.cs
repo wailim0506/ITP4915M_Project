@@ -495,8 +495,8 @@
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
-            "M",
-            "F"});
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(333, 310);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);

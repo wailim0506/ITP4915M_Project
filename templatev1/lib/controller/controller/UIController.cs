@@ -136,7 +136,7 @@ namespace controller
             }
         }
 
-        public static int getIndicator(string btnText)
+        public int getIndicator(string btnText)
         {
             int No;
             if (btnText.Equals(funbtn1))
