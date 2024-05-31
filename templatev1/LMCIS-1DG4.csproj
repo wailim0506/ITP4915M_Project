@@ -178,12 +178,6 @@
     <Compile Include="Profile\AddressManag.Designer.cs">
       <DependentUpon>AddressManag.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\searchSparePart_Result.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\searchSparePart_Result.Designer.cs">
-      <DependentUpon>searchSparePart_Result.cs</DependentUpon>
-    </Compile>
     <Compile Include="test_Database_and_Controller.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,18 +330,6 @@
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.Designer.cs">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.Designer.cs">
-      <DependentUpon>ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\viewSparePart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\viewSparePart.Designer.cs">
-      <DependentUpon>viewSparePart.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Online_Ordering_Platform\sparePartListA.resx">
       <DependentUpon>sparePartListA.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,9 +395,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\AddressManag.resx">
       <DependentUpon>AddressManag.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\searchSparePart_Result.resx">
-      <DependentUpon>searchSparePart_Result.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
@@ -496,12 +475,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\viewOrder_Confirm_Reject.resx">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.resx">
-      <DependentUpon>ViewOrder_PrintInvoice_Share_Invoice_ConfirmInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart.resx">
-      <DependentUpon>viewSparePart.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

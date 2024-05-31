@@ -146,7 +146,8 @@ namespace templatev1
             switch (Function)
             {
                 case "Order Management":
-
+                    next = new Online_Ordering_Platform.sparePartListA(accountController, UIController);
+                    break;
 
 
                     break;
