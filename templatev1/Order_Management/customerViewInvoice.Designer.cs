@@ -1,7 +1,7 @@
 ﻿
-namespace templatev1
+namespace templatev1.Order_Management
 {
-    partial class viewInvoice
+    partial class customerViewInvoice
     {
         /// <summary>
         /// Required designer variable.
@@ -29,50 +29,8 @@ namespace templatev1
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnFunction2 = new System.Windows.Forms.Button();
-            this.lblTitCorpLoc = new System.Windows.Forms.Label();
-            this.btnConfirm = new System.Windows.Forms.Button();
-            this.lblTitCorp = new System.Windows.Forms.Label();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.lblTitDate = new System.Windows.Forms.Label();
-            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
-            this.lblOrderNo = new System.Windows.Forms.Label();
-            this.lblTitOrderNo = new System.Windows.Forms.Label();
-            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
-            this.lblCorpOrderNo = new System.Windows.Forms.Label();
-            this.lblTitCorpOrderNo = new System.Windows.Forms.Label();
-            this.lblAdd = new System.Windows.Forms.Label();
-            this.lblTitAdd = new System.Windows.Forms.Label();
-            this.splitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.lblTitBundlesNo = new System.Windows.Forms.Label();
-            this.splitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.lblTitPartNo = new System.Windows.Forms.Label();
-            this.splitContainer9 = new System.Windows.Forms.SplitContainer();
-            this.lblTitPreQty = new System.Windows.Forms.Label();
-            this.splitContainer10 = new System.Windows.Forms.SplitContainer();
-            this.lblTitFollowQty = new System.Windows.Forms.Label();
-            this.splitContainer11 = new System.Windows.Forms.SplitContainer();
-            this.lblTitDeliverQty = new System.Windows.Forms.Label();
-            this.splitContainer12 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer13 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer14 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer15 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer16 = new System.Windows.Forms.SplitContainer();
-            this.splInvoice2 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer18 = new System.Windows.Forms.SplitContainer();
-            this.lblTitWeight = new System.Windows.Forms.Label();
-            this.lblRecDate = new System.Windows.Forms.Label();
-            this.palLoc = new System.Windows.Forms.Panel();
-            this.lblLoc = new System.Windows.Forms.Label();
-            this.palDate = new System.Windows.Forms.Panel();
-            this.lblUid = new System.Windows.Forms.Label();
-            this.lblTimeDate = new System.Windows.Forms.Label();
-            this.lblTitNote = new System.Windows.Forms.Label();
             this.palNav = new System.Windows.Forms.Panel();
+            this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
@@ -82,83 +40,239 @@ namespace templatev1
             this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
+            this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
+            this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.palLoc = new System.Windows.Forms.Panel();
+            this.lblLoc = new System.Windows.Forms.Label();
+            this.palDate = new System.Windows.Forms.Panel();
+            this.lblUid = new System.Windows.Forms.Label();
+            this.lblTimeDate = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.splInvoice1 = new System.Windows.Forms.SplitContainer();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.Panel2.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
-            this.splitContainer4.Panel1.SuspendLayout();
-            this.splitContainer4.Panel2.SuspendLayout();
-            this.splitContainer4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
-            this.splitContainer5.Panel1.SuspendLayout();
-            this.splitContainer5.Panel2.SuspendLayout();
-            this.splitContainer5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
-            this.splitContainer6.Panel1.SuspendLayout();
-            this.splitContainer6.Panel2.SuspendLayout();
-            this.splitContainer6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).BeginInit();
-            this.splitContainer7.Panel1.SuspendLayout();
-            this.splitContainer7.Panel2.SuspendLayout();
-            this.splitContainer7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).BeginInit();
-            this.splitContainer8.Panel1.SuspendLayout();
-            this.splitContainer8.Panel2.SuspendLayout();
-            this.splitContainer8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).BeginInit();
-            this.splitContainer9.Panel1.SuspendLayout();
-            this.splitContainer9.Panel2.SuspendLayout();
-            this.splitContainer9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).BeginInit();
-            this.splitContainer10.Panel1.SuspendLayout();
-            this.splitContainer10.Panel2.SuspendLayout();
-            this.splitContainer10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer11)).BeginInit();
-            this.splitContainer11.Panel1.SuspendLayout();
-            this.splitContainer11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer12)).BeginInit();
-            this.splitContainer12.Panel2.SuspendLayout();
-            this.splitContainer12.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).BeginInit();
-            this.splitContainer13.Panel2.SuspendLayout();
-            this.splitContainer13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).BeginInit();
-            this.splitContainer14.Panel2.SuspendLayout();
-            this.splitContainer14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer15)).BeginInit();
-            this.splitContainer15.Panel2.SuspendLayout();
-            this.splitContainer15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer16)).BeginInit();
-            this.splitContainer16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splInvoice2)).BeginInit();
-            this.splInvoice2.Panel1.SuspendLayout();
-            this.splInvoice2.Panel2.SuspendLayout();
-            this.splInvoice2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer18)).BeginInit();
-            this.splitContainer18.Panel2.SuspendLayout();
-            this.splitContainer18.SuspendLayout();
-            this.palLoc.SuspendLayout();
-            this.palDate.SuspendLayout();
+            this.grpInvoiceAddress = new System.Windows.Forms.GroupBox();
+            this.grpDeliveryAddress = new System.Windows.Forms.GroupBox();
+            this.grpDate = new System.Windows.Forms.GroupBox();
+            this.grpSerialNum = new System.Windows.Forms.GroupBox();
+            this.grpCustomerID = new System.Windows.Forms.GroupBox();
+            this.grpOrderNum = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.grpItem = new System.Windows.Forms.GroupBox();
+            this.grpDeliveryDate = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblDeliveryDate = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblDelaerAddress = new System.Windows.Forms.Label();
+            this.lblDeliveryAddress = new System.Windows.Forms.Label();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.lblInvoiceNum = new System.Windows.Forms.Label();
+            this.lblOrderNum = new System.Windows.Forms.Label();
+            this.lblCustomerID = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.pnlSP = new System.Windows.Forms.Panel();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splInvoice1)).BeginInit();
-            this.splInvoice1.Panel1.SuspendLayout();
-            this.splInvoice1.Panel2.SuspendLayout();
-            this.splInvoice1.SuspendLayout();
+            this.palLoc.SuspendLayout();
+            this.palDate.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.grpInvoiceAddress.SuspendLayout();
+            this.grpDeliveryAddress.SuspendLayout();
+            this.grpDate.SuspendLayout();
+            this.grpSerialNum.SuspendLayout();
+            this.grpCustomerID.SuspendLayout();
+            this.grpOrderNum.SuspendLayout();
+            this.grpItem.SuspendLayout();
+            this.grpDeliveryDate.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // palNav
+            // 
+            this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.palNav.Controls.Add(this.palSelect5);
+            this.palNav.Controls.Add(this.palSelect4);
+            this.palNav.Controls.Add(this.palSelect2);
+            this.palNav.Controls.Add(this.palSelect1);
+            this.palNav.Controls.Add(this.picBWMode);
+            this.palNav.Controls.Add(this.btnProFile);
+            this.palNav.Controls.Add(this.palSelect3);
+            this.palNav.Controls.Add(this.btnLogOut);
+            this.palNav.Controls.Add(this.picHome);
+            this.palNav.Controls.Add(this.lblCorpName);
+            this.palNav.Controls.Add(this.btnFunction5);
+            this.palNav.Controls.Add(this.btnFunction4);
+            this.palNav.Controls.Add(this.btnFunction3);
+            this.palNav.Controls.Add(this.btnFunction2);
+            this.palNav.Controls.Add(this.btnFunction1);
+            this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
+            this.palNav.Location = new System.Drawing.Point(0, 0);
+            this.palNav.Margin = new System.Windows.Forms.Padding(2);
+            this.palNav.Name = "palNav";
+            this.palNav.Size = new System.Drawing.Size(198, 963);
+            this.palNav.TabIndex = 36;
+            // 
+            // palSelect5
+            // 
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 402);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 60);
+            this.palSelect5.TabIndex = 4;
+            // 
+            // palSelect4
+            // 
+            this.palSelect4.BackColor = System.Drawing.Color.Red;
+            this.palSelect4.Location = new System.Drawing.Point(0, 321);
+            this.palSelect4.Name = "palSelect4";
+            this.palSelect4.Size = new System.Drawing.Size(10, 60);
+            this.palSelect4.TabIndex = 4;
+            // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 163);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 60);
+            this.palSelect2.TabIndex = 4;
+            // 
+            // palSelect1
+            // 
+            this.palSelect1.BackColor = System.Drawing.Color.Red;
+            this.palSelect1.Location = new System.Drawing.Point(0, 83);
+            this.palSelect1.Name = "palSelect1";
+            this.palSelect1.Size = new System.Drawing.Size(10, 60);
+            this.palSelect1.TabIndex = 4;
+            // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 26);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 50);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // btnProFile
+            // 
+            this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProFile.Location = new System.Drawing.Point(0, 746);
+            this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProFile.Name = "btnProFile";
+            this.btnProFile.Size = new System.Drawing.Size(198, 37);
+            this.btnProFile.TabIndex = 20;
+            this.btnProFile.Text = "ProFile";
+            this.btnProFile.UseVisualStyleBackColor = false;
+            // 
+            // palSelect3
+            // 
+            this.palSelect3.BackColor = System.Drawing.Color.Red;
+            this.palSelect3.Location = new System.Drawing.Point(0, 242);
+            this.palSelect3.Name = "palSelect3";
+            this.palSelect3.Size = new System.Drawing.Size(10, 60);
+            this.palSelect3.TabIndex = 3;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(0, 792);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(198, 37);
+            this.btnLogOut.TabIndex = 19;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 14);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 61);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
+            // lblCorpName
+            // 
+            this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorpName.ForeColor = System.Drawing.Color.Red;
+            this.lblCorpName.Location = new System.Drawing.Point(1, 852);
+            this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCorpName.Name = "lblCorpName";
+            this.lblCorpName.Size = new System.Drawing.Size(163, 53);
+            this.lblCorpName.TabIndex = 10;
+            this.lblCorpName.Text = "Legend Motor Company";
+            // 
+            // btnFunction5
+            // 
+            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction5.Location = new System.Drawing.Point(0, 402);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction5.Name = "btnFunction5";
+            this.btnFunction5.Size = new System.Drawing.Size(198, 60);
+            this.btnFunction5.TabIndex = 15;
+            this.btnFunction5.Text = "User Management";
+            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction5.UseVisualStyleBackColor = false;
+            // 
+            // btnFunction4
+            // 
+            this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction4.Location = new System.Drawing.Point(0, 321);
+            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction4.Name = "btnFunction4";
+            this.btnFunction4.Size = new System.Drawing.Size(198, 60);
+            this.btnFunction4.TabIndex = 14;
+            this.btnFunction4.Text = "Stock Management";
+            this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction4.UseVisualStyleBackColor = false;
+            // 
+            // btnFunction3
+            // 
+            this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction3.Location = new System.Drawing.Point(0, 242);
+            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction3.Name = "btnFunction3";
+            this.btnFunction3.Size = new System.Drawing.Size(198, 60);
+            this.btnFunction3.TabIndex = 13;
+            this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.UseVisualStyleBackColor = false;
             // 
             // btnFunction2
             // 
@@ -166,500 +280,49 @@ namespace templatev1
             this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Location = new System.Drawing.Point(0, 163);
             this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.Size = new System.Drawing.Size(198, 60);
             this.btnFunction2.TabIndex = 12;
-            this.btnFunction2.Text = "Spare Part";
+            this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
             // 
-            // lblTitCorpLoc
-            // 
-            this.lblTitCorpLoc.AutoSize = true;
-            this.lblTitCorpLoc.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCorpLoc.Location = new System.Drawing.Point(13, 75);
-            this.lblTitCorpLoc.Name = "lblTitCorpLoc";
-            this.lblTitCorpLoc.Size = new System.Drawing.Size(288, 38);
-            this.lblTitCorpLoc.TabIndex = 1;
-            this.lblTitCorpLoc.Text = "SMLC District, Tienhou, Guangzhou.\t\t\t\r\nTel: 133 808 12345\t   Grams: LegendMC\r\n";
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnConfirm.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(1032, 846);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(112, 67);
-            this.btnConfirm.TabIndex = 62;
-            this.btnConfirm.Text = "Confirm Invoice";
-            this.btnConfirm.UseVisualStyleBackColor = false;
-            // 
-            // lblTitCorp
-            // 
-            this.lblTitCorp.AutoSize = true;
-            this.lblTitCorp.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCorp.Location = new System.Drawing.Point(8, 21);
-            this.lblTitCorp.Name = "lblTitCorp";
-            this.lblTitCorp.Size = new System.Drawing.Size(315, 31);
-            this.lblTitCorp.TabIndex = 0;
-            this.lblTitCorp.Text = "Legend MOTOR Co. Ltd.";
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer6);
-            this.splitContainer2.Size = new System.Drawing.Size(739, 441);
-            this.splitContainer2.SplitterDistance = 87;
-            this.splitContainer2.TabIndex = 0;
-            // 
-            // splitContainer3
-            // 
-            this.splitContainer3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.lblDate);
-            this.splitContainer3.Panel1.Controls.Add(this.lblTitDate);
-            // 
-            // splitContainer3.Panel2
-            // 
-            this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(739, 87);
-            this.splitContainer3.SplitterDistance = 145;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(3, 30);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(82, 19);
-            this.lblDate.TabIndex = 1;
-            this.lblDate.Text = "1/03/2024";
-            // 
-            // lblTitDate
-            // 
-            this.lblTitDate.AutoSize = true;
-            this.lblTitDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDate.Location = new System.Drawing.Point(2, 11);
-            this.lblTitDate.Name = "lblTitDate";
-            this.lblTitDate.Size = new System.Drawing.Size(43, 19);
-            this.lblTitDate.TabIndex = 0;
-            this.lblTitDate.Text = "Date";
-            // 
-            // splitContainer4
-            // 
-            this.splitContainer4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer4.Name = "splitContainer4";
-            // 
-            // splitContainer4.Panel1
-            // 
-            this.splitContainer4.Panel1.Controls.Add(this.lblOrderNo);
-            this.splitContainer4.Panel1.Controls.Add(this.lblTitOrderNo);
-            // 
-            // splitContainer4.Panel2
-            // 
-            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer4.Size = new System.Drawing.Size(590, 87);
-            this.splitContainer4.SplitterDistance = 158;
-            this.splitContainer4.TabIndex = 0;
-            // 
-            // lblOrderNo
-            // 
-            this.lblOrderNo.AutoSize = true;
-            this.lblOrderNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderNo.Location = new System.Drawing.Point(3, 30);
-            this.lblOrderNo.Name = "lblOrderNo";
-            this.lblOrderNo.Size = new System.Drawing.Size(54, 19);
-            this.lblOrderNo.TabIndex = 2;
-            this.lblOrderNo.Text = "00001";
-            // 
-            // lblTitOrderNo
-            // 
-            this.lblTitOrderNo.AutoSize = true;
-            this.lblTitOrderNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitOrderNo.Location = new System.Drawing.Point(3, 6);
-            this.lblTitOrderNo.Name = "lblTitOrderNo";
-            this.lblTitOrderNo.Size = new System.Drawing.Size(123, 19);
-            this.lblTitOrderNo.TabIndex = 1;
-            this.lblTitOrderNo.Text = "Your Order No.";
-            // 
-            // splitContainer5
-            // 
-            this.splitContainer5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer5.Name = "splitContainer5";
-            // 
-            // splitContainer5.Panel1
-            // 
-            this.splitContainer5.Panel1.Controls.Add(this.lblCorpOrderNo);
-            this.splitContainer5.Panel1.Controls.Add(this.lblTitCorpOrderNo);
-            // 
-            // splitContainer5.Panel2
-            // 
-            this.splitContainer5.Panel2.Controls.Add(this.lblAdd);
-            this.splitContainer5.Panel2.Controls.Add(this.lblTitAdd);
-            this.splitContainer5.Size = new System.Drawing.Size(428, 87);
-            this.splitContainer5.SplitterDistance = 160;
-            this.splitContainer5.TabIndex = 0;
-            // 
-            // lblCorpOrderNo
-            // 
-            this.lblCorpOrderNo.AutoSize = true;
-            this.lblCorpOrderNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorpOrderNo.Location = new System.Drawing.Point(3, 30);
-            this.lblCorpOrderNo.Name = "lblCorpOrderNo";
-            this.lblCorpOrderNo.Size = new System.Drawing.Size(54, 19);
-            this.lblCorpOrderNo.TabIndex = 4;
-            this.lblCorpOrderNo.Text = "00001";
-            // 
-            // lblTitCorpOrderNo
-            // 
-            this.lblTitCorpOrderNo.AutoSize = true;
-            this.lblTitCorpOrderNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCorpOrderNo.Location = new System.Drawing.Point(3, 6);
-            this.lblTitCorpOrderNo.Name = "lblTitCorpOrderNo";
-            this.lblTitCorpOrderNo.Size = new System.Drawing.Size(118, 19);
-            this.lblTitCorpOrderNo.TabIndex = 3;
-            this.lblTitCorpOrderNo.Text = "Our Order No.";
-            // 
-            // lblAdd
-            // 
-            this.lblAdd.AutoSize = true;
-            this.lblAdd.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdd.Location = new System.Drawing.Point(4, 25);
-            this.lblAdd.Name = "lblAdd";
-            this.lblAdd.Size = new System.Drawing.Size(203, 57);
-            this.lblAdd.TabIndex = 5;
-            this.lblAdd.Text = "Lang Shan Lu\r\nShenchou - Nanshan District\r\nGuangdong\r\n";
-            // 
-            // lblTitAdd
-            // 
-            this.lblTitAdd.AutoSize = true;
-            this.lblTitAdd.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitAdd.Location = new System.Drawing.Point(3, 6);
-            this.lblTitAdd.Name = "lblTitAdd";
-            this.lblTitAdd.Size = new System.Drawing.Size(171, 19);
-            this.lblTitAdd.TabIndex = 4;
-            this.lblTitAdd.Text = "DELIVERY ADDRESS";
-            // 
-            // splitContainer6
-            // 
-            this.splitContainer6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer6.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer6.Name = "splitContainer6";
-            this.splitContainer6.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer6.Panel1
-            // 
-            this.splitContainer6.Panel1.Controls.Add(this.splitContainer7);
-            // 
-            // splitContainer6.Panel2
-            // 
-            this.splitContainer6.Panel2.Controls.Add(this.splitContainer12);
-            this.splitContainer6.Size = new System.Drawing.Size(739, 350);
-            this.splitContainer6.SplitterDistance = 71;
-            this.splitContainer6.TabIndex = 0;
-            // 
-            // splitContainer7
-            // 
-            this.splitContainer7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer7.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer7.Name = "splitContainer7";
-            // 
-            // splitContainer7.Panel1
-            // 
-            this.splitContainer7.Panel1.Controls.Add(this.lblTitBundlesNo);
-            // 
-            // splitContainer7.Panel2
-            // 
-            this.splitContainer7.Panel2.Controls.Add(this.splitContainer8);
-            this.splitContainer7.Size = new System.Drawing.Size(739, 71);
-            this.splitContainer7.SplitterDistance = 145;
-            this.splitContainer7.TabIndex = 0;
-            // 
-            // lblTitBundlesNo
-            // 
-            this.lblTitBundlesNo.AutoSize = true;
-            this.lblTitBundlesNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitBundlesNo.Location = new System.Drawing.Point(2, 9);
-            this.lblTitBundlesNo.Name = "lblTitBundlesNo";
-            this.lblTitBundlesNo.Size = new System.Drawing.Size(113, 19);
-            this.lblTitBundlesNo.TabIndex = 1;
-            this.lblTitBundlesNo.Text = "No. of bundles";
-            // 
-            // splitContainer8
-            // 
-            this.splitContainer8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer8.Name = "splitContainer8";
-            // 
-            // splitContainer8.Panel1
-            // 
-            this.splitContainer8.Panel1.Controls.Add(this.lblTitPartNo);
-            // 
-            // splitContainer8.Panel2
-            // 
-            this.splitContainer8.Panel2.Controls.Add(this.splitContainer9);
-            this.splitContainer8.Size = new System.Drawing.Size(590, 71);
-            this.splitContainer8.SplitterDistance = 94;
-            this.splitContainer8.TabIndex = 0;
-            // 
-            // lblTitPartNo
-            // 
-            this.lblTitPartNo.AutoSize = true;
-            this.lblTitPartNo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPartNo.Location = new System.Drawing.Point(3, 9);
-            this.lblTitPartNo.Name = "lblTitPartNo";
-            this.lblTitPartNo.Size = new System.Drawing.Size(75, 19);
-            this.lblTitPartNo.TabIndex = 2;
-            this.lblTitPartNo.Text = "Part No. ";
-            // 
-            // splitContainer9
-            // 
-            this.splitContainer9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer9.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer9.Name = "splitContainer9";
-            // 
-            // splitContainer9.Panel1
-            // 
-            this.splitContainer9.Panel1.Controls.Add(this.lblTitPreQty);
-            // 
-            // splitContainer9.Panel2
-            // 
-            this.splitContainer9.Panel2.Controls.Add(this.splitContainer10);
-            this.splitContainer9.Size = new System.Drawing.Size(492, 71);
-            this.splitContainer9.SplitterDistance = 162;
-            this.splitContainer9.TabIndex = 0;
-            // 
-            // lblTitPreQty
-            // 
-            this.lblTitPreQty.AutoSize = true;
-            this.lblTitPreQty.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPreQty.Location = new System.Drawing.Point(3, 9);
-            this.lblTitPreQty.Name = "lblTitPreQty";
-            this.lblTitPreQty.Size = new System.Drawing.Size(128, 38);
-            this.lblTitPreQty.TabIndex = 3;
-            this.lblTitPreQty.Text = "Prev. Qty. under\r\ndelivered";
-            // 
-            // splitContainer10
-            // 
-            this.splitContainer10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer10.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer10.Name = "splitContainer10";
-            // 
-            // splitContainer10.Panel1
-            // 
-            this.splitContainer10.Panel1.Controls.Add(this.lblTitFollowQty);
-            // 
-            // splitContainer10.Panel2
-            // 
-            this.splitContainer10.Panel2.Controls.Add(this.splitContainer11);
-            this.splitContainer10.Size = new System.Drawing.Size(326, 71);
-            this.splitContainer10.SplitterDistance = 117;
-            this.splitContainer10.TabIndex = 0;
-            // 
-            // lblTitFollowQty
-            // 
-            this.lblTitFollowQty.AutoSize = true;
-            this.lblTitFollowQty.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitFollowQty.Location = new System.Drawing.Point(3, 9);
-            this.lblTitFollowQty.Name = "lblTitFollowQty";
-            this.lblTitFollowQty.Size = new System.Drawing.Size(76, 38);
-            this.lblTitFollowQty.TabIndex = 4;
-            this.lblTitFollowQty.Text = "Quantity\r\nto follow\r\n";
-            // 
-            // splitContainer11
-            // 
-            this.splitContainer11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer11.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer11.Name = "splitContainer11";
-            // 
-            // splitContainer11.Panel1
-            // 
-            this.splitContainer11.Panel1.Controls.Add(this.lblTitDeliverQty);
-            this.splitContainer11.Size = new System.Drawing.Size(205, 71);
-            this.splitContainer11.SplitterDistance = 94;
-            this.splitContainer11.TabIndex = 0;
-            // 
-            // lblTitDeliverQty
-            // 
-            this.lblTitDeliverQty.AutoSize = true;
-            this.lblTitDeliverQty.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDeliverQty.Location = new System.Drawing.Point(3, 9);
-            this.lblTitDeliverQty.Name = "lblTitDeliverQty";
-            this.lblTitDeliverQty.Size = new System.Drawing.Size(79, 38);
-            this.lblTitDeliverQty.TabIndex = 5;
-            this.lblTitDeliverQty.Text = "Quantity\r\ndelivered";
-            // 
-            // splitContainer12
-            // 
-            this.splitContainer12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer12.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer12.Name = "splitContainer12";
-            // 
-            // splitContainer12.Panel2
-            // 
-            this.splitContainer12.Panel2.Controls.Add(this.splitContainer13);
-            this.splitContainer12.Size = new System.Drawing.Size(739, 275);
-            this.splitContainer12.SplitterDistance = 144;
-            this.splitContainer12.TabIndex = 0;
-            // 
-            // splitContainer13
-            // 
-            this.splitContainer13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer13.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer13.Name = "splitContainer13";
-            // 
-            // splitContainer13.Panel2
-            // 
-            this.splitContainer13.Panel2.Controls.Add(this.splitContainer14);
-            this.splitContainer13.Size = new System.Drawing.Size(591, 275);
-            this.splitContainer13.SplitterDistance = 95;
-            this.splitContainer13.TabIndex = 0;
-            // 
-            // splitContainer14
-            // 
-            this.splitContainer14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer14.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer14.Name = "splitContainer14";
-            // 
-            // splitContainer14.Panel2
-            // 
-            this.splitContainer14.Panel2.Controls.Add(this.splitContainer15);
-            this.splitContainer14.Size = new System.Drawing.Size(492, 275);
-            this.splitContainer14.SplitterDistance = 163;
-            this.splitContainer14.TabIndex = 0;
-            // 
-            // splitContainer15
-            // 
-            this.splitContainer15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer15.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer15.Name = "splitContainer15";
-            // 
-            // splitContainer15.Panel2
-            // 
-            this.splitContainer15.Panel2.Controls.Add(this.splitContainer16);
-            this.splitContainer15.Size = new System.Drawing.Size(325, 275);
-            this.splitContainer15.SplitterDistance = 119;
-            this.splitContainer15.TabIndex = 0;
-            // 
-            // splitContainer16
-            // 
-            this.splitContainer16.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer16.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer16.Name = "splitContainer16";
-            this.splitContainer16.Size = new System.Drawing.Size(202, 275);
-            this.splitContainer16.SplitterDistance = 96;
-            this.splitContainer16.TabIndex = 0;
-            // 
-            // splInvoice2
-            // 
-            this.splInvoice2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splInvoice2.Location = new System.Drawing.Point(251, 715);
-            this.splInvoice2.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.splInvoice2.Name = "splInvoice2";
-            this.splInvoice2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splInvoice2.Panel1
-            // 
-            this.splInvoice2.Panel1.Controls.Add(this.splitContainer18);
-            // 
-            // splInvoice2.Panel2
-            // 
-            this.splInvoice2.Panel2.Controls.Add(this.lblRecDate);
-            this.splInvoice2.Size = new System.Drawing.Size(739, 194);
-            this.splInvoice2.SplitterDistance = 109;
-            this.splInvoice2.SplitterWidth = 2;
-            this.splInvoice2.TabIndex = 60;
-            // 
-            // splitContainer18
-            // 
-            this.splitContainer18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splitContainer18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer18.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer18.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.splitContainer18.Name = "splitContainer18";
-            // 
-            // splitContainer18.Panel2
-            // 
-            this.splitContainer18.Panel2.Controls.Add(this.lblTitWeight);
-            this.splitContainer18.Size = new System.Drawing.Size(739, 109);
-            this.splitContainer18.SplitterDistance = 633;
-            this.splitContainer18.SplitterWidth = 2;
-            this.splitContainer18.TabIndex = 0;
-            // 
-            // lblTitWeight
-            // 
-            this.lblTitWeight.AutoSize = true;
-            this.lblTitWeight.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold);
-            this.lblTitWeight.Location = new System.Drawing.Point(4, 6);
-            this.lblTitWeight.Name = "lblTitWeight";
-            this.lblTitWeight.Size = new System.Drawing.Size(94, 95);
-            this.lblTitWeight.TabIndex = 2;
-            this.lblTitWeight.Text = "Total Weight\r\n1000\r\n\r\nDespatch\r\nForeman";
-            // 
-            // lblRecDate
-            // 
-            this.lblRecDate.AutoSize = true;
-            this.lblRecDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecDate.Location = new System.Drawing.Point(277, 13);
-            this.lblRecDate.Name = "lblRecDate";
-            this.lblRecDate.Size = new System.Drawing.Size(181, 57);
-            this.lblRecDate.TabIndex = 4;
-            this.lblRecDate.Text = "Received in good order\r\n\r\nDate: 1/3/2024\r\n";
-            this.lblRecDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // btnFunction1
+            // 
+            this.btnFunction1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction1.Location = new System.Drawing.Point(0, 83);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction1.Name = "btnFunction1";
+            this.btnFunction1.Size = new System.Drawing.Size(198, 60);
+            this.btnFunction1.TabIndex = 11;
+            this.btnFunction1.Text = "Order Management";
+            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction1.UseVisualStyleBackColor = false;
             // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
             this.palLoc.Controls.Add(this.lblLoc);
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Location = new System.Drawing.Point(198, 43);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
-            this.palLoc.TabIndex = 65;
+            this.palLoc.Size = new System.Drawing.Size(915, 41);
+            this.palLoc.TabIndex = 48;
             // 
             // lblLoc
             // 
             this.lblLoc.AutoSize = true;
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Location = new System.Drawing.Point(6, 10);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(417, 22);
+            this.lblLoc.Size = new System.Drawing.Size(405, 22);
             this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Order Management -> View Order -> View Invoice";
+            this.lblLoc.Text = "Order Management -> Order List -> View Invoice";
             // 
             // palDate
             // 
@@ -671,14 +334,14 @@ namespace templatev1
             this.palDate.Location = new System.Drawing.Point(198, 0);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(972, 40);
-            this.palDate.TabIndex = 64;
+            this.palDate.Size = new System.Drawing.Size(915, 43);
+            this.palDate.TabIndex = 47;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(814, 9);
+            this.lblUid.Location = new System.Drawing.Point(768, 10);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(134, 22);
@@ -689,325 +352,448 @@ namespace templatev1
             // 
             this.lblTimeDate.AutoSize = true;
             this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 10);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
             this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
             this.lblTimeDate.TabIndex = 0;
             this.lblTimeDate.Text = "TIME";
             // 
-            // lblTitNote
+            // groupBox1
             // 
-            this.lblTitNote.AutoSize = true;
-            this.lblTitNote.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitNote.Location = new System.Drawing.Point(594, 10);
-            this.lblTitNote.Name = "lblTitNote";
-            this.lblTitNote.Size = new System.Drawing.Size(134, 114);
-            this.lblTitNote.TabIndex = 2;
-            this.lblTitNote.Text = "DELIVERY NOTE\r\nPart 6\r\n\r\n\t\t\r\nPlease receive the\r\nfollowing goods:\r\n";
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(262, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(780, 156);
+            this.groupBox1.TabIndex = 49;
+            this.groupBox1.TabStop = false;
             // 
-            // palNav
+            // label4
             // 
-            this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.palNav.Controls.Add(this.palSelect4);
-            this.palNav.Controls.Add(this.palSelect2);
-            this.palNav.Controls.Add(this.palSelect1);
-            this.palNav.Controls.Add(this.picBWMode);
-            this.palNav.Controls.Add(this.btnProFile);
-            this.palNav.Controls.Add(this.palSelect3);
-            this.palNav.Controls.Add(this.btnLogOut);
-            this.palNav.Controls.Add(this.picHome);
-            this.palNav.Controls.Add(this.lblCorpName);
-            this.palNav.Controls.Add(this.btnFunction4);
-            this.palNav.Controls.Add(this.btnFunction3);
-            this.palNav.Controls.Add(this.btnFunction2);
-            this.palNav.Controls.Add(this.btnFunction1);
-            this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
-            this.palNav.Location = new System.Drawing.Point(0, 0);
-            this.palNav.Margin = new System.Windows.Forms.Padding(2);
-            this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 941);
-            this.palNav.TabIndex = 63;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(618, 34);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(138, 100);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "DELIVERY NOTE\r\nPart 6\r\n\t\t\r\nPlease receive the\r\nfollowing goods:\r\n";
             // 
-            // palSelect4
+            // label3
             // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(59, 109);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(359, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Tel: 133 808 12345\t                    Grams: LegendMC";
             // 
-            // palSelect2
+            // label2
             // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 4;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 4;
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // btnProFile
-            // 
-            this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 794);
-            this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProFile.Name = "btnProFile";
-            this.btnProFile.Size = new System.Drawing.Size(198, 34);
-            this.btnProFile.TabIndex = 20;
-            this.btnProFile.Text = "ProFile";
-            this.btnProFile.UseVisualStyleBackColor = false;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 3;
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
-            this.btnLogOut.TabIndex = 19;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
-            // 
-            // lblCorpName
-            // 
-            this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 892);
-            this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCorpName.Name = "lblCorpName";
-            this.lblCorpName.Size = new System.Drawing.Size(163, 49);
-            this.lblCorpName.TabIndex = 10;
-            this.lblCorpName.Text = "Legend Motor Company";
-            // 
-            // btnFunction4
-            // 
-            this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
-            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction4.Name = "btnFunction4";
-            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction4.TabIndex = 14;
-            this.btnFunction4.Text = "Favourite";
-            this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction4.UseVisualStyleBackColor = false;
-            // 
-            // btnFunction3
-            // 
-            this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
-            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction3.Name = "btnFunction3";
-            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction3.TabIndex = 13;
-            this.btnFunction3.Text = "Cart";
-            this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction3.UseVisualStyleBackColor = false;
-            // 
-            // btnFunction1
-            // 
-            this.btnFunction1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
-            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction1.Name = "btnFunction1";
-            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction1.TabIndex = 11;
-            this.btnFunction1.Text = "Order Management";
-            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction1.UseVisualStyleBackColor = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(1032, 790);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(112, 44);
-            this.btnBack.TabIndex = 61;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(59, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(263, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "SMLC District, Tienhou, Guangzhou";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(203, 90);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 26);
-            this.label1.TabIndex = 58;
-            this.label1.Text = "Invoice - Order 00001:";
+            this.label1.Size = new System.Drawing.Size(301, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Legend MOTOR Co. Ltd.";
             // 
-            // splInvoice1
+            // grpInvoiceAddress
             // 
-            this.splInvoice1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.splInvoice1.Location = new System.Drawing.Point(251, 129);
-            this.splInvoice1.Name = "splInvoice1";
-            this.splInvoice1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.grpInvoiceAddress.Controls.Add(this.lblDelaerAddress);
+            this.grpInvoiceAddress.Controls.Add(this.label11);
+            this.grpInvoiceAddress.Location = new System.Drawing.Point(262, 264);
+            this.grpInvoiceAddress.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grpInvoiceAddress.Name = "grpInvoiceAddress";
+            this.grpInvoiceAddress.Size = new System.Drawing.Size(390, 100);
+            this.grpInvoiceAddress.TabIndex = 50;
+            this.grpInvoiceAddress.TabStop = false;
             // 
-            // splInvoice1.Panel1
+            // grpDeliveryAddress
             // 
-            this.splInvoice1.Panel1.Controls.Add(this.lblTitNote);
-            this.splInvoice1.Panel1.Controls.Add(this.lblTitCorpLoc);
-            this.splInvoice1.Panel1.Controls.Add(this.lblTitCorp);
+            this.grpDeliveryAddress.Controls.Add(this.lblDeliveryAddress);
+            this.grpDeliveryAddress.Controls.Add(this.label12);
+            this.grpDeliveryAddress.Location = new System.Drawing.Point(658, 264);
+            this.grpDeliveryAddress.Margin = new System.Windows.Forms.Padding(0);
+            this.grpDeliveryAddress.Name = "grpDeliveryAddress";
+            this.grpDeliveryAddress.Padding = new System.Windows.Forms.Padding(0);
+            this.grpDeliveryAddress.Size = new System.Drawing.Size(384, 100);
+            this.grpDeliveryAddress.TabIndex = 51;
+            this.grpDeliveryAddress.TabStop = false;
             // 
-            // splInvoice1.Panel2
+            // grpDate
             // 
-            this.splInvoice1.Panel2.Controls.Add(this.splitContainer2);
-            this.splInvoice1.Size = new System.Drawing.Size(739, 583);
-            this.splInvoice1.SplitterDistance = 138;
-            this.splInvoice1.TabIndex = 59;
+            this.grpDate.Controls.Add(this.lblOrderDate);
+            this.grpDate.Controls.Add(this.label7);
+            this.grpDate.Controls.Add(this.groupBox11);
+            this.grpDate.Controls.Add(this.groupBox8);
+            this.grpDate.Controls.Add(this.groupBox10);
+            this.grpDate.Controls.Add(this.groupBox9);
+            this.grpDate.Location = new System.Drawing.Point(262, 363);
+            this.grpDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grpDate.Name = "grpDate";
+            this.grpDate.Size = new System.Drawing.Size(195, 75);
+            this.grpDate.TabIndex = 52;
+            this.grpDate.TabStop = false;
             // 
-            // viewInvoice
+            // grpSerialNum
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.grpSerialNum.Controls.Add(this.lblInvoiceNum);
+            this.grpSerialNum.Controls.Add(this.label8);
+            this.grpSerialNum.Location = new System.Drawing.Point(463, 363);
+            this.grpSerialNum.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grpSerialNum.Name = "grpSerialNum";
+            this.grpSerialNum.Size = new System.Drawing.Size(189, 75);
+            this.grpSerialNum.TabIndex = 53;
+            this.grpSerialNum.TabStop = false;
+            // 
+            // grpCustomerID
+            // 
+            this.grpCustomerID.Controls.Add(this.lblCustomerID);
+            this.grpCustomerID.Controls.Add(this.label10);
+            this.grpCustomerID.Location = new System.Drawing.Point(859, 363);
+            this.grpCustomerID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.grpCustomerID.Name = "grpCustomerID";
+            this.grpCustomerID.Size = new System.Drawing.Size(183, 75);
+            this.grpCustomerID.TabIndex = 54;
+            this.grpCustomerID.TabStop = false;
+            // 
+            // grpOrderNum
+            // 
+            this.grpOrderNum.Controls.Add(this.lblOrderNum);
+            this.grpOrderNum.Controls.Add(this.label9);
+            this.grpOrderNum.Location = new System.Drawing.Point(658, 363);
+            this.grpOrderNum.Margin = new System.Windows.Forms.Padding(0);
+            this.grpOrderNum.Name = "grpOrderNum";
+            this.grpOrderNum.Padding = new System.Windows.Forms.Padding(0);
+            this.grpOrderNum.Size = new System.Drawing.Size(195, 75);
+            this.grpOrderNum.TabIndex = 55;
+            this.grpOrderNum.TabStop = false;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Location = new System.Drawing.Point(0, 103);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(195, 100);
+            this.groupBox8.TabIndex = 56;
+            this.groupBox8.TabStop = false;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Location = new System.Drawing.Point(201, 103);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(295, 100);
+            this.groupBox9.TabIndex = 57;
+            this.groupBox9.TabStop = false;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Location = new System.Drawing.Point(502, 103);
+            this.groupBox10.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(139, 100);
+            this.groupBox10.TabIndex = 58;
+            this.groupBox10.TabStop = false;
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Location = new System.Drawing.Point(647, 103);
+            this.groupBox11.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(133, 100);
+            this.groupBox11.TabIndex = 59;
+            this.groupBox11.TabStop = false;
+            // 
+            // grpItem
+            // 
+            this.grpItem.Controls.Add(this.pnlSP);
+            this.grpItem.Controls.Add(this.label16);
+            this.grpItem.Controls.Add(this.label15);
+            this.grpItem.Controls.Add(this.label14);
+            this.grpItem.Controls.Add(this.label13);
+            this.grpItem.Location = new System.Drawing.Point(262, 438);
+            this.grpItem.Name = "grpItem";
+            this.grpItem.Size = new System.Drawing.Size(780, 382);
+            this.grpItem.TabIndex = 56;
+            this.grpItem.TabStop = false;
+            // 
+            // grpDeliveryDate
+            // 
+            this.grpDeliveryDate.Controls.Add(this.lblDeliveryDate);
+            this.grpDeliveryDate.Controls.Add(this.label5);
+            this.grpDeliveryDate.Location = new System.Drawing.Point(262, 819);
+            this.grpDeliveryDate.Name = "grpDeliveryDate";
+            this.grpDeliveryDate.Size = new System.Drawing.Size(780, 86);
+            this.grpDeliveryDate.TabIndex = 57;
+            this.grpDeliveryDate.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(304, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Received in good order";
+            // 
+            // lblDeliveryDate
+            // 
+            this.lblDeliveryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryDate.Location = new System.Drawing.Point(6, 49);
+            this.lblDeliveryDate.Name = "lblDeliveryDate";
+            this.lblDeliveryDate.Size = new System.Drawing.Size(768, 20);
+            this.lblDeliveryDate.TabIndex = 3;
+            this.lblDeliveryDate.Text = "Date: ";
+            this.lblDeliveryDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 16);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 20);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Order Date:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(138, 20);
+            this.label8.TabIndex = 61;
+            this.label8.Text = "Invoice Number:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 16);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(126, 20);
+            this.label9.TabIndex = 62;
+            this.label9.Text = "Order Number:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 16);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.TabIndex = 63;
+            this.label10.Text = "DelaerID:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(21, 13);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(174, 25);
+            this.label11.TabIndex = 61;
+            this.label11.Text = "Dealer Address";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(15, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(198, 25);
+            this.label12.TabIndex = 62;
+            this.label12.Text = "Delivery  Address";
+            // 
+            // lblDelaerAddress
+            // 
+            this.lblDelaerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDelaerAddress.Location = new System.Drawing.Point(34, 57);
+            this.lblDelaerAddress.Name = "lblDelaerAddress";
+            this.lblDelaerAddress.Size = new System.Drawing.Size(337, 40);
+            this.lblDelaerAddress.TabIndex = 62;
+            // 
+            // lblDeliveryAddress
+            // 
+            this.lblDeliveryAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryAddress.Location = new System.Drawing.Point(23, 57);
+            this.lblDeliveryAddress.Name = "lblDeliveryAddress";
+            this.lblDeliveryAddress.Size = new System.Drawing.Size(337, 40);
+            this.lblDeliveryAddress.TabIndex = 63;
+            // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.AutoSize = true;
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Location = new System.Drawing.Point(14, 45);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 20);
+            this.lblOrderDate.TabIndex = 61;
+            // 
+            // lblInvoiceNum
+            // 
+            this.lblInvoiceNum.AutoSize = true;
+            this.lblInvoiceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInvoiceNum.Location = new System.Drawing.Point(14, 45);
+            this.lblInvoiceNum.Name = "lblInvoiceNum";
+            this.lblInvoiceNum.Size = new System.Drawing.Size(0, 20);
+            this.lblInvoiceNum.TabIndex = 62;
+            // 
+            // lblOrderNum
+            // 
+            this.lblOrderNum.AutoSize = true;
+            this.lblOrderNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderNum.Location = new System.Drawing.Point(14, 45);
+            this.lblOrderNum.Name = "lblOrderNum";
+            this.lblOrderNum.Size = new System.Drawing.Size(0, 20);
+            this.lblOrderNum.TabIndex = 63;
+            // 
+            // lblCustomerID
+            // 
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerID.Location = new System.Drawing.Point(14, 45);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(0, 20);
+            this.lblCustomerID.TabIndex = 64;
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(10, 8);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(164, 20);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Part Number";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(180, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(316, 20);
+            this.label14.TabIndex = 64;
+            this.label14.Text = "Name";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label15
+            // 
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(502, 8);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 20);
+            this.label15.TabIndex = 65;
+            this.label15.Text = "Qty Ordered";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label16
+            // 
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(631, 8);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(139, 20);
+            this.label16.TabIndex = 66;
+            this.label16.Text = "Qty Delivered";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(808, 911);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(95, 40);
+            this.btnReturn.TabIndex = 58;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
+            // pnlSP
+            // 
+            this.pnlSP.AutoScroll = true;
+            this.pnlSP.Location = new System.Drawing.Point(6, 31);
+            this.pnlSP.Name = "pnlSP";
+            this.pnlSP.Size = new System.Drawing.Size(765, 344);
+            this.pnlSP.TabIndex = 68;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.AutoSize = true;
+            this.btnConfirm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(914, 911);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(128, 40);
+            this.btnConfirm.TabIndex = 59;
+            this.btnConfirm.Text = "Confirm Invoice";
+            this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // customerViewInvoice
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.splInvoice1);
+            this.ClientSize = new System.Drawing.Size(1113, 963);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.splInvoice2);
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.grpDeliveryDate);
+            this.Controls.Add(this.grpItem);
+            this.Controls.Add(this.grpOrderNum);
+            this.Controls.Add(this.grpCustomerID);
+            this.Controls.Add(this.grpSerialNum);
+            this.Controls.Add(this.grpDate);
+            this.Controls.Add(this.grpDeliveryAddress);
+            this.Controls.Add(this.grpInvoiceAddress);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
-            this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "viewInvoice";
-            this.Text = "Legend Motor Company Online Ordering Platform";
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            this.splitContainer3.Panel1.PerformLayout();
-            this.splitContainer3.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.splitContainer4.Panel1.ResumeLayout(false);
-            this.splitContainer4.Panel1.PerformLayout();
-            this.splitContainer4.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
-            this.splitContainer4.ResumeLayout(false);
-            this.splitContainer5.Panel1.ResumeLayout(false);
-            this.splitContainer5.Panel1.PerformLayout();
-            this.splitContainer5.Panel2.ResumeLayout(false);
-            this.splitContainer5.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
-            this.splitContainer5.ResumeLayout(false);
-            this.splitContainer6.Panel1.ResumeLayout(false);
-            this.splitContainer6.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
-            this.splitContainer6.ResumeLayout(false);
-            this.splitContainer7.Panel1.ResumeLayout(false);
-            this.splitContainer7.Panel1.PerformLayout();
-            this.splitContainer7.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer7)).EndInit();
-            this.splitContainer7.ResumeLayout(false);
-            this.splitContainer8.Panel1.ResumeLayout(false);
-            this.splitContainer8.Panel1.PerformLayout();
-            this.splitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer8)).EndInit();
-            this.splitContainer8.ResumeLayout(false);
-            this.splitContainer9.Panel1.ResumeLayout(false);
-            this.splitContainer9.Panel1.PerformLayout();
-            this.splitContainer9.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer9)).EndInit();
-            this.splitContainer9.ResumeLayout(false);
-            this.splitContainer10.Panel1.ResumeLayout(false);
-            this.splitContainer10.Panel1.PerformLayout();
-            this.splitContainer10.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer10)).EndInit();
-            this.splitContainer10.ResumeLayout(false);
-            this.splitContainer11.Panel1.ResumeLayout(false);
-            this.splitContainer11.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer11)).EndInit();
-            this.splitContainer11.ResumeLayout(false);
-            this.splitContainer12.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer12)).EndInit();
-            this.splitContainer12.ResumeLayout(false);
-            this.splitContainer13.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer13)).EndInit();
-            this.splitContainer13.ResumeLayout(false);
-            this.splitContainer14.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer14)).EndInit();
-            this.splitContainer14.ResumeLayout(false);
-            this.splitContainer15.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer15)).EndInit();
-            this.splitContainer15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer16)).EndInit();
-            this.splitContainer16.ResumeLayout(false);
-            this.splInvoice2.Panel1.ResumeLayout(false);
-            this.splInvoice2.Panel2.ResumeLayout(false);
-            this.splInvoice2.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splInvoice2)).EndInit();
-            this.splInvoice2.ResumeLayout(false);
-            this.splitContainer18.Panel2.ResumeLayout(false);
-            this.splitContainer18.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer18)).EndInit();
-            this.splitContainer18.ResumeLayout(false);
+            this.Name = "customerViewInvoice";
+            this.Text = "customerViewInvoice";
+            this.Load += new System.EventHandler(this.customerViewInvoice_Load);
+            this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
-            this.palNav.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.splInvoice1.Panel1.ResumeLayout(false);
-            this.splInvoice1.Panel1.PerformLayout();
-            this.splInvoice1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splInvoice1)).EndInit();
-            this.splInvoice1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.grpInvoiceAddress.ResumeLayout(false);
+            this.grpInvoiceAddress.PerformLayout();
+            this.grpDeliveryAddress.ResumeLayout(false);
+            this.grpDeliveryAddress.PerformLayout();
+            this.grpDate.ResumeLayout(false);
+            this.grpDate.PerformLayout();
+            this.grpSerialNum.ResumeLayout(false);
+            this.grpSerialNum.PerformLayout();
+            this.grpCustomerID.ResumeLayout(false);
+            this.grpCustomerID.PerformLayout();
+            this.grpOrderNum.ResumeLayout(false);
+            this.grpOrderNum.PerformLayout();
+            this.grpItem.ResumeLayout(false);
+            this.grpDeliveryDate.ResumeLayout(false);
+            this.grpDeliveryDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1015,49 +801,8 @@ namespace templatev1
 
         #endregion
 
-        private System.Windows.Forms.Button btnFunction2;
-        private System.Windows.Forms.Label lblTitCorpLoc;
-        private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label lblTitCorp;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.Label lblTitDate;
-        private System.Windows.Forms.SplitContainer splitContainer4;
-        private System.Windows.Forms.Label lblOrderNo;
-        private System.Windows.Forms.Label lblTitOrderNo;
-        private System.Windows.Forms.SplitContainer splitContainer5;
-        private System.Windows.Forms.Label lblCorpOrderNo;
-        private System.Windows.Forms.Label lblTitCorpOrderNo;
-        private System.Windows.Forms.Label lblAdd;
-        private System.Windows.Forms.Label lblTitAdd;
-        private System.Windows.Forms.SplitContainer splitContainer6;
-        private System.Windows.Forms.SplitContainer splitContainer7;
-        private System.Windows.Forms.Label lblTitBundlesNo;
-        private System.Windows.Forms.SplitContainer splitContainer8;
-        private System.Windows.Forms.Label lblTitPartNo;
-        private System.Windows.Forms.SplitContainer splitContainer9;
-        private System.Windows.Forms.Label lblTitPreQty;
-        private System.Windows.Forms.SplitContainer splitContainer10;
-        private System.Windows.Forms.Label lblTitFollowQty;
-        private System.Windows.Forms.SplitContainer splitContainer11;
-        private System.Windows.Forms.Label lblTitDeliverQty;
-        private System.Windows.Forms.SplitContainer splitContainer12;
-        private System.Windows.Forms.SplitContainer splitContainer13;
-        private System.Windows.Forms.SplitContainer splitContainer14;
-        private System.Windows.Forms.SplitContainer splitContainer15;
-        private System.Windows.Forms.SplitContainer splitContainer16;
-        private System.Windows.Forms.SplitContainer splInvoice2;
-        private System.Windows.Forms.SplitContainer splitContainer18;
-        private System.Windows.Forms.Label lblTitWeight;
-        private System.Windows.Forms.Label lblRecDate;
-        private System.Windows.Forms.Panel palLoc;
-        private System.Windows.Forms.Label lblLoc;
-        private System.Windows.Forms.Panel palDate;
-        private System.Windows.Forms.Label lblUid;
-        private System.Windows.Forms.Label lblTimeDate;
-        private System.Windows.Forms.Label lblTitNote;
         private System.Windows.Forms.Panel palNav;
+        private System.Windows.Forms.Panel palSelect5;
         private System.Windows.Forms.Panel palSelect4;
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
@@ -1067,12 +812,53 @@ namespace templatev1
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.PictureBox picHome;
         private System.Windows.Forms.Label lblCorpName;
+        private System.Windows.Forms.Button btnFunction5;
         private System.Windows.Forms.Button btnFunction4;
         private System.Windows.Forms.Button btnFunction3;
+        private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Panel palLoc;
+        private System.Windows.Forms.Label lblLoc;
+        private System.Windows.Forms.Panel palDate;
+        private System.Windows.Forms.Label lblUid;
+        private System.Windows.Forms.Label lblTimeDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.SplitContainer splInvoice1;
+        private System.Windows.Forms.GroupBox grpInvoiceAddress;
+        private System.Windows.Forms.GroupBox grpDeliveryAddress;
+        private System.Windows.Forms.GroupBox grpDate;
+        private System.Windows.Forms.GroupBox grpSerialNum;
+        private System.Windows.Forms.GroupBox grpCustomerID;
+        private System.Windows.Forms.GroupBox grpOrderNum;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.GroupBox grpItem;
+        private System.Windows.Forms.GroupBox grpDeliveryDate;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblDeliveryDate;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDelaerAddress;
+        private System.Windows.Forms.Label lblDeliveryAddress;
+        private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.Label lblInvoiceNum;
+        private System.Windows.Forms.Label lblCustomerID;
+        private System.Windows.Forms.Label lblOrderNum;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Panel pnlSP;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

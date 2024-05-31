@@ -52,7 +52,8 @@ namespace templatev1.Order_Management
             //order basic info
             Label lblID = new Label() { Name = $"lblID", Text = orderID, Location = new System.Drawing.Point(381,123), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
             Label lblSerialNum = new Label() { Name = $"lblSerialNum", Text = $"{dt.Rows[0][3]}", Location = new System.Drawing.Point(381, 170), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
-            Label lblDate = new Label() { Name = $"lblDate", Text = $"{dt.Rows[0][4]}", Location = new System.Drawing.Point(381, 217), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
+            string[] f = dt.Rows[0][4].ToString().Split(' ');
+            Label lblDate = new Label() { Name = $"lblDate", Text = $"{f[0]}", Location = new System.Drawing.Point(381, 217), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
             Label lblStaffName = new Label() { Name = $"lblStaffName", Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 264), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
             Label lblStaffID = new Label() { Name = $"lblStaffID", Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 311), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true, TextAlign = ContentAlignment.MiddleCenter };
             Label lblStaffContact = new Label() { Name = $"lblStaffContact", Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 358), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true};
@@ -144,21 +145,29 @@ namespace templatev1.Order_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
+            if (dayDifference() >= 2)
             {
-                MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-                this.Hide();
-                customerOrderList.StartPosition = FormStartPosition.Manual;
-                customerOrderList.Location = this.Location;
-                customerOrderList.ShowDialog();
-                this.Close();
+                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
+                {
+                    MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                    this.Hide();
+                    customerOrderList.StartPosition = FormStartPosition.Manual;
+                    customerOrderList.Location = this.Location;
+                    customerOrderList.ShowDialog();
+                    this.Close();
+                }
+                else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
+                {
+                    MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
+            else
             {
-                MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Order cannot be deleted two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -173,7 +182,19 @@ namespace templatev1.Order_Management
 
         private void btnViewInvoice_Click(object sender, EventArgs e)
         {
-
+            if (dayDifference() >= 0)
+            {
+                MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }else
+            {
+                Form customerViewInvoice = new customerViewInvoice(orderID, accountController, UIController);
+                this.Hide();
+                customerViewInvoice.StartPosition = FormStartPosition.Manual;
+                customerViewInvoice.Location = this.Location;
+                customerViewInvoice.ShowDialog();
+                this.Close();
+            }
+            
         }
 
         private int dayDifference()  //calculate day difference

@@ -88,6 +88,12 @@
     <Compile Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.Designer.cs">
       <DependentUpon>viewSparePartA1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\customerViewInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\customerViewInvoice.Designer.cs">
+      <DependentUpon>customerViewInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order_Management\customerViewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,12 +330,6 @@
     <Compile Include="Order_Management\viewDIC.Designer.cs">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Management\customerViewInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Order_Management\customerViewInvoice.Designer.cs">
-      <DependentUpon>customerViewInvoice.cs</DependentUpon>
-    </Compile>
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -368,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerOrderList.resx">
       <DependentUpon>customerOrderList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\customerViewInvoice.resx">
+      <DependentUpon>customerViewInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerViewOrder.resx">
       <DependentUpon>customerViewOrder.cs</DependentUpon>
@@ -490,9 +493,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\viewDIC.resx">
       <DependentUpon>viewDIC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Order_Management\customerViewInvoice.resx">
-      <DependentUpon>customerViewInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\viewOrder_Confirm_Reject.resx">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
