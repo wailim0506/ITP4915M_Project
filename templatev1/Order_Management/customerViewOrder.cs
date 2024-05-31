@@ -76,8 +76,14 @@ namespace templatev1.Order_Management
             string[] delivermanDetail = controller.getDelivermanDetail(orderID);
             lblDelivermanID.Text = dt.Rows[0][1].ToString();
             lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
-            lblDelivermanContact.Text = delivermanDetail[2];            
-            lblShippingDate.Text = $"{shippingDate}";         
+            lblDelivermanContact.Text = delivermanDetail[2]; 
+            if (dayDifference() >= 0)
+            {
+                lblShippingDate.Text = $"Scheduled on {shippingDate}";
+            }
+            else{
+                lblShippingDate.Text = $"Delivered on {shippingDate}";
+            }
             lblExpressNum.Text = dt.Rows[0][4].ToString();
             lblShippingAddress.Text = controller.getShippingAddress(UID);
 
@@ -121,12 +127,19 @@ namespace templatev1.Order_Management
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            Form customerEditOrder = new customerEditOrder(orderID,accountController, UIController);
-            this.Hide();
-            customerEditOrder.StartPosition = FormStartPosition.Manual;
-            customerEditOrder.Location = this.Location;
-            customerEditOrder.ShowDialog();
-            this.Close();
+            if (dayDifference() >= 2)
+            {
+                Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
+                this.Hide();
+                customerEditOrder.StartPosition = FormStartPosition.Manual;
+                customerEditOrder.Location = this.Location;
+                customerEditOrder.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Order cannot be edited two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -158,9 +171,53 @@ namespace templatev1.Order_Management
             this.Close();
         }
 
-        private void /*Boolean*/ twoDayBefore()
+        private void btnViewInvoice_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private int dayDifference()  //calculate day difference
+        {
+            string sysDate = DateTime.Now.ToString("dd-MM-yy");
+            string shippingDate = shipDate;
+            string[] d = shippingDate.Split('/');
+            string[] splitShippingDayMonthYear = new string[3];
+            for (int i = 0; i < d.Length; i++)
+            {
+                splitShippingDayMonthYear[i] = d[i];
+            }
+
+            if (int.Parse(d[0]) <= 9)
+            {
+                d[0] = $"0{d[0]}";
+            }
+
+            if (int.Parse(d[1]) <= 9)
+            {
+                d[1] = $"0{d[1]}";
+            }
+
+
+            string formatedShippingDate = $"{d[0]}/{d[1]}/{d[2]}";
+
+            string[] e = sysDate.Split('-');
+            string[] splitSysDate = new string[3];
+            for (int i = 0; i < e.Length; i++)
+            {
+                splitSysDate[i] = e[i];
+            }
+            string formatedSysDate = $"{e[0]}/{e[1]}/20{e[2]}";
+
+
+
+
+            DateTime parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
+            DateTime parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
+
+            TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
+
+            string[] f = difference.ToString().Split('.');
+            return int.Parse(f[0]);  //time difference in day
         }
     }
 }

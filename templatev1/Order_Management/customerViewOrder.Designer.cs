@@ -34,15 +34,18 @@ namespace templatev1.Order_Management
             this.lblStaffContactLabel = new System.Windows.Forms.Label();
             this.lblStaffLabel = new System.Windows.Forms.Label();
             this.grpSparePart = new System.Windows.Forms.GroupBox();
+            this.pnlSP = new System.Windows.Forms.Panel();
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.palSelect3 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
@@ -81,16 +84,13 @@ namespace templatev1.Order_Management
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnViewInvoice = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
-            this.pnlSP = new System.Windows.Forms.Panel();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.grpSparePart.SuspendLayout();
             this.palNav.SuspendLayout();
-            this.palLoc.SuspendLayout();
-            this.palDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.palLoc.SuspendLayout();
+            this.palDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblStatusLabel
@@ -131,6 +131,14 @@ namespace templatev1.Order_Management
             this.grpSparePart.Size = new System.Drawing.Size(940, 285);
             this.grpSparePart.TabIndex = 40;
             this.grpSparePart.TabStop = false;
+            // 
+            // pnlSP
+            // 
+            this.pnlSP.AutoScroll = true;
+            this.pnlSP.Location = new System.Drawing.Point(3, 8);
+            this.pnlSP.Name = "pnlSP";
+            this.pnlSP.Size = new System.Drawing.Size(935, 270);
+            this.pnlSP.TabIndex = 0;
             // 
             // lblOrderIDLabel
             // 
@@ -199,6 +207,16 @@ namespace templatev1.Order_Management
             this.palSelect1.Size = new System.Drawing.Size(10, 60);
             this.palSelect1.TabIndex = 4;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 26);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 50);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -234,6 +252,18 @@ namespace templatev1.Order_Management
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 14);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 61);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -626,6 +656,7 @@ namespace templatev1.Order_Management
             this.btnViewInvoice.TabIndex = 68;
             this.btnViewInvoice.Text = "View Invoice";
             this.btnViewInvoice.UseVisualStyleBackColor = true;
+            this.btnViewInvoice.Click += new System.EventHandler(this.btnViewInvoice_Click);
             // 
             // btnEdit
             // 
@@ -639,36 +670,6 @@ namespace templatev1.Order_Management
             this.btnEdit.Text = "Edit Order";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // pnlSP
-            // 
-            this.pnlSP.AutoScroll = true;
-            this.pnlSP.Location = new System.Drawing.Point(3, 8);
-            this.pnlSP.Name = "pnlSP";
-            this.pnlSP.Size = new System.Drawing.Size(935, 270);
-            this.pnlSP.TabIndex = 0;
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 26);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 50);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 14);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 61);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
             // 
             // btnDelete
             // 
@@ -731,12 +732,12 @@ namespace templatev1.Order_Management
             this.Load += new System.EventHandler(this.customerViewOrder_Load);
             this.grpSparePart.ResumeLayout(false);
             this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -324,11 +324,11 @@
     <Compile Include="Order_Management\viewDIC.Designer.cs">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\viewInvoice.cs">
+    <Compile Include="Order_Management\customerViewInvoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\viewInvoice.Designer.cs">
-      <DependentUpon>viewInvoice.cs</DependentUpon>
+    <Compile Include="Order_Management\customerViewInvoice.Designer.cs">
+      <DependentUpon>customerViewInvoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.cs">
       <SubType>Form</SubType>
@@ -491,8 +491,8 @@
     <EmbeddedResource Include="Order_Management\viewDIC.resx">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\viewInvoice.resx">
-      <DependentUpon>viewInvoice.cs</DependentUpon>
+    <EmbeddedResource Include="Order_Management\customerViewInvoice.resx">
+      <DependentUpon>customerViewInvoice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\viewOrder_Confirm_Reject.resx">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
