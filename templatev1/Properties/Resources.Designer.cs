@@ -65,7 +65,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _100001 {
             get {
-                object obj = ResourceManager.GetObject("_100001", resourceCulture);
+                object obj = ResourceManager.GetObject("100001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -75,7 +75,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _100002 {
             get {
-                object obj = ResourceManager.GetObject("_100002", resourceCulture);
+                object obj = ResourceManager.GetObject("100002", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -85,7 +85,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _100003 {
             get {
-                object obj = ResourceManager.GetObject("_100003", resourceCulture);
+                object obj = ResourceManager.GetObject("100003", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,7 +95,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _100004 {
             get {
-                object obj = ResourceManager.GetObject("_100004", resourceCulture);
+                object obj = ResourceManager.GetObject("100004", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -105,7 +105,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _100005 {
             get {
-                object obj = ResourceManager.GetObject("_100005", resourceCulture);
+                object obj = ResourceManager.GetObject("100005", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -115,7 +115,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _200001 {
             get {
-                object obj = ResourceManager.GetObject("_200001", resourceCulture);
+                object obj = ResourceManager.GetObject("200001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -125,7 +125,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _200002 {
             get {
-                object obj = ResourceManager.GetObject("_200002", resourceCulture);
+                object obj = ResourceManager.GetObject("200002", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -135,7 +135,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _200003 {
             get {
-                object obj = ResourceManager.GetObject("_200003", resourceCulture);
+                object obj = ResourceManager.GetObject("200003", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -145,7 +145,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _200004 {
             get {
-                object obj = ResourceManager.GetObject("_200004", resourceCulture);
+                object obj = ResourceManager.GetObject("200004", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -155,7 +155,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _200005 {
             get {
-                object obj = ResourceManager.GetObject("_200005", resourceCulture);
+                object obj = ResourceManager.GetObject("200005", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -165,7 +165,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _300001 {
             get {
-                object obj = ResourceManager.GetObject("_300001", resourceCulture);
+                object obj = ResourceManager.GetObject("300001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -175,7 +175,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _300002 {
             get {
-                object obj = ResourceManager.GetObject("_300002", resourceCulture);
+                object obj = ResourceManager.GetObject("300002", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -185,7 +185,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _300003 {
             get {
-                object obj = ResourceManager.GetObject("_300003", resourceCulture);
+                object obj = ResourceManager.GetObject("300003", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -195,7 +195,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _300004 {
             get {
-                object obj = ResourceManager.GetObject("_300004", resourceCulture);
+                object obj = ResourceManager.GetObject("300004", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -205,7 +205,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _300005 {
             get {
-                object obj = ResourceManager.GetObject("_300005", resourceCulture);
+                object obj = ResourceManager.GetObject("300005", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -215,7 +215,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _400001 {
             get {
-                object obj = ResourceManager.GetObject("_400001", resourceCulture);
+                object obj = ResourceManager.GetObject("400001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -225,7 +225,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _400002jpg {
             get {
-                object obj = ResourceManager.GetObject("_400002jpg", resourceCulture);
+                object obj = ResourceManager.GetObject("400002jpg", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -235,7 +235,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _400003 {
             get {
-                object obj = ResourceManager.GetObject("_400003", resourceCulture);
+                object obj = ResourceManager.GetObject("400003", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -245,7 +245,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _400004 {
             get {
-                object obj = ResourceManager.GetObject("_400004", resourceCulture);
+                object obj = ResourceManager.GetObject("400004", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -255,7 +255,7 @@ namespace templatev1.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _400005 {
             get {
-                object obj = ResourceManager.GetObject("_400005", resourceCulture);
+                object obj = ResourceManager.GetObject("400005", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
