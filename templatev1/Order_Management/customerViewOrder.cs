@@ -151,6 +151,7 @@ namespace templatev1.Order_Management
                 if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
                 {
                     MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
                     this.Hide();
                     customerOrderList.StartPosition = FormStartPosition.Manual;
