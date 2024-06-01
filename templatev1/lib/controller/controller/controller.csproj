@@ -72,12 +72,10 @@
     <Compile Include="abstractController.cs" />
     <Compile Include="accountController.cs" />
     <Compile Include="editOrderController.cs" />
-    <Compile Include="favouriteController.cs" />
     <Compile Include="orderListController.cs" />
     <Compile Include="proFileController.cs" />
     <Compile Include="feedbackController.cs" />
     <Compile Include="RecoveryController.cs" />
-    <Compile Include="spareListController.cs" />
     <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -46,23 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Online_Ordering_Platform\favourite.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\favourite.Designer.cs">
-      <DependentUpon>favourite.cs</DependentUpon>
-    </Compile>
     <Compile Include="Online_Ordering_Platform\sparePartList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Online_Ordering_Platform\sparePartList.Designer.cs">
       <DependentUpon>sparePartList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\viewSparePart.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\viewSparePart.Designer.cs">
-      <DependentUpon>viewSparePart.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\customerEditOrder.cs">
       <SubType>Form</SubType>
@@ -75,6 +63,36 @@
     </Compile>
     <Compile Include="Order_Management\customerOrderList.Designer.cs">
       <DependentUpon>customerOrderList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListA.Designer.cs">
+      <DependentUpon>sparePartListA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListB.Designer.cs">
+      <DependentUpon>sparePartListB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListC.Designer.cs">
+      <DependentUpon>sparePartListC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\sparePartListD.Designer.cs">
+      <DependentUpon>sparePartListD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.Designer.cs">
+      <DependentUpon>viewSparePartA1.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\customerViewInvoice.cs">
       <SubType>Form</SubType>
@@ -318,14 +336,23 @@
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.Designer.cs">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Online_Ordering_Platform\favourite.resx">
-      <DependentUpon>favourite.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\sparePartList.resx">
       <DependentUpon>sparePartList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart.resx">
-      <DependentUpon>viewSparePart.cs</DependentUpon>
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartListA.resx">
+      <DependentUpon>sparePartListA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartListB.resx">
+      <DependentUpon>sparePartListB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartListC.resx">
+      <DependentUpon>sparePartListC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Online_Ordering_Platform\sparePartListD.resx">
+      <DependentUpon>sparePartListD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart\viewSparePartA1.resx">
+      <DependentUpon>viewSparePartA1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerEditOrder.resx">
       <DependentUpon>customerEditOrder.cs</DependentUpon>
@@ -498,31 +525,71 @@
     <None Include="Resources\LBWhite.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\100001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\100005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\200005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\300005.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400002jpg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400003.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400004.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\400005.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\pencil.png" />
     <None Include="Resources\tick.jpg" />
     <None Include="Resources\tick.png" />
     <None Include="Resources\bin.png" />
     <None Include="Resources\refreshbtn.png" />
-    <None Include="Resources\A00001.png" />
-    <None Include="Resources\A00002.png" />
-    <None Include="Resources\A00003.png" />
-    <None Include="Resources\A00004.png" />
-    <None Include="Resources\A00005.png" />
-    <None Include="Resources\B00001.png" />
-    <None Include="Resources\B00002.png" />
-    <None Include="Resources\B00003.png" />
-    <None Include="Resources\B00004.png" />
-    <None Include="Resources\B00005.png" />
-    <None Include="Resources\C00001.png" />
-    <None Include="Resources\C00002.png" />
-    <None Include="Resources\C00003.png" />
-    <None Include="Resources\C00004.png" />
-    <None Include="Resources\C00005.png" />
-    <None Include="Resources\D00001.png" />
-    <None Include="Resources\D00002.png" />
-    <None Include="Resources\D00003.png" />
-    <None Include="Resources\D00004.png" />
-    <None Include="Resources\D00005.png" />
     <Content Include="Trash\Trash.txt" />
   </ItemGroup>
   <ItemGroup>

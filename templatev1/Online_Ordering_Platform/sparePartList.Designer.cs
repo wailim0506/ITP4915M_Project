@@ -29,7 +29,6 @@ namespace templatev1.Online_Ordering_Platform
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
@@ -42,31 +41,18 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.palDate = new System.Windows.Forms.Panel();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
-            this.tbKW = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblResultNum = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnlSP = new System.Windows.Forms.Panel();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbSorting = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.palNav.SuspendLayout();
-            this.palDate.SuspendLayout();
-            this.palLoc.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.palDate.SuspendLayout();
+            this.palLoc.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -89,7 +75,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 941);
+            this.palNav.Size = new System.Drawing.Size(198, 924);
             this.palNav.TabIndex = 72;
             // 
             // palSelect4
@@ -122,7 +108,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 794);
+            this.btnProFile.Location = new System.Drawing.Point(0, 891);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
@@ -144,7 +130,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 933);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
@@ -156,7 +142,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 892);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 989);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
@@ -223,6 +209,28 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
             // palDate
             // 
             this.palDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -233,14 +241,14 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Location = new System.Drawing.Point(198, 38);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(972, 40);
+            this.palDate.Size = new System.Drawing.Size(1100, 40);
             this.palDate.TabIndex = 74;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(821, 10);
+            this.lblUid.Location = new System.Drawing.Point(1213, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(134, 22);
@@ -265,7 +273,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 0);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.Size = new System.Drawing.Size(1100, 38);
             this.palLoc.TabIndex = 75;
             // 
             // lblLoc
@@ -278,175 +286,24 @@ namespace templatev1.Online_Ordering_Platform
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "Spare Part";
             // 
-            // tbKW
-            // 
-            this.tbKW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbKW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKW.Location = new System.Drawing.Point(524, 107);
-            this.tbKW.Name = "tbKW";
-            this.tbKW.Size = new System.Drawing.Size(463, 29);
-            this.tbKW.TabIndex = 76;
-            this.tbKW.TextChanged += new System.EventHandler(this.tbKW_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 164);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
-            this.label1.TabIndex = 77;
-            this.label1.Text = "Result :";
-            // 
-            // lblResultNum
-            // 
-            this.lblResultNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultNum.Location = new System.Drawing.Point(205, 164);
-            this.lblResultNum.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.lblResultNum.Name = "lblResultNum";
-            this.lblResultNum.Size = new System.Drawing.Size(43, 24);
-            this.lblResultNum.TabIndex = 78;
-            this.lblResultNum.Text = "20";
-            this.lblResultNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.pnlSP);
-            this.groupBox1.Location = new System.Drawing.Point(208, 191);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(950, 744);
-            this.groupBox1.TabIndex = 79;
-            this.groupBox1.TabStop = false;
-            // 
-            // pnlSP
-            // 
-            this.pnlSP.AutoScroll = true;
-            this.pnlSP.Location = new System.Drawing.Point(2, 8);
-            this.pnlSP.Name = "pnlSP";
-            this.pnlSP.Size = new System.Drawing.Size(943, 731);
-            this.pnlSP.TabIndex = 0;
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "All",
-            "A",
-            "B",
-            "C",
-            "D"});
-            this.cmbCategory.Location = new System.Drawing.Point(311, 108);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(48, 28);
-            this.cmbCategory.TabIndex = 80;
-            this.cmbCategory.Text = "All";
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(221, 108);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 24);
-            this.label2.TabIndex = 81;
-            this.label2.Text = "Category: ";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(431, 109);
-            this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 24);
-            this.label3.TabIndex = 82;
-            this.label3.Text = "Keyword:";
-            // 
-            // cmbSorting
-            // 
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "Category",
-            "Price (Ascending)",
-            "Price (Descending)"});
-            this.cmbSorting.Location = new System.Drawing.Point(1002, 170);
-            this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(151, 26);
-            this.cmbSorting.TabIndex = 83;
-            this.cmbSorting.Text = "Category";
-            this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(937, 170);
-            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 24);
-            this.label4.TabIndex = 84;
-            this.label4.Text = "Sort By:";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
-            // 
             // sparePartList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbSorting);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.lblResultNum);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.tbKW);
+            this.ClientSize = new System.Drawing.Size(1298, 924);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palNav);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
             this.Name = "sparePartList";
             this.Text = "sparePartList";
-            this.Load += new System.EventHandler(this.sparePartList_Load);
             this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -471,17 +328,5 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Label lblTimeDate;
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
-        private System.Windows.Forms.TextBox tbKW;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblResultNum;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel pnlSP;
-        private System.Windows.Forms.ComboBox cmbCategory;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbSorting;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
     }
 }
