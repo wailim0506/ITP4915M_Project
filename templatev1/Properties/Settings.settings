@@ -32,8 +32,11 @@
     <Setting Name="timeColor" Type="System.Drawing.Color" Scope="User">
       <Value Profile="(Default)">204, 204, 204</Value>
     </Setting>
-    <Setting Name="BWmode" Type="System.Boolean" Scope="User">
+    <Setting Name="BWmode" Roaming="true" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="btnColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
     </Setting>
   </Settings>
 </SettingsFile>

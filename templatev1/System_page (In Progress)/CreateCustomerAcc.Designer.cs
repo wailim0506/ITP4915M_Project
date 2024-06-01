@@ -48,8 +48,15 @@
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.lblAccTypeSys = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.grpContact = new System.Windows.Forms.GroupBox();
+            this.lblEmailMsg = new System.Windows.Forms.Label();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
+            this.cmbProvince = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblCity = new System.Windows.Forms.Label();
+            this.lblProvince = new System.Windows.Forms.Label();
+            this.lblContactMsg = new System.Windows.Forms.Label();
             this.tbAddress2 = new System.Windows.Forms.TextBox();
             this.tbAddress1 = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -57,23 +64,32 @@
             this.lblTitAddress = new System.Windows.Forms.Label();
             this.lblTitPhone = new System.Windows.Forms.Label();
             this.lblTitEmail = new System.Windows.Forms.Label();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
             this.lblTitAccType = new System.Windows.Forms.Label();
             this.lblTitGender = new System.Windows.Forms.Label();
             this.lblTitLastName = new System.Windows.Forms.Label();
             this.lblTitFirstName = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnUploadIMG = new System.Windows.Forms.Button();
             this.lblTitPass = new System.Windows.Forms.Label();
             this.lblTitConfirmPass = new System.Windows.Forms.Label();
             this.tbPass = new System.Windows.Forms.TextBox();
             this.tbConfirmPass = new System.Windows.Forms.TextBox();
             this.grpPass = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lblPwdMsg = new System.Windows.Forms.Label();
+            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.lblfNameMsg = new System.Windows.Forms.Label();
+            this.lblLNameMsg = new System.Windows.Forms.Label();
+            this.lblSexMsg = new System.Windows.Forms.Label();
+            this.lblDateMsg = new System.Windows.Forms.Label();
+            this.lblPaymentMsg = new System.Windows.Forms.Label();
+            this.btnUploadIMG = new System.Windows.Forms.Button();
+            this.picUserIMG = new System.Windows.Forms.PictureBox();
+            this.lblTitCompanyName = new System.Windows.Forms.Label();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.palTIME.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpContact.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.grpPass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserIMG)).BeginInit();
             this.SuspendLayout();
             // 
             // palTIME
@@ -129,12 +145,15 @@
             this.btnRemoveIMG.Location = new System.Drawing.Point(971, 389);
             this.btnRemoveIMG.Name = "btnRemoveIMG";
             this.btnRemoveIMG.Size = new System.Drawing.Size(142, 29);
-            this.btnRemoveIMG.TabIndex = 93;
+            this.btnRemoveIMG.TabIndex = 10;
             this.btnRemoveIMG.Text = "Remove Image";
             this.btnRemoveIMG.UseVisualStyleBackColor = true;
+            this.btnRemoveIMG.Click += new System.EventHandler(this.btnRemoveIMG_Click);
             // 
             // cmbPayment
             // 
+            this.cmbPayment.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbPayment.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbPayment.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbPayment.FormattingEnabled = true;
             this.cmbPayment.Items.AddRange(new object[] {
@@ -144,8 +163,8 @@
             "Visa"});
             this.cmbPayment.Location = new System.Drawing.Point(196, 451);
             this.cmbPayment.Name = "cmbPayment";
-            this.cmbPayment.Size = new System.Drawing.Size(140, 27);
-            this.cmbPayment.TabIndex = 92;
+            this.cmbPayment.Size = new System.Drawing.Size(174, 27);
+            this.cmbPayment.TabIndex = 6;
             // 
             // lblPaymant
             // 
@@ -204,7 +223,7 @@
             this.chkNGDateOfBirth.Location = new System.Drawing.Point(170, 406);
             this.chkNGDateOfBirth.Name = "chkNGDateOfBirth";
             this.chkNGDateOfBirth.Size = new System.Drawing.Size(117, 23);
-            this.chkNGDateOfBirth.TabIndex = 85;
+            this.chkNGDateOfBirth.TabIndex = 5;
             this.chkNGDateOfBirth.Text = "Not provided";
             this.chkNGDateOfBirth.UseVisualStyleBackColor = true;
             // 
@@ -224,7 +243,7 @@
             this.tbLastName.Location = new System.Drawing.Point(170, 301);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(200, 27);
-            this.tbLastName.TabIndex = 82;
+            this.tbLastName.TabIndex = 2;
             // 
             // tbFirstName
             // 
@@ -232,10 +251,12 @@
             this.tbFirstName.Location = new System.Drawing.Point(170, 262);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(200, 27);
-            this.tbFirstName.TabIndex = 81;
+            this.tbFirstName.TabIndex = 1;
             // 
             // cmbGender
             // 
+            this.cmbGender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Items.AddRange(new object[] {
@@ -244,7 +265,7 @@
             this.cmbGender.Location = new System.Drawing.Point(170, 340);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
-            this.cmbGender.TabIndex = 80;
+            this.cmbGender.TabIndex = 3;
             // 
             // lblAccTypeSys
             // 
@@ -260,26 +281,36 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnCancel.Location = new System.Drawing.Point(358, 886);
+            this.btnCancel.Location = new System.Drawing.Point(618, 886);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 34);
-            this.btnCancel.TabIndex = 78;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // button2
+            // btnCreate
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.button2.Location = new System.Drawing.Point(198, 886);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 34);
-            this.button2.TabIndex = 77;
-            this.button2.Text = "Create";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCreate.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnCreate.Location = new System.Drawing.Point(458, 886);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(96, 34);
+            this.btnCreate.TabIndex = 11;
+            this.btnCreate.Text = "Create";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // grpContact
             // 
+            this.grpContact.Controls.Add(this.tbCompanyName);
+            this.grpContact.Controls.Add(this.lblTitCompanyName);
+            this.grpContact.Controls.Add(this.lblEmailMsg);
+            this.grpContact.Controls.Add(this.lblPhoneMsg);
+            this.grpContact.Controls.Add(this.cmbProvince);
+            this.grpContact.Controls.Add(this.label1);
+            this.grpContact.Controls.Add(this.lblCity);
+            this.grpContact.Controls.Add(this.lblProvince);
+            this.grpContact.Controls.Add(this.lblContactMsg);
             this.grpContact.Controls.Add(this.tbAddress2);
             this.grpContact.Controls.Add(this.tbAddress1);
             this.grpContact.Controls.Add(this.tbEmail);
@@ -287,55 +318,126 @@
             this.grpContact.Controls.Add(this.lblTitAddress);
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
+            this.grpContact.Controls.Add(this.cmbCity);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContact.Location = new System.Drawing.Point(50, 538);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(545, 209);
-            this.grpContact.TabIndex = 76;
+            this.grpContact.Size = new System.Drawing.Size(545, 342);
+            this.grpContact.TabIndex = 7;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
+            // 
+            // lblEmailMsg
+            // 
+            this.lblEmailMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblEmailMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblEmailMsg.Location = new System.Drawing.Point(156, 110);
+            this.lblEmailMsg.Name = "lblEmailMsg";
+            this.lblEmailMsg.Size = new System.Drawing.Size(377, 19);
+            this.lblEmailMsg.TabIndex = 114;
+            // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(354, 51);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(179, 19);
+            this.lblPhoneMsg.TabIndex = 113;
+            // 
+            // cmbProvince
+            // 
+            this.cmbProvince.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbProvince.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbProvince.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.cmbProvince.FormattingEnabled = true;
+            this.cmbProvince.Location = new System.Drawing.Point(160, 274);
+            this.cmbProvince.Name = "cmbProvince";
+            this.cmbProvince.Size = new System.Drawing.Size(144, 27);
+            this.cmbProvince.Sorted = true;
+            this.cmbProvince.TabIndex = 4;
+            this.cmbProvince.SelectedValueChanged += new System.EventHandler(this.cmbProvince_SelectedValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.label1.Location = new System.Drawing.Point(10, 208);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(148, 19);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Warehouse Address:";
+            // 
+            // lblCity
+            // 
+            this.lblCity.AutoSize = true;
+            this.lblCity.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblCity.Location = new System.Drawing.Point(115, 243);
+            this.lblCity.Name = "lblCity";
+            this.lblCity.Size = new System.Drawing.Size(43, 19);
+            this.lblCity.TabIndex = 108;
+            this.lblCity.Text = "City:";
+            // 
+            // lblProvince
+            // 
+            this.lblProvince.AutoSize = true;
+            this.lblProvince.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblProvince.Location = new System.Drawing.Point(83, 277);
+            this.lblProvince.Name = "lblProvince";
+            this.lblProvince.Size = new System.Drawing.Size(75, 19);
+            this.lblProvince.TabIndex = 107;
+            this.lblProvince.Text = "Province:";
+            // 
+            // lblContactMsg
+            // 
+            this.lblContactMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblContactMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblContactMsg.Location = new System.Drawing.Point(160, 308);
+            this.lblContactMsg.Name = "lblContactMsg";
+            this.lblContactMsg.Size = new System.Drawing.Size(373, 19);
+            this.lblContactMsg.TabIndex = 106;
             // 
             // tbAddress2
             // 
             this.tbAddress2.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.tbAddress2.Location = new System.Drawing.Point(132, 150);
+            this.tbAddress2.Location = new System.Drawing.Point(160, 205);
             this.tbAddress2.Name = "tbAddress2";
             this.tbAddress2.Size = new System.Drawing.Size(302, 27);
-            this.tbAddress2.TabIndex = 97;
+            this.tbAddress2.TabIndex = 7;
             // 
             // tbAddress1
             // 
             this.tbAddress1.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.tbAddress1.Location = new System.Drawing.Point(132, 117);
+            this.tbAddress1.Location = new System.Drawing.Point(160, 172);
             this.tbAddress1.Name = "tbAddress1";
             this.tbAddress1.Size = new System.Drawing.Size(302, 27);
-            this.tbAddress1.TabIndex = 95;
+            this.tbAddress1.TabIndex = 6;
             // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.tbEmail.Location = new System.Drawing.Point(132, 80);
+            this.tbEmail.Location = new System.Drawing.Point(160, 80);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(281, 27);
-            this.tbEmail.TabIndex = 96;
+            this.tbEmail.TabIndex = 2;
             // 
             // tbPhone
             // 
             this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.tbPhone.Location = new System.Drawing.Point(132, 43);
+            this.tbPhone.Location = new System.Drawing.Point(160, 43);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(188, 27);
-            this.tbPhone.TabIndex = 34;
+            this.tbPhone.TabIndex = 1;
             // 
             // lblTitAddress
             // 
             this.lblTitAddress.AutoSize = true;
             this.lblTitAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.lblTitAddress.Location = new System.Drawing.Point(10, 120);
+            this.lblTitAddress.Location = new System.Drawing.Point(10, 175);
             this.lblTitAddress.Name = "lblTitAddress";
-            this.lblTitAddress.Size = new System.Drawing.Size(69, 19);
+            this.lblTitAddress.Size = new System.Drawing.Size(136, 19);
             this.lblTitAddress.TabIndex = 25;
-            this.lblTitAddress.Text = "Address:";
+            this.lblTitAddress.Text = "Company Address:";
             // 
             // lblTitPhone
             // 
@@ -356,6 +458,18 @@
             this.lblTitEmail.Size = new System.Drawing.Size(112, 19);
             this.lblTitEmail.TabIndex = 24;
             this.lblTitEmail.Text = "Email Address:";
+            // 
+            // cmbCity
+            // 
+            this.cmbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCity.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(160, 240);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(144, 27);
+            this.cmbCity.Sorted = true;
+            this.cmbCity.TabIndex = 5;
             // 
             // lblTitAccType
             // 
@@ -397,29 +511,6 @@
             this.lblTitFirstName.TabIndex = 72;
             this.lblTitFirstName.Text = "FirstName:";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.groupBox1.Controls.Add(this.btnUploadIMG);
-            this.groupBox1.Location = new System.Drawing.Point(919, 138);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(193, 244);
-            this.groupBox1.TabIndex = 71;
-            this.groupBox1.TabStop = false;
-            // 
-            // btnUploadIMG
-            // 
-            this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.btnUploadIMG.Location = new System.Drawing.Point(52, 82);
-            this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(4);
-            this.btnUploadIMG.Name = "btnUploadIMG";
-            this.btnUploadIMG.Size = new System.Drawing.Size(90, 73);
-            this.btnUploadIMG.TabIndex = 20;
-            this.btnUploadIMG.Text = "Upload Image";
-            this.btnUploadIMG.UseVisualStyleBackColor = true;
-            // 
             // lblTitPass
             // 
             this.lblTitPass.AutoSize = true;
@@ -446,7 +537,7 @@
             this.tbPass.Location = new System.Drawing.Point(179, 43);
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(177, 27);
-            this.tbPass.TabIndex = 98;
+            this.tbPass.TabIndex = 1;
             // 
             // tbConfirmPass
             // 
@@ -454,10 +545,11 @@
             this.tbConfirmPass.Location = new System.Drawing.Point(179, 80);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(177, 27);
-            this.tbConfirmPass.TabIndex = 99;
+            this.tbConfirmPass.TabIndex = 2;
             // 
             // grpPass
             // 
+            this.grpPass.Controls.Add(this.lblPwdMsg);
             this.grpPass.Controls.Add(this.lblTitPass);
             this.grpPass.Controls.Add(this.tbConfirmPass);
             this.grpPass.Controls.Add(this.lblTitConfirmPass);
@@ -465,25 +557,121 @@
             this.grpPass.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPass.Location = new System.Drawing.Point(636, 538);
             this.grpPass.Name = "grpPass";
-            this.grpPass.Size = new System.Drawing.Size(476, 209);
-            this.grpPass.TabIndex = 100;
+            this.grpPass.Size = new System.Drawing.Size(476, 162);
+            this.grpPass.TabIndex = 8;
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Password";
             // 
-            // dateTimePicker1
+            // lblPwdMsg
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(170, 377);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
-            this.dateTimePicker1.TabIndex = 100;
+            this.lblPwdMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPwdMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPwdMsg.Location = new System.Drawing.Point(175, 117);
+            this.lblPwdMsg.Name = "lblPwdMsg";
+            this.lblPwdMsg.Size = new System.Drawing.Size(295, 19);
+            this.lblPwdMsg.TabIndex = 107;
+            // 
+            // dtpDateOfBirth
+            // 
+            this.dtpDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(170, 380);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 23);
+            this.dtpDateOfBirth.TabIndex = 4;
+            // 
+            // lblfNameMsg
+            // 
+            this.lblfNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblfNameMsg.Location = new System.Drawing.Point(376, 270);
+            this.lblfNameMsg.Name = "lblfNameMsg";
+            this.lblfNameMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblfNameMsg.TabIndex = 101;
+            // 
+            // lblLNameMsg
+            // 
+            this.lblLNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblLNameMsg.Location = new System.Drawing.Point(376, 309);
+            this.lblLNameMsg.Name = "lblLNameMsg";
+            this.lblLNameMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblLNameMsg.TabIndex = 102;
+            // 
+            // lblSexMsg
+            // 
+            this.lblSexMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblSexMsg.Location = new System.Drawing.Point(297, 348);
+            this.lblSexMsg.Name = "lblSexMsg";
+            this.lblSexMsg.Size = new System.Drawing.Size(221, 19);
+            this.lblSexMsg.TabIndex = 103;
+            // 
+            // lblDateMsg
+            // 
+            this.lblDateMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblDateMsg.Location = new System.Drawing.Point(376, 383);
+            this.lblDateMsg.Name = "lblDateMsg";
+            this.lblDateMsg.Size = new System.Drawing.Size(466, 19);
+            this.lblDateMsg.TabIndex = 104;
+            // 
+            // lblPaymentMsg
+            // 
+            this.lblPaymentMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPaymentMsg.Location = new System.Drawing.Point(379, 459);
+            this.lblPaymentMsg.Name = "lblPaymentMsg";
+            this.lblPaymentMsg.Size = new System.Drawing.Size(184, 19);
+            this.lblPaymentMsg.TabIndex = 105;
+            // 
+            // btnUploadIMG
+            // 
+            this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnUploadIMG.Location = new System.Drawing.Point(972, 216);
+            this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUploadIMG.Name = "btnUploadIMG";
+            this.btnUploadIMG.Size = new System.Drawing.Size(90, 73);
+            this.btnUploadIMG.TabIndex = 9;
+            this.btnUploadIMG.Text = "Upload Image";
+            this.btnUploadIMG.UseVisualStyleBackColor = true;
+            this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
+            // 
+            // picUserIMG
+            // 
+            this.picUserIMG.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.picUserIMG.Location = new System.Drawing.Point(920, 138);
+            this.picUserIMG.Name = "picUserIMG";
+            this.picUserIMG.Size = new System.Drawing.Size(192, 243);
+            this.picUserIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picUserIMG.TabIndex = 107;
+            this.picUserIMG.TabStop = false;
+            // 
+            // lblTitCompanyName
+            // 
+            this.lblTitCompanyName.AutoSize = true;
+            this.lblTitCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitCompanyName.Location = new System.Drawing.Point(10, 143);
+            this.lblTitCompanyName.Name = "lblTitCompanyName";
+            this.lblTitCompanyName.Size = new System.Drawing.Size(122, 19);
+            this.lblTitCompanyName.TabIndex = 115;
+            this.lblTitCompanyName.Text = "Company Name:";
+            // 
+            // tbCompanyName
+            // 
+            this.tbCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbCompanyName.Location = new System.Drawing.Point(160, 140);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(302, 27);
+            this.tbCompanyName.TabIndex = 3;
             // 
             // CreateCustomerAcc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btnUploadIMG);
+            this.Controls.Add(this.picUserIMG);
+            this.Controls.Add(this.lblPaymentMsg);
+            this.Controls.Add(this.lblDateMsg);
+            this.Controls.Add(this.lblSexMsg);
+            this.Controls.Add(this.lblLNameMsg);
+            this.Controls.Add(this.lblfNameMsg);
+            this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.grpPass);
             this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.cmbPayment);
@@ -499,13 +687,12 @@
             this.Controls.Add(this.cmbGender);
             this.Controls.Add(this.lblAccTypeSys);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.grpContact);
             this.Controls.Add(this.lblTitAccType);
             this.Controls.Add(this.lblTitGender);
             this.Controls.Add(this.lblTitLastName);
             this.Controls.Add(this.lblTitFirstName);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTIME);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -519,9 +706,9 @@
             this.palLoc.PerformLayout();
             this.grpContact.ResumeLayout(false);
             this.grpContact.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.grpPass.ResumeLayout(false);
             this.grpPass.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picUserIMG)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -547,9 +734,8 @@
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.Label lblAccTypeSys;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.GroupBox grpContact;
-        private System.Windows.Forms.TextBox tbAddress2;
         private System.Windows.Forms.TextBox tbAddress1;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbPhone;
@@ -560,14 +746,31 @@
         private System.Windows.Forms.Label lblTitGender;
         private System.Windows.Forms.Label lblTitLastName;
         private System.Windows.Forms.Label lblTitFirstName;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnUploadIMG;
         private System.Windows.Forms.Label lblTitPass;
         private System.Windows.Forms.Label lblTitConfirmPass;
         private System.Windows.Forms.TextBox tbPass;
         private System.Windows.Forms.TextBox tbConfirmPass;
         private System.Windows.Forms.GroupBox grpPass;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblCity;
+        private System.Windows.Forms.Label lblProvince;
+        private System.Windows.Forms.Label lblContactMsg;
+        private System.Windows.Forms.TextBox tbAddress2;
+        private System.Windows.Forms.Label lblPwdMsg;
+        private System.Windows.Forms.Label lblfNameMsg;
+        private System.Windows.Forms.Label lblLNameMsg;
+        private System.Windows.Forms.Label lblSexMsg;
+        private System.Windows.Forms.Label lblDateMsg;
+        private System.Windows.Forms.Label lblPaymentMsg;
+        private System.Windows.Forms.ComboBox cmbProvince;
+        private System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.Button btnUploadIMG;
+        private System.Windows.Forms.PictureBox picUserIMG;
+        private System.Windows.Forms.Label lblEmailMsg;
+        private System.Windows.Forms.Label lblPhoneMsg;
+        private System.Windows.Forms.TextBox tbCompanyName;
+        private System.Windows.Forms.Label lblTitCompanyName;
     }
 }
 
