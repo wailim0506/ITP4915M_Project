@@ -53,40 +53,6 @@ namespace controller
                 return false;
         }
 
-        public List<string> getcity(string priovince)
-        {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            List<string> city = new List<string>();
-
-            for (int i = 0; i <= dt.Rows.Count - 1; i++)
-            {
-                city.Add(dt.Rows[i]["city"].ToString());
-            }
-
-            return city;
-        }
-
-        public List<string> getpriovince()
-        {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT DISTINCT priovince FROM location";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            List<string> priovince = new List<string>();
-
-            for (int i = 0; i <= (dt.Rows.Count - 1); i++)
-            {
-                priovince.Add(dt.Rows[i]["priovince"].ToString());
-            }
-
-            return priovince;
-        }
-
         public void changPwd(string newPwd)
         {
             string encryptedPwd, strKey, strIV;
@@ -132,21 +98,7 @@ namespace controller
             return dt.Rows.Count + 1;
         }
 
-        public int NumOfUser()
-        {
-            DataTable dt = new DataTable();
-
-            conn.Open();
-            sqlStr = "SELECT * FROM customer";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            conn.Close();
-
-            return dt.Rows.Count;
-        }
-
-        private byte[] Encrypt(string simpletext, byte[] key, byte[] iv)
+        static byte[] Encrypt(string simpletext, byte[] key, byte[] iv)
         {
             byte[] cipheredtext;
             using (Aes aes = Aes.Create())
@@ -166,49 +118,6 @@ namespace controller
                 }
             }
             return cipheredtext;
-        }
-
-        public bool create(dynamic Userinfo)
-        {
-            string encryptedPwd, strKey, strIV;
-            byte[] key = new byte[16];
-            byte[] iv = new byte[16];
-
-            //Generate random key and iv.
-            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(key);
-                rng.GetBytes(iv);
-            }
-
-            //Encrypt new password and convert into string.
-            encryptedPwd = Convert.ToBase64String(Encrypt(Userinfo.pwd, key, iv));
-            strKey = Convert.ToBase64String(key);
-            strIV = Convert.ToBase64String(iv);
-
-            string LMCID = "LMC" + getLMCID().ToString("D5");
-            string accountID = "CA" + getLMCID().ToString("D5");
-
-            try
-            {
-                //Insert a record into customer table
-                conn.Open();
-                sqlStr = $"INSERT INTO customer VALUES(\'{LMCID}\', \'{Userinfo.fName}\', \'{Userinfo.lName}\', \'{Userinfo.gender}\', \'{Userinfo.email}\', \'{Userinfo.company}\', \'{Userinfo.phone}\'" +
-                    $", \'{Userinfo.province}\', \'{Userinfo.city}\', \'{Userinfo.address1}\', \'{Userinfo.address2}\', \'{Userinfo.joinDate}\', \'{Userinfo.payment}\', {Userinfo.IMG} ,{Userinfo.dateOfBirth})";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-
-                //Insert a record into customer_account table
-                sqlStr = $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{encryptedPwd}\', \'{Userinfo.joinDate}\', \'{strKey}\', \'{strIV}\', \'{Userinfo.joinDate}\')";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-               return true;
-            }
-            catch (Exception e)
-            {
-                return false;           //Something went wrong.
-            }
         }
 
     }

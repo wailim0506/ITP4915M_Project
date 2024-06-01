@@ -157,7 +157,7 @@
             this.btnFind.Location = new System.Drawing.Point(397, 61);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(132, 93);
-            this.btnFind.TabIndex = 4;
+            this.btnFind.TabIndex = 109;
             this.btnFind.Text = "Find";
             this.btnFind.UseVisualStyleBackColor = true;
             this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
@@ -168,7 +168,7 @@
             this.tbUserID.Location = new System.Drawing.Point(179, 61);
             this.tbUserID.Name = "tbUserID";
             this.tbUserID.Size = new System.Drawing.Size(177, 27);
-            this.tbUserID.TabIndex = 1;
+            this.tbUserID.TabIndex = 108;
             // 
             // lblUserID
             // 
@@ -186,7 +186,7 @@
             this.tbPhone.Location = new System.Drawing.Point(179, 127);
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(177, 27);
-            this.tbPhone.TabIndex = 3;
+            this.tbPhone.TabIndex = 105;
             // 
             // tbEmail
             // 
@@ -194,7 +194,7 @@
             this.tbEmail.Location = new System.Drawing.Point(179, 94);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(177, 27);
-            this.tbEmail.TabIndex = 2;
+            this.tbEmail.TabIndex = 104;
             // 
             // grpChangePass
             // 
@@ -228,7 +228,7 @@
             this.btnChangePass.Location = new System.Drawing.Point(392, 55);
             this.btnChangePass.Name = "btnChangePass";
             this.btnChangePass.Size = new System.Drawing.Size(144, 84);
-            this.btnChangePass.TabIndex = 7;
+            this.btnChangePass.TabIndex = 110;
             this.btnChangePass.Text = "Change Password";
             this.btnChangePass.UseVisualStyleBackColor = false;
             this.btnChangePass.Click += new System.EventHandler(this.btnChangePass_Click);
@@ -249,7 +249,7 @@
             this.tbConfirmPass.Location = new System.Drawing.Point(188, 101);
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(177, 27);
-            this.tbConfirmPass.TabIndex = 6;
+            this.tbConfirmPass.TabIndex = 103;
             // 
             // lblConfirmPass
             // 
@@ -267,7 +267,7 @@
             this.tbPassword.Location = new System.Drawing.Point(188, 65);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(177, 27);
-            this.tbPassword.TabIndex = 5;
+            this.tbPassword.TabIndex = 102;
             // 
             // btnToLogin
             // 
@@ -275,7 +275,7 @@
             this.btnToLogin.Location = new System.Drawing.Point(101, 584);
             this.btnToLogin.Name = "btnToLogin";
             this.btnToLogin.Size = new System.Drawing.Size(217, 37);
-            this.btnToLogin.TabIndex = 8;
+            this.btnToLogin.TabIndex = 111;
             this.btnToLogin.Text = " Back to the login page";
             this.btnToLogin.UseVisualStyleBackColor = true;
             this.btnToLogin.Click += new System.EventHandler(this.btnToLogin_Click);

@@ -12,21 +12,6 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -97,29 +82,28 @@
     <Compile Include="Order_Management\customerViewInvoice.Designer.cs">
       <DependentUpon>customerViewInvoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Mgmt\customerViewOrder.cs">
+    <Compile Include="Order_Management\customerViewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\customerViewOrder.Designer.cs">
+    <Compile Include="Order_Management\customerViewOrder.Designer.cs">
       <DependentUpon>customerViewOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="Stock_Mgmt\addSupplier.cs">
+    <Compile Include="Stock_Manag\addSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\addSupplier.Designer.cs">
+    <Compile Include="Stock_Manag\addSupplier.Designer.cs">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\editSupplier.cs">
+    <Compile Include="Stock_Manag\editSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\editSupplier.Designer.cs">
+    <Compile Include="Stock_Manag\editSupplier.Designer.cs">
       <DependentUpon>editSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\viewSupplier.cs">
+    <Compile Include="Stock_Manag\viewSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\viewSupplier.Designer.cs">
+    <Compile Include="Stock_Manag\viewSupplier.Designer.cs">
       <DependentUpon>viewSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="System_page %28In Progress%29\About.cs">
@@ -128,22 +112,22 @@
     <Compile Include="System_page %28In Progress%29\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Mgmt\confirmedOrder.cs">
+    <Compile Include="Order_Management\confirmedOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\confirmedOrder.Designer.cs">
+    <Compile Include="Order_Management\confirmedOrder.Designer.cs">
       <DependentUpon>confirmedOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Mgmt\confirmedOrderDetail.cs">
+    <Compile Include="Order_Management\confirmedOrderDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\confirmedOrderDetail.Designer.cs">
+    <Compile Include="Order_Management\confirmedOrderDetail.Designer.cs">
       <DependentUpon>confirmedOrderDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Mgmt\deliverman.cs">
+    <Compile Include="Order_Management\deliverman.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\deliverman.Designer.cs">
+    <Compile Include="Order_Management\deliverman.Designer.cs">
       <DependentUpon>deliverman.cs</DependentUpon>
     </Compile>
     <Compile Include="Online_Ordering_Platform\cart.cs">
@@ -158,10 +142,10 @@
     <Compile Include="Online_Ordering_Platform\giveFeedback.Designer.cs">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Mgmt\incomingOrder.cs">
+    <Compile Include="Order_Management\incomingOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\incomingOrder.Designer.cs">
+    <Compile Include="Order_Management\incomingOrder.Designer.cs">
       <DependentUpon>incomingOrder.cs</DependentUpon>
     </Compile>
     <Compile Include="System_page %28In Progress%29\PasswordRecovery.cs">
@@ -176,11 +160,11 @@
     <Compile Include="Online_Ordering_Platform\payment.Designer.cs">
       <DependentUpon>payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile %28In Progress%29\AddressMgmt.cs">
+    <Compile Include="Profile\AddressManag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile %28In Progress%29\AddressMgmt.Designer.cs">
-      <DependentUpon>AddressMgmt.cs</DependentUpon>
+    <Compile Include="Profile\AddressManag.Designer.cs">
+      <DependentUpon>AddressManag.cs</DependentUpon>
     </Compile>
     <Compile Include="test_Database_and_Controller.cs">
       <SubType>Form</SubType>
@@ -194,34 +178,34 @@
     <Compile Include="User_Manag\StoreSearchU.Designer.cs">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\StockAdd.cs">
+    <Compile Include="Stock_Manag\StockAdd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\StockAdd.Designer.cs">
+    <Compile Include="Stock_Manag\StockAdd.Designer.cs">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\StoremanStockMain.cs">
+    <Compile Include="Stock_Manag\StoremanStockMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\StoremanStockMain.Designer.cs">
+    <Compile Include="Stock_Manag\StoremanStockMain.Designer.cs">
       <DependentUpon>StoremanStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\StoremanModify.cs">
+    <Compile Include="Stock_Manag\StoremanModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\StoremanModify.Designer.cs">
+    <Compile Include="Stock_Manag\StoremanModify.Designer.cs">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\SalesManagModify.cs">
+    <Compile Include="Stock_Manag\SalesManagModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\SalesManagModify.Designer.cs">
+    <Compile Include="Stock_Manag\SalesManagModify.Designer.cs">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Mgmt\SalesManagStockMain.cs">
+    <Compile Include="Stock_Manag\SalesManagStockMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Mgmt\SalesManagStockMain.Designer.cs">
+    <Compile Include="Stock_Manag\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Manag\CUserModify.cs">
@@ -266,28 +250,28 @@
     <Compile Include="System_page %28In Progress%29\CreateCustomerAcc.Designer.cs">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\SetModifyDiscount.cs">
+    <Compile Include="On-Sale_Product_Manag\SetModifyDiscount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\SetModifyDiscount.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\SetModifyDiscount.Designer.cs">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\AddProduct.cs">
+    <Compile Include="On-Sale_Product_Manag\AddProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\AddProduct.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\AddProduct.Designer.cs">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\ModifyProduct.cs">
+    <Compile Include="On-Sale_Product_Manag\ModifyProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\ModifyProduct.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\ModifyProduct.Designer.cs">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\OnSaleMain.cs">
+    <Compile Include="On-Sale_Product_Manag\OnSaleMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="On-Sale_Product_Mgmt\OnSaleMain.Designer.cs">
+    <Compile Include="On-Sale_Product_Manag\OnSaleMain.Designer.cs">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </Compile>
     <Compile Include="System_page %28In Progress%29\Home.cs">
@@ -308,10 +292,10 @@
     <Compile Include="System_page %28In Progress%29\LoginHistory.Designer.cs">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile %28In Progress%29\ProFileMain.cs">
+    <Compile Include="Profile\ProFileMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile %28In Progress%29\ProFileMain.Designer.cs">
+    <Compile Include="Profile\ProFileMain.Designer.cs">
       <DependentUpon>ProFileMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Trash\StaffProfile.cs">
@@ -322,16 +306,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Order_Mgmt\viewDIC.cs">
+    <Compile Include="Order_Management\viewDIC.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\viewDIC.Designer.cs">
+    <Compile Include="Order_Management\viewDIC.Designer.cs">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Mgmt\viewOrder_Confirm_Reject.Designer.cs">
+    <Compile Include="Order_Management\viewOrder_Confirm_Reject.Designer.cs">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Online_Ordering_Platform\favourite.resx">
@@ -346,7 +330,7 @@
     <EmbeddedResource Include="Order_Management\customerEditOrder.resx">
       <DependentUpon>customerEditOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\customerOrderList.resx">
+    <EmbeddedResource Include="Order_Management\customerOrderList.resx">
       <DependentUpon>customerOrderList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerViewInvoice.resx">
@@ -355,25 +339,25 @@
     <EmbeddedResource Include="Order_Management\customerViewOrder.resx">
       <DependentUpon>customerViewOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\addSupplier.resx">
+    <EmbeddedResource Include="Stock_Manag\addSupplier.resx">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\editSupplier.resx">
+    <EmbeddedResource Include="Stock_Manag\editSupplier.resx">
       <DependentUpon>editSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\viewSupplier.resx">
+    <EmbeddedResource Include="Stock_Manag\viewSupplier.resx">
       <DependentUpon>viewSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_page %28In Progress%29\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\confirmedOrder.resx">
+    <EmbeddedResource Include="Order_Management\confirmedOrder.resx">
       <DependentUpon>confirmedOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\confirmedOrderDetail.resx">
+    <EmbeddedResource Include="Order_Management\confirmedOrderDetail.resx">
       <DependentUpon>confirmedOrderDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\deliverman.resx">
+    <EmbeddedResource Include="Order_Management\deliverman.resx">
       <DependentUpon>deliverman.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\cart.resx">
@@ -382,7 +366,7 @@
     <EmbeddedResource Include="Online_Ordering_Platform\giveFeedback.resx">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\incomingOrder.resx">
+    <EmbeddedResource Include="Order_Management\incomingOrder.resx">
       <DependentUpon>incomingOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_page %28In Progress%29\PasswordRecovery.resx">
@@ -391,8 +375,8 @@
     <EmbeddedResource Include="Online_Ordering_Platform\payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile %28In Progress%29\AddressMgmt.resx">
-      <DependentUpon>AddressMgmt.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\AddressManag.resx">
+      <DependentUpon>AddressManag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
@@ -400,19 +384,19 @@
     <EmbeddedResource Include="User_Manag\StoreSearchU.resx">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\StockAdd.resx">
+    <EmbeddedResource Include="Stock_Manag\StockAdd.resx">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\StoremanStockMain.resx">
+    <EmbeddedResource Include="Stock_Manag\StoremanStockMain.resx">
       <DependentUpon>StoremanStockMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\StoremanModify.resx">
+    <EmbeddedResource Include="Stock_Manag\StoremanModify.resx">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\SalesManagModify.resx">
+    <EmbeddedResource Include="Stock_Manag\SalesManagModify.resx">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Mgmt\SalesManagStockMain.resx">
+    <EmbeddedResource Include="Stock_Manag\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\CUserModify.resx">
@@ -436,16 +420,16 @@
     <EmbeddedResource Include="System_page %28In Progress%29\CreateCustomerAcc.resx">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale_Product_Mgmt\SetModifyDiscount.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\SetModifyDiscount.resx">
       <DependentUpon>SetModifyDiscount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale_Product_Mgmt\AddProduct.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale_Product_Mgmt\ModifyProduct.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\ModifyProduct.resx">
       <DependentUpon>ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="On-Sale_Product_Mgmt\OnSaleMain.resx">
+    <EmbeddedResource Include="On-Sale_Product_Manag\OnSaleMain.resx">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="System_page %28In Progress%29\Home.resx">
@@ -457,18 +441,18 @@
     <EmbeddedResource Include="System_page %28In Progress%29\LoginHistory.resx">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile %28In Progress%29\ProFileMain.resx">
+    <EmbeddedResource Include="Profile\ProFileMain.resx">
       <DependentUpon>ProFileMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Trash\StaffProfile.resx">
       <DependentUpon>StaffProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Mgmt\viewDIC.resx">
+    <EmbeddedResource Include="Order_Management\viewDIC.resx">
       <DependentUpon>viewDIC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\viewOrder_Confirm_Reject.resx">
@@ -547,17 +531,6 @@
       <Name>controller</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

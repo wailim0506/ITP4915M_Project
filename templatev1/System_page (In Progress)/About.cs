@@ -15,7 +15,6 @@ namespace templatev1
         public static string UID;      //The user ID.
         controller.accountController accountController;
         controller.UIController UIController;
-        controller.proFileController proFileController;
 
         public About()
         {
@@ -35,10 +34,9 @@ namespace templatev1
 
             lblPlatform.Text = Environment.OSVersion.ToString();
             lblInsDate.Text = Login.getInsDate();
-            TimeSpan span = (DateTime.Now - DateTime.Parse(Login.getInsDate()));
-            lblTotalOpTime.Text = String.Format("{0} hours, {1} minutes", span.Hours, span.Minutes);
-
-
+            TimeSpan diff = DateTime.Now - DateTime.Parse(Login.getInsDate());
+            var hours = diff.Hours;
+            lblTotalOpTime.Text = hours.ToString() + " Hours";
         }
 
         private void Initialization()
@@ -60,41 +58,6 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-
-            //For icon color
-            if (Properties.Settings.Default.BWmode == true)
-            {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
-            }
-        }
-
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController = new controller.proFileController(accountController);
-
-            proFileController.setType(accountController.getType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
-            proFile.ShowDialog();
-            this.Close();
-        }
-
-        private void lblCorpName_Click(object sender, EventArgs e)
-        {
-            Form about = new About(accountController, UIController);
-            this.Hide();
-            //Swap the current form to another.
-            about.StartPosition = FormStartPosition.Manual;
-            about.Location = this.Location;
-            about.Size = this.Size;
-            about.ShowDialog();
-            this.Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -139,21 +102,11 @@ namespace templatev1
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
             Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
-            {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
-            }
-            else
-            {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
-            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
     }

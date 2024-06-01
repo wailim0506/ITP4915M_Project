@@ -31,10 +31,14 @@ namespace templatev1
             this.recoveryController = recoveryController;
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            tbPassword.PasswordChar = tbConfirmPass.PasswordChar = '*';
         }
 
         private void btnToLogin_Click(object sender, EventArgs e)
@@ -55,24 +59,20 @@ namespace templatev1
             lblChangePassMsg.Text = "";
 
             //Show the error if the user hasn't found the account yet.
-            if (!userFound)
+            if (userFound == false)
             {
                 lblChangePassMsg.Text = "Please find the account first.";
-                tbUserID.Select();
             }
             else
             {
                 if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50)         //Too short.
-                {
-                    lblChangePassMsg.Text = "Password too short or too long, minimum 10 maximum 50.";
-                    tbPassword.Select();
-                }
+                    lblChangePassMsg.Text = "Password too short or too long, minimum 11 maximum 50.";
                 else
                 {
                     if (tbPassword.Text.Equals(tbConfirmPass.Text))              //Confirm password matched.
                     {
                         recoveryController.changPwd(tbConfirmPass.Text);
-                        MessageBox.Show("Password changed! The system will redirect to the login page.", "System message");
+                        MessageBox.Show("Password changed! The system will redirect to the login page.");
                         Form login = new Login();
                         this.Hide();
                         //Swap the current form to another.
@@ -85,7 +85,6 @@ namespace templatev1
                     else        //NOT match.
                     {
                         lblChangePassMsg.Text = "Passwords do NOT match.";
-                        tbConfirmPass.Select();
                     }
                 }
             
@@ -101,17 +100,17 @@ namespace templatev1
             UID = phone = email ="";
 
             //Counting the inputted information.
-            if (!string.IsNullOrEmpty(tbUserID.Text))
+            if (string.IsNullOrEmpty(tbUserID.Text) == false)
             {
                 count+=2;
                 UID = tbUserID.Text;
             }
-            if (!string.IsNullOrEmpty(tbPhone.Text))
+            if (string.IsNullOrEmpty(tbPhone.Text) == false)
             {
                 count++;
                 phone = tbPhone.Text;
             }
-            if (!string.IsNullOrEmpty(tbEmail.Text))
+            if (string.IsNullOrEmpty(tbEmail.Text) == false)
             {
                 count++;
                 email = tbEmail.Text;
@@ -121,7 +120,6 @@ namespace templatev1
             if (count < 3)
             {
                 lblFinfMsg.Text = "Please at least enter any two types of information.";
-                tbUserID.Select();
                 userFound = false;
             }
             else 
@@ -129,23 +127,16 @@ namespace templatev1
                 if (recoveryController.findUser(UID, email, phone))         //User found
                 {
                     lblFinfMsg.Text = "User found!";
-                    tbPassword.Select();
                     userFound = true;
 
                 }
                 else          //User NOT found
                 {
                     lblFinfMsg.Text = "User NOT found, please retry.";
-                    tbUserID.Select();
                 }
             
             }
 
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
     }
 }

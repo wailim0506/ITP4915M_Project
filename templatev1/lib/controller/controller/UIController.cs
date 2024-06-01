@@ -46,7 +46,7 @@ namespace controller
             else       //Staff
             {
                 DataTable dt = new DataTable();
-                sqlStr = $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
+                sqlStr = "SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = '" + UserID + "'";
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
                 adr.Dispose();
@@ -66,7 +66,7 @@ namespace controller
 
         public dynamic getMode()
         {
-            if (!BWMode)
+            if (BWMode)
             {
                 dynamic expando = new ExpandoObject();
                 expando.textColor = "#FFFFFF";
@@ -77,8 +77,7 @@ namespace controller
                 expando.locTbColor = "#808080";
                 expando.logoutColor = "#FF0000";
                 expando.profileColor = "#BDB76B";
-                expando.btnColor = "#808080";
-                expando.BWmode = true;
+                expando.BWmode = false;
                 return expando;
             }
             else
@@ -92,8 +91,7 @@ namespace controller
                 expando.locTbColor = "#E3E3E3";
                 expando.logoutColor = "#ffc0c0";
                 expando.profileColor = "#ffffc0";
-                expando.btnColor = "#FFFFFF";
-                expando.BWmode = false;
+                expando.BWmode = true;
                 return expando;
             }
         }
@@ -134,8 +132,6 @@ namespace controller
                 case "MP05":     //Delivery man
                     showbtn1 = true;
                     funbtn1 = "Order Management";
-                    showbtn2 = true;
-                    funbtn2 = "User Managemne";
                     break;
             }
         }
@@ -155,20 +151,41 @@ namespace controller
                 return 5;
         }
 
-        //Change the information needs to show between customer and staff.
         public dynamic proFile()
         {
             dynamic expando = new ExpandoObject();
             if (AccountType.Equals("Customer"))
             {
-                expando.group1 = false;
-                expando.group2 = true;
+                expando.TitJobTitel = false;
+                expando.JobTitel = false;
+                expando.TitDept = false;
+                expando.Dept = false;
+                expando.NGDateOfBirth = true;
+                expando.TitPayment = true;
+                expando.Payment = true;
+                expando.TitAddress = true;
+                expando.Address = true;
+                expando.ManagAddress = true;
+                expando.Delete = true;
             }
             else
             {
-                expando.group1 = true;
-                expando.group2 = false;
+                expando.TitJobTitel = true;
+                expando.JobTitel = true;
+                expando.TitDept = true;
+                expando.Dept = true;
+                expando.NGDateOfBirth = false;
+                expando.TitPayment = false;
+                expando.Payment = false;
+                expando.TitAddress = false;
+                expando.Address = false;
+                expando.ManagAddress = false;
+                expando.Delete = false;
             }
+
+
+
+
                 return expando;
         }
 

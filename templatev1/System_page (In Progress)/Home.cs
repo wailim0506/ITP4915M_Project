@@ -59,65 +59,9 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-
-            //For icon color
-            if (Properties.Settings.Default.BWmode == true)
-            {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
-            }
         }
 
 
-        private void btnFunction1_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction1.Text);
-        }
-
-        private void btnFunction3_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction3.Text);
-        }
-
-        private void btnFunction5_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction5.Text);
-        }
-        private void getPage(string Function)
-        {
-            Form next = new Home(accountController, UIController);
-            switch (Function)
-            {
-                case "Order Management":
-
-
-
-                    break;
-                case "Invoice Management":
-
-
-
-                    break;
-                case "On-Sale Product Management":
-
-
-
-                    break;
-                case "Stock Management":
-
-                    break;
-                case "User Managemnet":
-                    next = new SAccManage(accountController, UIController);
-                    break;
-            }
-
-            this.Hide();
-            next.StartPosition = FormStartPosition.Manual;
-            next.Location = this.Location;
-            next.Size = this.Size;
-            next.ShowDialog();
-            this.Close();
-        }
 
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -144,12 +88,18 @@ namespace templatev1
             this.Close();
         }
 
-        //For Dark Color function
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        //For Dark Color function
         private void BWMode()
         {
             dynamic value = UIController.getMode();
@@ -161,18 +111,17 @@ namespace templatev1
             Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
             Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
-            {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
-            }
-            else
-            {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
-            }
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
@@ -188,6 +137,43 @@ namespace templatev1
             proFile.Location = this.Location;
             proFile.Size = this.Size;
             proFile.ShowDialog();
+            this.Close();
+        }
+
+        private void getPage(string Function)
+        {
+            Form next = new Home();
+            switch (Function)
+            {
+                case "Order Management":
+                    //next = new Online_Ordering_Platform.sparePartListA(accountController, UIController);
+                    break;
+
+
+                    break;
+                case "Invoice Management":
+
+
+
+                    break;
+                case "On-Sale Product Management":
+
+
+
+                    break;
+                case "Stock Management":
+                    next = new StockManMain();
+                    break;
+                case "User Managemnet":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+            }
+
+            this.Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = this.Location;
+            next.Size = this.Size;
+            next.ShowDialog();
             this.Close();
         }
 

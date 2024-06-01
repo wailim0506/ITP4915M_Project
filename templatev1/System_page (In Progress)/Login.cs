@@ -12,8 +12,7 @@ namespace templatev1
 {
     public partial class Login : Form
     {
-        //For install date in about page.
-        public static string sysInsDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
+        public static readonly string sysInsDate = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
 
         private bool IsLogin;
 
@@ -45,20 +44,14 @@ namespace templatev1
             lblUsernameMsg.Text = "";
             lblPasswordMsg.Text = "";
 
-            if (string.IsNullOrEmpty(tbUsername.Text))            //username and password have not been entered.
-            {
-                lblUsernameMsg.Text = "Please enter your UserID.";
-                tbUsername.Select();
-            }
-            else if (string.IsNullOrEmpty(tbPassword.Text))
+            if (string.IsNullOrEmpty(tbPassword.Text) && string.IsNullOrEmpty(tbUsername.Text))            //username and password have not been entered.
             {
                 lblPasswordMsg.Text = "Please enter your password.";
-                tbPassword.Select();
+                lblUsernameMsg.Text = "Please enter your password.";
             }
             else if (string.IsNullOrEmpty(tbPassword.Text))            //password have not been entered.
             {
                 lblPasswordMsg.Text = "Please enter your password.";
-                tbPassword.Select();
             }
             else if (accountController.login(tbUsername.Text, tbPassword.Text, UIController))        //Checking the password
             {
@@ -80,7 +73,6 @@ namespace templatev1
             {
                 tbPassword.Clear();
                 lblPasswordMsg.Text = "Invalid username or password.";
-                tbUsername.Select();
             }
         }
 
@@ -100,12 +92,11 @@ namespace templatev1
             }
             else        //Read from local
             {
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.Usesrname))
+                if (string.IsNullOrEmpty(Properties.Settings.Default.Usesrname) == false)
                 {
                     chkRememberMe.CheckState = CheckState.Checked;
                     tbUsername.Text = Properties.Settings.Default.Usesrname;
                     tbPassword.Text = Properties.Settings.Default.Password;
-                    btnLogin.Select();
                 }
             }
         }
@@ -140,7 +131,7 @@ namespace templatev1
             this.Close();
         }
 
-        public static string getInsDate()
+        public static string getInsDate() //-----------------------------------------------------
         {
             return sysInsDate;
         }
@@ -188,15 +179,13 @@ namespace templatev1
             tbPassword.Text = "asdf1234!";
         }
 
-        private void tbPassword_KeyDown(object sender, KeyEventArgs e)
+        private void Login_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 btnLogin_Click(this, new EventArgs());
             }
         }
-
-
         //------------------------------------------------------------------
     }
 }

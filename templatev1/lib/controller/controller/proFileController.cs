@@ -16,7 +16,7 @@ namespace controller
         private string accountType;
         private string UID;
         private DateTime dateOfBirth, createDate;
-        private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, waddress, corp;
+        private string jobTitle, dept, email, fName, lName, sex, phone, payment, address;
         private bool NGDateOfBirth = false;
 
         controller.accountController accountController;
@@ -25,7 +25,7 @@ namespace controller
         {
             sqlStr = "";
             accountType = "";
-            UID = jobTitle = dept = email = fName = lName = sex = phone = payment = caddress = waddress = corp = "";
+            UID = jobTitle = dept = email = fName = lName = sex = phone = payment = address = "";
         }
 
         public proFileController(string UID)
@@ -51,7 +51,7 @@ namespace controller
             }
             else          //Customer info
             {
-                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company " +
+                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
             adr = new MySqlDataAdapter(sqlStr, conn);
@@ -67,9 +67,7 @@ namespace controller
             else
             {
                 payment = dt.Rows[0]["paymentMethod"].ToString();
-                caddress = dt.Rows[0]["companyAddress"].ToString() + ", " + dt.Rows[0]["city"].ToString() + ", " + dt.Rows[0]["province"].ToString();
-                waddress = dt.Rows[0]["warehouseAddress"].ToString() + ", " + dt.Rows[0]["city"].ToString() + ", " + dt.Rows[0]["province"].ToString();
-                corp = dt.Rows[0]["company"].ToString();
+                address = dt.Rows[0]["companyAddress"].ToString() + ", " + dt.Rows[0]["city"].ToString() + ", " + dt.Rows[0]["province"].ToString();
             }
 
             email = dt.Rows[0]["emailAddress"].ToString();
@@ -103,10 +101,8 @@ namespace controller
             expando.dateOfBirth = dateOfBirth;
             expando.createDate = createDate;
             expando.payment = payment;
-            expando.caddress = caddress;
+            expando.address = address;
             expando.NGDateOfBirth = NGDateOfBirth;
-            expando.corp = corp;
-            expando.waddress = waddress;
             return expando;
         }
 
