@@ -51,13 +51,12 @@ namespace templatev1.Online_Ordering_Platform
             picSpare.Image = imageString(partNum);
             lblLoc.Text += $" - {dt.Rows[0][3].ToString()}";
 
-            if (isFavourite(partNum))
+            if (!isFavourite(partNum))
             {
                 btnAddFavourit.Click += new EventHandler(addFavourite);
             }
             else
             {
-                MessageBox.Show("");
                 btnAddFavourit.Text = "Remove Favourite";
                 btnAddFavourit.Click += new EventHandler(removeFavourite);
             }
@@ -160,17 +159,48 @@ namespace templatev1.Online_Ordering_Platform
 
         public Boolean isFavourite(string partNum)
         {
-            return controller.isFavourite(partNum);
+            return controller.isFavourite(partNum, UID);
         }
 
         private void addFavourite(object sender, EventArgs e)
         { 
-            
+            if (controller.addToFavourite(partNum, UID))
+            {
+                MessageBox.Show("Added to favourtie.", "Add Favourite", MessageBoxButtons.OK);
+                btnAddFavourit.Text = "Remove Favourite";
+                btnAddFavourit.Click -= addFavourite;
+                btnAddFavourit.Click += new EventHandler(removeFavourite);
+            }
+            else
+            {
+                MessageBox.Show("Please try again.", "Add Favourite", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void removeFavourite(object sender, EventArgs e)
         {
+            if (controller.removeFavourite(partNum, UID))
+            {
+                MessageBox.Show("Removed from favourtie.", "Add Favourite", MessageBoxButtons.OK);
+                btnAddFavourit.Text = "Add to Favourite";
+                btnAddFavourit.Click -= removeFavourite;
+                btnAddFavourit.Click += new EventHandler(addFavourite);
+            }
+            else
+            {
+                MessageBox.Show("Please try again.", "Remove Favourite", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form cart = new cart(accountController, UIController);
+            this.Hide();
+            cart.StartPosition = FormStartPosition.Manual;
+            cart.Location = this.Location;
+            cart.ShowDialog();
+            this.Close();
+            return;
         }
 
         private Image imageString(string imageName)
