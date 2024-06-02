@@ -219,6 +219,18 @@ namespace templatev1
             this.Close();
         }
 
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = this.Location;
+            home.Size = this.Size;
+            home.ShowDialog();
+            this.Close();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
