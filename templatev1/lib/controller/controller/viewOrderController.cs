@@ -111,6 +111,8 @@ namespace controller
             return delivermanDetail;
         }
 
+       
+
         public Boolean deleteOrder(string id) //order id
         {
             string sqlCmd = "DELETE FROM invoice WHERE orderID = @id";
