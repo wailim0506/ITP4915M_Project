@@ -17,7 +17,7 @@ namespace controller
         private string sqlStr;
 
         public bool IsLogin;
-        private string accountID, firstName, lastName, UserID, AccountType;
+        private string accountID, firstName, lastName, UserID, AccountType, decryptedPassword;
 
         byte[] key = new byte[16];
         byte[] iv = new byte[16];
@@ -30,12 +30,11 @@ namespace controller
         {
             IsLogin = false;
             sqlStr = "";
-            accountID = firstName = lastName = UserID = AccountType = "";
+            accountID = firstName = lastName = UserID = AccountType = decryptedPassword = "";
         }
 
         public bool login(string UID, string Pass, UIController UI)
         {
-            string decryptedPassword = "";
             //try
             //{
             DataTable dt = new DataTable();
@@ -203,6 +202,13 @@ namespace controller
             return dt;
         }
 
+        public bool matchPwd(string gettedPwd)
+        {
+            if (gettedPwd.Equals(decryptedPassword))
+                return true;
+            else
+                return false;
+        }
 
 
 
@@ -229,5 +235,24 @@ namespace controller
             adr.Fill(dt);
             return dt;
         }
+
+        public bool delAccount()
+        {
+            try
+            {
+                //Insert a record into customer table
+                conn.Open();
+                sqlStr = $"UPDATE customer_account SET Status = 'disable' WHERE customerID = \'{accountID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;           //Something went wrong.
+            }
+        }
+
     }
 }

@@ -16,11 +16,20 @@ namespace controller
         private string UID, email, phone;
         private string sqlStr;
         private MySqlCommand cmd;
+        controller.accountController accountController;
 
         public RecoveryController()
         {
             sqlStr = "";
             UID = email = phone = "";
+        }
+
+        public RecoveryController(controller.accountController accountController)
+        {
+            this.accountController = accountController;
+            sqlStr = "";
+            UID = email = phone = "";
+            UID = accountController.getUID();
         }
 
         public bool findUser(string UserID, string emailAdd, string phoneNo)

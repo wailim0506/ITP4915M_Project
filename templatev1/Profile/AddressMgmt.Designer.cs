@@ -34,19 +34,9 @@
             this.chkCancel = new System.Windows.Forms.Button();
             this.lblTitA1Province = new System.Windows.Forms.Label();
             this.lblTitA1City = new System.Windows.Forms.Label();
-            this.lblTitA1County = new System.Windows.Forms.Label();
-            this.lblTitA1Detail = new System.Windows.Forms.Label();
             this.cmbA1Province = new System.Windows.Forms.ComboBox();
-            this.cmbA1County = new System.Windows.Forms.ComboBox();
             this.cmbA1City = new System.Windows.Forms.ComboBox();
-            this.lblA1Detail = new System.Windows.Forms.Label();
-            this.grpAddress1 = new System.Windows.Forms.GroupBox();
-            this.grpAddress2 = new System.Windows.Forms.GroupBox();
             this.chkA2 = new System.Windows.Forms.CheckBox();
-            this.lblA2Detail = new System.Windows.Forms.Label();
-            this.cmbA2County = new System.Windows.Forms.ComboBox();
-            this.lblTitA2County = new System.Windows.Forms.Label();
-            this.lblTitA2Detail = new System.Windows.Forms.Label();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -64,20 +54,18 @@
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
-            this.lblTitA3Detail = new System.Windows.Forms.Label();
-            this.lblTitA3County = new System.Windows.Forms.Label();
-            this.cmbA3County = new System.Windows.Forms.ComboBox();
-            this.lblA3Detail = new System.Windows.Forms.Label();
             this.chkA3 = new System.Windows.Forms.CheckBox();
-            this.grpAddress3 = new System.Windows.Forms.GroupBox();
-            this.grpAddress1.SuspendLayout();
-            this.grpAddress2.SuspendLayout();
+            this.tbCorpAdd = new System.Windows.Forms.TextBox();
+            this.tbWarehouseAdd1 = new System.Windows.Forms.TextBox();
+            this.tbWarehouseAdd2 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            this.grpAddress3.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -87,7 +75,7 @@
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(388, 881);
+            this.btnModify.Location = new System.Drawing.Point(508, 881);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(96, 34);
             this.btnModify.TabIndex = 27;
@@ -97,7 +85,7 @@
             // chkCancel
             // 
             this.chkCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkCancel.Location = new System.Drawing.Point(548, 881);
+            this.chkCancel.Location = new System.Drawing.Point(668, 881);
             this.chkCancel.Name = "chkCancel";
             this.chkCancel.Size = new System.Drawing.Size(96, 34);
             this.chkCancel.TabIndex = 28;
@@ -108,7 +96,7 @@
             // 
             this.lblTitA1Province.AutoSize = true;
             this.lblTitA1Province.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA1Province.Location = new System.Drawing.Point(22, 32);
+            this.lblTitA1Province.Location = new System.Drawing.Point(319, 442);
             this.lblTitA1Province.Name = "lblTitA1Province";
             this.lblTitA1Province.Size = new System.Drawing.Size(87, 22);
             this.lblTitA1Province.TabIndex = 29;
@@ -118,155 +106,40 @@
             // 
             this.lblTitA1City.AutoSize = true;
             this.lblTitA1City.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA1City.Location = new System.Drawing.Point(272, 32);
+            this.lblTitA1City.Location = new System.Drawing.Point(319, 402);
             this.lblTitA1City.Name = "lblTitA1City";
             this.lblTitA1City.Size = new System.Drawing.Size(49, 22);
             this.lblTitA1City.TabIndex = 30;
             this.lblTitA1City.Text = "City:";
             // 
-            // lblTitA1County
-            // 
-            this.lblTitA1County.AutoSize = true;
-            this.lblTitA1County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA1County.Location = new System.Drawing.Point(22, 71);
-            this.lblTitA1County.Name = "lblTitA1County";
-            this.lblTitA1County.Size = new System.Drawing.Size(169, 22);
-            this.lblTitA1County.TabIndex = 31;
-            this.lblTitA1County.Text = "District and County:";
-            // 
-            // lblTitA1Detail
-            // 
-            this.lblTitA1Detail.AutoSize = true;
-            this.lblTitA1Detail.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA1Detail.Location = new System.Drawing.Point(22, 110);
-            this.lblTitA1Detail.Name = "lblTitA1Detail";
-            this.lblTitA1Detail.Size = new System.Drawing.Size(154, 22);
-            this.lblTitA1Detail.TabIndex = 32;
-            this.lblTitA1Detail.Text = "Detailed Address:";
-            // 
             // cmbA1Province
             // 
             this.cmbA1Province.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.cmbA1Province.FormattingEnabled = true;
-            this.cmbA1Province.Location = new System.Drawing.Point(108, 29);
+            this.cmbA1Province.Location = new System.Drawing.Point(412, 399);
             this.cmbA1Province.Name = "cmbA1Province";
             this.cmbA1Province.Size = new System.Drawing.Size(143, 30);
             this.cmbA1Province.TabIndex = 33;
-            // 
-            // cmbA1County
-            // 
-            this.cmbA1County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.cmbA1County.FormattingEnabled = true;
-            this.cmbA1County.Location = new System.Drawing.Point(190, 68);
-            this.cmbA1County.Name = "cmbA1County";
-            this.cmbA1County.Size = new System.Drawing.Size(269, 30);
-            this.cmbA1County.TabIndex = 34;
             // 
             // cmbA1City
             // 
             this.cmbA1City.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.cmbA1City.FormattingEnabled = true;
-            this.cmbA1City.Location = new System.Drawing.Point(316, 29);
+            this.cmbA1City.Location = new System.Drawing.Point(412, 439);
             this.cmbA1City.Name = "cmbA1City";
             this.cmbA1City.Size = new System.Drawing.Size(143, 30);
             this.cmbA1City.TabIndex = 35;
-            // 
-            // lblA1Detail
-            // 
-            this.lblA1Detail.BackColor = System.Drawing.Color.White;
-            this.lblA1Detail.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblA1Detail.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.lblA1Detail.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblA1Detail.Location = new System.Drawing.Point(190, 110);
-            this.lblA1Detail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblA1Detail.Name = "lblA1Detail";
-            this.lblA1Detail.Size = new System.Drawing.Size(269, 101);
-            this.lblA1Detail.TabIndex = 37;
-            // 
-            // grpAddress1
-            // 
-            this.grpAddress1.Controls.Add(this.lblA1Detail);
-            this.grpAddress1.Controls.Add(this.cmbA1City);
-            this.grpAddress1.Controls.Add(this.cmbA1County);
-            this.grpAddress1.Controls.Add(this.cmbA1Province);
-            this.grpAddress1.Controls.Add(this.lblTitA1Province);
-            this.grpAddress1.Controls.Add(this.lblTitA1City);
-            this.grpAddress1.Controls.Add(this.lblTitA1County);
-            this.grpAddress1.Controls.Add(this.lblTitA1Detail);
-            this.grpAddress1.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpAddress1.Location = new System.Drawing.Point(287, 95);
-            this.grpAddress1.Name = "grpAddress1";
-            this.grpAddress1.Size = new System.Drawing.Size(505, 248);
-            this.grpAddress1.TabIndex = 38;
-            this.grpAddress1.TabStop = false;
-            this.grpAddress1.Text = "Company Address";
-            // 
-            // grpAddress2
-            // 
-            this.grpAddress2.Controls.Add(this.chkA2);
-            this.grpAddress2.Controls.Add(this.lblA2Detail);
-            this.grpAddress2.Controls.Add(this.cmbA2County);
-            this.grpAddress2.Controls.Add(this.lblTitA2County);
-            this.grpAddress2.Controls.Add(this.lblTitA2Detail);
-            this.grpAddress2.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpAddress2.Location = new System.Drawing.Point(287, 353);
-            this.grpAddress2.Name = "grpAddress2";
-            this.grpAddress2.Size = new System.Drawing.Size(505, 248);
-            this.grpAddress2.TabIndex = 39;
-            this.grpAddress2.TabStop = false;
-            this.grpAddress2.Text = "Warehouse Address 1";
             // 
             // chkA2
             // 
             this.chkA2.AutoSize = true;
             this.chkA2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkA2.Location = new System.Drawing.Point(334, 214);
+            this.chkA2.Location = new System.Drawing.Point(907, 322);
             this.chkA2.Name = "chkA2";
             this.chkA2.Size = new System.Drawing.Size(125, 24);
             this.chkA2.TabIndex = 38;
             this.chkA2.Text = "Set as default";
             this.chkA2.UseVisualStyleBackColor = true;
-            // 
-            // lblA2Detail
-            // 
-            this.lblA2Detail.BackColor = System.Drawing.Color.White;
-            this.lblA2Detail.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblA2Detail.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.lblA2Detail.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblA2Detail.Location = new System.Drawing.Point(190, 110);
-            this.lblA2Detail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblA2Detail.Name = "lblA2Detail";
-            this.lblA2Detail.Size = new System.Drawing.Size(269, 101);
-            this.lblA2Detail.TabIndex = 37;
-            // 
-            // cmbA2County
-            // 
-            this.cmbA2County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.cmbA2County.FormattingEnabled = true;
-            this.cmbA2County.Location = new System.Drawing.Point(190, 68);
-            this.cmbA2County.Name = "cmbA2County";
-            this.cmbA2County.Size = new System.Drawing.Size(269, 30);
-            this.cmbA2County.TabIndex = 34;
-            // 
-            // lblTitA2County
-            // 
-            this.lblTitA2County.AutoSize = true;
-            this.lblTitA2County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA2County.Location = new System.Drawing.Point(22, 71);
-            this.lblTitA2County.Name = "lblTitA2County";
-            this.lblTitA2County.Size = new System.Drawing.Size(169, 22);
-            this.lblTitA2County.TabIndex = 31;
-            this.lblTitA2County.Text = "District and County:";
-            // 
-            // lblTitA2Detail
-            // 
-            this.lblTitA2Detail.AutoSize = true;
-            this.lblTitA2Detail.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA2Detail.Location = new System.Drawing.Point(22, 110);
-            this.lblTitA2Detail.Name = "lblTitA2Detail";
-            this.lblTitA2Detail.Size = new System.Drawing.Size(154, 22);
-            this.lblTitA2Detail.TabIndex = 32;
-            this.lblTitA2Detail.Text = "Detailed Address:";
             // 
             // palLoc
             // 
@@ -494,84 +367,91 @@
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.UseVisualStyleBackColor = false;
             // 
-            // lblTitA3Detail
-            // 
-            this.lblTitA3Detail.AutoSize = true;
-            this.lblTitA3Detail.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA3Detail.Location = new System.Drawing.Point(22, 110);
-            this.lblTitA3Detail.Name = "lblTitA3Detail";
-            this.lblTitA3Detail.Size = new System.Drawing.Size(154, 22);
-            this.lblTitA3Detail.TabIndex = 32;
-            this.lblTitA3Detail.Text = "Detailed Address:";
-            // 
-            // lblTitA3County
-            // 
-            this.lblTitA3County.AutoSize = true;
-            this.lblTitA3County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitA3County.Location = new System.Drawing.Point(22, 71);
-            this.lblTitA3County.Name = "lblTitA3County";
-            this.lblTitA3County.Size = new System.Drawing.Size(169, 22);
-            this.lblTitA3County.TabIndex = 31;
-            this.lblTitA3County.Text = "District and County:";
-            // 
-            // cmbA3County
-            // 
-            this.cmbA3County.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.cmbA3County.FormattingEnabled = true;
-            this.cmbA3County.Location = new System.Drawing.Point(190, 68);
-            this.cmbA3County.Name = "cmbA3County";
-            this.cmbA3County.Size = new System.Drawing.Size(269, 30);
-            this.cmbA3County.TabIndex = 34;
-            // 
-            // lblA3Detail
-            // 
-            this.lblA3Detail.BackColor = System.Drawing.Color.White;
-            this.lblA3Detail.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblA3Detail.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold);
-            this.lblA3Detail.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblA3Detail.Location = new System.Drawing.Point(190, 110);
-            this.lblA3Detail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblA3Detail.Name = "lblA3Detail";
-            this.lblA3Detail.Size = new System.Drawing.Size(269, 101);
-            this.lblA3Detail.TabIndex = 37;
-            // 
             // chkA3
             // 
             this.chkA3.AutoSize = true;
             this.chkA3.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkA3.Location = new System.Drawing.Point(334, 214);
+            this.chkA3.Location = new System.Drawing.Point(907, 362);
             this.chkA3.Name = "chkA3";
             this.chkA3.Size = new System.Drawing.Size(125, 24);
             this.chkA3.TabIndex = 38;
             this.chkA3.Text = "Set as default";
             this.chkA3.UseVisualStyleBackColor = true;
             // 
-            // grpAddress3
+            // tbCorpAdd
             // 
-            this.grpAddress3.Controls.Add(this.chkA3);
-            this.grpAddress3.Controls.Add(this.lblA3Detail);
-            this.grpAddress3.Controls.Add(this.cmbA3County);
-            this.grpAddress3.Controls.Add(this.lblTitA3County);
-            this.grpAddress3.Controls.Add(this.lblTitA3Detail);
-            this.grpAddress3.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpAddress3.Location = new System.Drawing.Point(287, 613);
-            this.grpAddress3.Name = "grpAddress3";
-            this.grpAddress3.Size = new System.Drawing.Size(505, 248);
-            this.grpAddress3.TabIndex = 39;
-            this.grpAddress3.TabStop = false;
-            this.grpAddress3.Text = "Warehouse Address 2";
+            this.tbCorpAdd.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbCorpAdd.Location = new System.Drawing.Point(517, 279);
+            this.tbCorpAdd.Name = "tbCorpAdd";
+            this.tbCorpAdd.Size = new System.Drawing.Size(373, 30);
+            this.tbCorpAdd.TabIndex = 36;
+            // 
+            // tbWarehouseAdd1
+            // 
+            this.tbWarehouseAdd1.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbWarehouseAdd1.Location = new System.Drawing.Point(517, 319);
+            this.tbWarehouseAdd1.Name = "tbWarehouseAdd1";
+            this.tbWarehouseAdd1.Size = new System.Drawing.Size(373, 30);
+            this.tbWarehouseAdd1.TabIndex = 37;
+            // 
+            // tbWarehouseAdd2
+            // 
+            this.tbWarehouseAdd2.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbWarehouseAdd2.Location = new System.Drawing.Point(517, 359);
+            this.tbWarehouseAdd2.Name = "tbWarehouseAdd2";
+            this.tbWarehouseAdd2.Size = new System.Drawing.Size(373, 30);
+            this.tbWarehouseAdd2.TabIndex = 39;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.label1.Location = new System.Drawing.Point(319, 282);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(165, 22);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Company Address: ";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.label2.Location = new System.Drawing.Point(319, 362);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(192, 22);
+            this.label2.TabIndex = 44;
+            this.label2.Text = "Warehouse Address 2: ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.label3.Location = new System.Drawing.Point(319, 322);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(192, 22);
+            this.label3.TabIndex = 45;
+            this.label3.Text = "Warehouse Address 1: ";
             // 
             // AddressMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.chkA3);
+            this.Controls.Add(this.chkA2);
+            this.Controls.Add(this.tbWarehouseAdd2);
+            this.Controls.Add(this.tbWarehouseAdd1);
+            this.Controls.Add(this.tbCorpAdd);
             this.Controls.Add(this.palLoc);
+            this.Controls.Add(this.lblTitA1Province);
+            this.Controls.Add(this.cmbA1Province);
+            this.Controls.Add(this.cmbA1City);
             this.Controls.Add(this.palTime);
+            this.Controls.Add(this.lblTitA1City);
             this.Controls.Add(this.palNav);
-            this.Controls.Add(this.grpAddress2);
-            this.Controls.Add(this.grpAddress3);
-            this.Controls.Add(this.grpAddress1);
             this.Controls.Add(this.chkCancel);
             this.Controls.Add(this.btnModify);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -579,10 +459,6 @@
             this.Name = "AddressMgmt";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.grpAddress1.ResumeLayout(false);
-            this.grpAddress1.PerformLayout();
-            this.grpAddress2.ResumeLayout(false);
-            this.grpAddress2.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palTime.ResumeLayout(false);
@@ -590,9 +466,8 @@
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.grpAddress3.ResumeLayout(false);
-            this.grpAddress3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -602,19 +477,9 @@
         private System.Windows.Forms.Button chkCancel;
         private System.Windows.Forms.Label lblTitA1Province;
         private System.Windows.Forms.Label lblTitA1City;
-        private System.Windows.Forms.Label lblTitA1County;
-        private System.Windows.Forms.Label lblTitA1Detail;
         private System.Windows.Forms.ComboBox cmbA1Province;
-        private System.Windows.Forms.ComboBox cmbA1County;
         private System.Windows.Forms.ComboBox cmbA1City;
-        private System.Windows.Forms.Label lblA1Detail;
-        private System.Windows.Forms.GroupBox grpAddress1;
-        private System.Windows.Forms.GroupBox grpAddress2;
         private System.Windows.Forms.CheckBox chkA2;
-        private System.Windows.Forms.Label lblA2Detail;
-        private System.Windows.Forms.ComboBox cmbA2County;
-        private System.Windows.Forms.Label lblTitA2County;
-        private System.Windows.Forms.Label lblTitA2Detail;
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Panel palTime;
@@ -632,12 +497,13 @@
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Button btnFunction3;
-        private System.Windows.Forms.Label lblTitA3Detail;
-        private System.Windows.Forms.Label lblTitA3County;
-        private System.Windows.Forms.ComboBox cmbA3County;
-        private System.Windows.Forms.Label lblA3Detail;
         private System.Windows.Forms.CheckBox chkA3;
-        private System.Windows.Forms.GroupBox grpAddress3;
+        private System.Windows.Forms.TextBox tbCorpAdd;
+        private System.Windows.Forms.TextBox tbWarehouseAdd1;
+        private System.Windows.Forms.TextBox tbWarehouseAdd2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

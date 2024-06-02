@@ -287,7 +287,7 @@ namespace templatev1
             if (chkNGDateOfBirth.Checked)
                 expando.dateOfBirth = "NULL";
             else
-                expando.dateOfBirth = dtpDateOfBirth.Value.ToString("'yyyy-MM-dd'");
+                expando.dateOfBirth = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
 
             if (IMGUploaded)
                 expando.IMG = "''";

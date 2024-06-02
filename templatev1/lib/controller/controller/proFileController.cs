@@ -15,6 +15,7 @@ namespace controller
         private string sqlStr;
         private string accountType;
         private string UID;
+        private MySqlCommand cmd;
         private DateTime dateOfBirth, createDate;
         private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, waddress, corp;
         private bool NGDateOfBirth = false;
@@ -114,6 +115,29 @@ namespace controller
         {
             accountType = AccType;
             UserInfo();
+        }
+
+        public bool modify(dynamic info)
+        {
+            try
+            {
+                conn.Open();
+                if (accountType.Equals("Customer"))
+                    sqlStr = $"UPDATE customer SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\'" +
+                        $", paymentMethod = \'{info.pay}\', dateofBirth = {info.DFB}, company = \'{info.corp}\' WHERE customerID = \'{UID}\'";
+                else
+                    sqlStr = $"UPDATE staff SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\', dateofBirth = {info.DFB} WHERE staffID = \'{UID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            catch (Exception e)
+            {
+                return false;           //Something went wrong.
+            }
+
+
         }
     }
 }
