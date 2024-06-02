@@ -34,9 +34,11 @@ namespace templatev1.Online_Ordering_Platform
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.palSelect3 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
@@ -74,17 +76,15 @@ namespace templatev1.Online_Ordering_Platform
             this.lblQty = new System.Windows.Forms.Label();
             this.btnAddQty = new System.Windows.Forms.Button();
             this.picSpare = new System.Windows.Forms.PictureBox();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnGoFavourite = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palDate.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpSparePartInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSpare)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -134,6 +134,16 @@ namespace templatev1.Online_Ordering_Platform
             this.palSelect1.Size = new System.Drawing.Size(10, 55);
             this.palSelect1.TabIndex = 4;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -169,6 +179,18 @@ namespace templatev1.Online_Ordering_Platform
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -210,6 +232,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction3.Text = "Cart";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -576,28 +599,6 @@ namespace templatev1.Online_Ordering_Platform
             this.picSpare.TabIndex = 83;
             this.picSpare.TabStop = false;
             // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
@@ -636,6 +637,8 @@ namespace templatev1.Online_Ordering_Platform
             this.Text = "viewSparePart";
             this.Load += new System.EventHandler(this.viewSparePart_Load);
             this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
             this.palLoc.ResumeLayout(false);
@@ -643,8 +646,6 @@ namespace templatev1.Online_Ordering_Platform
             this.grpSparePartInfo.ResumeLayout(false);
             this.grpSparePartInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSpare)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

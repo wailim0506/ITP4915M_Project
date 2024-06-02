@@ -26,10 +26,24 @@ using MySqlConnector;  //must include in every controller file
             return dt;
         }
 
-        public Boolean isFavourite(string num)
+        public Boolean isFavourite(string num ,string id)//part num, customer id
         {
             favouriteController c = new favouriteController();
-            return c.isFavourite(num);
+            return c.isFavourite(num, id);
+        }
+
+        public Boolean addToFavourite(string num, string id)
+        {
+            favouriteController c = new favouriteController();
+            return c.addToFavourite(num, id);
+
+        }
+
+        public Boolean removeFavourite(string num, string id)
+        {
+            favouriteController c = new favouriteController();
+            return c.removeFromFavourite(num, id);
+
         }
     }
 }

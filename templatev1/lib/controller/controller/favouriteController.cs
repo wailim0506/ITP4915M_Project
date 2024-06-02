@@ -94,21 +94,53 @@ namespace controller
             return dt;
         }
 
-        public Boolean isFavourite(string num)
+        public Boolean isFavourite(string num, string id)//part num, customer id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}';";
+            sqlCmd = $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
-            try
+            if (dt.Rows.Count != 0)
             {
-                string x = dt.Rows[0][0].ToString();
                 return true;
             }
-            catch(Exception e)
+            return false;
+        }
+
+        public Boolean addToFavourite(string num, string id) //partNum , customerID
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT itemID FROM Product WHERE partNumber = \'{num}\' ";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            string itemID = dt.Rows[0][0].ToString();
+
+            sqlCmd = "INSERT INTO favourite (customerID,itemID) VALUES (@cid,@id);";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@id", itemID);
+                        command.Parameters.AddWithValue("@cid", id);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+        }
+            catch (Exception e)
             {
                 return false;
+
             }
+            finally
+            {
+                conn.Close();
+            }
+            return true;
         }
     }
 }
