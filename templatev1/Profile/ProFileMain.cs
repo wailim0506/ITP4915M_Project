@@ -45,7 +45,7 @@ namespace templatev1
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
-            Form about = new About();
+            Form about = new About(accountController, UIController);
             this.Hide();
             //Swap the current form to another.
             about.StartPosition = FormStartPosition.Manual;
@@ -95,8 +95,10 @@ namespace templatev1
             dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null); 
             lblCreateDate.Text = (info.createDate).ToString("yyyy/MM/dd");
             chkNGDateOfBirth.Checked = info.NGDateOfBirth;
-            lblAddress.Text = info.address;
+            lblCorpAddress.Text = info.caddress;
             cmbPayment.Text = info.payment;
+            tbCorp.Text = info.corp;
+            lblWareAddress.Text = info.waddress;
 
 
             //For determine which button needs to be shown.
@@ -115,19 +117,10 @@ namespace templatev1
 
             //For swap the form betwee staff and customer
             dynamic show = UIController.proFile();
-            lblTitJobTitle.Visible = show.TitJobTitel;
-            lblJobTitle.Visible = show.JobTitel;
-            lblTitDept.Visible = show.TitDept;
-            lblDept.Visible = show.Dept;
-            chkNGDateOfBirth.Visible = show.NGDateOfBirth;
-            lblTitPayment.Visible = show.TitPayment;
-            cmbPayment.Visible = show.Payment;
-            lblTitAddress.Visible = show.TitAddress;
-            lblAddress.Visible = show.Address;
-            btnManagAddress.Visible = show.ManagAddress;
-            btnDelete.Visible = show.Delete;
-
-
+            lblTitJobTitle.Visible = lblJobTitle.Visible = lblTitDept.Visible = lblDept.Visible = show.group1;
+            lblTitWareAdd.Visible = lblWareAddress.Visible = lblTitCorpAdd.Visible = lblCorpAddress.Visible 
+                = lblTItCCorpName.Visible = tbCorp.Visible = chkNGDateOfBirth.Visible = lblTitPayment.Visible 
+                = cmbPayment.Visible = btnManagAddress.Visible = btnDelete.Visible = show.group2;
         }
 
         private void picHome_Click(object sender, EventArgs e)
@@ -155,6 +148,18 @@ namespace templatev1
             Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
             Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
             Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+        }
+
+        private void btnManagAddress_Click(object sender, EventArgs e)
+        {
+            Form AddressMgmt = new AddressMgmt(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            AddressMgmt.StartPosition = FormStartPosition.Manual;
+            AddressMgmt.Location = this.Location;
+            AddressMgmt.Size = this.Size;
+            AddressMgmt.ShowDialog();
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

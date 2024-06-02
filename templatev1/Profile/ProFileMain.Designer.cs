@@ -57,8 +57,8 @@
             this.grpContact = new System.Windows.Forms.GroupBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
-            this.lblTitAddress = new System.Windows.Forms.Label();
-            this.lblAddress = new System.Windows.Forms.Label();
+            this.lblTitCorpAdd = new System.Windows.Forms.Label();
+            this.lblWareAddress = new System.Windows.Forms.Label();
             this.btnManagAddress = new System.Windows.Forms.Button();
             this.btnModify = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -89,6 +89,10 @@
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.lblJobTitle = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
+            this.lblTitWareAdd = new System.Windows.Forms.Label();
+            this.lblCorpAddress = new System.Windows.Forms.Label();
+            this.lblTItCCorpName = new System.Windows.Forms.Label();
+            this.tbCorp = new System.Windows.Forms.TextBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -143,6 +147,7 @@
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(0, 836);
@@ -183,6 +188,7 @@
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnProFile.FlatAppearance.BorderSize = 0;
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProFile.Location = new System.Drawing.Point(0, 794);
@@ -198,6 +204,7 @@
             // 
             this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderSize = 0;
             this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction5.Location = new System.Drawing.Point(0, 371);
@@ -213,6 +220,7 @@
             // 
             this.btnFunction4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction4.FlatAppearance.BorderSize = 0;
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction4.Location = new System.Drawing.Point(0, 296);
@@ -228,6 +236,7 @@
             // 
             this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatAppearance.BorderSize = 0;
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction2.Location = new System.Drawing.Point(0, 150);
@@ -243,6 +252,7 @@
             // 
             this.btnFunction1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatAppearance.BorderSize = 0;
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction1.Location = new System.Drawing.Point(0, 77);
@@ -258,6 +268,7 @@
             // 
             this.btnFunction3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction3.FlatAppearance.BorderSize = 0;
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction3.Location = new System.Drawing.Point(0, 223);
@@ -405,7 +416,7 @@
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(245, 541);
+            this.grpContact.Location = new System.Drawing.Point(245, 571);
             this.grpContact.Name = "grpContact";
             this.grpContact.Size = new System.Drawing.Size(479, 139);
             this.grpContact.TabIndex = 26;
@@ -430,35 +441,36 @@
             this.lblEmail.TabIndex = 33;
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblTitAddress
+            // lblTitCorpAdd
             // 
-            this.lblTitAddress.AutoSize = true;
-            this.lblTitAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitAddress.Location = new System.Drawing.Point(244, 459);
-            this.lblTitAddress.Name = "lblTitAddress";
-            this.lblTitAddress.Size = new System.Drawing.Size(123, 19);
-            this.lblTitAddress.TabIndex = 36;
-            this.lblTitAddress.Text = "Default Address:";
+            this.lblTitCorpAdd.AutoSize = true;
+            this.lblTitCorpAdd.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitCorpAdd.Location = new System.Drawing.Point(244, 496);
+            this.lblTitCorpAdd.Name = "lblTitCorpAdd";
+            this.lblTitCorpAdd.Size = new System.Drawing.Size(136, 19);
+            this.lblTitCorpAdd.TabIndex = 36;
+            this.lblTitCorpAdd.Text = "Company Address:";
             // 
-            // lblAddress
+            // lblWareAddress
             // 
-            this.lblAddress.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddress.Location = new System.Drawing.Point(373, 455);
-            this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(450, 26);
-            this.lblAddress.TabIndex = 35;
-            this.lblAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWareAddress.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblWareAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWareAddress.Location = new System.Drawing.Point(393, 492);
+            this.lblWareAddress.Name = "lblWareAddress";
+            this.lblWareAddress.Size = new System.Drawing.Size(450, 26);
+            this.lblWareAddress.TabIndex = 35;
+            this.lblWareAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnManagAddress
             // 
             this.btnManagAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManagAddress.Location = new System.Drawing.Point(372, 485);
+            this.btnManagAddress.Location = new System.Drawing.Point(859, 522);
             this.btnManagAddress.Name = "btnManagAddress";
             this.btnManagAddress.Size = new System.Drawing.Size(127, 33);
             this.btnManagAddress.TabIndex = 26;
             this.btnManagAddress.Text = "Manage Address";
             this.btnManagAddress.UseVisualStyleBackColor = true;
+            this.btnManagAddress.Click += new System.EventHandler(this.btnManagAddress_Click);
             // 
             // btnModify
             // 
@@ -633,7 +645,7 @@
             this.grpPass.Controls.Add(this.lblTitConfirmPass);
             this.grpPass.Controls.Add(this.tbPass);
             this.grpPass.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpPass.Location = new System.Drawing.Point(755, 541);
+            this.grpPass.Location = new System.Drawing.Point(755, 571);
             this.grpPass.Name = "grpPass";
             this.grpPass.Size = new System.Drawing.Size(362, 178);
             this.grpPass.TabIndex = 76;
@@ -751,14 +763,56 @@
             this.lblDept.TabIndex = 83;
             this.lblDept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblTitWareAdd
+            // 
+            this.lblTitWareAdd.AutoSize = true;
+            this.lblTitWareAdd.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitWareAdd.Location = new System.Drawing.Point(244, 529);
+            this.lblTitWareAdd.Name = "lblTitWareAdd";
+            this.lblTitWareAdd.Size = new System.Drawing.Size(148, 19);
+            this.lblTitWareAdd.TabIndex = 84;
+            this.lblTitWareAdd.Text = "Warehouse Address:";
+            // 
+            // lblCorpAddress
+            // 
+            this.lblCorpAddress.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCorpAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCorpAddress.Location = new System.Drawing.Point(393, 525);
+            this.lblCorpAddress.Name = "lblCorpAddress";
+            this.lblCorpAddress.Size = new System.Drawing.Size(450, 26);
+            this.lblCorpAddress.TabIndex = 85;
+            this.lblCorpAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTItCCorpName
+            // 
+            this.lblTItCCorpName.AutoSize = true;
+            this.lblTItCCorpName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTItCCorpName.Location = new System.Drawing.Point(244, 463);
+            this.lblTItCCorpName.Name = "lblTItCCorpName";
+            this.lblTItCCorpName.Size = new System.Drawing.Size(122, 19);
+            this.lblTItCCorpName.TabIndex = 86;
+            this.lblTItCCorpName.Text = "Company Name:";
+            // 
+            // tbCorp
+            // 
+            this.tbCorp.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbCorp.Location = new System.Drawing.Point(392, 460);
+            this.tbCorp.Name = "tbCorp";
+            this.tbCorp.Size = new System.Drawing.Size(302, 27);
+            this.tbCorp.TabIndex = 88;
+            // 
             // proFileMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.tbCorp);
+            this.Controls.Add(this.lblTItCCorpName);
+            this.Controls.Add(this.lblCorpAddress);
+            this.Controls.Add(this.lblTitWareAdd);
             this.Controls.Add(this.dtpDateOfBirth);
-            this.Controls.Add(this.lblTitAddress);
-            this.Controls.Add(this.lblAddress);
+            this.Controls.Add(this.lblTitCorpAdd);
+            this.Controls.Add(this.lblWareAddress);
             this.Controls.Add(this.lblTitDept);
             this.Controls.Add(this.btnManagAddress);
             this.Controls.Add(this.lblTitJobTitle);
@@ -845,7 +899,7 @@
         private System.Windows.Forms.ComboBox cmbGender;
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.TextBox tbLastName;
-        private System.Windows.Forms.Label lblAddress;
+        private System.Windows.Forms.Label lblWareAddress;
         private System.Windows.Forms.Label lblTitDateOfBirth;
         private System.Windows.Forms.CheckBox chkNGDateOfBirth;
         private System.Windows.Forms.Label lblTitCreateDate;
@@ -861,7 +915,7 @@
         private System.Windows.Forms.TextBox tbConfirmPass;
         private System.Windows.Forms.Label lblTitConfirmPass;
         private System.Windows.Forms.TextBox tbPass;
-        private System.Windows.Forms.Label lblTitAddress;
+        private System.Windows.Forms.Label lblTitCorpAdd;
         private System.Windows.Forms.PictureBox picUserIMG;
         private System.Windows.Forms.Label lblTitDept;
         private System.Windows.Forms.Label lblTitJobTitle;
@@ -875,6 +929,10 @@
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.Label lblJobTitle;
         private System.Windows.Forms.Label lblDept;
+        private System.Windows.Forms.Label lblTitWareAdd;
+        private System.Windows.Forms.Label lblCorpAddress;
+        private System.Windows.Forms.Label lblTItCCorpName;
+        private System.Windows.Forms.TextBox tbCorp;
     }
 }
 

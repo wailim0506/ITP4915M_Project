@@ -111,7 +111,7 @@
             this.btnCreateCustomerAcc.Location = new System.Drawing.Point(461, 590);
             this.btnCreateCustomerAcc.Name = "btnCreateCustomerAcc";
             this.btnCreateCustomerAcc.Size = new System.Drawing.Size(220, 37);
-            this.btnCreateCustomerAcc.TabIndex = 21;
+            this.btnCreateCustomerAcc.TabIndex = 6;
             this.btnCreateCustomerAcc.Text = "Create Customer Account";
             this.btnCreateCustomerAcc.UseVisualStyleBackColor = true;
             this.btnCreateCustomerAcc.Click += new System.EventHandler(this.btnCreateCustomerAcc_Click);
@@ -122,7 +122,7 @@
             this.btnForgetPassword.Location = new System.Drawing.Point(461, 550);
             this.btnForgetPassword.Name = "btnForgetPassword";
             this.btnForgetPassword.Size = new System.Drawing.Size(161, 37);
-            this.btnForgetPassword.TabIndex = 20;
+            this.btnForgetPassword.TabIndex = 5;
             this.btnForgetPassword.Text = "Forget Password";
             this.btnForgetPassword.UseVisualStyleBackColor = true;
             this.btnForgetPassword.Click += new System.EventHandler(this.btnForgetPassword_Click);
@@ -145,7 +145,7 @@
             this.btnLogin.Location = new System.Drawing.Point(596, 496);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(98, 33);
-            this.btnLogin.TabIndex = 18;
+            this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "Log in";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
@@ -156,7 +156,8 @@
             this.tbPassword.Location = new System.Drawing.Point(459, 448);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(235, 27);
-            this.tbPassword.TabIndex = 17;
+            this.tbPassword.TabIndex = 2;
+            this.tbPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbPassword_KeyDown);
             // 
             // tbUsername
             // 
@@ -164,7 +165,7 @@
             this.tbUsername.Location = new System.Drawing.Point(459, 374);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(235, 27);
-            this.tbUsername.TabIndex = 16;
+            this.tbUsername.TabIndex = 1;
             // 
             // chkRememberMe
             // 
@@ -173,7 +174,7 @@
             this.chkRememberMe.Location = new System.Drawing.Point(461, 502);
             this.chkRememberMe.Name = "chkRememberMe";
             this.chkRememberMe.Size = new System.Drawing.Size(128, 23);
-            this.chkRememberMe.TabIndex = 15;
+            this.chkRememberMe.TabIndex = 3;
             this.chkRememberMe.Text = "Remember me";
             this.chkRememberMe.UseVisualStyleBackColor = true;
             // 
@@ -193,9 +194,9 @@
             this.lblUsername.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.Location = new System.Drawing.Point(457, 349);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(94, 22);
+            this.lblUsername.Size = new System.Drawing.Size(73, 22);
             this.lblUsername.TabIndex = 13;
-            this.lblUsername.Text = "Username:";
+            this.lblUsername.Text = "UserID:";
             // 
             // lblSystemTitle2
             // 
@@ -247,7 +248,7 @@
             this.btnTest6.Location = new System.Drawing.Point(26, 287);
             this.btnTest6.Name = "btnTest6";
             this.btnTest6.Size = new System.Drawing.Size(242, 34);
-            this.btnTest6.TabIndex = 5;
+            this.btnTest6.TabIndex = 12;
             this.btnTest6.Text = "Login as delivery man";
             this.btnTest6.UseVisualStyleBackColor = true;
             this.btnTest6.Click += new System.EventHandler(this.btnTest6_Click_1);
@@ -258,7 +259,7 @@
             this.btnTest5.Location = new System.Drawing.Point(26, 237);
             this.btnTest5.Name = "btnTest5";
             this.btnTest5.Size = new System.Drawing.Size(242, 34);
-            this.btnTest5.TabIndex = 4;
+            this.btnTest5.TabIndex = 11;
             this.btnTest5.Text = "Login as department manager";
             this.btnTest5.UseVisualStyleBackColor = true;
             this.btnTest5.Click += new System.EventHandler(this.btnTest5_Click_1);
@@ -269,7 +270,7 @@
             this.btnTest4.Location = new System.Drawing.Point(26, 187);
             this.btnTest4.Name = "btnTest4";
             this.btnTest4.Size = new System.Drawing.Size(242, 34);
-            this.btnTest4.TabIndex = 3;
+            this.btnTest4.TabIndex = 10;
             this.btnTest4.Text = "Login as storeman";
             this.btnTest4.UseVisualStyleBackColor = true;
             this.btnTest4.Click += new System.EventHandler(this.btnTest4_Click_1);
@@ -280,7 +281,7 @@
             this.btnTest3.Location = new System.Drawing.Point(26, 137);
             this.btnTest3.Name = "btnTest3";
             this.btnTest3.Size = new System.Drawing.Size(242, 34);
-            this.btnTest3.TabIndex = 2;
+            this.btnTest3.TabIndex = 9;
             this.btnTest3.Text = "Login as order processing clerk";
             this.btnTest3.UseVisualStyleBackColor = true;
             this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
@@ -291,7 +292,7 @@
             this.btnTest2.Location = new System.Drawing.Point(26, 87);
             this.btnTest2.Name = "btnTest2";
             this.btnTest2.Size = new System.Drawing.Size(242, 34);
-            this.btnTest2.TabIndex = 1;
+            this.btnTest2.TabIndex = 8;
             this.btnTest2.Text = "Login as Sale Manager";
             this.btnTest2.UseVisualStyleBackColor = true;
             this.btnTest2.Click += new System.EventHandler(this.btnTest2_Click);
@@ -302,7 +303,7 @@
             this.btnTest1.Location = new System.Drawing.Point(26, 37);
             this.btnTest1.Name = "btnTest1";
             this.btnTest1.Size = new System.Drawing.Size(242, 34);
-            this.btnTest1.TabIndex = 0;
+            this.btnTest1.TabIndex = 7;
             this.btnTest1.Text = "Login as customer";
             this.btnTest1.UseVisualStyleBackColor = true;
             this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);

@@ -146,12 +146,25 @@ namespace templatev1.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public bool BWmode {
             get {
                 return ((bool)(this["BWmode"]));
             }
             set {
                 this["BWmode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("White")]
+        public global::System.Drawing.Color btnColor {
+            get {
+                return ((global::System.Drawing.Color)(this["btnColor"]));
+            }
+            set {
+                this["btnColor"] = value;
             }
         }
     }

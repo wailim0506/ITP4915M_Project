@@ -15,6 +15,7 @@ namespace templatev1
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
+        controller.proFileController proFileController;
 
         public LogHis()
         {
@@ -55,6 +56,13 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+
+            //For icon color
+            if (Properties.Settings.Default.BWmode == true)
+            {
+                picBWMode.Image = Properties.Resources.LBWhite;
+                picHome.Image = Properties.Resources.homeWhite;
+            }
         }
 
         private void picHome_Click(object sender, EventArgs e)
@@ -67,6 +75,75 @@ namespace templatev1
             home.Size = this.Size;
             home.ShowDialog();
             this.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form login = new Login();
+            this.Hide();
+            //Swap the current form to another.
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = this.Location;
+            login.Size = this.Size;
+            login.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = this.Location;
+            about.Size = this.Size;
+            about.ShowDialog();
+            this.Close();
+        }
+
+        private void picBWMode_Click(object sender, EventArgs e)
+        {
+            UIController.setMode(Properties.Settings.Default.BWmode);
+            BWMode();
+        }
+        private void BWMode()
+        {
+            dynamic value = UIController.getMode();
+            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Properties.Settings.Default.BWmode = value.BWmode;
+            if (Properties.Settings.Default.BWmode == true)
+            {
+                picBWMode.Image = Properties.Resources.LBWhite;
+                picHome.Image = Properties.Resources.homeWhite;
+            }
+            else
+            {
+                picBWMode.Image = Properties.Resources.LB;
+                picHome.Image = Properties.Resources.home;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -160,11 +160,11 @@
     <Compile Include="Online_Ordering_Platform\payment.Designer.cs">
       <DependentUpon>payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile\AddressManag.cs">
+    <Compile Include="Profile\AddressMgmt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Profile\AddressManag.Designer.cs">
-      <DependentUpon>AddressManag.cs</DependentUpon>
+    <Compile Include="Profile\AddressMgmt.Designer.cs">
+      <DependentUpon>AddressMgmt.cs</DependentUpon>
     </Compile>
     <Compile Include="test_Database_and_Controller.cs">
       <SubType>Form</SubType>
@@ -375,8 +375,8 @@
     <EmbeddedResource Include="Online_Ordering_Platform\payment.resx">
       <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Profile\AddressManag.resx">
-      <DependentUpon>AddressManag.cs</DependentUpon>
+    <EmbeddedResource Include="Profile\AddressMgmt.resx">
+      <DependentUpon>AddressMgmt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
@@ -531,6 +531,5 @@
       <Name>controller</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
