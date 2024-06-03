@@ -83,5 +83,11 @@ namespace controller
             adr.Fill(dt);
             return int.Parse(dt.Rows[0][0].ToString());
         }
+
+        public Boolean addCart(string id, string num, int qty) //customer id, part num, quantity
+        {
+           viewSparePartController c = new viewSparePartController();
+           return  c.addToCart(id, num, qty);
+        }
     }
 }

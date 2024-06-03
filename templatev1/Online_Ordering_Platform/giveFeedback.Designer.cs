@@ -66,7 +66,7 @@ namespace templatev1
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(642, 490);
+            this.btnBack.Location = new System.Drawing.Point(642, 619);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 37);
             this.btnBack.TabIndex = 62;
@@ -76,7 +76,7 @@ namespace templatev1
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(742, 490);
+            this.btnClear.Location = new System.Drawing.Point(742, 619);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(94, 37);
             this.btnClear.TabIndex = 61;
@@ -101,14 +101,14 @@ namespace templatev1
             this.tbFB.MaxLength = 1000;
             this.tbFB.Multiline = true;
             this.tbFB.Name = "tbFB";
-            this.tbFB.Size = new System.Drawing.Size(565, 254);
+            this.tbFB.Size = new System.Drawing.Size(565, 390);
             this.tbFB.TabIndex = 58;
             this.tbFB.TextChanged += new System.EventHandler(this.tbFB_TextChanged);
             // 
             // btnSend
             // 
             this.btnSend.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSend.Location = new System.Drawing.Point(842, 490);
+            this.btnSend.Location = new System.Drawing.Point(842, 619);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(94, 37);
             this.btnSend.TabIndex = 60;
@@ -195,7 +195,7 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 593);
+            this.palNav.Size = new System.Drawing.Size(198, 876);
             this.palNav.TabIndex = 63;
             // 
             // picBWMode
@@ -214,7 +214,7 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 441);
+            this.btnProFile.Location = new System.Drawing.Point(0, 731);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
@@ -228,7 +228,7 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 483);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 773);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
@@ -252,7 +252,7 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 539);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 829);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
@@ -355,7 +355,7 @@ namespace templatev1
             // 
             this.lblWordCount.AutoSize = true;
             this.lblWordCount.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordCount.Location = new System.Drawing.Point(367, 499);
+            this.lblWordCount.Location = new System.Drawing.Point(367, 628);
             this.lblWordCount.Name = "lblWordCount";
             this.lblWordCount.Size = new System.Drawing.Size(134, 23);
             this.lblWordCount.TabIndex = 66;
@@ -365,7 +365,7 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 593);
+            this.ClientSize = new System.Drawing.Size(1170, 876);
             this.Controls.Add(this.lblWordCount);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);

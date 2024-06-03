@@ -331,7 +331,7 @@ namespace templatev1.Online_Ordering_Platform
             this.grpOrder.Controls.Add(this.pnlOrder);
             this.grpOrder.Location = new System.Drawing.Point(208, 129);
             this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(890, 625);
+            this.grpOrder.Size = new System.Drawing.Size(898, 625);
             this.grpOrder.TabIndex = 31;
             this.grpOrder.TabStop = false;
             // 
@@ -340,7 +340,7 @@ namespace templatev1.Online_Ordering_Platform
             this.pnlOrder.AutoScroll = true;
             this.pnlOrder.Location = new System.Drawing.Point(6, 10);
             this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(879, 607);
+            this.pnlOrder.Size = new System.Drawing.Size(888, 607);
             this.pnlOrder.TabIndex = 0;
             // 
             // lblOrderID
