@@ -203,7 +203,7 @@ namespace controller
                 //Insert a record into customer table
                 conn.Open();
                 sqlStr = $"INSERT INTO customer VALUES(\'{LMCID}\', \'{Userinfo.fName}\', \'{Userinfo.lName}\', \'{Userinfo.gender}\', \'{Userinfo.email}\', \'{Userinfo.company}\', \'{Userinfo.phone}\'" +
-                    $", \'{Userinfo.province}\', \'{Userinfo.city}\', \'{Userinfo.address1}\', \'{Userinfo.address2}\', \'{Userinfo.joinDate}\', \'{Userinfo.payment}\', {Userinfo.IMG} ,{Userinfo.dateOfBirth})";
+                    $", \'{Userinfo.province}\', \'{Userinfo.city}\', \'{Userinfo.address1}\', \'{Userinfo.address2}\', \'{Userinfo.joinDate}\', \'{Userinfo.payment}\', {Userinfo.IMG} , {Userinfo.dateOfBirth}, NULL)";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
 
@@ -211,11 +211,31 @@ namespace controller
                 sqlStr = $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{encryptedPwd}\', \'{Userinfo.joinDate}\', \'{strKey}\', \'{strIV}\', \'{Userinfo.joinDate}\')";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
+
+                //Insert a record into customer_dfadd table set default address.
+                sqlStr = $"INSERT INTO customer_dfadd VALUES(\'{LMCID}\', '1')";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+
                 conn.Close();
                 return true;
             }
             catch (Exception e)
             {
+                //Delete all created record from table.
+                conn.Open();
+                sqlStr = $"DELETE FROM customer WHERE customerID = \'{LMCID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+
+                sqlStr = $"DELETE FROM customer_account WHERE customerID = \'{LMCID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+
+                sqlStr = $"DELETE FROM customer_dfadd WHERE customerID = \'{LMCID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
                 return false;           //Something went wrong.
             }
         }

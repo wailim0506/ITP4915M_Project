@@ -73,12 +73,18 @@ namespace templatev1
         {
             getPage(btnFunction1.Text);
         }
-
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             getPage(btnFunction3.Text);
         }
-
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
@@ -104,7 +110,7 @@ namespace templatev1
 
                     break;
                 case "Stock Management":
-
+                    next = new StockMgmt(accountController, UIController);
                     break;
                 case "User Managemnet":
                     next = new SAccManage(accountController, UIController);
