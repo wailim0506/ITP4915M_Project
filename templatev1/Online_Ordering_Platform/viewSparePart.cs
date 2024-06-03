@@ -21,6 +21,10 @@ namespace templatev1.Online_Ordering_Platform
         public viewSparePart()
         {
             InitializeComponent();
+            partNum = "D00004";
+            controller = new controller.viewSparePartController();
+            UID = "LMC00001"; //hard code for testing
+            lblUid.Text = $"Uid: {UID}";
         }
 
         public viewSparePart(string partNum, controller.accountController accountController, controller.UIController UIController)
@@ -38,7 +42,12 @@ namespace templatev1.Online_Ordering_Platform
         private void viewSparePart_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            DataTable dt =  controller.getInfo(partNum);
+            load_part();
+        }
+        
+        public void load_part()
+        {
+            DataTable dt = controller.getInfo(partNum);
             lblPartNum.Text = partNum;
             lblCategory.Text = dt.Rows[0][2].ToString();
             lblName.Text = dt.Rows[0][3].ToString();
@@ -101,7 +110,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) == 0) //check quantity input equal 0, do not perform anything if equal to 0
+                if (int.Parse(tbQty.Text.ToString()) == 1) //check quantity input equal 0, do not perform anything if equal to 0
                 {
                     return;
                 }
@@ -130,9 +139,23 @@ namespace templatev1.Online_Ordering_Platform
                         MessageBox.Show($"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text.ToString()})", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    int qty = int.Parse(tbQty.Text.ToString());   //quantity input is smaller than on sales quantity
-                    MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.", "Add Cart");
-                    tbQty.Text = "";
+                    else
+                    {
+                        int qty = int.Parse(tbQty.Text.ToString());
+                        if (controller.addToCart(UID, partNum, qty))
+                        {
+                            MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.", "Add Cart");
+                            tbQty.Text = "";
+                            load_part();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+
+                    }
+                    
                 }
             }
             else

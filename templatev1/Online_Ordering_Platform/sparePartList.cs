@@ -161,7 +161,7 @@ namespace templatev1.Online_Ordering_Platform
         private void addCart(object sender, EventArgs e)
         {
             string partNum = "";
-            string qty = "";
+            int qty = 0;
             Button clickedButton = sender as Button;
             if (clickedButton != null)
             {
@@ -180,21 +180,30 @@ namespace templatev1.Online_Ordering_Platform
                             }
                             if (control.Name == $"tbQty{index}")  
                             {
-                                qty += control.Text;
+                                qty += int.Parse(control.Text);
                                 control.Text = "1";
                             }
                         }
                     }
                 }
             }
-            if (int.Parse(qty) <= 0)
+            if (qty <= 0)
             {
                 MessageBox.Show($"The quantity input is not valid.\nPlease adjust the quantity input", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }else if (int.Parse(qty) <= controller.getOnSaleQty(partNum))
+            }else if (qty <= controller.getOnSaleQty(partNum))
             {
+               if(controller.addCart(UID,partNum, qty))
+                {
+                    MessageBox.Show($"Added to cart", "Add Cart", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    MessageBox.Show($"Please try again", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-            }else {
+            }
+            else {
                 MessageBox.Show($"The quantity input exceed the on sale quantity({controller.getOnSaleQty(partNum)}).\nPlease adjust the quantity input", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -266,6 +275,16 @@ namespace templatev1.Online_Ordering_Platform
             cart.Location = this.Location;
             cart.ShowDialog();
             this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbKW.Text = "";
         }
 
         private Image imageString(string imageName)

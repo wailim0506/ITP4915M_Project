@@ -62,7 +62,7 @@ namespace templatev1.Online_Ordering_Platform
                 Label lblStaff = new Label() { Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID), Location = new System.Drawing.Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(180, 20), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblContact = new Label() { Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID), Location = new System.Drawing.Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(219, 20), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblStatus = new Label() { Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}", Location = new System.Drawing.Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(115, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Button btnView = new Button() { Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(775, yPosition-3), Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
+                Button btnView = new Button() { Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(773, yPosition-3), Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter, AutoSize = true};
                 btnView.Click += new EventHandler(this.btnView_Click);
                 
                 pnlOrder.Controls.Add(lblID);

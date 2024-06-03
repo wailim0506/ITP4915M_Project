@@ -71,16 +71,17 @@ namespace templatev1.Online_Ordering_Platform
             this.tbQauntity = new System.Windows.Forms.TextBox();
             this.lblEditQty = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpShippingDate = new System.Windows.Forms.MonthCalendar();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbAddress = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbProvince = new System.Windows.Forms.TextBox();
+            this.picPencil = new System.Windows.Forms.PictureBox();
             this.tbCity = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.picPencil = new System.Windows.Forms.PictureBox();
+            this.tbProvince = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dtpShippingDate = new System.Windows.Forms.MonthCalendar();
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
@@ -562,57 +563,17 @@ namespace templatev1.Online_Ordering_Platform
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Shipping Detail";
             // 
-            // label2
+            // picPencil
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 52);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(223, 24);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Select a shipping date:";
-            // 
-            // dtpShippingDate
-            // 
-            this.dtpShippingDate.Location = new System.Drawing.Point(12, 80);
-            this.dtpShippingDate.Name = "dtpShippingDate";
-            this.dtpShippingDate.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(267, 52);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Shipping address:";
-            // 
-            // tbAddress
-            // 
-            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.Location = new System.Drawing.Point(271, 80);
-            this.tbAddress.Multiline = true;
-            this.tbAddress.Name = "tbAddress";
-            this.tbAddress.ReadOnly = true;
-            this.tbAddress.Size = new System.Drawing.Size(299, 162);
-            this.tbAddress.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(611, 104);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Province:";
-            // 
-            // tbProvince
-            // 
-            this.tbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbProvince.Location = new System.Drawing.Point(720, 99);
-            this.tbProvince.Name = "tbProvince";
-            this.tbProvince.ReadOnly = true;
-            this.tbProvince.Size = new System.Drawing.Size(154, 29);
-            this.tbProvince.TabIndex = 5;
+            this.picPencil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picPencil.Image = global::templatev1.Properties.Resources.pencil;
+            this.picPencil.Location = new System.Drawing.Point(865, 15);
+            this.picPencil.Name = "picPencil";
+            this.picPencil.Size = new System.Drawing.Size(30, 22);
+            this.picPencil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPencil.TabIndex = 8;
+            this.picPencil.TabStop = false;
+            this.picPencil.Click += new System.EventHandler(this.picPencil_Click);
             // 
             // tbCity
             // 
@@ -632,17 +593,57 @@ namespace templatev1.Online_Ordering_Platform
             this.label5.TabIndex = 6;
             this.label5.Text = "City:";
             // 
-            // picPencil
+            // tbProvince
             // 
-            this.picPencil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picPencil.Image = global::templatev1.Properties.Resources.pencil;
-            this.picPencil.Location = new System.Drawing.Point(865, 15);
-            this.picPencil.Name = "picPencil";
-            this.picPencil.Size = new System.Drawing.Size(30, 22);
-            this.picPencil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picPencil.TabIndex = 8;
-            this.picPencil.TabStop = false;
-            this.picPencil.Click += new System.EventHandler(this.picPencil_Click);
+            this.tbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProvince.Location = new System.Drawing.Point(720, 99);
+            this.tbProvince.Name = "tbProvince";
+            this.tbProvince.ReadOnly = true;
+            this.tbProvince.Size = new System.Drawing.Size(154, 29);
+            this.tbProvince.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(611, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Province:";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(271, 80);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.ReadOnly = true;
+            this.tbAddress.Size = new System.Drawing.Size(299, 162);
+            this.tbAddress.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(267, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Shipping address:";
+            // 
+            // dtpShippingDate
+            // 
+            this.dtpShippingDate.Location = new System.Drawing.Point(12, 80);
+            this.dtpShippingDate.Name = "dtpShippingDate";
+            this.dtpShippingDate.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Select a shipping date:";
             // 
             // button1
             // 
@@ -654,11 +655,22 @@ namespace templatev1.Online_Ordering_Platform
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(1036, 91);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(239, 24);
+            this.label6.TabIndex = 105;
+            this.label6.Text = "*All items in cart is reserved";
+            // 
             // cart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 941);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblEditQty);
@@ -756,5 +768,6 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox picPencil;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
     }
 }

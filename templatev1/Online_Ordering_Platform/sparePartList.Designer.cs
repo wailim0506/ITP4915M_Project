@@ -61,6 +61,7 @@ namespace templatev1.Online_Ordering_Platform
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.btnClear = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -305,7 +306,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.tbKW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbKW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKW.Location = new System.Drawing.Point(524, 107);
+            this.tbKW.Location = new System.Drawing.Point(481, 108);
             this.tbKW.Name = "tbKW";
             this.tbKW.Size = new System.Drawing.Size(463, 29);
             this.tbKW.TabIndex = 76;
@@ -379,12 +380,13 @@ namespace templatev1.Online_Ordering_Platform
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(431, 109);
+            this.label3.Location = new System.Drawing.Point(388, 110);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 24);
             this.label3.TabIndex = 82;
             this.label3.Text = "Keyword:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cmbSorting
             // 
@@ -416,11 +418,23 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Location = new System.Drawing.Point(950, 108);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(81, 29);
+            this.btnClear.TabIndex = 85;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // sparePartList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbSorting);
             this.Controls.Add(this.label3);
@@ -484,5 +498,6 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Button btnClear;
     }
 }
