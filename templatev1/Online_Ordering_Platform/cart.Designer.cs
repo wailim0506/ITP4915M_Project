@@ -38,7 +38,7 @@ namespace templatev1.Online_Ordering_Platform
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlSP = new System.Windows.Forms.Panel();
-            this.btnBackToSearch = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblDBUnitPrice = new System.Windows.Forms.Label();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
@@ -70,6 +70,17 @@ namespace templatev1.Online_Ordering_Platform
             this.picTick = new System.Windows.Forms.PictureBox();
             this.tbQauntity = new System.Windows.Forms.TextBox();
             this.lblEditQty = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtpShippingDate = new System.Windows.Forms.MonthCalendar();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.tbProvince = new System.Windows.Forms.TextBox();
+            this.tbCity = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.picPencil = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
@@ -77,6 +88,8 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPencil)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -119,6 +132,10 @@ namespace templatev1.Online_Ordering_Platform
             this.lblDBCat.Text = "Category";
             this.lblDBCat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pnlSP);
@@ -136,18 +153,19 @@ namespace templatev1.Online_Ordering_Platform
             this.pnlSP.Size = new System.Drawing.Size(895, 378);
             this.pnlSP.TabIndex = 0;
             // 
-            // btnBackToSearch
+            // btnSearch
             // 
-            this.btnBackToSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnBackToSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackToSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.btnBackToSearch.Location = new System.Drawing.Point(218, 114);
-            this.btnBackToSearch.Name = "btnBackToSearch";
-            this.btnBackToSearch.Size = new System.Drawing.Size(237, 39);
-            this.btnBackToSearch.TabIndex = 86;
-            this.btnBackToSearch.TabStop = false;
-            this.btnBackToSearch.Text = "Back to Search Sapre Part";
-            this.btnBackToSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.btnSearch.Location = new System.Drawing.Point(218, 114);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(162, 39);
+            this.btnSearch.TabIndex = 86;
+            this.btnSearch.TabStop = false;
+            this.btnSearch.Text = "Search Sapre Part";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // lblDBUnitPrice
             // 
@@ -340,7 +358,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnCreateOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(1129, 505);
+            this.btnCreateOrder.Location = new System.Drawing.Point(1129, 864);
             this.btnCreateOrder.Name = "btnCreateOrder";
             this.btnCreateOrder.Size = new System.Drawing.Size(146, 65);
             this.btnCreateOrder.TabIndex = 85;
@@ -354,7 +372,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnEditQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEditQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditQty.Location = new System.Drawing.Point(1129, 419);
+            this.btnEditQty.Location = new System.Drawing.Point(1129, 476);
             this.btnEditQty.Name = "btnEditQty";
             this.btnEditQty.Size = new System.Drawing.Size(146, 65);
             this.btnEditQty.TabIndex = 84;
@@ -368,7 +386,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnRemoveAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemoveAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveAll.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveAll.Location = new System.Drawing.Point(1129, 333);
+            this.btnRemoveAll.Location = new System.Drawing.Point(1129, 390);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(146, 65);
             this.btnRemoveAll.TabIndex = 83;
@@ -382,7 +400,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnRemoveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnRemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveItem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(1129, 245);
+            this.btnRemoveItem.Location = new System.Drawing.Point(1129, 302);
             this.btnRemoveItem.Name = "btnRemoveItem";
             this.btnRemoveItem.Size = new System.Drawing.Size(146, 67);
             this.btnRemoveItem.TabIndex = 82;
@@ -417,9 +435,8 @@ namespace templatev1.Online_Ordering_Platform
             this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.Location = new System.Drawing.Point(948, 616);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(119, 31);
+            this.lblTotal.Size = new System.Drawing.Size(0, 31);
             this.lblTotal.TabIndex = 80;
-            this.lblTotal.Text = "¥ 130000";
             // 
             // palLoc
             // 
@@ -526,11 +543,124 @@ namespace templatev1.Online_Ordering_Platform
             this.lblEditQty.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblEditQty.Visible = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.picPencil);
+            this.groupBox2.Controls.Add(this.tbCity);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.tbProvince);
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.tbAddress);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.dtpShippingDate);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(218, 681);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(899, 248);
+            this.groupBox2.TabIndex = 103;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Shipping Detail";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(223, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Select a shipping date:";
+            // 
+            // dtpShippingDate
+            // 
+            this.dtpShippingDate.Location = new System.Drawing.Point(12, 80);
+            this.dtpShippingDate.Name = "dtpShippingDate";
+            this.dtpShippingDate.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(267, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(179, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Shipping address:";
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(271, 80);
+            this.tbAddress.Multiline = true;
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.ReadOnly = true;
+            this.tbAddress.Size = new System.Drawing.Size(299, 162);
+            this.tbAddress.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(611, 104);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(98, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Province:";
+            // 
+            // tbProvince
+            // 
+            this.tbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProvince.Location = new System.Drawing.Point(720, 99);
+            this.tbProvince.Name = "tbProvince";
+            this.tbProvince.ReadOnly = true;
+            this.tbProvince.Size = new System.Drawing.Size(154, 29);
+            this.tbProvince.TabIndex = 5;
+            // 
+            // tbCity
+            // 
+            this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCity.Location = new System.Drawing.Point(720, 170);
+            this.tbCity.Name = "tbCity";
+            this.tbCity.ReadOnly = true;
+            this.tbCity.Size = new System.Drawing.Size(154, 29);
+            this.tbCity.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(659, 173);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 24);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "City:";
+            // 
+            // picPencil
+            // 
+            this.picPencil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picPencil.Image = global::templatev1.Properties.Resources.pencil;
+            this.picPencil.Location = new System.Drawing.Point(865, 15);
+            this.picPencil.Name = "picPencil";
+            this.picPencil.Size = new System.Drawing.Size(30, 22);
+            this.picPencil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picPencil.TabIndex = 8;
+            this.picPencil.TabStop = false;
+            this.picPencil.Click += new System.EventHandler(this.picPencil_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1174, 689);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 104;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // cart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1287, 941);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblEditQty);
             this.Controls.Add(this.picTick);
             this.Controls.Add(this.tbQauntity);
@@ -542,7 +672,7 @@ namespace templatev1.Online_Ordering_Platform
             this.Controls.Add(this.lblDBSpartPartName);
             this.Controls.Add(this.lblDBCat);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnBackToSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.lblDBUnitPrice);
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.btnCreateOrder);
@@ -566,6 +696,9 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.ResumeLayout(false);
             this.palDate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picPencil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,7 +712,7 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Label lblDBCat;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnBackToSearch;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label lblDBUnitPrice;
         private System.Windows.Forms.Panel palSelect4;
         private System.Windows.Forms.Panel palSelect2;
@@ -612,5 +745,16 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.PictureBox picTick;
         private System.Windows.Forms.TextBox tbQauntity;
         private System.Windows.Forms.Label lblEditQty;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox tbCity;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbProvince;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MonthCalendar dtpShippingDate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picPencil;
+        private System.Windows.Forms.Button button1;
     }
 }

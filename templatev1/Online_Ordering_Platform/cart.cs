@@ -42,11 +42,22 @@ namespace templatev1.Online_Ordering_Platform
         {
             timer1.Enabled = true;
             load_part(controller.getCartItem(UID));
+            load_customer_address(controller.getCustomerAddress(UID));
+        }
+
+        public void load_customer_address(DataTable dt) 
+        {
+            tbAddress.Text = dt.Rows[0][0].ToString();
+            tbProvince.Text = dt.Rows[0][1].ToString();
+            tbCity.Text = dt.Rows[0][2].ToString();
+            DateTime sysDate = DateTime.Now.Date;
+            dtpShippingDate.MinDate = sysDate.AddDays(5);  //the first available shipping date is five day after order date
         }
 
         private void load_part(DataTable dt)
         {
             pnlSP.Controls.Clear();
+            int totalPrice = 0;
             int yPosition = 8;
             for (int i = 0; i < countRow(dt); i++)
             {
@@ -55,8 +66,8 @@ namespace templatev1.Online_Ordering_Platform
                 Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][5]}", Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblPartName = new Label() { Text = $"{dt.Rows[i][14]}", Location = new System.Drawing.Point(279, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblQty = new Label() { Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new System.Drawing.Point(538, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(85, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblUnitPrice = new Label() { Text = $"{dt.Rows[i][8]}", Location = new System.Drawing.Point(629, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblRowTotalPrice = new Label() { Name = $"lbRowPrice{i}", Text = $"{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}", Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblUnitPrice = new Label() { Text = $"¥{dt.Rows[i][8]}", Location = new System.Drawing.Point(629, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblRowTotalPrice = new Label() { Name = $"lbRowPrice{i}", Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}", Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter };
                 Button btnView = new Button() { Name = $"btnView{i}", Text = "View", Location = new System.Drawing.Point(824, yPosition - 3), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, AutoSize = false, Size = new System.Drawing.Size(64, 28), Cursor = Cursors.Hand };
                 btnView.Click += new EventHandler(this.btnView_Click);
 
@@ -70,7 +81,9 @@ namespace templatev1.Online_Ordering_Platform
                 pnlSP.Controls.Add(btnView);
 
                 yPosition += 50;
-            }     
+                totalPrice += int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString());
+            }
+            lblTotal.Text = $"¥{totalPrice}";
         }
         public void btnView_Click(object sender, EventArgs e)
         {
@@ -132,7 +145,7 @@ namespace templatev1.Online_Ordering_Platform
                     {
                         if (control.Name == $"lblPartNum{checkedIndex[i]}")
                         {
-                            foreach (Control controls in pnlSP.Controls)   //add qty to db
+                            foreach (Control controls in pnlSP.Controls)   //add qty back to db
                             {
                                 if (controls.Name == $"lblQty{checkedIndex[i]}")
                                 {
@@ -216,28 +229,33 @@ namespace templatev1.Online_Ordering_Platform
 
         private void btnRemoveAll_Click(object sender, EventArgs e)
         {
-            
-            DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove all items in cart?", "Remove All", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes)
+            if (controller.getCartItem(UID).Rows.Count > 0) //check there are items in cart
             {
-                List<string> allPartNum = controller.getAllPartNumInCart(UID);
-                List<int> allItemQty = controller.getAllItemQtyInCart(UID);
-                for (int i = 0; i < allPartNum.Count; i++)
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove all items in cart?", "Remove All", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty to db
-                }
-                if (controller.removeAll(UID)) //remove from cart
-                {
-                    MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
-                    load_part(controller.getCartItem(UID));
-                }
-                else
-                {
-                    MessageBox.Show("Error occue\nPlease try again", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    List<string> allPartNum = controller.getAllPartNumInCart(UID);
+                    List<int> allItemQty = controller.getAllItemQtyInCart(UID);
+                    for (int i = 0; i < allPartNum.Count; i++)
+                    {
+                        controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty back to db
+                    }
+                    if (controller.removeAll(UID)) //remove from cart
+                    {
+                        MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
+                        load_part(controller.getCartItem(UID));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error occue\nPlease try again", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Your cart is empty", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            //restore to db!!!!!!!!
+            }            
         }
 
         private void btnEditQty_Click(object sender, EventArgs e)
@@ -329,9 +347,40 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (controller.getCartItem(UID).Rows.Count > 0) //check there are items in cart
             {
-                if (controller.createOrder(UID))
+                if (tbAddress.Text != "" && tbProvince.Text != "" && tbCity.Text != "") //check shipping detail is filled
                 {
-                    MessageBox.Show("OK");
+                    DialogResult dialogResult = MessageBox.Show($"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}", "Create Order", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
+                        {
+                            controller.clearCustomerCartAfterCreateOrder(UID);
+                            DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?", "Create Order", MessageBoxButtons.YesNo);
+                            if (dialogResult2 == DialogResult.Yes)
+                            {
+                                Form sparePartList = new sparePartList(accountController, UIController);
+                                this.Hide();
+                                sparePartList.StartPosition = FormStartPosition.Manual;
+                                sparePartList.Location = this.Location;
+                                sparePartList.ShowDialog();
+                                this.Close();
+                            }
+                            else
+                            {
+                                load_part(controller.getCartItem(UID));
+                            }
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Please try again", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in shipping detail", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             else
@@ -339,6 +388,43 @@ namespace templatev1.Online_Ordering_Platform
                 MessageBox.Show("Cart is empty", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            Form sparePartList = new sparePartList(accountController, UIController);
+            this.Hide();
+            sparePartList.StartPosition = FormStartPosition.Manual;
+            sparePartList.Location = this.Location;
+            sparePartList.ShowDialog();
+            this.Close();
+        }
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
+
+        private void picPencil_Click(object sender, EventArgs e)
+        {
+            if (tbAddress.ReadOnly == true)
+            {
+                tbAddress.ReadOnly = false;
+                tbProvince.ReadOnly = false;
+                tbCity.ReadOnly = false;
+            }
+            else
+            {
+                tbAddress.ReadOnly = true;
+                tbProvince.ReadOnly = true;
+                tbCity.ReadOnly = true;
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"));
         }
 
         private void timer1_Tick(object sender, EventArgs e)
