@@ -258,6 +258,16 @@ namespace templatev1.Online_Ordering_Platform
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form cart = new cart(accountController, UIController);
+            this.Hide();
+            cart.StartPosition = FormStartPosition.Manual;
+            cart.Location = this.Location;
+            cart.ShowDialog();
+            this.Close();
+        }
+
         private Image imageString(string imageName)
         {
             PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);

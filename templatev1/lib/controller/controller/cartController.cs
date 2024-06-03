@@ -357,7 +357,7 @@ namespace controller
             return qtyInSpare_Part;
         }
 
-        public Boolean createOrder(string id) //customerID
+        public Boolean createOrder(string id , string shippingDate) //customerID
         {
             //get customer account id first
             DataTable dt = new DataTable();
@@ -406,8 +406,8 @@ namespace controller
                 conn.Close();
             }
 
-            //insert to order line
-            if (createOrderLineRow(id, orderID))
+            //insert to order line, create invoice
+            if (createOrderLineRow(id, orderID) && createInvoice(customerAccountID,orderID) && createShippingDetail(orderID,shippingDate))
             {
                 return true;
             }
@@ -415,6 +415,9 @@ namespace controller
             {
                 return false;
             }
+
+            //create invoice
+           
         }
 
         public Boolean createOrderLineRow(string cid, string id) //customer id, order id
@@ -454,6 +457,125 @@ namespace controller
             }
             return true;
         }
+
+        public Boolean createInvoice(string caid, string id) //customer account id, order id
+        {
+            //count how many inovice in db first
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT COUNT(*) FROM invoice";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int numOfInvoice = int.Parse(dt.Rows[0][0].ToString());
+
+            numOfInvoice++; //invoice number of the order
+            string invoiceNum = "IN";
+            if (numOfInvoice <= 9)
+            {
+                invoiceNum += $"0000{numOfInvoice}";
+            }else if (numOfInvoice <= 99)
+            {
+                invoiceNum += $"000{numOfInvoice}";
+            }else if(numOfInvoice <= 999)
+            {
+                invoiceNum += $"00{numOfInvoice}";
+            }else if (numOfInvoice <= 9999)
+            {
+                invoiceNum += $"0{numOfInvoice}";
+            }else
+            {
+                invoiceNum += $"{numOfInvoice}";
+            }
+
+            sqlCmd = $"INSERT INTO invoice (customerAccountID, orderID, invoiceNumber) VALUES(@CAID,@orderID,@invoiceNum)";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@CAID", caid);
+                        command.Parameters.AddWithValue("@orderID", id);
+                        command.Parameters.AddWithValue("@invoiceNum", invoiceNum);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return true;
+
+        }
+        
+        public Boolean createShippingDetail(string id, string shippingDate)
+        {
+            string deliverman = delivermanAssignment();
+            sqlCmd = $"INSERT INTO shipping_detail (orderID, delivermanID, shippingDate) VALUES(@orderID,@deliverman,@date)";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@orderID", id);
+                        command.Parameters.AddWithValue("@deliverman", deliverman);
+                        command.Parameters.AddWithValue("@date", shippingDate);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            return true;
+        }
+
+        public void clearCustomerCartAfterCreateOrder(string id) //customer id
+        {
+            string cartID = getCartID(id);
+            sqlCmd = $"DELETE FROM product_in_cart WHERE cartID = @cartID";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@cartID", cartID);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        
 
         public string orderIdGenerator()
         {
@@ -542,6 +664,30 @@ namespace controller
             adr.Fill(dt);
             return dt.Rows[0][0].ToString();
 
+        }
+
+        public string delivermanAssignment()
+        {
+            //get num of opc first
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT delivermanID FROM deliverman";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int numOfDeliverman = dt.Rows.Count;
+
+            //random assignment
+            Random random = new Random();
+            int num = random.Next(0, numOfDeliverman);
+            return dt.Rows[num][0].ToString();  
+        }
+
+        public DataTable getCustomerAddress(string id) //customer id
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT warehouseAddress, province, city FROM customer WHERE customerID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return dt;
         }
     }
 }

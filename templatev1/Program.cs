@@ -19,7 +19,7 @@ namespace templatev1
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Application.Run(new Login());
-            Application.Run(new cart());
+            Application.Run(new customerOrderList());
 
         }
     }
