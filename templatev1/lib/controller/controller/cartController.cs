@@ -421,13 +421,9 @@ namespace controller
         {
             //get item in cart
             DataTable dt = getCartItem(cid);
-            //store part num and cart qty in list
-            //List<string> partNum = new List<string>();
-            //List<int> qty = new List<int>();
+            //insert to db
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                //partNum.Add(dt.Rows[i][5].ToString());
-                //qty.Add(int.Parse(dt.Rows[i][2].ToString()));
                 sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
                 try
                 {
