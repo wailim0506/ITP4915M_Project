@@ -347,6 +347,7 @@ namespace templatev1.Online_Ordering_Platform
             this.btnCreateOrder.TabStop = false;
             this.btnCreateOrder.Text = "Create Order";
             this.btnCreateOrder.UseVisualStyleBackColor = false;
+            this.btnCreateOrder.Click += new System.EventHandler(this.btnCreateOrder_Click);
             // 
             // btnEditQty
             // 
@@ -394,7 +395,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.lblTitTotal.AutoSize = true;
             this.lblTitTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTotal.Location = new System.Drawing.Point(846, 625);
+            this.lblTitTotal.Location = new System.Drawing.Point(858, 616);
             this.lblTitTotal.Name = "lblTitTotal";
             this.lblTitTotal.Size = new System.Drawing.Size(84, 31);
             this.lblTitTotal.TabIndex = 81;
@@ -414,7 +415,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(936, 625);
+            this.lblTotal.Location = new System.Drawing.Point(948, 616);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(119, 31);
             this.lblTotal.TabIndex = 80;

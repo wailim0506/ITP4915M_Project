@@ -82,7 +82,6 @@
     <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SparePartListController.cs" />
     <Compile Include="testController.cs" />
     <Compile Include="viewInvoiceController.cs" />
     <Compile Include="viewOrderController.cs" />

@@ -224,9 +224,9 @@ namespace templatev1.Online_Ordering_Platform
                 List<int> allItemQty = controller.getAllItemQtyInCart(UID);
                 for (int i = 0; i < allPartNum.Count; i++)
                 {
-                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0);
+                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty to db
                 }
-                if (controller.removeAll(UID))
+                if (controller.removeAll(UID)) //remove from cart
                 {
                     MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
                     load_part(controller.getCartItem(UID));
@@ -280,10 +280,10 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString()!="")
             {
-                //get current quantity first
+                //get current quantity in cart first
                 int currentQty = controller.getCurrentQtyInCart(partToEdit, UID);
                 MessageBox.Show(currentQty.ToString());
-                //add the current valaue back to db first
+                //add the current cart value back to db first
                 if (controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString())))
                 {
                     //update db with user input
@@ -323,6 +323,22 @@ namespace templatev1.Online_Ordering_Platform
 
             }
 
+        }
+
+        private void btnCreateOrder_Click(object sender, EventArgs e)
+        {
+            if (controller.getCartItem(UID).Rows.Count > 0) //check there are items in cart
+            {
+                if (controller.createOrder(UID))
+                {
+                    MessageBox.Show("OK");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cart is empty", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)

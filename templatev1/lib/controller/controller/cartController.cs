@@ -356,5 +356,196 @@ namespace controller
             int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
+
+        public Boolean createOrder(string id) //customerID
+        {
+            //get customer account id first
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            string customerAccountID = dt.Rows[0][0].ToString();
+
+            //generate an order id
+            string orderID = orderIdGenerator();
+            //generate order serial num
+            string orderSerialNum =  orderSerialNumGenerator();
+            //assign an order processing clerk to this order
+            string staffAccountID = orderProcessingClerkAssignment();
+            //get today date
+            string orderDate = DateTime.Now.ToString("yyyy-MM-dd"); 
+
+
+            //create order
+            sqlCmd = $"INSERT INTO order_ (orderID, customerAccountID, staffAccountID, orderSerialNumber,orderDate, status) VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@orderID", orderID);
+                        command.Parameters.AddWithValue("@CAID", customerAccountID);
+                        command.Parameters.AddWithValue("@SAID", staffAccountID);
+                        command.Parameters.AddWithValue("@OSN", orderSerialNum);
+                        command.Parameters.AddWithValue("@date", orderDate);
+                        command.Parameters.AddWithValue("@status", "Pending");
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+            //insert to order line
+            if (createOrderLineRow(id, orderID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean createOrderLineRow(string cid, string id) //customer id, order id
+        {
+            //get item in cart
+            DataTable dt = getCartItem(cid);
+            //store part num and cart qty in list
+            //List<string> partNum = new List<string>();
+            //List<int> qty = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                //partNum.Add(dt.Rows[i][5].ToString());
+                //qty.Add(int.Parse(dt.Rows[i][2].ToString()));
+                sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connString))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                        {
+                            command.Parameters.AddWithValue("@partNum", dt.Rows[i][5].ToString());
+                            command.Parameters.AddWithValue("@orderID", id);
+                            command.Parameters.AddWithValue("@qty", dt.Rows[i][2].ToString());
+                            command.Parameters.AddWithValue("@price", dt.Rows[i][8].ToString());
+
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return true;
+        }
+
+        public string orderIdGenerator()
+        {
+            string year = DateTime.Now.ToString("yy"); //today year 
+            string month = DateTime.Now.ToString("MM"); //today month
+
+            //see how many order in this year month
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT orderID FROM order_ WHERE orderID LIKE \'OD{year}{month}%\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int orderInYearMonth = dt.Rows.Count;
+            ++orderInYearMonth; //+1 for order id
+
+            string generatedOrderID = $"OD{year}{month}";
+            if (orderInYearMonth <= 9)
+            {
+                generatedOrderID += $"000{orderInYearMonth}";
+            }else if (orderInYearMonth <= 99)
+            {
+                generatedOrderID += $"00{orderInYearMonth}";
+            }else if (orderInYearMonth <= 999)
+            {
+                generatedOrderID += $"0{orderInYearMonth}";
+            }
+            else
+            {
+                generatedOrderID += $"{orderInYearMonth}";
+            }
+            return generatedOrderID;
+        }
+
+        public string orderSerialNumGenerator()
+        {
+            string year = DateTime.Now.ToString("yy"); //today year 
+            string month = DateTime.Now.ToString("MM"); //today month
+
+            //see how many order in this year month
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT orderSerialNumber FROM order_ WHERE orderSerialNumber LIKE \'SN{year}{month}%\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int orderInYearMonth = dt.Rows.Count;
+            ++orderInYearMonth; //+1 for order id
+
+            string generatedOrderID = $"SN{year}{month}";
+            if (orderInYearMonth <= 9)
+            {
+                generatedOrderID += $"000{orderInYearMonth}";
+            }
+            else if (orderInYearMonth <= 99)
+            {
+                generatedOrderID += $"00{orderInYearMonth}";
+            }
+            else if (orderInYearMonth <= 999)
+            {
+                generatedOrderID += $"0{orderInYearMonth}";
+            }
+            else
+            {
+                generatedOrderID += $"{orderInYearMonth}";
+            }
+            return generatedOrderID;
+        }
+
+        public string orderProcessingClerkAssignment()
+        {
+            //get num of opc first
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT staffID, jobTitle FROM staff WHERE jobTitle = 'order processing clerk'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int numOfOpc = dt.Rows.Count;
+            
+
+            //random assignment
+            Random random = new Random();
+            int num = random.Next(0, numOfOpc);
+            //string staffIDAssigned = dt.Rows[num][0].ToString();   //db dont have enough data now
+            string staffIDAssigned = "LMS00002";
+
+            //get staff account id
+            dt = new DataTable();
+            sqlCmd = $"SELECT staffAccountID FROM staff_account WHERE staffID = \'{staffIDAssigned}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return dt.Rows[0][0].ToString();
+
+        }
     }
 }
