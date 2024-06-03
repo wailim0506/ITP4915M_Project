@@ -208,10 +208,10 @@
     <Compile Include="Trash\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Manag\CUserModify.cs">
+    <Compile Include="Trash\CUserModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_Manag\CUserModify.Designer.cs">
+    <Compile Include="Trash\CUserModify.Designer.cs">
       <DependentUpon>CUserModify.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Manag\UserModify.cs">
@@ -232,10 +232,10 @@
     <Compile Include="User_Manag\SAccManage.Designer.cs">
       <DependentUpon>SAccManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Manag\Ccreatesub.cs">
+    <Compile Include="Trash\Ccreatesub.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_Manag\Ccreatesub.Designer.cs">
+    <Compile Include="Trash\Ccreatesub.Designer.cs">
       <DependentUpon>Ccreatesub.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Manag\ScreateAccount.cs">
@@ -399,7 +399,7 @@
     <EmbeddedResource Include="Trash\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Manag\CUserModify.resx">
+    <EmbeddedResource Include="Trash\CUserModify.resx">
       <DependentUpon>CUserModify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\UserModify.resx">
@@ -411,7 +411,7 @@
     <EmbeddedResource Include="User_Manag\SAccManage.resx">
       <DependentUpon>SAccManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Manag\Ccreatesub.resx">
+    <EmbeddedResource Include="Trash\Ccreatesub.resx">
       <DependentUpon>Ccreatesub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\ScreateAccount.resx">

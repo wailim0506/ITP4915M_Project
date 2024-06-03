@@ -50,6 +50,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.grpContact = new System.Windows.Forms.GroupBox();
+            this.tbCompanyName = new System.Windows.Forms.TextBox();
+            this.lblTitCompanyName = new System.Windows.Forms.Label();
             this.lblEmailMsg = new System.Windows.Forms.Label();
             this.lblPhoneMsg = new System.Windows.Forms.Label();
             this.cmbProvince = new System.Windows.Forms.ComboBox();
@@ -83,8 +85,6 @@
             this.lblPaymentMsg = new System.Windows.Forms.Label();
             this.btnUploadIMG = new System.Windows.Forms.Button();
             this.picUserIMG = new System.Windows.Forms.PictureBox();
-            this.lblTitCompanyName = new System.Windows.Forms.Label();
-            this.tbCompanyName = new System.Windows.Forms.TextBox();
             this.palTIME.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpContact.SuspendLayout();
@@ -322,10 +322,28 @@
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContact.Location = new System.Drawing.Point(50, 538);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(545, 342);
+            this.grpContact.Size = new System.Drawing.Size(558, 342);
             this.grpContact.TabIndex = 7;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
+            // 
+            // tbCompanyName
+            // 
+            this.tbCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.tbCompanyName.Location = new System.Drawing.Point(160, 140);
+            this.tbCompanyName.Name = "tbCompanyName";
+            this.tbCompanyName.Size = new System.Drawing.Size(302, 27);
+            this.tbCompanyName.TabIndex = 3;
+            // 
+            // lblTitCompanyName
+            // 
+            this.lblTitCompanyName.AutoSize = true;
+            this.lblTitCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitCompanyName.Location = new System.Drawing.Point(10, 143);
+            this.lblTitCompanyName.Name = "lblTitCompanyName";
+            this.lblTitCompanyName.Size = new System.Drawing.Size(122, 19);
+            this.lblTitCompanyName.TabIndex = 115;
+            this.lblTitCompanyName.Text = "Company Name:";
             // 
             // lblEmailMsg
             // 
@@ -340,9 +358,9 @@
             // 
             this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
             this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneMsg.Location = new System.Drawing.Point(354, 51);
+            this.lblPhoneMsg.Location = new System.Drawing.Point(288, 51);
             this.lblPhoneMsg.Name = "lblPhoneMsg";
-            this.lblPhoneMsg.Size = new System.Drawing.Size(179, 19);
+            this.lblPhoneMsg.Size = new System.Drawing.Size(264, 19);
             this.lblPhoneMsg.TabIndex = 113;
             // 
             // cmbProvince
@@ -426,7 +444,7 @@
             this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.tbPhone.Location = new System.Drawing.Point(160, 43);
             this.tbPhone.Name = "tbPhone";
-            this.tbPhone.Size = new System.Drawing.Size(188, 27);
+            this.tbPhone.Size = new System.Drawing.Size(128, 27);
             this.tbPhone.TabIndex = 1;
             // 
             // lblTitAddress
@@ -640,24 +658,6 @@
             this.picUserIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picUserIMG.TabIndex = 107;
             this.picUserIMG.TabStop = false;
-            // 
-            // lblTitCompanyName
-            // 
-            this.lblTitCompanyName.AutoSize = true;
-            this.lblTitCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.lblTitCompanyName.Location = new System.Drawing.Point(10, 143);
-            this.lblTitCompanyName.Name = "lblTitCompanyName";
-            this.lblTitCompanyName.Size = new System.Drawing.Size(122, 19);
-            this.lblTitCompanyName.TabIndex = 115;
-            this.lblTitCompanyName.Text = "Company Name:";
-            // 
-            // tbCompanyName
-            // 
-            this.tbCompanyName.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.tbCompanyName.Location = new System.Drawing.Point(160, 140);
-            this.tbCompanyName.Name = "tbCompanyName";
-            this.tbCompanyName.Size = new System.Drawing.Size(302, 27);
-            this.tbCompanyName.TabIndex = 3;
             // 
             // CreateCustomerAcc
             // 

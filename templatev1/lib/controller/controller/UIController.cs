@@ -103,10 +103,9 @@ namespace controller
             switch (permission)
             {
                 case "C":     //Customer
-                    showbtn1 = showbtn2 = showbtn3 = true;
+                    showbtn1 = showbtn2 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Invoice Management";
-                    funbtn3 = "User Managemnet";
                     break;
                 case "MP01":     //Sales manager
                     showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = true;

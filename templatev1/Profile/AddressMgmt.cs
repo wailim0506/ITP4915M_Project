@@ -148,7 +148,8 @@ namespace templatev1
             lblAddMsg.Text = "";
             update = new ExpandoObject();
 
-            if (tbCorpAdd.Text != placeholder.corpAdd)               //Check company address
+            //Check company address
+            if (tbCorpAdd.Text != placeholder.corpAdd)
             {
                 if (tbCorpAdd.Text.Length > 50 || tbCorpAdd.Text.Length > 50)
                 {
@@ -162,8 +163,8 @@ namespace templatev1
             else
                 update.corpAdd = placeholder.corpAdd;
 
-
-            if (tbWarehouseAdd1.Text != placeholder.wAdd1 || rbtA1.Checked == false)               //Check company address
+            //Check company address
+            if (tbWarehouseAdd1.Text != placeholder.wAdd1 || rbtA1.Checked == false)
             {
                 if (tbWarehouseAdd1.Text.Length > 50 || tbWarehouseAdd1.Text.Length > 50)
                 {
@@ -177,7 +178,8 @@ namespace templatev1
             else
                 update.wAdd1 = placeholder.wAdd1;
 
-            if (tbWarehouseAdd2.Text != placeholder.wAdd2 || rbtA2.Checked == false)               //Check company address
+            //Check company address
+            if (tbWarehouseAdd2.Text != placeholder.wAdd2 || rbtA2.Checked == false)
             {
                 if (tbWarehouseAdd2.Text.Length > 50 || tbWarehouseAdd2.Text.Length > 50)
                 {
@@ -196,10 +198,11 @@ namespace templatev1
             else
                 update.dfvalue = "2";
 
-
-            if (string.IsNullOrEmpty(cmbCity.Text))               //Check city.
+            //Check city.
+            if (string.IsNullOrEmpty(cmbCity.Text))
             {
                 lblAddMsg.Text = "Please select a city.";
+                cmbCity.Select();
                 return false;
             }
             else

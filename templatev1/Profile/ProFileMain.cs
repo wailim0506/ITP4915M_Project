@@ -276,7 +276,8 @@ namespace templatev1
             lblfNameMsg.Text = lbllNameMsg.Text = lblDateMsg.Text = lblContactMsg.Text = lblPhoneMsg.Text = "";
             update = new ExpandoObject();
 
-            if (tbFirstName.Text != placeholder.fName)           //Check and update firstName if have change.
+            //Check and update firstName if have change.
+            if (tbFirstName.Text != placeholder.fName)
             {
                 if (tbFirstName.Text.Length < 2 || tbFirstName.Text.Length > 20)
                 {
@@ -290,8 +291,8 @@ namespace templatev1
             else
                 update.fName = placeholder.fName;
 
-
-            if (tbLastName.Text != placeholder.lName)           //Check and update lastName if have change.
+            //Check and update lastName if have change.
+            if (tbLastName.Text != placeholder.lName)
             {
                 if (tbLastName.Text.Length < 2 || tbLastName.Text.Length > 20)
                 {
@@ -305,14 +306,14 @@ namespace templatev1
             else
                 update.lName = placeholder.lName;
 
-
-           if (cmbGender.SelectedIndex == 0)           //Check and update gender if have change.
+           //Check and update gender if have change.
+           if (cmbGender.SelectedIndex == 0)
                 update.sex = "M";
            else
                 update.sex = "F";
 
-
-            if (dtpDateOfBirth.Value != DateTime.ParseExact((placeholder.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null) || !chkNGDateOfBirth.Checked)           //Check and update date of birth if have change.
+            //Check and update date of birth if have change.
+            if (dtpDateOfBirth.Value != DateTime.ParseExact((placeholder.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null) || !chkNGDateOfBirth.Checked)
             {
                 if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date || dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
                 {
@@ -327,12 +328,18 @@ namespace templatev1
             else
                 update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
 
-
-            if (tbPhone.Text != placeholder.phone)           //Check and update phone if have change.
+            //Check and update phone if have change.
+            if (tbPhone.Text != placeholder.phone)
             {
                 if (tbPhone.Text.Length != 11)
                 {
                     lblPhoneMsg.Text = "Please enter the correct phone format.";
+                    tbPhone.Select();
+                    return false;
+                }
+                else if (!proFileController.checkEmailPhone(tbPhone.Text))
+                {
+                    lblPhoneMsg.Text = "The phone number has already registered an account.";
                     tbPhone.Select();
                     return false;
                 }
@@ -345,7 +352,7 @@ namespace templatev1
 
             if (placeholder.accountType.Equals("Customer"))
             {
-                update.pay = cmbPayment.SelectedItem.ToString();           //Check and update payment if have change.
+                update.pay = cmbPayment.Text;           //Check and update payment if have change.
 
                 if (tbCorp.Text != placeholder.corp)           //Check and update company name if have change.
                 {
