@@ -100,18 +100,7 @@ namespace templatev1
                 if (proFileController.modifyAdd(update))
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    proFileController = new controller.proFileController(accountController);
-                    proFileController.setType(accountController.getType());
-
-                    Form AddressMgmt = new AddressMgmt(accountController, UIController, proFileController);
-                    this.Hide();
-                    //Swap the current form to another.
-                    AddressMgmt.StartPosition = FormStartPosition.Manual;
-                    AddressMgmt.Location = this.Location;
-                    AddressMgmt.Size = this.Size;
-                    AddressMgmt.ShowDialog();
-                    this.Close();
+                    btnProFile_Click(this, e);   //Refresh the profile page.
                 }
                 else
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -214,10 +203,26 @@ namespace templatev1
                 return false;
             }
             else
-                update.city = cmbCity.SelectedItem.ToString();
-            update.province = cmbProvince.SelectedItem.ToString();
+                update.city = cmbCity.Text;
+            update.province = cmbProvince.Text;
 
             return true;
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
         }
 
         private void chkCancel_Click(object sender, EventArgs e)
@@ -236,21 +241,7 @@ namespace templatev1
             this.Close();
         }
 
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
-            proFile.ShowDialog();
-            this.Close();
-        }
 
 
 

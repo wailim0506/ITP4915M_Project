@@ -100,10 +100,10 @@
     <Compile Include="Stock_Manag\addSupplier.Designer.cs">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Manag\editSupplier.cs">
+    <Compile Include="Trash\editSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Manag\editSupplier.Designer.cs">
+    <Compile Include="Trash\editSupplier.Designer.cs">
       <DependentUpon>editSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="Stock_Manag\viewSupplier.cs">
@@ -196,16 +196,16 @@
     <Compile Include="Stock_Manag\StoremanModify.Designer.cs">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Manag\SalesManagModify.cs">
+    <Compile Include="Trash\SalesManagModify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Manag\SalesManagModify.Designer.cs">
+    <Compile Include="Trash\SalesManagModify.Designer.cs">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Manag\SalesManagStockMain.cs">
+    <Compile Include="Trash\SalesManagStockMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Manag\SalesManagStockMain.Designer.cs">
+    <Compile Include="Trash\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Manag\CUserModify.cs">
@@ -345,7 +345,7 @@
     <EmbeddedResource Include="Stock_Manag\addSupplier.resx">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Manag\editSupplier.resx">
+    <EmbeddedResource Include="Trash\editSupplier.resx">
       <DependentUpon>editSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock_Manag\viewSupplier.resx">
@@ -393,10 +393,10 @@
     <EmbeddedResource Include="Stock_Manag\StoremanModify.resx">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Manag\SalesManagModify.resx">
+    <EmbeddedResource Include="Trash\SalesManagModify.resx">
       <DependentUpon>SalesManagModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Manag\SalesManagStockMain.resx">
+    <EmbeddedResource Include="Trash\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\CUserModify.resx">

@@ -192,6 +192,7 @@
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction3
             // 
@@ -226,6 +227,7 @@
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
             // 

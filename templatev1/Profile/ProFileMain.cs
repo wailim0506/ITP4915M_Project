@@ -136,10 +136,8 @@ namespace templatev1
 
             //For swap the form betwee staff and customer
             dynamic show = UIController.proFile();
-            lblTitJobTitle.Visible = lblJobTitle.Visible = lblTitDept.Visible = lblDept.Visible = show.group1;
-            lblTitWareAdd.Visible = lblWareAddress.Visible = lblTitCorpAdd.Visible = lblCorpAddress.Visible 
-                = lblTItCCorpName.Visible = tbCorp.Visible = chkNGDateOfBirth.Visible = lblTitPayment.Visible 
-                = cmbPayment.Visible = btnManagAddress.Visible = btnDelete.Visible = show.group2;
+            palSatffInfo.Visible = show.group1;
+            palSCMode.Visible = show.group2;
 
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
@@ -267,18 +265,7 @@ namespace templatev1
                 if (proFileController.modify(update))
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    proFileController = new controller.proFileController(accountController);
-                    proFileController.setType(accountController.getType());
-
-                    Form proFile = new proFileMain(accountController, UIController, proFileController);
-                    this.Hide();
-                    //Swap the current form to another.
-                    proFile.StartPosition = FormStartPosition.Manual;
-                    proFile.Location = this.Location;
-                    proFile.Size = this.Size;
-                    proFile.ShowDialog();
-                    this.Close();
+                    btnProFile_Click(this, e);   //Refresh the profile page.
                 }
                 else
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -333,7 +320,7 @@ namespace templatev1
                     return false;
                 }
                 else 
-                    update.DFB = "'" + placeholder.dateOfBirth.ToString("yyyy-MM-dd") + "'";
+                    update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
             }
             else if (chkNGDateOfBirth.Checked)
                 update.DFB = "NULL";
@@ -431,15 +418,7 @@ namespace templatev1
                         controller.RecoveryController recoveryController = new controller.RecoveryController(accountController);
                         recoveryController.changPwd(tbConfirmPass.Text);
                         MessageBox.Show("Password changed successful!\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        Form login = new Login();
-                        this.Hide();
-                        //Swap the current form to another.
-                        login.StartPosition = FormStartPosition.Manual;
-                        login.Location = this.Location;
-                        login.Size = this.Size;
-                        login.ShowDialog();
-                        this.Close();
+                        btnLogOut_Click(this, e);       //Redirect to login page.
                     }
                 }
                 else
@@ -479,26 +458,12 @@ namespace templatev1
                 if (accountController.delAccount())
                 {
                     MessageBox.Show("Account deleted successful.\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Form login = new Login();
-                    this.Hide();
-                    //Swap the current form to another.
-                    login.StartPosition = FormStartPosition.Manual;
-                    login.Location = this.Location;
-                    login.Size = this.Size;
-                    login.ShowDialog();
-                    this.Close();
+                    btnLogOut_Click(this, e);       //Redirect to login page.
                 }
                 else
                 {
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    Form login = new Login();
-                    this.Hide();
-                    //Swap the current form to another.
-                    login.StartPosition = FormStartPosition.Manual;
-                    login.Location = this.Location;
-                    login.Size = this.Size;
-                    login.ShowDialog();
-                    this.Close();
+                    btnLogOut_Click(this, e);       //Redirect to login page.
                 }
             }
         }

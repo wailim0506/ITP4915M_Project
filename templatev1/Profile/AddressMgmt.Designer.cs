@@ -79,7 +79,7 @@
             this.btnModify.Location = new System.Drawing.Point(508, 881);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(96, 34);
-            this.btnModify.TabIndex = 27;
+            this.btnModify.TabIndex = 8;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
@@ -90,7 +90,7 @@
             this.chkCancel.Location = new System.Drawing.Point(668, 881);
             this.chkCancel.Name = "chkCancel";
             this.chkCancel.Size = new System.Drawing.Size(96, 34);
-            this.chkCancel.TabIndex = 28;
+            this.chkCancel.TabIndex = 9;
             this.chkCancel.Text = "Cancel";
             this.chkCancel.UseVisualStyleBackColor = true;
             this.chkCancel.Click += new System.EventHandler(this.chkCancel_Click);
@@ -124,7 +124,7 @@
             this.cmbCity.Location = new System.Drawing.Point(412, 399);
             this.cmbCity.Name = "cmbCity";
             this.cmbCity.Size = new System.Drawing.Size(143, 30);
-            this.cmbCity.TabIndex = 33;
+            this.cmbCity.TabIndex = 5;
             // 
             // cmbProvince
             // 
@@ -135,7 +135,7 @@
             this.cmbProvince.Location = new System.Drawing.Point(412, 439);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(143, 30);
-            this.cmbProvince.TabIndex = 35;
+            this.cmbProvince.TabIndex = 4;
             this.cmbProvince.SelectedValueChanged += new System.EventHandler(this.cmbProvince_SelectedValueChanged);
             // 
             // palLoc
@@ -284,6 +284,7 @@
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // btnFunction5
             // 
@@ -370,7 +371,7 @@
             this.tbCorpAdd.Location = new System.Drawing.Point(517, 279);
             this.tbCorpAdd.Name = "tbCorpAdd";
             this.tbCorpAdd.Size = new System.Drawing.Size(373, 30);
-            this.tbCorpAdd.TabIndex = 36;
+            this.tbCorpAdd.TabIndex = 1;
             this.tbCorpAdd.Enter += new System.EventHandler(this.tbCorpAdd_Enter);
             this.tbCorpAdd.Leave += new System.EventHandler(this.tbCorpAdd_Leave);
             // 
@@ -380,7 +381,7 @@
             this.tbWarehouseAdd1.Location = new System.Drawing.Point(517, 319);
             this.tbWarehouseAdd1.Name = "tbWarehouseAdd1";
             this.tbWarehouseAdd1.Size = new System.Drawing.Size(373, 30);
-            this.tbWarehouseAdd1.TabIndex = 37;
+            this.tbWarehouseAdd1.TabIndex = 2;
             this.tbWarehouseAdd1.Enter += new System.EventHandler(this.tbWarehouseAdd1_Enter);
             this.tbWarehouseAdd1.Leave += new System.EventHandler(this.tbWarehouseAdd1_Leave);
             // 
@@ -390,7 +391,7 @@
             this.tbWarehouseAdd2.Location = new System.Drawing.Point(517, 359);
             this.tbWarehouseAdd2.Name = "tbWarehouseAdd2";
             this.tbWarehouseAdd2.Size = new System.Drawing.Size(373, 30);
-            this.tbWarehouseAdd2.TabIndex = 39;
+            this.tbWarehouseAdd2.TabIndex = 3;
             this.tbWarehouseAdd2.Enter += new System.EventHandler(this.tbWarehouseAdd2_Enter);
             this.tbWarehouseAdd2.Leave += new System.EventHandler(this.tbWarehouseAdd2_Leave);
             // 
@@ -431,7 +432,7 @@
             this.rbtA1.Location = new System.Drawing.Point(908, 325);
             this.rbtA1.Name = "rbtA1";
             this.rbtA1.Size = new System.Drawing.Size(124, 24);
-            this.rbtA1.TabIndex = 46;
+            this.rbtA1.TabIndex = 7;
             this.rbtA1.TabStop = true;
             this.rbtA1.Text = "Set as default";
             this.rbtA1.UseVisualStyleBackColor = true;
@@ -443,7 +444,7 @@
             this.rbtA2.Location = new System.Drawing.Point(908, 365);
             this.rbtA2.Name = "rbtA2";
             this.rbtA2.Size = new System.Drawing.Size(124, 24);
-            this.rbtA2.TabIndex = 47;
+            this.rbtA2.TabIndex = 7;
             this.rbtA2.TabStop = true;
             this.rbtA2.Text = "Set as default";
             this.rbtA2.UseVisualStyleBackColor = true;

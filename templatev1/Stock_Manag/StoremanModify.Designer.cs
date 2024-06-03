@@ -413,9 +413,9 @@
             this.lblTitDangerLevel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitDangerLevel.Location = new System.Drawing.Point(254, 365);
             this.lblTitDangerLevel.Name = "lblTitDangerLevel";
-            this.lblTitDangerLevel.Size = new System.Drawing.Size(123, 22);
+            this.lblTitDangerLevel.Size = new System.Drawing.Size(118, 22);
             this.lblTitDangerLevel.TabIndex = 35;
-            this.lblTitDangerLevel.Text = "Damger level:";
+            this.lblTitDangerLevel.Text = "Danger level:";
             // 
             // lblPartNumber
             // 

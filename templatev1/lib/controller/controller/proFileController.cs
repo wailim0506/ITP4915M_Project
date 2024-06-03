@@ -12,7 +12,7 @@ namespace controller
 {
     public class proFileController : abstractController
     {
-        private string sqlStr, sqlStr2;
+        private string sqlStr;
         private string accountType;
         private string UID;
         private MySqlCommand cmd;
