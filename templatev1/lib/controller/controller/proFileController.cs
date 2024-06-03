@@ -12,32 +12,52 @@ namespace controller
 {
     public class proFileController : abstractController
     {
-        private string sqlStr;
+        private string sqlStr, sqlStr2;
         private string accountType;
         private string UID;
         private MySqlCommand cmd;
         private DateTime dateOfBirth, createDate;
-        private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, waddress, corp;
+        private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, dfwaddress, waddress1, waddress2, corp, city, province;
         private bool NGDateOfBirth = false;
+        private int dfadd;
 
         controller.accountController accountController;
 
         public proFileController()
         {
-            sqlStr = "";
-            accountType = "";
-            UID = jobTitle = dept = email = fName = lName = sex = phone = payment = caddress = waddress = corp = "";
-        }
 
-        public proFileController(string UID)
-        {
-            this.UID = UID;
         }
 
         public proFileController(controller.accountController accountController)
         {
             this.accountController = accountController;
         }
+
+        //For deparment manager view or modify user account.
+        public proFileController(string UID)
+        {
+            this.UID = UID;
+        }
+
+        //Get the default address value for customer user from database and set the value.
+        private void getDfAdd()
+        {
+            DataTable dt = new DataTable();
+            sqlStr = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+
+            dfadd = int.Parse(dt.Rows[0]["dfadd"].ToString());
+        }
+
+        //Set the account type.
+        public void setType(string AccType)
+        {
+            accountType = AccType;
+            UserInfo();
+        }
+
 
         private void UserInfo()
         {
@@ -52,12 +72,14 @@ namespace controller
             }
             else          //Customer info
             {
-                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company " +
+                getDfAdd();
+                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
+
 
             //Set user data to gobal variable
             if (accountType.Equals("Staff"))
@@ -67,10 +89,18 @@ namespace controller
             }
             else
             {
+                waddress1 = dt.Rows[0]["warehouseAddress"].ToString();
+                waddress2 = dt.Rows[0]["warehouseAddress2"].ToString();
+                if (dfadd == 1)
+                    dfwaddress = waddress1;
+                else
+                    dfwaddress = waddress2;
+
                 payment = dt.Rows[0]["paymentMethod"].ToString();
-                caddress = dt.Rows[0]["companyAddress"].ToString() + ", " + dt.Rows[0]["city"].ToString() + ", " + dt.Rows[0]["province"].ToString();
-                waddress = dt.Rows[0]["warehouseAddress"].ToString() + ", " + dt.Rows[0]["city"].ToString() + ", " + dt.Rows[0]["province"].ToString();
+                caddress = dt.Rows[0]["companyAddress"].ToString();
                 corp = dt.Rows[0]["company"].ToString();
+                city = dt.Rows[0]["city"].ToString();
+                province = dt.Rows[0]["province"].ToString();
             }
 
             email = dt.Rows[0]["emailAddress"].ToString();
@@ -90,6 +120,7 @@ namespace controller
                 dateOfBirth = (DateTime)dt.Rows[0]["dateOfBirth"];
         }
 
+        //Return value to the profile.
         public dynamic getUserInfo()
         {
             dynamic expando = new ExpandoObject();
@@ -104,19 +135,68 @@ namespace controller
             expando.dateOfBirth = dateOfBirth;
             expando.createDate = createDate;
             expando.payment = payment;
-            expando.caddress = caddress;
+            expando.caddress = caddress + ", " + city + ", " + province;
             expando.NGDateOfBirth = NGDateOfBirth;
             expando.corp = corp;
-            expando.waddress = waddress;
+            expando.waddress = dfwaddress + ", " + city + ", " + province;
             return expando;
         }
 
-        public void setType(string AccType)
+        public dynamic getAddinfo()
         {
-            accountType = AccType;
-            UserInfo();
+            dynamic expando = new ExpandoObject();
+            DataTable dt = new DataTable();
+
+            sqlStr = $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+
+            expando.province = province;
+            expando.city = city;
+            expando.corpAdd = caddress;
+            expando.wAdd1 = waddress1;
+            expando.wAdd2 = waddress2;
+            expando.dfvalue = dfadd;
+
+            return expando;
         }
 
+        public List<string> getcity(string priovince)
+        {
+            DataTable dt = new DataTable();
+            sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+            List<string> city = new List<string>();
+
+            for (int i = 0; i <= dt.Rows.Count - 1; i++)
+            {
+                city.Add(dt.Rows[i]["city"].ToString());
+            }
+
+            return city;
+        }
+
+        public List<string> getpriovince()
+        {
+            DataTable dt = new DataTable();
+            sqlStr = $"SELECT DISTINCT priovince FROM location";
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+            List<string> priovince = new List<string>();
+
+            for (int i = 0; i <= (dt.Rows.Count - 1); i++)
+            {
+                priovince.Add(dt.Rows[i]["priovince"].ToString());
+            }
+
+            return priovince;
+        }
+
+        //Update the data in the database.
         public bool modify(dynamic info)
         {
             try
@@ -136,8 +216,28 @@ namespace controller
             {
                 return false;           //Something went wrong.
             }
+        }
 
+        public bool modifyAdd(dynamic Addinfo)
+        {
+           // try
+            {
+                conn.Open();
+                sqlStr = $"UPDATE customer SET province = \'{Addinfo.province}\', city = \'{Addinfo.city}\', companyAddress = \'{Addinfo.corpAdd}\'" +
+                    $", warehouseAddress = \'{Addinfo.wAdd1}\', warehouseAddress2 = \'{Addinfo.wAdd2}\' WHERE customerID = \'{UID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
 
+                sqlStr = $"UPDATE customer_dfadd SET dfadd = \'{Addinfo.dfvalue}\' WHERE customerID = \'{UID}\'";
+                cmd = new MySqlCommand(sqlStr, conn);
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                return true;
+            }
+            //catch (Exception e)
+            {
+               // return false;           //Something went wrong.
+            }
         }
     }
 }

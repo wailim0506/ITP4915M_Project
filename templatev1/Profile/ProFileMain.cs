@@ -41,7 +41,6 @@ namespace templatev1
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
-            placeholder = proFileController.getUserInfo();
             tbOldPass.PasswordChar = tbPass.PasswordChar = tbConfirmPass.PasswordChar = '*';
         }
 
@@ -100,7 +99,9 @@ namespace templatev1
             uName = accountController.getName();
             lblUid.Text = "UID: " + UID;
             lblUserUID.Text = UID;
+            placeholder = proFileController.getUserInfo();
 
+            //Show user information
             dynamic info = proFileController.getUserInfo();
             lblAccType.Text = info.accountType;
             lblJobTitle.Text = info.jobTitle;
@@ -189,7 +190,7 @@ namespace templatev1
 
         private void btnManagAddress_Click(object sender, EventArgs e)
         {
-            Form AddressMgmt = new AddressMgmt(accountController, UIController);
+            Form AddressMgmt = new AddressMgmt(accountController, UIController, proFileController);
             this.Hide();
             //Swap the current form to another.
             AddressMgmt.StartPosition = FormStartPosition.Manual;
@@ -345,6 +346,7 @@ namespace templatev1
                 if (tbPhone.Text.Length != 11)
                 {
                     lblPhoneMsg.Text = "Please enter the correct phone format.";
+                    tbPhone.Select();
                     return false;
                 }
                 else
@@ -363,6 +365,7 @@ namespace templatev1
                     if (tbCorp.Text.Length > 30)
                     {
                         lblContactMsg.Text = "Company name too long, maximum 30.";
+                        tbCorp.Select();
                         return false;
                     }
                     else

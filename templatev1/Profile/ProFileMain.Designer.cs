@@ -78,6 +78,7 @@
             this.cmbPayment = new System.Windows.Forms.ComboBox();
             this.btnRemoveIMG = new System.Windows.Forms.Button();
             this.grpPass = new System.Windows.Forms.GroupBox();
+            this.btnChangePwd = new System.Windows.Forms.Button();
             this.lblPwdMsg = new System.Windows.Forms.Label();
             this.tbOldPass = new System.Windows.Forms.TextBox();
             this.lblTitOldPass = new System.Windows.Forms.Label();
@@ -101,7 +102,6 @@
             this.lblDateMsg = new System.Windows.Forms.Label();
             this.lblPayMsg = new System.Windows.Forms.Label();
             this.lblContactMsg = new System.Windows.Forms.Label();
-            this.btnChangePwd = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -496,7 +496,7 @@
             this.lblWareAddress.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
             this.lblWareAddress.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblWareAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWareAddress.Location = new System.Drawing.Point(393, 492);
+            this.lblWareAddress.Location = new System.Drawing.Point(393, 525);
             this.lblWareAddress.Name = "lblWareAddress";
             this.lblWareAddress.Size = new System.Drawing.Size(450, 26);
             this.lblWareAddress.TabIndex = 35;
@@ -733,6 +733,19 @@
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Change Password:";
             // 
+            // btnChangePwd
+            // 
+            this.btnChangePwd.BackColor = global::templatev1.Properties.Settings.Default.btnColor;
+            this.btnChangePwd.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "btnColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnChangePwd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangePwd.Location = new System.Drawing.Point(197, 171);
+            this.btnChangePwd.Name = "btnChangePwd";
+            this.btnChangePwd.Size = new System.Drawing.Size(148, 33);
+            this.btnChangePwd.TabIndex = 108;
+            this.btnChangePwd.Text = "Change password";
+            this.btnChangePwd.UseVisualStyleBackColor = false;
+            this.btnChangePwd.Click += new System.EventHandler(this.btnChangePwd_Click);
+            // 
             // lblPwdMsg
             // 
             this.lblPwdMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
@@ -885,7 +898,7 @@
             this.lblCorpAddress.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
             this.lblCorpAddress.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblCorpAddress.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCorpAddress.Location = new System.Drawing.Point(393, 525);
+            this.lblCorpAddress.Location = new System.Drawing.Point(393, 492);
             this.lblCorpAddress.Name = "lblCorpAddress";
             this.lblCorpAddress.Size = new System.Drawing.Size(450, 26);
             this.lblCorpAddress.TabIndex = 85;
@@ -962,19 +975,6 @@
             this.lblContactMsg.Name = "lblContactMsg";
             this.lblContactMsg.Size = new System.Drawing.Size(434, 19);
             this.lblContactMsg.TabIndex = 107;
-            // 
-            // btnChangePwd
-            // 
-            this.btnChangePwd.BackColor = global::templatev1.Properties.Settings.Default.btnColor;
-            this.btnChangePwd.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "btnColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.btnChangePwd.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChangePwd.Location = new System.Drawing.Point(197, 171);
-            this.btnChangePwd.Name = "btnChangePwd";
-            this.btnChangePwd.Size = new System.Drawing.Size(148, 33);
-            this.btnChangePwd.TabIndex = 108;
-            this.btnChangePwd.Text = "Change password";
-            this.btnChangePwd.UseVisualStyleBackColor = false;
-            this.btnChangePwd.Click += new System.EventHandler(this.btnChangePwd_Click);
             // 
             // proFileMain
             // 

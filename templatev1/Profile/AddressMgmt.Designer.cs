@@ -34,9 +34,8 @@
             this.chkCancel = new System.Windows.Forms.Button();
             this.lblTitA1Province = new System.Windows.Forms.Label();
             this.lblTitA1City = new System.Windows.Forms.Label();
-            this.cmbA1Province = new System.Windows.Forms.ComboBox();
-            this.cmbA1City = new System.Windows.Forms.ComboBox();
-            this.chkA2 = new System.Windows.Forms.CheckBox();
+            this.cmbCity = new System.Windows.Forms.ComboBox();
+            this.cmbProvince = new System.Windows.Forms.ComboBox();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -54,13 +53,15 @@
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
-            this.chkA3 = new System.Windows.Forms.CheckBox();
             this.tbCorpAdd = new System.Windows.Forms.TextBox();
             this.tbWarehouseAdd1 = new System.Windows.Forms.TextBox();
             this.tbWarehouseAdd2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.rbtA1 = new System.Windows.Forms.RadioButton();
+            this.rbtA2 = new System.Windows.Forms.RadioButton();
+            this.lblAddMsg = new System.Windows.Forms.Label();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -81,6 +82,7 @@
             this.btnModify.TabIndex = 27;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // chkCancel
             // 
@@ -91,6 +93,7 @@
             this.chkCancel.TabIndex = 28;
             this.chkCancel.Text = "Cancel";
             this.chkCancel.UseVisualStyleBackColor = true;
+            this.chkCancel.Click += new System.EventHandler(this.chkCancel_Click);
             // 
             // lblTitA1Province
             // 
@@ -112,34 +115,28 @@
             this.lblTitA1City.TabIndex = 30;
             this.lblTitA1City.Text = "City:";
             // 
-            // cmbA1Province
+            // cmbCity
             // 
-            this.cmbA1Province.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.cmbA1Province.FormattingEnabled = true;
-            this.cmbA1Province.Location = new System.Drawing.Point(412, 399);
-            this.cmbA1Province.Name = "cmbA1Province";
-            this.cmbA1Province.Size = new System.Drawing.Size(143, 30);
-            this.cmbA1Province.TabIndex = 33;
+            this.cmbCity.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCity.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCity.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.cmbCity.FormattingEnabled = true;
+            this.cmbCity.Location = new System.Drawing.Point(412, 399);
+            this.cmbCity.Name = "cmbCity";
+            this.cmbCity.Size = new System.Drawing.Size(143, 30);
+            this.cmbCity.TabIndex = 33;
             // 
-            // cmbA1City
+            // cmbProvince
             // 
-            this.cmbA1City.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.cmbA1City.FormattingEnabled = true;
-            this.cmbA1City.Location = new System.Drawing.Point(412, 439);
-            this.cmbA1City.Name = "cmbA1City";
-            this.cmbA1City.Size = new System.Drawing.Size(143, 30);
-            this.cmbA1City.TabIndex = 35;
-            // 
-            // chkA2
-            // 
-            this.chkA2.AutoSize = true;
-            this.chkA2.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkA2.Location = new System.Drawing.Point(907, 322);
-            this.chkA2.Name = "chkA2";
-            this.chkA2.Size = new System.Drawing.Size(125, 24);
-            this.chkA2.TabIndex = 38;
-            this.chkA2.Text = "Set as default";
-            this.chkA2.UseVisualStyleBackColor = true;
+            this.cmbProvince.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbProvince.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbProvince.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.cmbProvince.FormattingEnabled = true;
+            this.cmbProvince.Location = new System.Drawing.Point(412, 439);
+            this.cmbProvince.Name = "cmbProvince";
+            this.cmbProvince.Size = new System.Drawing.Size(143, 30);
+            this.cmbProvince.TabIndex = 35;
+            this.cmbProvince.SelectedValueChanged += new System.EventHandler(this.cmbProvince_SelectedValueChanged);
             // 
             // palLoc
             // 
@@ -367,17 +364,6 @@
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.UseVisualStyleBackColor = false;
             // 
-            // chkA3
-            // 
-            this.chkA3.AutoSize = true;
-            this.chkA3.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.chkA3.Location = new System.Drawing.Point(907, 362);
-            this.chkA3.Name = "chkA3";
-            this.chkA3.Size = new System.Drawing.Size(125, 24);
-            this.chkA3.TabIndex = 38;
-            this.chkA3.Text = "Set as default";
-            this.chkA3.UseVisualStyleBackColor = true;
-            // 
             // tbCorpAdd
             // 
             this.tbCorpAdd.Font = new System.Drawing.Font("Times New Roman", 15F);
@@ -385,6 +371,8 @@
             this.tbCorpAdd.Name = "tbCorpAdd";
             this.tbCorpAdd.Size = new System.Drawing.Size(373, 30);
             this.tbCorpAdd.TabIndex = 36;
+            this.tbCorpAdd.Enter += new System.EventHandler(this.tbCorpAdd_Enter);
+            this.tbCorpAdd.Leave += new System.EventHandler(this.tbCorpAdd_Leave);
             // 
             // tbWarehouseAdd1
             // 
@@ -393,6 +381,8 @@
             this.tbWarehouseAdd1.Name = "tbWarehouseAdd1";
             this.tbWarehouseAdd1.Size = new System.Drawing.Size(373, 30);
             this.tbWarehouseAdd1.TabIndex = 37;
+            this.tbWarehouseAdd1.Enter += new System.EventHandler(this.tbWarehouseAdd1_Enter);
+            this.tbWarehouseAdd1.Leave += new System.EventHandler(this.tbWarehouseAdd1_Leave);
             // 
             // tbWarehouseAdd2
             // 
@@ -401,6 +391,8 @@
             this.tbWarehouseAdd2.Name = "tbWarehouseAdd2";
             this.tbWarehouseAdd2.Size = new System.Drawing.Size(373, 30);
             this.tbWarehouseAdd2.TabIndex = 39;
+            this.tbWarehouseAdd2.Enter += new System.EventHandler(this.tbWarehouseAdd2_Enter);
+            this.tbWarehouseAdd2.Leave += new System.EventHandler(this.tbWarehouseAdd2_Leave);
             // 
             // label1
             // 
@@ -432,23 +424,56 @@
             this.label3.TabIndex = 45;
             this.label3.Text = "Warehouse Address 1: ";
             // 
+            // rbtA1
+            // 
+            this.rbtA1.AutoSize = true;
+            this.rbtA1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.rbtA1.Location = new System.Drawing.Point(908, 325);
+            this.rbtA1.Name = "rbtA1";
+            this.rbtA1.Size = new System.Drawing.Size(124, 24);
+            this.rbtA1.TabIndex = 46;
+            this.rbtA1.TabStop = true;
+            this.rbtA1.Text = "Set as default";
+            this.rbtA1.UseVisualStyleBackColor = true;
+            // 
+            // rbtA2
+            // 
+            this.rbtA2.AutoSize = true;
+            this.rbtA2.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.rbtA2.Location = new System.Drawing.Point(908, 365);
+            this.rbtA2.Name = "rbtA2";
+            this.rbtA2.Size = new System.Drawing.Size(124, 24);
+            this.rbtA2.TabIndex = 47;
+            this.rbtA2.TabStop = true;
+            this.rbtA2.Text = "Set as default";
+            this.rbtA2.UseVisualStyleBackColor = true;
+            // 
+            // lblAddMsg
+            // 
+            this.lblAddMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblAddMsg.Location = new System.Drawing.Point(582, 399);
+            this.lblAddMsg.Name = "lblAddMsg";
+            this.lblAddMsg.Size = new System.Drawing.Size(450, 19);
+            this.lblAddMsg.TabIndex = 108;
+            // 
             // AddressMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.lblAddMsg);
+            this.Controls.Add(this.rbtA2);
+            this.Controls.Add(this.rbtA1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.chkA3);
-            this.Controls.Add(this.chkA2);
             this.Controls.Add(this.tbWarehouseAdd2);
             this.Controls.Add(this.tbWarehouseAdd1);
             this.Controls.Add(this.tbCorpAdd);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.lblTitA1Province);
-            this.Controls.Add(this.cmbA1Province);
-            this.Controls.Add(this.cmbA1City);
+            this.Controls.Add(this.cmbCity);
+            this.Controls.Add(this.cmbProvince);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.lblTitA1City);
             this.Controls.Add(this.palNav);
@@ -477,9 +502,8 @@
         private System.Windows.Forms.Button chkCancel;
         private System.Windows.Forms.Label lblTitA1Province;
         private System.Windows.Forms.Label lblTitA1City;
-        private System.Windows.Forms.ComboBox cmbA1Province;
-        private System.Windows.Forms.ComboBox cmbA1City;
-        private System.Windows.Forms.CheckBox chkA2;
+        private System.Windows.Forms.ComboBox cmbCity;
+        private System.Windows.Forms.ComboBox cmbProvince;
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Panel palTime;
@@ -497,13 +521,15 @@
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Button btnFunction3;
-        private System.Windows.Forms.CheckBox chkA3;
         private System.Windows.Forms.TextBox tbCorpAdd;
         private System.Windows.Forms.TextBox tbWarehouseAdd1;
         private System.Windows.Forms.TextBox tbWarehouseAdd2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbtA1;
+        private System.Windows.Forms.RadioButton rbtA2;
+        private System.Windows.Forms.Label lblAddMsg;
     }
 }
 
