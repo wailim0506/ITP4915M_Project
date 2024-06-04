@@ -94,11 +94,23 @@ namespace templatev1
             Form next = new Home(accountController, UIController);
             switch (Function)
             {
+                //my version
                 case "Order Management":
-
-
-
+                    next = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
                     break;
+                case "Spare Part":
+                    next = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+                    break;
+                case "Cart":
+                    next = new Online_Ordering_Platform.cart(accountController, UIController);
+                    break;
+                case "Favourite":
+                    next = new Online_Ordering_Platform.favourite(accountController, UIController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(accountController, UIController);
+                    break;
+                //my version
                 case "Invoice Management":
 
 
@@ -120,7 +132,7 @@ namespace templatev1
             this.Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = this.Location;
-            next.Size = this.Size;
+            //next.Size = this.Size;    I think this can remove;
             next.ShowDialog();
             this.Close();
         }

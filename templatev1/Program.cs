@@ -19,8 +19,8 @@ namespace templatev1
             Application.SetCompatibleTextRenderingDefault(false);
 
 
-            //Application.Run(new Login());
-            Application.Run(new customerOrderList());
+            Application.Run(new Login());
+            //Application.Run(new customerOrderList());
 
 
         }

@@ -32,8 +32,8 @@ namespace templatev1.Online_Ordering_Platform
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new controller.favouriteController();
-            //UID = accountController.getUID();
-            UID = "LMC00001"; //hard code for testing
+            UID = accountController.getUID();
+            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 

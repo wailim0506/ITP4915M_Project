@@ -34,8 +34,8 @@ namespace templatev1.Online_Ordering_Platform
             this.UIController = UIController;
             controller = new controller.viewSparePartController();
             this.partNum = partNum;
-            //UID = accountController.getUID();
-            UID = "LMC00001"; //hard code for testing
+            UID = accountController.getUID();
+            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -47,6 +47,7 @@ namespace templatev1.Online_Ordering_Platform
         
         public void load_part()
         {
+            lblLoc.Text = "Spare Part";
             DataTable dt = controller.getInfo(partNum);
             lblPartNum.Text = partNum;
             lblCategory.Text = dt.Rows[0][2].ToString();
@@ -103,7 +104,6 @@ namespace templatev1.Online_Ordering_Platform
                 qty++;
                 tbQty.Text = qty.ToString();
             }
-
         }
 
         private void btnMinusQty_Click(object sender, EventArgs e)

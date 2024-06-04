@@ -25,6 +25,8 @@ namespace templatev1
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
+            UID = accountController.getUID();
+            lblUid.Text = $"Uid: {UID}";
         }
 
         private void btnSend_Click(object sender, EventArgs e)

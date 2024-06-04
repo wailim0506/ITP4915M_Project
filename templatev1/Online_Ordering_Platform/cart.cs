@@ -32,8 +32,8 @@ namespace templatev1.Online_Ordering_Platform
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new controller.cartController();
-            //UID = accountController.getUID();
-            UID = "LMC00001"; //hard code for testing
+            UID = accountController.getUID();
+            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -425,6 +425,16 @@ namespace templatev1.Online_Ordering_Platform
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"));
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form orderList = new customerOrderList(accountController, UIController);
+            this.Hide();
+            orderList.StartPosition = FormStartPosition.Manual;
+            orderList.Location = this.Location;
+            orderList.ShowDialog();
+            this.Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

@@ -654,8 +654,8 @@ namespace controller
             //random assignment
             Random random = new Random();
             int num = random.Next(0, numOfOpc);
-            //string staffIDAssigned = dt.Rows[num][0].ToString();   //db dont have enough data now
-            string staffIDAssigned = "LMS00002";
+            string staffIDAssigned = dt.Rows[num][0].ToString();   //db dont have enough data now
+            //string staffIDAssigned = "LMS00002";
 
             //get staff account id
             dt = new DataTable();
