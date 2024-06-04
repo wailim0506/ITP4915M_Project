@@ -78,7 +78,7 @@ namespace templatev1.Order_Management
             lblDelivermanID.Text = dt.Rows[0][1].ToString();
             lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
             lblDelivermanContact.Text = delivermanDetail[2]; 
-            if (dayDifference() >= 0)
+            if (dayDifference(orderID) >= 0)
             {
                 lblShippingDate.Text = $"Scheduled on {shippingDate}";
             }
@@ -128,7 +128,7 @@ namespace templatev1.Order_Management
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dayDifference() >= 2)
+            if (dayDifference(orderID) >= 2)
             {
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                 this.Hide();
@@ -145,7 +145,7 @@ namespace templatev1.Order_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dayDifference() >= 2)
+            if (dayDifference(orderID) >= 2)
             {
                 DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
@@ -183,7 +183,7 @@ namespace templatev1.Order_Management
 
         private void btnViewInvoice_Click(object sender, EventArgs e)
         {
-            if (dayDifference() >= 0)
+            if (dayDifference(orderID) >= 0)
             {
                 MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }else
@@ -198,11 +198,11 @@ namespace templatev1.Order_Management
             
         }
 
-        private int dayDifference()  //calculate day difference
+        private int dayDifference(string orderID)  //calculate day difference
         {
             DataTable dt;
             dt = controller.getShippingDetail(orderID);
-            string shippingDate = shipDate;
+            string shippingDate = dt.Rows[0][2].ToString();
             string[] d = shippingDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             string shipDate = shippingDate; //   d/M/yyyy
@@ -212,8 +212,8 @@ namespace templatev1.Order_Management
             string sysDay = DateTime.Now.ToString("dd"); //today month
 
             string[] splitShipDate = shipDate.Split('/');
-            string shipMonth = splitShipDate[0];
-            string shipDay = splitShipDate[1];
+            string shipMonth = splitShipDate[1];
+            string shipDay = splitShipDate[0];
             string shipYear = splitShipDate[2];
 
             if (int.Parse(shipMonth) < 10)
@@ -226,28 +226,26 @@ namespace templatev1.Order_Management
                 shipDay = $"0{shipDay}";
             }
 
-
-
-
             string formatedShippingDate = $"{shipDay}/{shipMonth}/{shipYear}";
             string formatedSysDate = $"{sysDay}/{sysMonth}/{sysYear}";
 
-            //MessageBox.Show(formatedShippingDate);
-            //MessageBox.Show(formatedSysDate);
-
-            DateTime parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
-            DateTime parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
+            DateTime parsedFormatedShippingDate;
+            DateTime parsedFormatedSysDate;
+            try
+            {
+                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
+                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
+            }
+            catch (Exception e)
+            {
+                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "MM/dd/yyyy", null);
+                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
+            }
 
             TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
 
             string[] f = difference.ToString().Split('.');
             return int.Parse(f[0]);
-            //return int.Parse(f[0]);  //time difference in day
-
-
-            //string year = DateTime.Now.ToString("yy"); //today year 
-            //string month = DateTime.Now.ToString("MM"); //today month
-
         }
     }
 }

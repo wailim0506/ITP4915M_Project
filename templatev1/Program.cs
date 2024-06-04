@@ -20,7 +20,7 @@ namespace templatev1
 
 
             //Application.Run(new Login());
-            Application.Run(new Form2());
+            Application.Run(new customerOrderList());
 
 
         }
