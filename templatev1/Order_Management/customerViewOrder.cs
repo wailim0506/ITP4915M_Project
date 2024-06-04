@@ -200,38 +200,40 @@ namespace templatev1.Order_Management
 
         private int dayDifference()  //calculate day difference
         {
-            string sysDate = DateTime.Now.ToString("dd-MM-yy");
+            DataTable dt;
+            dt = controller.getShippingDetail(orderID);
             string shippingDate = shipDate;
-            string[] d = shippingDate.Split('/');
-            string[] splitShippingDayMonthYear = new string[3];
-            for (int i = 0; i < d.Length; i++)
+            string[] d = shippingDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
+            shippingDate = d[0];
+            string shipDate = shippingDate; //   d/M/yyyy
+
+            string sysYear = DateTime.Now.ToString("yyyy"); //today year 
+            string sysMonth = DateTime.Now.ToString("MM"); //today month
+            string sysDay = DateTime.Now.ToString("dd"); //today month
+
+            string[] splitShipDate = shipDate.Split('/');
+            string shipMonth = splitShipDate[0];
+            string shipDay = splitShipDate[1];
+            string shipYear = splitShipDate[2];
+
+            if (int.Parse(shipMonth) < 10)
             {
-                splitShippingDayMonthYear[i] = d[i];
+                shipMonth = $"0{shipMonth}";
             }
 
-            if (int.Parse(d[0]) <= 9)
+            if (int.Parse(shipDay) < 10)
             {
-                d[0] = $"0{d[0]}";
-            }
-
-            if (int.Parse(d[1]) <= 9)
-            {
-                d[1] = $"0{d[1]}";
+                shipDay = $"0{shipDay}";
             }
 
 
-            string formatedShippingDate = $"{d[0]}/{d[1]}/{d[2]}";
-
-            string[] e = sysDate.Split('-');
-            string[] splitSysDate = new string[3];
-            for (int i = 0; i < e.Length; i++)
-            {
-                splitSysDate[i] = e[i];
-            }
-            string formatedSysDate = $"{e[0]}/{e[1]}/20{e[2]}";
 
 
+            string formatedShippingDate = $"{shipDay}/{shipMonth}/{shipYear}";
+            string formatedSysDate = $"{sysDay}/{sysMonth}/{sysYear}";
 
+            //MessageBox.Show(formatedShippingDate);
+            //MessageBox.Show(formatedSysDate);
 
             DateTime parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
             DateTime parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
@@ -239,7 +241,13 @@ namespace templatev1.Order_Management
             TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
 
             string[] f = difference.ToString().Split('.');
-            return int.Parse(f[0]);  //time difference in day
+            return int.Parse(f[0]);
+            //return int.Parse(f[0]);  //time difference in day
+
+
+            //string year = DateTime.Now.ToString("yy"); //today year 
+            //string month = DateTime.Now.ToString("MM"); //today month
+
         }
     }
 }
