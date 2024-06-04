@@ -82,6 +82,8 @@ namespace templatev1.Online_Ordering_Platform
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
@@ -205,7 +207,9 @@ namespace templatev1.Online_Ordering_Platform
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.palNav.Controls.Add(this.panel1);
             this.palNav.Controls.Add(this.palSelect4);
+            this.palNav.Controls.Add(this.button2);
             this.palNav.Controls.Add(this.palSelect2);
             this.palNav.Controls.Add(this.palSelect1);
             this.palNav.Controls.Add(this.picBWMode);
@@ -666,6 +670,29 @@ namespace templatev1.Online_Ordering_Platform
             this.label6.TabIndex = 105;
             this.label6.Text = "*All items in cart is reserved";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Location = new System.Drawing.Point(0, 368);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 55);
+            this.panel1.TabIndex = 26;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(0, 368);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(198, 55);
+            this.button2.TabIndex = 25;
+            this.button2.Text = "Give Feedback";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // cart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,5 +797,7 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.PictureBox picPencil;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button button2;
     }
 }

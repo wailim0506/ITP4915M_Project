@@ -44,7 +44,9 @@ namespace templatev1.Online_Ordering_Platform
             timer1.Enabled = true;
             load_part();
         }
+
         
+
         public void load_part()
         {
             lblLoc.Text = "Spare Part";

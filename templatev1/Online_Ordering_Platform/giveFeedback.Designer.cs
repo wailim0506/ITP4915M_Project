@@ -56,6 +56,8 @@ namespace templatev1
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lblWordCount = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -178,6 +180,8 @@ namespace templatev1
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.palNav.Controls.Add(this.panel5);
+            this.palNav.Controls.Add(this.button5);
             this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
             this.palNav.Controls.Add(this.btnLogOut);
@@ -361,6 +365,29 @@ namespace templatev1
             this.lblWordCount.TabIndex = 66;
             this.lblWordCount.Text = "Word Count: 0";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Red;
+            this.panel5.Location = new System.Drawing.Point(0, 370);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(10, 55);
+            this.panel5.TabIndex = 32;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(0, 370);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(198, 55);
+            this.button5.TabIndex = 31;
+            this.button5.Text = "Give Feedback";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.UseVisualStyleBackColor = false;
+            // 
             // giveFeedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -419,5 +446,7 @@ namespace templatev1
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label lblWordCount;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button button5;
     }
 }
