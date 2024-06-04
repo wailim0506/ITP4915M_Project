@@ -296,43 +296,48 @@ namespace templatev1.Online_Ordering_Platform
 
         private void picTick_Click(object sender, EventArgs e)
         {
+            if (tbQauntity.Text.ToString() == "")
+            {
+                MessageBox.Show("Please enter a number", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString()!="")
             {
                 //get current quantity in cart first
                 int currentQty = controller.getCurrentQtyInCart(partToEdit, UID);
-                MessageBox.Show(currentQty.ToString());
                 //add the current cart value back to db first
-                if (controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString())))
+                try
                 {
-                    //update db with user input
-                    if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString())))
-                    {
-                        //update qty in user cart
-                        if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
-                        {
-                            MessageBox.Show("Quantity updated", "Update Quantity", MessageBoxButtons.OK);
-                            lblEditQty.Visible = false;
-                            tbQauntity.Text = "";
-                            tbQauntity.Visible = false;
-                            picTick.Visible = false;
-                            load_part(controller.getCartItem(UID));
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please try again", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString()));
+                }catch (Exception)
+                {
+                    MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
 
-                        }
+                }
+
+                //update db with user input
+                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString())))
+                {
+                    //update qty in user cart
+                    if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
+                    {
+                        MessageBox.Show("Quantity updated", "Update Quantity", MessageBoxButtons.OK);
+                        lblEditQty.Visible = false;
+                        tbQauntity.Text = "";
+                        tbQauntity.Visible = false;
+                        picTick.Visible = false;
+                        load_part(controller.getCartItem(UID));
                     }
                     else
                     {
                         MessageBox.Show("Please try again", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
 
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Please try again", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
             else

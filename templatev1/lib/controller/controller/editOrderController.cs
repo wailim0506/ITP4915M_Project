@@ -67,7 +67,44 @@ namespace controller
             return c.getStaffContact(id);
         }
 
-        public Boolean editQuantity(string id, string num, string qty)  //id = order id, num = part num
+        public int getPartQtyInOrder(string num, string id) //part num //order id
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT quantity FROM order_line WHERE partNumber = \'{num}\' and orderID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return int.Parse(dt.Rows[0][0].ToString());
+        }
+
+        public Boolean addQtyBack(string num, int currentOrderQty, int desiredQty) //part num //add qty back to db for product table and spare_part table
+        {
+            cartController cc = new cartController();
+            try
+            {
+                cc.addQtyBack(num, currentOrderQty, desiredQty);
+                return true;
+            }catch(notEnoughException e)
+            {
+                throw e;
+            }
+            
+        }
+
+        public Boolean editDbQty(string num, int desiredQty)
+        {
+            cartController cc = new cartController();
+            if (cc.editDbQty(num, desiredQty))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        public Boolean editOrderLineQuantity(string id, string num, string qty)  //id = order id, num = part num, qty = new qty wanted
         {
             string sqlCmd = "UPDATE order_line SET quantity = @qty WHERE partNumber = @num AND orderID = @id";
 
@@ -128,6 +165,11 @@ namespace controller
                 conn.Close();
             }
             return true;
+        }
+
+        public void deleteOrder(string id) //order id
+        {
+            c.deleteOrder(id);
         }
     }
 }

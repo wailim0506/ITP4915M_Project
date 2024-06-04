@@ -497,9 +497,9 @@ namespace templatev1.Order_Management
             // 
             this.picRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picRefresh.Image = global::templatev1.Properties.Resources.refreshbtn;
-            this.picRefresh.Location = new System.Drawing.Point(1120, 97);
+            this.picRefresh.Location = new System.Drawing.Point(1115, 104);
             this.picRefresh.Name = "picRefresh";
-            this.picRefresh.Size = new System.Drawing.Size(20, 29);
+            this.picRefresh.Size = new System.Drawing.Size(25, 22);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picRefresh.TabIndex = 100;
             this.picRefresh.TabStop = false;

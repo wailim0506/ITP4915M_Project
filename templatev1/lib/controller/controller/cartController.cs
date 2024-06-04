@@ -177,10 +177,17 @@ namespace controller
             qtyInProduct += currentCartQty;
             qtyInSpare_Part += currentCartQty;
 
-            if ((qtyInProduct - desiredQty < 0) || (qtyInSpare_Part - desiredQty < 0))  //check if the desired qty is larger than availabe qty after add cart qty to db
+            try
             {
-                return false;
+                if ((qtyInProduct - desiredQty < 0) || (qtyInSpare_Part - desiredQty < 0))  //check if the desired qty is larger than availabe qty after add cart qty to db
+                {
+                    throw new notEnoughException();
+                }
+            }catch(notEnoughException e)
+            {
+                throw e;
             }
+            
 
             //Add to db
             sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
@@ -689,5 +696,10 @@ namespace controller
             adr.Fill(dt);
             return dt;
         }
+    }
+
+    class notEnoughException : Exception
+    {
+        
     }
 }

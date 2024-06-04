@@ -83,17 +83,15 @@ namespace templatev1.Order_Management
                     partToDelete = control.Text;
                 }
             }
-
+            //get quantity of the spare part in the order first
+            int qtyInOrderNow = controller.getPartQtyInOrder(partToDelete, orderID);
             DialogResult dialogResult = MessageBox.Show($"Are you sure you want to remove {controller.getPartName(partToDelete)} from your order?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo,  MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete))
             {
+                controller.addQtyBack(partToDelete, qtyInOrderNow, 0);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                this.Hide();
-                customerEditOrder.StartPosition = FormStartPosition.Manual;
-                customerEditOrder.Location = this.Location;
-                customerEditOrder.ShowDialog();
-                this.Close();
+                loadData();
             }
             else if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete) == false)
             {
@@ -102,11 +100,7 @@ namespace templatev1.Order_Management
             else
             {
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                this.Hide();
-                customerEditOrder.StartPosition = FormStartPosition.Manual;
-                customerEditOrder.Location = this.Location;
-                customerEditOrder.ShowDialog();
-                this.Close();
+                loadData();
             }
         }
 
@@ -157,6 +151,7 @@ namespace templatev1.Order_Management
         {
             string partToUpdate = tbQauntity.Name;  //part number
             string quantity = tbQauntity.Text;  //quantity
+            int qtyInOrderNow; //qty in the order before edit
 
             if (quantity == "")
             {
@@ -174,15 +169,32 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (controller.editQuantity(orderID, partToUpdate, quantity))
+                // add qty back to db first
+                    //get quantity of the spare part in the order first
+                    qtyInOrderNow = controller.getPartQtyInOrder(partToUpdate, orderID);
+                    //add back to db
+                    try
+                    {
+                        controller.addQtyBack(partToUpdate, qtyInOrderNow, int.Parse(quantity));
+                    }catch(Exception)
+                    {
+                        MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;    
+                    }
+                //deduct db qty after adding back order qty to db
+                if (controller.editDbQty(partToUpdate, int.Parse(quantity)))
                 {
-                    MessageBox.Show("Edit successful.", " Edit Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                    this.Hide();
-                    customerEditOrder.StartPosition = FormStartPosition.Manual;
-                    customerEditOrder.Location = this.Location;
-                    customerEditOrder.ShowDialog();
-                    this.Close();
+                    //edit order line qty
+                    if (controller.editOrderLineQuantity(orderID, partToUpdate, quantity))
+                    {
+                        MessageBox.Show("Edit successful.", " Edit Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        loadData();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
                 }
                 else
                 {
@@ -210,6 +222,19 @@ namespace templatev1.Order_Management
             dt = new DataTable();
             dt = controller.getOrderedSparePart(orderID);
             int row = dt.Rows.Count;
+
+            if (row == 0)  //all spare part is removed, the order can be delete
+            {
+                controller.deleteOrder(orderID);
+                MessageBox.Show("Since no spare part exist in this order, this order is deleted");
+                Form orderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                this.Hide();
+                orderList.StartPosition = FormStartPosition.Manual;
+                orderList.Location = this.Location;
+                orderList.ShowDialog();
+                this.Close();
+                return;
+            }
 
 
             int rowPosition = 8;

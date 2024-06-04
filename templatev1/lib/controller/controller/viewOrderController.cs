@@ -262,5 +262,45 @@ namespace controller
 
             return true;
         }
+
+
+        public List<string> getAllPartNum(string id) //order id
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT partNumber FROM order_line WHERE orderID = \'{id}\' ORDER BY partNumber";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int row = dt.Rows.Count;
+
+            List<string> partNum = new List<string>();
+            for (int i = 0; i < row; i++)
+            {
+                partNum.Add(dt.Rows[i][0].ToString());
+            }
+            return partNum;
+        }
+
+
+        //problem here
+        public List<string> getAllPartQty(string id) //order id
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\' ORDER BY partNumber";
+            adr.Fill(dt);
+            int row = dt.Rows.Count;
+            string x = dt.Rows[0][0].ToString();
+            List<string> partQty = new List<string>();
+            for (int i = 0; i < row; i++)
+            {
+                partQty.Add(dt.Rows[i][1].ToString());
+            }
+            return partQty;
+        }
+
+        public void addQtyback(string partNum, int qtyInOrder)
+        {
+            cartController c = new cartController();
+            c.addQtyBack(partNum, qtyInOrder, 0);
+        }
     }
 }

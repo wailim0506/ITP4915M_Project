@@ -33,10 +33,10 @@ namespace templatev1.Order_Management
             this.UIController = UIController;
             this.controller = new controller.viewOrderController();
             this.shipDate = "";
-            //UID = this.accountController.getUID();
+            UID = this.accountController.getUID();
             
 
-            UID = "LMC00001"; //hard code for testing
+            //UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
@@ -148,9 +148,23 @@ namespace templatev1.Order_Management
         {
             if (dayDifference(orderID) >= 2)
             {
+
                 DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                //add qty back to db
+                //get part num in the order
+                List<string> partNum = controller.getAllPartNum(orderID);
+                //get qty in order for each part
+                List<string> partQty = controller.getAllPartQty(orderID);
+                //add back now;
+                //for (int i = 0; i < partNum.Count; i++)
+                //{
+                //    controller.addQtyback(partNum[i], int.Parse(partQty[i]));
+                //}
+                MessageBox.Show(partQty[0]);
+                return;
                 if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
                 {
+                    
                     MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
@@ -198,6 +212,7 @@ namespace templatev1.Order_Management
             }
             
         }
+
 
         private int dayDifference(string orderID)  //calculate day difference
         {
