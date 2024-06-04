@@ -199,16 +199,12 @@ namespace templatev1.Order_Management
 
         private void picRefresh_Click(object sender, EventArgs e)
         {
-            Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-            this.Hide();
-            customerEditOrder.StartPosition = FormStartPosition.Manual;
-            customerEditOrder.Location = this.Location;
-            customerEditOrder.ShowDialog();
-            this.Close();
+            loadData();
         }
 
         public void loadData()
         {
+            pnlSP.Controls.Clear();
             //ordered spare part
             DataTable dt;
             dt = new DataTable();

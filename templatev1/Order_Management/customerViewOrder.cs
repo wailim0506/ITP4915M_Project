@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -200,6 +201,21 @@ namespace templatev1.Order_Management
 
         private int dayDifference(string orderID)  //calculate day difference
         {
+            string systemFormat = systemDateFormat();  //the date format got from db depend on the operation system setting
+            string[] splitSystemFormat = systemFormat.Split('/');
+
+            Boolean monthFirst;
+
+            if (splitSystemFormat[0] == "M" || splitSystemFormat[0] == "MM")
+            {
+                monthFirst = true;
+            }
+            else
+            {
+                monthFirst = false;
+            }
+
+            
             DataTable dt;
             dt = controller.getShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
@@ -207,45 +223,100 @@ namespace templatev1.Order_Management
             shippingDate = d[0];
             string shipDate = shippingDate; //   d/M/yyyy
 
+                
+
             string sysYear = DateTime.Now.ToString("yyyy"); //today year 
             string sysMonth = DateTime.Now.ToString("MM"); //today month
             string sysDay = DateTime.Now.ToString("dd"); //today month
 
             string[] splitShipDate = shipDate.Split('/');
-            string shipMonth = splitShipDate[1];
-            string shipDay = splitShipDate[0];
-            string shipYear = splitShipDate[2];
 
-            if (int.Parse(shipMonth) < 10)
+            string shipMonth, shipDay, shipYear;
+            if (monthFirst)
+            {
+                shipMonth = splitShipDate[0];
+                shipDay = splitShipDate[1];
+                shipYear = splitShipDate[2];
+            }
+            else
+            {
+                shipMonth = splitShipDate[1];
+                shipDay = splitShipDate[0];
+                shipYear = splitShipDate[2];
+            }
+                
+            if (monthFirst && splitSystemFormat[0] == "M" && int.Parse(shipMonth) < 10)
             {
                 shipMonth = $"0{shipMonth}";
+            }else if(monthFirst && splitSystemFormat[0] == "MM" && int.Parse(shipMonth) < 10)
+            {
+                shipMonth = $"{shipMonth}";
+            }else if (!monthFirst && splitSystemFormat[1] == "M" && int.Parse(shipMonth) < 10)
+            {
+                shipMonth = $"0{shipMonth}";
+            }else if(!monthFirst && splitSystemFormat[1] == "MM" && int.Parse(shipMonth) < 10)
+            {
+                shipMonth = $"{shipMonth}";
             }
 
-            if (int.Parse(shipDay) < 10)
+            if (monthFirst && splitSystemFormat[1] == "d" && int.Parse(shipDay) < 10)
             {
                 shipDay = $"0{shipDay}";
             }
+            else if (monthFirst && splitSystemFormat[1] == "dd" && int.Parse(shipDay) < 10)
+            {
+                shipDay = $"{shipDay}";
+            }
+            else if (!monthFirst && splitSystemFormat[0] == "d" && int.Parse(shipDay) < 10)
+            {
+                shipDay = $"0{shipDay}";
+            }
+            else if (!monthFirst && splitSystemFormat[0] == "dd" && int.Parse(shipDay) < 10)
+            {
+                shipDay = $"{shipDay}";
+            }
+
 
             string formatedShippingDate = $"{shipDay}/{shipMonth}/{shipYear}";
             string formatedSysDate = $"{sysDay}/{sysMonth}/{sysYear}";
 
             DateTime parsedFormatedShippingDate;
             DateTime parsedFormatedSysDate;
+
             try
             {
                 parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
-                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
             }
             catch (Exception e)
             {
                 parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "MM/dd/yyyy", null);
+            }
+            //MessageBox.Show(parsedFormatedShippingDate.ToString());
+
+            try
+            {
                 parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
             }
+            catch (Exception e)
+            {
+                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "MM/dd/yyyy", null);
+            }
+
 
             TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
 
             string[] f = difference.ToString().Split('.');
             return int.Parse(f[0]);
         }
+
+        private string systemDateFormat()
+        {
+            CultureInfo culture = CultureInfo.CurrentCulture;
+            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
+
+            string dateFormat = dtfi.ShortDatePattern;
+            return dateFormat;
+        }
+
     }
 }
