@@ -25,20 +25,38 @@ namespace controller
             return dt.Rows[0][0].ToString();
         }
 
-        public int countOrder(string id) 
+        public int countOrder(string id,string sortBy) 
         {
 
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' ";
+
+            if (sortBy == "All")
+            {
+                sqlCmd = $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' ";
+            }
+            else
+            {
+                sqlCmd = $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
+            }
+
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public DataTable getOrder(string id)
+        public DataTable getOrder(string id, string sortBy)
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\'";
+
+            if (sortBy == "All")
+            {
+                sqlCmd = $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\'";
+            }
+            else
+            {
+                sqlCmd = $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
+            }
+
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt;

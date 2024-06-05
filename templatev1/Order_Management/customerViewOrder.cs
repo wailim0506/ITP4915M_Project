@@ -51,22 +51,30 @@ namespace templatev1.Order_Management
             DataTable dt =  controller.getOrder(orderID);
 
             //order basic info
-            Label lblID = new Label() { Name = $"lblID", Text = orderID, Location = new System.Drawing.Point(381,123), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
-            Label lblSerialNum = new Label() { Name = $"lblSerialNum", Text = $"{dt.Rows[0][3]}", Location = new System.Drawing.Point(381, 170), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
+            //Label lblID = new Label() { Name = $"lblID", Text = orderID, Location = new System.Drawing.Point(381,123), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
+            //Label lblSerialNum = new Label() { Name = $"lblSerialNum", Text = $"{dt.Rows[0][3]}", Location = new System.Drawing.Point(381, 170), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
             string[] f = dt.Rows[0][4].ToString().Split(' ');
-            Label lblDate = new Label() { Name = $"lblDate", Text = $"{f[0]}", Location = new System.Drawing.Point(381, 217), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
-            Label lblStaffName = new Label() { Name = $"lblStaffName", Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 264), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
-            Label lblStaffID = new Label() { Name = $"lblStaffID", Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 311), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true, TextAlign = ContentAlignment.MiddleCenter };
-            Label lblStaffContact = new Label() { Name = $"lblStaffContact", Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 358), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true};
-            Label lblStatus = new Label() { Name = $"lblStatus", Text = $"{dt.Rows[0][6]}", Location = new System.Drawing.Point(381, 405), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
+            //Label lblDate = new Label() { Name = $"lblDate", Text = $"{f[0]}", Location = new System.Drawing.Point(381, 217), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
+            //Label lblStaffName = new Label() { Name = $"lblStaffName", Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 264), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
+            //Label lblStaffID = new Label() { Name = $"lblStaffID", Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 311), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true, TextAlign = ContentAlignment.MiddleCenter };
+            //Label lblStaffContact = new Label() { Name = $"lblStaffContact", Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 358), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true};
+            //Label lblStatus = new Label() { Name = $"lblStatus", Text = $"{dt.Rows[0][6]}", Location = new System.Drawing.Point(381, 405), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
 
-            this.Controls.Add(lblID);
-            this.Controls.Add(lblSerialNum);
-            this.Controls.Add(lblDate);
-            this.Controls.Add(lblStaffName);
-            this.Controls.Add(lblStaffID);
-            this.Controls.Add(lblStaffContact);
-            this.Controls.Add(lblStatus);
+            //this.Controls.Add(lblID);
+            //this.Controls.Add(lblSerialNum);
+            //this.Controls.Add(lblDate);
+            //this.Controls.Add(lblStaffName);
+            //this.Controls.Add(lblStaffID);
+            //this.Controls.Add(lblStaffContact);
+            //this.Controls.Add(lblStatus);
+
+            lblOrderID.Text = orderID;
+            lblOrderSerialNum.Text = $"{dt.Rows[0][3]}";
+            lblOrderDate.Text = f[0];
+            lblStaffIncharge.Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}";
+            lblStaffID.Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}";
+            lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
+            lblStatus.Text = $"{dt.Rows[0][6]}";
 
             //delivery info
             dt = new DataTable();
@@ -76,17 +84,31 @@ namespace templatev1.Order_Management
             shippingDate = d[0];
             shipDate = shippingDate;
             string[] delivermanDetail = controller.getDelivermanDetail(orderID);
-            lblDelivermanID.Text = dt.Rows[0][1].ToString();
-            lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
-            lblDelivermanContact.Text = delivermanDetail[2]; 
-            if (dayDifference(orderID) >= 0)
+            if (lblStatus.Text.ToString() == "Cancelled")
             {
-                lblShippingDate.Text = $"Scheduled on {shippingDate}";
+                lblDelivermanID.Text = "N/A";
+                lblDelivermanName.Text = $"N/A";
+                lblDelivermanContact.Text = "N/A";
+                lblShippingDate.Text = $"N/A";
+
+                lblExpressNum.Text = "N/A";
+
             }
-            else{
-                lblShippingDate.Text = $"Delivered on {shippingDate}";
+            else
+            {
+                lblDelivermanID.Text = dt.Rows[0][1].ToString();
+                lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
+                lblDelivermanContact.Text = delivermanDetail[2];
+                if (dayDifference(orderID) >= 0)
+                {
+                    lblShippingDate.Text = $"Scheduled on {shippingDate}";
+                }
+                else
+                {
+                    lblShippingDate.Text = $"Delivered on {shippingDate}";
+                }
+                lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
-            lblExpressNum.Text = dt.Rows[0][4].ToString();
             lblShippingAddress.Text = controller.getShippingAddress(UID);
 
             //ordered spare part
@@ -129,59 +151,84 @@ namespace templatev1.Order_Management
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dayDifference(orderID) >= 2)
+            if (lblStatus.Text.ToString() == "Cancelled" || lblStatus.Text.ToString() == "Shipped")
             {
-                Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                this.Hide();
-                customerEditOrder.StartPosition = FormStartPosition.Manual;
-                customerEditOrder.Location = this.Location;
-                customerEditOrder.ShowDialog();
-                this.Close();
+                if(lblStatus.Text.ToString() == "Cancelled")
+                {
+                    MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
             else
             {
-                MessageBox.Show("Order cannot be edited two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dayDifference(orderID) >= 2)
+                {
+                    Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
+                    this.Hide();
+                    customerEditOrder.StartPosition = FormStartPosition.Manual;
+                    customerEditOrder.Location = this.Location;
+                    customerEditOrder.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Order cannot be edited two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (dayDifference(orderID) >= 2)
+            if (lblStatus.Text.ToString() == "Cancelled" || lblStatus.Text.ToString() == "Shipped")
             {
-
-                DialogResult dialogResult = MessageBox.Show($"Are you sure you want to delete order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                //add qty back to db
-                //get part num in the order
-                List<string> partNum = controller.getAllPartNum(orderID);
-                //get qty in order for each part
-                List<string> partQty = controller.getAllPartQty(orderID);
-                //add back now;
-                //for (int i = 0; i < partNum.Count; i++)
-                //{
-                //    controller.addQtyback(partNum[i], int.Parse(partQty[i]));
-                //}
-                MessageBox.Show(partQty[0]);
-                return;
-                if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
+                if (lblStatus.Text.ToString() == "Cancelled")
                 {
-                    
-                    MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-                    this.Hide();
-                    customerOrderList.StartPosition = FormStartPosition.Manual;
-                    customerOrderList.Location = this.Location;
-                    customerOrderList.ShowDialog();
-                    this.Close();
+                    MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
+                else
                 {
-                    MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 }
             }
             else
             {
-                MessageBox.Show("Order cannot be deleted two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (dayDifference(orderID) >= 2)
+                {
+
+                    DialogResult dialogResult = MessageBox.Show($"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    //add qty back to db
+                    //get part num and it's qty in the order
+                    Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
+                    //add back now;
+                    foreach (KeyValuePair<string, int> q in partNumQty)
+                    {
+                        controller.addQtyback(q.Key, q.Value);
+                    }
+                    if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
+                    {
+                        MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                        this.Hide();
+                        customerOrderList.StartPosition = FormStartPosition.Manual;
+                        customerOrderList.Location = this.Location;
+                        customerOrderList.ShowDialog();
+                        this.Close();
+                    }
+                    else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
+                    {
+                        MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Order cannot be cancel two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
         }
@@ -198,19 +245,27 @@ namespace templatev1.Order_Management
 
         private void btnViewInvoice_Click(object sender, EventArgs e)
         {
-            if (dayDifference(orderID) >= 0)
+            if (lblStatus.Text.ToString() == "Cancelled")
             {
-                MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }else
-            {
-                Form customerViewInvoice = new customerViewInvoice(orderID, accountController, UIController);
-                this.Hide();
-                customerViewInvoice.StartPosition = FormStartPosition.Manual;
-                customerViewInvoice.Location = this.Location;
-                customerViewInvoice.ShowDialog();
-                this.Close();
+                MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+            else
+            {
+                if (dayDifference(orderID) >= 0)
+                {
+                    MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    Form customerViewInvoice = new customerViewInvoice(orderID, accountController, UIController);
+                    this.Hide();
+                    customerViewInvoice.StartPosition = FormStartPosition.Manual;
+                    customerViewInvoice.Location = this.Location;
+                    customerViewInvoice.ShowDialog();
+                    this.Close();
+                }
+            }
+
         }
 
 
@@ -389,6 +444,11 @@ namespace templatev1.Order_Management
             this.Close();
         }
 
+        private void picBWMode_Click(object sender, EventArgs e)
+        {
+            BWMode();
+        }
+
         private string systemDateFormat()
         {
             CultureInfo culture = CultureInfo.CurrentCulture;
@@ -396,6 +456,61 @@ namespace templatev1.Order_Management
 
             string dateFormat = dtfi.ShortDatePattern;
             return dateFormat;
+        }
+
+        private void btnReorder_Click(object sender, EventArgs e)
+        {
+            //get all part num and qty in the order first
+            Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
+            //add to cart
+            try
+            {
+                foreach(KeyValuePair<string, int> k in partNumQty)
+                {
+                    controller.reOrder(UID, k.Key, k.Value);
+                }
+                DialogResult dialogResult = MessageBox.Show("All item in this order added to cart.\nProceed to cart to create order?","Re-order", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
+                    this.Hide();
+                    cart.StartPosition = FormStartPosition.Manual;
+                    cart.Location = this.Location;
+                    cart.ShowDialog();
+                    this.Close();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void BWMode()
+        {
+            dynamic value = UIController.getMode();
+            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Properties.Settings.Default.BWmode = value.BWmode;
+            if (Properties.Settings.Default.BWmode == true)
+            {
+                picBWMode.Image = Properties.Resources.LBWhite;
+                picHome.Image = Properties.Resources.homeWhite;
+            }
+            else
+            {
+                picBWMode.Image = Properties.Resources.LB;
+                picHome.Image = Properties.Resources.home;
+            }
         }
 
     }

@@ -492,9 +492,45 @@ namespace templatev1.Online_Ordering_Platform
             this.Close();
         }
 
+        private void picBWMode_Click(object sender, EventArgs e)
+        {
+            UIController.setMode(Properties.Settings.Default.BWmode);
+            BWMode();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
+
+        private void pnlSP_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BWMode()
+        {
+            dynamic value = UIController.getMode();
+            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Properties.Settings.Default.BWmode = value.BWmode;
+            if (Properties.Settings.Default.BWmode == true)
+            {
+                picBWMode.Image = Properties.Resources.LBWhite;
+                picHome.Image = Properties.Resources.homeWhite;
+            }
+            else
+            {
+                picBWMode.Image = Properties.Resources.LB;
+                picHome.Image = Properties.Resources.home;
+            }
         }
     }
 }

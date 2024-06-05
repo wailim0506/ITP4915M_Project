@@ -163,7 +163,7 @@ namespace controller
                 conn.Close();
             }
 
-            sqlCmd = "DELETE FROM shipping_detail WHERE orderID = @id";
+            sqlCmd = "UPDATE shipping_detail SET remark = 'Cancelled' WHERE orderID = @id";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -211,7 +211,32 @@ namespace controller
                 conn.Close();
             }
 
-            sqlCmd = "DELETE FROM order_line WHERE orderID = @id";
+            //keep record
+            //sqlCmd = "DELETE FROM order_line WHERE orderID = @id";
+            //try
+            //{
+            //    using (MySqlConnection connection = new MySqlConnection(connString))
+            //    {
+            //        connection.Open();
+
+            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@id", id);
+
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
+
+            sqlCmd = "UPDATE order_ SET status = @status WHERE orderID = @id";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -220,30 +245,7 @@ namespace controller
 
                     using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
                     {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
-            }
-
-            sqlCmd = "DELETE FROM order_ WHERE orderID = @id";
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
+                        command.Parameters.AddWithValue("@status", "Cancelled");
                         command.Parameters.AddWithValue("@id", id);
 
                         command.ExecuteNonQuery();
@@ -264,43 +266,32 @@ namespace controller
         }
 
 
-        public List<string> getAllPartNum(string id) //order id
+        public Dictionary<string, int> getPartNumWithQty(string id) //order id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT partNumber FROM order_line WHERE orderID = \'{id}\' ORDER BY partNumber";
+            sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
-            int row = dt.Rows.Count;
 
-            List<string> partNum = new List<string>();
-            for (int i = 0; i < row; i++)
+            Dictionary<string, int> partNumQty = new Dictionary<string, int>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                partNum.Add(dt.Rows[i][0].ToString());
+                partNumQty.Add($"{dt.Rows[i][0]}", int.Parse(dt.Rows[i][1].ToString()));
             }
-            return partNum;
-        }
-
-
-        //problem here
-        public List<string> getAllPartQty(string id) //order id
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\' ORDER BY partNumber";
-            adr.Fill(dt);
-            int row = dt.Rows.Count;
-            string x = dt.Rows[0][0].ToString();
-            List<string> partQty = new List<string>();
-            for (int i = 0; i < row; i++)
-            {
-                partQty.Add(dt.Rows[i][1].ToString());
-            }
-            return partQty;
+            return partNumQty;
         }
 
         public void addQtyback(string partNum, int qtyInOrder)
         {
             cartController c = new cartController();
             c.addQtyBack(partNum, qtyInOrder, 0);
+        }
+
+        public Boolean reOrder(string id, string partNum, int qty) //customer id, part number, quantity
+        {
+            spareListController c = new spareListController();
+            return c.addCart(id, partNum, qty);
         }
     }
 }

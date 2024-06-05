@@ -59,6 +59,8 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbSortOrder = new System.Windows.Forms.ComboBox();
             this.grpOrder.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
@@ -86,7 +88,7 @@ namespace templatev1.Online_Ordering_Platform
             this.grpOrder.Controls.Add(this.pnlOrder);
             this.grpOrder.Location = new System.Drawing.Point(208, 119);
             this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(898, 636);
+            this.grpOrder.Size = new System.Drawing.Size(921, 636);
             this.grpOrder.TabIndex = 31;
             this.grpOrder.TabStop = false;
             // 
@@ -95,7 +97,7 @@ namespace templatev1.Online_Ordering_Platform
             this.pnlOrder.AutoScroll = true;
             this.pnlOrder.Location = new System.Drawing.Point(6, 9);
             this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(888, 621);
+            this.pnlOrder.Size = new System.Drawing.Size(909, 621);
             this.pnlOrder.TabIndex = 0;
             // 
             // lblOrderID
@@ -123,7 +125,7 @@ namespace templatev1.Online_Ordering_Platform
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaff.Location = new System.Drawing.Point(457, 102);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(180, 18);
+            this.lblStaff.Size = new System.Drawing.Size(180, 20);
             this.lblStaff.TabIndex = 30;
             this.lblStaff.Text = "Staff Incharge";
             this.lblStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,7 +157,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 37);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(921, 35);
+            this.palLoc.Size = new System.Drawing.Size(952, 35);
             this.palLoc.TabIndex = 36;
             // 
             // palDate
@@ -168,7 +170,7 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Location = new System.Drawing.Point(198, 0);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(921, 37);
+            this.palDate.Size = new System.Drawing.Size(952, 37);
             this.palDate.TabIndex = 35;
             // 
             // lblUid
@@ -275,6 +277,7 @@ namespace templatev1.Online_Ordering_Platform
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
+            this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // btnProFile
             // 
@@ -400,12 +403,42 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(981, 99);
+            this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 22);
+            this.label4.TabIndex = 86;
+            this.label4.Text = "View:";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbSortOrder
+            // 
+            this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSortOrder.FormattingEnabled = true;
+            this.cmbSortOrder.Items.AddRange(new object[] {
+            "All",
+            "Shipped",
+            "Processing",
+            "Pending",
+            "Cancelled"});
+            this.cmbSortOrder.Location = new System.Drawing.Point(1029, 98);
+            this.cmbSortOrder.Name = "cmbSortOrder";
+            this.cmbSortOrder.Size = new System.Drawing.Size(94, 26);
+            this.cmbSortOrder.TabIndex = 85;
+            this.cmbSortOrder.Text = "All";
+            this.cmbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cmbSortOrder_SelectedIndexChanged);
+            // 
             // customerOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 764);
+            this.ClientSize = new System.Drawing.Size(1150, 764);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.palLoc);
+            this.Controls.Add(this.cmbSortOrder);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.lblStatus);
@@ -459,5 +492,7 @@ namespace templatev1.Online_Ordering_Platform
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbSortOrder;
     }
 }

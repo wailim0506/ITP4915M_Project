@@ -77,6 +77,8 @@ namespace templatev1.Order_Management
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.palNav = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
@@ -90,8 +92,6 @@ namespace templatev1.Order_Management
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.grpSparePart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
@@ -577,6 +577,30 @@ namespace templatev1.Order_Management
             this.palNav.Size = new System.Drawing.Size(198, 841);
             this.palNav.TabIndex = 101;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Red;
+            this.panel1.Location = new System.Drawing.Point(0, 341);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 51);
+            this.panel1.TabIndex = 27;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(0, 341);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(198, 51);
+            this.button1.TabIndex = 26;
+            this.button1.Text = "Give Feedback";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // palSelect4
             // 
             this.palSelect4.BackColor = System.Drawing.Color.Red;
@@ -610,6 +634,7 @@ namespace templatev1.Order_Management
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
+            this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // btnProFile
             // 
@@ -734,30 +759,6 @@ namespace templatev1.Order_Management
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 341);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 51);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Give Feedback";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Location = new System.Drawing.Point(0, 341);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 51);
-            this.panel1.TabIndex = 27;
             // 
             // customerEditOrder
             // 

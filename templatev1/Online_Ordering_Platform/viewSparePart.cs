@@ -278,10 +278,40 @@ namespace templatev1.Online_Ordering_Platform
             this.Close();
         }
 
+        private void picBWMode_Click(object sender, EventArgs e)
+        {
+            BWMode();
+        }
+
         private Image imageString(string imageName)
         {
             PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
+        }
+
+        private void BWMode()
+        {
+            dynamic value = UIController.getMode();
+            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Properties.Settings.Default.BWmode = value.BWmode;
+            if (Properties.Settings.Default.BWmode == true)
+            {
+                picBWMode.Image = Properties.Resources.LBWhite;
+                picHome.Image = Properties.Resources.homeWhite;
+            }
+            else
+            {
+                picBWMode.Image = Properties.Resources.LB;
+                picHome.Image = Properties.Resources.home;
+            }
         }
     }
 }

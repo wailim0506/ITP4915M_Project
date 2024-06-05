@@ -47,10 +47,10 @@ namespace templatev1.Online_Ordering_Platform
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.palDate = new System.Windows.Forms.Panel();
+            this.lblLoc = new System.Windows.Forms.Label();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.palLoc = new System.Windows.Forms.Panel();
-            this.lblLoc = new System.Windows.Forms.Label();
             this.tbKW = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblResultNum = new System.Windows.Forms.Label();
@@ -154,6 +154,7 @@ namespace templatev1.Online_Ordering_Platform
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
+            this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // btnProFile
             // 
@@ -291,6 +292,16 @@ namespace templatev1.Online_Ordering_Platform
             this.palDate.Size = new System.Drawing.Size(972, 37);
             this.palDate.TabIndex = 74;
             // 
+            // lblLoc
+            // 
+            this.lblLoc.AutoSize = true;
+            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoc.Location = new System.Drawing.Point(3, 7);
+            this.lblLoc.Name = "lblLoc";
+            this.lblLoc.Size = new System.Drawing.Size(93, 22);
+            this.lblLoc.TabIndex = 0;
+            this.lblLoc.Text = "Spare Part";
+            // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
@@ -323,16 +334,6 @@ namespace templatev1.Online_Ordering_Platform
             this.palLoc.Name = "palLoc";
             this.palLoc.Size = new System.Drawing.Size(972, 35);
             this.palLoc.TabIndex = 75;
-            // 
-            // lblLoc
-            // 
-            this.lblLoc.AutoSize = true;
-            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(3, 7);
-            this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(93, 22);
-            this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Spare Part";
             // 
             // tbKW
             // 

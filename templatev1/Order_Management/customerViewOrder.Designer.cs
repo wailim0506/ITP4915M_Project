@@ -85,6 +85,14 @@ namespace templatev1.Order_Management
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.lblOrderID = new System.Windows.Forms.Label();
+            this.lblOrderSerialNum = new System.Windows.Forms.Label();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.lblStaffIncharge = new System.Windows.Forms.Label();
+            this.lblStaffID = new System.Windows.Forms.Label();
+            this.lblStaffContact = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.btnReorder = new System.Windows.Forms.Button();
             this.grpSparePart.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
@@ -434,9 +442,9 @@ namespace templatev1.Order_Management
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(823, 766);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(110, 45);
+            this.btnDelete.Size = new System.Drawing.Size(112, 45);
             this.btnDelete.TabIndex = 70;
-            this.btnDelete.Text = "Delete Order";
+            this.btnDelete.Text = "Cancel Order";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -567,6 +575,7 @@ namespace templatev1.Order_Management
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
+            this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // btnProFile
             // 
@@ -693,12 +702,103 @@ namespace templatev1.Order_Management
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
+            // lblOrderID
+            // 
+            this.lblOrderID.AutoSize = true;
+            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderID.Location = new System.Drawing.Point(381, 114);
+            this.lblOrderID.Name = "lblOrderID";
+            this.lblOrderID.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderID.TabIndex = 74;
+            this.lblOrderID.Text = "Order ID :";
+            // 
+            // lblOrderSerialNum
+            // 
+            this.lblOrderSerialNum.AutoSize = true;
+            this.lblOrderSerialNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderSerialNum.Location = new System.Drawing.Point(381, 157);
+            this.lblOrderSerialNum.Name = "lblOrderSerialNum";
+            this.lblOrderSerialNum.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderSerialNum.TabIndex = 75;
+            this.lblOrderSerialNum.Text = "Order ID :";
+            // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.AutoSize = true;
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Location = new System.Drawing.Point(381, 200);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderDate.TabIndex = 76;
+            this.lblOrderDate.Text = "Order ID :";
+            // 
+            // lblStaffIncharge
+            // 
+            this.lblStaffIncharge.AutoSize = true;
+            this.lblStaffIncharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffIncharge.Location = new System.Drawing.Point(381, 244);
+            this.lblStaffIncharge.Name = "lblStaffIncharge";
+            this.lblStaffIncharge.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffIncharge.TabIndex = 77;
+            this.lblStaffIncharge.Text = "Order ID :";
+            // 
+            // lblStaffID
+            // 
+            this.lblStaffID.AutoSize = true;
+            this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffID.Location = new System.Drawing.Point(381, 287);
+            this.lblStaffID.Name = "lblStaffID";
+            this.lblStaffID.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffID.TabIndex = 78;
+            this.lblStaffID.Text = "Order ID :";
+            // 
+            // lblStaffContact
+            // 
+            this.lblStaffContact.AutoSize = true;
+            this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffContact.Location = new System.Drawing.Point(381, 330);
+            this.lblStaffContact.Name = "lblStaffContact";
+            this.lblStaffContact.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffContact.TabIndex = 79;
+            this.lblStaffContact.Text = "Order ID :";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(381, 374);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(78, 20);
+            this.lblStatus.TabIndex = 80;
+            this.lblStatus.Text = "Order ID :";
+            // 
+            // btnReorder
+            // 
+            this.btnReorder.AutoSize = true;
+            this.btnReorder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReorder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReorder.Location = new System.Drawing.Point(218, 766);
+            this.btnReorder.Name = "btnReorder";
+            this.btnReorder.Size = new System.Drawing.Size(94, 45);
+            this.btnReorder.TabIndex = 81;
+            this.btnReorder.Text = "Re-order";
+            this.btnReorder.UseVisualStyleBackColor = true;
+            this.btnReorder.Click += new System.EventHandler(this.btnReorder_Click);
+            // 
             // customerViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1174, 822);
+            this.Controls.Add(this.btnReorder);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.lblStaffContact);
+            this.Controls.Add(this.lblStaffID);
+            this.Controls.Add(this.lblStaffIncharge);
+            this.Controls.Add(this.lblOrderDate);
+            this.Controls.Add(this.lblOrderSerialNum);
+            this.Controls.Add(this.lblOrderID);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
@@ -808,5 +908,13 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblOrderID;
+        private System.Windows.Forms.Label lblOrderSerialNum;
+        private System.Windows.Forms.Label lblOrderDate;
+        private System.Windows.Forms.Label lblStaffIncharge;
+        private System.Windows.Forms.Label lblStaffID;
+        private System.Windows.Forms.Label lblStaffContact;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Button btnReorder;
     }
 }
