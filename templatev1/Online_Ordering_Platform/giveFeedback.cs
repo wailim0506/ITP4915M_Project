@@ -87,6 +87,66 @@ namespace templatev1
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss"); //timer
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form o = new giveFeedback(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
         private void giveFeedback_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true; //timer

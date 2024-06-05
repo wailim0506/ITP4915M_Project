@@ -442,6 +442,56 @@ namespace templatev1.Online_Ordering_Platform
             this.Close();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form o = new giveFeedback(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");

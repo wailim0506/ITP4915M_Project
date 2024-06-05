@@ -324,6 +324,71 @@ namespace templatev1.Order_Management
             return int.Parse(f[0]);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form feedback = new giveFeedback(accountController, UIController);
+            this.Hide();
+            feedback.StartPosition = FormStartPosition.Manual;
+            feedback.Location = this.Location;
+            feedback.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            Form fav = new Online_Ordering_Platform.favourite(accountController, UIController);
+            this.Hide();
+            fav.StartPosition = FormStartPosition.Manual;
+            fav.Location = this.Location;
+            fav.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
+            this.Hide();
+            cart.StartPosition = FormStartPosition.Manual;
+            cart.Location = this.Location;
+            cart.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form spare = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            this.Hide();
+            spare.StartPosition = FormStartPosition.Manual;
+            spare.Location = this.Location;
+            spare.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
         private string systemDateFormat()
         {
             CultureInfo culture = CultureInfo.CurrentCulture;

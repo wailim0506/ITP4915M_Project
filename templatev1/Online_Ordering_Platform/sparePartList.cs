@@ -287,6 +287,56 @@ namespace templatev1.Online_Ordering_Platform
             tbKW.Text = "";
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form o = new giveFeedback(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            this.Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = this.Location;
+            o.ShowDialog();
+            this.Close();
+        }
+
         private Image imageString(string imageName)
         {
             PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
