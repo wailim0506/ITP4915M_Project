@@ -462,8 +462,8 @@ namespace templatev1.Order_Management
             //get all part num and qty in the order first
             Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
             //add to cart
-            //try
-            //{
+            try
+            {
                 foreach (KeyValuePair<string, int> k in partNumQty)
                 {
                     if (k.Value <= controller.checkOnSaleQty(k.Key))
@@ -512,14 +512,14 @@ namespace templatev1.Order_Management
                     cart.ShowDialog();
                     this.Close();
                 }
-        //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
 
-}
+        }
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
