@@ -32,11 +32,6 @@ namespace templatev1
             this.proFileController = proFileController;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
@@ -86,6 +81,96 @@ namespace templatev1
             }
         }
 
+        //To determine and show the next page.
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+        private void getPage(string Function)
+        {
+            Form next = new Home(accountController, UIController);
+            switch (Function)
+            {
+                case "Order Management":
+
+
+
+                    break;
+                case "Invoice Management":
+
+
+
+                    break;
+                case "On-Sale Product Management":
+
+
+
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(accountController, UIController);
+                    break;
+                case "User Managemnet":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+            }
+
+            this.Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = this.Location;
+            next.Size = this.Size;
+            next.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
+        }
+
+        private void chkCancel_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
+        }
+
+        //Set new value to the city listbox when the selected province has changed.
         private void cmbProvince_SelectedValueChanged(object sender, EventArgs e)
         {
             cmbCity.SelectedIndex = -1;       //clear the selected value when the province has change.
@@ -102,11 +187,11 @@ namespace templatev1
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     btnProFile_Click(this, e);   //Refresh the profile page.
                 }
-                else
+                else     //Something wrong from the controller.
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-
+        //The placeholder for textbox.
         private void tbCorpAdd_Enter(object sender, EventArgs e)
         {
             if (tbCorpAdd.Text == placeholder.corpAdd)
@@ -143,6 +228,7 @@ namespace templatev1
                 tbWarehouseAdd2.Text = placeholder.wAdd2;
         }
 
+        //Check the inputted data.
         private bool checkInfo() 
         {
             lblAddMsg.Text = "";
@@ -212,41 +298,9 @@ namespace templatev1
             return true;
         }
 
-        private void btnProFile_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
-
-            proFileController.setType(accountController.getType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
-            proFile.ShowDialog();
-            this.Close();
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
-
-        private void chkCancel_Click(object sender, EventArgs e)
-        {
-            proFileController = new controller.proFileController(accountController);
-
-            proFileController.setType(accountController.getType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
-            proFile.ShowDialog();
-            this.Close();
-        }
-
-
-
-
-
     }
 }

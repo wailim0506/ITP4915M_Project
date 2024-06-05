@@ -113,7 +113,7 @@ namespace templatev1
                         picUserIMG.Image = IMG;
                         IMGUploaded = true;
 
-                        //Upload to the server
+                        //Upload to local drive.
 
 
 
@@ -129,7 +129,7 @@ namespace templatev1
             }
         }
 
-
+        //Set new value to the city listbox when the selected province has changed.
         private void cmbProvince_SelectedValueChanged(object sender, EventArgs e)
         {
             cmbCity.SelectedIndex = -1;       //clear the selected value when the province has change.
@@ -137,7 +137,7 @@ namespace templatev1
             cmbCity.Items.AddRange(recoveryController.getcity(cmbProvince.Text).ToArray());             //change city list base on current selected province.
         }
 
-
+        //Check the inputted data.
         private bool checkInfo()
         {
             //Clean previous error message.
@@ -301,6 +301,27 @@ namespace templatev1
                 return true;
         }
 
+        //Check the email address.
+        private bool IsValidEmail(string email)
+        {
+            var trimmedEmail = email.Trim();
+
+            if (trimmedEmail.EndsWith("."))
+            {
+                return false;
+            }
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == trimmedEmail;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        //Return the value to the contoller.
         private void setValue()
         {
             value = new ExpandoObject();
@@ -334,33 +355,9 @@ namespace templatev1
             value.pwd = tbConfirmPass.Text;
         }
 
-
-
-
-        private bool IsValidEmail(string email)
-        {
-            var trimmedEmail = email.Trim();
-
-            if (trimmedEmail.EndsWith("."))
-            {
-                return false;
-            }
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(email);
-                return addr.Address == trimmedEmail;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
-
-
     }
 }

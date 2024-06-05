@@ -20,15 +20,13 @@ namespace templatev1
         {
             InitializeComponent();
             userFound = false;
-            UID = email = phone = "";
         }
 
         public PasswordRe(controller.RecoveryController recoveryController)
         {
             InitializeComponent();
-            userFound = false;
-            UID = email = phone = "";
             this.recoveryController = recoveryController;
+            userFound = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)

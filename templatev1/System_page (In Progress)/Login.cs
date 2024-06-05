@@ -140,19 +140,8 @@ namespace templatev1
             this.Close();
         }
 
-        public static string getInsDate()
-        {
-            return sysInsDate;
-        }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
-        }
-
-
-
-        //--For development Tools----------------------------------------------
+        //Development Tools
         private void btnTest1_Click(object sender, EventArgs e)
         {
             tbUsername.Text = "LMC00001";
@@ -196,7 +185,15 @@ namespace templatev1
             }
         }
 
+        //Set installed date for the about page.
+        public static string getInsDate()
+        {
+            return sysInsDate;
+        }
 
-        //------------------------------------------------------------------
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+        }
     }
 }

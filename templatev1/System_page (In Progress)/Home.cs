@@ -131,7 +131,7 @@ namespace templatev1
             this.Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = this.Location;
-            //next.Size = this.Size;    I think this can remove;
+            next.Size = this.Size;
             next.ShowDialog();
             this.Close();
         }

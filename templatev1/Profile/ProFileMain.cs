@@ -44,54 +44,6 @@ namespace templatev1
             tbOldPass.PasswordChar = tbPass.PasswordChar = tbConfirmPass.PasswordChar = '*';
         }
 
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController = new controller.proFileController(accountController);
-
-            proFileController.setType(accountController.getType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
-            proFile.ShowDialog();
-            this.Close();
-        }
-
-        private void lblCorpName_Click(object sender, EventArgs e)
-        {
-            Form about = new About(accountController, UIController);
-            this.Hide();
-            //Swap the current form to another.
-            about.StartPosition = FormStartPosition.Manual;
-            about.Location = this.Location;
-            about.Size = this.Size;
-            about.ShowDialog();
-            this.Close();
-        }
-
-        private void picBWMode_Click(object sender, EventArgs e)
-        {
-            UIController.setMode(Properties.Settings.Default.BWmode);
-            BWMode();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form login = new Login();
-            this.Hide();
-            //Swap the current form to another.
-            login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
-            login.ShowDialog();
-            this.Close();
-        }
-
-        
-
         private void Initialization()
         {
             timer1.Enabled = true;
@@ -147,6 +99,7 @@ namespace templatev1
             }
         }
 
+        //To determine and show the next page.
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             getPage(btnFunction1.Text);
@@ -203,6 +156,51 @@ namespace templatev1
             this.Close();
         }
 
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController = new controller.proFileController(accountController);
+
+            proFileController.setType(accountController.getType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            this.Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = this.Location;
+            proFile.Size = this.Size;
+            proFile.ShowDialog();
+            this.Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = this.Location;
+            about.Size = this.Size;
+            about.ShowDialog();
+            this.Close();
+        }
+
+        private void picBWMode_Click(object sender, EventArgs e)
+        {
+            UIController.setMode(Properties.Settings.Default.BWmode);
+            BWMode();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form login = new Login();
+            this.Hide();
+            //Swap the current form to another.
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = this.Location;
+            login.Size = this.Size;
+            login.ShowDialog();
+            this.Close();
+        }
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
@@ -214,7 +212,6 @@ namespace templatev1
             home.ShowDialog();
             this.Close();
         }
-
 
         //For Dark Color function
         private void BWMode()
@@ -254,7 +251,7 @@ namespace templatev1
             this.Close();
         }
 
-
+        //The placeholder for textbox.
         private void tbFirstName_Enter(object sender, EventArgs e)
         {
             if (tbFirstName.Text == placeholder.fName)
@@ -301,30 +298,6 @@ namespace templatev1
         {
             if (tbCorp.Text == "")
                 tbCorp.Text = placeholder.corp;
-        }
-
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            Form home = new Home(accountController, UIController);
-            this.Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = this.Location;
-            home.Size = this.Size;
-            home.ShowDialog();
-            this.Close();
-        }
-
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            if (checkInfo())
-                if (proFileController.modify(update))
-                {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnProFile_Click(this, e);   //Refresh the profile page.
-                }
-                else
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private bool checkInfo()
@@ -427,7 +400,31 @@ namespace templatev1
 
             return true;
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            this.Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = this.Location;
+            home.Size = this.Size;
+            home.ShowDialog();
+            this.Close();
+        }
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if (checkInfo())
+                if (proFileController.modify(update))
+                {
+                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnProFile_Click(this, e);   //Refresh the profile page.
+                }
+                else      //Something wrong from the controller.
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        //For upload and remove IMG function.
         private void btnUploadIMG_Click(object sender, EventArgs e)
         {
             try
@@ -470,6 +467,7 @@ namespace templatev1
             picUserIMG.Image = IMG;
         }
 
+        //For change password function.
         private void btnChangePwd_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(tbOldPass.Text))
@@ -490,7 +488,6 @@ namespace templatev1
             else
                 lblPwdMsg.Text = "Please enter old password.";
         }
-
         private bool checkPwd()
         {
             if (string.IsNullOrEmpty(tbPass.Text))               //Check whether the password and confirm the password match.
@@ -511,6 +508,7 @@ namespace templatev1
             return true;
         }
 
+        //Delete the account, only available for customer account.
         private void btnDelete_Click(object sender, EventArgs e)
         {
 
