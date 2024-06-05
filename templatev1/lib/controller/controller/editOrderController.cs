@@ -19,7 +19,7 @@ namespace controller
 
         public DataTable getOrderedSparePart(string orderID)
         {
-            return c.getOrderedSparePart(orderID);
+            return c.getOrderedSparePart(orderID,"None");
         }
 
         public string getItemNum(string id) //part Number

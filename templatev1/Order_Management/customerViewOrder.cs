@@ -46,28 +46,19 @@ namespace templatev1.Order_Management
         private void customerViewOrder_Load(object sender, EventArgs e)
         {
             
-            timer1.Enabled = true; 
+            timer1.Enabled = true;
+            cmbSortOrder.SelectedIndex = 0;
             lblLoc.Text += $" {orderID.ToString()}";
-            DataTable dt =  controller.getOrder(orderID);
+            load_data("None");
+        }
 
-            //order basic info
-            //Label lblID = new Label() { Name = $"lblID", Text = orderID, Location = new System.Drawing.Point(381,123), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
-            //Label lblSerialNum = new Label() { Name = $"lblSerialNum", Text = $"{dt.Rows[0][3]}", Location = new System.Drawing.Point(381, 170), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
+        public void load_data(string sortBy)
+        {
+            pnlSP.Controls.Clear();
+            DataTable dt = controller.getOrder(orderID);
             string[] f = dt.Rows[0][4].ToString().Split(' ');
-            //Label lblDate = new Label() { Name = $"lblDate", Text = $"{f[0]}", Location = new System.Drawing.Point(381, 217), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
-            //Label lblStaffName = new Label() { Name = $"lblStaffName", Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 264), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true };
-            //Label lblStaffID = new Label() { Name = $"lblStaffID", Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 311), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true, TextAlign = ContentAlignment.MiddleCenter };
-            //Label lblStaffContact = new Label() { Name = $"lblStaffContact", Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}", Location = new System.Drawing.Point(381, 358), Font = new Font("Microsoft Sans Serif", 12), AutoSize = true};
-            //Label lblStatus = new Label() { Name = $"lblStatus", Text = $"{dt.Rows[0][6]}", Location = new System.Drawing.Point(381, 405), Font = new Font("Microsoft Sans Serif", 12),AutoSize = true };
 
-            //this.Controls.Add(lblID);
-            //this.Controls.Add(lblSerialNum);
-            //this.Controls.Add(lblDate);
-            //this.Controls.Add(lblStaffName);
-            //this.Controls.Add(lblStaffID);
-            //this.Controls.Add(lblStaffContact);
-            //this.Controls.Add(lblStatus);
-
+            //order info
             lblOrderID.Text = orderID;
             lblOrderSerialNum.Text = $"{dt.Rows[0][3]}";
             lblOrderDate.Text = f[0];
@@ -113,10 +104,10 @@ namespace templatev1.Order_Management
 
             //ordered spare part
             dt = new DataTable();
-            dt = controller.getOrderedSparePart(orderID);
+            dt = controller.getOrderedSparePart(orderID,sortBy);
             int row = dt.Rows.Count;
 
-            
+
             int rowPosition = 8;
             int orderTotalPrice = 0;
             for (int i = 1; i <= row; i++)
@@ -124,12 +115,12 @@ namespace templatev1.Order_Management
                 Label lblRowNum = new Label() { Name = $"lblRowNum{i}", Text = $"{i.ToString()}.", Location = new System.Drawing.Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(30, 20) };
                 Label lblItemNum = new Label() { Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}", Location = new System.Drawing.Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(83, 20), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}", Location = new System.Drawing.Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(97, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartName = new Label() { Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}", Location = new System.Drawing.Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(300, 20),TextAlign = ContentAlignment.MiddleCenter };
+                Label lblPartName = new Label() { Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}", Location = new System.Drawing.Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(300, 20), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblQuantity = new Label() { Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}", Location = new System.Drawing.Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(106, 20), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblUnitPrice = new Label() { Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}", Location = new System.Drawing.Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(144, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblRowTotalPrice = new Label() { Name = $"lblRowTotalPrice{i}", Text = $"¥{(int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString())).ToString()}", Location = new System.Drawing.Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter };
-                
-                
+                Label lblRowTotalPrice = new Label() { Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4].ToString()}", Location = new System.Drawing.Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter };
+
+
                 rowPosition += 50;
                 orderTotalPrice += (int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString()));
                 lblOrderTotalPrice.Text = $"¥ { orderTotalPrice.ToString()}";
@@ -137,7 +128,7 @@ namespace templatev1.Order_Management
                 pnlSP.Controls.Add(lblRowNum);
                 pnlSP.Controls.Add(lblItemNum);
                 pnlSP.Controls.Add(lblPartNum);
-                pnlSP.Controls.Add(lblPartName);              
+                pnlSP.Controls.Add(lblPartName);
                 pnlSP.Controls.Add(lblQuantity);
                 pnlSP.Controls.Add(lblUnitPrice);
                 pnlSP.Controls.Add(lblRowTotalPrice);
@@ -486,6 +477,11 @@ namespace templatev1.Order_Management
             }
 
 
+        }
+
+        private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data(cmbSortOrder.Text.ToString());
         }
 
         private void BWMode()

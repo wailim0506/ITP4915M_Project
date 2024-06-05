@@ -93,6 +93,8 @@ namespace templatev1.Order_Management
             this.lblStaffContact = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.btnReorder = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbSortOrder = new System.Windows.Forms.ComboBox();
             this.grpSparePart.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
@@ -400,7 +402,7 @@ namespace templatev1.Order_Management
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(723, 766);
+            this.btnReturn.Location = new System.Drawing.Point(218, 765);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(94, 45);
             this.btnReturn.TabIndex = 67;
@@ -777,7 +779,7 @@ namespace templatev1.Order_Management
             this.btnReorder.AutoSize = true;
             this.btnReorder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReorder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReorder.Location = new System.Drawing.Point(218, 766);
+            this.btnReorder.Location = new System.Drawing.Point(723, 766);
             this.btnReorder.Name = "btnReorder";
             this.btnReorder.Size = new System.Drawing.Size(94, 45);
             this.btnReorder.TabIndex = 81;
@@ -785,12 +787,43 @@ namespace templatev1.Order_Management
             this.btnReorder.UseVisualStyleBackColor = true;
             this.btnReorder.Click += new System.EventHandler(this.btnReorder_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(219, 719);
+            this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 18);
+            this.label13.TabIndex = 88;
+            this.label13.Text = "Sort By:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbSortOrder
+            // 
+            this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSortOrder.FormattingEnabled = true;
+            this.cmbSortOrder.Items.AddRange(new object[] {
+            "None",
+            "Quantity(Ascending)",
+            "Quantity(Descending)",
+            "Total Price(Ascending)",
+            "Total Price(Descending)"});
+            this.cmbSortOrder.Location = new System.Drawing.Point(283, 714);
+            this.cmbSortOrder.Name = "cmbSortOrder";
+            this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
+            this.cmbSortOrder.TabIndex = 87;
+            this.cmbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cmbSortOrder_SelectedIndexChanged);
+            // 
             // customerViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1174, 822);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cmbSortOrder);
             this.Controls.Add(this.btnReorder);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblStaffContact);
@@ -916,5 +949,7 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Label lblStaffContact;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Button btnReorder;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbSortOrder;
     }
 }

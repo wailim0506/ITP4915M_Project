@@ -46,14 +46,30 @@ namespace controller
             return dt.Rows[0][6].ToString();
         }
 
-        public DataTable getOrderedSparePart(string id) //orderID
+        public DataTable getOrderedSparePart(string id, string sortBy) //orderID
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM order_line WHERE orderID = \'{id}\'";
+            if (sortBy == "None")
+            {
+                sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
+            }else if(sortBy == "Quantity(Ascending)")
+            {
+                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
+            }else if (sortBy == "Quantity(Descending)")
+            {
+                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
+            }else if (sortBy == "Total Price(Ascending)")
+            {
+                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
+            }else if(sortBy == "Total Price(Descending)")
+            {
+                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
+            }
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt;
         }
+
 
         public string getItemNum(string id) //part number
         {
@@ -62,7 +78,6 @@ namespace controller
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt.Rows[0][0].ToString();
-            
         }
 
         public string getPartName(string id)
