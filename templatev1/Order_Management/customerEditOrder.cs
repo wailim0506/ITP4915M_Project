@@ -41,7 +41,8 @@ namespace templatev1.Order_Management
 
         private void customerEditOrder_Load(object sender, EventArgs e)
         {
-            loadData();
+            cmbSortOrder.SelectedIndex = 0;
+            loadData(cmbSortOrder.Text.ToString());
         }
 
         public void picPencil_Click(object sender, EventArgs e)
@@ -92,7 +93,7 @@ namespace templatev1.Order_Management
                 controller.addQtyBack(partToDelete, qtyInOrderNow, 0);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                loadData();
+                loadData(cmbSortOrder.Text.ToString());
             }
             else if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete) == false)
             {
@@ -101,7 +102,7 @@ namespace templatev1.Order_Management
             else
             {
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                loadData();
+                loadData(cmbSortOrder.Text.ToString());
             }
         }
 
@@ -189,7 +190,10 @@ namespace templatev1.Order_Management
                     if (controller.editOrderLineQuantity(orderID, partToUpdate, quantity))
                     {
                         MessageBox.Show("Edit successful.", " Edit Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        loadData();
+                        loadData(cmbSortOrder.Text.ToString());
+                        lblEditQuantity.Visible = false;
+                        tbQauntity.Visible = false;
+                        picTick.Visible = false;
                     }
                     else
                     {
@@ -212,7 +216,7 @@ namespace templatev1.Order_Management
 
         private void picRefresh_Click(object sender, EventArgs e)
         {
-            loadData();
+            loadData(cmbSortOrder.Text.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -280,13 +284,13 @@ namespace templatev1.Order_Management
             BWMode();
         }
 
-        public void loadData()
+        public void loadData(string sortBy)
         {
             pnlSP.Controls.Clear();
             //ordered spare part
             DataTable dt;
             dt = new DataTable();
-            dt = controller.getOrderedSparePart(orderID);
+            dt = controller.getOrderedSparePart(orderID, sortBy);
             int row = dt.Rows.Count;
 
             if (row == 0)  //all spare part is removed, the order can be delete
@@ -354,6 +358,11 @@ namespace templatev1.Order_Management
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
+        }
+
+        private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadData(cmbSortOrder.Text.ToString());
         }
 
         private void BWMode()

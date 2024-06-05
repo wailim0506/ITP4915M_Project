@@ -49,7 +49,7 @@ namespace templatev1.Order_Management
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
             lblLoc.Text += $" {orderID.ToString()}";
-            load_data("None");
+            load_data(cmbSortOrder.Text.ToString());
         }
 
         public void load_data(string sortBy)
@@ -101,6 +101,14 @@ namespace templatev1.Order_Management
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
             lblShippingAddress.Text = controller.getShippingAddress(UID);
+            if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing")
+            {
+                lblDayUntil.Text = $"{dayDifference(orderID)} day(s) until shipping";
+            }
+            else
+            {
+                lblDayUntil.Text = "N/A";
+            }
 
             //ordered spare part
             dt = new DataTable();
@@ -156,7 +164,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dayDifference(orderID) >= 2)
+                if (dayDifference(orderID) >= 3)
                 {
                     Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                     this.Hide();
@@ -167,7 +175,7 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be edited two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Order cannot be edited three day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -188,7 +196,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dayDifference(orderID) >= 2)
+                if (dayDifference(orderID) >= 3)
                 {
 
                     DialogResult dialogResult = MessageBox.Show($"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -218,7 +226,7 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be cancel two day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -454,13 +462,47 @@ namespace templatev1.Order_Management
             //get all part num and qty in the order first
             Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
             //add to cart
-            try
-            {
-                foreach(KeyValuePair<string, int> k in partNumQty)
+            //try
+            //{
+                foreach (KeyValuePair<string, int> k in partNumQty)
                 {
-                    controller.reOrder(UID, k.Key, k.Value);
+                    if (k.Value <= controller.checkOnSaleQty(k.Key))
+                    {
+                        controller.reOrder(UID, k.Key, k.Value);
+                    }
+                    else
+                    {
+                        DialogResult dialogResult2 =  MessageBox.Show($"We dont have enough quantity for {k.Key}.\nContinue to add other item?", "Re-order", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (dialogResult2 == DialogResult.Yes)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            DialogResult dialogResult3 = MessageBox.Show($"Clear item in cart?", "Re-order", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            if (dialogResult3 == DialogResult.Yes)
+                            {
+
+                                List<string> allPartNum = controller.getAllPartNumInCart(UID);
+                                List<int> allItemQty = controller.getAllItemQtyInCart(UID);
+                                for (int i = 0; i < allPartNum.Count; i++)
+                                {
+                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty back to db
+                                }
+                                if (controller.removeAll(UID)) //remove from cart
+                                {
+                                    MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
+                                }
+                                return;
+                            }
+                            else
+                            {
+                                return;
+                            }
+                        }
+                    }
                 }
-                DialogResult dialogResult = MessageBox.Show("All item in this order added to cart.\nProceed to cart to create order?","Re-order", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("All available item in this order added to cart.\nProceed to cart to create order?","Re-order", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
@@ -470,14 +512,14 @@ namespace templatev1.Order_Management
                     cart.ShowDialog();
                     this.Close();
                 }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+        //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
 
-        }
+}
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {

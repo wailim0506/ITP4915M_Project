@@ -172,15 +172,7 @@ namespace templatev1.Online_Ordering_Platform
 
         }
 
-        private void btnGoFavourite_Click(object sender, EventArgs e)
-        {
-            Form fav = new favourite(accountController, UIController);
-            this.Hide();
-            fav.StartPosition = FormStartPosition.Manual;
-            fav.Location = this.Location;
-            fav.ShowDialog();
-            this.Close();
-        }
+        
 
         public Boolean isFavourite(string partNum)
         {
@@ -287,6 +279,16 @@ namespace templatev1.Online_Ordering_Platform
         {
             PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
+        }
+
+        private void btnAddToExistingOrder_Click(object sender, EventArgs e)
+        {
+            Form addPart = new AddPartToExistingOrder(partNum,tbQty.Text.ToString() ,accountController, UIController);
+            this.Hide();
+            addPart.StartPosition = FormStartPosition.Manual;
+            addPart.Location = this.Location;
+            addPart.ShowDialog();
+            this.Close();
         }
 
         private void BWMode()

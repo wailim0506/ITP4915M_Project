@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="abstractController.cs" />
     <Compile Include="accountController.cs" />
+    <Compile Include="addPartToOrderController.cs" />
     <Compile Include="cartController.cs" />
     <Compile Include="editOrderController.cs" />
     <Compile Include="favouriteController.cs" />

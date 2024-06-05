@@ -106,7 +106,7 @@ namespace controller
             return true;
         }
 
-        public Boolean removeAll(string id)
+        public Boolean removeAll(string id) //customer id
         {
             string cartID = getCartID(id);
             sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
