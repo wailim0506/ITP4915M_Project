@@ -42,6 +42,8 @@ namespace templatev1.Online_Ordering_Platform
             timer1.Enabled = true;
             DataTable dt = controller.getFavourite(UID);
             load_part(dt);
+            cmbSorting.SelectedIndex = 0;
+            cmbCategory.SelectedIndex = 0;
         }
 
 

@@ -32,6 +32,7 @@ namespace templatev1
         private void btnSend_Click(object sender, EventArgs e)
         {
             string feedback = tbFB.Text.ToString();
+            string orderID = cmbOrder.Text.ToString();
             int wordCount = CountWords(feedback);
             if (wordCount > 100)
             {
@@ -43,12 +44,13 @@ namespace templatev1
             else
             {
                 controller.feedbackController controller = new controller.feedbackController(); //create controller object
-                Boolean addFeedback = controller.addFeedback("LMC00001",feedback);
+                Boolean addFeedback = controller.addFeedback("LMC00001",feedback, orderID);
                 if (addFeedback == true)
                 {
                     tbFB.Text = "";
                     lblWordCount.Text = $"Word Count: 0";
-                    MessageBox.Show("Feedback Sent.");
+                    cmbOrder.Text = "N/A";
+                    MessageBox.Show("Feedback Sent.\nThank you for your feedback.");
                 }
             }        
         }
@@ -156,6 +158,22 @@ namespace templatev1
         {
             timer1.Enabled = true; //timer
             //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
+            LoadComboBox();
+            cmbOrder.SelectedIndex = 0;
+        }
+
+        private void LoadComboBox()
+        {
+            List<string> order = new List<string> {"N/A"};
+
+            controller.feedbackController controller = new controller.feedbackController(); //create controller object
+            List<string> d = controller.getOrderID(UID);
+
+            foreach (string x in d)
+            {
+                order.Add(x);
+            }
+            cmbOrder.DataSource = order;
         }
 
         private void BWMode()

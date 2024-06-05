@@ -416,6 +416,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             // cmbSortOrder
             // 
+            this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortOrder.FormattingEnabled = true;
             this.cmbSortOrder.Items.AddRange(new object[] {
@@ -428,7 +429,6 @@ namespace templatev1.Online_Ordering_Platform
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(94, 26);
             this.cmbSortOrder.TabIndex = 85;
-            this.cmbSortOrder.Text = "All";
             this.cmbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cmbSortOrder_SelectedIndexChanged);
             // 
             // customerOrderList

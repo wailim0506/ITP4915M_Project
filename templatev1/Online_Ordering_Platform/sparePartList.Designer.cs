@@ -385,6 +385,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             // cmbCategory
             // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] {
@@ -397,7 +398,6 @@ namespace templatev1.Online_Ordering_Platform
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(48, 28);
             this.cmbCategory.TabIndex = 80;
-            this.cmbCategory.Text = "All";
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
             // label2
@@ -423,6 +423,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             // cmbSorting
             // 
+            this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
             this.cmbSorting.Items.AddRange(new object[] {
@@ -433,7 +434,6 @@ namespace templatev1.Online_Ordering_Platform
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(151, 26);
             this.cmbSorting.TabIndex = 83;
-            this.cmbSorting.Text = "Category";
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
             // label4

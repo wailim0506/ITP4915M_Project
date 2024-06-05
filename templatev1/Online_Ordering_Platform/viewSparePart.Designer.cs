@@ -586,6 +586,7 @@ namespace templatev1.Online_Ordering_Platform
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(103, 30);
             this.tbQty.TabIndex = 79;
+            this.tbQty.Text = "1";
             this.tbQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.tbQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQty_KeyPress);
             // 

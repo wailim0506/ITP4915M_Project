@@ -143,9 +143,9 @@ namespace templatev1.Order_Management
             // pnlSP
             // 
             this.pnlSP.AutoScroll = true;
-            this.pnlSP.Location = new System.Drawing.Point(3, 7);
+            this.pnlSP.Location = new System.Drawing.Point(3, 11);
             this.pnlSP.Name = "pnlSP";
-            this.pnlSP.Size = new System.Drawing.Size(935, 249);
+            this.pnlSP.Size = new System.Drawing.Size(935, 245);
             this.pnlSP.TabIndex = 0;
             // 
             // lblOrderIDLabel

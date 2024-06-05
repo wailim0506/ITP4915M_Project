@@ -320,7 +320,7 @@ namespace templatev1.Online_Ordering_Platform
             this.lblCorpName.Location = new System.Drawing.Point(1, 823);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
-            this.lblCorpName.Size = new System.Drawing.Size(163, 45);
+            this.lblCorpName.Size = new System.Drawing.Size(163, 52);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
             // 
@@ -612,7 +612,7 @@ namespace templatev1.Online_Ordering_Platform
             // tbCity
             // 
             this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCity.Location = new System.Drawing.Point(720, 157);
+            this.tbCity.Location = new System.Drawing.Point(719, 144);
             this.tbCity.Name = "tbCity";
             this.tbCity.ReadOnly = true;
             this.tbCity.Size = new System.Drawing.Size(154, 29);
@@ -621,7 +621,7 @@ namespace templatev1.Online_Ordering_Platform
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(659, 160);
+            this.label5.Location = new System.Drawing.Point(658, 147);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(50, 24);
             this.label5.TabIndex = 6;
@@ -630,7 +630,7 @@ namespace templatev1.Online_Ordering_Platform
             // tbProvince
             // 
             this.tbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbProvince.Location = new System.Drawing.Point(720, 91);
+            this.tbProvince.Location = new System.Drawing.Point(719, 78);
             this.tbProvince.Name = "tbProvince";
             this.tbProvince.ReadOnly = true;
             this.tbProvince.Size = new System.Drawing.Size(154, 29);
@@ -639,7 +639,7 @@ namespace templatev1.Online_Ordering_Platform
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(611, 96);
+            this.label4.Location = new System.Drawing.Point(610, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 24);
             this.label4.TabIndex = 4;
@@ -648,17 +648,17 @@ namespace templatev1.Online_Ordering_Platform
             // tbAddress
             // 
             this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbAddress.Location = new System.Drawing.Point(271, 74);
+            this.tbAddress.Location = new System.Drawing.Point(270, 61);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
             this.tbAddress.ReadOnly = true;
-            this.tbAddress.Size = new System.Drawing.Size(299, 150);
+            this.tbAddress.Size = new System.Drawing.Size(299, 162);
             this.tbAddress.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(267, 48);
+            this.label3.Location = new System.Drawing.Point(266, 35);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(179, 24);
             this.label3.TabIndex = 2;
@@ -666,7 +666,7 @@ namespace templatev1.Online_Ordering_Platform
             // 
             // dtpShippingDate
             // 
-            this.dtpShippingDate.Location = new System.Drawing.Point(12, 74);
+            this.dtpShippingDate.Location = new System.Drawing.Point(11, 61);
             this.dtpShippingDate.Margin = new System.Windows.Forms.Padding(9, 8, 9, 8);
             this.dtpShippingDate.Name = "dtpShippingDate";
             this.dtpShippingDate.TabIndex = 1;
@@ -674,7 +674,7 @@ namespace templatev1.Online_Ordering_Platform
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 48);
+            this.label2.Location = new System.Drawing.Point(8, 35);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(223, 24);
             this.label2.TabIndex = 0;

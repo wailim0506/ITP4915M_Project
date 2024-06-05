@@ -58,6 +58,8 @@ namespace templatev1
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.lblWordCount = new System.Windows.Forms.Label();
+            this.cmbOrder = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -388,18 +390,44 @@ namespace templatev1
             // lblWordCount
             // 
             this.lblWordCount.AutoSize = true;
+            this.lblWordCount.BackColor = System.Drawing.Color.White;
             this.lblWordCount.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordCount.Location = new System.Drawing.Point(367, 628);
+            this.lblWordCount.Location = new System.Drawing.Point(374, 589);
+            this.lblWordCount.Margin = new System.Windows.Forms.Padding(0);
             this.lblWordCount.Name = "lblWordCount";
             this.lblWordCount.Size = new System.Drawing.Size(134, 23);
             this.lblWordCount.TabIndex = 66;
             this.lblWordCount.Text = "Word Count: 0";
+            // 
+            // cmbOrder
+            // 
+            this.cmbOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbOrder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbOrder.FormattingEnabled = true;
+            this.cmbOrder.Location = new System.Drawing.Point(503, 625);
+            this.cmbOrder.Name = "cmbOrder";
+            this.cmbOrder.Size = new System.Drawing.Size(116, 27);
+            this.cmbOrder.TabIndex = 67;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(374, 627);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 21);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Select an order:";
             // 
             // giveFeedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 876);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbOrder);
             this.Controls.Add(this.lblWordCount);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
@@ -455,5 +483,7 @@ namespace templatev1
         private System.Windows.Forms.Label lblWordCount;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.ComboBox cmbOrder;
+        private System.Windows.Forms.Label label1;
     }
 }

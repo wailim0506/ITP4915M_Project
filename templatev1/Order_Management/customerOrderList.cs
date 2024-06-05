@@ -46,6 +46,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             timer1.Enabled = true;
             load_data("All");
+            cmbSortOrder.SelectedIndex = 0;
         }
 
         public void load_data(string sortBy)

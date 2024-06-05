@@ -43,6 +43,8 @@ namespace templatev1.Online_Ordering_Platform
             timer1.Enabled = true;
             DataTable dt = controller.getAllPart();
             load_part(dt);
+            cmbCategory.SelectedIndex = 0;
+            cmbSorting.SelectedIndex = 0;
         }
 
 
