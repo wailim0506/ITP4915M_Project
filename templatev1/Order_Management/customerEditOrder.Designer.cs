@@ -92,6 +92,8 @@ namespace templatev1.Order_Management
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbSortOrder = new System.Windows.Forms.ComboBox();
             this.grpSparePart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
@@ -760,11 +762,41 @@ namespace templatev1.Order_Management
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(204, 442);
+            this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(61, 18);
+            this.label13.TabIndex = 105;
+            this.label13.Text = "Sort By:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbSortOrder
+            // 
+            this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSortOrder.FormattingEnabled = true;
+            this.cmbSortOrder.Items.AddRange(new object[] {
+            "None",
+            "Quantity(Ascending)",
+            "Quantity(Descending)",
+            "Total Price(Ascending)",
+            "Total Price(Descending)"});
+            this.cmbSortOrder.Location = new System.Drawing.Point(268, 437);
+            this.cmbSortOrder.Name = "cmbSortOrder";
+            this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
+            this.cmbSortOrder.TabIndex = 104;
+            // 
             // customerEditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 841);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.cmbSortOrder);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
@@ -886,5 +918,7 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbSortOrder;
     }
 }
