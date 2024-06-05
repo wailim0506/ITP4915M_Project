@@ -466,7 +466,6 @@ namespace templatev1.Order_Management
             //{
                 foreach (KeyValuePair<string, int> k in partNumQty)
                 {
-                    //check onsales qty first!!!!
                     if (k.Value <= controller.checkOnSaleQty(k.Key))
                     {
                         controller.reOrder(UID, k.Key, k.Value);
