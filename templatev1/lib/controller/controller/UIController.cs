@@ -18,30 +18,25 @@ namespace controller
         private bool BWMode;
         private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
         private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5;        //Text in the button.
-        private static string AccountType;
+        private static string AccountType, permission;
 
         controller.accountController accountController;
 
         public UIController()
         {
-            funbtn1 = funbtn2 = funbtn3 = funbtn4 = funbtn5 = sqlStr = "";
-            showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
-            AccountType = "";
+
         }
 
-        public UIController(accountController account)
+        public UIController(accountController accountController)
         {
-            accountController = account;
-            funbtn1 = funbtn2 = funbtn3 = funbtn4 = funbtn5 = sqlStr = "";
+            this.accountController = accountController;
             showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
-            AccountType = "";
         }
 
-
-
+        //Set user permission and determine which function button to be shown.
         public void setPermission(string UserID)
         {
-            if (AccountType.Equals("Customer"))     //Customer
+            if (AccountType.Equals("Customer"))     //Customer account.
                 determineFun("C");
             else       //Staff
             {
@@ -50,54 +45,14 @@ namespace controller
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
                 adr.Dispose();
-                determineFun(dt.Rows[0]["permissionID"].ToString());
+                permission = dt.Rows[0]["permissionID"].ToString();
+                determineFun(permission);
             }
-
         }
         public void setType(string AccType)
         {
             AccountType = AccType;
         }
-
-        public void setMode(bool value)
-        {
-            BWMode = value;
-        }
-
-        public dynamic getMode()
-        {
-            if (!BWMode)
-            {
-                dynamic expando = new ExpandoObject();
-                expando.textColor = "#FFFFFF";
-                expando.bgColor = "#404040";
-                expando.navBarColor = "#008000";
-                expando.navColor = "#A0A0A0";
-                expando.timeColor = "#A9A9A9";
-                expando.locTbColor = "#808080";
-                expando.logoutColor = "#FF0000";
-                expando.profileColor = "#BDB76B";
-                expando.btnColor = "#808080";
-                expando.BWmode = true;
-                return expando;
-            }
-            else
-            {
-                dynamic expando = new ExpandoObject();
-                expando.textColor = "#000000";
-                expando.bgColor = "#F0F0F0";
-                expando.navBarColor = "#3bd5b8";
-                expando.navColor = "#B9D1EA";
-                expando.timeColor = "#cccccc";
-                expando.locTbColor = "#E3E3E3";
-                expando.logoutColor = "#ffc0c0";
-                expando.profileColor = "#ffffc0";
-                expando.btnColor = "#FFFFFF";
-                expando.BWmode = false;
-                return expando;
-            }
-        }
-
         private void determineFun(string permission)
         {
             switch (permission)
@@ -124,33 +79,81 @@ namespace controller
                     funbtn4 = "Stock Management";
                     funbtn5 = "User Managemnet";
                     break;
-                case "MP02":     //Order processing clerk
-                    showbtn1 = showbtn2 = true;
-                    funbtn1 = "Order Management";
-                    funbtn2 = "User Managemne";
-                    break;
-                case "MP03":     //Storeman
+                case "MP02":     //Storeman
                     showbtn1 = showbtn2 = showbtn3 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Stock Management";
                     funbtn3 = "User Managemnet";
                     break;
-                case "MP04":     //Department manager
+                case "MP03":     //Department manager
                     showbtn1 = true;
                     funbtn1 = "User Managemnet";
                     break;
-                case "MP05":     //Delivery man
-                    showbtn1 = true;
+                case "MP04":     //Delivery man
+                    showbtn1 = showbtn2 = true;
                     funbtn1 = "Order Management";
-                    showbtn2 = true;
-                    funbtn2 = "User Managemne";
+                    funbtn2 = "User Management";
                     break;
             }
         }
+        //Return the button name and whick to be shown.
+        public dynamic showFun()
+        {
+            dynamic funbtn = new ExpandoObject();
+            funbtn.btn1show = showbtn1;
+            funbtn.btn1value = funbtn1;
+            funbtn.btn2show = showbtn2;
+            funbtn.btn2value = funbtn2;
+            funbtn.btn3show = showbtn3;
+            funbtn.btn3value = funbtn3;
+            funbtn.btn4show = showbtn4;
+            funbtn.btn4value = funbtn4;
+            funbtn.btn5show = showbtn5;
+            funbtn.btn5value = funbtn5;
+            return funbtn;
+        }
 
+        //For dark mode function.
+        public void setMode(bool value)
+        {
+            BWMode = value;
+        }
+        public dynamic getMode()
+        {
+            dynamic mode = new ExpandoObject();
+            if (!BWMode)     //normal
+            {
+                mode.textColor = "#FFFFFF";
+                mode.bgColor = "#404040";
+                mode.navBarColor = "#008000";
+                mode.navColor = "#A0A0A0";
+                mode.timeColor = "#A9A9A9";
+                mode.locTbColor = "#808080";
+                mode.logoutColor = "#FF0000";
+                mode.profileColor = "#BDB76B";
+                mode.btnColor = "#808080";
+                mode.BWmode = true;
+                return mode;
+            }
+            else    //dark.
+            {
+                mode.textColor = "#000000";
+                mode.bgColor = "#F0F0F0";
+                mode.navBarColor = "#3bd5b8";
+                mode.navColor = "#B9D1EA";
+                mode.timeColor = "#cccccc";
+                mode.locTbColor = "#E3E3E3";
+                mode.logoutColor = "#ffc0c0";
+                mode.profileColor = "#ffffc0";
+                mode.btnColor = "#FFFFFF";
+                mode.BWmode = false;
+                return mode;
+            }
+        }
+
+        //Return the indicator's location.
         public int getIndicator(string btnText)
         {
-            int No;
             if (btnText.Equals(funbtn1))
                 return 1;
             else if (btnText.Equals(funbtn2))
@@ -166,36 +169,35 @@ namespace controller
         //Change the information needs to show between customer and staff.
         public dynamic proFile()
         {
-            dynamic expando = new ExpandoObject();
+            dynamic profile = new ExpandoObject();
             if (AccountType.Equals("Customer"))
             {
-                expando.group1 = false;
-                expando.group2 = true;
+                profile.group1 = false;
+                profile.group2 = true;
             }
             else
             {
-                expando.group1 = true;
-                expando.group2 = false;
+                profile.group1 = true;
+                profile.group2 = false;
             }
-            return expando;
+            return profile;
         }
 
-
-        public dynamic showFun()
+        //Change the information needs to show between storeman and sale manager.
+        public dynamic store()
         {
-            dynamic expando = new ExpandoObject();
-            expando.btn1show = showbtn1;
-            expando.btn1value = funbtn1;
-            expando.btn2show = showbtn2;
-            expando.btn2value = funbtn2;
-            expando.btn3show = showbtn3;
-            expando.btn3value = funbtn3;
-            expando.btn4show = showbtn4;
-            expando.btn4value = funbtn4;
-            expando.btn5show = showbtn5;
-            expando.btn5value = funbtn5;
-            return expando;
-        }
+            dynamic store = new ExpandoObject();
+            if (permission.Equals("MP02"))
+            {
+                store.group1 = false;
+            }
+            else
+            {
+                store.group1 = true;
+            }
+            return store;
 
+
+        }
     }
 }

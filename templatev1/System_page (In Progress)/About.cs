@@ -37,8 +37,6 @@ namespace templatev1
             lblInsDate.Text = Login.getInsDate();
             TimeSpan span = (DateTime.Now - DateTime.Parse(Login.getInsDate()));
             lblTotalOpTime.Text = String.Format("{0} hours, {1} minutes", span.Hours, span.Minutes);
-
-
         }
 
         private void Initialization()
@@ -67,6 +65,63 @@ namespace templatev1
                 picBWMode.Image = Properties.Resources.LBWhite;
                 picHome.Image = Properties.Resources.homeWhite;
             }
+        }
+
+        //To determine and show the next page.
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+        private void getPage(string Function)
+        {
+            Form next = new Home(accountController, UIController);
+            switch (Function)
+            {
+                case "Order Management":
+
+
+
+                    break;
+                case "Invoice Management":
+
+
+
+                    break;
+                case "On-Sale Product Management":
+
+
+
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(accountController, UIController);
+                    break;
+                case "User Managemnet":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+            }
+
+            this.Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = this.Location;
+            next.Size = this.Size;
+            next.ShowDialog();
+            this.Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
@@ -121,12 +176,12 @@ namespace templatev1
             this.Close();
         }
 
+        //For dark mode function.
         private void picBWMode_Click(object sender, EventArgs e)
         {
             UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
-
         private void BWMode()
         {
             dynamic value = UIController.getMode();

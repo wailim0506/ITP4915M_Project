@@ -92,7 +92,7 @@
             this.lblDBPartNo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.palOrder = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -100,7 +100,7 @@
             this.palLoc.SuspendLayout();
             this.grpAdvancedSearch.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.palOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -135,6 +135,7 @@
             this.palSelect5.Name = "palSelect5";
             this.palSelect5.Size = new System.Drawing.Size(10, 55);
             this.palSelect5.TabIndex = 34;
+            this.palSelect5.Visible = false;
             // 
             // palSelect4
             // 
@@ -143,6 +144,7 @@
             this.palSelect4.Name = "palSelect4";
             this.palSelect4.Size = new System.Drawing.Size(10, 55);
             this.palSelect4.TabIndex = 35;
+            this.palSelect4.Visible = false;
             // 
             // palSelect3
             // 
@@ -151,6 +153,7 @@
             this.palSelect3.Name = "palSelect3";
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 33;
+            this.palSelect3.Visible = false;
             // 
             // btnFunction5
             // 
@@ -166,6 +169,7 @@
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -181,6 +185,7 @@
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction3
             // 
@@ -194,7 +199,9 @@
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 30;
             this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // picBWMode
             // 
@@ -219,6 +226,7 @@
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // btnLogOut
             // 
@@ -233,6 +241,7 @@
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -245,6 +254,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -256,6 +266,7 @@
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
+            this.lblCorpName.Click += new System.EventHandler(this.lblCorpName_Click);
             // 
             // palSelect1
             // 
@@ -264,6 +275,7 @@
             this.palSelect1.Name = "palSelect1";
             this.palSelect1.Size = new System.Drawing.Size(10, 55);
             this.palSelect1.TabIndex = 37;
+            this.palSelect1.Visible = false;
             // 
             // btnFunction1
             // 
@@ -279,6 +291,7 @@
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palSelect2
             // 
@@ -287,6 +300,7 @@
             this.palSelect2.Name = "palSelect2";
             this.palSelect2.Size = new System.Drawing.Size(10, 55);
             this.palSelect2.TabIndex = 36;
+            this.palSelect2.Visible = false;
             // 
             // btnFunction2
             // 
@@ -302,6 +316,7 @@
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // palTime
             // 
@@ -470,6 +485,7 @@
             this.grpAdvancedSearch.TabIndex = 153;
             this.grpAdvancedSearch.TabStop = false;
             this.grpAdvancedSearch.Text = "Advanced search";
+            this.grpAdvancedSearch.Visible = false;
             // 
             // cmbLoc
             // 
@@ -581,6 +597,7 @@
             this.chkAdvancedSearch.TabIndex = 154;
             this.chkAdvancedSearch.Text = "Use Advanced search";
             this.chkAdvancedSearch.UseVisualStyleBackColor = true;
+            this.chkAdvancedSearch.CheckedChanged += new System.EventHandler(this.chkAdvancedSearch_CheckedChanged);
             // 
             // lblDBStoreID
             // 
@@ -767,30 +784,30 @@
             this.label3.TabIndex = 178;
             this.label3.Text = "Name";
             // 
-            // panel1
+            // palOrder
             // 
-            this.panel1.Controls.Add(this.lblTitClickToView);
-            this.panel1.Controls.Add(this.lblDBSender);
-            this.panel1.Controls.Add(this.lblDBDate);
-            this.panel1.Controls.Add(this.lblTitReceivedOrder);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lstDataBase1);
-            this.panel1.Controls.Add(this.btnCancelOrder);
-            this.panel1.Controls.Add(this.btnConfirmOrder);
-            this.panel1.Controls.Add(this.lblDBPartNo);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Location = new System.Drawing.Point(211, 687);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(947, 238);
-            this.panel1.TabIndex = 183;
+            this.palOrder.Controls.Add(this.lblTitClickToView);
+            this.palOrder.Controls.Add(this.lblDBSender);
+            this.palOrder.Controls.Add(this.lblDBDate);
+            this.palOrder.Controls.Add(this.lblTitReceivedOrder);
+            this.palOrder.Controls.Add(this.label1);
+            this.palOrder.Controls.Add(this.lstDataBase1);
+            this.palOrder.Controls.Add(this.btnCancelOrder);
+            this.palOrder.Controls.Add(this.btnConfirmOrder);
+            this.palOrder.Controls.Add(this.lblDBPartNo);
+            this.palOrder.Controls.Add(this.label2);
+            this.palOrder.Controls.Add(this.label3);
+            this.palOrder.Location = new System.Drawing.Point(211, 687);
+            this.palOrder.Name = "palOrder";
+            this.palOrder.Size = new System.Drawing.Size(947, 238);
+            this.palOrder.TabIndex = 183;
             // 
             // StockMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.palOrder);
             this.Controls.Add(this.lblDBLoc);
             this.Controls.Add(this.lblDBStoreID);
             this.Controls.Add(this.chkAdvancedSearch);
@@ -827,8 +844,8 @@
             this.grpAdvancedSearch.ResumeLayout(false);
             this.grpAdvancedSearch.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.palOrder.ResumeLayout(false);
+            this.palOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -899,7 +916,7 @@
         private System.Windows.Forms.Label lblDBPartNo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel palOrder;
     }
 }
 

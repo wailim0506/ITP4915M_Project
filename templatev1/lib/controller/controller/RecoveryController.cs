@@ -13,55 +13,61 @@ namespace controller
 {
     public class RecoveryController : abstractController
     {
+        private MySqlCommand cmd;
+
         private string UID, email, phone;
         private string sqlStr;
-        private MySqlCommand cmd;
+
         controller.accountController accountController;
 
         public RecoveryController()
         {
-            sqlStr = "";
-            UID = email = phone = "";
+
         }
 
         public RecoveryController(controller.accountController accountController)
         {
             this.accountController = accountController;
-            sqlStr = "";
-            UID = email = phone = "";
             UID = accountController.getUID();
         }
 
+        //Find the user in the database
         public bool findUser(string UserID, string emailAdd, string phoneNo)
         {
             UID = UserID;
             email = emailAdd;
             phone = phoneNo;
 
-
             DataTable dt = new DataTable();
-
-            if (UID.StartsWith("LMC"))
+            try
             {
-                sqlStr = $"SELECT * FROM customer WHERE customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                if (UID.StartsWith("LMC"))
+                {
+                    sqlStr = $"SELECT * FROM customer WHERE customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                }
+                else if (UID.StartsWith("LMS"))
+                {
+                    sqlStr = $"SELECT * FROM staff WHERE staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                }
+                else
+                    return false;
+
+                adr = new MySqlDataAdapter(sqlStr, conn);
+                adr.Fill(dt);
+                adr.Dispose();
+
+                if (dt.Rows.Count == 1)
+                    return true;
+                else
+                    return false;
             }
-            else if (UID.StartsWith("LMS"))
+            catch (Exception e)
             {
-                sqlStr = $"SELECT * FROM staff WHERE staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                return false;     //Some error occurs retrn false to login.
             }
-            else
-                return false;
-
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-
-            if (dt.Rows.Count == 1)
-                return true;
-            else
-                return false;
         }
 
+        //Value for listbox.
         public List<string> getcity(string priovince)
         {
             DataTable dt = new DataTable();
@@ -78,7 +84,6 @@ namespace controller
 
             return city;
         }
-
         public List<string> getpriovince()
         {
             DataTable dt = new DataTable();
@@ -95,6 +100,7 @@ namespace controller
 
             return priovince;
         }
+
 
         public void changPwd(string newPwd)
         {
@@ -127,6 +133,7 @@ namespace controller
             conn.Close();
         }
 
+        //Return the new LMC ID to the create account form.
         public int getLMCID()
         {
             DataTable dt = new DataTable();
@@ -141,58 +148,7 @@ namespace controller
             return dt.Rows.Count + 1;
         }
 
-        public int NumOfUser()
-        {
-            DataTable dt = new DataTable();
-
-            conn.Open();
-            sqlStr = "SELECT * FROM customer";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            conn.Close();
-
-            return dt.Rows.Count;
-        }
-
-        private byte[] Encrypt(string simpletext, byte[] key, byte[] iv)
-        {
-            byte[] cipheredtext;
-            using (Aes aes = Aes.Create())
-            {
-                ICryptoTransform encryptor = aes.CreateEncryptor(key, iv);
-                using (MemoryStream memoryStream = new MemoryStream())
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
-                    {
-                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
-                        {
-                            streamWriter.Write(simpletext);
-                        }
-
-                        cipheredtext = memoryStream.ToArray();
-                    }
-                }
-            }
-            return cipheredtext;
-        }
-
-        //Check whether the email or phone has registered an account.
-        public bool checkEmailPhone(string data)
-        {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-
-            if (dt.Rows.Count >= 1)
-                return false;
-            else
-                return true;
-        }
-
+        //For create a new customer accounr.
         public bool create(dynamic Userinfo)
         {
             string encryptedPwd, strKey, strIV;
@@ -256,5 +212,43 @@ namespace controller
             }
         }
 
+        //Encrypt the password when recovery the password or create a new customer account.
+        private byte[] Encrypt(string simpletext, byte[] key, byte[] iv)
+        {
+            byte[] cipheredtext;
+            using (Aes aes = Aes.Create())
+            {
+                ICryptoTransform encryptor = aes.CreateEncryptor(key, iv);
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                    {
+                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
+                        {
+                            streamWriter.Write(simpletext);
+                        }
+
+                        cipheredtext = memoryStream.ToArray();
+                    }
+                }
+            }
+            return cipheredtext;
+        }
+
+        //Check whether the email or phone has registered an account.
+        public bool checkEmailPhone(string data)
+        {
+            DataTable dt = new DataTable();
+            sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
+            adr = new MySqlDataAdapter(sqlStr, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+
+            if (dt.Rows.Count >= 1)
+                return false;
+            else
+                return true;
+        }
     }
 }

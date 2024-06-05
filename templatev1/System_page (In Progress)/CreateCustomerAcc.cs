@@ -13,7 +13,7 @@ namespace templatev1
         controller.RecoveryController recoveryController;
         Bitmap IMG;
         bool IMGUploaded;
-        dynamic expando;
+        dynamic value;
 
         public CreateCustomerAcc()
         {
@@ -24,7 +24,7 @@ namespace templatev1
         {
             InitializeComponent();
             this.recoveryController = recoveryController;
-            expando = new ExpandoObject();
+            value = new ExpandoObject();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,14 +39,15 @@ namespace templatev1
             cmbProvince.Items.AddRange(recoveryController.getpriovince().ToArray()); 
         }
 
+        //User create a new customer account.
         private void btnCreate_Click(object sender, EventArgs e)
         {
             if (checkInfo())       //Pass to controller and create account
             {
-                setValue();
-                if (recoveryController.create(expando))
+                setValue();    //If passed set the value in to dynameic.
+                if (recoveryController.create(value))
                 {
-                    MessageBox.Show("Create account success! Your UID is LMC" + recoveryController.NumOfUser().ToString("D5") + ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Create account success! Your UID is LMC" + (recoveryController.getLMCID()-1).ToString("D5") + ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Form Login = new Login();
                     this.Hide();
@@ -302,35 +303,35 @@ namespace templatev1
 
         private void setValue()
         {
-            expando = new ExpandoObject();
-            expando.fName = tbFirstName.Text;
-            expando.lName = tbLastName.Text;
-            expando.joinDate = DateTime.Now.ToString("yyyy/MM/dd");
+            value = new ExpandoObject();
+            value.fName = tbFirstName.Text;
+            value.lName = tbLastName.Text;
+            value.joinDate = DateTime.Now.ToString("yyyy/MM/dd");
 
             if (cmbGender.SelectedIndex == 0)
-                expando.gender = "M";
+                value.gender = "M";
             else
-                expando.gender = "F";
+                value.gender = "F";
 
             if (chkNGDateOfBirth.Checked)
-                expando.dateOfBirth = "NULL";
+                value.dateOfBirth = "NULL";
             else
-                expando.dateOfBirth = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
+                value.dateOfBirth = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
 
             if (IMGUploaded)
-                expando.IMG = "''";
+                value.IMG = "''";
             else
-                expando.IMG = "NULL";
+                value.IMG = "NULL";
 
-            expando.payment = cmbPayment.SelectedItem.ToString();
-            expando.phone = tbPhone.Text;
-            expando.email = tbEmail.Text;
-            expando.company = tbCompanyName.Text;
-            expando.province = cmbProvince.SelectedItem.ToString();
-            expando.city = cmbCity.SelectedItem.ToString();
-            expando.address1 = tbAddress1.Text;
-            expando.address2 = tbAddress2.Text;
-            expando.pwd = tbConfirmPass.Text;
+            value.payment = cmbPayment.SelectedItem.ToString();
+            value.phone = tbPhone.Text;
+            value.email = tbEmail.Text;
+            value.company = tbCompanyName.Text;
+            value.province = cmbProvince.SelectedItem.ToString();
+            value.city = cmbCity.SelectedItem.ToString();
+            value.address1 = tbAddress1.Text;
+            value.address2 = tbAddress2.Text;
+            value.pwd = tbConfirmPass.Text;
         }
 
 

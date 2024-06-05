@@ -12,10 +12,10 @@ namespace controller
 {
     public class proFileController : abstractController
     {
-        private string sqlStr;
-        private string accountType;
-        private string UID;
         private MySqlCommand cmd;
+
+        private string sqlStr;
+        private string accountType, UID;
         private DateTime dateOfBirth, createDate;
         private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, dfwaddress, waddress1, waddress2, corp, city, province;
         private bool NGDateOfBirth = false;
@@ -123,28 +123,29 @@ namespace controller
         //Return value to the profile.
         public dynamic getUserInfo()
         {
-            dynamic expando = new ExpandoObject();
-            expando.accountType = accountType;
-            expando.jobTitle = jobTitle;
-            expando.dept = dept;
-            expando.email = email;
-            expando.fName = fName;
-            expando.lName = lName;
-            expando.sex = sex;
-            expando.phone = phone;
-            expando.dateOfBirth = dateOfBirth;
-            expando.createDate = createDate;
-            expando.payment = payment;
-            expando.caddress = caddress + ", " + city + ", " + province;
-            expando.NGDateOfBirth = NGDateOfBirth;
-            expando.corp = corp;
-            expando.waddress = dfwaddress + ", " + city + ", " + province;
-            return expando;
+            dynamic UserInfo = new ExpandoObject();
+            UserInfo.accountType = accountType;
+            UserInfo.jobTitle = jobTitle;
+            UserInfo.dept = dept;
+            UserInfo.email = email;
+            UserInfo.fName = fName;
+            UserInfo.lName = lName;
+            UserInfo.sex = sex;
+            UserInfo.phone = phone;
+            UserInfo.dateOfBirth = dateOfBirth;
+            UserInfo.createDate = createDate;
+            UserInfo.payment = payment;
+            UserInfo.caddress = caddress + ", " + city + ", " + province;
+            UserInfo.NGDateOfBirth = NGDateOfBirth;
+            UserInfo.corp = corp;
+            UserInfo.waddress = dfwaddress + ", " + city + ", " + province;
+            return UserInfo;
         }
 
+        //Return the address for customer user.
         public dynamic getAddinfo()
         {
-            dynamic expando = new ExpandoObject();
+            dynamic AddInfo = new ExpandoObject();
             DataTable dt = new DataTable();
 
             sqlStr = $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
@@ -152,16 +153,17 @@ namespace controller
             adr.Fill(dt);
             adr.Dispose();
 
-            expando.province = province;
-            expando.city = city;
-            expando.corpAdd = caddress;
-            expando.wAdd1 = waddress1;
-            expando.wAdd2 = waddress2;
-            expando.dfvalue = dfadd;
+            AddInfo.province = province;
+            AddInfo.city = city;
+            AddInfo.corpAdd = caddress;
+            AddInfo.wAdd1 = waddress1;
+            AddInfo.wAdd2 = waddress2;
+            AddInfo.dfvalue = dfadd;
 
-            return expando;
+            return AddInfo;
         }
 
+        //Values for listbox
         public List<string> getcity(string priovince)
         {
             DataTable dt = new DataTable();
@@ -178,7 +180,6 @@ namespace controller
 
             return city;
         }
-
         public List<string> getpriovince()
         {
             DataTable dt = new DataTable();
@@ -199,20 +200,27 @@ namespace controller
         //Check whether the email or phone has registered an account.
         public bool checkEmailPhone(string data)
         {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
+            try
+            {
+                DataTable dt = new DataTable();
+                sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                    $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
+                adr = new MySqlDataAdapter(sqlStr, conn);
+                adr.Fill(dt);
+                adr.Dispose();
 
-            if (dt.Rows.Count >= 1)
-                return false;
-            else
-                return true;
+                if (dt.Rows.Count >= 1)
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception e)
+            {
+                return false;           //Something went wrong.
+            }
         }
 
-        //Update the data in the database.
+        //Update the user's info in the database.
         public bool modify(dynamic info)
         {
             try
@@ -234,9 +242,10 @@ namespace controller
             }
         }
 
+        //Update the address in the database.
         public bool modifyAdd(dynamic Addinfo)
         {
-           // try
+            try
             {
                 conn.Open();
                 sqlStr = $"UPDATE customer SET province = \'{Addinfo.province}\', city = \'{Addinfo.city}\', companyAddress = \'{Addinfo.corpAdd}\'" +
@@ -250,9 +259,9 @@ namespace controller
                 conn.Close();
                 return true;
             }
-            //catch (Exception e)
+            catch (Exception e)
             {
-               // return false;           //Something went wrong.
+                return false;           //Something went wrong.
             }
         }
     }

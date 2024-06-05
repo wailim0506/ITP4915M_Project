@@ -137,7 +137,7 @@ namespace templatev1
             //For swap the form betwee staff and customer
             dynamic show = UIController.proFile();
             palSatffInfo.Visible = show.group1;
-            palSCMode.Visible = show.group2;
+            palSCMode.Visible = btnDelete.Visible = show.group2;
 
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
@@ -145,6 +145,62 @@ namespace templatev1
                 picBWMode.Image = Properties.Resources.LBWhite;
                 picHome.Image = Properties.Resources.homeWhite;
             }
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+        private void getPage(string Function)
+        {
+            Form next = new Home(accountController, UIController);
+            switch (Function)
+            {
+                case "Order Management":
+
+
+
+                    break;
+                case "Invoice Management":
+
+
+
+                    break;
+                case "On-Sale Product Management":
+
+
+
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(accountController, UIController);
+                    break;
+                case "User Managemnet":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+            }
+
+            this.Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = this.Location;
+            next.Size = this.Size;
+            next.ShowDialog();
+            this.Close();
         }
 
         private void picHome_Click(object sender, EventArgs e)
@@ -392,7 +448,7 @@ namespace templatev1
                         picUserIMG.Image = IMG;
                         IMGUploaded = true;
 
-                        //Upload to the server
+                        //Put file into local drive.
 
 
 

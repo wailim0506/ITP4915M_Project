@@ -178,11 +178,11 @@
     <Compile Include="Stock_Manag\StockAdd.Designer.cs">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock_Manag\StoremanStockMain.cs">
+    <Compile Include="Stock_Manag\StockMgmtMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Stock_Manag\StoremanStockMain.Designer.cs">
-      <DependentUpon>StoremanStockMain.cs</DependentUpon>
+    <Compile Include="Stock_Manag\StockMgmtMain.Designer.cs">
+      <DependentUpon>StockMgmtMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Stock_Manag\StoremanModify.cs">
       <SubType>Form</SubType>
@@ -378,8 +378,8 @@
     <EmbeddedResource Include="Stock_Manag\StockAdd.resx">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Stock_Manag\StoremanStockMain.resx">
-      <DependentUpon>StoremanStockMain.cs</DependentUpon>
+    <EmbeddedResource Include="Stock_Manag\StockMgmtMain.resx">
+      <DependentUpon>StockMgmtMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Stock_Manag\StoremanModify.resx">
       <DependentUpon>StoremanModify.cs</DependentUpon>

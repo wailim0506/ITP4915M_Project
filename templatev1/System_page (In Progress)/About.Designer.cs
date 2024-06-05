@@ -39,6 +39,7 @@
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
+            this.btnFunction1 = new System.Windows.Forms.Button();
             this.palTime = new System.Windows.Forms.Panel();
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.lblPlatform = new System.Windows.Forms.Label();
             this.lblSysName = new System.Windows.Forms.Label();
             this.lblVer = new System.Windows.Forms.Label();
-            this.btnFunction1 = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -171,6 +171,7 @@
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -188,6 +189,7 @@
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction3
             // 
@@ -203,7 +205,9 @@
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -221,6 +225,25 @@
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
+            // 
+            // btnFunction1
+            // 
+            this.btnFunction1.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
+            this.btnFunction1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction1.FlatAppearance.BorderSize = 0;
+            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction1.Name = "btnFunction1";
+            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction1.TabIndex = 11;
+            this.btnFunction1.Text = "Order Management";
+            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palTime
             // 
@@ -388,23 +411,6 @@
             this.lblVer.TabIndex = 31;
             this.lblVer.Text = "Ver 1.1.0";
             this.lblVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnFunction1
-            // 
-            this.btnFunction1.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction1.FlatAppearance.BorderSize = 0;
-            this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
-            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction1.Name = "btnFunction1";
-            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction1.TabIndex = 11;
-            this.btnFunction1.Text = "Order Management";
-            this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction1.UseVisualStyleBackColor = false;
             // 
             // About
             // 

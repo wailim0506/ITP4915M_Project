@@ -10,19 +10,20 @@ using System.Windows.Forms;
 
 namespace templatev1
 {
-    public partial class LogHis : Form
+    public partial class StockMgmt : Form
     {
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
 
-        public LogHis()
+
+        public StockMgmt()
         {
             InitializeComponent();
         }
 
-        public LogHis(controller.accountController accountController, controller.UIController UIController)
+        public StockMgmt(controller.accountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -41,8 +42,7 @@ namespace templatev1
             UID = accountController.getUID();
             uName = accountController.getName();
             lblUid.Text = "UID: " + UID;
-            dgvLog.DataSource = accountController.getFullLog();
-
+            setIndicator(UIController.getIndicator("Stock Management"));
 
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
@@ -56,6 +56,10 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+
+            //Swap the from between storeman and sale manager
+            dynamic funstion = UIController.store();
+            palOrder.Visible = funstion.group1;
 
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
@@ -121,6 +125,28 @@ namespace templatev1
             this.Close();
         }
 
+        private void setIndicator(int btnNo)
+        {
+            switch (btnNo)
+            {
+                case 1:
+                    palSelect1.Visible = true;
+                    break;
+                case 2:
+                    palSelect2.Visible = true;
+                    break;
+                case 3:
+                    palSelect3.Visible = true;
+                    break;
+                case 4:
+                    palSelect4.Visible = true;
+                    break;
+                case 5:
+                    palSelect5.Visible = true;
+                    break;
+            }
+        }
+
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
@@ -130,18 +156,6 @@ namespace templatev1
             home.Location = this.Location;
             home.Size = this.Size;
             home.ShowDialog();
-            this.Close();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form login = new Login();
-            this.Hide();
-            //Swap the current form to another.
-            login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
-            login.ShowDialog();
             this.Close();
         }
 
@@ -161,6 +175,18 @@ namespace templatev1
             this.Close();
         }
 
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form login = new Login();
+            this.Hide();
+            //Swap the current form to another.
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = this.Location;
+            login.Size = this.Size;
+            login.ShowDialog();
+            this.Close();
+        }
+
         private void lblCorpName_Click(object sender, EventArgs e)
         {
             Form about = new About(accountController, UIController);
@@ -173,39 +199,17 @@ namespace templatev1
             this.Close();
         }
 
-        private void picBWMode_Click(object sender, EventArgs e)
+        private void chkAdvancedSearch_CheckedChanged(object sender, EventArgs e)
         {
-            UIController.setMode(Properties.Settings.Default.BWmode);
-            BWMode();
-        }
-        private void BWMode()
-        {
-            dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
-            {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
-            }
+            if (chkAdvancedSearch.Checked)
+                grpAdvancedSearch.Visible = true;
             else
-            {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
-            }
+                grpAdvancedSearch.Visible = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
-
     }
 }

@@ -36,7 +36,6 @@ namespace templatev1
 
         private void Initialization()
         {
-
             timer1.Enabled = true;
 
             UID = accountController.getUID();

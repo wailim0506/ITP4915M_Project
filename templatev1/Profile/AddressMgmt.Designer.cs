@@ -90,7 +90,7 @@
             this.chkCancel.Location = new System.Drawing.Point(668, 881);
             this.chkCancel.Name = "chkCancel";
             this.chkCancel.Size = new System.Drawing.Size(96, 34);
-            this.chkCancel.TabIndex = 9;
+            this.chkCancel.TabIndex = 0;
             this.chkCancel.Text = "Cancel";
             this.chkCancel.UseVisualStyleBackColor = true;
             this.chkCancel.Click += new System.EventHandler(this.chkCancel_Click);
@@ -363,6 +363,7 @@
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
             // 
             // tbCorpAdd
