@@ -308,5 +308,107 @@ namespace controller
             spareListController c = new spareListController();
             return c.addCart(id, partNum, qty);
         }
+
+        public int checkOnSaleQty(string partNum)
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT OnSaleQty FROM product WHERE partNumber = \'{partNum}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return int.Parse(dt.Rows[0][0].ToString());
+        }
+
+        public Boolean removeAll(string id) //customer id
+        {
+            string cartID = getCartID(id);
+            sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@cartID", cartID);
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return true;
+        }
+
+        public string getCartID(string id) //customer id
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            string customerAccointID = dt.Rows[0][0].ToString();
+
+            dt = new DataTable();
+            sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            return dt.Rows[0][0].ToString();
+        }
+
+        public List<string> getAllPartNumInCart(string id) //customer id  //for remove all item
+        {
+            string cartID = getCartID(id);
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+
+            List<string> itemId = new List<string>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                itemId.Add(dt.Rows[i][0].ToString());
+            }
+
+            List<string> partNum = new List<string>();
+            for (int i = 0; i < itemId.Count; i++)
+            {
+                dt = new DataTable();
+                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{itemId[i]}\'";
+                adr = new MySqlDataAdapter(sqlCmd, conn);
+                adr.Fill(dt);
+                partNum.Add(dt.Rows[0][0].ToString());
+            }
+            return partNum;
+        }
+
+        public List<int> getAllItemQtyInCart(string id) //for remove all item
+        {
+            string cartID = getCartID(id);
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+
+            List<int> itemQty = new List<int>();
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                itemQty.Add(int.Parse(dt.Rows[i][0].ToString()));
+            }
+            return itemQty;
+        }
+
+        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty)
+        {
+            cartController c = new cartController();
+            return c.addQtyBack(num, currentCartQty, desiredQty);
+            
+        }
     }
 }

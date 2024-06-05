@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Online_Ordering_Platform\AddPartToExistingOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\AddPartToExistingOrder.Designer.cs">
+      <DependentUpon>AddPartToExistingOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Online_Ordering_Platform\cart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,6 +318,9 @@
     <Compile Include="Order_Management\viewOrder_Confirm_Reject.Designer.cs">
       <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Online_Ordering_Platform\AddPartToExistingOrder.resx">
+      <DependentUpon>AddPartToExistingOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\cart.resx">
       <DependentUpon>cart.cs</DependentUpon>
     </EmbeddedResource>

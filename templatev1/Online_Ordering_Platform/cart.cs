@@ -247,7 +247,7 @@ namespace templatev1.Online_Ordering_Platform
                     }
                     else
                     {
-                        MessageBox.Show("Error occue\nPlease try again", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error occur\nPlease try again", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

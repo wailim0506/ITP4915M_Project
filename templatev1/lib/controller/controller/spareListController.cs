@@ -89,5 +89,21 @@ namespace controller
            viewSparePartController c = new viewSparePartController();
            return  c.addToCart(id, num, qty);
         }
+
+        public List<string> getAllPartName()
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT name FROM spare_part";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+
+            List<string> partName = new List<string>();
+            for (int i = 0; i < partName.Count; i++)
+            {
+                partName.Add(dt.Rows[i][0].ToString());
+            }
+
+            return partName;
+        }
     }
 }

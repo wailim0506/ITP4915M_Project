@@ -17,9 +17,9 @@ namespace controller
             c = new viewOrderController(); ;
         }
 
-        public DataTable getOrderedSparePart(string orderID)
+        public DataTable getOrderedSparePart(string orderID, string sortBy)
         {
-            return c.getOrderedSparePart(orderID,"None");
+            return c.getOrderedSparePart(orderID,sortBy);
         }
 
         public string getItemNum(string id) //part Number
