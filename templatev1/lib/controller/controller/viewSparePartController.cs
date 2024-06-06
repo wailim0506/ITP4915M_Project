@@ -46,7 +46,7 @@ using MySqlConnector;  //must include in every controller file
 
         }
 
-        public Boolean addToCart(string id, string num, int qty)//customer id,part num, quantity
+        public Boolean addToCart(string id, string num, int qty,Boolean isLM)//customer id,part num, quantity
         {
             //get cart id of the customer first
             DataTable dt = new DataTable();
@@ -108,7 +108,7 @@ using MySqlConnector;  //must include in every controller file
                 {
                     conn.Close();
                 }
-                if (deductQtyInDB(itemID, num, qty)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
+                if (deductQtyInDB(itemID, num, qty,isLM)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
                 {
                     return true;
                 }
@@ -120,10 +120,10 @@ using MySqlConnector;  //must include in every controller file
             else
             {
                 //add to cart
-                sqlCmd = "INSERT INTO product_in_cart VALUES (@cID, @iID, @qty)";
+                sqlCmd = "INSERT INTO product_in_cart VALUES (@cID, @iID, @qty,@date)";
 
-                try
-                {
+                //try
+                //{
                     using (MySqlConnection connection = new MySqlConnection(connString))
                     {
                         connection.Open();
@@ -133,20 +133,21 @@ using MySqlConnector;  //must include in every controller file
                             command.Parameters.AddWithValue("@cID", cartID);
                             command.Parameters.AddWithValue("@iID", itemID);
                             command.Parameters.AddWithValue("@qty", qty);
+                            command.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/MM/yyyy"));
 
                             command.ExecuteNonQuery();
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                }
-                finally
-                {
+                //}
+                //catch (Exception ex)
+                //{
+                //    return false;
+                //}
+                //finally
+                //{
                     conn.Close();
-                }
-                if (deductQtyInDB(itemID, num, qty)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
+                //}
+                if (deductQtyInDB(itemID, num, qty,isLM)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
                 {
                     return true;
                 }
@@ -157,7 +158,7 @@ using MySqlConnector;  //must include in every controller file
             } 
         }
 
-        public Boolean deductQtyInDB(string itemID, string partNum, int qty)
+        public Boolean deductQtyInDB(string itemID, string partNum, int qty,Boolean isLM)
         {
             //get qty in spare_part table first
              DataTable dt = new DataTable();
@@ -170,7 +171,7 @@ using MySqlConnector;  //must include in every controller file
             qtyInDB -= qty;
             
             //update spare_part table
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
+            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
 
             try
             {
@@ -198,7 +199,16 @@ using MySqlConnector;  //must include in every controller file
 
             //get qty in product table 
             dt = new DataTable();
-            sqlCmd = $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
+            if (!isLM)
+            {
+                sqlCmd = $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
+
+            }
+            else
+            {
+                sqlCmd = $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
+
+            }
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             qtyInDB = int.Parse(dt.Rows[0][0].ToString());
@@ -207,7 +217,16 @@ using MySqlConnector;  //must include in every controller file
             qtyInDB -= qty;
 
             //update product table
-            sqlCmd = $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id";
+            if (!isLM)
+            {
+                sqlCmd = $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id";
+
+            }
+            else
+            {
+                sqlCmd = $"UPDATE product SET LM_OnSaleQty = @qty WHERE itemID = @id";
+
+            }
 
             try
             {

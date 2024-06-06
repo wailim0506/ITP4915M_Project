@@ -19,6 +19,7 @@ namespace templatev1.Order_Management
         private string uName, UID;
         string orderID;
         string shipDate;
+        private Boolean isLM;
         public customerViewOrder()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace templatev1.Order_Management
             this.controller = new controller.viewOrderController();
             this.shipDate = "";
             UID = this.accountController.getUID();
+            isLM = accountController.getIsLM();
             
 
             //UID = "LMC00001"; //hard code for testing
@@ -206,7 +208,7 @@ namespace templatev1.Order_Management
                     //add back now;
                     foreach (KeyValuePair<string, int> q in partNumQty)
                     {
-                        controller.addQtyback(q.Key, q.Value);
+                        controller.addQtyback(q.Key, q.Value,isLM);
                     }
                     if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
                     {
@@ -468,7 +470,7 @@ namespace templatev1.Order_Management
                 {
                     if (k.Value <= controller.checkOnSaleQty(k.Key))
                     {
-                        controller.reOrder(UID, k.Key, k.Value);
+                        controller.reOrder(UID, k.Key, k.Value,isLM);
                     }
                     else
                     {
@@ -487,7 +489,7 @@ namespace templatev1.Order_Management
                                 List<int> allItemQty = controller.getAllItemQtyInCart(UID);
                                 for (int i = 0; i < allPartNum.Count; i++)
                                 {
-                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty back to db
+                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0,isLM); //add qty back to db
                                 }
                                 if (controller.removeAll(UID)) //remove from cart
                                 {

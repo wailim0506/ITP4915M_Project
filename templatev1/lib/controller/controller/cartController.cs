@@ -166,11 +166,11 @@ namespace controller
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty) //part num //add qty back to db for product table and spare_part table
+        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty,Boolean isLM) //part num //add qty back to db for product table and spare_part table
         {
             //get the qty in db first
             
-            int qtyInProduct = getOnSaleQtyInDb(num);
+            int qtyInProduct = getOnSaleQtyInDb(num,isLM);
             int qtyInSpare_Part = getSpareQtyInDb(num);
 
             //add db qty with cart qty
@@ -190,7 +190,14 @@ namespace controller
             
 
             //Add to db
-            sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
+            if (!isLM)
+            {
+                sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
+            }
+            else
+            {
+                sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
+            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -213,40 +220,40 @@ namespace controller
             finally
             {
                 conn.Close();
-                }
-
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                        command.Parameters.AddWithValue("@num", num);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
             }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
-            }
+
+            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            //try
+            //{
+            //    using (MySqlConnection connection = new MySqlConnection(connString))
+            //    {
+            //        connection.Open();
+
+            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+            //            command.Parameters.AddWithValue("@num", num);
+
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
 
             return true;
         }
 
-        public Boolean editDbQty(string num, int newQty) //part num 
+        public Boolean editDbQty(string num, int newQty , Boolean isLM) //part num 
         {
             //get the qty in db first
-            int qtyInProduct = getOnSaleQtyInDb(num);
+            int qtyInProduct = getOnSaleQtyInDb(num,isLM);
             int qtyInSpare_Part = getSpareQtyInDb(num);
 
             //deduct db qty with cart qty
@@ -254,7 +261,14 @@ namespace controller
             qtyInSpare_Part -= newQty;
             
             //edit to db
-            sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
+            if (!isLM)
+            {
+                sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
+            }
+            else
+            {
+                sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
+            }
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -279,30 +293,30 @@ namespace controller
                 conn.Close();
             }
 
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
+            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            //try
+            //{
+            //    using (MySqlConnection connection = new MySqlConnection(connString))
+            //    {
+            //        connection.Open();
 
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                        command.Parameters.AddWithValue("@num", num);
+            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+            //            command.Parameters.AddWithValue("@num", num);
 
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
-            }
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
 
             return true;
         }
@@ -344,10 +358,17 @@ namespace controller
             return true;
         }
 
-        public int getOnSaleQtyInDb(string num) //part num
+        public int getOnSaleQtyInDb(string num,Boolean isLM) //part num
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{num}\'";
+            if (!isLM)
+            {
+                sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{num}\'";
+            }
+            else
+            {
+                sqlCmd = $"SELECT LM_onSaleQty FROM product WHERE partNumber = \'{num}\'";
+            }
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             int qtyInProduct = int.Parse(dt.Rows[0][0].ToString());

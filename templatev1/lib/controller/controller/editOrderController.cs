@@ -76,12 +76,12 @@ namespace controller
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean addQtyBack(string num, int currentOrderQty, int desiredQty) //part num //add qty back to db for product table and spare_part table
+        public Boolean addQtyBack(string num, int currentOrderQty, int desiredQty, Boolean isLM) //part num //add qty back to db for product table and spare_part table
         {
             cartController cc = new cartController();
             try
             {
-                cc.addQtyBack(num, currentOrderQty, desiredQty);
+                cc.addQtyBack(num, currentOrderQty, desiredQty, isLM);
                 return true;
             }catch(notEnoughException e)
             {
@@ -90,10 +90,10 @@ namespace controller
             
         }
 
-        public Boolean editDbQty(string num, int desiredQty)
+        public Boolean editDbQty(string num, int desiredQty, Boolean isLM)
         {
             cartController cc = new cartController();
-            if (cc.editDbQty(num, desiredQty))
+            if (cc.editDbQty(num, desiredQty,isLM))
             {
                 return true;
             }

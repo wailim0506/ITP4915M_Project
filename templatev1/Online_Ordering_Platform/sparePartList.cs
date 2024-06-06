@@ -14,6 +14,7 @@ namespace templatev1.Online_Ordering_Platform
     public partial class sparePartList : Form
     {
         private string uName, UID;
+        private Boolean isLM;
         controller.accountController accountController;
         controller.UIController UIController;
         controller.spareListController controller;
@@ -30,6 +31,7 @@ namespace templatev1.Online_Ordering_Platform
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
+            isLM = accountController.getIsLM();
             controller = new controller.spareListController();
             UID = accountController.getUID();
             //UID = "LMC00001"; //hard code for testing
@@ -201,20 +203,20 @@ namespace templatev1.Online_Ordering_Platform
             {
                 MessageBox.Show($"The quantity input is not valid.\nPlease adjust the quantity input", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }else if (qty <= controller.getOnSaleQty(partNum))
+            }else if (qty <= controller.getOnSaleQty(partNum,isLM))
             {
-               if(controller.addCart(UID,partNum, qty))
+               if(controller.addCart(UID,partNum, qty,isLM))
                 {
                     MessageBox.Show($"Added to cart", "Add Cart", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show($"Please try again", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"/*Please try aga*/in", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
             else {
-                MessageBox.Show($"The quantity input exceed the on sale quantity({controller.getOnSaleQty(partNum)}).\nPlease adjust the quantity input", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"The quantity input exceed the on sale quantity({controller.getOnSaleQty(partNum,isLM)}).\nPlease adjust the quantity input", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

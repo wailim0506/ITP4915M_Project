@@ -14,6 +14,7 @@ namespace templatev1.Online_Ordering_Platform
     public partial class viewSparePart : Form
     {
         private string uName, UID;
+        private Boolean isLM;
         controller.accountController accountController;
         controller.UIController UIController;
         controller.viewSparePartController controller;
@@ -37,6 +38,7 @@ namespace templatev1.Online_Ordering_Platform
             UID = accountController.getUID();
             //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
+            isLM = accountController.getIsLM();
         }
 
         private void viewSparePart_Load(object sender, EventArgs e)
@@ -144,7 +146,7 @@ namespace templatev1.Online_Ordering_Platform
                     else
                     {
                         int qty = int.Parse(tbQty.Text.ToString());
-                        if (controller.addToCart(UID, partNum, qty))
+                        if (controller.addToCart(UID, partNum, qty,isLM))
                         {
                             MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.", "Add Cart");
                             tbQty.Text = "";

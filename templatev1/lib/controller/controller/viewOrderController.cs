@@ -297,16 +297,16 @@ namespace controller
             return partNumQty;
         }
 
-        public void addQtyback(string partNum, int qtyInOrder)
+        public void addQtyback(string partNum, int qtyInOrder,Boolean isLM)
         {
             cartController c = new cartController();
-            c.addQtyBack(partNum, qtyInOrder, 0);
+            c.addQtyBack(partNum, qtyInOrder, 0,isLM);
         }
 
-        public Boolean reOrder(string id, string partNum, int qty) //customer id, part number, quantity
+        public Boolean reOrder(string id, string partNum, int qty,Boolean isLM) //customer id, part number, quantity
         {
             spareListController c = new spareListController();
-            return c.addCart(id, partNum, qty);
+            return c.addCart(id, partNum, qty,isLM);
         }
 
         public int checkOnSaleQty(string partNum)
@@ -404,10 +404,10 @@ namespace controller
             return itemQty;
         }
 
-        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty)
+        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty,Boolean isLM)
         {
             cartController c = new cartController();
-            return c.addQtyBack(num, currentCartQty, desiredQty);
+            return c.addQtyBack(num, currentCartQty, desiredQty,isLM);
             
         }
     }

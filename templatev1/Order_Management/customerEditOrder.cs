@@ -18,6 +18,7 @@ namespace templatev1.Order_Management
         controller.editOrderController controller;
         private string uName, UID;
         string orderID;
+        private Boolean isLM;
         public customerEditOrder()
         {
             InitializeComponent();
@@ -37,6 +38,7 @@ namespace templatev1.Order_Management
             //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
             lblLoc.Text += $" {orderID}";
+            isLM = accountController.getIsLM();
         }
 
         private void customerEditOrder_Load(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace templatev1.Order_Management
             if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete))
             {
                 //add qty back to db
-                controller.addQtyBack(partToDelete, qtyInOrderNow, 0);
+                controller.addQtyBack(partToDelete, qtyInOrderNow, 0, isLM);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                 loadData(cmbSortOrder.Text.ToString());
@@ -177,14 +179,14 @@ namespace templatev1.Order_Management
                     //add back to db
                     try
                     {
-                        controller.addQtyBack(partToUpdate, qtyInOrderNow, int.Parse(quantity));
+                        controller.addQtyBack(partToUpdate, qtyInOrderNow, int.Parse(quantity), isLM);
                     }catch(Exception)
                     {
                         MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;    
                     }
                 //deduct db qty after adding back order qty to db
-                if (controller.editDbQty(partToUpdate, int.Parse(quantity)))
+                if (controller.editDbQty(partToUpdate, int.Parse(quantity),isLM))
                 {
                     //edit order line qty
                     if (controller.editOrderLineQuantity(orderID, partToUpdate, quantity))

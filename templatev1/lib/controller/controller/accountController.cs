@@ -23,11 +23,13 @@ namespace controller
 
         public bool IsLogin;
         private string accountID, firstName, lastName, UserID, AccountType, decryptedPassword;
+        private Boolean isLM;
         UIController UIController;
 
         public accountController()
         {
             IsLogin = false;
+            isLM = false;
         }
 
         public bool login(string UID, string Pass, UIController UI)
@@ -60,6 +62,14 @@ namespace controller
                 //Account status is active AND verify the password.
                 if (Pass.Equals(decryptedPassword) && dt.Rows[0]["status"].Equals("active"))
                 {
+                    dt = new DataTable();
+                    sqlStr = $"SELECT isLM from customer_account WHERE customerID = \'{UID}\' ";
+                    adr = new MySqlDataAdapter(sqlStr, conn);
+                    adr.Fill(dt);
+                    if (dt.Rows[0][0].ToString() == "Y")
+                    {
+                        isLM = true;
+                    }
                     IsLogin = true;
                     UserID = UID;
 
@@ -250,6 +260,11 @@ namespace controller
         public string getType()
         {
             return AccountType;
+        }
+
+        public Boolean getIsLM()
+        {
+            return isLM;
         }
 
     }

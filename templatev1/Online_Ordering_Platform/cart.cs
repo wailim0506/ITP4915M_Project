@@ -14,6 +14,7 @@ namespace templatev1.Online_Ordering_Platform
     {
         private string uName, UID;
         private string partToEdit; //for edit qty function
+        private Boolean isLM;
         controller.accountController accountController;
         controller.UIController UIController;
         controller.cartController controller;
@@ -33,6 +34,7 @@ namespace templatev1.Online_Ordering_Platform
             this.UIController = UIController;
             controller = new controller.cartController();
             UID = accountController.getUID();
+            isLM = accountController.getIsLM();
             //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
@@ -149,7 +151,7 @@ namespace templatev1.Online_Ordering_Platform
                             {
                                 if (controls.Name == $"lblQty{checkedIndex[i]}")
                                 {
-                                    if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()),0))
+                                    if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()),0,isLM))
                                     {
 
                                     }
@@ -238,7 +240,7 @@ namespace templatev1.Online_Ordering_Platform
                     List<int> allItemQty = controller.getAllItemQtyInCart(UID);
                     for (int i = 0; i < allPartNum.Count; i++)
                     {
-                        controller.addQtyBack(allPartNum[i], allItemQty[i], 0); //add qty back to db
+                        controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
                     }
                     if (controller.removeAll(UID)) //remove from cart
                     {
@@ -308,7 +310,7 @@ namespace templatev1.Online_Ordering_Platform
                 //add the current cart value back to db first
                 try
                 {
-                    controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString()));
+                    controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString()), isLM);
                 }catch (Exception)
                 {
                     MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -317,7 +319,7 @@ namespace templatev1.Online_Ordering_Platform
                 }
 
                 //update db with user input
-                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString())))
+                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()),isLM))
                 {
                     //update qty in user cart
                     if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
