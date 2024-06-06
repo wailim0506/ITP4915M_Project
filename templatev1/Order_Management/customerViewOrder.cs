@@ -208,7 +208,8 @@ namespace templatev1.Order_Management
                     //add back now;
                     foreach (KeyValuePair<string, int> q in partNumQty)
                     {
-                        controller.addQtyback(q.Key, q.Value,isLM);
+                        //controller.addQtyback(q.Key, q.Value,isLM);    should not add back to on sales qty, only add back to spare part table's qty
+                        controller.addBackToSparePartQty(q.Key, q.Value);
                     }
                     if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
                     {

@@ -64,12 +64,12 @@ namespace templatev1.Online_Ordering_Platform
             for (int i = 0; i < countRow(dt); i++)
             {
                 CheckBox checkBox = new CheckBox() { Name = $"chk{i}", Text = "", Location = new System.Drawing.Point(11, yPosition + 6), Size = new System.Drawing.Size(15, 14), Cursor = Cursors.Hand };
-                Label lblCategory = new Label() { Text = $"{dt.Rows[i][4]}", Location = new System.Drawing.Point(37, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(89, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][5]}", Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartName = new Label() { Text = $"{dt.Rows[i][14]}", Location = new System.Drawing.Point(279, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblCategory = new Label() { Text = $"{dt.Rows[i][5]}", Location = new System.Drawing.Point(37, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(89, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][6]}", Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblPartName = new Label() { Text = $"{dt.Rows[i][16]}", Location = new System.Drawing.Point(279, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23), TextAlign = ContentAlignment.MiddleCenter };
                 Label lblQty = new Label() { Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new System.Drawing.Point(538, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(85, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblUnitPrice = new Label() { Text = $"¥{dt.Rows[i][8]}", Location = new System.Drawing.Point(629, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblRowTotalPrice = new Label() { Name = $"lbRowPrice{i}", Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}", Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblUnitPrice = new Label() { Text = $"¥{dt.Rows[i][10]}", Location = new System.Drawing.Point(629, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblRowTotalPrice = new Label() { Name = $"lbRowPrice{i}", Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][10].ToString())}", Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter };
                 Button btnView = new Button() { Name = $"btnView{i}", Text = "View", Location = new System.Drawing.Point(824, yPosition - 3), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, AutoSize = false, Size = new System.Drawing.Size(64, 28), Cursor = Cursors.Hand };
                 btnView.Click += new EventHandler(this.btnView_Click);
 
@@ -319,7 +319,7 @@ namespace templatev1.Online_Ordering_Platform
                 }
 
                 //update db with user input
-                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()),isLM))
+                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()),isLM,false,0))
                 {
                     //update qty in user cart
                     if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
@@ -359,7 +359,7 @@ namespace templatev1.Online_Ordering_Platform
                     DialogResult dialogResult = MessageBox.Show($"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}", "Create Order", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
+                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),$"{tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}"))
                         {
                             controller.clearCustomerCartAfterCreateOrder(UID);
                             DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?", "Create Order", MessageBoxButtons.YesNo);

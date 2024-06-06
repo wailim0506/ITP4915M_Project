@@ -90,10 +90,56 @@ namespace controller
             
         }
 
-        public Boolean editDbQty(string num, int desiredQty, Boolean isLM)
+        public Boolean addBackToSparePartQty(string num, int qtyInOrder)
+        {
+            //get the qty in db first
+
+            int qtyInSpare_Part = getSpareQtyInDb(num);
+
+            //add db qty with cart qty
+            qtyInSpare_Part += qtyInOrder;
+            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+                        command.Parameters.AddWithValue("@num", num);
+
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return true;
+        }
+
+        public int getSpareQtyInDb(string num)
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
+            return qtyInSpare_Part;
+        }
+
+        public Boolean editDbQty(string num, int desiredQty, Boolean isLM,Boolean isEditOrder,int originQty)
         {
             cartController cc = new cartController();
-            if (cc.editDbQty(num, desiredQty,isLM))
+            if (cc.editDbQty(num, desiredQty,isLM,isEditOrder,originQty))
             {
                 return true;
             }

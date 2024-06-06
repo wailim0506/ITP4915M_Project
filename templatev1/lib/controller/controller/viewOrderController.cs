@@ -303,6 +303,52 @@ namespace controller
             c.addQtyBack(partNum, qtyInOrder, 0,isLM);
         }
 
+        public Boolean addBackToSparePartQty(string num, int qtyInOrder)
+        {
+            //get the qty in db first
+
+            int qtyInSpare_Part = getSpareQtyInDb(num);
+
+            //add db qty with cart qty
+            qtyInSpare_Part += qtyInOrder;
+            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connString))
+                {
+                    connection.Open();
+
+                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                    {
+                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+                        command.Parameters.AddWithValue("@num", num);
+
+
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return true;
+        }
+
+        public int getSpareQtyInDb(string num)
+        {
+            DataTable dt = new DataTable();
+            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
+            adr = new MySqlDataAdapter(sqlCmd, conn);
+            adr.Fill(dt);
+            int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
+            return qtyInSpare_Part;
+        }
+
         public Boolean reOrder(string id, string partNum, int qty,Boolean isLM) //customer id, part number, quantity
         {
             spareListController c = new spareListController();
