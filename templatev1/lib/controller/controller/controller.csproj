@@ -136,7 +136,6 @@
         <Compile Include="RecoveryController.cs"/>
         <Compile Include="OrderAnalysisReportController.cs"/>
         <Compile Include="spareListController.cs"/>
-        <Compile Include="SqlServerTypes\Loader.cs"/>
         <Compile Include="supplierController.cs"/>
         <Compile Include="UIController.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
@@ -148,9 +147,6 @@
     <ItemGroup>
         <None Include="app.config"/>
         <None Include="packages.config"/>
-    </ItemGroup>
-    <ItemGroup>
-        <Content Include="SqlServerTypes\readme.htm"/>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
