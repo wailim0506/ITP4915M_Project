@@ -43,11 +43,11 @@ namespace controller
             {
                 if (UID.StartsWith("LMC"))
                 {
-                    sqlStr = $"SELECT * FROM customer WHERE customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                    sqlStr = $"SELECT * FROM customer C, customer_account CA WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\') AND Status = 'active'";
                 }
                 else if (UID.StartsWith("LMS"))
                 {
-                    sqlStr = $"SELECT * FROM staff WHERE staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
+                    sqlStr = $"SELECT * FROM staff S, staff_account SA WHERE S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\') AND Status = 'active'";
                 }
                 else
                     return false;

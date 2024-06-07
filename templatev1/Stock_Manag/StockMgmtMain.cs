@@ -15,7 +15,7 @@ namespace templatev1
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
-        controller.proFileController proFileController;
+        controller.stockController stockController;
 
 
         public StockMgmt()
@@ -28,6 +28,7 @@ namespace templatev1
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
+            stockController = new controller.stockController(accountController);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
+            controller.proFileController proFileController = new controller.proFileController(accountController);
 
             proFileController.setType(accountController.getType());
 
@@ -205,6 +206,16 @@ namespace templatev1
                 grpAdvancedSearch.Visible = true;
             else
                 grpAdvancedSearch.Visible = false;
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddSpare_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

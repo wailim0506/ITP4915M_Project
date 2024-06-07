@@ -61,11 +61,8 @@
             this.lblTitClickToSelect = new System.Windows.Forms.Label();
             this.lblDBPartNumber = new System.Windows.Forms.Label();
             this.grpAdvancedSearch = new System.Windows.Forms.GroupBox();
-            this.cmbLoc = new System.Windows.Forms.ComboBox();
             this.lblTitLoc = new System.Windows.Forms.Label();
-            this.tbRecorder = new System.Windows.Forms.TextBox();
             this.lblTitRecorder = new System.Windows.Forms.Label();
-            this.tbPartNo = new System.Windows.Forms.TextBox();
             this.cmbCountry = new System.Windows.Forms.ComboBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.cmbSuppiler = new System.Windows.Forms.ComboBox();
@@ -93,6 +90,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.palOrder = new System.Windows.Forms.Panel();
+            this.cmbRecorder = new System.Windows.Forms.ComboBox();
+            this.cmbPartName = new System.Windows.Forms.ComboBox();
+            this.tbLoc = new System.Windows.Forms.TextBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -466,11 +466,11 @@
             // 
             // grpAdvancedSearch
             // 
-            this.grpAdvancedSearch.Controls.Add(this.cmbLoc);
+            this.grpAdvancedSearch.Controls.Add(this.tbLoc);
+            this.grpAdvancedSearch.Controls.Add(this.cmbPartName);
+            this.grpAdvancedSearch.Controls.Add(this.cmbRecorder);
             this.grpAdvancedSearch.Controls.Add(this.lblTitLoc);
-            this.grpAdvancedSearch.Controls.Add(this.tbRecorder);
             this.grpAdvancedSearch.Controls.Add(this.lblTitRecorder);
-            this.grpAdvancedSearch.Controls.Add(this.tbPartNo);
             this.grpAdvancedSearch.Controls.Add(this.cmbCountry);
             this.grpAdvancedSearch.Controls.Add(this.cmbType);
             this.grpAdvancedSearch.Controls.Add(this.cmbSuppiler);
@@ -487,14 +487,6 @@
             this.grpAdvancedSearch.Text = "Advanced search";
             this.grpAdvancedSearch.Visible = false;
             // 
-            // cmbLoc
-            // 
-            this.cmbLoc.FormattingEnabled = true;
-            this.cmbLoc.Location = new System.Drawing.Point(511, 102);
-            this.cmbLoc.Name = "cmbLoc";
-            this.cmbLoc.Size = new System.Drawing.Size(128, 27);
-            this.cmbLoc.TabIndex = 11;
-            // 
             // lblTitLoc
             // 
             this.lblTitLoc.AutoSize = true;
@@ -503,13 +495,6 @@
             this.lblTitLoc.Size = new System.Drawing.Size(81, 20);
             this.lblTitLoc.TabIndex = 10;
             this.lblTitLoc.Text = "Location: ";
-            // 
-            // tbRecorder
-            // 
-            this.tbRecorder.Location = new System.Drawing.Point(122, 102);
-            this.tbRecorder.Name = "tbRecorder";
-            this.tbRecorder.Size = new System.Drawing.Size(196, 27);
-            this.tbRecorder.TabIndex = 9;
             // 
             // lblTitRecorder
             // 
@@ -520,19 +505,12 @@
             this.lblTitRecorder.TabIndex = 8;
             this.lblTitRecorder.Text = "Recorder:";
             // 
-            // tbPartNo
-            // 
-            this.tbPartNo.Location = new System.Drawing.Point(122, 24);
-            this.tbPartNo.Name = "tbPartNo";
-            this.tbPartNo.Size = new System.Drawing.Size(196, 27);
-            this.tbPartNo.TabIndex = 7;
-            // 
             // cmbCountry
             // 
             this.cmbCountry.FormattingEnabled = true;
             this.cmbCountry.Location = new System.Drawing.Point(511, 64);
             this.cmbCountry.Name = "cmbCountry";
-            this.cmbCountry.Size = new System.Drawing.Size(128, 27);
+            this.cmbCountry.Size = new System.Drawing.Size(188, 27);
             this.cmbCountry.TabIndex = 6;
             // 
             // cmbType
@@ -540,7 +518,7 @@
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(511, 24);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(123, 27);
+            this.cmbType.Size = new System.Drawing.Size(188, 27);
             this.cmbType.TabIndex = 5;
             // 
             // cmbSuppiler
@@ -572,11 +550,11 @@
             // lblTitType
             // 
             this.lblTitType.AutoSize = true;
-            this.lblTitType.Location = new System.Drawing.Point(450, 27);
+            this.lblTitType.Location = new System.Drawing.Point(422, 27);
             this.lblTitType.Name = "lblTitType";
-            this.lblTitType.Size = new System.Drawing.Size(55, 20);
+            this.lblTitType.Size = new System.Drawing.Size(83, 20);
             this.lblTitType.TabIndex = 1;
-            this.lblTitType.Text = "Type: ";
+            this.lblTitType.Text = "Category: ";
             // 
             // lblTitPartName
             // 
@@ -661,6 +639,7 @@
             this.btnAddSpare.TabIndex = 166;
             this.btnAddSpare.Text = "Add Spare";
             this.btnAddSpare.UseVisualStyleBackColor = false;
+            this.btnAddSpare.Click += new System.EventHandler(this.btnAddSpare_Click);
             // 
             // btnModify
             // 
@@ -672,6 +651,7 @@
             this.btnModify.TabIndex = 165;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // lblTitClickToView
             // 
@@ -802,6 +782,30 @@
             this.palOrder.Size = new System.Drawing.Size(947, 238);
             this.palOrder.TabIndex = 183;
             // 
+            // cmbRecorder
+            // 
+            this.cmbRecorder.FormattingEnabled = true;
+            this.cmbRecorder.Location = new System.Drawing.Point(122, 102);
+            this.cmbRecorder.Name = "cmbRecorder";
+            this.cmbRecorder.Size = new System.Drawing.Size(196, 27);
+            this.cmbRecorder.TabIndex = 12;
+            // 
+            // cmbPartName
+            // 
+            this.cmbPartName.FormattingEnabled = true;
+            this.cmbPartName.Location = new System.Drawing.Point(122, 24);
+            this.cmbPartName.Name = "cmbPartName";
+            this.cmbPartName.Size = new System.Drawing.Size(196, 27);
+            this.cmbPartName.TabIndex = 13;
+            // 
+            // tbLoc
+            // 
+            this.tbLoc.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.tbLoc.Location = new System.Drawing.Point(511, 102);
+            this.tbLoc.Name = "tbLoc";
+            this.tbLoc.Size = new System.Drawing.Size(188, 26);
+            this.tbLoc.TabIndex = 184;
+            // 
             // StockMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -881,14 +885,11 @@
         private System.Windows.Forms.Label lblTitType;
         private System.Windows.Forms.Label lblTitPartName;
         private System.Windows.Forms.CheckBox chkAdvancedSearch;
-        private System.Windows.Forms.TextBox tbRecorder;
         private System.Windows.Forms.Label lblTitRecorder;
-        private System.Windows.Forms.TextBox tbPartNo;
         private System.Windows.Forms.ComboBox cmbCountry;
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.ComboBox cmbSuppiler;
         private System.Windows.Forms.Label lblDBStoreID;
-        private System.Windows.Forms.ComboBox cmbLoc;
         private System.Windows.Forms.Label lblTitLoc;
         private System.Windows.Forms.Label lblDBLoc;
         private System.Windows.Forms.Panel palSelect5;
@@ -917,6 +918,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel palOrder;
+        private System.Windows.Forms.ComboBox cmbPartName;
+        private System.Windows.Forms.ComboBox cmbRecorder;
+        private System.Windows.Forms.TextBox tbLoc;
     }
 }
 

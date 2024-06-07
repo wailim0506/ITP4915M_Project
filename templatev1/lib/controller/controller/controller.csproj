@@ -80,6 +80,7 @@
     <Compile Include="feedbackController.cs" />
     <Compile Include="RecoveryController.cs" />
     <Compile Include="spareListController.cs" />
+    <Compile Include="stockController.cs" />
     <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
