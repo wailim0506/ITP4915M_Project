@@ -12,14 +12,17 @@ namespace controller
     {
         string sqlCmd;
         viewOrderController c;
-        public editOrderController() {
+
+        public editOrderController()
+        {
             sqlCmd = "";
-            c = new viewOrderController(); ;
+            c = new viewOrderController();
+            ;
         }
 
         public DataTable getOrderedSparePart(string orderID, string sortBy)
         {
-            return c.getOrderedSparePart(orderID,sortBy);
+            return c.getOrderedSparePart(orderID, sortBy);
         }
 
         public string getItemNum(string id) //part Number
@@ -76,70 +79,26 @@ namespace controller
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean addQtyBack(string num, int currentOrderQty, int desiredQty, Boolean isLM) //part num //add qty back to db for product table and spare_part table
+        public Boolean
+            addQtyBack(string num, int currentOrderQty, int desiredQty,
+                Boolean isLM) //part num //add qty back to db for product table and spare_part table
         {
             cartController cc = new cartController();
             try
             {
                 cc.addQtyBack(num, currentOrderQty, desiredQty, isLM);
                 return true;
-            }catch(notEnoughException e)
+            }
+            catch (notEnoughException e)
             {
                 throw e;
             }
-            
         }
 
-        public Boolean addBackToSparePartQty(string num, int qtyInOrder)
-        {
-            //get the qty in db first
-
-            int qtyInSpare_Part = getSpareQtyInDb(num);
-
-            //add db qty with cart qty
-            qtyInSpare_Part += qtyInOrder;
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                        command.Parameters.AddWithValue("@num", num);
-
-
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return true;
-        }
-
-        public int getSpareQtyInDb(string num)
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
-            return qtyInSpare_Part;
-        }
-
-        public Boolean editDbQty(string num, int desiredQty, Boolean isLM,Boolean isEditOrder,int originQty)
+        public Boolean editDbQty(string num, int desiredQty, Boolean isLM)
         {
             cartController cc = new cartController();
-            if (cc.editDbQty(num, desiredQty,isLM,isEditOrder,originQty))
+            if (cc.editDbQty(num, desiredQty, isLM))
             {
                 return true;
             }
@@ -150,13 +109,14 @@ namespace controller
         }
 
 
-        public Boolean editOrderLineQuantity(string id, string num, string qty)  //id = order id, num = part num, qty = new qty wanted
+        public Boolean
+            editOrderLineQuantity(string id, string num,
+                string qty) //id = order id, num = part num, qty = new qty wanted
         {
             string sqlCmd = "UPDATE order_line SET quantity = @qty WHERE partNumber = @num AND orderID = @id";
 
             try
             {
-                
                 using (MySqlConnection connection = new MySqlConnection(connString))
                 {
                     connection.Open();
@@ -177,8 +137,9 @@ namespace controller
             }
             finally
             {
-                conn.Close(); 
+                conn.Close();
             }
+
             return true;
         }
 
@@ -188,7 +149,6 @@ namespace controller
 
             try
             {
-
                 using (MySqlConnection connection = new MySqlConnection(connString))
                 {
                     connection.Open();
@@ -210,6 +170,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
 

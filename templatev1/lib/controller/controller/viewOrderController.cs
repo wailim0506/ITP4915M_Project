@@ -8,9 +8,10 @@ using MySqlConnector;
 
 namespace controller
 {
-    public class viewOrderController : abstractController 
+    public class viewOrderController : abstractController
     {
         string sqlCmd;
+
         public viewOrderController()
         {
             sqlCmd = "";
@@ -52,19 +53,28 @@ namespace controller
             if (sortBy == "None")
             {
                 sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
-            }else if(sortBy == "Quantity(Ascending)")
-            {
-                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
-            }else if (sortBy == "Quantity(Descending)")
-            {
-                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
-            }else if (sortBy == "Total Price(Ascending)")
-            {
-                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
-            }else if(sortBy == "Total Price(Descending)")
-            {
-                sqlCmd = $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
             }
+            else if (sortBy == "Quantity(Ascending)")
+            {
+                sqlCmd =
+                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
+            }
+            else if (sortBy == "Quantity(Descending)")
+            {
+                sqlCmd =
+                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
+            }
+            else if (sortBy == "Total Price(Ascending)")
+            {
+                sqlCmd =
+                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
+            }
+            else if (sortBy == "Total Price(Descending)")
+            {
+                sqlCmd =
+                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
+            }
+
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt;
@@ -93,11 +103,12 @@ namespace controller
         {
             accountController ac = new accountController();
             DataTable dt = ac.getCustomerDetail(id);
-            return $"{dt.Rows[0][10].ToString()}, {dt.Rows[0][7].ToString()}, {dt.Rows[0][8].ToString()}"; 
+            return $"{dt.Rows[0][10].ToString()}, {dt.Rows[0][7].ToString()}, {dt.Rows[0][8].ToString()}";
         }
 
         public DataTable getShippingDetail(string id) //orderID
-        { //orderID
+        {
+            //orderID
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT * FROM shipping_detail WHERE orderID = \'{id}\'";
             adr = new MySqlDataAdapter(sqlCmd, conn);
@@ -123,10 +134,10 @@ namespace controller
             {
                 delivermanDetail[i] = dt.Rows[0][i].ToString();
             }
+
             return delivermanDetail;
         }
 
-       
 
         public Boolean deleteOrder(string id) //order id
         {
@@ -294,13 +305,14 @@ namespace controller
             {
                 partNumQty.Add($"{dt.Rows[i][0]}", int.Parse(dt.Rows[i][1].ToString()));
             }
+
             return partNumQty;
         }
 
-        public void addQtyback(string partNum, int qtyInOrder,Boolean isLM)
+        public void addQtyback(string partNum, int qtyInOrder, Boolean isLM)
         {
             cartController c = new cartController();
-            c.addQtyBack(partNum, qtyInOrder, 0,isLM);
+            c.addQtyBack(partNum, qtyInOrder, 0, isLM);
         }
 
         public Boolean addBackToSparePartQty(string num, int qtyInOrder)
@@ -349,10 +361,10 @@ namespace controller
             return qtyInSpare_Part;
         }
 
-        public Boolean reOrder(string id, string partNum, int qty,Boolean isLM) //customer id, part number, quantity
+        public Boolean reOrder(string id, string partNum, int qty, Boolean isLM) //customer id, part number, quantity
         {
             spareListController c = new spareListController();
-            return c.addCart(id, partNum, qty,isLM);
+            return c.addCart(id, partNum, qty, isLM);
         }
 
         public int checkOnSaleQty(string partNum)
@@ -390,6 +402,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
 
@@ -431,6 +444,7 @@ namespace controller
                 adr.Fill(dt);
                 partNum.Add(dt.Rows[0][0].ToString());
             }
+
             return partNum;
         }
 
@@ -447,14 +461,14 @@ namespace controller
             {
                 itemQty.Add(int.Parse(dt.Rows[i][0].ToString()));
             }
+
             return itemQty;
         }
 
-        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty,Boolean isLM)
+        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty, Boolean isLM)
         {
             cartController c = new cartController();
-            return c.addQtyBack(num, currentCartQty, desiredQty,isLM);
-            
+            return c.addQtyBack(num, currentCartQty, desiredQty, isLM);
         }
     }
 }

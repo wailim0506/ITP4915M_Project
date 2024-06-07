@@ -19,6 +19,7 @@ namespace templatev1.Online_Ordering_Platform
         controller.UIController UIController;
         controller.viewSparePartController controller;
         private string partNum;
+
         public viewSparePart()
         {
             InitializeComponent();
@@ -28,7 +29,8 @@ namespace templatev1.Online_Ordering_Platform
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public viewSparePart(string partNum, controller.accountController accountController, controller.UIController UIController)
+        public viewSparePart(string partNum, controller.accountController accountController,
+            controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -47,7 +49,6 @@ namespace templatev1.Online_Ordering_Platform
             load_part();
         }
 
-        
 
         public void load_part()
         {
@@ -78,7 +79,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void btnBackSearch_Click(object sender, EventArgs e)
         {
-            Form sparePartList = new sparePartList( accountController, UIController);
+            Form sparePartList = new sparePartList(accountController, UIController);
             this.Hide();
             sparePartList.StartPosition = FormStartPosition.Manual;
             sparePartList.Location = this.Location;
@@ -114,7 +115,8 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) == 1) //check quantity input equal 0, do not perform anything if equal to 0
+                if (int.Parse(tbQty.Text.ToString()) ==
+                    1) //check quantity input equal 0, do not perform anything if equal to 0
                 {
                     return;
                 }
@@ -124,29 +126,31 @@ namespace templatev1.Online_Ordering_Platform
                     qty--;
                     tbQty.Text = qty.ToString();
                 }
-
             }
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)
         {
-            if (tbQty.Text != "")  
+            if (tbQty.Text != "")
             {
-                if (int.Parse(tbQty.Text.ToString()) <= 0)  
+                if (int.Parse(tbQty.Text.ToString()) <= 0)
                 {
-                    MessageBox.Show("Quantity is invalid." , "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Quantity is invalid.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     if (int.Parse(tbQty.Text.ToString()) > int.Parse(lblOnSalesQty.Text.ToString()))
-                    {  //check quantity input is larger than on sales quantity
-                        MessageBox.Show($"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text.ToString()})", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    {
+                        //check quantity input is larger than on sales quantity
+                        MessageBox.Show(
+                            $"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text.ToString()})",
+                            "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                     else
                     {
                         int qty = int.Parse(tbQty.Text.ToString());
-                        if (controller.addToCart(UID, partNum, qty,isLM))
+                        if (controller.addToCart(UID, partNum, qty, isLM))
                         {
                             MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.", "Add Cart");
                             tbQty.Text = "";
@@ -154,12 +158,10 @@ namespace templatev1.Online_Ordering_Platform
                         }
                         else
                         {
-                            MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                         }
-
                     }
-                    
                 }
             }
             else
@@ -171,10 +173,8 @@ namespace templatev1.Online_Ordering_Platform
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-
         }
 
-        
 
         public Boolean isFavourite(string partNum)
         {
@@ -182,7 +182,7 @@ namespace templatev1.Online_Ordering_Platform
         }
 
         private void addFavourite(object sender, EventArgs e)
-        { 
+        {
             if (controller.addToFavourite(partNum, UID))
             {
                 MessageBox.Show("Added to favourtie.", "Add Favourite", MessageBoxButtons.OK);
@@ -279,13 +279,14 @@ namespace templatev1.Online_Ordering_Platform
 
         private Image imageString(string imageName)
         {
-            PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+            PropertyInfo property =
+                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
 
         private void btnAddToExistingOrder_Click(object sender, EventArgs e)
         {
-            Form addPart = new AddPartToExistingOrder(partNum,tbQty.Text.ToString() ,accountController, UIController);
+            Form addPart = new AddPartToExistingOrder(partNum, tbQty.Text.ToString(), accountController, UIController);
             this.Hide();
             addPart.StartPosition = FormStartPosition.Manual;
             addPart.Location = this.Location;

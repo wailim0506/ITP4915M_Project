@@ -14,18 +14,18 @@ namespace controller
     public class RecoveryController : abstractController
     {
         private MySqlCommand cmd;
+        private Database db;
 
         private string UID, email, phone;
         private string sqlStr;
 
-        controller.accountController accountController;
+        accountController accountController;
 
         public RecoveryController()
         {
-
         }
 
-        public RecoveryController(controller.accountController accountController)
+        public RecoveryController(accountController accountController)
         {
             this.accountController = accountController;
             UID = accountController.getUID();
@@ -43,11 +43,13 @@ namespace controller
             {
                 if (UID.StartsWith("LMC"))
                 {
-                    sqlStr = $"SELECT * FROM customer C, customer_account CA WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\') AND Status = 'active'";
+                    sqlStr =
+                        $"SELECT * FROM customer WHERE customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
                 }
                 else if (UID.StartsWith("LMS"))
                 {
-                    sqlStr = $"SELECT * FROM staff S, staff_account SA WHERE S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\') AND Status = 'active'";
+                    sqlStr =
+                        $"SELECT * FROM staff WHERE staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
                 }
                 else
                     return false;
@@ -63,7 +65,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                return false;     //Some error occurs retrn false to login.
+                return false; //Some error occurs retrn false to login.
             }
         }
 
@@ -84,6 +86,7 @@ namespace controller
 
             return city;
         }
+
         public List<string> getpriovince()
         {
             DataTable dt = new DataTable();
@@ -104,7 +107,9 @@ namespace controller
 
         public void changPwd(string newPwd)
         {
-            string encryptedPwd, strKey, strIV;
+            string hashedPwd = BCrypt.Net.BCrypt.EnhancedHashPassword(newPwd);
+
+
             byte[] key = new byte[16];
             byte[] iv = new byte[16];
 
@@ -116,18 +121,21 @@ namespace controller
             }
 
             //Encrypt new password and convert into string.
-            encryptedPwd = Convert.ToBase64String(Encrypt(newPwd, key, iv));
-            strKey = Convert.ToBase64String(key);
-            strIV = Convert.ToBase64String(iv);
+            var encryptedPwd = Convert.ToBase64String(Encrypt(newPwd, key, iv));
+            var strKey = Convert.ToBase64String(key);
+            var strIV = Convert.ToBase64String(iv);
 
             //Update password in database
             conn.Open();
-            if (UID.StartsWith("LMC"))
-                sqlStr = $"UPDATE customer_account SET password = \'{encryptedPwd}\', pwdKEY = \'{strKey}\', pwdIV = \'{strIV}\', pwdChangeDate = \'{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}\' WHERE customerID = \'{UID}\'";
-            else
-            {
-                sqlStr = $"UPDATE staff_account SET password = \'{encryptedPwd}\', pwdKEY = \'{strKey}\', pwdIV = \'{strIV}\', pwdChangeDate = \'{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}\' WHERE staffID = \'{UID}\'";
-            }
+            sqlStr = UID.StartsWith("LMC")
+                ? $"UPDATE customer_account SET password = \'{encryptedPwd}\', pwdKEY = \'{strKey}\', " +
+                  $"pwdIV = \'{strIV}\', pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
+                  $"WHERE customerID = \'{UID}\'"
+                : $"UPDATE staff_account SET password = \'{encryptedPwd}\', " +
+                  $"pwdKEY = \'{strKey}\', pwdIV = \'{strIV}\', " +
+                  $"pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
+                  $"WHERE staffID = \'{UID}\'";
+
             cmd = new MySqlCommand(sqlStr, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -151,9 +159,12 @@ namespace controller
         //For create a new customer accounr.
         public bool create(dynamic Userinfo)
         {
-            string encryptedPwd, strKey, strIV;
+            string hashedPwd = BCrypt.Net.BCrypt.EnhancedHashPassword(Userinfo.pwd);
+
+
             byte[] key = new byte[16];
             byte[] iv = new byte[16];
+
 
             //Generate random key and iv.
             using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
@@ -163,9 +174,9 @@ namespace controller
             }
 
             //Encrypt new password and convert into string.
-            encryptedPwd = Convert.ToBase64String(Encrypt(Userinfo.pwd, key, iv));
-            strKey = Convert.ToBase64String(key);
-            strIV = Convert.ToBase64String(iv);
+            string encryptedPwd = Convert.ToBase64String(Encrypt(Userinfo.pwd, key, iv));
+            var strKey = Convert.ToBase64String(key);
+            var strIV = Convert.ToBase64String(iv);
 
             string LMCID = "LMC" + getLMCID().ToString("D5");
             string accountID = "CA" + getLMCID().ToString("D5");
@@ -174,13 +185,15 @@ namespace controller
             {
                 //Insert a record into customer table
                 conn.Open();
-                sqlStr = $"INSERT INTO customer VALUES(\'{LMCID}\', \'{Userinfo.fName}\', \'{Userinfo.lName}\', \'{Userinfo.gender}\', \'{Userinfo.email}\', \'{Userinfo.company}\', \'{Userinfo.phone}\'" +
+                sqlStr =
+                    $"INSERT INTO customer VALUES(\'{LMCID}\', \'{Userinfo.fName}\', \'{Userinfo.lName}\', \'{Userinfo.gender}\', \'{Userinfo.email}\', \'{Userinfo.company}\', \'{Userinfo.phone}\'" +
                     $", \'{Userinfo.province}\', \'{Userinfo.city}\', \'{Userinfo.address1}\', \'{Userinfo.address2}\', \'{Userinfo.joinDate}\', \'{Userinfo.payment}\', {Userinfo.IMG} , {Userinfo.dateOfBirth}, NULL)";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
 
                 //Insert a record into customer_account table
-                sqlStr = $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{encryptedPwd}\', \'{Userinfo.joinDate}\', \'{strKey}\', \'{strIV}\', \'{Userinfo.joinDate}\')";
+                sqlStr =
+                    $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{encryptedPwd}\', \'{Userinfo.joinDate}\', \'{strKey}\', \'{strIV}\', \'{Userinfo.joinDate}\')";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
 
@@ -208,7 +221,7 @@ namespace controller
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
-                return false;           //Something went wrong.
+                return false; //Something went wrong.
             }
         }
 
@@ -221,7 +234,8 @@ namespace controller
                 ICryptoTransform encryptor = aes.CreateEncryptor(key, iv);
                 using (MemoryStream memoryStream = new MemoryStream())
                 {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+                    using (CryptoStream cryptoStream =
+                           new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
                     {
                         using (StreamWriter streamWriter = new StreamWriter(cryptoStream))
                         {
@@ -232,6 +246,7 @@ namespace controller
                     }
                 }
             }
+
             return cipheredtext;
         }
 
@@ -239,8 +254,9 @@ namespace controller
         public bool checkEmailPhone(string data)
         {
             DataTable dt = new DataTable();
-            sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
+            sqlStr =
+                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();

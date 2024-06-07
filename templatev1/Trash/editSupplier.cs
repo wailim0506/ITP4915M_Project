@@ -18,7 +18,8 @@ namespace templatev1.Stock_Manag
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
-        public editSupplier(string supplierID)  
+
+        public editSupplier(string supplierID)
         {
             InitializeComponent();
             this.supplierID = supplierID;
@@ -26,7 +27,8 @@ namespace templatev1.Stock_Manag
             lblSupplierNumber.Text = supplierID;
         }
 
-        public editSupplier(string supplierID, controller.accountController accountController, controller.UIController UIController)
+        public editSupplier(string supplierID, controller.accountController accountController,
+            controller.UIController UIController)
         {
             InitializeComponent();
             this.supplierID = supplierID;
@@ -56,7 +58,9 @@ namespace templatev1.Stock_Manag
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (controller.updateSupplier(supplierID, tbName.Text.ToString(), tbPhone.Text.ToString(), tbAddress.Text.ToString()) && tbName.Text.ToString() !="" && tbPhone.Text.ToString() != "" && tbAddress.Text.ToString() != "")
+            if (controller.updateSupplier(supplierID, tbName.Text.ToString(), tbPhone.Text.ToString(),
+                    tbAddress.Text.ToString()) && tbName.Text.ToString() != "" && tbPhone.Text.ToString() != "" &&
+                tbAddress.Text.ToString() != "")
             {
                 MessageBox.Show("Edit succeessfull.");
                 Form viewSupplier = new viewSupplier();
@@ -68,7 +72,8 @@ namespace templatev1.Stock_Manag
             }
             else
             {
-                if (tbName.Text.ToString() == "" || tbPhone.Text.ToString() == "" || tbAddress.Text.ToString() == "") {
+                if (tbName.Text.ToString() == "" || tbPhone.Text.ToString() == "" || tbAddress.Text.ToString() == "")
+                {
                     MessageBox.Show("Please don't leave blank");
                 }
                 else
@@ -80,7 +85,9 @@ namespace templatev1.Stock_Manag
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("All unsaved change will be lost!\nAre you sure you want to cancel editing?","Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result =
+                MessageBox.Show("All unsaved change will be lost!\nAre you sure you want to cancel editing?",
+                    "Confirmation", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {

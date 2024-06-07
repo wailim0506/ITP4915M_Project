@@ -26,6 +26,5 @@ namespace templatev1
         {
             timer1.Enabled = true;
         }
-
     }
 }

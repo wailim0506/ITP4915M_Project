@@ -43,12 +43,41 @@ namespace templatev1.Stock_Manag
             int yPosition = 15;
             for (int i = 1; i <= numOfSupplier; i++)
             {
-                Label lblID = new Label() { Name = $"lblID{i}", Text = $"{dt.Rows[i-1][0]}", Location = new System.Drawing.Point(15, yPosition), Font = new Font("Microsoft Sans Serif", 11)};
-                Label lblName = new Label() { Name = $"lblName{i}", Text = $"{dt.Rows[i - 1][1]}", Location = new System.Drawing.Point(152, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(180, 50) };
-                Label lblPhone = new Label() { Name = $"lblPhone{i}", Text = $"{dt.Rows[i - 1][2]}", Location = new System.Drawing.Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 50) };
-                Label lblAddress = new Label() { Name = $"lblAddress{i}", Text = $"{dt.Rows[i - 1][3]}", Location = new System.Drawing.Point(510, yPosition), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(180, 50) };
-                Label lblCountry = new Label() { Name = $"lblCountry{i}", Text = $"{dt.Rows[i - 1][4]}", Location = new System.Drawing.Point(716, yPosition-7), Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 35), TextAlign = ContentAlignment.MiddleCenter };
-                RadioButton radioButton = new RadioButton{ Name = $"radioButton{i}",Text = "",Location = new System.Drawing.Point(873, yPosition-1), BackColor = Color.Transparent, Size = new System.Drawing.Size(14, 17) };
+                Label lblID = new Label()
+                {
+                    Name = $"lblID{i}", Text = $"{dt.Rows[i - 1][0]}",
+                    Location = new System.Drawing.Point(15, yPosition), Font = new Font("Microsoft Sans Serif", 11)
+                };
+                Label lblName = new Label()
+                {
+                    Name = $"lblName{i}", Text = $"{dt.Rows[i - 1][1]}",
+                    Location = new System.Drawing.Point(152, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new System.Drawing.Size(180, 50)
+                };
+                Label lblPhone = new Label()
+                {
+                    Name = $"lblPhone{i}", Text = $"{dt.Rows[i - 1][2]}",
+                    Location = new System.Drawing.Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new System.Drawing.Size(150, 50)
+                };
+                Label lblAddress = new Label()
+                {
+                    Name = $"lblAddress{i}", Text = $"{dt.Rows[i - 1][3]}",
+                    Location = new System.Drawing.Point(510, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new System.Drawing.Size(180, 50)
+                };
+                Label lblCountry = new Label()
+                {
+                    Name = $"lblCountry{i}", Text = $"{dt.Rows[i - 1][4]}",
+                    Location = new System.Drawing.Point(716, yPosition - 7),
+                    Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 35),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                RadioButton radioButton = new RadioButton
+                {
+                    Name = $"radioButton{i}", Text = "", Location = new System.Drawing.Point(873, yPosition - 1),
+                    BackColor = Color.Transparent, Size = new System.Drawing.Size(14, 17)
+                };
 
                 grpSupplier.Controls.Add(lblID);
                 grpSupplier.Controls.Add(lblName);
@@ -60,7 +89,7 @@ namespace templatev1.Stock_Manag
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e) 
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             Label label = new Label();
             int index = getIndex(); //get which radio is checked first
@@ -71,7 +100,7 @@ namespace templatev1.Stock_Manag
                     if (control.Name == $"lblID{index}")
                     {
                         label = (Label)control;
-                        Form editSupplier = new editSupplier(control.Text.ToString(), accountController,UIController);
+                        Form editSupplier = new editSupplier(control.Text.ToString(), accountController, UIController);
                         this.Hide();
                         editSupplier.StartPosition = FormStartPosition.Manual;
                         editSupplier.Location = this.Location;
@@ -85,7 +114,6 @@ namespace templatev1.Stock_Manag
             {
                 MessageBox.Show("Please select one supplier.");
             }
-            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -98,7 +126,8 @@ namespace templatev1.Stock_Manag
                 {
                     label = (Label)control;
                     Boolean del = controller.deleteSupplier(label.Text.ToString());
-                    if (del == true) {
+                    if (del == true)
+                    {
                         Form viewSupplier = new viewSupplier();
                         this.Hide();
                         viewSupplier.StartPosition = FormStartPosition.Manual;
@@ -109,7 +138,8 @@ namespace templatev1.Stock_Manag
                     }
                     else
                     {
-                        MessageBox.Show("It seem like there are still have spare part using this supplier.\nPLease check again.");
+                        MessageBox.Show(
+                            "It seem like there are still have spare part using this supplier.\nPLease check again.");
                     }
                 }
             }
@@ -119,7 +149,9 @@ namespace templatev1.Stock_Manag
         {
             RadioButton radioButton;
             int i = 1;
-            foreach (Control control in grpSupplier.Controls) //find which radio button is checked                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            foreach (Control control in
+                     grpSupplier
+                         .Controls) //find which radio button is checked                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
             {
                 if (control.Name == $"radioButton{i}")
                 {
@@ -128,6 +160,7 @@ namespace templatev1.Stock_Manag
                     {
                         return i;
                     }
+
                     i++;
                 }
             }

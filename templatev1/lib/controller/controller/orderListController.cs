@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;      
+using System.Data;
 using MySqlConnector;
 
 namespace controller
@@ -11,6 +11,7 @@ namespace controller
     public class orderListController : abstractController
     {
         string sqlCmd;
+
         public orderListController()
         {
             sqlCmd = "";
@@ -25,9 +26,8 @@ namespace controller
             return dt.Rows[0][0].ToString();
         }
 
-        public int countOrder(string id,string sortBy) 
+        public int countOrder(string id, string sortBy)
         {
-
             DataTable dt = new DataTable();
 
             if (sortBy == "All")
@@ -36,7 +36,8 @@ namespace controller
             }
             else
             {
-                sqlCmd = $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
+                sqlCmd =
+                    $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
             }
 
             adr = new MySqlDataAdapter(sqlCmd, conn);
@@ -54,7 +55,8 @@ namespace controller
             }
             else
             {
-                sqlCmd = $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
+                sqlCmd =
+                    $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
             }
 
             adr = new MySqlDataAdapter(sqlCmd, conn);

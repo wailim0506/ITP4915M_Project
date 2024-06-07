@@ -1,42 +1,43 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="templatev1.Properties" GeneratedClassName="Settings">
-  <Profiles />
-  <Settings>
-    <Setting Name="Usesrname" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="bgColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Control</Value>
-    </Setting>
-    <Setting Name="textColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">Black</Value>
-    </Setting>
-    <Setting Name="navColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">GradientActiveCaption</Value>
-    </Setting>
-    <Setting Name="logoutColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 192, 192</Value>
-    </Setting>
-    <Setting Name="profileColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">255, 255, 192</Value>
-    </Setting>
-    <Setting Name="navBarColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">59, 213, 184</Value>
-    </Setting>
-    <Setting Name="locTbColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">ControlLight</Value>
-    </Setting>
-    <Setting Name="timeColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">204, 204, 204</Value>
-    </Setting>
-    <Setting Name="BWmode" Roaming="true" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="btnColor" Type="System.Drawing.Color" Scope="User">
-      <Value Profile="(Default)">White</Value>
-    </Setting>
-  </Settings>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
+              GeneratedClassNamespace="templatev1.Properties" GeneratedClassName="Settings">
+    <Profiles/>
+    <Settings>
+        <Setting Name="Usesrname" Type="System.String" Scope="User">
+            <Value Profile="(Default)"/>
+        </Setting>
+        <Setting Name="Password" Type="System.String" Scope="User">
+            <Value Profile="(Default)"/>
+        </Setting>
+        <Setting Name="bgColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">Control</Value>
+        </Setting>
+        <Setting Name="textColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">Black</Value>
+        </Setting>
+        <Setting Name="navColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">GradientActiveCaption</Value>
+        </Setting>
+        <Setting Name="logoutColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">255, 192, 192</Value>
+        </Setting>
+        <Setting Name="profileColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">255, 255, 192</Value>
+        </Setting>
+        <Setting Name="navBarColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">59, 213, 184</Value>
+        </Setting>
+        <Setting Name="locTbColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">ControlLight</Value>
+        </Setting>
+        <Setting Name="timeColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">204, 204, 204</Value>
+        </Setting>
+        <Setting Name="BWmode" Roaming="true" Type="System.Boolean" Scope="User">
+            <Value Profile="(Default)">False</Value>
+        </Setting>
+        <Setting Name="btnColor" Type="System.Drawing.Color" Scope="User">
+            <Value Profile="(Default)">White</Value>
+        </Setting>
+    </Settings>
 </SettingsFile>

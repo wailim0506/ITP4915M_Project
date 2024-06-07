@@ -17,12 +17,12 @@ namespace templatev1.Online_Ordering_Platform
         controller.accountController accountController;
         controller.UIController UIController;
         controller.favouriteController controller;
+
         public favourite()
         {
             InitializeComponent();
             controller = new controller.favouriteController();
             UID = "LMC00001"; //hard code for testing
-
         }
 
 
@@ -68,28 +68,91 @@ namespace templatev1.Online_Ordering_Platform
                         GroupBox grpSpareBox;
                         if (k == 0)
                         {
-                            grpSpareBox = new GroupBox { Name = $"grpBox{currentGrpBox}", Size = new System.Drawing.Size(281, 383), Location = new System.Drawing.Point(firstColumnXPosition, yPosition) };
+                            grpSpareBox = new GroupBox
+                            {
+                                Name = $"grpBox{currentGrpBox}", Size = new System.Drawing.Size(281, 383),
+                                Location = new System.Drawing.Point(firstColumnXPosition, yPosition)
+                            };
                         }
                         else if (k == 1)
                         {
-                            grpSpareBox = new GroupBox { Size = new System.Drawing.Size(281, 383), Location = new System.Drawing.Point(secondColumnXPosition, yPosition) };
+                            grpSpareBox = new GroupBox
+                            {
+                                Size = new System.Drawing.Size(281, 383),
+                                Location = new System.Drawing.Point(secondColumnXPosition, yPosition)
+                            };
                         }
                         else
                         {
-                            grpSpareBox = new GroupBox { Size = new System.Drawing.Size(281, 383), Location = new System.Drawing.Point(thirdColumnXPosition, yPosition) };
+                            grpSpareBox = new GroupBox
+                            {
+                                Size = new System.Drawing.Size(281, 383),
+                                Location = new System.Drawing.Point(thirdColumnXPosition, yPosition)
+                            };
                         }
-                        PictureBox picPartImage = new PictureBox { Size = new System.Drawing.Size(275, 186), Location = new System.Drawing.Point(3, 16), SizeMode = PictureBoxSizeMode.Zoom, Image = imageString($"{dt.Rows[currentGrpBox][4]}") };
-                        Label lblCategoryLabel = new Label { Text = "Category :", AutoSize = true, Location = new System.Drawing.Point(6, 207), Font = new Font("Microsoft Sans Serif", 12) };
-                        Label lblPartNumLabel = new Label { Text = "Part Number :", AutoSize = true, Location = new System.Drawing.Point(6, 237), Font = new Font("Microsoft Sans Serif", 12) };
-                        Label lblNameLabel = new Label { Text = "Name :", AutoSize = true, Location = new System.Drawing.Point(6, 267), Font = new Font("Microsoft Sans Serif", 12) };
-                        Label lblPriceLabel = new Label { Text = "Price :¥", AutoSize = true, Location = new System.Drawing.Point(6, 297), Font = new Font("Microsoft Sans Serif", 12) };
 
-                        Label lblCategory = new Label { Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18].ToString()}", AutoSize = false, Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(83, 208), Size = new System.Drawing.Size(174, 20) };
-                        Label lblPartNum = new Label { Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][4]}", AutoSize = false, Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(108, 238), Size = new System.Drawing.Size(171, 20) };
-                        Label lblName = new Label { Text = $"{dt.Rows[currentGrpBox][13]}", AutoSize = false, Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(62, 268), Size = new System.Drawing.Size(218, 20) };
-                        Label lblPrice = new Label { Text = $"{dt.Rows[currentGrpBox][7].ToString()}", AutoSize = false, Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(64, 297), Size = new System.Drawing.Size(213, 20) };
-                        Button btnView = new Button { Name = $"btnView{currentGrpBox}", Text = "View", Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand, Location = new System.Drawing.Point(3, 319), Size = new System.Drawing.Size(272, 30) };
-                        Button btnRemove = new Button { Name = $"btnRemove{currentGrpBox}", Text = "Remove from favourite", Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand, Location = new System.Drawing.Point(3, 350), Size = new System.Drawing.Size(272, 30) };
+                        PictureBox picPartImage = new PictureBox
+                        {
+                            Size = new System.Drawing.Size(275, 186), Location = new System.Drawing.Point(3, 16),
+                            SizeMode = PictureBoxSizeMode.Zoom, Image = imageString($"{dt.Rows[currentGrpBox][4]}")
+                        };
+                        Label lblCategoryLabel = new Label
+                        {
+                            Text = "Category :", AutoSize = true, Location = new System.Drawing.Point(6, 207),
+                            Font = new Font("Microsoft Sans Serif", 12)
+                        };
+                        Label lblPartNumLabel = new Label
+                        {
+                            Text = "Part Number :", AutoSize = true, Location = new System.Drawing.Point(6, 237),
+                            Font = new Font("Microsoft Sans Serif", 12)
+                        };
+                        Label lblNameLabel = new Label
+                        {
+                            Text = "Name :", AutoSize = true, Location = new System.Drawing.Point(6, 267),
+                            Font = new Font("Microsoft Sans Serif", 12)
+                        };
+                        Label lblPriceLabel = new Label
+                        {
+                            Text = "Price :¥", AutoSize = true, Location = new System.Drawing.Point(6, 297),
+                            Font = new Font("Microsoft Sans Serif", 12)
+                        };
+
+                        Label lblCategory = new Label
+                        {
+                            Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18].ToString()}",
+                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                            Location = new System.Drawing.Point(83, 208), Size = new System.Drawing.Size(174, 20)
+                        };
+                        Label lblPartNum = new Label
+                        {
+                            Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][4]}",
+                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                            Location = new System.Drawing.Point(108, 238), Size = new System.Drawing.Size(171, 20)
+                        };
+                        Label lblName = new Label
+                        {
+                            Text = $"{dt.Rows[currentGrpBox][13]}", AutoSize = false,
+                            Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(62, 268),
+                            Size = new System.Drawing.Size(218, 20)
+                        };
+                        Label lblPrice = new Label
+                        {
+                            Text = $"{dt.Rows[currentGrpBox][7].ToString()}", AutoSize = false,
+                            Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(64, 297),
+                            Size = new System.Drawing.Size(213, 20)
+                        };
+                        Button btnView = new Button
+                        {
+                            Name = $"btnView{currentGrpBox}", Text = "View", Font = new Font("Times New Roman", 12),
+                            Cursor = Cursors.Hand, Location = new System.Drawing.Point(3, 319),
+                            Size = new System.Drawing.Size(272, 30)
+                        };
+                        Button btnRemove = new Button
+                        {
+                            Name = $"btnRemove{currentGrpBox}", Text = "Remove from favourite",
+                            Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand,
+                            Location = new System.Drawing.Point(3, 350), Size = new System.Drawing.Size(272, 30)
+                        };
                         btnView.Click += new EventHandler(viewPart);
                         btnRemove.Click += new EventHandler(removeFavourite);
 
@@ -110,6 +173,7 @@ namespace templatev1.Online_Ordering_Platform
                         ++currentGrpBox;
                     }
                 }
+
                 yPosition += 388;
             }
 
@@ -144,7 +208,8 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             if (control.Name == $"lblPartNum{index}")
                             {
-                                Form viewSparePart = new viewSparePart(control.Text.ToString(), accountController, UIController);
+                                Form viewSparePart = new viewSparePart(control.Text.ToString(), accountController,
+                                    UIController);
                                 this.Hide();
                                 viewSparePart.StartPosition = FormStartPosition.Manual;
                                 viewSparePart.Location = this.Location;
@@ -173,11 +238,12 @@ namespace templatev1.Online_Ordering_Platform
                     {
                         foreach (Control control in parentGroupBox.Controls)
                         {
-                            if (control.Name == $"lblPartNum{index}")  //get part Num
+                            if (control.Name == $"lblPartNum{index}") //get part Num
                             {
                                 if (controller.removeFromFavourite(control.Text, UID))
                                 {
-                                    MessageBox.Show($"{control.Text} is removed from favourite", "Remove Favourite", MessageBoxButtons.OK);
+                                    MessageBox.Show($"{control.Text} is removed from favourite", "Remove Favourite",
+                                        MessageBoxButtons.OK);
                                     Form fav = new favourite(accountController, UIController);
                                     this.Hide();
                                     fav.StartPosition = FormStartPosition.Manual;
@@ -185,8 +251,10 @@ namespace templatev1.Online_Ordering_Platform
                                     fav.ShowDialog();
                                     this.Close();
                                 }
-                                else {
-                                    MessageBox.Show($"Cannot remove {control.Text} from favourite.\nPlease try again", "Remove Favourite", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else
+                                {
+                                    MessageBox.Show($"Cannot remove {control.Text} from favourite.\nPlease try again",
+                                        "Remove Favourite", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                         }
@@ -204,49 +272,53 @@ namespace templatev1.Online_Ordering_Platform
                 {
                     return i;
                 }
+
                 i++;
             }
+
             int x = -1;
             return x;
         }
 
-            private int getRemoveIndex(string btnName)
+        private int getRemoveIndex(string btnName)
+        {
+            int i = 0;
+            while (true)
             {
-                int i = 0;
-                while (true)
+                if (btnName == $"btnRemove{i}")
                 {
-                    if (btnName == $"btnRemove{i}")
-                    {
-                        return i;
-                    }
-                    i++;
+                    return i;
                 }
-                int x = -1;
-                return x;
+
+                i++;
             }
 
-            private void timer1_Tick(object sender, EventArgs e)
+            int x = -1;
+            return x;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-
         }
 
         private Image imageString(string imageName)
         {
-            PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+            PropertyInfo property =
+                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
 
         private void tbKW_TextChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(), cmbSorting.Text.ToString()));
-
+            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+                cmbSorting.Text.ToString()));
         }
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(), cmbSorting.Text.ToString()));
-
+            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+                cmbSorting.Text.ToString()));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -316,7 +388,8 @@ namespace templatev1.Online_Ordering_Platform
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(), cmbSorting.Text.ToString()));
+            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+                cmbSorting.Text.ToString()));
         }
 
         private void BWMode()
@@ -343,6 +416,5 @@ namespace templatev1.Online_Ordering_Platform
                 picHome.Image = Properties.Resources.home;
             }
         }
-
     }
 }

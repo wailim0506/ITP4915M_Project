@@ -60,17 +60,18 @@ namespace templatev1
             }
             else
             {
-                if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50)         //Too short.
+                if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50) //Too short.
                 {
                     lblChangePassMsg.Text = "Password too short or too long, minimum 10 maximum 50.";
                     tbPassword.Select();
                 }
                 else
                 {
-                    if (tbPassword.Text.Equals(tbConfirmPass.Text))              //Confirm password matched.
+                    if (tbPassword.Text.Equals(tbConfirmPass.Text)) //Confirm password matched.
                     {
                         recoveryController.changPwd(tbConfirmPass.Text);
-                        MessageBox.Show("Password changed! The system will redirect to the login page.", "System message");
+                        MessageBox.Show("Password changed! The system will redirect to the login page.",
+                            "System message");
                         Form login = new Login();
                         this.Hide();
                         //Swap the current form to another.
@@ -80,13 +81,12 @@ namespace templatev1
                         login.ShowDialog();
                         this.Close();
                     }
-                    else        //NOT match.
+                    else //NOT match.
                     {
                         lblChangePassMsg.Text = "Passwords do NOT match.";
                         tbConfirmPass.Select();
                     }
                 }
-            
             }
         }
 
@@ -96,19 +96,21 @@ namespace templatev1
             lblFinfMsg.Text = "";
             lblChangePassMsg.Text = "";
             int count = 0;
-            UID = phone = email ="";
+            UID = phone = email = "";
 
             //Counting the inputted information.
             if (!string.IsNullOrEmpty(tbUserID.Text))
             {
-                count+=2;
+                count += 2;
                 UID = tbUserID.Text;
             }
+
             if (!string.IsNullOrEmpty(tbPhone.Text))
             {
                 count++;
                 phone = tbPhone.Text;
             }
+
             if (!string.IsNullOrEmpty(tbEmail.Text))
             {
                 count++;
@@ -122,23 +124,20 @@ namespace templatev1
                 tbUserID.Select();
                 userFound = false;
             }
-            else 
+            else
             {
-                if (recoveryController.findUser(UID, email, phone))         //User found
+                if (recoveryController.findUser(UID, email, phone)) //User found
                 {
                     lblFinfMsg.Text = "User found!";
                     tbPassword.Select();
                     userFound = true;
-
                 }
-                else          //User NOT found
+                else //User NOT found
                 {
                     lblFinfMsg.Text = "User NOT found, please retry.";
                     tbUserID.Select();
                 }
-            
             }
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

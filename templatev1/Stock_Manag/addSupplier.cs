@@ -16,6 +16,7 @@ namespace templatev1.Stock_Manag
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
+
         public addSupplier()
         {
             InitializeComponent();
@@ -32,7 +33,10 @@ namespace templatev1.Stock_Manag
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (controller.addSupplier(lblSupplierNumber.Text.ToString(), tbName.Text.ToString(), tbPhone.Text.ToString(), tbAddress.Text.ToString(),cmbCountry.Text.ToString()) && tbName.Text.ToString() != "" && tbPhone.Text.ToString() != "" && tbAddress.Text.ToString() != "" && cmbCountry.Text.ToString() != "")
+            if (controller.addSupplier(lblSupplierNumber.Text.ToString(), tbName.Text.ToString(),
+                    tbPhone.Text.ToString(), tbAddress.Text.ToString(), cmbCountry.Text.ToString()) &&
+                tbName.Text.ToString() != "" && tbPhone.Text.ToString() != "" && tbAddress.Text.ToString() != "" &&
+                cmbCountry.Text.ToString() != "")
             {
                 MessageBox.Show("Supplier added.");
                 Form viewSupplier = new viewSupplier();
@@ -44,7 +48,8 @@ namespace templatev1.Stock_Manag
             }
             else
             {
-                if (tbName.Text.ToString() == "" || tbPhone.Text.ToString() == "" || tbAddress.Text.ToString() == "" || cmbCountry.Text.ToString() =="")
+                if (tbName.Text.ToString() == "" || tbPhone.Text.ToString() == "" || tbAddress.Text.ToString() == "" ||
+                    cmbCountry.Text.ToString() == "")
                 {
                     MessageBox.Show("Please don't leave blank");
                 }
@@ -53,7 +58,6 @@ namespace templatev1.Stock_Manag
                     MessageBox.Show("Please try again.");
                 }
             }
-
         }
 
         private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,29 +66,15 @@ namespace templatev1.Stock_Manag
             countCountry++;
             string countryCode = controller.getCountryCode(cmbCountry.Text.ToString());
             string id = $"SID{countryCode}";
-
-            if (countCountry <= 9) {
-                id += $"0000{countCountry}";
-            }else if (countCountry <= 99)
-            {
-                id += $"000{countCountry}";
-            }else if (countCountry <= 999)
-            {
-                id += $"00{countCountry}";
-            }else if (countCountry <= 9999)
-            {
-                id += $"0{countCountry}";
-            }
-            else
-            {
-                id += $"{countCountry}";
-            }
+            id += $"{countCountry:D5}";
             lblSupplierNumber.Text = id;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("All unsaved change will be lost!\nAre you sure you want to cancel editing?", "Confirmation", MessageBoxButtons.YesNo);
+            DialogResult result =
+                MessageBox.Show("All unsaved change will be lost!\nAre you sure you want to cancel editing?",
+                    "Confirmation", MessageBoxButtons.YesNo);
 
             if (result == DialogResult.Yes)
             {

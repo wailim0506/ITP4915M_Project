@@ -24,7 +24,8 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public AddressMgmt(controller.accountController accountController, controller.UIController UIController, controller.proFileController proFileController)
+        public AddressMgmt(controller.accountController accountController, controller.UIController UIController,
+            controller.proFileController proFileController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -40,7 +41,6 @@ namespace templatev1
 
         private void Initialization()
         {
-
             timer1.Enabled = true;
 
             UID = accountController.getUID();
@@ -86,22 +86,27 @@ namespace templatev1
         {
             getPage(btnFunction1.Text);
         }
+
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             getPage(btnFunction2.Text);
         }
+
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             getPage(btnFunction3.Text);
         }
+
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             getPage(btnFunction4.Text);
         }
+
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
         }
+
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -110,15 +115,12 @@ namespace templatev1
                 case "Order Management":
 
 
-
                     break;
                 case "Invoice Management":
 
 
-
                     break;
                 case "On-Sale Product Management":
-
 
 
                     break;
@@ -173,22 +175,25 @@ namespace templatev1
         //Set new value to the city listbox when the selected province has changed.
         private void cmbProvince_SelectedValueChanged(object sender, EventArgs e)
         {
-            cmbCity.SelectedIndex = -1;       //clear the selected value when the province has change.
+            cmbCity.SelectedIndex = -1; //clear the selected value when the province has change.
             cmbCity.Text = "";
-            cmbCity.Items.Clear();            //clear the value when the selected province has change.
-            cmbCity.Items.AddRange(proFileController.getcity(cmbProvince.Text).ToArray());             //change city list base on current selected province.
+            cmbCity.Items.Clear(); //clear the value when the selected province has change.
+            cmbCity.Items.AddRange(proFileController.getcity(cmbProvince.Text)
+                .ToArray()); //change city list base on current selected province.
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if(checkInfo())
+            if (checkInfo())
                 if (proFileController.modifyAdd(update))
                 {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnProFile_Click(this, e);   //Refresh the profile page.
+                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    btnProFile_Click(this, e); //Refresh the profile page.
                 }
-                else     //Something wrong from the controller.
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else //Something wrong from the controller.
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
         }
 
         //The placeholder for textbox.
@@ -229,7 +234,7 @@ namespace templatev1
         }
 
         //Check the inputted data.
-        private bool checkInfo() 
+        private bool checkInfo()
         {
             lblAddMsg.Text = "";
             update = new ExpandoObject();
@@ -293,6 +298,7 @@ namespace templatev1
             }
             else
                 update.city = cmbCity.Text;
+
             update.province = cmbProvince.Text;
 
             return true;

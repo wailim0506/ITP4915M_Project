@@ -26,7 +26,8 @@ namespace controller
             return dt;
         }
 
-        public DataTable getSpareWhenTextChange(string category, string kw, string sorting) {
+        public DataTable getSpareWhenTextChange(string category, string kw, string sorting)
+        {
             sqlCmd = "SELECT * FROM spare_part x, product y WHERE x.partNumber = y.partNumber";
             if (category != "All")
             {
@@ -81,13 +82,12 @@ namespace controller
             if (!isLM)
             {
                 sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{num}\'";
-
             }
             else
             {
                 sqlCmd = $"SELECT LM_onSaleQty FROM product WHERE partNumber = \'{num}\'";
-
             }
+
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return int.Parse(dt.Rows[0][0].ToString());
@@ -95,8 +95,8 @@ namespace controller
 
         public Boolean addCart(string id, string num, int qty, Boolean isLM) //customer id, part num, quantity
         {
-           viewSparePartController c = new viewSparePartController();
-           return  c.addToCart(id, num, qty,isLM);
+            viewSparePartController c = new viewSparePartController();
+            return c.addToCart(id, num, qty, isLM);
         }
 
         public List<string> getAllPartName()

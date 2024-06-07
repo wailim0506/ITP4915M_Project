@@ -11,7 +11,7 @@ namespace controller
     public class cartController : abstractController
     {
         string sqlCmd;
-        
+
         public cartController()
         {
             sqlCmd = "";
@@ -21,7 +21,8 @@ namespace controller
         {
             string cartID = getCartID(id);
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * from product_in_cart x, product y, spare_part z where x.cartID = \'{cartID}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber";
+            sqlCmd =
+                $"SELECT * from product_in_cart x, product y, spare_part z where x.cartID = \'{cartID}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt;
@@ -50,7 +51,8 @@ namespace controller
                 adr.Fill(dt);
                 partNum.Add(dt.Rows[0][0].ToString());
             }
-            return partNum;       
+
+            return partNum;
         }
 
         public List<int> getAllItemQtyInCart(string id) //for remove all item
@@ -66,11 +68,12 @@ namespace controller
             {
                 itemQty.Add(int.Parse(dt.Rows[i][0].ToString()));
             }
+
             return itemQty;
         }
 
 
-        public Boolean removePart(string num, string id)  //partNum, customer id
+        public Boolean removePart(string num, string id) //partNum, customer id
         {
             string cartID = getCartID(id);
             DataTable dt = new DataTable();
@@ -103,6 +106,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
 
@@ -132,6 +136,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
 
@@ -166,11 +171,13 @@ namespace controller
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty,Boolean isLM) //part num //add qty back to db for product table and spare_part table
+        public Boolean
+            addQtyBack(string num, int currentCartQty, int desiredQty,
+                Boolean isLM) //part num //add qty back to db for product table and spare_part table
         {
             //get the qty in db first
-            
-            int qtyInProduct = getOnSaleQtyInDb(num,isLM);
+
+            int qtyInProduct = getOnSaleQtyInDb(num, isLM);
             int qtyInSpare_Part = getSpareQtyInDb(num);
 
             //add db qty with cart qty
@@ -179,15 +186,18 @@ namespace controller
 
             try
             {
-                if ((qtyInProduct - desiredQty < 0) || (qtyInSpare_Part - desiredQty < 0))  //check if the desired qty is larger than availabe qty after add cart qty to db
+                if ((qtyInProduct - desiredQty < 0) ||
+                    (qtyInSpare_Part - desiredQty <
+                     0)) //check if the desired qty is larger than availabe qty after add cart qty to db
                 {
                     throw new notEnoughException();
                 }
-            }catch(notEnoughException e)
+            }
+            catch (notEnoughException e)
             {
                 throw e;
             }
-            
+
 
             //Add to db
             if (!isLM)
@@ -198,6 +208,7 @@ namespace controller
             {
                 sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
             }
+
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -211,7 +222,7 @@ namespace controller
 
                         command.ExecuteNonQuery();
                     }
-                }   
+                }
             }
             catch (Exception ex)
             {
@@ -250,20 +261,15 @@ namespace controller
             return true;
         }
 
-        public Boolean editDbQty(string num, int newQty , Boolean isLM,Boolean isEditOrder,int originQty) //part num 
+        public Boolean editDbQty(string num, int newQty, Boolean isLM) //part num 
         {
             //get the qty in db first
-            int qtyInProduct = getOnSaleQtyInDb(num,isLM);
+            int qtyInProduct = getOnSaleQtyInDb(num, isLM);
             int qtyInSpare_Part = getSpareQtyInDb(num);
 
             //deduct db qty with cart qty
             qtyInProduct -= newQty;
-            if (isEditOrder)
-            {
-                qtyInSpare_Part += originQty;
-                qtyInSpare_Part -= newQty;
-            }
-
+            qtyInSpare_Part -= newQty;
 
             //edit to db
             if (!isLM)
@@ -274,6 +280,7 @@ namespace controller
             {
                 sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
             }
+
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -298,43 +305,32 @@ namespace controller
                 conn.Close();
             }
 
-            //if edit order: deduct both onsale and spare part table
-            if (isEditOrder)
-            {
+            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            //try
+            //{
+            //    using (MySqlConnection connection = new MySqlConnection(connString))
+            //    {
+            //        connection.Open();
 
-                try
-                {
-                    sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            //        {
+            //            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+            //            command.Parameters.AddWithValue("@num", num);
 
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
+            //            command.ExecuteNonQuery();
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    return false;
+            //}
+            //finally
+            //{
+            //    conn.Close();
+            //}
 
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                            command.Parameters.AddWithValue("@num", num);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                }
-                finally
-                {
-                    conn.Close();
-                }
-                return true;
-
-            }
-            else
-            {
-                return true;
-
-            }
+            return true;
         }
 
         public Boolean editCartQty(string num, string id, int newQty) //part num, customer id, new qty
@@ -374,7 +370,7 @@ namespace controller
             return true;
         }
 
-        public int getOnSaleQtyInDb(string num,Boolean isLM) //part num
+        public int getOnSaleQtyInDb(string num, Boolean isLM) //part num
         {
             DataTable dt = new DataTable();
             if (!isLM)
@@ -385,6 +381,7 @@ namespace controller
             {
                 sqlCmd = $"SELECT LM_onSaleQty FROM product WHERE partNumber = \'{num}\'";
             }
+
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             int qtyInProduct = int.Parse(dt.Rows[0][0].ToString());
@@ -401,7 +398,7 @@ namespace controller
             return qtyInSpare_Part;
         }
 
-        public Boolean createOrder(string id , string shippingDate, string shippingAddress) //customerID
+        public Boolean createOrder(string id, string shippingDate) //customerID
         {
             //get customer account id first
             DataTable dt = new DataTable();
@@ -413,17 +410,18 @@ namespace controller
             //generate an order id
             string orderID = orderIdGenerator();
             //generate order serial num
-            string orderSerialNum =  orderSerialNumGenerator();
+            string orderSerialNum = orderSerialNumGenerator();
             //assign an order processing clerk to this order
             string staffAccountID = orderProcessingClerkAssignment();
             //get today date
-            string orderDate = DateTime.Now.ToString("yyyy-MM-dd"); 
+            string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
 
 
             //create order
-            sqlCmd = $"INSERT INTO order_ (orderID, customerAccountID, staffAccountID, orderSerialNumber,orderDate, status) VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)";
-            //try
-            //{
+            sqlCmd =
+                $"INSERT INTO order_ (orderID, customerAccountID, staffAccountID, orderSerialNumber,orderDate, status) VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)";
+            try
+            {
                 using (MySqlConnection connection = new MySqlConnection(connString))
                 {
                     connection.Open();
@@ -440,81 +438,28 @@ namespace controller
                         command.ExecuteNonQuery();
                     }
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return false;
-            //}
-            //finally
-            //{
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            finally
+            {
                 conn.Close();
-            //}
+            }
 
             //insert to order line, create invoice
-            if (createOrderLineRow(id, orderID) && createInvoice(customerAccountID,orderID) && createShippingDetail(orderID,shippingDate,shippingAddress))
+            if (createOrderLineRow(id, orderID) && createInvoice(customerAccountID, orderID) &&
+                createShippingDetail(orderID, shippingDate))
             {
-                deductSparePartTableQty(orderID);
                 return true;
             }
             else
             {
-                throw new Exception();
                 return false;
             }
 
-            //deduct qty in spare part
-        }
-
-        public void deductSparePartTableQty(string orderID)
-        {
-            
-            Dictionary<string, int> partQty = getPartNumWithQty(orderID);
-            foreach(KeyValuePair<string,int> k in partQty)
-            {
-                int qtyInSpare_Part = getSpareQtyInDb(k.Key);
-                qtyInSpare_Part -= k.Value;
-                sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-                //try
-                //{
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                            command.Parameters.AddWithValue("@num", k.Key);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                //}
-                //catch (Exception ex)
-                //{
-                //    //return false;
-                //}
-                //finally
-                //{
-                    conn.Close();
-                //}
-            }
-            
-        }
-
-        public Dictionary<string, int> getPartNumWithQty(string id) //order id
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-
-            Dictionary<string, int> partNumQty = new Dictionary<string, int>();
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                partNumQty.Add($"{dt.Rows[i][0]}", int.Parse(dt.Rows[i][1].ToString()));
-            }
-            return partNumQty;
+            //create invoice
         }
 
         public Boolean createOrderLineRow(string cid, string id) //customer id, order id
@@ -525,33 +470,34 @@ namespace controller
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
-                //try
-                //{
+                try
+                {
                     using (MySqlConnection connection = new MySqlConnection(connString))
                     {
                         connection.Open();
 
                         using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
                         {
-                            command.Parameters.AddWithValue("@partNum", dt.Rows[i][6].ToString());
+                            command.Parameters.AddWithValue("@partNum", dt.Rows[i][5].ToString());
                             command.Parameters.AddWithValue("@orderID", id);
                             command.Parameters.AddWithValue("@qty", dt.Rows[i][2].ToString());
-                            command.Parameters.AddWithValue("@price", dt.Rows[i][10].ToString());
+                            command.Parameters.AddWithValue("@price", dt.Rows[i][8].ToString());
 
 
                             command.ExecuteNonQuery();
                         }
                     }
-                //}
-                //catch (Exception ex)
-                //{
-                    //return false;
-                //}
-                //finally
-                //{
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally
+                {
                     conn.Close();
-                //}
+                }
             }
+
             return true;
         }
 
@@ -569,21 +515,26 @@ namespace controller
             if (numOfInvoice <= 9)
             {
                 invoiceNum += $"0000{numOfInvoice}";
-            }else if (numOfInvoice <= 99)
+            }
+            else if (numOfInvoice <= 99)
             {
                 invoiceNum += $"000{numOfInvoice}";
-            }else if(numOfInvoice <= 999)
+            }
+            else if (numOfInvoice <= 999)
             {
                 invoiceNum += $"00{numOfInvoice}";
-            }else if (numOfInvoice <= 9999)
+            }
+            else if (numOfInvoice <= 9999)
             {
                 invoiceNum += $"0{numOfInvoice}";
-            }else
+            }
+            else
             {
                 invoiceNum += $"{numOfInvoice}";
             }
 
-            sqlCmd = $"INSERT INTO invoice (customerAccountID, orderID, invoiceNumber) VALUES(@CAID,@orderID,@invoiceNum)";
+            sqlCmd =
+                $"INSERT INTO invoice (customerAccountID, orderID, invoiceNumber) VALUES(@CAID,@orderID,@invoiceNum)";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -610,13 +561,13 @@ namespace controller
             }
 
             return true;
-
         }
-        
-        public Boolean createShippingDetail(string id, string shippingDate, string address)
+
+        public Boolean createShippingDetail(string id, string shippingDate)
         {
             string deliverman = delivermanAssignment();
-            sqlCmd = $"INSERT INTO shipping_detail (orderID,delivermanID,shippingDate,shippingAddress) VALUES(@orderID,@deliverman,@date,@add)";
+            sqlCmd =
+                $"INSERT INTO shipping_detail (orderID, delivermanID, shippingDate) VALUES(@orderID,@deliverman,@date)";
             try
             {
                 using (MySqlConnection connection = new MySqlConnection(connString))
@@ -628,8 +579,6 @@ namespace controller
                         command.Parameters.AddWithValue("@orderID", id);
                         command.Parameters.AddWithValue("@deliverman", deliverman);
                         command.Parameters.AddWithValue("@date", shippingDate);
-                        command.Parameters.AddWithValue("@add", address);
-
 
                         command.ExecuteNonQuery();
                     }
@@ -674,7 +623,6 @@ namespace controller
             }
         }
 
-        
 
         public string orderIdGenerator()
         {
@@ -693,10 +641,12 @@ namespace controller
             if (orderInYearMonth <= 9)
             {
                 generatedOrderID += $"000{orderInYearMonth}";
-            }else if (orderInYearMonth <= 99)
+            }
+            else if (orderInYearMonth <= 99)
             {
                 generatedOrderID += $"00{orderInYearMonth}";
-            }else if (orderInYearMonth <= 999)
+            }
+            else if (orderInYearMonth <= 999)
             {
                 generatedOrderID += $"0{orderInYearMonth}";
             }
@@ -704,6 +654,7 @@ namespace controller
             {
                 generatedOrderID += $"{orderInYearMonth}";
             }
+
             return generatedOrderID;
         }
 
@@ -737,6 +688,7 @@ namespace controller
             {
                 generatedOrderID += $"{orderInYearMonth}";
             }
+
             return generatedOrderID;
         }
 
@@ -748,12 +700,12 @@ namespace controller
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             int numOfOpc = dt.Rows.Count;
-            
+
 
             //random assignment
             Random random = new Random();
             int num = random.Next(0, numOfOpc);
-            string staffIDAssigned = dt.Rows[num][0].ToString();   //db dont have enough data now
+            string staffIDAssigned = dt.Rows[num][0].ToString(); //db dont have enough data now
             //string staffIDAssigned = "LMS00002";
 
             //get staff account id
@@ -762,7 +714,6 @@ namespace controller
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt.Rows[0][0].ToString();
-
         }
 
         public string delivermanAssignment()
@@ -777,7 +728,7 @@ namespace controller
             //random assignment
             Random random = new Random();
             int num = random.Next(0, numOfDeliverman);
-            return dt.Rows[num][0].ToString();  
+            return dt.Rows[num][0].ToString();
         }
 
         public DataTable getCustomerAddress(string id) //customer id
@@ -792,6 +743,5 @@ namespace controller
 
     class notEnoughException : Exception
     {
-        
     }
 }

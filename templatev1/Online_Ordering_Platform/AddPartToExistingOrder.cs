@@ -18,7 +18,8 @@ namespace templatev1.Online_Ordering_Platform
         controller.accountController accountController;
         controller.UIController UIController;
         controller.addPartToOrderController controller;
-        private string partNum,qty;
+        private string partNum, qty;
+
         public AddPartToExistingOrder()
         {
             InitializeComponent();
@@ -28,9 +29,9 @@ namespace templatev1.Online_Ordering_Platform
             //lblUid.Text = $"Uid: {UID}";
         }
 
-        
 
-        public AddPartToExistingOrder(string partNum,string qty, controller.accountController accountController, controller.UIController UIController)
+        public AddPartToExistingOrder(string partNum, string qty, controller.accountController accountController,
+            controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -68,7 +69,6 @@ namespace templatev1.Online_Ordering_Platform
 
             tbQty.Text = qty;
             lblLoc.Text = $"Add {lblPartName.Text} to Order";
-
         }
 
         private void cmbOrderSelection_SelectedIndexChanged(object sender, EventArgs e)
@@ -80,12 +80,12 @@ namespace templatev1.Online_Ordering_Platform
             lblOrderStatus.Text = controller.getOrderStatus(orderID);
             lblDayUntilDelivery.Text = $"{dayDifference(orderID)} day(s) until shipping.";
             lblLoc.Text = $"Add {lblPartName.Text} to Order {orderID}";
-
         }
 
-        private int dayDifference(string orderID)  //calculate day difference
+        private int dayDifference(string orderID) //calculate day difference
         {
-            string systemFormat = systemDateFormat();  //the date format got from db depend on the operation system setting
+            string
+                systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst;
@@ -103,10 +103,11 @@ namespace templatev1.Online_Ordering_Platform
             DataTable dt;
             dt = controller.getShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
-            string[] d = shippingDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
+            string[]
+                d = shippingDate
+                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             string shipDate = shippingDate; //   d/M/yyyy
-
 
 
             string sysYear = DateTime.Now.ToString("yyyy"); //today year 
@@ -216,7 +217,8 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) == 1) //check quantity input equal 0, do not perform anything if equal to 0
+                if (int.Parse(tbQty.Text.ToString()) ==
+                    1) //check quantity input equal 0, do not perform anything if equal to 0
                 {
                     return;
                 }
@@ -226,13 +228,12 @@ namespace templatev1.Online_Ordering_Platform
                     qty--;
                     tbQty.Text = qty.ToString();
                 }
-
             }
         }
 
         private void btnBackViewPart_Click(object sender, EventArgs e)
         {
-            Form c = new viewSparePart(partNum ,accountController, UIController);
+            Form c = new viewSparePart(partNum, accountController, UIController);
             this.Hide();
             c.StartPosition = FormStartPosition.Manual;
             c.Location = this.Location;
@@ -258,7 +259,8 @@ namespace templatev1.Online_Ordering_Platform
 
         private Image imageString(string imageName)
         {
-            PropertyInfo property = typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+            PropertyInfo property =
+                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
     }

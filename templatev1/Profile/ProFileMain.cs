@@ -22,14 +22,15 @@ namespace templatev1
         controller.accountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
-        
+
 
         public proFileMain()
         {
             InitializeComponent();
         }
 
-        public proFileMain(controller.accountController accountController, controller.UIController UIController, controller.proFileController proFileController)
+        public proFileMain(controller.accountController accountController, controller.UIController UIController,
+            controller.proFileController proFileController)
         {
             InitializeComponent();
 
@@ -63,7 +64,7 @@ namespace templatev1
             tbLastName.Text = info.lName;
             cmbGender.Text = info.sex;
             tbPhone.Text = info.phone;
-            dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null); 
+            dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null);
             lblCreateDate.Text = (info.createDate).ToString("yyyy/MM/dd");
             chkNGDateOfBirth.Checked = info.NGDateOfBirth;
             lblCorpAddress.Text = info.caddress;
@@ -84,7 +85,7 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-            
+
 
             //For swap the form betwee staff and customer
             dynamic show = UIController.proFile();
@@ -104,22 +105,27 @@ namespace templatev1
         {
             getPage(btnFunction1.Text);
         }
+
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             getPage(btnFunction2.Text);
         }
+
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             getPage(btnFunction3.Text);
         }
+
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             getPage(btnFunction4.Text);
         }
+
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
         }
+
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -128,15 +134,12 @@ namespace templatev1
                 case "Order Management":
 
 
-
                     break;
                 case "Invoice Management":
 
 
-
                     break;
                 case "On-Sale Product Management":
-
 
 
                     break;
@@ -201,6 +204,7 @@ namespace templatev1
             login.ShowDialog();
             this.Close();
         }
+
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
@@ -335,21 +339,24 @@ namespace templatev1
             else
                 update.lName = placeholder.lName;
 
-           //Check and update gender if have change.
-           if (cmbGender.SelectedIndex == 0)
+            //Check and update gender if have change.
+            if (cmbGender.SelectedIndex == 0)
                 update.sex = "M";
-           else
+            else
                 update.sex = "F";
 
             //Check and update date of birth if have change.
-            if (dtpDateOfBirth.Value != DateTime.ParseExact((placeholder.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null) || !chkNGDateOfBirth.Checked)
+            if (dtpDateOfBirth.Value !=
+                DateTime.ParseExact((placeholder.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null) ||
+                !chkNGDateOfBirth.Checked)
             {
-                if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date || dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
+                if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
+                                                  dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
                 {
                     lblDateMsg.Text = "Please select a valid date or click NOT provided.";
                     return false;
                 }
-                else 
+                else
                     update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
             }
             else if (chkNGDateOfBirth.Checked)
@@ -381,9 +388,9 @@ namespace templatev1
 
             if (placeholder.accountType.Equals("Customer"))
             {
-                update.pay = cmbPayment.Text;           //Check and update payment if have change.
+                update.pay = cmbPayment.Text; //Check and update payment if have change.
 
-                if (tbCorp.Text != placeholder.corp)           //Check and update company name if have change.
+                if (tbCorp.Text != placeholder.corp) //Check and update company name if have change.
                 {
                     if (tbCorp.Text.Length > 30)
                     {
@@ -400,6 +407,7 @@ namespace templatev1
 
             return true;
         }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
@@ -417,11 +425,13 @@ namespace templatev1
             if (checkInfo())
                 if (proFileController.modify(update))
                 {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnProFile_Click(this, e);   //Refresh the profile page.
+                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    btnProFile_Click(this, e); //Refresh the profile page.
                 }
-                else      //Something wrong from the controller.
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else //Something wrong from the controller.
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
         }
 
         //For upload and remove IMG function.
@@ -433,7 +443,7 @@ namespace templatev1
                 ofd.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp); *.PNG|*.jpg; *.jpeg; *.gif; *.bmp; *.PNG";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    if (new FileInfo(ofd.FileName).Length > 1000000)         //File can't larger than 1MB
+                    if (new FileInfo(ofd.FileName).Length > 1000000) //File can't larger than 1MB
                     {
                         MessageBox.Show("File too large! Maximum 1MB.");
                         IMGUploaded = false;
@@ -446,20 +456,17 @@ namespace templatev1
                         IMGUploaded = true;
 
                         //Put file into local drive.
-
-
-
-
-
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 IMGUploaded = false;
             }
         }
+
         private void btnRemoveIMG_Click(object sender, EventArgs e)
         {
             IMG = null;
@@ -476,10 +483,12 @@ namespace templatev1
                 {
                     if (checkPwd() == true)
                     {
-                        controller.RecoveryController recoveryController = new controller.RecoveryController(accountController);
+                        controller.RecoveryController recoveryController =
+                            new controller.RecoveryController(accountController);
                         recoveryController.changPwd(tbConfirmPass.Text);
-                        MessageBox.Show("Password changed successful!\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btnLogOut_Click(this, e);       //Redirect to login page.
+                        MessageBox.Show("Password changed successful!\nThe system will redirect to the login page.",
+                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnLogOut_Click(this, e); //Redirect to login page.
                     }
                 }
                 else
@@ -488,9 +497,10 @@ namespace templatev1
             else
                 lblPwdMsg.Text = "Please enter old password.";
         }
+
         private bool checkPwd()
         {
-            if (string.IsNullOrEmpty(tbPass.Text))               //Check whether the password and confirm the password match.
+            if (string.IsNullOrEmpty(tbPass.Text)) //Check whether the password and confirm the password match.
             {
                 lblPwdMsg.Text = "Please enter the new password.";
                 return false;
@@ -505,26 +515,31 @@ namespace templatev1
                 lblPwdMsg.Text = "Confirm password does NOT match.";
                 return false;
             }
+
             return true;
         }
 
         //Delete the account, only available for customer account.
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
-            var result = MessageBox.Show("Are you sure to delete your account?\nThis operation also deletes all sub-accounts belonging to this account.\nClick Yes to continue.", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var result =
+                MessageBox.Show(
+                    "Are you sure to delete your account?\nThis operation also deletes all sub-accounts belonging to this account.\nClick Yes to continue.",
+                    "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
                 if (accountController.delAccount())
                 {
-                    MessageBox.Show("Account deleted successful.\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btnLogOut_Click(this, e);       //Redirect to login page.
+                    MessageBox.Show("Account deleted successful.\nThe system will redirect to the login page.",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btnLogOut_Click(this, e); //Redirect to login page.
                 }
                 else
                 {
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    btnLogOut_Click(this, e);       //Redirect to login page.
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    btnLogOut_Click(this, e); //Redirect to login page.
                 }
             }
         }
@@ -533,6 +548,5 @@ namespace templatev1
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
-
     }
 }

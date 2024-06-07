@@ -16,14 +16,15 @@ namespace templatev1.Order_Management
         controller.accountController accountController;
         controller.UIController UIController;
         controller.viewInvoiceController controller;
+
         public customerViewInvoice()
         {
             InitializeComponent();
             controller = new controller.viewInvoiceController();
-
         }
 
-        public customerViewInvoice(string orderID, controller.accountController accountController, controller.UIController UIController)
+        public customerViewInvoice(string orderID, controller.accountController accountController,
+            controller.UIController UIController)
         {
             InitializeComponent();
             controller = new controller.viewInvoiceController();
@@ -50,10 +51,30 @@ namespace templatev1.Order_Management
             int rowPos = 1;
             for (int i = 0; i < partNum.Length; i++)
             {
-                Label lblPartNum = new Label() { Text = $"{partNum[i]}", Location = new System.Drawing.Point(4, rowPos), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(164, 20) };
-                Label lblPartName = new Label() { Text = $"{controller.getPartName(partNum[i])}", Location = new System.Drawing.Point(174, rowPos), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(316, 20) };
-                Label lblQtyOrdered = new Label() { Text = $"{controller.getQty(orderID, partNum[i])}", Location = new System.Drawing.Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(123, 20) };
-                Label lblQtyDelivered = new Label() { Text = $"{controller.getQty(orderID, partNum[i])}", Location = new System.Drawing.Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(139, 20) };
+                Label lblPartNum = new Label()
+                {
+                    Text = $"{partNum[i]}", Location = new System.Drawing.Point(4, rowPos),
+                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    Size = new System.Drawing.Size(164, 20)
+                };
+                Label lblPartName = new Label()
+                {
+                    Text = $"{controller.getPartName(partNum[i])}", Location = new System.Drawing.Point(174, rowPos),
+                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    Size = new System.Drawing.Size(316, 20)
+                };
+                Label lblQtyOrdered = new Label()
+                {
+                    Text = $"{controller.getQty(orderID, partNum[i])}",
+                    Location = new System.Drawing.Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(123, 20)
+                };
+                Label lblQtyDelivered = new Label()
+                {
+                    Text = $"{controller.getQty(orderID, partNum[i])}",
+                    Location = new System.Drawing.Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(139, 20)
+                };
 
                 pnlSP.Controls.Add(lblPartNum);
                 pnlSP.Controls.Add(lblPartName);
@@ -73,13 +94,14 @@ namespace templatev1.Order_Management
             }
             else
             {
-                MessageBox.Show("Error occur\nPlease try again", "Confirm Invoice",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Error occur\nPlease try again", "Confirm Invoice", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form o = new giveFeedback(accountController,UIController);
+            Form o = new giveFeedback(accountController, UIController);
             this.Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = this.Location;

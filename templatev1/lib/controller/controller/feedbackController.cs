@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;      //must include in every controller file
-using MySqlConnector;  //must include in every controller file 
+using System.Data; //must include in every controller file
+using MySqlConnector; //must include in every controller file 
 
 namespace controller
 {
     public class feedbackController : abstractController
     {
-        public feedbackController() { }
+        public feedbackController()
+        {
+        }
 
         public int countFeedback()
-        { //count how many feedback already in database
+        {
+            //count how many feedback already in database
             int count = 0;
             string sqlCmd = "SELECT COUNT(*) FROM feedback";
             try
-            {                
+            {
                 conn.Open();
                 using (MySqlCommand cmd = new MySqlCommand(sqlCmd, conn))
                 {
                     using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {                        
+                    {
                         while (reader.Read())
-                        {         
+                        {
                             count = reader.GetInt32(0);
                         }
                     }
@@ -32,17 +35,17 @@ namespace controller
             }
             catch (Exception e)
             {
-
             }
             finally
             {
-                conn.Close(); 
+                conn.Close();
             }
+
             return count;
         }
 
         public Boolean addFeedback(string custID, string feedback, string orderID)
-        {            
+        {
             string feedbackID = feedBackIDGenerator();
             string customerID = custID;
             string content = feedback;
@@ -50,7 +53,8 @@ namespace controller
 
             if (orderID != "N/A")
             {
-                string sqlCmd = "INSERT INTO feedback (feedbackID, customerID, orderID, content, feedbackDate) VALUES (@feedbackID, @customerID, @orderID, @content, @feedbackDate)";
+                string sqlCmd =
+                    "INSERT INTO feedback (feedbackID, customerID, orderID, content, feedbackDate) VALUES (@feedbackID, @customerID, @orderID, @content, @feedbackDate)";
 
                 try
                 {
@@ -59,7 +63,6 @@ namespace controller
                         connection.Open();
                         using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
                         {
-
                             command.Parameters.AddWithValue("@feedbackID", feedbackID);
                             command.Parameters.AddWithValue("@customerID", customerID);
                             command.Parameters.AddWithValue("@orderID", orderID);
@@ -72,17 +75,18 @@ namespace controller
                 }
                 catch (Exception ex)
                 {
-
                 }
                 finally
                 {
                     conn.Close();
                 }
+
                 return true;
             }
             else
             {
-                string sqlCmd = "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
+                string sqlCmd =
+                    "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
 
                 try
                 {
@@ -91,7 +95,6 @@ namespace controller
                         connection.Open();
                         using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
                         {
-
                             command.Parameters.AddWithValue("@feedbackID", feedbackID);
                             command.Parameters.AddWithValue("@customerID", customerID);
                             command.Parameters.AddWithValue("@content", content);
@@ -103,23 +106,23 @@ namespace controller
                 }
                 catch (Exception ex)
                 {
-
                 }
                 finally
                 {
                     conn.Close();
                 }
+
                 return true;
             }
         }
 
-        public string feedBackIDGenerator() {
+        public string feedBackIDGenerator()
+        {
             int count = countFeedback();
             string feedbackID = "";
             if (++count < 10)
             {
                 feedbackID = "FB2400" + count;
-
             }
             else
             {
@@ -132,7 +135,8 @@ namespace controller
         public List<string> getOrderID(string id) //customer id
         {
             DataTable dt = new DataTable();
-            string sqlCmd = $"SELECT orderID FROM order_ x, customer_account y WHERE x.customerAccountID = y.customerAccountID AND y.customerID = \'{id}\' ";
+            string sqlCmd =
+                $"SELECT orderID FROM order_ x, customer_account y WHERE x.customerAccountID = y.customerAccountID AND y.customerID = \'{id}\' ";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
 
@@ -144,8 +148,5 @@ namespace controller
 
             return orderID;
         }
-
-
-
     }
 }

@@ -29,7 +29,6 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

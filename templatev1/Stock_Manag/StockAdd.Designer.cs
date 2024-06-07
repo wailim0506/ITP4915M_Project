@@ -1,4 +1,4 @@
-﻿namespace templatev1
+﻿namespace templatev1.Stock_Manag
 {
     partial class StockAdd
     {

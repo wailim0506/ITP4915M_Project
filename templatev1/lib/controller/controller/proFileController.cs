@@ -17,7 +17,23 @@ namespace controller
         private string sqlStr;
         private string accountType, UID;
         private DateTime dateOfBirth, createDate;
-        private string jobTitle, dept, email, fName, lName, sex, phone, payment, caddress, dfwaddress, waddress1, waddress2, corp, city, province;
+
+        private string jobTitle,
+            dept,
+            email,
+            fName,
+            lName,
+            sex,
+            phone,
+            payment,
+            caddress,
+            dfwaddress,
+            waddress1,
+            waddress2,
+            corp,
+            city,
+            province;
+
         private bool NGDateOfBirth = false;
         private int dfadd;
 
@@ -25,7 +41,6 @@ namespace controller
 
         public proFileController()
         {
-
         }
 
         public proFileController(controller.accountController accountController)
@@ -64,18 +79,20 @@ namespace controller
             UID = accountController.getUID();
             DataTable dt = new DataTable();
 
-            if (accountType.Equals("Staff"))          //Staff info
+            if (accountType.Equals("Staff")) //Staff info
             {
-                sqlStr = $"SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
+                sqlStr =
+                    $"SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
                     $"FROM staff S, department D, staff_account SA WHERE S.deptID = D.deptID AND S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\'";
-
             }
-            else          //Customer info
+            else //Customer info
             {
                 getDfAdd();
-                sqlStr = $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
+                sqlStr =
+                    $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
+
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -148,7 +165,8 @@ namespace controller
             dynamic AddInfo = new ExpandoObject();
             DataTable dt = new DataTable();
 
-            sqlStr = $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
+            sqlStr =
+                $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -180,6 +198,7 @@ namespace controller
 
             return city;
         }
+
         public List<string> getpriovince()
         {
             DataTable dt = new DataTable();
@@ -203,7 +222,8 @@ namespace controller
             try
             {
                 DataTable dt = new DataTable();
-                sqlStr = $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                sqlStr =
+                    $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
                     $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
@@ -216,7 +236,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                return false;           //Something went wrong.
+                return false; //Something went wrong.
             }
         }
 
@@ -227,10 +247,12 @@ namespace controller
             {
                 conn.Open();
                 if (accountType.Equals("Customer"))
-                    sqlStr = $"UPDATE customer SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\'" +
+                    sqlStr =
+                        $"UPDATE customer SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\'" +
                         $", paymentMethod = \'{info.pay}\', dateofBirth = {info.DFB}, company = \'{info.corp}\' WHERE customerID = \'{UID}\'";
                 else
-                    sqlStr = $"UPDATE staff SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\', dateofBirth = {info.DFB} WHERE staffID = \'{UID}\'";
+                    sqlStr =
+                        $"UPDATE staff SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\', dateofBirth = {info.DFB} WHERE staffID = \'{UID}\'";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
                 conn.Close();
@@ -238,7 +260,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                return false;           //Something went wrong.
+                return false; //Something went wrong.
             }
         }
 
@@ -248,7 +270,8 @@ namespace controller
             try
             {
                 conn.Open();
-                sqlStr = $"UPDATE customer SET province = \'{Addinfo.province}\', city = \'{Addinfo.city}\', companyAddress = \'{Addinfo.corpAdd}\'" +
+                sqlStr =
+                    $"UPDATE customer SET province = \'{Addinfo.province}\', city = \'{Addinfo.city}\', companyAddress = \'{Addinfo.corpAdd}\'" +
                     $", warehouseAddress = \'{Addinfo.wAdd1}\', warehouseAddress2 = \'{Addinfo.wAdd2}\' WHERE customerID = \'{UID}\'";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
@@ -261,7 +284,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                return false;           //Something went wrong.
+                return false; //Something went wrong.
             }
         }
     }

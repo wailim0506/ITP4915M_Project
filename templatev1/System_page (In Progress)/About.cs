@@ -12,7 +12,7 @@ namespace templatev1
 {
     public partial class About : Form
     {
-        public static string UID;      //The user ID.
+        public static string UID; //The user ID.
         controller.accountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
@@ -72,22 +72,27 @@ namespace templatev1
         {
             getPage(btnFunction1.Text);
         }
+
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             getPage(btnFunction2.Text);
         }
+
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             getPage(btnFunction3.Text);
         }
+
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             getPage(btnFunction4.Text);
         }
+
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
         }
+
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -96,15 +101,12 @@ namespace templatev1
                 case "Order Management":
 
 
-
                     break;
                 case "Invoice Management":
 
 
-
                     break;
                 case "On-Sale Product Management":
-
 
 
                     break;
@@ -182,6 +184,7 @@ namespace templatev1
             UIController.setMode(Properties.Settings.Default.BWmode);
             BWMode();
         }
+
         private void BWMode()
         {
             dynamic value = UIController.getMode();
@@ -210,6 +213,5 @@ namespace templatev1
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
-
     }
 }

@@ -29,12 +29,10 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
     }
 }

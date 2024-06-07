@@ -8,17 +8,16 @@ using MySqlConnector;
 
 namespace controller
 {
-    
     public class viewInvoiceController : abstractController
     {
         string sqlCmd;
-        
+
         public viewInvoiceController()
         {
             sqlCmd = "";
         }
 
-        public string getOrderDate(string id)//order id
+        public string getOrderDate(string id) //order id
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT orderDate FROM order_ WHERE orderID = \'{id}\'";
@@ -35,7 +34,8 @@ namespace controller
             adr.Fill(dt);
 
             DataTable dr = new DataTable();
-            sqlCmd = $"SELECT customerID FROM customer_account WHERE customerAccountID = \'{dt.Rows[0][0].ToString()}\'";
+            sqlCmd =
+                $"SELECT customerID FROM customer_account WHERE customerAccountID = \'{dt.Rows[0][0].ToString()}\'";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dr);
             return dr.Rows[0][0].ToString();
@@ -81,6 +81,7 @@ namespace controller
             {
                 partNum[i] = dt.Rows[i][0].ToString();
             }
+
             return partNum;
         }
 
@@ -93,7 +94,7 @@ namespace controller
             return dt.Rows[0][0].ToString();
         }
 
-        public int getQty(string id, string num)//id = order id, num = part num
+        public int getQty(string id, string num) //id = order id, num = part num
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM order_line WHERE partNumber = \'{num}\' AND orderID = \'{id}\'";
@@ -101,7 +102,7 @@ namespace controller
             adr.Fill(dt);
             return int.Parse(dt.Rows[0][0].ToString());
         }
-        
+
         public string getDeliveryDate(string id)
         {
             DataTable dt = new DataTable();
@@ -138,6 +139,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
     }

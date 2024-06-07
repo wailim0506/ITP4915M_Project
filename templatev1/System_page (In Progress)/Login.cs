@@ -45,7 +45,7 @@ namespace templatev1
             lblUsernameMsg.Text = "";
             lblPasswordMsg.Text = "";
 
-            if (string.IsNullOrEmpty(tbUsername.Text))            //username and password have not been entered.
+            if (string.IsNullOrEmpty(tbUsername.Text)) //username and password have not been entered.
             {
                 lblUsernameMsg.Text = "Please enter your UserID.";
                 tbUsername.Select();
@@ -55,12 +55,12 @@ namespace templatev1
                 lblPasswordMsg.Text = "Please enter your password.";
                 tbPassword.Select();
             }
-            else if (string.IsNullOrEmpty(tbPassword.Text))            //password have not been entered.
+            else if (string.IsNullOrEmpty(tbPassword.Text)) //password have not been entered.
             {
                 lblPasswordMsg.Text = "Please enter your password.";
                 tbPassword.Select();
             }
-            else if (accountController.login(tbUsername.Text, tbPassword.Text, UIController))        //Checking the password
+            else if (accountController.login(tbUsername.Text, tbPassword.Text, UIController)) //Checking the password
             {
                 IsLogin = true;
                 rememberMe();
@@ -76,7 +76,7 @@ namespace templatev1
                 Home.ShowDialog();
                 this.Close();
             }
-            else         //Password dose not match.
+            else //Password dose not match.
             {
                 tbPassword.Clear();
                 lblPasswordMsg.Text = "Invalid username or password.";
@@ -89,16 +89,16 @@ namespace templatev1
         {
             if (IsLogin)
             {
-                if (chkRememberMe.Checked == true)          //Store to local
+                if (chkRememberMe.Checked == true) //Store to local
                 {
                     Properties.Settings.Default.Usesrname = tbUsername.Text;
                     Properties.Settings.Default.Password = tbPassword.Text;
                     Properties.Settings.Default.Save();
                 }
                 else
-                    Properties.Settings.Default.Reset();        //Clean local data
+                    Properties.Settings.Default.Reset(); //Clean local data
             }
-            else        //Read from local
+            else //Read from local
             {
                 if (!string.IsNullOrEmpty(Properties.Settings.Default.Usesrname))
                 {
@@ -153,6 +153,7 @@ namespace templatev1
             tbUsername.Text = "LMS00001";
             tbPassword.Text = "password123";
         }
+
         private void btnTest3_Click(object sender, EventArgs e)
         {
             tbUsername.Text = "LMS00002";

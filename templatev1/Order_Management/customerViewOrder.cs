@@ -20,13 +20,15 @@ namespace templatev1.Order_Management
         string orderID;
         string shipDate;
         private Boolean isLM;
+
         public customerViewOrder()
         {
             InitializeComponent();
             controller = new controller.viewOrderController();
         }
 
-        public customerViewOrder(string orderID, controller.accountController accountController, controller.UIController UIController)
+        public customerViewOrder(string orderID, controller.accountController accountController,
+            controller.UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
@@ -36,18 +38,16 @@ namespace templatev1.Order_Management
             this.shipDate = "";
             UID = this.accountController.getUID();
             isLM = accountController.getIsLM();
-            
+
 
             //UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
-        
 
         private void customerViewOrder_Load(object sender, EventArgs e)
         {
-            
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
             lblLoc.Text += $" {orderID.ToString()}";
@@ -73,7 +73,9 @@ namespace templatev1.Order_Management
             dt = new DataTable();
             dt = controller.getShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
-            string[] d = shippingDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
+            string[]
+                d = shippingDate
+                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
             string[] delivermanDetail = controller.getDelivermanDetail(orderID);
@@ -85,7 +87,6 @@ namespace templatev1.Order_Management
                 lblShippingDate.Text = $"N/A";
 
                 lblExpressNum.Text = "N/A";
-
             }
             else
             {
@@ -100,8 +101,10 @@ namespace templatev1.Order_Management
                 {
                     lblShippingDate.Text = $"Delivered on {shippingDate}";
                 }
+
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
+
             lblShippingAddress.Text = controller.getShippingAddress(UID);
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing")
             {
@@ -114,7 +117,7 @@ namespace templatev1.Order_Management
 
             //ordered spare part
             dt = new DataTable();
-            dt = controller.getOrderedSparePart(orderID,sortBy);
+            dt = controller.getOrderedSparePart(orderID, sortBy);
             int row = dt.Rows.Count;
 
 
@@ -122,18 +125,53 @@ namespace templatev1.Order_Management
             int orderTotalPrice = 0;
             for (int i = 1; i <= row; i++)
             {
-                Label lblRowNum = new Label() { Name = $"lblRowNum{i}", Text = $"{i.ToString()}.", Location = new System.Drawing.Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(30, 20) };
-                Label lblItemNum = new Label() { Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}", Location = new System.Drawing.Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(83, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}", Location = new System.Drawing.Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(97, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartName = new Label() { Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}", Location = new System.Drawing.Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(300, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblQuantity = new Label() { Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}", Location = new System.Drawing.Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(106, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblUnitPrice = new Label() { Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}", Location = new System.Drawing.Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(144, 20), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblRowTotalPrice = new Label() { Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4].ToString()}", Location = new System.Drawing.Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter };
+                Label lblRowNum = new Label()
+                {
+                    Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
+                    Location = new System.Drawing.Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(30, 20)
+                };
+                Label lblItemNum = new Label()
+                {
+                    Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
+                    Location = new System.Drawing.Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblPartNum = new Label()
+                {
+                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}",
+                    Location = new System.Drawing.Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblPartName = new Label()
+                {
+                    Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
+                    Location = new System.Drawing.Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblQuantity = new Label()
+                {
+                    Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}",
+                    Location = new System.Drawing.Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblUnitPrice = new Label()
+                {
+                    Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}",
+                    Location = new System.Drawing.Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblRowTotalPrice = new Label()
+                {
+                    Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4].ToString()}",
+                    Location = new System.Drawing.Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
+                };
 
 
                 rowPosition += 50;
                 orderTotalPrice += (int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString()));
-                lblOrderTotalPrice.Text = $"¥ { orderTotalPrice.ToString()}";
+                lblOrderTotalPrice.Text = $"¥ {orderTotalPrice.ToString()}";
 
                 pnlSP.Controls.Add(lblRowNum);
                 pnlSP.Controls.Add(lblItemNum);
@@ -147,21 +185,20 @@ namespace templatev1.Order_Management
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss"); 
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             if (lblStatus.Text.ToString() == "Cancelled" || lblStatus.Text.ToString() == "Shipped")
             {
-                if(lblStatus.Text.ToString() == "Cancelled")
+                if (lblStatus.Text.ToString() == "Cancelled")
                 {
                     MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
                     MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
             else
@@ -177,7 +214,8 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be edited three day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Order cannot be edited three day before the shipping date", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -193,29 +231,32 @@ namespace templatev1.Order_Management
                 else
                 {
                     MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
             else
             {
                 if (dayDifference(orderID) >= 3)
                 {
-
-                    DialogResult dialogResult = MessageBox.Show($"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    DialogResult dialogResult =
+                        MessageBox.Show(
+                            $"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.",
+                            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     //add qty back to db
                     //get part num and it's qty in the order
                     Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
                     //add back now;
                     foreach (KeyValuePair<string, int> q in partNumQty)
                     {
-                        //controller.addQtyback(q.Key, q.Value,isLM);    should not add back to on sales qty, only add back to spare part table's qty
-                        controller.addBackToSparePartQty(q.Key, q.Value);
+                        controller.addQtyback(q.Key, q.Value, isLM);
                     }
+
                     if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
                     {
-                        MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
-                        Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                        Form customerOrderList =
+                            new Online_Ordering_Platform.customerOrderList(accountController, UIController);
                         this.Hide();
                         customerOrderList.StartPosition = FormStartPosition.Manual;
                         customerOrderList.Location = this.Location;
@@ -224,15 +265,16 @@ namespace templatev1.Order_Management
                     }
                     else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
                     {
-                        MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -255,7 +297,8 @@ namespace templatev1.Order_Management
             {
                 if (dayDifference(orderID) >= 0)
                 {
-                    MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice",
+                        MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
@@ -267,13 +310,13 @@ namespace templatev1.Order_Management
                     this.Close();
                 }
             }
-
         }
 
 
-        private int dayDifference(string orderID)  //calculate day difference
+        private int dayDifference(string orderID) //calculate day difference
         {
-            string systemFormat = systemDateFormat();  //the date format got from db depend on the operation system setting
+            string
+                systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst;
@@ -287,15 +330,16 @@ namespace templatev1.Order_Management
                 monthFirst = false;
             }
 
-            
+
             DataTable dt;
             dt = controller.getShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
-            string[] d = shippingDate.Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
+            string[]
+                d = shippingDate
+                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             string shipDate = shippingDate; //   d/M/yyyy
 
-                
 
             string sysYear = DateTime.Now.ToString("yyyy"); //today year 
             string sysMonth = DateTime.Now.ToString("MM"); //today month
@@ -316,17 +360,20 @@ namespace templatev1.Order_Management
                 shipDay = splitShipDate[0];
                 shipYear = splitShipDate[2];
             }
-                
+
             if (monthFirst && splitSystemFormat[0] == "M" && int.Parse(shipMonth) < 10)
             {
                 shipMonth = $"0{shipMonth}";
-            }else if(monthFirst && splitSystemFormat[0] == "MM" && int.Parse(shipMonth) < 10)
+            }
+            else if (monthFirst && splitSystemFormat[0] == "MM" && int.Parse(shipMonth) < 10)
             {
                 shipMonth = $"{shipMonth}";
-            }else if (!monthFirst && splitSystemFormat[1] == "M" && int.Parse(shipMonth) < 10)
+            }
+            else if (!monthFirst && splitSystemFormat[1] == "M" && int.Parse(shipMonth) < 10)
             {
                 shipMonth = $"0{shipMonth}";
-            }else if(!monthFirst && splitSystemFormat[1] == "MM" && int.Parse(shipMonth) < 10)
+            }
+            else if (!monthFirst && splitSystemFormat[1] == "MM" && int.Parse(shipMonth) < 10)
             {
                 shipMonth = $"{shipMonth}";
             }
@@ -433,7 +480,6 @@ namespace templatev1.Order_Management
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -471,31 +517,35 @@ namespace templatev1.Order_Management
                 {
                     if (k.Value <= controller.checkOnSaleQty(k.Key))
                     {
-                        controller.reOrder(UID, k.Key, k.Value,isLM);
+                        controller.reOrder(UID, k.Key, k.Value, isLM);
                     }
                     else
                     {
-                        DialogResult dialogResult2 =  MessageBox.Show($"We dont have enough quantity for {k.Key}.\nContinue to add other item?", "Re-order", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        DialogResult dialogResult2 =
+                            MessageBox.Show($"We dont have enough quantity for {k.Key}.\nContinue to add other item?",
+                                "Re-order", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         if (dialogResult2 == DialogResult.Yes)
                         {
                             continue;
                         }
                         else
                         {
-                            DialogResult dialogResult3 = MessageBox.Show($"Clear item in cart?", "Re-order", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            DialogResult dialogResult3 = MessageBox.Show($"Clear item in cart?", "Re-order",
+                                MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                             if (dialogResult3 == DialogResult.Yes)
                             {
-
                                 List<string> allPartNum = controller.getAllPartNumInCart(UID);
                                 List<int> allItemQty = controller.getAllItemQtyInCart(UID);
                                 for (int i = 0; i < allPartNum.Count; i++)
                                 {
-                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0,isLM); //add qty back to db
+                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
                                 }
+
                                 if (controller.removeAll(UID)) //remove from cart
                                 {
                                     MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
                                 }
+
                                 return;
                             }
                             else
@@ -505,7 +555,10 @@ namespace templatev1.Order_Management
                         }
                     }
                 }
-                DialogResult dialogResult = MessageBox.Show("All available item in this order added to cart.\nProceed to cart to create order?","Re-order", MessageBoxButtons.YesNo);
+
+                DialogResult dialogResult =
+                    MessageBox.Show("All available item in this order added to cart.\nProceed to cart to create order?",
+                        "Re-order", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
@@ -520,8 +573,6 @@ namespace templatev1.Order_Management
             {
                 MessageBox.Show("Please try again.", "Re-order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -553,6 +604,5 @@ namespace templatev1.Order_Management
                 picHome.Image = Properties.Resources.home;
             }
         }
-
     }
 }

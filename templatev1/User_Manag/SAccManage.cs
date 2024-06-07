@@ -19,13 +19,15 @@ namespace templatev1
         public SAccManage()
         {
             InitializeComponent();
-            palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            palSelect1.Visible =
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
         }
 
         public SAccManage(controller.accountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
-            palSelect1.Visible = palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            palSelect1.Visible =
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             this.accountController = accountController;
             this.UIController = UIController;
         }
@@ -61,7 +63,6 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
-
         }
 
         private void setIndicator(int btnNo)

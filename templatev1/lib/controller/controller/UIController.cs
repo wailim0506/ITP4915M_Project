@@ -16,15 +16,14 @@ namespace controller
         private string sqlStr;
 
         private bool BWMode;
-        private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5;      //whether the button is visible.
-        private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5;        //Text in the button.
+        private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5; //whether the button is visible.
+        private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5; //Text in the button.
         private static string AccountType, permission;
 
         controller.accountController accountController;
 
         public UIController()
         {
-
         }
 
         public UIController(accountController accountController)
@@ -36,12 +35,13 @@ namespace controller
         //Set user permission and determine which function button to be shown.
         public void setPermission(string UserID)
         {
-            if (AccountType.Equals("Customer"))     //Customer account.
+            if (AccountType.Equals("Customer")) //Customer account.
                 determineFun("C");
-            else       //Staff
+            else //Staff
             {
                 DataTable dt = new DataTable();
-                sqlStr = $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
+                sqlStr =
+                    $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
                 adr.Dispose();
@@ -49,15 +49,17 @@ namespace controller
                 determineFun(permission);
             }
         }
+
         public void setType(string AccType)
         {
             AccountType = AccType;
         }
+
         private void determineFun(string permission)
         {
             switch (permission)
             {
-                case "C":     //Customer
+                case "C": //Customer
                     //showbtn1 = showbtn2 = true;
                     //funbtn1 = "Spare Part";
                     //funbtn2 = "Invoice Management";
@@ -71,7 +73,7 @@ namespace controller
                     funbtn5 = "Give Feedback";
 
                     break;
-                case "MP01":     //Sales manager
+                case "MP01": //Sales manager
                     showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Invoice Management";
@@ -79,23 +81,24 @@ namespace controller
                     funbtn4 = "Stock Management";
                     funbtn5 = "User Managemnet";
                     break;
-                case "MP02":     //Storeman
+                case "MP02": //Storeman
                     showbtn1 = showbtn2 = showbtn3 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Stock Management";
                     funbtn3 = "User Managemnet";
                     break;
-                case "MP03":     //Department manager
+                case "MP03": //Department manager
                     showbtn1 = true;
                     funbtn1 = "User Managemnet";
                     break;
-                case "MP04":     //Delivery man
+                case "MP04": //Delivery man
                     showbtn1 = showbtn2 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "User Management";
                     break;
             }
         }
+
         //Return the button name and whick to be shown.
         public dynamic showFun()
         {
@@ -118,10 +121,11 @@ namespace controller
         {
             BWMode = value;
         }
+
         public dynamic getMode()
         {
             dynamic mode = new ExpandoObject();
-            if (!BWMode)     //normal
+            if (!BWMode) //normal
             {
                 mode.textColor = "#FFFFFF";
                 mode.bgColor = "#404040";
@@ -135,7 +139,7 @@ namespace controller
                 mode.BWmode = true;
                 return mode;
             }
-            else    //dark.
+            else //dark.
             {
                 mode.textColor = "#000000";
                 mode.bgColor = "#F0F0F0";
@@ -180,6 +184,7 @@ namespace controller
                 profile.group1 = true;
                 profile.group2 = false;
             }
+
             return profile;
         }
 
@@ -195,9 +200,8 @@ namespace controller
             {
                 store.group1 = true;
             }
+
             return store;
-
-
         }
     }
 }

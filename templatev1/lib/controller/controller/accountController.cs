@@ -40,17 +40,18 @@ namespace controller
 
                 if (UID.StartsWith("LMC") || UID.StartsWith("LMS"))
                 {
-                    sqlStr = $"SELECT password, pwdKEY, pwdIV, status FROM customer_account WHERE customerID = \'{UID}\' " +
-                    $"UNION ALL SELECT password, pwdKEY, pwdIV, status FROM staff_account WHERE staffID = \'{UID}\'";
+                    sqlStr =
+                        $"SELECT password, pwdKEY, pwdIV, status FROM customer_account WHERE customerID = \'{UID}\' " +
+                        $"UNION ALL SELECT password, pwdKEY, pwdIV, status FROM staff_account WHERE staffID = \'{UID}\'";
                 }
                 else
-                    return IsLogin;      //Not a LM account.
+                    return IsLogin; //Not a LM account.
 
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
                 adr.Dispose();
 
-                if (dt.Rows.Count < 1)          //Account NOT found.
+                if (dt.Rows.Count < 1) //Account NOT found.
                     return IsLogin;
 
                 //Decrypt data from the database
@@ -70,19 +71,21 @@ namespace controller
                     {
                         isLM = true;
                     }
+
                     IsLogin = true;
                     UserID = UID;
 
                     UIController = UI;
 
-                    UserInfo();    //Get user info and store in gobal variable.
+                    UserInfo(); //Get user info and store in gobal variable.
                     UIController.setPermission(UserID);
                 }
+
                 return IsLogin;
             }
             catch (Exception e)
             {
-                return IsLogin;     //Some error occurs retrn false to login.
+                return IsLogin; //Some error occurs retrn false to login.
             }
         }
 
@@ -104,6 +107,7 @@ namespace controller
                     }
                 }
             }
+
             return simpletext;
         }
 
@@ -112,16 +116,17 @@ namespace controller
         {
             DataTable dt = new DataTable();
 
-            if (UserID.StartsWith("LMC"))         //A customer account.
+            if (UserID.StartsWith("LMC")) //A customer account.
             {
-                sqlStr = $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = \'{UserID}\' AND C.customerID = \'{UserID}\'";
+                sqlStr =
+                    $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = \'{UserID}\' AND C.customerID = \'{UserID}\'";
                 AccountType = "Customer";
                 UIController.setType(AccountType);
-
             }
-            else     //A staff account
+            else //A staff account
             {
-                sqlStr = $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = \'{UserID}\' AND S.staffID = \'{UserID}\'";
+                sqlStr =
+                    $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = \'{UserID}\' AND S.staffID = \'{UserID}\'";
                 AccountType = "Staff";
                 UIController.setType(AccountType);
             }
@@ -151,6 +156,7 @@ namespace controller
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
         //Retuen the last login date time.
         public string getLog()
         {
@@ -158,7 +164,7 @@ namespace controller
 
 
             sqlStr = $"SELECT loginDate FROM customer_login_history WHERE customerAccountID = \'{accountID}\' " +
-                $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = \'{accountID}\' ORDER BY loginDATE DESC";
+                     $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = \'{accountID}\' ORDER BY loginDATE DESC";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -166,13 +172,14 @@ namespace controller
 
             return dt.Rows[0]["loginDate"].ToString();
         }
+
         //Return the full login record.
         public DataTable getFullLog()
         {
             DataTable dt = new DataTable();
 
             sqlStr = $"SELECT loginDate FROM customer_login_history WHERE customerAccountID = \'{accountID}\' " +
-                $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = \'{accountID}\' ORDER BY loginDate DESC";
+                     $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = \'{accountID}\' ORDER BY loginDate DESC";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -180,13 +187,14 @@ namespace controller
 
             return dt;
         }
+
         //Return the last password chagne date.
         public DateTime getPwdChange()
         {
             DataTable dt = new DataTable();
 
             sqlStr = $"SELECT pwdChangeDate FROM customer_account WHERE customerAccountID = \'{accountID}\' " +
-                $"UNION ALL SELECT pwdChangeDate FROM staff_account WHERE staffAccountID = \'{accountID}\'";
+                     $"UNION ALL SELECT pwdChangeDate FROM staff_account WHERE staffAccountID = \'{accountID}\'";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -219,7 +227,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                return false;           //Something went wrong.
+                return false; //Something went wrong.
             }
         }
 
@@ -238,7 +246,7 @@ namespace controller
             adr.Fill(dt);
             return dt;
         }
-        
+
         public DataTable getCustomerDetail(string id) //use in viewOrderController   //id = customerID
         {
             DataTable dt = new DataTable();
@@ -253,10 +261,12 @@ namespace controller
         {
             return lastName + " " + firstName;
         }
+
         public string getUID()
         {
             return UserID;
         }
+
         public string getType()
         {
             return AccountType;
@@ -266,6 +276,5 @@ namespace controller
         {
             return isLM;
         }
-
     }
 }

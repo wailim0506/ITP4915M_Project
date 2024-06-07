@@ -15,6 +15,7 @@ namespace templatev1
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
+
         public giveFeedback()
         {
             InitializeComponent();
@@ -36,15 +37,19 @@ namespace templatev1
             int wordCount = CountWords(feedback);
             if (wordCount > 100)
             {
-                MessageBox.Show("Word Amount Exceed.","Too Many Words", MessageBoxButtons.OK, MessageBoxIcon.Error); //alert the user not exceed word count 
-            }else if(wordCount <= 0)
+                MessageBox.Show("Word Amount Exceed.", "Too Many Words", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error); //alert the user not exceed word count 
+            }
+            else if (wordCount <= 0)
             {
-                MessageBox.Show("Please enter something","Empty Feedback", MessageBoxButtons.OK, MessageBoxIcon.Error); //alert the user the textbox is empty
+                MessageBox.Show("Please enter something", "Empty Feedback", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error); //alert the user the textbox is empty
             }
             else
             {
-                controller.feedbackController controller = new controller.feedbackController(); //create controller object
-                Boolean addFeedback = controller.addFeedback("LMC00001",feedback, orderID);
+                controller.feedbackController
+                    controller = new controller.feedbackController(); //create controller object
+                Boolean addFeedback = controller.addFeedback("LMC00001", feedback, orderID);
                 if (addFeedback == true)
                 {
                     tbFB.Text = "";
@@ -52,7 +57,7 @@ namespace templatev1
                     cmbOrder.Text = "N/A";
                     MessageBox.Show("Feedback Sent.\nThank you for your feedback.");
                 }
-            }        
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -78,7 +83,8 @@ namespace templatev1
             }
 
             // Split the text into words based on delimiters
-            string[] words = text.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] words = text.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?' },
+                StringSplitOptions.RemoveEmptyEntries);
 
             // Return the number of words
             return words.Length;
@@ -164,7 +170,7 @@ namespace templatev1
 
         private void LoadComboBox()
         {
-            List<string> order = new List<string> {"N/A"};
+            List<string> order = new List<string> { "N/A" };
 
             controller.feedbackController controller = new controller.feedbackController(); //create controller object
             List<string> d = controller.getOrderID(UID);
@@ -173,6 +179,7 @@ namespace templatev1
             {
                 order.Add(x);
             }
+
             cmbOrder.DataSource = order;
         }
 

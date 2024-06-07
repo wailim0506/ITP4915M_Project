@@ -8,10 +8,10 @@ using MySqlConnector;
 
 namespace controller
 {
-
     public class favouriteController : abstractController
     {
         string sqlCmd;
+
         public favouriteController()
         {
             sqlCmd = "";
@@ -20,7 +20,8 @@ namespace controller
         public DataTable getFavourite(string id) //customer id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
+            sqlCmd =
+                $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             return dt;
@@ -62,9 +63,10 @@ namespace controller
             return true;
         }
 
-        public DataTable getFavouriteWhenTextChange(string id,string category, string kw, string sorting)
+        public DataTable getFavouriteWhenTextChange(string id, string category, string kw, string sorting)
         {
-            sqlCmd = $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
+            sqlCmd =
+                $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
             if (category != "All")
             {
                 sqlCmd += $" AND z.categoryID = '{category}'";
@@ -94,16 +96,18 @@ namespace controller
             return dt;
         }
 
-        public Boolean isFavourite(string num, string id)//part num, customer id
+        public Boolean isFavourite(string num, string id) //part num, customer id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
+            sqlCmd =
+                $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
             if (dt.Rows.Count != 0)
             {
                 return true;
             }
+
             return false;
         }
 
@@ -130,19 +134,17 @@ namespace controller
                         command.ExecuteNonQuery();
                     }
                 }
-        }
+            }
             catch (Exception e)
             {
                 return false;
-
             }
             finally
             {
                 conn.Close();
             }
+
             return true;
         }
     }
 }
-
-

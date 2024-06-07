@@ -18,6 +18,7 @@ namespace templatev1.Online_Ordering_Platform
         controller.accountController accountController;
         controller.UIController UIController;
         controller.cartController controller;
+
         public cart()
         {
             InitializeComponent();
@@ -47,13 +48,14 @@ namespace templatev1.Online_Ordering_Platform
             load_customer_address(controller.getCustomerAddress(UID));
         }
 
-        public void load_customer_address(DataTable dt) 
+        public void load_customer_address(DataTable dt)
         {
             tbAddress.Text = dt.Rows[0][0].ToString();
             tbProvince.Text = dt.Rows[0][1].ToString();
             tbCity.Text = dt.Rows[0][2].ToString();
             DateTime sysDate = DateTime.Now.Date;
-            dtpShippingDate.MinDate = sysDate.AddDays(5);  //the first available shipping date is five day after order date
+            dtpShippingDate.MinDate =
+                sysDate.AddDays(5); //the first available shipping date is five day after order date
         }
 
         private void load_part(DataTable dt)
@@ -63,14 +65,54 @@ namespace templatev1.Online_Ordering_Platform
             int yPosition = 8;
             for (int i = 0; i < countRow(dt); i++)
             {
-                CheckBox checkBox = new CheckBox() { Name = $"chk{i}", Text = "", Location = new System.Drawing.Point(11, yPosition + 6), Size = new System.Drawing.Size(15, 14), Cursor = Cursors.Hand };
-                Label lblCategory = new Label() { Text = $"{dt.Rows[i][5]}", Location = new System.Drawing.Point(37, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(89, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartNum = new Label() { Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][6]}", Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblPartName = new Label() { Text = $"{dt.Rows[i][16]}", Location = new System.Drawing.Point(279, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblQty = new Label() { Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new System.Drawing.Point(538, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(85, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblUnitPrice = new Label() { Text = $"¥{dt.Rows[i][10]}", Location = new System.Drawing.Point(629, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Label lblRowTotalPrice = new Label() { Name = $"lbRowPrice{i}", Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][10].ToString())}", Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter };
-                Button btnView = new Button() { Name = $"btnView{i}", Text = "View", Location = new System.Drawing.Point(824, yPosition - 3), Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter, AutoSize = false, Size = new System.Drawing.Size(64, 28), Cursor = Cursors.Hand };
+                CheckBox checkBox = new CheckBox()
+                {
+                    Name = $"chk{i}", Text = "", Location = new System.Drawing.Point(11, yPosition + 6),
+                    Size = new System.Drawing.Size(15, 14), Cursor = Cursors.Hand
+                };
+                Label lblCategory = new Label()
+                {
+                    Text = $"{dt.Rows[i][4]}", Location = new System.Drawing.Point(37, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(89, 23),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblPartNum = new Label()
+                {
+                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][5]}",
+                    Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblPartName = new Label()
+                {
+                    Text = $"{dt.Rows[i][14]}", Location = new System.Drawing.Point(279, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblQty = new Label()
+                {
+                    Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new System.Drawing.Point(538, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(85, 23),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblUnitPrice = new Label()
+                {
+                    Text = $"¥{dt.Rows[i][8]}", Location = new System.Drawing.Point(629, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+                Label lblRowTotalPrice = new Label()
+                {
+                    Name = $"lbRowPrice{i}",
+                    Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}",
+                    Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
+                };
+                Button btnView = new Button()
+                {
+                    Name = $"btnView{i}", Text = "View", Location = new System.Drawing.Point(824, yPosition - 3),
+                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = false, Size = new System.Drawing.Size(64, 28), Cursor = Cursors.Hand
+                };
                 btnView.Click += new EventHandler(this.btnView_Click);
 
                 pnlSP.Controls.Add(checkBox);
@@ -85,8 +127,10 @@ namespace templatev1.Online_Ordering_Platform
                 yPosition += 50;
                 totalPrice += int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString());
             }
+
             lblTotal.Text = $"¥{totalPrice}";
         }
+
         public void btnView_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;
@@ -123,13 +167,14 @@ namespace templatev1.Online_Ordering_Platform
                 {
                     return i;
                 }
+
                 i++;
             }
+
             int x = -1;
             return x;
         }
 
-        
 
         public int countRow(DataTable dt)
         {
@@ -141,34 +186,36 @@ namespace templatev1.Online_Ordering_Platform
             List<int> checkedIndex = getCheckedIndex(getChecked());
             if (checkedIndex.Count > 0)
             {
-                for (int i = 0; i < checkedIndex.Count; i++)  
+                for (int i = 0; i < checkedIndex.Count; i++)
                 {
                     foreach (Control control in pnlSP.Controls)
                     {
                         if (control.Name == $"lblPartNum{checkedIndex[i]}")
                         {
-                            foreach (Control controls in pnlSP.Controls)   //add qty back to db
+                            foreach (Control controls in pnlSP.Controls) //add qty back to db
                             {
                                 if (controls.Name == $"lblQty{checkedIndex[i]}")
                                 {
-                                    if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()),0,isLM))
+                                    if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()), 0,
+                                            isLM))
                                     {
-
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         return;
                                     }
                                 }
                             }
+
                             if (controller.removePart(control.Text, UID)) //remove item from cart
                             {
-                                
                             }
                             else
                             {
-                                MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
                         }
@@ -180,8 +227,8 @@ namespace templatev1.Online_Ordering_Platform
             }
             else
             {
-                MessageBox.Show("Please select at least one item", "Remove From Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Please select at least one item", "Remove From Cart", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
@@ -196,6 +243,7 @@ namespace templatev1.Online_Ordering_Platform
                     checkedBox.Add(checkBox.Name);
                 }
             }
+
             return checkedBox;
         }
 
@@ -213,6 +261,7 @@ namespace templatev1.Online_Ordering_Platform
                     }
                 }
             }
+
             return index;
         }
 
@@ -226,6 +275,7 @@ namespace templatev1.Online_Ordering_Platform
                     ++i;
                 }
             }
+
             return i;
         }
 
@@ -233,7 +283,8 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (controller.getCartItem(UID).Rows.Count > 0) //check there are items in cart
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove all items in cart?", "Remove All", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove all items in cart?",
+                    "Remove All", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes)
                 {
                     List<string> allPartNum = controller.getAllPartNumInCart(UID);
@@ -242,6 +293,7 @@ namespace templatev1.Online_Ordering_Platform
                     {
                         controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
                     }
+
                     if (controller.removeAll(UID)) //remove from cart
                     {
                         MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
@@ -249,15 +301,15 @@ namespace templatev1.Online_Ordering_Platform
                     }
                     else
                     {
-                        MessageBox.Show("Error occur\nPlease try again", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Error occur\nPlease try again", "Remove All", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
                 MessageBox.Show("Your cart is empty", "Remove All", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }            
+            }
         }
 
         private void btnEditQty_Click(object sender, EventArgs e)
@@ -266,13 +318,14 @@ namespace templatev1.Online_Ordering_Platform
             if (checkedBox.Count == 0)
             {
                 MessageBox.Show("Please select one item", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }else if (checkedBox.Count > 1)
+            }
+            else if (checkedBox.Count > 1)
             {
-                MessageBox.Show("Please select one item only", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please select one item only", "Edit Quantity", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
             else
             {
-                
                 List<int> checkedIndex = getCheckedIndex(checkedBox);
                 foreach (Control control in pnlSP.Controls)
                 {
@@ -303,7 +356,8 @@ namespace templatev1.Online_Ordering_Platform
                 MessageBox.Show("Please enter a number", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString()!="")
+
+            if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString() != "")
             {
                 //get current quantity in cart first
                 int currentQty = controller.getCurrentQtyInCart(partToEdit, UID);
@@ -311,15 +365,16 @@ namespace templatev1.Online_Ordering_Platform
                 try
                 {
                     controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString()), isLM);
-                }catch (Exception)
+                }
+                catch (Exception)
                 {
-                    MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Sorry, we dont have enough spare part\nPlease try adjusting the quantity",
+                        "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-
                 }
 
                 //update db with user input
-                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()),isLM,false,0))
+                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM))
                 {
                     //update qty in user cart
                     if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
@@ -333,8 +388,8 @@ namespace templatev1.Online_Ordering_Platform
                     }
                     else
                     {
-                        MessageBox.Show("Please try again", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                        MessageBox.Show("Please try again", "Edit Quantity", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -344,25 +399,28 @@ namespace templatev1.Online_Ordering_Platform
             }
             else
             {
-                MessageBox.Show("Please enter a valid number", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Please enter a valid number", "Edit Quantity", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
-
         }
 
         private void btnCreateOrder_Click(object sender, EventArgs e)
         {
             if (controller.getCartItem(UID).Rows.Count > 0) //check there are items in cart
             {
-                if (tbAddress.Text != "" && tbProvince.Text != "" && tbCity.Text != "") //check shipping detail is filled
+                if (tbAddress.Text != "" && tbProvince.Text != "" &&
+                    tbCity.Text != "") //check shipping detail is filled
                 {
-                    DialogResult dialogResult = MessageBox.Show($"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}", "Create Order", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(
+                        $"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}",
+                        "Create Order", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),$"{tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}"))
+                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
                         {
                             controller.clearCustomerCartAfterCreateOrder(UID);
-                            DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?", "Create Order", MessageBoxButtons.YesNo);
+                            DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",
+                                "Create Order", MessageBoxButtons.YesNo);
                             if (dialogResult2 == DialogResult.Yes)
                             {
                                 Form sparePartList = new sparePartList(accountController, UIController);
@@ -376,24 +434,23 @@ namespace templatev1.Online_Ordering_Platform
                             {
                                 load_part(controller.getCartItem(UID));
                             }
-
                         }
                         else
                         {
-                            MessageBox.Show("Please try again", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Please try again", "Create Order", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please fill in shipping detail", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                    MessageBox.Show("Please fill in shipping detail", "Create Order", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             else
             {
                 MessageBox.Show("Cart is empty", "Create Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -426,7 +483,6 @@ namespace templatev1.Online_Ordering_Platform
                 tbProvince.ReadOnly = true;
                 tbCity.ReadOnly = true;
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -507,7 +563,6 @@ namespace templatev1.Online_Ordering_Platform
 
         private void pnlSP_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void BWMode()

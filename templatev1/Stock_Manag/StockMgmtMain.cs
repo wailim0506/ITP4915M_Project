@@ -15,7 +15,8 @@ namespace templatev1
         private string uName, UID;
         controller.accountController accountController;
         controller.UIController UIController;
-        controller.stockController stockController;
+        // Cannot find the type controller.stockController
+       // controller.stockController stockController;
 
 
         public StockMgmt()
@@ -28,7 +29,7 @@ namespace templatev1
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            stockController = new controller.stockController(accountController);
+            //stockController = new controller.stockController(accountController);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -58,7 +59,7 @@ namespace templatev1
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
 
-            //Swap the from between storeman and sale manager
+            //Swap the form between storeman and sale manager
             dynamic funstion = UIController.store();
             palOrder.Visible = funstion.group1;
 
@@ -74,22 +75,27 @@ namespace templatev1
         {
             getPage(btnFunction1.Text);
         }
+
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             getPage(btnFunction2.Text);
         }
+
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             getPage(btnFunction3.Text);
         }
+
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             getPage(btnFunction4.Text);
         }
+
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             getPage(btnFunction5.Text);
         }
+
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -98,15 +104,12 @@ namespace templatev1
                 case "Order Management":
 
 
-
                     break;
                 case "Invoice Management":
 
 
-
                     break;
                 case "On-Sale Product Management":
-
 
 
                     break;
@@ -202,10 +205,7 @@ namespace templatev1
 
         private void chkAdvancedSearch_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkAdvancedSearch.Checked)
-                grpAdvancedSearch.Visible = true;
-            else
-                grpAdvancedSearch.Visible = false;
+            grpAdvancedSearch.Visible = chkAdvancedSearch.Checked;
         }
 
         private void btnModify_Click(object sender, EventArgs e)
