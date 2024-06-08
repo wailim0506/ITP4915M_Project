@@ -171,7 +171,6 @@
             this.btnFunction5.Name = "btnFunction5";
             this.btnFunction5.Size = new System.Drawing.Size(198, 55);
             this.btnFunction5.TabIndex = 15;
-            this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
             this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
@@ -189,7 +188,6 @@
             this.btnFunction4.Name = "btnFunction4";
             this.btnFunction4.Size = new System.Drawing.Size(198, 55);
             this.btnFunction4.TabIndex = 14;
-            this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
             this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
@@ -207,7 +205,6 @@
             this.btnFunction3.Name = "btnFunction3";
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 13;
-            this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
             this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
@@ -225,7 +222,6 @@
             this.btnFunction2.Name = "btnFunction2";
             this.btnFunction2.Size = new System.Drawing.Size(198, 55);
             this.btnFunction2.TabIndex = 12;
-            this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
             this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
@@ -243,7 +239,6 @@
             this.btnFunction1.Name = "btnFunction1";
             this.btnFunction1.Size = new System.Drawing.Size(198, 55);
             this.btnFunction1.TabIndex = 11;
-            this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
@@ -272,8 +267,9 @@
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(0, 22);
+            this.lblUid.Size = new System.Drawing.Size(43, 22);
             this.lblUid.TabIndex = 1;
+            this.lblUid.Text = "UID";
             // 
             // lblTimeDate
             // 
@@ -311,9 +307,9 @@
             this.lblWelUser.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
             this.lblWelUser.Location = new System.Drawing.Point(6, 9);
             this.lblWelUser.Name = "lblWelUser";
-            this.lblWelUser.Size = new System.Drawing.Size(197, 22);
+            this.lblWelUser.Size = new System.Drawing.Size(93, 22);
             this.lblWelUser.TabIndex = 0;
-            this.lblWelUser.Text = "Welcome, XXXXXXX!";
+            this.lblWelUser.Text = "Welcome, ";
             // 
             // btnChangePass
             // 
@@ -365,7 +361,6 @@
             this.lblLastPassChange.Name = "lblLastPassChange";
             this.lblLastPassChange.Size = new System.Drawing.Size(153, 26);
             this.lblLastPassChange.TabIndex = 30;
-            this.lblLastPassChange.Text = "2023/10/11";
             this.lblLastPassChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblLastLogin
