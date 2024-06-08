@@ -4,10 +4,15 @@
 
 if there is something wrong about the package, please contact me. but please try to fix it by installing the package.
 The package list is below:
+
 Microsoft.Extensions.DependencyInjection.Abstractions version 8.0.0
+
 Microsoft.Extensions.DependencyInjection version 8.0.0
+
 MySql.Data version 8.4.0
+
 Bcrypt.Net-Next version 4.0.3
+
 
 ## About the Database connection
 
