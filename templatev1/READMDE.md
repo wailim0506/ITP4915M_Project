@@ -1,8 +1,14 @@
 ﻿# Readme
 
+## useful links
+
+1. jetbrains student license
+https://www.jetbrains.com/shop/eform/students
+
 ## package
 
 if there is something wrong about the package, please contact me. but please try to fix it by installing the package.
+
 The package list is below:
 
 Microsoft.Extensions.DependencyInjection.Abstractions version 8.0.0
@@ -22,9 +28,19 @@ Microsoft.Extensions.Logging.Configuration version 8.0.0
 
 1. open the project
 2. right click on the project
-3. click on Manage Nuget Packages
-4. search for the package
-5. click on the package
+3. click on the Manage NuGet Packages -> NuGet Console
+4. type the command below
+
+```shell
+Install-Package Bcrypt.Net-Next -Version 4.0.3
+Install-Package Microsoft.Extensions.DependencyInjection.Abstractions -Version 8.0.0
+Install-Package Microsoft.Extensions.DependencyInjection -Version 8.0.0
+Install-Package MySql.Data -Version 8.4.0
+Install-Package Microsoft.Extensions.Logging -Version 8.0.0
+Install-Package Microsoft.Extensions.Logging.Abstractions -Version 8.0.0
+Install-Package Microsoft.Extensions.Logging.Console -Version 8.0.0
+Install-Package Microsoft.Extensions.Logging.Configuration -Version 8.0.0
+```
 
 ### install the package via the terminal
 
@@ -66,7 +82,7 @@ docker-compose up -d
 
 > please note that I want to replace the MysqlConnector with the MySql.Data package for better performance and more
 > functionality.
-> Consider remove the MysqlConnector package from the project on the future.
+> Consider removing the MysqlConnector package from the project on the future.
 
 ## about the password encryption
 
@@ -75,6 +91,12 @@ the password encryption will be encrypted by the Bcrypt Algorithm. which is a pa
 ### to use the Bcrypt Algorithm
 
 ```csharp
+// just the project just use the HashPassword method
+
+accountController.HashPassword("123456", thePwdFromDB); // <- it will return a boolean value
+// for verifying the password
+accountController.isValidatePassword("123456", thePwdFromDB); // <- it will return a boolean value
+
 using Bcrypt.Net.Next;
 
 string password = "123456";
@@ -85,57 +107,129 @@ var hashedPassword = BCrypt.Net.Next.BCrypt.EnhancedHashPassword(password);
 // verify the password
 var passwordFromDB = GetUserPasswordFromDB();
 bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordFromDB);
+
+
 ```
 
-### to use the Mysql.Data package
+[//]: # (### to use the Mysql.Data package)
+
+[//]: # ()
+[//]: # (```csharp)
+
+[//]: # (using MySql.Data.MySqlClient;)
+
+[//]: # ()
+[//]: # (string password = "123456";)
+
+[//]: # ()
+[//]: # (// create a new instance of the MySqlConnection class)
+
+[//]: # (MySqlConnection connection = new MySqlConnection&#40;"server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"&#41;;)
+
+[//]: # ()
+[//]: # (using &#40;connection&#41;)
+
+[//]: # ({)
+
+[//]: # (    // open the connection)
+
+[//]: # (    connection.Open&#40;&#41;;)
+
+[//]: # ()
+[//]: # (    // create a new instance of the MySqlCommand class)
+
+[//]: # (    MySqlCommand command = new MySqlCommand&#40;"SELECT * FROM users WHERE username = @username", connection&#41;;)
+
+[//]: # ()
+[//]: # (    // add the parameter to the command)
+
+[//]: # (    command.Parameters.AddWithValue&#40;"@username", "admin"&#41;;)
+
+[//]: # ()
+[//]: # (    // execute the command)
+
+[//]: # (    using &#40;MySqlDataReader reader = command.ExecuteReader&#40;&#41;&#41;)
+
+[//]: # (    {)
+
+[//]: # (        // read the data)
+
+[//]: # (        while &#40;reader.Read&#40;&#41;&#41;)
+
+[//]: # (        {)
+
+[//]: # (            Console.WriteLine&#40;reader["username"]&#41;;)
+
+[//]: # (        })
+
+[//]: # (    })
+
+[//]: # (    )
+[//]: # (    // method 2)
+
+[//]: # (    // using the dictionary for the parameters)
+
+[//]: # (    Dictionary<string, object> parameters = new Dictionary<string, object>&#40;&#41;;)
+
+[//]: # (    parameters.Add&#40;"@username", "admin"&#41;;)
+
+[//]: # (    command.Parameters.AddRange&#40;parameters.Keys.Select&#40;key => new MySqlParameter&#40;key, parameters[key]&#41;&#41;.ToArray&#40;&#41;&#41;;)
+
+[//]: # ()
+[//]: # (    // execute the command)
+
+[//]: # (    using &#40;MySqlDataReader reader = command.ExecuteReader&#40;&#41;&#41;)
+
+[//]: # (    {)
+
+[//]: # (        // read the data)
+
+[//]: # (        while &#40;reader.Read&#40;&#41;&#41;)
+
+[//]: # (        {)
+
+[//]: # (            Console.WriteLine&#40;reader["username"]&#41;;)
+
+[//]: # (        })
+
+[//]: # (    })
+
+[//]: # (    )
+[//]: # (})
+
+[//]: # (```)
+
+## How to use the Database class
+
+The `Database` class is responsible for managing the database connection and executing SQL commands.
+It uses the `MySql.Data.MySqlClient` namespace from the `MySql.Data` package.
 
 ```csharp
-using MySql.Data.MySqlClient;
+Dictionary<string, object> parameters = new Dictionary<string, object>();
+parameters.Add("@username", "admin");
+parameters.Add("@password", "password");
+database.ExecuteNonQueryCommand("INSERT INTO users (username, password) VALUES (@username, @password)", parameters);
 
-string password = "123456";
+// ExecuteNonQueryCommand is for the command that will return no value
+database.ExecuteNonQueryCommand("INSERT INTO users (username, password) VALUES (@username, @password)", parameters);
 
-// create a new instance of the MySqlConnection class
-MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;");
+// ExecuteReaderCommand is for the command that will return a DataReader
 
-using (connection)
-{
-    // open the connection
-    connection.Open();
+var result = database.ExecuteReaderCommand("SELECT * FROM users WHERE username = @username", parameters);
 
-    // create a new instance of the MySqlCommand class
-    MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE username = @username", connection);
+// ExecuteDataTable is for the command that will return a DataTable
+var result = database.ExecuteDataTable("SELECT * FROM users WHERE username = @username", parameters);
+// it will return a DataTable
 
-    // add the parameter to the command
-    command.Parameters.AddWithValue("@username", "admin");
+```
 
-    // execute the command
-    using (MySqlDataReader reader = command.ExecuteReader())
-    {
-        // read the data
-        while (reader.Read())
-        {
-            Console.WriteLine(reader["username"]);
-        }
-    }
-    
-    // method 2
-    // using the dictionary for the parameters
-    Dictionary<string, object> parameters = new Dictionary<string, object>();
-    parameters.Add("@username", "admin");
-    command.Parameters.AddRange(parameters.Keys.Select(key => new MySqlParameter(key, parameters[key])).ToArray());
+## Remote Database Connection
 
-    // execute the command
-    using (MySqlDataReader reader = command.ExecuteReader())
-    {
-        // read the data
-        while (reader.Read())
-        {
-            Console.WriteLine(reader["username"]);
-        }
-    }
-    
-    // method 3
-    // using the Database class on the project
-    // To be written or you can look at the batabase class on the project
-}
+1. userid:`root`
+2. password:`ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt`
+3. Host:`hkg1.clusters.zeabur.com`
+4. Port:`32298`
+
+```shell
+mysqlsh --sql --host=hkg1.clusters.zeabur.com --port=32298 --user=root --password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt --schema=zeabur
 ```

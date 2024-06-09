@@ -1,20 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
     public partial class SAccManage : Form
     {
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
+        AccountController accountController;
+        UIController UIController;
 
         public SAccManage()
         {
@@ -23,7 +17,7 @@ namespace templatev1
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
         }
 
-        public SAccManage(controller.AccountController accountController, controller.UIController UIController)
+        public SAccManage(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             palSelect1.Visible =

@@ -19,35 +19,34 @@ namespace controller
         {
             var connectionStrings = new List<string>
             {
-                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
+                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
+                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
+                "server=hkg1.clusters.zeabur.com;port=32298;user id=root; password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
             };
 
+            return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
+        }
+        
+        private static string TestConnection(List<string> connectionStrings)
+        {
             foreach (var connectionString in connectionStrings)
             {
-                if (TestConnection(connectionString))
+                using (var connection = new MySqlConnection(connectionString))
                 {
-                    return connectionString;
+                    try
+                    {
+                        connection.Open();
+                        return connectionString;
+                    }
+                    catch
+                    {
+                        // Ignore the exception and try the next connection string
+                    }
                 }
             }
 
+            // If none of the connection strings work, throw an exception or return null
             throw new Exception("No valid connection string found.");
-        }
-
-        private static bool TestConnection(string connectionString)
-        {
-            using (var connection = new MySqlConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    return true;
-                }
-                catch
-                {
-                    return false;
-                }
-            }
         }
 
         public void Dispose()

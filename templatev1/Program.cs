@@ -27,6 +27,10 @@ namespace templatev1
                 var service = new ServiceCollection();
                 ConfigureServices(service);
                 var serviceProvider = service.BuildServiceProvider();
+                // Create and show the loading form
+                LoadingForm loadingForm = new LoadingForm();
+                loadingForm.Show();
+                // Start new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
                 //StartThread(() => RunApplication(() => new customerOrderList()));
             }

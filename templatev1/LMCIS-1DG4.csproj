@@ -141,6 +141,12 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="DevTool\DevToolControl.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="DevTool\DevToolControl.Designer.cs">
+          <DependentUpon>DevToolControl.cs</DependentUpon>
+        </Compile>
         <Compile Include="Online_Ordering_Platform\AddPartToExistingOrder.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -200,6 +206,12 @@
         </Compile>
         <Compile Include="Stock_Manag\addSupplier.Designer.cs">
             <DependentUpon>addSupplier.cs</DependentUpon>
+        </Compile>
+        <Compile Include="System_page (In Progress)\LoadingForm.cs">
+          <SubType>UserControl</SubType>
+        </Compile>
+        <Compile Include="System_page (In Progress)\LoadingForm.Designer.cs">
+          <DependentUpon>LoadingForm.cs</DependentUpon>
         </Compile>
         <Compile Include="Trash\editSupplier.cs">
             <SubType>Form</SubType>
@@ -399,8 +411,8 @@
         <Compile Include="Trash\StaffProfile.Designer.cs">
             <DependentUpon>StaffProfile.cs</DependentUpon>
         </Compile>
-        <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="Order_Management\viewDIC.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -553,7 +565,7 @@
         <EmbeddedResource Include="Order_Management\viewOrder_Confirm_Reject.resx">
             <DependentUpon>viewOrder_Confirm_Reject.cs</DependentUpon>
         </EmbeddedResource>
-        <None Include="packages.config"/>
+        <None Include="packages.config" />
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>
             <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -568,62 +580,62 @@
             <DependentUpon>Settings.settings</DependentUpon>
             <DesignTimeSharedInput>True</DesignTimeSharedInput>
         </Compile>
-        <None Include="SLMC_Icon.ico"/>
+        <None Include="SLMC_Icon.ico" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
+        <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\home.png"/>
+        <None Include="Resources\home.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\home1.png"/>
+        <None Include="Resources\home1.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\LB.png"/>
+        <None Include="Resources\LB.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\Daco_367903.png"/>
+        <None Include="Resources\Daco_367903.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\Daco_367903re.png"/>
+        <None Include="Resources\Daco_367903re.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\homeWhite.png"/>
+        <None Include="Resources\homeWhite.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\LBWhite.png"/>
+        <None Include="Resources\LBWhite.png" />
     </ItemGroup>
     <ItemGroup>
-        <None Include="Resources\pencil.png"/>
-        <None Include="Resources\tick.jpg"/>
-        <None Include="Resources\tick.png"/>
-        <None Include="Resources\bin.png"/>
-        <None Include="Resources\refreshbtn.png"/>
-        <None Include="Resources\A00001.png"/>
-        <None Include="Resources\A00002.png"/>
-        <None Include="Resources\A00003.png"/>
-        <None Include="Resources\A00004.png"/>
-        <None Include="Resources\A00005.png"/>
-        <None Include="Resources\B00001.png"/>
-        <None Include="Resources\B00002.png"/>
-        <None Include="Resources\B00003.png"/>
-        <None Include="Resources\B00004.png"/>
-        <None Include="Resources\B00005.png"/>
-        <None Include="Resources\C00001.png"/>
-        <None Include="Resources\C00002.png"/>
-        <None Include="Resources\C00003.png"/>
-        <None Include="Resources\C00004.png"/>
-        <None Include="Resources\C00005.png"/>
-        <None Include="Resources\D00001.png"/>
-        <None Include="Resources\D00002.png"/>
-        <None Include="Resources\D00003.png"/>
-        <None Include="Resources\D00004.png"/>
-        <None Include="Resources\D00005.png"/>
-        <Content Include=".gitignore"/>
-        <Content Include="Docker-compose.yml"/>
-        <Content Include="READMDE.md"/>
-        <Content Include="Trash\Trash.txt"/>
+        <None Include="Resources\pencil.png" />
+        <None Include="Resources\tick.jpg" />
+        <None Include="Resources\tick.png" />
+        <None Include="Resources\bin.png" />
+        <None Include="Resources\refreshbtn.png" />
+        <None Include="Resources\A00001.png" />
+        <None Include="Resources\A00002.png" />
+        <None Include="Resources\A00003.png" />
+        <None Include="Resources\A00004.png" />
+        <None Include="Resources\A00005.png" />
+        <None Include="Resources\B00001.png" />
+        <None Include="Resources\B00002.png" />
+        <None Include="Resources\B00003.png" />
+        <None Include="Resources\B00004.png" />
+        <None Include="Resources\B00005.png" />
+        <None Include="Resources\C00001.png" />
+        <None Include="Resources\C00002.png" />
+        <None Include="Resources\C00003.png" />
+        <None Include="Resources\C00004.png" />
+        <None Include="Resources\C00005.png" />
+        <None Include="Resources\D00001.png" />
+        <None Include="Resources\D00002.png" />
+        <None Include="Resources\D00003.png" />
+        <None Include="Resources\D00004.png" />
+        <None Include="Resources\D00005.png" />
+        <Content Include=".gitignore" />
+        <Content Include="Docker-compose.yml" />
+        <Content Include="READMDE.md" />
+        <Content Include="Trash\Trash.txt" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="lib\controller\controller\controller.csproj">

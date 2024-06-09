@@ -45,7 +45,7 @@ namespace templatev1.Stock_Manag
             tbPhone.Text = controller.getSupplierPhone(supplierID);
             tbAddress.Text = controller.getSupplierAddress(supplierID);
             lblCountry.Text = controller.getSupplierCountry(supplierID);
-            //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
+            //lblUid.Text = $"Uid: {accountController.GetUID()}";  //not linked yet
         }
 
         private void tbPhone_KeyPress(object sender, KeyPressEventArgs e)

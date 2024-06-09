@@ -63,11 +63,13 @@ namespace templatev1
             }
             else if (accountController.Login(tbUsername.Text, tbPassword.Text, UIController)) //Checking the password
             {
-                MessageBox.Show("Login Successful.");
                 IsLogin = true;
                 rememberMe();
                 accountController.SetLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-
+                // loading 
+                LoadingForm loadingForm = new LoadingForm();
+                loadingForm.LoadingCompleted += () => this.Close();
+                loadingForm.Show();
                 //Back to login page
                 Form Home = new Home(accountController, UIController);
                 Hide();
