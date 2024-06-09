@@ -203,13 +203,11 @@ namespace templatev1
         {
             //Redirect to test tools
             Form testDatabaseAndController = new test_Database_and_Controller();
-            Hide();
             //Swap the current form to another.
             testDatabaseAndController.StartPosition = FormStartPosition.Manual;
-            testDatabaseAndController.Location = Location;
+            testDatabaseAndController.Location = new Point(100, 100);
             testDatabaseAndController.Size = Size;
             testDatabaseAndController.ShowDialog();
-            Close();
         }
     }
 }

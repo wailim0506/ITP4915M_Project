@@ -7,55 +7,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/misc.xml" beforeDir="false" />
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/App.config" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/AddPartToExistingOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/AddPartToExistingOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/favourite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/favourite.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/giveFeedback.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/giveFeedback.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/sparePartList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/sparePartList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Profile/AddressMgmt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/AddressMgmt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Stock_Manag/StockMgmtMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Stock_Manag/StockMgmtMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Stock_Manag/addSupplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Stock_Manag/addSupplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Stock_Manag/viewSupplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Stock_Manag/viewSupplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/About.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/About.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/SqlServerTypes/Loader.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/SqlServerTypes/readme.htm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoginHistory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoginHistory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Trash/editSupplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Trash/editSupplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/User_Manag/ScreateAccount.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/User_Manag/ScreateAccount.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/User_Manag/StoreSearchU.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/User_Manag/StoreSearchU.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/accountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/orderListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/orderListController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,15 +29,18 @@
     &quot;assignee&quot;: &quot;mythic3011&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/wailim0506/ITP4915M_Project.git&quot;,
-    &quot;accountId&quot;: &quot;57f30ebb-2ce3-4e45-84d9-f98f94d5146f&quot;
-  }
-}</component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/wailim0506/ITP4915M_Project.git",
+    "accountId": "57f30ebb-2ce3-4e45-84d9-f98f94d5146f"
+  },
+  "editorReviewEnabled": false
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/Order_Management/customerViewInvoice.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/Order_Management/customerViewOrder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -143,8 +104,17 @@
       <updated>1717836664421</updated>
       <workItem from="1717836666194" duration="27000" />
       <workItem from="1717840904016" duration="13899000" />
-      <workItem from="1717927045602" duration="1113000" />
+      <workItem from="1717927045602" duration="1794000" />
     </task>
+    <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
+      <option name="closed" value="true" />
+      <created>1717928200805</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1717928200805</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,5 +135,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working." />
+    <option name="LAST_COMMIT_MESSAGE" value="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working." />
   </component>
 </project>

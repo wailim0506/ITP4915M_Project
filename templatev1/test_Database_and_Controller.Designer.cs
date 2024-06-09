@@ -223,7 +223,9 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1259, 1046);
+            this.Text = "Developer Tool";
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label7);
@@ -243,8 +245,8 @@ namespace templatev1
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "test_Database_and_Controller";
-            this.Text = "devTools";
             this.Load += new System.EventHandler(this.test_Database_and_Controller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
