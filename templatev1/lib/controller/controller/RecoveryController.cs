@@ -178,32 +178,5 @@ namespace controller
             dt = db.ExecuteDataTable(sqlStr);
             return dt.Rows.Count < 1;
         }
-
-
-        //Check whether the email or phone has registered an account.
-        public bool checkEmailPhone(string data)
-        {
-            DataTable dt = new DataTable();
-            sqlStr =
-                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            return dt.Rows.Count < 1;
-        }
-
-        //Check whether the email or phone has registered an account.
-        public bool checkEmailPhone(string data)
-        {
-            DataTable dt = new DataTable();
-            sqlStr =
-                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            return dt.Rows.Count < 1;
-        }
     }
 }
