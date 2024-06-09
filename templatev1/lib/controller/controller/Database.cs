@@ -15,7 +15,7 @@ namespace controller
             connection.Open();
         }
         
-        public string GetConnectionString()
+        public static string GetConnectionString()
         {
             var connectionStrings = new List<string>
             {
@@ -34,7 +34,7 @@ namespace controller
             throw new Exception("No valid connection string found.");
         }
 
-        private bool TestConnection(string connectionString)
+        private static bool TestConnection(string connectionString)
         {
             using (var connection = new MySqlConnection(connectionString))
             {

@@ -49,7 +49,7 @@ namespace templatev1
             string connString =
                 //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
             "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton<Database>(_ => new Database(connString));
+            service.AddSingleton<Database>(_ => new Database(Database.GetConnectionString()));
             service.AddSingleton<Log>(_ => new Log());
 
             var controllers = new List<Type>
