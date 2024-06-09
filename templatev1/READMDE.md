@@ -13,6 +13,23 @@ MySql.Data version 8.4.0
 
 Bcrypt.Net-Next version 4.0.3
 
+Microsoft.Extensions.Logging version 8.0.0
+Microsoft.Extensions.Logging.Abstractions version 8.0.0
+Microsoft.Extensions.Logging.Console version 8.0.0
+Microsoft.Extensions.Logging.Configuration version 8.0.0
+
+### install the package via Visual Studio
+
+1. open the project
+2. right click on the project
+3. click on Manage Nuget Packages
+4. search for the package
+5. click on the package
+
+### install the package via the terminal
+
+```shell
+
 ## Start project before you start
 
 ### method 1 via XMAPP

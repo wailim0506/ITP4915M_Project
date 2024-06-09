@@ -7,12 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="fix the issue of Login&#10;add Database and log">
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +40,6 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/Order_Management/customerViewInvoice.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/Order_Management/customerViewOrder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/System_page (In Progress)/About.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -119,7 +113,7 @@
       <workItem from="1717927045602" duration="1870000" />
       <workItem from="1717935690499" duration="989000" />
       <workItem from="1717937313508" duration="1708000" />
-      <workItem from="1717940901204" duration="11289000" />
+      <workItem from="1717940901204" duration="12937000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -153,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717951849459</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add function to avoid connection error to the database">
+      <option name="closed" value="true" />
+      <created>1717952272511</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1717952272511</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +180,7 @@
     <MESSAGE value="devTool update" />
     <MESSAGE value="update readme.md" />
     <MESSAGE value="fix the issue of Login&#10;add Database and log" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix the issue of Login&#10;add Database and log" />
+    <MESSAGE value="add function to avoid connection error to the database" />
+    <option name="LAST_COMMIT_MESSAGE" value="add function to avoid connection error to the database" />
   </component>
 </project>

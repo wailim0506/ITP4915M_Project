@@ -20,7 +20,7 @@ namespace controller
             var connectionStrings = new List<string>
             {
                 "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
+                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
             };
 
             foreach (var connectionString in connectionStrings)

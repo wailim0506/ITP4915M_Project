@@ -101,6 +101,7 @@ namespace controller
             lastName = dt.Rows[0]["lastName"].ToString();
             firstName = dt.Rows[0]["firstName"].ToString();
             accountID = dt.Rows[0]["accountID"].ToString();
+            AccountType = GetAccountType(UserID);
         }
 
         private string GetUserInfoDataQuery(string UID)
