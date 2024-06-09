@@ -7,7 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="fix the connection string with using MysqlConnector" />
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="Fix the issue of Database.cs">
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,9 +39,14 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/Order_Management/customerViewInvoice.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/lib/controller/controller/Database.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/lib/controller/controller/RecoveryController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/lib/controller/controller/abstractController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
@@ -111,7 +118,7 @@
       <workItem from="1717927045602" duration="1870000" />
       <workItem from="1717935690499" duration="989000" />
       <workItem from="1717937313508" duration="1708000" />
-      <workItem from="1717940901204" duration="13247000" />
+      <workItem from="1717940901204" duration="13451000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -161,7 +168,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717954143739</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="delete repeating code">
+      <option name="closed" value="true" />
+      <created>1717954269717</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1717954269717</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Fix the issue of Database.cs">
+      <option name="closed" value="true" />
+      <created>1717954366494</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1717954366494</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -188,6 +211,8 @@
     <MESSAGE value="fix the issue of Login&#10;add Database and log" />
     <MESSAGE value="add function to avoid connection error to the database" />
     <MESSAGE value="fix the connection string with using MysqlConnector" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix the connection string with using MysqlConnector" />
+    <MESSAGE value="delete repeating code" />
+    <MESSAGE value="Fix the issue of Database.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix the issue of Database.cs" />
   </component>
 </project>

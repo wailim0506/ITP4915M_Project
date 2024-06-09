@@ -10,8 +10,7 @@ namespace controller
 {
     public abstract class abstractController //abstract class for controller
     {
-        protected static Database db = new Database();
-        protected static string connString = db.GetConnectionString();
+        protected static string connString = Database.GetConnectionString();
 
 
         protected MySqlConnection conn = new MySqlConnection(connString);
