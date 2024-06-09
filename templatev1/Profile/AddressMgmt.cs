@@ -15,7 +15,7 @@ namespace templatev1
     {
         private string uName, UID;
         dynamic placeholder, update;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
 
@@ -24,7 +24,7 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public AddressMgmt(controller.accountController accountController, controller.UIController UIController,
+        public AddressMgmt(controller.AccountController accountController, controller.UIController UIController,
             controller.proFileController proFileController)
         {
             InitializeComponent();
@@ -43,8 +43,8 @@ namespace templatev1
         {
             timer1.Enabled = true;
 
-            UID = accountController.getUID();
-            uName = accountController.getName();
+            UID = accountController.GetUid();
+            uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             placeholder = proFileController.getAddinfo();
 
@@ -132,44 +132,44 @@ namespace templatev1
                     break;
             }
 
-            this.Hide();
+            Hide();
             next.StartPosition = FormStartPosition.Manual;
-            next.Location = this.Location;
-            next.Size = this.Size;
+            next.Location = Location;
+            next.Size = Size;
             next.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
             proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
+            proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
+            proFile.Location = Location;
+            proFile.Size = Size;
             proFile.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void chkCancel_Click(object sender, EventArgs e)
         {
             proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
+            proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
+            proFile.Location = Location;
+            proFile.Size = Size;
             proFile.ShowDialog();
-            this.Close();
+            Close();
         }
 
         //Set new value to the city listbox when the selected province has changed.

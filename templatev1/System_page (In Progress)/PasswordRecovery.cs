@@ -38,13 +38,13 @@ namespace templatev1
         private void btnToLogin_Click(object sender, EventArgs e)
         {
             Form Login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             Login.StartPosition = FormStartPosition.Manual;
-            Login.Location = this.Location;
-            Login.Size = this.Size;
+            Login.Location = Location;
+            Login.Size = Size;
             Login.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -73,13 +73,13 @@ namespace templatev1
                         MessageBox.Show("Password changed! The system will redirect to the login page.",
                             "System message");
                         Form login = new Login();
-                        this.Hide();
+                        Hide();
                         //Swap the current form to another.
                         login.StartPosition = FormStartPosition.Manual;
-                        login.Location = this.Location;
-                        login.Size = this.Size;
+                        login.Location = Location;
+                        login.Size = Size;
                         login.ShowDialog();
-                        this.Close();
+                        Close();
                     }
                     else //NOT match.
                     {

@@ -19,16 +19,16 @@ namespace controller
         private string UID, email, phone;
         private string sqlStr;
 
-        accountController accountController;
+        AccountController _accountController;
 
         public RecoveryController()
         {
         }
 
-        public RecoveryController(accountController accountController)
+        public RecoveryController(AccountController accountController)
         {
-            this.accountController = accountController;
-            UID = accountController.getUID();
+            _accountController = accountController;
+            UID = accountController.GetUid();
         }
 
         //Find the user in the database
@@ -41,31 +41,21 @@ namespace controller
             DataTable dt = new DataTable();
             try
             {
-                if (UID.StartsWith("LMC"))
-                {
-                    sqlStr =
-                        $"SELECT * FROM customer WHERE customerID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
-                }
-                else if (UID.StartsWith("LMS"))
-                {
-                    sqlStr =
-                        $"SELECT * FROM staff WHERE staffID = \'{UID}\' AND (phoneNumber = \'{phone}\' OR emailAddress = \'{email}\')";
-                }
-                else
-                    return false;
+                string table = UID.StartsWith("LMC") ? "customer" : UID.StartsWith("LMS") ? "staff" : null;
+                if (table == null) return false;
+
+                sqlStr =
+                    $"SELECT * FROM {table} WHERE {(table == "customer" ? "customerID" : "staffID")} = '{UID}' AND (phoneNumber = '{phone}' OR emailAddress = '{email}')";
 
                 adr = new MySqlDataAdapter(sqlStr, conn);
                 adr.Fill(dt);
                 adr.Dispose();
 
-                if (dt.Rows.Count == 1)
-                    return true;
-                else
-                    return false;
+                return dt.Rows.Count == 1;
             }
             catch (Exception e)
             {
-                return false; //Some error occurs retrn false to login.
+                return false; //Some error occurs return false to login.
             }
         }
 
@@ -107,35 +97,16 @@ namespace controller
 
         public void changPwd(string newPwd)
         {
-            string hashedPwd = BCrypt.Net.BCrypt.EnhancedHashPassword(newPwd);
-
-
-            byte[] key = new byte[16];
-            byte[] iv = new byte[16];
-
-            //Generate random key and iv.
-            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(key);
-                rng.GetBytes(iv);
-            }
-
-            //Encrypt new password and convert into string.
-            var encryptedPwd = Convert.ToBase64String(Encrypt(newPwd, key, iv));
-            var strKey = Convert.ToBase64String(key);
-            var strIV = Convert.ToBase64String(iv);
-
-            //Update password in database
+            string hashedPwd = BCrypt.Net.BCrypt.HashPassword(newPwd);
+            //Update password in the database
             conn.Open();
             sqlStr = UID.StartsWith("LMC")
-                ? $"UPDATE customer_account SET password = \'{encryptedPwd}\', pwdKEY = \'{strKey}\', " +
-                  $"pwdIV = \'{strIV}\', pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
+                ? $"UPDATE customer_account SET password = \'{hashedPwd}\'" +
+                  $",pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
                   $"WHERE customerID = \'{UID}\'"
-                : $"UPDATE staff_account SET password = \'{encryptedPwd}\', " +
-                  $"pwdKEY = \'{strKey}\', pwdIV = \'{strIV}\', " +
+                : $"UPDATE staff_account SET password = \'{hashedPwd}\', " +
                   $"pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
                   $"WHERE staffID = \'{UID}\'";
-
             cmd = new MySqlCommand(sqlStr, conn);
             cmd.ExecuteNonQuery();
             conn.Close();
@@ -159,24 +130,7 @@ namespace controller
         //For create a new customer accounr.
         public bool create(dynamic Userinfo)
         {
-            string hashedPwd = BCrypt.Net.BCrypt.EnhancedHashPassword(Userinfo.pwd);
-
-
-            byte[] key = new byte[16];
-            byte[] iv = new byte[16];
-
-
-            //Generate random key and iv.
-            using (RandomNumberGenerator rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(key);
-                rng.GetBytes(iv);
-            }
-
-            //Encrypt new password and convert into string.
-            string encryptedPwd = Convert.ToBase64String(Encrypt(Userinfo.pwd, key, iv));
-            var strKey = Convert.ToBase64String(key);
-            var strIV = Convert.ToBase64String(iv);
+            string hashedPwd = BCrypt.Net.BCrypt.HashPassword(Userinfo.pwd);
 
             string LMCID = "LMC" + getLMCID().ToString("D5");
             string accountID = "CA" + getLMCID().ToString("D5");
@@ -193,7 +147,7 @@ namespace controller
 
                 //Insert a record into customer_account table
                 sqlStr =
-                    $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{encryptedPwd}\', \'{Userinfo.joinDate}\', \'{strKey}\', \'{strIV}\', \'{Userinfo.joinDate}\')";
+                    $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{hashedPwd}\', \'{Userinfo.joinDate}\',  \'{Userinfo.joinDate}\')";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
 
@@ -201,7 +155,6 @@ namespace controller
                 sqlStr = $"INSERT INTO customer_dfadd VALUES(\'{LMCID}\', '1')";
                 cmd = new MySqlCommand(sqlStr, conn);
                 cmd.ExecuteNonQuery();
-
                 conn.Close();
                 return true;
             }
@@ -260,11 +213,7 @@ namespace controller
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
-
-            if (dt.Rows.Count >= 1)
-                return false;
-            else
-                return true;
+            return dt.Rows.Count < 1;
         }
     }
 }

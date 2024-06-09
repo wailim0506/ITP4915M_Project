@@ -13,10 +13,11 @@ namespace templatev1
     public partial class StockMgmt : Form
     {
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
+
         controller.UIController UIController;
         // Cannot find the type controller.stockController
-       // controller.stockController stockController;
+        // controller.stockController stockController;
 
 
         public StockMgmt()
@@ -24,7 +25,7 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public StockMgmt(controller.accountController accountController, controller.UIController UIController)
+        public StockMgmt(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -41,8 +42,8 @@ namespace templatev1
         {
             timer1.Enabled = true;
 
-            UID = accountController.getUID();
-            uName = accountController.getName();
+            UID = accountController.GetUid();
+            uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             setIndicator(UIController.getIndicator("Stock Management"));
 
@@ -121,12 +122,12 @@ namespace templatev1
                     break;
             }
 
-            this.Hide();
+            Hide();
             next.StartPosition = FormStartPosition.Manual;
-            next.Location = this.Location;
-            next.Size = this.Size;
+            next.Location = Location;
+            next.Size = Size;
             next.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void setIndicator(int btnNo)
@@ -154,53 +155,53 @@ namespace templatev1
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
-            home.Location = this.Location;
-            home.Size = this.Size;
+            home.Location = Location;
+            home.Size = Size;
             home.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
             controller.proFileController proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
+            proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
+            proFile.Location = Location;
+            proFile.Size = Size;
             proFile.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
+            login.Location = Location;
+            login.Size = Size;
             login.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
             Form about = new About(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             about.StartPosition = FormStartPosition.Manual;
-            about.Location = this.Location;
-            about.Size = this.Size;
+            about.Location = Location;
+            about.Size = Size;
             about.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void chkAdvancedSearch_CheckedChanged(object sender, EventArgs e)
@@ -210,12 +211,10 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnAddSpare_Click(object sender, EventArgs e)
         {
-
         }
 
         private void timer1_Tick(object sender, EventArgs e)

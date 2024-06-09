@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
@@ -17,9 +18,9 @@ namespace templatev1
 
         private bool IsLogin;
 
-        controller.accountController accountController;
-        controller.UIController UIController;
-        controller.RecoveryController recoveryController;
+        AccountController accountController;
+        UIController UIController;
+        RecoveryController recoveryController;
 
         public Login()
         {
@@ -28,8 +29,8 @@ namespace templatev1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            accountController = new controller.accountController();
-            UIController = new controller.UIController(accountController);
+            accountController = new AccountController();
+            UIController = new UIController(accountController);
 
             IsLogin = false;
             timer1.Enabled = true;
@@ -60,21 +61,21 @@ namespace templatev1
                 lblPasswordMsg.Text = "Please enter your password.";
                 tbPassword.Select();
             }
-            else if (accountController.login(tbUsername.Text, tbPassword.Text, UIController)) //Checking the password
+            else if (accountController.Login(tbUsername.Text, tbPassword.Text, UIController)) //Checking the password
             {
                 IsLogin = true;
                 rememberMe();
-                accountController.setLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                accountController.SetLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
 
                 //Back to login page
                 Form Home = new Home(accountController, UIController);
-                this.Hide();
+                Hide();
                 //Swap the current form to another.
                 Home.StartPosition = FormStartPosition.Manual;
-                Home.Location = this.Location;
-                Home.Size = this.Size;
+                Home.Location = Location;
+                Home.Size = Size;
                 Home.ShowDialog();
-                this.Close();
+                Close();
             }
             else //Password dose not match.
             {
@@ -113,31 +114,31 @@ namespace templatev1
         //Forget password.
         private void btnForgetPassword_Click(object sender, EventArgs e)
         {
-            recoveryController = new controller.RecoveryController();
+            recoveryController = new RecoveryController();
 
             Form PasswordRecovery = new PasswordRe(recoveryController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             PasswordRecovery.StartPosition = FormStartPosition.Manual;
-            PasswordRecovery.Location = this.Location;
-            PasswordRecovery.Size = this.Size;
+            PasswordRecovery.Location = Location;
+            PasswordRecovery.Size = Size;
             PasswordRecovery.ShowDialog();
-            this.Close();
+            Close();
         }
 
         //Create a customer account.
         private void btnCreateCustomerAcc_Click(object sender, EventArgs e)
         {
-            recoveryController = new controller.RecoveryController();
+            recoveryController = new RecoveryController();
 
             Form CreateCustoemrAcc = new CreateCustomerAcc(recoveryController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             CreateCustoemrAcc.StartPosition = FormStartPosition.Manual;
-            CreateCustoemrAcc.Location = this.Location;
-            CreateCustoemrAcc.Size = this.Size;
+            CreateCustoemrAcc.Location = Location;
+            CreateCustoemrAcc.Size = Size;
             CreateCustoemrAcc.ShowDialog();
-            this.Close();
+            Close();
         }
 
 
@@ -146,6 +147,7 @@ namespace templatev1
         {
             tbUsername.Text = "LMC00001";
             tbPassword.Text = "password123";
+            // Hashed password = $2a$11$Kudz4mMTKBW3P6f8bKhsdOZOiJhZHW1RVUcM5IpNa5JvjhC18cU9O
         }
 
         private void btnTest2_Click(object sender, EventArgs e)
@@ -195,6 +197,19 @@ namespace templatev1
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
+        }
+
+        private void btnText7_Click(object sender, EventArgs e)
+        {
+            //Redirect to test tools
+            Form testDatabaseAndController = new test_Database_and_Controller();
+            Hide();
+            //Swap the current form to another.
+            testDatabaseAndController.StartPosition = FormStartPosition.Manual;
+            testDatabaseAndController.Location = Location;
+            testDatabaseAndController.Size = Size;
+            testDatabaseAndController.ShowDialog();
+            Close();
         }
     }
 }

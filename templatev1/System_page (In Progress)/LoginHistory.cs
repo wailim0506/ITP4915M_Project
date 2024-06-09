@@ -13,7 +13,7 @@ namespace templatev1
     public partial class LogHis : Form
     {
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
 
@@ -22,7 +22,7 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public LogHis(controller.accountController accountController, controller.UIController UIController)
+        public LogHis(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -38,10 +38,10 @@ namespace templatev1
         {
             timer1.Enabled = true;
 
-            UID = accountController.getUID();
-            uName = accountController.getName();
+            UID = accountController.GetUid();
+            uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
-            dgvLog.DataSource = accountController.getFullLog();
+            dgvLog.DataSource = accountController.GetFullLog();
 
 
             //For determine which button needs to be shown.
@@ -116,64 +116,64 @@ namespace templatev1
                     break;
             }
 
-            this.Hide();
+            Hide();
             next.StartPosition = FormStartPosition.Manual;
-            next.Location = this.Location;
-            next.Size = this.Size;
+            next.Location = Location;
+            next.Size = Size;
             next.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
-            home.Location = this.Location;
-            home.Size = this.Size;
+            home.Location = Location;
+            home.Size = Size;
             home.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
+            login.Location = Location;
+            login.Size = Size;
             login.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
             proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
+            proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
+            proFile.Location = Location;
+            proFile.Size = Size;
             proFile.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
             Form about = new About(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             about.StartPosition = FormStartPosition.Manual;
-            about.Location = this.Location;
-            about.Size = this.Size;
+            about.Location = Location;
+            about.Size = Size;
             about.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)

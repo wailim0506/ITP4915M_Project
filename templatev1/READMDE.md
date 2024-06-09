@@ -13,12 +13,11 @@ MySql.Data version 8.4.0
 
 Bcrypt.Net-Next version 4.0.3
 
-
 ## About the Database connection
 
-> please note that I want to replace the MysqlConnector with the MySql.Data package for better performance  and more functionality.
+> please note that I want to replace the MysqlConnector with the MySql.Data package for better performance and more
+> functionality.
 > Consider remove the MysqlConnector package from the project on the future.
-
 
 ## about the password encryption
 

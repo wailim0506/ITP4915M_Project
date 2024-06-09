@@ -15,7 +15,7 @@ namespace templatev1.Online_Ordering_Platform
         private string uName, UID;
         private string partToEdit; //for edit qty function
         private Boolean isLM;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.cartController controller;
 
@@ -28,14 +28,14 @@ namespace templatev1.Online_Ordering_Platform
         }
 
 
-        public cart(controller.accountController accountController, controller.UIController UIController)
+        public cart(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new controller.cartController();
-            UID = accountController.getUID();
-            isLM = accountController.getIsLM();
+            UID = accountController.GetUid();
+            isLM = accountController.GetIsLm();
             //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
@@ -67,53 +67,53 @@ namespace templatev1.Online_Ordering_Platform
             {
                 CheckBox checkBox = new CheckBox()
                 {
-                    Name = $"chk{i}", Text = "", Location = new System.Drawing.Point(11, yPosition + 6),
-                    Size = new System.Drawing.Size(15, 14), Cursor = Cursors.Hand
+                    Name = $"chk{i}", Text = "", Location = new Point(11, yPosition + 6),
+                    Size = new Size(15, 14), Cursor = Cursors.Hand
                 };
                 Label lblCategory = new Label()
                 {
-                    Text = $"{dt.Rows[i][4]}", Location = new System.Drawing.Point(37, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(89, 23),
+                    Text = $"{dt.Rows[i][4]}", Location = new Point(37, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(89, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label()
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][5]}",
-                    Location = new System.Drawing.Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
-                    Size = new System.Drawing.Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Size = new Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label()
                 {
-                    Text = $"{dt.Rows[i][14]}", Location = new System.Drawing.Point(279, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(253, 23),
+                    Text = $"{dt.Rows[i][14]}", Location = new Point(279, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblQty = new Label()
                 {
-                    Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new System.Drawing.Point(538, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(85, 23),
+                    Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new Point(538, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(85, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblUnitPrice = new Label()
                 {
-                    Text = $"¥{dt.Rows[i][8]}", Location = new System.Drawing.Point(629, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new System.Drawing.Size(95, 23),
+                    Text = $"¥{dt.Rows[i][8]}", Location = new Point(629, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(95, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblRowTotalPrice = new Label()
                 {
                     Name = $"lbRowPrice{i}",
                     Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}",
-                    Location = new System.Drawing.Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
-                    Size = new System.Drawing.Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Size = new Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Button btnView = new Button()
                 {
-                    Name = $"btnView{i}", Text = "View", Location = new System.Drawing.Point(824, yPosition - 3),
+                    Name = $"btnView{i}", Text = "View", Location = new Point(824, yPosition - 3),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
-                    AutoSize = false, Size = new System.Drawing.Size(64, 28), Cursor = Cursors.Hand
+                    AutoSize = false, Size = new Size(64, 28), Cursor = Cursors.Hand
                 };
-                btnView.Click += new EventHandler(this.btnView_Click);
+                btnView.Click += new EventHandler(btnView_Click);
 
                 pnlSP.Controls.Add(checkBox);
                 pnlSP.Controls.Add(lblCategory);
@@ -146,11 +146,11 @@ namespace templatev1.Online_Ordering_Platform
                         if (control.Name == $"lblPartNum{index}")
                         {
                             Form viewSparePart = new viewSparePart(control.Text, accountController, UIController);
-                            this.Hide();
+                            Hide();
                             viewSparePart.StartPosition = FormStartPosition.Manual;
-                            viewSparePart.Location = this.Location;
+                            viewSparePart.Location = Location;
                             viewSparePart.ShowDialog();
-                            this.Close();
+                            Close();
                             return;
                         }
                     }
@@ -424,11 +424,11 @@ namespace templatev1.Online_Ordering_Platform
                             if (dialogResult2 == DialogResult.Yes)
                             {
                                 Form sparePartList = new sparePartList(accountController, UIController);
-                                this.Hide();
+                                Hide();
                                 sparePartList.StartPosition = FormStartPosition.Manual;
-                                sparePartList.Location = this.Location;
+                                sparePartList.Location = Location;
                                 sparePartList.ShowDialog();
-                                this.Close();
+                                Close();
                             }
                             else
                             {
@@ -457,11 +457,11 @@ namespace templatev1.Online_Ordering_Platform
         private void btnSearch_Click(object sender, EventArgs e)
         {
             Form sparePartList = new sparePartList(accountController, UIController);
-            this.Hide();
+            Hide();
             sparePartList.StartPosition = FormStartPosition.Manual;
-            sparePartList.Location = this.Location;
+            sparePartList.Location = Location;
             sparePartList.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void timer1_Tick_1(object sender, EventArgs e)
@@ -493,61 +493,61 @@ namespace templatev1.Online_Ordering_Platform
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             Form orderList = new customerOrderList(accountController, UIController);
-            this.Hide();
+            Hide();
             orderList.StartPosition = FormStartPosition.Manual;
-            orderList.Location = this.Location;
+            orderList.Location = Location;
             orderList.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Form o = new favourite(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Form o = new cart(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)

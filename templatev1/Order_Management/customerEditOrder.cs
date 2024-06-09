@@ -13,7 +13,7 @@ namespace templatev1.Order_Management
     public partial class customerEditOrder : Form
     {
         int index = 0;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.editOrderController controller;
         private string uName, UID;
@@ -26,21 +26,21 @@ namespace templatev1.Order_Management
             controller = new controller.editOrderController();
         }
 
-        public customerEditOrder(string orderID, controller.accountController accountController,
+        public customerEditOrder(string orderID, controller.AccountController accountController,
             controller.UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
-            this.controller = new controller.editOrderController();
+            controller = new controller.editOrderController();
             //UID = this.accountController.getUID();
 
             UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
             lblLoc.Text += $" {orderID}";
-            isLM = accountController.getIsLM();
+            isLM = accountController.GetIsLm();
         }
 
         private void customerEditOrder_Load(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace templatev1.Order_Management
                             string partToEdit = control.Text;
                             showEdit(partToEdit);
                             clickedPencil.Image = Properties.Resources.bin;
-                            clickedPencil.Click += new EventHandler(this.bin_click);
+                            clickedPencil.Click += new EventHandler(bin_click);
                             return;
                         }
 
@@ -144,11 +144,11 @@ namespace templatev1.Order_Management
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Form customerViewOrder = new customerViewOrder(orderID, accountController, UIController);
-            this.Hide();
+            Hide();
             customerViewOrder.StartPosition = FormStartPosition.Manual;
-            customerViewOrder.Location = this.Location;
+            customerViewOrder.Location = Location;
             customerViewOrder.ShowDialog();
-            this.Close();
+            Close();
             return;
         }
 
@@ -238,61 +238,61 @@ namespace templatev1.Order_Management
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -314,11 +314,11 @@ namespace templatev1.Order_Management
                 controller.deleteOrder(orderID);
                 MessageBox.Show("Since no spare part exist in this order, this order is deleted");
                 Form orderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-                this.Hide();
+                Hide();
                 orderList.StartPosition = FormStartPosition.Manual;
-                orderList.Location = this.Location;
+                orderList.Location = Location;
                 orderList.ShowDialog();
-                this.Close();
+                Close();
                 return;
             }
 
@@ -330,46 +330,46 @@ namespace templatev1.Order_Management
                 Label lblRowNum = new Label()
                 {
                     Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
-                    Location = new System.Drawing.Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(30, 20)
+                    Location = new Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new Size(30, 20)
                 };
                 Label lblItemNum = new Label()
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
-                    Location = new System.Drawing.Point(35, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(35, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label()
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}",
-                    Location = new System.Drawing.Point(124, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(124, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label()
                 {
                     Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
-                    Location = new System.Drawing.Point(227, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(227, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblQuantity = new Label()
                 {
                     Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}",
-                    Location = new System.Drawing.Point(533, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(533, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblUnitPrice = new Label()
                 {
                     Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}",
-                    Location = new System.Drawing.Point(645, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(645, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblRowTotalPrice = new Label()
                 {
                     Name = $"lblRowTotalPrice{i}",
                     Text =
                         $"¥{(int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString())).ToString()}",
-                    Location = new System.Drawing.Point(795, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(795, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 PictureBox picPencil = new PictureBox()
                 {
@@ -378,7 +378,7 @@ namespace templatev1.Order_Management
                     Cursor = Cursors.Hand
                 };
 
-                picPencil.Click += new EventHandler(this.picPencil_Click);
+                picPencil.Click += new EventHandler(picPencil_Click);
                 rowPosition += 50;
                 orderTotalPrice += (int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString()));
 

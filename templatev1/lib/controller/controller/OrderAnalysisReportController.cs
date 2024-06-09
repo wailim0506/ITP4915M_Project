@@ -16,7 +16,8 @@ namespace controller
         public DataTable GenerateReport(string period, DateTime startDate, DateTime endDate)
         {
             var report = new DataTable();
-            var query = $"SELECT OrderID, CustomerName, OrderDate, DeliveryDate, OrderStatus FROM ShippedOrderTotals WHERE OrderDate BETWEEN @StartDate AND @EndDate AND {GetPeriodCondition(period)}";
+            var query =
+                $"SELECT OrderID, CustomerName, OrderDate, DeliveryDate, OrderStatus FROM ShippedOrderTotals WHERE OrderDate BETWEEN @StartDate AND @EndDate AND {GetPeriodCondition(period)}";
             var command = new MySqlCommand(query, _connection);
             command.Parameters.AddWithValue("@StartDate", startDate);
             command.Parameters.AddWithValue("@EndDate", endDate);
@@ -36,7 +37,8 @@ namespace controller
                 case "daily":
                     return "CAST(OrderDate AS DATE) = @Date";
                 default:
-                    throw new ArgumentException("Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
+                    throw new ArgumentException(
+                        "Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
             }
         }
 
@@ -55,7 +57,8 @@ namespace controller
                     command.Parameters.AddWithValue("@Date", startDate.Date);
                     break;
                 default:
-                    throw new ArgumentException("Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
+                    throw new ArgumentException(
+                        "Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
             }
         }
     }

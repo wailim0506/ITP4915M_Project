@@ -16,7 +16,7 @@ namespace templatev1.Stock_Manag
         DataTable dt;
         controller.supplierController controller;
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
 
         public editSupplier(string supplierID)
@@ -27,7 +27,7 @@ namespace templatev1.Stock_Manag
             lblSupplierNumber.Text = supplierID;
         }
 
-        public editSupplier(string supplierID, controller.accountController accountController,
+        public editSupplier(string supplierID, controller.AccountController accountController,
             controller.UIController UIController)
         {
             InitializeComponent();
@@ -64,11 +64,11 @@ namespace templatev1.Stock_Manag
             {
                 MessageBox.Show("Edit succeessfull.");
                 Form viewSupplier = new viewSupplier();
-                this.Hide();
+                Hide();
                 viewSupplier.StartPosition = FormStartPosition.Manual;
-                viewSupplier.Location = this.Location;
+                viewSupplier.Location = Location;
                 viewSupplier.ShowDialog();
-                this.Close();
+                Close();
             }
             else
             {
@@ -92,11 +92,11 @@ namespace templatev1.Stock_Manag
             if (result == DialogResult.Yes)
             {
                 Form viewSupplier = new viewSupplier();
-                this.Hide();
+                Hide();
                 viewSupplier.StartPosition = FormStartPosition.Manual;
-                viewSupplier.Location = this.Location;
+                viewSupplier.Location = Location;
                 viewSupplier.ShowDialog();
-                this.Close();
+                Close();
             }
             else if (result == DialogResult.No)
             {

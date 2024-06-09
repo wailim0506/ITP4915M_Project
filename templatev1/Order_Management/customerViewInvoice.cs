@@ -1,33 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Online_Ordering_Platform;
+using templatev1.Properties;
 
 namespace templatev1.Order_Management
 {
     public partial class customerViewInvoice : Form
     {
         string orderID, UID;
-        controller.accountController accountController;
-        controller.UIController UIController;
-        controller.viewInvoiceController controller;
+        AccountController accountController;
+        UIController UIController;
+        viewInvoiceController controller;
 
         public customerViewInvoice()
         {
             InitializeComponent();
-            controller = new controller.viewInvoiceController();
+            controller = new viewInvoiceController();
         }
 
-        public customerViewInvoice(string orderID, controller.accountController accountController,
-            controller.UIController UIController)
+        public customerViewInvoice(string orderID, AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
-            controller = new controller.viewInvoiceController();
+            controller = new viewInvoiceController();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
@@ -51,29 +48,29 @@ namespace templatev1.Order_Management
             int rowPos = 1;
             for (int i = 0; i < partNum.Length; i++)
             {
-                Label lblPartNum = new Label()
+                Label lblPartNum = new Label
                 {
-                    Text = $"{partNum[i]}", Location = new System.Drawing.Point(4, rowPos),
+                    Text = $"{partNum[i]}", Location = new Point(4, rowPos),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
-                    Size = new System.Drawing.Size(164, 20)
+                    Size = new Size(164, 20)
                 };
-                Label lblPartName = new Label()
+                Label lblPartName = new Label
                 {
-                    Text = $"{controller.getPartName(partNum[i])}", Location = new System.Drawing.Point(174, rowPos),
+                    Text = $"{controller.getPartName(partNum[i])}", Location = new Point(174, rowPos),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
-                    Size = new System.Drawing.Size(316, 20)
+                    Size = new Size(316, 20)
                 };
-                Label lblQtyOrdered = new Label()
+                Label lblQtyOrdered = new Label
                 {
                     Text = $"{controller.getQty(orderID, partNum[i])}",
-                    Location = new System.Drawing.Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
-                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(123, 20)
+                    Location = new Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new Size(123, 20)
                 };
-                Label lblQtyDelivered = new Label()
+                Label lblQtyDelivered = new Label
                 {
                     Text = $"{controller.getQty(orderID, partNum[i])}",
-                    Location = new System.Drawing.Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
-                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(139, 20)
+                    Location = new Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new Size(139, 20)
                 };
 
                 pnlSP.Controls.Add(lblPartNum);
@@ -88,7 +85,7 @@ namespace templatev1.Order_Management
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (controller.confirmInvoice(lblInvoiceNum.Text.ToString()) == true)
+            if (controller.confirmInvoice(lblInvoiceNum.Text))
             {
                 MessageBox.Show("Invoice confirmed", "Confirm Invoice");
             }
@@ -102,61 +99,61 @@ namespace templatev1.Order_Management
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Form o = new favourite(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Form o = new cart(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Form o = new customerOrderList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -166,36 +163,36 @@ namespace templatev1.Order_Management
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form customerViewOrder = new Order_Management.customerViewOrder(orderID, accountController, UIController);
-            this.Hide();
+            Form customerViewOrder = new customerViewOrder(orderID, accountController, UIController);
+            Hide();
             customerViewOrder.StartPosition = FormStartPosition.Manual;
-            customerViewOrder.Location = this.Location;
+            customerViewOrder.Location = Location;
             customerViewOrder.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

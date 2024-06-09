@@ -44,12 +44,13 @@ namespace templatev1
         private static void ConfigureServices(IServiceCollection service)
         {
             // time out for connection for 30 seconds
-            string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+            string connString =
+                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
             service.AddSingleton<MySqlConnection>(_ => new MySqlConnection(connString));
 
             var controllers = new List<Type>
             {
-                typeof(accountController),
+                typeof(AccountController),
                 typeof(addPartToOrderController),
                 typeof(cartController),
                 typeof(editOrderController),
@@ -67,7 +68,7 @@ namespace templatev1
                 // add controllers here
                 // typeof(The name of the controller)
             };
-            
+
 
             foreach (var controller in controllers)
             {
@@ -86,7 +87,7 @@ namespace templatev1
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
         }
-        
+
         // the Background thread is for the background process of the application
         // it is welcome to add more background process here
         private static void StartBackgroundThread(ThreadStart threadStart)

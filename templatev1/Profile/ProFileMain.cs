@@ -19,7 +19,7 @@ namespace templatev1
         dynamic placeholder, update;
         bool IMGUploaded;
 
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.proFileController proFileController;
 
@@ -29,7 +29,7 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public proFileMain(controller.accountController accountController, controller.UIController UIController,
+        public proFileMain(controller.AccountController accountController, controller.UIController UIController,
             controller.proFileController proFileController)
         {
             InitializeComponent();
@@ -48,8 +48,8 @@ namespace templatev1
         private void Initialization()
         {
             timer1.Enabled = true;
-            UID = accountController.getUID();
-            uName = accountController.getName();
+            UID = accountController.GetUid();
+            uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             lblUserUID.Text = UID;
             placeholder = proFileController.getUserInfo();
@@ -151,40 +151,40 @@ namespace templatev1
                     break;
             }
 
-            this.Hide();
+            Hide();
             next.StartPosition = FormStartPosition.Manual;
-            next.Location = this.Location;
-            next.Size = this.Size;
+            next.Location = Location;
+            next.Size = Size;
             next.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
             proFileController = new controller.proFileController(accountController);
 
-            proFileController.setType(accountController.getType());
+            proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = this.Location;
-            proFile.Size = this.Size;
+            proFile.Location = Location;
+            proFile.Size = Size;
             proFile.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
             Form about = new About(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             about.StartPosition = FormStartPosition.Manual;
-            about.Location = this.Location;
-            about.Size = this.Size;
+            about.Location = Location;
+            about.Size = Size;
             about.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -196,25 +196,25 @@ namespace templatev1
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
+            login.Location = Location;
+            login.Size = Size;
             login.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
-            home.Location = this.Location;
-            home.Size = this.Size;
+            home.Location = Location;
+            home.Size = Size;
             home.ShowDialog();
-            this.Close();
+            Close();
         }
 
         //For Dark Color function
@@ -246,13 +246,13 @@ namespace templatev1
         private void btnManagAddress_Click(object sender, EventArgs e)
         {
             Form AddressMgmt = new AddressMgmt(accountController, UIController, proFileController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             AddressMgmt.StartPosition = FormStartPosition.Manual;
-            AddressMgmt.Location = this.Location;
-            AddressMgmt.Size = this.Size;
+            AddressMgmt.Location = Location;
+            AddressMgmt.Size = Size;
             AddressMgmt.ShowDialog();
-            this.Close();
+            Close();
         }
 
         //The placeholder for textbox.
@@ -411,13 +411,13 @@ namespace templatev1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
-            home.Location = this.Location;
-            home.Size = this.Size;
+            home.Location = Location;
+            home.Size = Size;
             home.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -479,7 +479,7 @@ namespace templatev1
         {
             if (!string.IsNullOrEmpty(tbOldPass.Text))
             {
-                if (accountController.matchPwd(tbOldPass.Text))
+                if (accountController.MatchPwd(tbOldPass.Text))
                 {
                     if (checkPwd() == true)
                     {
@@ -529,7 +529,7 @@ namespace templatev1
 
             if (result == DialogResult.Yes)
             {
-                if (accountController.delAccount())
+                if (accountController.DelAccount())
                 {
                     MessageBox.Show("Account deleted successful.\nThe system will redirect to the login page.",
                         "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);

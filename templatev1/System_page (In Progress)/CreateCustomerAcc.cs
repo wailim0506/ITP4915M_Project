@@ -53,13 +53,13 @@ namespace templatev1
                         MessageBoxIcon.Information);
 
                     Form Login = new Login();
-                    this.Hide();
+                    Hide();
                     //Swap the current form to another.
                     Login.StartPosition = FormStartPosition.Manual;
-                    Login.Location = this.Location;
-                    Login.Size = this.Size;
+                    Login.Location = Location;
+                    Login.Size = Size;
                     Login.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 else
                 {
@@ -67,13 +67,13 @@ namespace templatev1
                         MessageBoxIcon.Warning);
 
                     Form Login = new Login();
-                    this.Hide();
+                    Hide();
                     //Swap the current form to another.
                     Login.StartPosition = FormStartPosition.Manual;
-                    Login.Location = this.Location;
-                    Login.Size = this.Size;
+                    Login.Location = Location;
+                    Login.Size = Size;
                     Login.ShowDialog();
-                    this.Close();
+                    Close();
                 }
             }
         }
@@ -81,13 +81,13 @@ namespace templatev1
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Form Login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             Login.StartPosition = FormStartPosition.Manual;
-            Login.Location = this.Location;
-            Login.Size = this.Size;
+            Login.Location = Location;
+            Login.Size = Size;
             Login.ShowDialog();
-            this.Close();
+            Close();
         }
 
         //For image upload and remove function

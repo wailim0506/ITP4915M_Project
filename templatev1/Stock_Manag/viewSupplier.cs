@@ -15,7 +15,7 @@ namespace templatev1.Stock_Manag
         DataTable dt;
         controller.supplierController controller;
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
 
         public viewSupplier()
@@ -24,7 +24,7 @@ namespace templatev1.Stock_Manag
             controller = new controller.supplierController();
         }
 
-        public viewSupplier(controller.accountController accountController, controller.UIController UIController)
+        public viewSupplier(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             controller = new controller.supplierController();
@@ -46,37 +46,37 @@ namespace templatev1.Stock_Manag
                 Label lblID = new Label()
                 {
                     Name = $"lblID{i}", Text = $"{dt.Rows[i - 1][0]}",
-                    Location = new System.Drawing.Point(15, yPosition), Font = new Font("Microsoft Sans Serif", 11)
+                    Location = new Point(15, yPosition), Font = new Font("Microsoft Sans Serif", 11)
                 };
                 Label lblName = new Label()
                 {
                     Name = $"lblName{i}", Text = $"{dt.Rows[i - 1][1]}",
-                    Location = new System.Drawing.Point(152, yPosition), Font = new Font("Microsoft Sans Serif", 11),
-                    Size = new System.Drawing.Size(180, 50)
+                    Location = new Point(152, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new Size(180, 50)
                 };
                 Label lblPhone = new Label()
                 {
                     Name = $"lblPhone{i}", Text = $"{dt.Rows[i - 1][2]}",
-                    Location = new System.Drawing.Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11),
-                    Size = new System.Drawing.Size(150, 50)
+                    Location = new Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new Size(150, 50)
                 };
                 Label lblAddress = new Label()
                 {
                     Name = $"lblAddress{i}", Text = $"{dt.Rows[i - 1][3]}",
-                    Location = new System.Drawing.Point(510, yPosition), Font = new Font("Microsoft Sans Serif", 11),
-                    Size = new System.Drawing.Size(180, 50)
+                    Location = new Point(510, yPosition), Font = new Font("Microsoft Sans Serif", 11),
+                    Size = new Size(180, 50)
                 };
                 Label lblCountry = new Label()
                 {
                     Name = $"lblCountry{i}", Text = $"{dt.Rows[i - 1][4]}",
-                    Location = new System.Drawing.Point(716, yPosition - 7),
-                    Font = new Font("Microsoft Sans Serif", 11), Size = new System.Drawing.Size(150, 35),
+                    Location = new Point(716, yPosition - 7),
+                    Font = new Font("Microsoft Sans Serif", 11), Size = new Size(150, 35),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 RadioButton radioButton = new RadioButton
                 {
-                    Name = $"radioButton{i}", Text = "", Location = new System.Drawing.Point(873, yPosition - 1),
-                    BackColor = Color.Transparent, Size = new System.Drawing.Size(14, 17)
+                    Name = $"radioButton{i}", Text = "", Location = new Point(873, yPosition - 1),
+                    BackColor = Color.Transparent, Size = new Size(14, 17)
                 };
 
                 grpSupplier.Controls.Add(lblID);
@@ -101,11 +101,11 @@ namespace templatev1.Stock_Manag
                     {
                         label = (Label)control;
                         Form editSupplier = new editSupplier(control.Text.ToString(), accountController, UIController);
-                        this.Hide();
+                        Hide();
                         editSupplier.StartPosition = FormStartPosition.Manual;
-                        editSupplier.Location = this.Location;
+                        editSupplier.Location = Location;
                         editSupplier.ShowDialog();
-                        this.Close();
+                        Close();
                         return;
                     }
                 }
@@ -129,12 +129,12 @@ namespace templatev1.Stock_Manag
                     if (del == true)
                     {
                         Form viewSupplier = new viewSupplier();
-                        this.Hide();
+                        Hide();
                         viewSupplier.StartPosition = FormStartPosition.Manual;
-                        viewSupplier.Location = this.Location;
-                        viewSupplier.Size = this.Size;
+                        viewSupplier.Location = Location;
+                        viewSupplier.Size = Size;
                         viewSupplier.ShowDialog();
-                        this.Close();
+                        Close();
                     }
                     else
                     {
@@ -177,11 +177,11 @@ namespace templatev1.Stock_Manag
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Form addSupplier = new addSupplier(accountController, UIController);
-            this.Hide();
+            Hide();
             addSupplier.StartPosition = FormStartPosition.Manual;
-            addSupplier.Location = this.Location;
+            addSupplier.Location = Location;
             addSupplier.ShowDialog();
-            this.Close();
+            Close();
         }
     }
 }

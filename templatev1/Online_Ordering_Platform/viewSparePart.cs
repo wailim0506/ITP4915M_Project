@@ -15,7 +15,7 @@ namespace templatev1.Online_Ordering_Platform
     {
         private string uName, UID;
         private Boolean isLM;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.viewSparePartController controller;
         private string partNum;
@@ -29,7 +29,7 @@ namespace templatev1.Online_Ordering_Platform
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public viewSparePart(string partNum, controller.accountController accountController,
+        public viewSparePart(string partNum, controller.AccountController accountController,
             controller.UIController UIController)
         {
             InitializeComponent();
@@ -37,10 +37,10 @@ namespace templatev1.Online_Ordering_Platform
             this.UIController = UIController;
             controller = new controller.viewSparePartController();
             this.partNum = partNum;
-            UID = accountController.getUID();
+            UID = accountController.GetUid();
             //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
-            isLM = accountController.getIsLM();
+            isLM = accountController.GetIsLm();
         }
 
         private void viewSparePart_Load(object sender, EventArgs e)
@@ -80,11 +80,11 @@ namespace templatev1.Online_Ordering_Platform
         private void btnBackSearch_Click(object sender, EventArgs e)
         {
             Form sparePartList = new sparePartList(accountController, UIController);
-            this.Hide();
+            Hide();
             sparePartList.StartPosition = FormStartPosition.Manual;
-            sparePartList.Location = this.Location;
+            sparePartList.Location = Location;
             sparePartList.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
@@ -214,62 +214,62 @@ namespace templatev1.Online_Ordering_Platform
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             Form cart = new cart(accountController, UIController);
-            this.Hide();
+            Hide();
             cart.StartPosition = FormStartPosition.Manual;
-            cart.Location = this.Location;
+            cart.Location = Location;
             cart.ShowDialog();
-            this.Close();
+            Close();
             return;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Form o = new favourite(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Form o = new customerOrderList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -287,11 +287,11 @@ namespace templatev1.Online_Ordering_Platform
         private void btnAddToExistingOrder_Click(object sender, EventArgs e)
         {
             Form addPart = new AddPartToExistingOrder(partNum, tbQty.Text.ToString(), accountController, UIController);
-            this.Hide();
+            Hide();
             addPart.StartPosition = FormStartPosition.Manual;
-            addPart.Location = this.Location;
+            addPart.Location = Location;
             addPart.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void BWMode()

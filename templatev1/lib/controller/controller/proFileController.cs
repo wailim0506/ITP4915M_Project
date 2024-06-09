@@ -37,13 +37,13 @@ namespace controller
         private bool NGDateOfBirth = false;
         private int dfadd;
 
-        controller.accountController accountController;
+        AccountController accountController;
 
         public proFileController()
         {
         }
 
-        public proFileController(controller.accountController accountController)
+        public proFileController(AccountController accountController)
         {
             this.accountController = accountController;
         }
@@ -76,7 +76,7 @@ namespace controller
 
         private void UserInfo()
         {
-            UID = accountController.getUID();
+            UID = accountController.GetUid();
             DataTable dt = new DataTable();
 
             if (accountType.Equals("Staff")) //Staff info

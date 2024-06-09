@@ -47,6 +47,7 @@
             this.lblUsernameMsg = new System.Windows.Forms.Label();
             this.lblPasswordMsg = new System.Windows.Forms.Label();
             this.grpDevTools = new System.Windows.Forms.GroupBox();
+            this.btnText7 = new System.Windows.Forms.Button();
             this.btnTest6 = new System.Windows.Forms.Button();
             this.btnTest5 = new System.Windows.Forms.Button();
             this.btnTest4 = new System.Windows.Forms.Button();
@@ -228,6 +229,7 @@
             // grpDevTools
             // 
             this.grpDevTools.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grpDevTools.Controls.Add(this.btnText7);
             this.grpDevTools.Controls.Add(this.btnTest6);
             this.grpDevTools.Controls.Add(this.btnTest5);
             this.grpDevTools.Controls.Add(this.btnTest4);
@@ -237,10 +239,21 @@
             this.grpDevTools.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpDevTools.Location = new System.Drawing.Point(849, 99);
             this.grpDevTools.Name = "grpDevTools";
-            this.grpDevTools.Size = new System.Drawing.Size(299, 352);
+            this.grpDevTools.Size = new System.Drawing.Size(299, 430);
             this.grpDevTools.TabIndex = 25;
             this.grpDevTools.TabStop = false;
             this.grpDevTools.Text = "Development Tools";
+            // 
+            // btnText7
+            // 
+            this.btnText7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnText7.Location = new System.Drawing.Point(26, 342);
+            this.btnText7.Name = "btnText7";
+            this.btnText7.Size = new System.Drawing.Size(242, 34);
+            this.btnText7.TabIndex = 13;
+            this.btnText7.Text = "Redirect to Test Tools";
+            this.btnText7.UseVisualStyleBackColor = true;
+            this.btnText7.Click += new System.EventHandler(this.btnText7_Click);
             // 
             // btnTest6
             // 
@@ -342,8 +355,9 @@
             this.grpDevTools.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btnText7;
 
         #endregion
         private System.Windows.Forms.Panel palTime;

@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
@@ -19,11 +14,70 @@ namespace templatev1
 
         private void test_Database_and_Controller_Load(object sender, EventArgs e)
         {
-            controller.testController
-                dt = new controller.testController(); //testController is the name of the controller, different function have different controller
+            testController
+                dt = new testController(); //testController is the name of the controller, different function have different controller
             //dataGridView1.DataSource = dt.login();     //test1() is the method inside the controller file
             // dataGridView2.DataSource = dt.test2();
             //dataGridView3.DataSource = dt.test3();
+        }
+
+        // hash password and copy to clipboard
+        private void btnTest1_Click_1(object sender, EventArgs e)
+        {
+            string password = tbHashPassword.Text;
+            string hashedPassword = testController.HashPassword(password);
+            Clipboard.SetText(hashedPassword);
+            MessageBox.Show("Password hashed successfully and Copied to clipboard.");
+        }
+
+        private void UpdateUsersPassword()
+        {
+            testController testController = new testController();
+            var usersToUpdate = new Dictionary<string, string>
+            {
+                // Staff
+                { "LMS00001", "123456" },
+                { "LMS00002", "123456" },
+                { "LMS00003", "123456" },
+                { "LMS00004", "123456" },
+                { "LMS00005", "123456" },
+                { "LMS00006", "123456" },
+                { "LMS00007", "123456" },
+                { "LMS00008", "123456" },
+                { "LMS00009", "123456" },
+                { "LMS00010", "123456" },
+                { "LMS00011", "123456" },
+                // Customer
+                { "LMC00001", "123456" },
+                { "LMC00002", "123456" },
+                { "LMC00003", "123456" },
+                { "LMC00004", "123456" }
+            };
+
+            // update password
+            testController.UpdatePassword(usersToUpdate);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UpdateUsersPassword();
+            MessageBox.Show("Password updated successfully.");
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            testController testController = new testController();
+            string userid = textBox3.Text;
+            string newPassword = textBox1.Text;
+
+            if (testController.DeveloperToolForgetPassword(userid, newPassword))
+            {
+                MessageBox.Show("Password updated successfully.");
+            }else
+            {
+                MessageBox.Show("Password not updated.");
+            }
         }
     }
 }

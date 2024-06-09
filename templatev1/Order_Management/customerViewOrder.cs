@@ -13,7 +13,7 @@ namespace templatev1.Order_Management
 {
     public partial class customerViewOrder : Form
     {
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.viewOrderController controller;
         private string uName, UID;
@@ -27,17 +27,17 @@ namespace templatev1.Order_Management
             controller = new controller.viewOrderController();
         }
 
-        public customerViewOrder(string orderID, controller.accountController accountController,
+        public customerViewOrder(string orderID, controller.AccountController accountController,
             controller.UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
-            this.controller = new controller.viewOrderController();
-            this.shipDate = "";
-            UID = this.accountController.getUID();
-            isLM = accountController.getIsLM();
+            controller = new controller.viewOrderController();
+            shipDate = "";
+            UID = this.accountController.GetUid();
+            isLM = accountController.GetIsLm();
 
 
             //UID = "LMC00001"; //hard code for testing
@@ -128,44 +128,44 @@ namespace templatev1.Order_Management
                 Label lblRowNum = new Label()
                 {
                     Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
-                    Location = new System.Drawing.Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    TextAlign = ContentAlignment.MiddleCenter, Size = new System.Drawing.Size(30, 20)
+                    Location = new Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    TextAlign = ContentAlignment.MiddleCenter, Size = new Size(30, 20)
                 };
                 Label lblItemNum = new Label()
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
-                    Location = new System.Drawing.Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label()
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}",
-                    Location = new System.Drawing.Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label()
                 {
                     Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
-                    Location = new System.Drawing.Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblQuantity = new Label()
                 {
                     Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}",
-                    Location = new System.Drawing.Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblUnitPrice = new Label()
                 {
                     Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}",
-                    Location = new System.Drawing.Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblRowTotalPrice = new Label()
                 {
                     Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4].ToString()}",
-                    Location = new System.Drawing.Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
 
 
@@ -206,11 +206,11 @@ namespace templatev1.Order_Management
                 if (dayDifference(orderID) >= 3)
                 {
                     Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                    this.Hide();
+                    Hide();
                     customerEditOrder.StartPosition = FormStartPosition.Manual;
-                    customerEditOrder.Location = this.Location;
+                    customerEditOrder.Location = Location;
                     customerEditOrder.ShowDialog();
-                    this.Close();
+                    Close();
                 }
                 else
                 {
@@ -257,11 +257,11 @@ namespace templatev1.Order_Management
 
                         Form customerOrderList =
                             new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-                        this.Hide();
+                        Hide();
                         customerOrderList.StartPosition = FormStartPosition.Manual;
-                        customerOrderList.Location = this.Location;
+                        customerOrderList.Location = Location;
                         customerOrderList.ShowDialog();
-                        this.Close();
+                        Close();
                     }
                     else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
                     {
@@ -280,11 +280,11 @@ namespace templatev1.Order_Management
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Hide();
             customerOrderList.StartPosition = FormStartPosition.Manual;
-            customerOrderList.Location = this.Location;
+            customerOrderList.Location = Location;
             customerOrderList.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnViewInvoice_Click(object sender, EventArgs e)
@@ -303,11 +303,11 @@ namespace templatev1.Order_Management
                 else
                 {
                     Form customerViewInvoice = new customerViewInvoice(orderID, accountController, UIController);
-                    this.Hide();
+                    Hide();
                     customerViewInvoice.StartPosition = FormStartPosition.Manual;
-                    customerViewInvoice.Location = this.Location;
+                    customerViewInvoice.Location = Location;
                     customerViewInvoice.ShowDialog();
-                    this.Close();
+                    Close();
                 }
             }
         }
@@ -431,51 +431,51 @@ namespace templatev1.Order_Management
         private void button1_Click(object sender, EventArgs e)
         {
             Form feedback = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             feedback.StartPosition = FormStartPosition.Manual;
-            feedback.Location = this.Location;
+            feedback.Location = Location;
             feedback.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
             Form fav = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Hide();
             fav.StartPosition = FormStartPosition.Manual;
-            fav.Location = this.Location;
+            fav.Location = Location;
             fav.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Hide();
             cart.StartPosition = FormStartPosition.Manual;
-            cart.Location = this.Location;
+            cart.Location = Location;
             cart.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             Form spare = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Hide();
             spare.StartPosition = FormStartPosition.Manual;
-            spare.Location = this.Location;
+            spare.Location = Location;
             spare.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
@@ -485,11 +485,11 @@ namespace templatev1.Order_Management
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -562,11 +562,11 @@ namespace templatev1.Order_Management
                 if (dialogResult == DialogResult.Yes)
                 {
                     Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
-                    this.Hide();
+                    Hide();
                     cart.StartPosition = FormStartPosition.Manual;
-                    cart.Location = this.Location;
+                    cart.Location = Location;
                     cart.ShowDialog();
-                    this.Close();
+                    Close();
                 }
             }
             catch (Exception)

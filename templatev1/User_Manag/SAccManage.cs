@@ -13,7 +13,7 @@ namespace templatev1
     public partial class SAccManage : Form
     {
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
 
         public SAccManage()
@@ -23,7 +23,7 @@ namespace templatev1
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
         }
 
-        public SAccManage(controller.accountController accountController, controller.UIController UIController)
+        public SAccManage(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             palSelect1.Visible =
@@ -46,8 +46,8 @@ namespace templatev1
         {
             setIndicator(UIController.getIndicator("User Managemnet"));
             timer1.Enabled = true;
-            UID = accountController.getUID();
-            uName = accountController.getName();
+            UID = accountController.GetUid();
+            uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
 
 
@@ -90,13 +90,13 @@ namespace templatev1
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form login = new Login();
-            this.Hide();
+            Hide();
             //Swap the current form to another.
             login.StartPosition = FormStartPosition.Manual;
-            login.Location = this.Location;
-            login.Size = this.Size;
+            login.Location = Location;
+            login.Size = Size;
             login.ShowDialog();
-            this.Close();
+            Close();
         }
     }
 }

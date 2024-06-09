@@ -11,139 +11,112 @@ using System.Windows.Forms;
 
 namespace controller
 {
-    public class accountController : abstractController
+    public class AccountController : abstractController
     {
-        //For DataBase.
         private string sqlStr;
         private MySqlCommand cmd;
-
-        //For password encryption.
-        byte[] key = new byte[16];
-        byte[] iv = new byte[16];
-
         public bool IsLogin;
-        private string accountID, firstName, lastName, UserID, AccountType, decryptedPassword;
+        private string accountID, firstName, lastName, UserID, AccountType;
         private Boolean isLM;
         UIController UIController;
 
-        public accountController()
+        public AccountController()
         {
             IsLogin = false;
             isLM = false;
         }
 
-        public bool login(string UID, string Pass, UIController UI)
+        public bool Login(string UID, string Pass, UIController UI)
         {
             try
             {
-                DataTable dt = new DataTable();
-
-                if (UID.StartsWith("LMC") || UID.StartsWith("LMS"))
-                {
-                    sqlStr =
-                        $"SELECT password, pwdKEY, pwdIV, status FROM customer_account WHERE customerID = \'{UID}\' " +
-                        $"UNION ALL SELECT password, pwdKEY, pwdIV, status FROM staff_account WHERE staffID = \'{UID}\'";
-                }
-                else
-                    return IsLogin; //Not a LM account.
-
-                adr = new MySqlDataAdapter(sqlStr, conn);
-                adr.Fill(dt);
-                adr.Dispose();
+                DataTable dt = ExecuteSqlQuery(GetAccountDataQuery(UID));
 
                 if (dt.Rows.Count < 1) //Account NOT found.
-                    return IsLogin;
-
-                //Decrypt data from the database
-                key = Convert.FromBase64String(dt.Rows[0]["pwdKEY"].ToString());
-                iv = Convert.FromBase64String(dt.Rows[0]["pwdIV"].ToString());
-                byte[] pwdbyte = System.Convert.FromBase64String(dt.Rows[0]["password"].ToString());
-                decryptedPassword = Decrypt(pwdbyte, key, iv);
+                    return false;
 
                 //Account status is active AND verify the password.
-                if (Pass.Equals(decryptedPassword) && dt.Rows[0]["status"].Equals("active"))
+                if (IsPasswordValid(Pass, dt.Rows[0]["password"].ToString()) &&
+                    IsAccountActive(dt.Rows[0]["status"].ToString()))
                 {
-                    dt = new DataTable();
-                    sqlStr = $"SELECT isLM from customer_account WHERE customerID = \'{UID}\' ";
-                    adr = new MySqlDataAdapter(sqlStr, conn);
-                    adr.Fill(dt);
-                    if (dt.Rows[0][0].ToString() == "Y")
-                    {
-                        isLM = true;
-                    }
-
-                    IsLogin = true;
-                    UserID = UID;
-
-                    UIController = UI;
-
-                    UserInfo(); //Get user info and store in gobal variable.
-                    UIController.setPermission(UserID);
+                    SetLoginStatus(UID, UI);
                 }
 
                 return IsLogin;
             }
             catch (Exception e)
             {
-                return IsLogin; //Some error occurs retrn false to login.
+                return false; //Some error occurs return false to login.
             }
         }
 
-        //Decrypt the password that has got form the database.
-        private string Decrypt(byte[] cipheredtext, byte[] key, byte[] iv)
+        private string GetAccountDataQuery(string UID)
         {
-            string simpletext = String.Empty;
-            using (Aes aes = Aes.Create())
-            {
-                ICryptoTransform decryptor = aes.CreateDecryptor(key, iv);
-                using (MemoryStream memoryStream = new MemoryStream(cipheredtext))
-                {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
-                    {
-                        using (StreamReader streamReader = new StreamReader(cryptoStream))
-                        {
-                            simpletext = streamReader.ReadToEnd();
-                        }
-                    }
-                }
-            }
-
-            return simpletext;
+            return UID.StartsWith("LMC") || UID.StartsWith("LMS")
+                ? $"SELECT password, status FROM customer_account WHERE customerID = '{UID}' " +
+                  $"UNION ALL SELECT password, status FROM staff_account WHERE staffID = '{UID}'"
+                : throw new Exception("Not a LM account.");
         }
 
+        private bool IsPasswordValid(string inputPassword, string storedPassword)
+        {
+            return BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
+        }
+
+        private bool IsAccountActive(string status)
+        {
+            return status.Equals("active");
+        }
+
+        private void SetLoginStatus(string UID, UIController UI)
+        {
+            DataTable dt = ExecuteSqlQuery(GetIsLmDataQuery(UID));
+            if (dt.Rows[0][0].ToString() == "Y")
+            {
+                isLM = true;
+            }
+
+            IsLogin = true;
+            UserID = UID;
+            UIController = UI;
+            UserInfo(); //Get user info and store in global variable.
+            UIController.setPermission(UserID);
+        }
+
+        private string GetIsLmDataQuery(string UID)
+        {
+            return $"SELECT isLM from customer_account WHERE customerID = \'{UID}\' ";
+        }
+
+        private DataTable ExecuteSqlQuery(string sqlQuery)
+        {
+            DataTable dt = new DataTable();
+            adr = new MySqlDataAdapter(sqlQuery, conn);
+            adr.Fill(dt);
+            adr.Dispose();
+            return dt;
+        }
 
         private void UserInfo()
         {
-            DataTable dt = new DataTable();
-
-            if (UserID.StartsWith("LMC")) //A customer account.
-            {
-                sqlStr =
-                    $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = \'{UserID}\' AND C.customerID = \'{UserID}\'";
-                AccountType = "Customer";
-                UIController.setType(AccountType);
-            }
-            else //A staff account
-            {
-                sqlStr =
-                    $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = \'{UserID}\' AND S.staffID = \'{UserID}\'";
-                AccountType = "Staff";
-                UIController.setType(AccountType);
-            }
-
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            conn.Close();
+            DataTable dt = GetUserInfoData(UserID);
 
             lastName = dt.Rows[0]["lastName"].ToString();
             firstName = dt.Rows[0]["firstName"].ToString();
             accountID = dt.Rows[0]["accountID"].ToString();
         }
 
+        private DataTable GetUserInfoData(string UID)
+        {
+            string sqlQuery = UID.StartsWith("LMC")
+                ? $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = '{UID}' AND C.customerID = '{UID}'"
+                : $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = '{UID}' AND S.staffID = '{UID}'";
+
+            return ExecuteSqlQuery(sqlQuery);
+        }
 
         //update the login record into the database.
-        public void setLog(string Date)
+        public void SetLog(string Date)
         {
             conn.Open();
 
@@ -158,10 +131,9 @@ namespace controller
         }
 
         //Retuen the last login date time.
-        public string getLog()
+        public string GetLog()
         {
             DataTable dt = new DataTable();
-
 
             sqlStr = $"SELECT loginDate FROM customer_login_history WHERE customerAccountID = \'{accountID}\' " +
                      $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = \'{accountID}\' ORDER BY loginDATE DESC";
@@ -174,7 +146,7 @@ namespace controller
         }
 
         //Return the full login record.
-        public DataTable getFullLog()
+        public DataTable GetFullLog()
         {
             DataTable dt = new DataTable();
 
@@ -189,7 +161,7 @@ namespace controller
         }
 
         //Return the last password chagne date.
-        public DateTime getPwdChange()
+        public DateTime GetPwdChange()
         {
             DataTable dt = new DataTable();
 
@@ -203,17 +175,20 @@ namespace controller
             return (DateTime)dt.Rows[0]["pwdChangeDate"];
         }
 
+        public DataTable GetAccountData(string UID) => ExecuteSqlQuery(GetAccountDataQuery(UID));
+
         //For the password change function in the profile.
-        public bool matchPwd(string gettedPwd)
+        public bool MatchPwd(string gettedPwd)
         {
-            if (gettedPwd.Equals(decryptedPassword))
+            if (BCrypt.Net.BCrypt.Verify(gettedPwd, GetAccountData(UserID).Rows[0]["password"].ToString()))
                 return true;
             else
                 return false;
+            // return BCrypt.Net.BCrypt.Verify(BCrypt.Net.BCrypt.HashPassword(gettedPwd), decryptedPassword);
         }
 
         //For customer account disable function.
-        public bool delAccount()
+        public bool DelAccount()
         {
             try
             {
@@ -232,7 +207,7 @@ namespace controller
         }
 
 
-        public DataTable getStaffDetail(string id) //use in OrderListController     //id = staff account id
+        public DataTable GetStaffDetail(string id) //use in OrderListController     //id = staff account id
         {
             DataTable dt = new DataTable();
             string sqlCmd = $"SELECT staffID FROM staff_account WHERE staffAccountID = \'{id}\'";
@@ -247,7 +222,7 @@ namespace controller
             return dt;
         }
 
-        public DataTable getCustomerDetail(string id) //use in viewOrderController   //id = customerID
+        public DataTable GetCustomerDetail(string id) //use in viewOrderController   //id = customerID
         {
             DataTable dt = new DataTable();
             string sqlCmd = $"SELECT * FROM customer WHERE customerID = \'{id}\'";
@@ -256,23 +231,24 @@ namespace controller
             return dt;
         }
 
+
         //User's information for UI
-        public string getName()
+        public string GetName()
         {
             return lastName + " " + firstName;
         }
 
-        public string getUID()
+        public string GetUid()
         {
             return UserID;
         }
 
-        public string getType()
+        public string GetAccountType()
         {
             return AccountType;
         }
 
-        public Boolean getIsLM()
+        public Boolean GetIsLm()
         {
             return isLM;
         }

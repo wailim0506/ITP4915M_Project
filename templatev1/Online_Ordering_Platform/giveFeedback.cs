@@ -13,7 +13,7 @@ namespace templatev1
     public partial class giveFeedback : Form
     {
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
 
         public giveFeedback()
@@ -21,12 +21,12 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public giveFeedback(controller.accountController accountController, controller.UIController UIController)
+        public giveFeedback(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            UID = accountController.getUID();
+            UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -98,61 +98,61 @@ namespace templatev1
         private void button5_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)

@@ -14,7 +14,7 @@ namespace templatev1.Online_Ordering_Platform
     {
         DataTable dtOrder, dtStaff;
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.orderListController controller;
 
@@ -27,7 +27,7 @@ namespace templatev1.Online_Ordering_Platform
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public customerOrderList(controller.accountController accountController, controller.UIController UIController)
+        public customerOrderList(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -70,40 +70,40 @@ namespace templatev1.Online_Ordering_Platform
                 Label lblID = new Label()
                 {
                     Name = $"lblID{i}", Text = $"{dtOrder.Rows[i - 1][0]}",
-                    Location = new System.Drawing.Point(10, yPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(109, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(10, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(109, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblDate = new Label()
                 {
-                    Name = $"lblDate{i}", Text = $"{orderDate}", Location = new System.Drawing.Point(125, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12), Size = new System.Drawing.Size(112, 20),
+                    Name = $"lblDate{i}", Text = $"{orderDate}", Location = new Point(125, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 12), Size = new Size(112, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblStaff = new Label()
                 {
                     Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID),
-                    Location = new System.Drawing.Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(180, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(180, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblContact = new Label()
                 {
                     Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID),
-                    Location = new System.Drawing.Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(219, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(219, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblStatus = new Label()
                 {
                     Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}",
-                    Location = new System.Drawing.Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new System.Drawing.Size(115, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Location = new Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(115, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Button btnView = new Button()
                 {
-                    Name = $"btnView{i}", Text = "View Order", Location = new System.Drawing.Point(810, yPosition - 3),
+                    Name = $"btnView{i}", Text = "View Order", Location = new Point(810, yPosition - 3),
                     Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true
                 };
-                btnView.Click += new EventHandler(this.btnView_Click);
+                btnView.Click += new EventHandler(btnView_Click);
 
                 pnlOrder.Controls.Add(lblID);
                 pnlOrder.Controls.Add(lblDate);
@@ -117,62 +117,62 @@ namespace templatev1.Online_Ordering_Platform
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Form o = new customerOrderList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
-            this.Hide();
+            Form o = new cart(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Form o = new favourite(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)
@@ -198,11 +198,11 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             Form customerViewOrder =
                                 new Order_Management.customerViewOrder(control.Text, accountController, UIController);
-                            this.Hide();
+                            Hide();
                             customerViewOrder.StartPosition = FormStartPosition.Manual;
-                            customerViewOrder.Location = this.Location;
+                            customerViewOrder.Location = Location;
                             customerViewOrder.ShowDialog();
-                            this.Close();
+                            Close();
                             return;
                         }
 

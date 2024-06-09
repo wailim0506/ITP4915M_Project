@@ -20,13 +20,13 @@ namespace controller
         private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5; //Text in the button.
         private static string AccountType, permission;
 
-        controller.accountController accountController;
+        AccountController accountController;
 
         public UIController()
         {
         }
 
-        public UIController(accountController accountController)
+        public UIController(AccountController accountController)
         {
             this.accountController = accountController;
             showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;

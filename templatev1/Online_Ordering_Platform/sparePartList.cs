@@ -15,7 +15,7 @@ namespace templatev1.Online_Ordering_Platform
     {
         private string uName, UID;
         private Boolean isLM;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.spareListController controller;
 
@@ -27,14 +27,14 @@ namespace templatev1.Online_Ordering_Platform
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public sparePartList(controller.accountController accountController, controller.UIController UIController)
+        public sparePartList(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            isLM = accountController.getIsLM();
+            isLM = accountController.GetIsLm();
             controller = new controller.spareListController();
-            UID = accountController.getUID();
+            UID = accountController.GetUid();
             //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
@@ -75,50 +75,50 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             grpSpareBox = new GroupBox
                             {
-                                Name = $"grpBox{currentGrpBox}", Size = new System.Drawing.Size(281, 383),
-                                Location = new System.Drawing.Point(firstColumnXPosition, yPosition)
+                                Name = $"grpBox{currentGrpBox}", Size = new Size(281, 383),
+                                Location = new Point(firstColumnXPosition, yPosition)
                             };
                         }
                         else if (k == 1)
                         {
                             grpSpareBox = new GroupBox
                             {
-                                Size = new System.Drawing.Size(281, 383),
-                                Location = new System.Drawing.Point(secondColumnXPosition, yPosition)
+                                Size = new Size(281, 383),
+                                Location = new Point(secondColumnXPosition, yPosition)
                             };
                         }
                         else
                         {
                             grpSpareBox = new GroupBox
                             {
-                                Size = new System.Drawing.Size(281, 383),
-                                Location = new System.Drawing.Point(thirdColumnXPosition, yPosition)
+                                Size = new Size(281, 383),
+                                Location = new Point(thirdColumnXPosition, yPosition)
                             };
                         }
 
                         PictureBox picPartImage = new PictureBox
                         {
-                            Size = new System.Drawing.Size(275, 186), Location = new System.Drawing.Point(3, 16),
+                            Size = new Size(275, 186), Location = new Point(3, 16),
                             SizeMode = PictureBoxSizeMode.Zoom, Image = imageString($"{dt.Rows[currentGrpBox][0]}")
                         };
                         Label lblCategoryLabel = new Label
                         {
-                            Text = "Category :", AutoSize = true, Location = new System.Drawing.Point(6, 207),
+                            Text = "Category :", AutoSize = true, Location = new Point(6, 207),
                             Font = new Font("Microsoft Sans Serif", 12)
                         };
                         Label lblPartNumLabel = new Label
                         {
-                            Text = "Part Number :", AutoSize = true, Location = new System.Drawing.Point(6, 237),
+                            Text = "Part Number :", AutoSize = true, Location = new Point(6, 237),
                             Font = new Font("Microsoft Sans Serif", 12)
                         };
                         Label lblNameLabel = new Label
                         {
-                            Text = "Name :", AutoSize = true, Location = new System.Drawing.Point(6, 267),
+                            Text = "Name :", AutoSize = true, Location = new Point(6, 267),
                             Font = new Font("Microsoft Sans Serif", 12)
                         };
                         Label lblPriceLabel = new Label
                         {
-                            Text = "Price :¥", AutoSize = true, Location = new System.Drawing.Point(6, 297),
+                            Text = "Price :¥", AutoSize = true, Location = new Point(6, 297),
                             Font = new Font("Microsoft Sans Serif", 12)
                         };
 
@@ -127,43 +127,43 @@ namespace templatev1.Online_Ordering_Platform
                             Text =
                                 $"{dt.Rows[currentGrpBox][2]} - {controller.getCategoryName(dt.Rows[currentGrpBox][2].ToString())}",
                             AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
-                            Location = new System.Drawing.Point(83, 208), Size = new System.Drawing.Size(174, 20)
+                            Location = new Point(83, 208), Size = new Size(174, 20)
                         };
                         Label lblPartNum = new Label
                         {
                             Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][0]}",
                             AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
-                            Location = new System.Drawing.Point(108, 238), Size = new System.Drawing.Size(171, 20)
+                            Location = new Point(108, 238), Size = new Size(171, 20)
                         };
                         Label lblName = new Label
                         {
                             Text = $"{dt.Rows[currentGrpBox][3]}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(62, 268),
-                            Size = new System.Drawing.Size(218, 20)
+                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(62, 268),
+                            Size = new Size(218, 20)
                         };
                         Label lblPrice = new Label
                         {
                             Text = $"{controller.getPrice(dt.Rows[currentGrpBox][0].ToString())}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(64, 297),
-                            Size = new System.Drawing.Size(213, 20)
+                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
+                            Size = new Size(213, 20)
                         };
                         Button btnView = new Button
                         {
                             Name = $"btnView{currentGrpBox}", Text = "View", Font = new Font("Times New Roman", 12),
-                            Cursor = Cursors.Hand, Location = new System.Drawing.Point(3, 319),
-                            Size = new System.Drawing.Size(272, 30)
+                            Cursor = Cursors.Hand, Location = new Point(3, 319),
+                            Size = new Size(272, 30)
                         };
                         Button btnAddCart = new Button
                         {
                             Name = $"btnAddCart{currentGrpBox}", Text = "Add Cart",
                             Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand,
-                            Location = new System.Drawing.Point(3, 350), Size = new System.Drawing.Size(205, 30)
+                            Location = new Point(3, 350), Size = new Size(205, 30)
                         };
                         TextBox tbQty = new TextBox
                         {
                             Text = "1", Name = $"tbQty{currentGrpBox}", BorderStyle = BorderStyle.FixedSingle,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new System.Drawing.Point(214, 352),
-                            MaxLength = 4, Size = new System.Drawing.Size(61, 26),
+                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(214, 352),
+                            MaxLength = 4, Size = new Size(61, 26),
                             TextAlign = HorizontalAlignment.Center
                         };
                         btnView.Click += new EventHandler(viewPart);
@@ -230,11 +230,11 @@ namespace templatev1.Online_Ordering_Platform
                             {
                                 Form viewSparePart = new viewSparePart(control.Text.ToString(), accountController,
                                     UIController);
-                                this.Hide();
+                                Hide();
                                 viewSparePart.StartPosition = FormStartPosition.Manual;
-                                viewSparePart.Location = this.Location;
+                                viewSparePart.Location = Location;
                                 viewSparePart.ShowDialog();
-                                this.Close();
+                                Close();
                             }
                         }
                     }
@@ -366,11 +366,11 @@ namespace templatev1.Online_Ordering_Platform
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             Form cart = new cart(accountController, UIController);
-            this.Hide();
+            Hide();
             cart.StartPosition = FormStartPosition.Manual;
-            cart.Location = this.Location;
+            cart.Location = Location;
             cart.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -385,51 +385,51 @@ namespace templatev1.Online_Ordering_Platform
         private void button1_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
-            this.Hide();
+            Form o = new favourite(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
-            this.Hide();
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
-            this.Hide();
+            Form o = new customerOrderList(accountController, UIController);
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
-            this.Hide();
+            Hide();
             o.StartPosition = FormStartPosition.Manual;
-            o.Location = this.Location;
+            o.Location = Location;
             o.ShowDialog();
-            this.Close();
+            Close();
         }
 
         private void picBWMode_Click(object sender, EventArgs e)

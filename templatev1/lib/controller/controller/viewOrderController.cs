@@ -28,22 +28,22 @@ namespace controller
 
         public string getStafftID(string id) //staff account id
         {
-            accountController ac = new accountController();
-            DataTable dt = ac.getStaffDetail(id);
+            AccountController ac = new AccountController();
+            DataTable dt = ac.GetStaffDetail(id);
             return dt.Rows[0][0].ToString();
         }
 
         public string getStaffName(string id) //staff account id
         {
-            accountController ac = new accountController();
-            DataTable dt = ac.getStaffDetail(id);
+            AccountController ac = new AccountController();
+            DataTable dt = ac.GetStaffDetail(id);
             return $"{dt.Rows[0][2].ToString()} {dt.Rows[0][3].ToString()}";
         }
 
         public string getStaffContact(string id)
         {
-            accountController ac = new accountController();
-            DataTable dt = ac.getStaffDetail(id);
+            AccountController ac = new AccountController();
+            DataTable dt = ac.GetStaffDetail(id);
             return dt.Rows[0][6].ToString();
         }
 
@@ -101,8 +101,8 @@ namespace controller
 
         public string getShippingAddress(string id) //customerID
         {
-            accountController ac = new accountController();
-            DataTable dt = ac.getCustomerDetail(id);
+            AccountController ac = new AccountController();
+            DataTable dt = ac.GetCustomerDetail(id);
             return $"{dt.Rows[0][10].ToString()}, {dt.Rows[0][7].ToString()}, {dt.Rows[0][8].ToString()}";
         }
 
@@ -348,6 +348,7 @@ namespace controller
             {
                 conn.Close();
             }
+
             return true;
         }
 

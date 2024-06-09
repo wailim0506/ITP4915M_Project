@@ -14,7 +14,7 @@ namespace templatev1.Stock_Manag
     {
         controller.supplierController controller;
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
 
         public addSupplier()
@@ -23,7 +23,7 @@ namespace templatev1.Stock_Manag
             controller = new controller.supplierController();
         }
 
-        public addSupplier(controller.accountController accountController, controller.UIController UIController)
+        public addSupplier(controller.AccountController accountController, controller.UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -40,11 +40,11 @@ namespace templatev1.Stock_Manag
             {
                 MessageBox.Show("Supplier added.");
                 Form viewSupplier = new viewSupplier();
-                this.Hide();
+                Hide();
                 viewSupplier.StartPosition = FormStartPosition.Manual;
-                viewSupplier.Location = this.Location;
+                viewSupplier.Location = Location;
                 viewSupplier.ShowDialog();
-                this.Close();
+                Close();
             }
             else
             {
@@ -79,11 +79,11 @@ namespace templatev1.Stock_Manag
             if (result == DialogResult.Yes)
             {
                 Form viewSupplier = new viewSupplier();
-                this.Hide();
+                Hide();
                 viewSupplier.StartPosition = FormStartPosition.Manual;
-                viewSupplier.Location = this.Location;
+                viewSupplier.Location = Location;
                 viewSupplier.ShowDialog();
-                this.Close();
+                Close();
             }
             else if (result == DialogResult.No)
             {

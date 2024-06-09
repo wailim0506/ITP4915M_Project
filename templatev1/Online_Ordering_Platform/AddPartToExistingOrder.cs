@@ -15,7 +15,7 @@ namespace templatev1.Online_Ordering_Platform
     public partial class AddPartToExistingOrder : Form
     {
         private string uName, UID;
-        controller.accountController accountController;
+        controller.AccountController accountController;
         controller.UIController UIController;
         controller.addPartToOrderController controller;
         private string partNum, qty;
@@ -30,7 +30,7 @@ namespace templatev1.Online_Ordering_Platform
         }
 
 
-        public AddPartToExistingOrder(string partNum, string qty, controller.accountController accountController,
+        public AddPartToExistingOrder(string partNum, string qty, controller.AccountController accountController,
             controller.UIController UIController)
         {
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace templatev1.Online_Ordering_Platform
             controller = new controller.addPartToOrderController();
             this.partNum = partNum;
             this.qty = qty;
-            UID = accountController.getUID();
+            UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -234,11 +234,11 @@ namespace templatev1.Online_Ordering_Platform
         private void btnBackViewPart_Click(object sender, EventArgs e)
         {
             Form c = new viewSparePart(partNum, accountController, UIController);
-            this.Hide();
+            Hide();
             c.StartPosition = FormStartPosition.Manual;
-            c.Location = this.Location;
+            c.Location = Location;
             c.ShowDialog();
-            this.Close();
+            Close();
             return;
         }
 

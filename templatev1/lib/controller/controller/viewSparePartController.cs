@@ -204,7 +204,9 @@ namespace controller
 
             //get qty in product table 
             dt = new DataTable();
-            sqlCmd = !isLM ? $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'" : $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
+            sqlCmd = !isLM
+                ? $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'"
+                : $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
 
             adr = new MySqlDataAdapter(sqlCmd, conn);
             adr.Fill(dt);
@@ -214,7 +216,9 @@ namespace controller
             qtyInDB -= qty;
 
             //update product table
-            sqlCmd = !isLM ? $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id" : $"UPDATE product SET LM_OnSaleQty = @qty WHERE itemID = @id";
+            sqlCmd = !isLM
+                ? $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id"
+                : $"UPDATE product SET LM_OnSaleQty = @qty WHERE itemID = @id";
 
             try
             {
