@@ -36,7 +36,7 @@ namespace templatev1.Order_Management
         private void customerViewInvoice_Load(object sender, EventArgs e)
         {
             lblOrderNum.Text = orderID;
-            string[] d = controller.getOrderDate(orderID).Split(' ');
+            string[] d = controller.GetOrderDate(orderID).Split(' ');
             lblOrderDate.Text = d[0];
             lblCustomerID.Text = controller.getCustomerID(orderID);
             lblInvoiceNum.Text = controller.getInvoiceNum(orderID);

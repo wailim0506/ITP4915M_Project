@@ -47,8 +47,8 @@ namespace templatev1
         {
             // time out for connection for 30 seconds
             string connString =
-                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            //"server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+                //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+            "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
             service.AddSingleton<Database>(_ => new Database(connString));
             service.AddSingleton<Log>(_ => new Log());
 

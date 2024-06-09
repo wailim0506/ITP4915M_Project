@@ -17,7 +17,7 @@ namespace controller
             sqlCmd = "";
         }
 
-        public string getOrderDate(string id) //order id
+        public string GetOrderDate(string id) //order id
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT orderDate FROM order_ WHERE orderID = \'{id}\'";

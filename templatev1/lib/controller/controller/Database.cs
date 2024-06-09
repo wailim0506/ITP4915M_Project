@@ -11,9 +11,43 @@ namespace controller
 
         public Database(string connectionString = null)
         {
-            connection = new MySqlConnection(connectionString ??
-                                             "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30");
+            connection = new MySqlConnection(connectionString ?? GetConnectionString());
             connection.Open();
+        }
+        
+        public string GetConnectionString()
+        {
+            var connectionStrings = new List<string>
+            {
+                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
+                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
+            };
+
+            foreach (var connectionString in connectionStrings)
+            {
+                if (TestConnection(connectionString))
+                {
+                    return connectionString;
+                }
+            }
+
+            throw new Exception("No valid connection string found.");
+        }
+
+        private bool TestConnection(string connectionString)
+        {
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
         }
 
         public void Dispose()

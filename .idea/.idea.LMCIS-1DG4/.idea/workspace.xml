@@ -7,35 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="update readme.md">
-      <change afterPath="$PROJECT_DIR$/.run/start-server.run.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/Docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Log.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="fix the issue of Login&#10;add Database and log">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/App.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/App.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/app.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/app.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/packages.config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +119,7 @@
       <workItem from="1717927045602" duration="1870000" />
       <workItem from="1717935690499" duration="989000" />
       <workItem from="1717937313508" duration="1708000" />
-      <workItem from="1717940901204" duration="10660000" />
+      <workItem from="1717940901204" duration="11289000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -168,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717936171258</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="fix the issue of Login&#10;add Database and log">
+      <option name="closed" value="true" />
+      <created>1717951849459</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1717951849459</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,6 +177,7 @@
     <MESSAGE value="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working." />
     <MESSAGE value="devTool update" />
     <MESSAGE value="update readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="update readme.md" />
+    <MESSAGE value="fix the issue of Login&#10;add Database and log" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix the issue of Login&#10;add Database and log" />
   </component>
 </project>
