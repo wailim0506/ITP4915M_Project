@@ -1,0 +1,31 @@
+﻿version: '3.9'
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: itp4915m_se1d_group4
+      MYSQL_PASSWORD:
+    ports:
+      - 8088:3306
+    volumes:
+      - ./docker/data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - 8080:80
+      - 8443:443
+    volumes:
+      - ./docker/phpmyadmin/themes:/var/www/html/themes
+      - ./docker/phpmyadmin/config.user.inc.php:/var/www/html/config.user.inc.php
+      - ./docker/phpmyadmin/config.inc.php:/var/www/html/config.inc.php
+    depends_on:
+      - mysql
+   

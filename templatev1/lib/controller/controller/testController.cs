@@ -7,7 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.IO;
-using System.Security.Cryptography; //must include in every controller file
+using System.Security.Cryptography;
+using System.Windows.Forms; //must include in every controller file
 using MySqlConnector; //must include in every controller file  
 //need to download 'MySqlConnector' in NuGet Package Manager first if can't run
 
@@ -18,7 +19,8 @@ namespace controller
         //port = port Number of MySql in XAMPP (usually 3306)
         //database = the name of your database
         private static string connString =
-            "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
+            "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30";
+        //"server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
 
         MySqlConnection conn = new MySqlConnection(connString); //just copy here
         MySqlDataAdapter adr; //just copy here
@@ -56,21 +58,33 @@ namespace controller
             adr.Fill(dt); //just copy
             return dt; //just copy
         }
-        
-        public void UpdatePassword(Dictionary<string, string> usersToUpdate)
+
+        public bool UpdatePassword(Dictionary<string, string> usersToUpdate)
         {
-            foreach (var user in usersToUpdate)
+            try
             {
-                var oldPassword = GetOldPassword(user.Key);
-                var hashedPassword = BCrypt.Net.BCrypt.HashPassword(oldPassword);
-                var sqlQuery = $"UPDATE {(user.Key.StartsWith("LMS") ? "staff_account" : "customer_account")} SET password = '{hashedPassword}' WHERE {(user.Key.StartsWith("LMS") ? "staffID" : "customerID")} = '{user.Key}'";
-                ExecuteSqlQuery(sqlQuery);
+                foreach (var user in usersToUpdate)
+                {
+                    var oldPassword = GetOldPassword(user.Key);
+                    var hashedPassword = HashPassword(oldPassword);
+                    var sqlQuery =
+                        $"UPDATE {(user.Key.StartsWith("LMS") ? "staff_account" : "customer_account")} SET password = '{hashedPassword}' WHERE {(user.Key.StartsWith("LMS") ? "staffID" : "customerID")} = '{user.Key}'";
+                    ExecuteSqlQuery(sqlQuery);
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
             }
         }
 
         private string GetOldPassword(string userId)
         {
-            var dt = ExecuteSqlQuery($"SELECT * FROM {(userId.StartsWith("LMS") ? "staff_account" : "customer_account")} WHERE {(userId.StartsWith("LMS") ? "staffID" : "customerID")} = '{userId}'");
+            var dt = ExecuteSqlQuery(
+                $"SELECT * FROM {(userId.StartsWith("LMS") ? "staff_account" : "customer_account")} WHERE {(userId.StartsWith("LMS") ? "staffID" : "customerID")} = '{userId}'");
             var key = Convert.FromBase64String(dt.Rows[0]["pwdKEY"].ToString());
             var iv = Convert.FromBase64String(dt.Rows[0]["pwdIV"].ToString());
             var pwdbyte = Convert.FromBase64String(dt.Rows[0]["password"].ToString());
@@ -94,16 +108,19 @@ namespace controller
                 }
             }
         }
-        
+
         public bool DeveloperToolForgetPassword(string userid, string newPassword)
         {
-            string sqlQuery = $"UPDATE {(userid.StartsWith("LMS") ? "staff_account" : "customer_account")} SET password = '{newPassword}' WHERE {(userid.StartsWith("LMS") ? "staffID" : "customerID")} = '{userid}'";
+            string password = HashPassword(newPassword);
+            string sqlQuery =
+                $"UPDATE {(userid.StartsWith("LMS") ? "staff_account" : "customer_account")} SET password = '{password}' WHERE {(userid.StartsWith("LMS") ? "staffID" : "customerID")} = '{userid}'";
             ExecuteSqlQuery(sqlQuery);
-            DataTable dt = ExecuteSqlQuery($"SELECT * FROM {(userid.StartsWith("LMS") ? "staff_account" : "customer_account")} " +
-                                           $"WHERE {(userid.StartsWith("LMS") ? "staffID" : "customerID")} = '{userid}'");
+            DataTable dt = ExecuteSqlQuery(
+                $"SELECT * FROM {(userid.StartsWith("LMS") ? "staff_account" : "customer_account")} " +
+                $"WHERE {(userid.StartsWith("LMS") ? "staffID" : "customerID")} = '{userid}'");
             return dt.Rows.Count == 1;
         }
-        
+
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
@@ -116,7 +133,47 @@ namespace controller
 
         public static string HashPassword(string password)
         {
-            return BCrypt.Net.BCrypt.HashPassword(password);
+            var RecoveryController = new RecoveryController();
+            return RecoveryController.HashPassword(password);
+        }
+
+        public void UpdateDeveloperAccount()
+        {
+            var usersToUpdate = new Dictionary<string, string>
+            {
+                { "LMC00001", "password123" },
+                { "LMC00002", "password123" },
+                { "LMS00001", "password123" },
+                { "LMS00002", "abc123456" },
+                { "LMS00003", "xyz789!@#" },
+                { "LMS00004", "qwer5678" },
+                { "LMS00005", "asdf1234!" }
+            };
+
+            foreach (var user in usersToUpdate)
+            {
+                if (UpdatePasswordAndTestLogin(user.Key, user.Value))
+                {
+                    MessageBox.Show($"Password updated and login successful at {user.Key}");
+                }
+                else
+                {
+                    MessageBox.Show($"Update or login failed at {user.Key}");
+                }
+            }
+        }
+
+        private bool UpdatePasswordAndTestLogin(string userId, string newPassword)
+        {
+            if (!DeveloperToolForgetPassword(userId, newPassword)) return false;
+            return TestLogin(userId, newPassword);
+        }
+
+        private bool TestLogin(string userId, string password)
+        {
+            var accountController = new AccountController();
+            var UIController = new UIController(accountController);
+            return accountController.Login(userId, password, UIController);
         }
     }
 }

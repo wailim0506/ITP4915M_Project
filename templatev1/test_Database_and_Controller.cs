@@ -55,12 +55,21 @@ namespace templatev1
             };
 
             // update password
-            testController.UpdatePassword(usersToUpdate);
+            if (testController.UpdatePassword(usersToUpdate))
+            {
+                MessageBox.Show("Password updated successfully.");
+            }
+            else
+            {
+                MessageBox.Show($"not updated at {string.Join(", ", usersToUpdate.Keys)}");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            UpdateUsersPassword();
+            //UpdateUsersPassword();
+            testController testController = new testController();
+            testController.UpdateDeveloperAccount();
             MessageBox.Show("Password updated successfully.");
         }
 
@@ -74,7 +83,8 @@ namespace templatev1
             if (testController.DeveloperToolForgetPassword(userid, newPassword))
             {
                 MessageBox.Show("Password updated successfully.");
-            }else
+            }
+            else
             {
                 MessageBox.Show("Password not updated.");
             }

@@ -18,8 +18,21 @@ namespace controller
         private string accountType, UID;
         private DateTime dateOfBirth, createDate;
 
-        private string jobTitle, dept, email, fName, lName, sex, phone, payment,
-            caddress, dfwaddress, waddress1, waddress2, corp, city, province;
+        private string jobTitle,
+            dept,
+            email,
+            fName,
+            lName,
+            sex,
+            phone,
+            payment,
+            caddress,
+            dfwaddress,
+            waddress1,
+            waddress2,
+            corp,
+            city,
+            province;
 
         private bool NGDateOfBirth = false;
         private int dfadd;

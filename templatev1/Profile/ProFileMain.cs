@@ -484,8 +484,8 @@ namespace templatev1
                     if (checkPwd() == true)
                     {
                         controller.RecoveryController recoveryController =
-                            new controller.RecoveryController(accountController);
-                        recoveryController.changPwd(tbConfirmPass.Text);
+                            new controller.RecoveryController(accountController, null);
+                        recoveryController.ChangePassword(tbConfirmPass.Text);
                         MessageBox.Show("Password changed successful!\nThe system will redirect to the login page.",
                             "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         btnLogOut_Click(this, e); //Redirect to login page.

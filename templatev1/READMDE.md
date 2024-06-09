@@ -32,9 +32,11 @@ Bcrypt.Net-Next version 4.0.3
 #### Mac
 
 1. install orbstack (https://orbstack.com/) or via the terminal
+
 ```shell
 brew install orbstack
 ```
+
 2. start the orbstack and start the docker-compose via the terminal
 
 ```shell

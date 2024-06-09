@@ -1,44 +1,99 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using MySql.Data.MySqlClient;
 
 namespace controller
 {
-    public class Database
+    public class Database : IDisposable
     {
-        private static MySqlConnection _databaseConnection;
+        private readonly MySqlConnection connection;
 
-        public Database(MySqlConnection databaseConnection = null)
+        public Database(string connectionString = null)
         {
-            _databaseConnection = databaseConnection ?? new MySqlConnection(
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;");
-            _databaseConnection.Open();
+            connection = new MySqlConnection(connectionString ??
+                                             "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30");
+            connection.Open();
         }
 
-        public static void CloseConnection() => _databaseConnection.Close();
+        public void Dispose()
+        {
+            connection?.Close();
+            connection?.Dispose();
+        }
 
-        public static object ExecuteScalarCommand(string sqlQuery, Dictionary<string, object> queryParameters) =>
-            ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteScalar());
+        public object ExecuteScalarCommand(string sqlQuery, Dictionary<string, object> queryParameters)
+        {
+            return ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteScalar());
+        }
 
-        public static void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters) =>
+        public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
+        {
             ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
+        }
 
-        private static object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
+        public MySqlDataReader ExecuteReaderCommand(string sqlQuery, Dictionary<string, object> queryParameters)
+        {
+            return (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
+        }
+
+        private object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
             Func<MySqlCommand, object> execute)
         {
-            using (var command = _databaseConnection.CreateCommand())
+            using (var command = connection.CreateCommand())
             {
                 command.CommandText = sqlQuery;
-                foreach (var parameter in queryParameters)
+                if (queryParameters != null)
                 {
-                    command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                    foreach (var parameter in queryParameters)
+                    {
+                        command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                    }
                 }
 
-                return execute(command);
+                try
+                {
+                    return execute(command);
+                }
+                catch (Exception ex)
+                {
+                    throw new InvalidOperationException("Database operation failed", ex);
+                }
             }
         }
 
-        public static object ExecuteReaderCommand(string ReaderQuery) =>
-            ExecuteCommand(ReaderQuery, null, command => command.ExecuteReader());
+        public MySqlCommand CreateCommand(string query, Dictionary<string, object> parameters)
+        {
+            var command = connection.CreateCommand();
+            command.CommandText = query;
+            foreach (var parameter in parameters)
+            {
+                command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+            }
+
+            return command;
+        }
+
+        public void ExecuteNonQuery(MySqlCommand command)
+        {
+            command.ExecuteNonQuery();
+        }
+
+        public DataTable ExecuteDataTable(string sqlQuery, Dictionary<string, object> queryParameters)
+        {
+            var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
+            var dt = new DataTable();
+            dt.Load(reader);
+            return dt;
+        }
+
+        public DataTable ExecuteDataTable(string sqlQuery)
+        {
+            var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
+            var dt = new DataTable();
+            dt.Load(reader);
+            return dt;
+            //return (DataTable)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
+        }
     }
 }

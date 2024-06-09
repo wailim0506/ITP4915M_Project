@@ -23,16 +23,23 @@ namespace controller
 
         public RecoveryController()
         {
+            db = new Database();
         }
 
-        public RecoveryController(AccountController accountController)
+        public RecoveryController(Database db)
+        {
+            this.db = db;
+        }
+
+        public RecoveryController(AccountController accountController, Database db)
         {
             _accountController = accountController;
             UID = accountController.GetUid();
+            this.db = db;
         }
 
         //Find the user in the database
-        public bool findUser(string UserID, string emailAdd, string phoneNo)
+        public bool FindUser(string UserID, string emailAdd, string phoneNo)
         {
             UID = UserID;
             email = emailAdd;
@@ -46,11 +53,8 @@ namespace controller
 
                 sqlStr =
                     $"SELECT * FROM {table} WHERE {(table == "customer" ? "customerID" : "staffID")} = '{UID}' AND (phoneNumber = '{phone}' OR emailAddress = '{email}')";
-
-                adr = new MySqlDataAdapter(sqlStr, conn);
-                adr.Fill(dt);
-                adr.Dispose();
-
+                Dictionary<string, object> queryParameters = new Dictionary<string, object> { { "@id", UID } };
+                dt = db.ExecuteDataTable(sqlStr, queryParameters);
                 return dt.Rows.Count == 1;
             }
             catch (Exception e)
@@ -60,44 +64,24 @@ namespace controller
         }
 
         //Value for listbox.
-        public List<string> getcity(string priovince)
+        public List<string> GetCity(string province)
         {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            List<string> city = new List<string>();
-
-            for (int i = 0; i <= dt.Rows.Count - 1; i++)
-            {
-                city.Add(dt.Rows[i]["city"].ToString());
-            }
-
-            return city;
+            var query = $"SELECT city FROM location WHERE province = '{province}'";
+            DataTable dataTable =
+                db.ExecuteDataTable(query, new Dictionary<string, object> { { "@province", province } });
+            return dataTable.AsEnumerable().Select(row => row["city"].ToString()).ToList();
         }
 
-        public List<string> getpriovince()
+        public List<string> GetProvince()
         {
-            DataTable dt = new DataTable();
-            sqlStr = $"SELECT DISTINCT priovince FROM location";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            List<string> priovince = new List<string>();
-
-            for (int i = 0; i <= (dt.Rows.Count - 1); i++)
-            {
-                priovince.Add(dt.Rows[i]["priovince"].ToString());
-            }
-
-            return priovince;
+            var query = "SELECT DISTINCT province FROM location";
+            DataTable dataTable = db.ExecuteDataTable(query);
+            return dataTable.AsEnumerable().Select(row => row["province"].ToString()).ToList();
         }
 
-
-        public void changPwd(string newPwd)
+        public void ChangePassword(string newPwd)
         {
-            string hashedPwd = BCrypt.Net.BCrypt.HashPassword(newPwd);
+            string hashedPwd = HashPassword(newPwd);
             //Update password in the database
             conn.Open();
             sqlStr = UID.StartsWith("LMC")
@@ -107,75 +91,92 @@ namespace controller
                 : $"UPDATE staff_account SET password = \'{hashedPwd}\', " +
                   $"pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
                   $"WHERE staffID = \'{UID}\'";
-            cmd = new MySqlCommand(sqlStr, conn);
-            cmd.ExecuteNonQuery();
-            conn.Close();
+            db.ExecuteNonQueryCommand(sqlStr, new Dictionary<string, object> { { "@id", UID } });
         }
 
         //Return the new LMC ID to the create account form.
         public int getLMCID()
         {
             DataTable dt = new DataTable();
-
-            conn.Open();
-            sqlStr = "SELECT * FROM customer";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            conn.Close();
-
+            string SqlQuery = "SELECT COUNT(*) FROM customer";
+            dt = db.ExecuteDataTable(SqlQuery);
             return dt.Rows.Count + 1;
+        }
+
+        public static string HashPassword(string password)
+        {
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            return BCrypt.Net.BCrypt.HashPassword(password, salt);
         }
 
         //For create a new customer accounr.
         public bool create(dynamic Userinfo)
         {
-            string hashedPwd = BCrypt.Net.BCrypt.HashPassword(Userinfo.pwd);
-
+            string hashedPwd = HashPassword(Userinfo.pwd);
             string LMCID = "LMC" + getLMCID().ToString("D5");
             string accountID = "CA" + getLMCID().ToString("D5");
 
+            var customerParams = new Dictionary<string, object>
+            {
+                { "@id", LMCID },
+                { "@fName", Userinfo.fName },
+                { "@lName", Userinfo.lName },
+                { "@gender", Userinfo.gender },
+                { "@email", Userinfo.email },
+                { "@company", Userinfo.company },
+                { "@phone", Userinfo.phone },
+                { "@province", Userinfo.province },
+                { "@city", Userinfo.city },
+                { "@address1", Userinfo.address1 },
+                { "@address2", Userinfo.address2 },
+                { "@joinDate", Userinfo.joinDate },
+                { "@payment", Userinfo.payment },
+                { "@img", Userinfo.IMG },
+                { "@dob", Userinfo.dateOfBirth }
+            };
+
+            var accountParams = new Dictionary<string, object>
+            {
+                { "@accountId", accountID },
+                { "@id", LMCID },
+                { "@hashedPwd", hashedPwd },
+                { "@joinDate", Userinfo.joinDate }
+            };
+
+            var dfaddParams = new Dictionary<string, object>
+            {
+                { "@id", LMCID }
+            };
+
             try
             {
-                //Insert a record into customer table
-                conn.Open();
-                sqlStr =
-                    $"INSERT INTO customer VALUES(\'{LMCID}\', \'{Userinfo.fName}\', \'{Userinfo.lName}\', \'{Userinfo.gender}\', \'{Userinfo.email}\', \'{Userinfo.company}\', \'{Userinfo.phone}\'" +
-                    $", \'{Userinfo.province}\', \'{Userinfo.city}\', \'{Userinfo.address1}\', \'{Userinfo.address2}\', \'{Userinfo.joinDate}\', \'{Userinfo.payment}\', {Userinfo.IMG} , {Userinfo.dateOfBirth}, NULL)";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-
-                //Insert a record into customer_account table
-                sqlStr =
-                    $"INSERT INTO customer_account VALUES(\'{accountID}\', \'{LMCID}\', 'active', \'{hashedPwd}\', \'{Userinfo.joinDate}\',  \'{Userinfo.joinDate}\')";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-
-                //Insert a record into customer_dfadd table set default address.
-                sqlStr = $"INSERT INTO customer_dfadd VALUES(\'{LMCID}\', '1')";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                db.ExecuteNonQueryCommand(
+                    "INSERT INTO customer VALUES(@id, @fName, @lName, @gender, @email, @company, @phone, @province, @city, @address1, @address2, @joinDate, @payment, @img, @dob, NULL)",
+                    customerParams);
+                db.ExecuteNonQueryCommand(
+                    "INSERT INTO customer_account VALUES(@accountId, @id, 'active', @hashedPwd, @joinDate, @joinDate)",
+                    accountParams);
+                db.ExecuteNonQueryCommand("INSERT INTO customer_dfadd VALUES(@id, '1')", dfaddParams);
                 return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                //Delete all created record from table.
-                conn.Open();
-                sqlStr = $"DELETE FROM customer WHERE customerID = \'{LMCID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-
-                sqlStr = $"DELETE FROM customer_account WHERE customerID = \'{LMCID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-
-                sqlStr = $"DELETE FROM customer_dfadd WHERE customerID = \'{LMCID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
-                return false; //Something went wrong.
+                db.ExecuteNonQueryCommand("DELETE FROM customer WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_account WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_dfadd WHERE customerID = @id", dfaddParams);
+                return false;
             }
+        }
+
+        //Check whether the email or phone has registered an account.
+        public bool CheckEmailPhone(string data)
+        {
+            DataTable dt = new DataTable();
+            sqlStr =
+                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
+            dt = db.ExecuteDataTable(sqlStr);
+            return dt.Rows.Count < 1;
         }
 
         //Encrypt the password when recovery the password or create a new customer account.
@@ -201,19 +202,6 @@ namespace controller
             }
 
             return cipheredtext;
-        }
-
-        //Check whether the email or phone has registered an account.
-        public bool checkEmailPhone(string data)
-        {
-            DataTable dt = new DataTable();
-            sqlStr =
-                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-            return dt.Rows.Count < 1;
         }
     }
 }

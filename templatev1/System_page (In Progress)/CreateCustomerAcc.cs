@@ -36,7 +36,7 @@ namespace templatev1
             lblCrateDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             tbPass.PasswordChar = tbConfirmPass.PasswordChar = '*';
 
-            cmbProvince.Items.AddRange(recoveryController.getpriovince().ToArray());
+            cmbProvince.Items.AddRange(recoveryController.GetProvince().ToArray());
         }
 
         //User create a new customer account.
@@ -135,7 +135,7 @@ namespace templatev1
         {
             cmbCity.SelectedIndex = -1; //clear the selected value when the province has change.
             cmbCity.Items.Clear(); //clear the value when the selected province has change.
-            cmbCity.Items.AddRange(recoveryController.getcity(cmbProvince.Text)
+            cmbCity.Items.AddRange(recoveryController.GetCity(cmbProvince.Text)
                 .ToArray()); //change city list base on current selected province.
         }
 
@@ -217,7 +217,7 @@ namespace templatev1
                 tbPhone.Select();
                 return false;
             }
-            else if (!recoveryController.checkEmailPhone(tbPhone.Text))
+            else if (!recoveryController.CheckEmailPhone(tbPhone.Text))
             {
                 lblPhoneMsg.Text = "The phone number has already registered an account.";
                 tbPhone.Select();
@@ -237,7 +237,7 @@ namespace templatev1
                 tbEmail.Select();
                 return false;
             }
-            else if (!recoveryController.checkEmailPhone(tbEmail.Text))
+            else if (!recoveryController.CheckEmailPhone(tbEmail.Text))
             {
                 lblEmailMsg.Text = "The email address has already registered an account.";
                 tbEmail.Select();

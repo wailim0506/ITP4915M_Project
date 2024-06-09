@@ -63,6 +63,7 @@ namespace templatev1
             }
             else if (accountController.Login(tbUsername.Text, tbPassword.Text, UIController)) //Checking the password
             {
+                MessageBox.Show("Login Successful.");
                 IsLogin = true;
                 rememberMe();
                 accountController.SetLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
@@ -147,7 +148,6 @@ namespace templatev1
         {
             tbUsername.Text = "LMC00001";
             tbPassword.Text = "password123";
-            // Hashed password = $2a$11$Kudz4mMTKBW3P6f8bKhsdOZOiJhZHW1RVUcM5IpNa5JvjhC18cU9O
         }
 
         private void btnTest2_Click(object sender, EventArgs e)

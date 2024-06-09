@@ -13,7 +13,7 @@ namespace controller
     public class UIController : abstractController
     {
         //For DataBase
-        private string sqlStr;
+        private Database DB;
 
         private bool BWMode;
         private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5; //whether the button is visible.
@@ -26,36 +26,28 @@ namespace controller
         {
         }
 
-        public UIController(AccountController accountController)
+        public UIController(AccountController accountController, Database db = null)
         {
+            DB = db ?? new Database();
             this.accountController = accountController;
             showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
         }
 
         //Set user permission and determine which function button to be shown.
-        public void setPermission(string UserID)
+        public void SetPermission(string UserID)
         {
-            if (AccountType.Equals("Customer")) //Customer account.
-                determineFun("C");
-            else //Staff
-            {
-                DataTable dt = new DataTable();
-                sqlStr =
-                    $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
-                adr = new MySqlDataAdapter(sqlStr, conn);
-                adr.Fill(dt);
-                adr.Dispose();
-                permission = dt.Rows[0]["permissionID"].ToString();
-                determineFun(permission);
-            }
+            AccountType = UserID.StartsWith("LMC") || UserID.StartsWith("LMS") ? "Customer" : "Staff";
+            string permissionIDQuery = $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
+            permission = AccountType.Equals("Customer") ? "C" : DB.ExecuteDataTable(permissionIDQuery).Rows[0]["permissionID"].ToString();
+            DetermineFun(permission);
         }
 
-        public void setType(string AccType)
+        public void SetAccountType(string accType)
         {
-            AccountType = AccType;
+            AccountType = accType;
         }
 
-        private void determineFun(string permission)
+        private void DetermineFun(string permission)
         {
             switch (permission)
             {

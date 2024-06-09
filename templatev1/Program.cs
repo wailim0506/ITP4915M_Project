@@ -7,12 +7,15 @@ using System.Windows.Forms;
 using controller;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using templatev1.Online_Ordering_Platform;
 
 namespace templatev1
 {
     internal static class Program
     {
+        private static Log log;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -25,7 +28,6 @@ namespace templatev1
                 ConfigureServices(service);
                 var serviceProvider = service.BuildServiceProvider();
                 StartThread(() => RunApplication(() => new Login()));
-
                 //StartThread(() => RunApplication(() => new customerOrderList()));
             }
             catch (Exception ex)
@@ -45,8 +47,10 @@ namespace templatev1
         {
             // time out for connection for 30 seconds
             string connString =
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton<MySqlConnection>(_ => new MySqlConnection(connString));
+                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+            //"server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+            service.AddSingleton<Database>(_ => new Database(connString));
+            service.AddSingleton<Log>(_ => new Log());
 
             var controllers = new List<Type>
             {

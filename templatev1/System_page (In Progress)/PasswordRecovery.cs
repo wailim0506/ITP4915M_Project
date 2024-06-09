@@ -69,7 +69,7 @@ namespace templatev1
                 {
                     if (tbPassword.Text.Equals(tbConfirmPass.Text)) //Confirm password matched.
                     {
-                        recoveryController.changPwd(tbConfirmPass.Text);
+                        recoveryController.ChangePassword(tbConfirmPass.Text);
                         MessageBox.Show("Password changed! The system will redirect to the login page.",
                             "System message");
                         Form login = new Login();
@@ -126,7 +126,7 @@ namespace templatev1
             }
             else
             {
-                if (recoveryController.findUser(UID, email, phone)) //User found
+                if (recoveryController.FindUser(UID, email, phone)) //User found
                 {
                     lblFinfMsg.Text = "User found!";
                     tbPassword.Select();
