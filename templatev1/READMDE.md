@@ -13,6 +13,36 @@ MySql.Data version 8.4.0
 
 Bcrypt.Net-Next version 4.0.3
 
+## Start project before you start
+
+### method 1 via XMAPP
+
+1. start the XMAPP
+2. start the Apache and MySQL
+3. open the phpMyAdmin
+
+### method 2 via Docker
+
+#### Windows
+
+1. install Docker Desktop
+2. start the Docker Desktop
+3. open the phpMyAdmin
+
+#### Mac
+
+1. install orbstack (https://orbstack.com/) or via the terminal
+```shell
+brew install orbstack
+```
+2. start the orbstack and start the docker-compose via the terminal
+
+```shell
+orbstack start
+cd /path/to/your/project
+docker-compose up -d
+```
+
 ## About the Database connection
 
 > please note that I want to replace the MysqlConnector with the MySql.Data package for better performance and more
