@@ -11,30 +11,27 @@ namespace controller
     public class cartController : abstractController
     {
         string sqlCmd;
+        private readonly Database _db;
 
-        public cartController()
+        public cartController(Database database = null)
         {
             sqlCmd = "";
+            _db = database ?? new Database();
         }
 
         public DataTable getCartItem(string id)
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd =
+            string sqlCmd =
                 $"SELECT * from product_in_cart x, product y, spare_part z where x.cartID = \'{cartID}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
         public List<string> getAllPartNumInCart(string id) //customer id  //for remove all item
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
 
             List<string> itemId = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -47,8 +44,7 @@ namespace controller
             {
                 dt = new DataTable();
                 sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{itemId[i]}\'";
-                adr = new MySqlDataAdapter(sqlCmd, conn);
-                adr.Fill(dt);
+                dt = _db.ExecuteDataTable(sqlCmd);
                 partNum.Add(dt.Rows[0][0].ToString());
             }
 
@@ -58,10 +54,8 @@ namespace controller
         public List<int> getAllItemQtyInCart(string id) //for remove all item
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
 
             List<int> itemQty = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -73,38 +67,27 @@ namespace controller
         }
 
 
-        public Boolean removePart(string num, string id) //partNum, customer id
+        public Boolean RemovePart(string num, string id) //partNum, customer id
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\'";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "DELETE FROM product_in_cart WHERE itemID = @id AND cartID = @cartID";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@id", itemID },
+                { "@cartID", cartID }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", itemID);
-                        command.Parameters.AddWithValue("@cartID", cartID);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                throw new Exception("Failed to remove part", ex);
             }
 
             return true;
@@ -113,28 +96,19 @@ namespace controller
         public Boolean removeAll(string id) //customer id
         {
             string cartID = getCartID(id);
-            sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
+            string sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@cartID", cartID }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@cartID", cartID);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                throw new Exception("Failed to remove all items", ex);
             }
 
             return true;
@@ -142,38 +116,27 @@ namespace controller
 
         public string getCartID(string id) //customer id
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            string customerAccointID = dt.Rows[0][0].ToString();
+            string sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'";
+            string customerAccointID = _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
 
-            dt = new DataTable();
-            sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = '{customerAccointID}'";
+            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
         }
 
-        public int getCurrentQtyInCart(string num, string id) //part num, customer id
+        public int GetCurrentQtyInCart(string num, string id) //part num, customer id
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = $"SELECT itemID FROM product WHERE partNumber = '{num}'";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
-            dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE itemID = \'{itemID}\' AND cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
+            dt = _db.ExecuteDataTable(sqlCmd);
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean
-            addQtyBack(string num, int currentCartQty, int desiredQty,
-                Boolean isLM) //part num //add qty back to db for product table and spare_part table
+        //add qty back to db for product table and spare_part table
+        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty, Boolean isLM) //part num 
         {
             //get the qty in db first
 
@@ -743,5 +706,6 @@ namespace controller
 
     class notEnoughException : Exception
     {
+        public notEnoughException() : base("Not enough items in the cart.") { }
     }
 }

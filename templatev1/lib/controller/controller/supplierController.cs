@@ -10,351 +10,282 @@ namespace controller
 {
     public class supplierController : abstractController
     {
-        string sqlCmd;
-
-        public supplierController()
+        private static readonly Dictionary<string, string> CountryCodes = new Dictionary<string, string>
         {
-            sqlCmd = "";
-        }
+            { "Afghanistan", "AF" },
+            { "Albania", "AL" },
+            { "Algeria", "DZ" },
+            { "Andorra", "AD" },
+            { "Angola", "AO" },
+            { "Antigua and Barbuda", "AG" },
+            { "Argentina", "AR" },
+            { "Armenia", "AM" },
+            { "Australia", "AU" },
+            { "Austria", "AT" },
+            { "Azerbaijan", "AZ" },
+            { "The Bahamas", "BS" },
+            { "Bahrain", "BH" },
+            { "Bangladesh", "BD" },
+            { "Barbados", "BB" },
+            { "Belarus", "BY" },
+            { "Belgium", "BE" },
+            { "Belize", "BZ" },
+            { "Benin", "BJ" },
+            { "Bhutan", "BT" },
+            { "Bolivia", "BO" },
+            { "Bosnia and Herzegovina", "BA" },
+            { "Botswana", "BW" },
+            { "Brazil", "BR" },
+            { "Brunei", "BN" },
+            { "Bulgaria", "BG" },
+            { "Burkina Faso", "BF" },
+            { "Burundi", "BI" },
+            { "Cabo Verde", "CV" },
+            { "Cambodia", "KH" },
+            { "Cameroon", "CM" },
+            { "Canada", "CA" },
+            { "Central African Republic", "CF" },
+            { "Chad", "TD" },
+            { "Chile", "CL" },
+            { "China", "CN" },
+            { "Colombia", "CO" },
+            { "Comoros", "KM" },
+            { "Congo, Democratic Republic of the", "CD" },
+            { "Congo, Republic of the", "CG" },
+            { "Costa Rica", "CR" },
+            { "Côte d’Ivoire", "CI" },
+            { "Croatia", "HR" },
+            { "Cuba", "CU" },
+            { "Cyprus", "CY" },
+            { "Czech Republic", "CZ" },
+            { "Denmark", "DK" },
+            { "Djibouti", "DJ" },
+            { "Dominica", "DM" },
+            { "Dominican Republic", "DO" },
+            { "East Timor (Timor-Leste)", "TL" },
+            { "Ecuador", "EC" },
+            { "Egypt", "EG" },
+            { "El Salvador", "SV" },
+            { "Equatorial Guinea", "GQ" },
+            { "Eritrea", "ER" },
+            { "Estonia", "EE" },
+            { "Eswatini", "SZ" },
+            { "Ethiopia", "ET" },
+            { "Fiji", "FJ" },
+            { "Finland", "FI" },
+            { "France", "FR" },
+            { "Gabon", "GA" },
+            { "The Gambia", "GM" },
+            { "Georgia", "GE" },
+            { "Germany", "DE" },
+            { "Ghana", "GH" },
+            { "Greece", "GR" },
+            { "Grenada", "GD" },
+            { "Guatemala", "GT" },
+            { "Guinea", "GN" },
+            { "Guinea-Bissau", "GW" },
+            { "Guyana", "GY" },
+            { "Haiti", "HT" },
+            { "Honduras", "HN" },
+            { "Hungary", "HU" },
+            { "Iceland", "IS" },
+            { "India", "IN" },
+            { "Indonesia", "ID" },
+            { "Iran", "IR" },
+            { "Iraq", "IQ" },
+            { "Ireland", "IE" },
+            { "Israel", "IL" },
+            { "Italy", "IT" },
+            { "Jamaica", "JM" },
+            { "Japan", "JP" },
+            { "Jordan", "JO" },
+            { "Kazakhstan", "KZ" },
+            { "Kenya", "KE" },
+            { "Kiribati", "KI" },
+            { "North Korea", "KP" },
+            { "South Korea", "KR" },
+            { "Kosovo", "XK" },
+            { "Kuwait", "KW" },
+            { "Kyrgyzstan", "KG" },
+            { "Laos", "LA" },
+            { "Latvia", "LV" },
+            { "Lebanon", "LB" },
+            { "Lesotho", "LS" },
+            { "Liberia", "LR" },
+            { "Libya", "LY" },
+            { "Liechtenstein", "LI" },
+            { "Lithuania", "LT" },
+            { "Luxembourg", "LU" },
+            { "Madagascar", "MG" },
+            { "Malawi", "MW" },
+            { "Malaysia", "MY" },
+            { "Maldives", "MV" },
+            { "Mali", "ML" },
+            { "Malta", "MT" },
+            { "Marshall Islands", "MH" },
+            { "Mauritania", "MR" },
+            { "Mauritius", "MU" },
+            { "Mexico", "MX" },
+            { "Micronesia, Federated States of", "FM" },
+            { "Moldova", "MD" },
+            { "Monaco", "MC" },
+            { "Mongolia", "MN" },
+            { "Montenegro", "ME" },
+            { "Morocco", "MA" },
+            { "Mozambique", "MZ" },
+            { "Myanmar (Burma)", "MM" },
+            { "Namibia", "NA" },
+            { "Nauru", "NR" },
+            { "Nepal", "NP" },
+            { "Netherlands", "NL" },
+            { "New Zealand", "NZ" },
+            { "Nicaragua", "NI" },
+            { "Niger", "NE" },
+            { "Nigeria", "NG" },
+            { "North Macedonia", "MK" },
+            { "Norway", "NO" },
+            { "Oman", "OM" },
+            { "Pakistan", "PK" },
+            { "Palau", "PW" },
+            { "Panama", "PA" },
+            { "Papua New Guinea", "PG" },
+            { "Paraguay", "PY" },
+            { "Peru", "PE" },
+            { "Philippines", "PH" },
+            { "Poland", "PL" },
+            { "Portugal", "PT" },
+            { "Qatar", "QA" },
+            { "Romania", "RO" },
+            { "Russia", "RU" },
+            { "Rwanda", "RW" },
+            { "Saint Kitts and Nevis", "KN" },
+            { "Saint Lucia", "LC" },
+            { "Saint Vincent and the Grenadines", "VC" },
+            { "Samoa", "WS" },
+            { "San Marino", "SM" },
+            { "Sao Tome and Principe", "ST" },
+            { "Saudi Arabia", "SA" },
+            { "Senegal", "SN" },
+            { "Serbia", "RS" },
+            { "Seychelles", "SC" },
+            { "Sierra Leone", "SL" },
+            { "Singapore", "SG" },
+            { "Slovakia", "SK" },
+            { "Slovenia", "SI" },
+            { "Solomon Islands", "SB" },
+            { "Somalia", "SO" },
+            { "South Africa", "ZA" },
+            { "Spain", "ES" },
+            { "Sri Lanka", "LK" },
+            { "Sudan", "SD" },
+            { "Sudan, South", "SS" },
+            { "Suriname", "SR" },
+            { "Sweden", "SE" },
+            { "Switzerland", "CH" },
+            { "Syria", "SY" },
+            { "Tajikistan", "TJ" },
+            { "Tanzania", "TZ" },
+            { "Thailand", "TH" },
+            { "Togo", "TG" },
+            { "Tonga", "TO" },
+            { "Trinidad and Tobago", "TT" },
+            { "Tunisia", "TN" },
+            { "Turkey", "TR" },
+            { "Turkmenistan", "TM" },
+            { "Tuvalu", "TV" },
+            { "Uganda", "UG" },
+            { "Ukraine", "UA" },
+            { "United Arab Emirates", "AE" },
+            { "United Kingdom", "UK" },
+            { "United States", "US" },
+            { "Uruguay", "UY" },
+            { "Uzbekistan", "UZ" },
+            { "Vanuatu", "VU" },
+            { "Vatican City", "VA" },
+            { "Venezuela", "VE" },
+            { "Vietnam", "VN" },
+            { "Yemen", "YE" },
+            { "Zambia", "ZM" },
+            { "Zimbabwe", "ZW" }
+        };
 
-        public DataTable getSupplierList()
+        private Database _db = new Database();
+
+        public DataTable GetSupplierList() =>
+            ExecuteQuery("SELECT * FROM supplier");
+
+        public int CountSupplier() =>
+            int.Parse(ExecuteQuery("SELECT COUNT(*) FROM supplier").Rows[0][0].ToString());
+
+        public Boolean DeleteSupplier(string id)
         {
-            DataTable dt = new DataTable();
-            sqlCmd = "SELECT * FROM supplier";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
-        }
-
-        public int countSupplier()
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = "SELECT COUNT(*) FROM supplier";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return int.Parse(dt.Rows[0][0].ToString());
-        }
-
-        public Boolean deleteSupplier(string id)
-        {
-            //id = supplier id
-            sqlCmd = $"DELETE FROM supplier WHERE supplierID = \'{id}\'";
-
-            MySqlCommand command = new MySqlCommand(sqlCmd, conn);
-
-            conn.Open();
             try
             {
-                int rowsDel = command.ExecuteNonQuery();
-                conn.Close();
+                _db.ExecuteNonQueryCommand($"DELETE FROM supplier WHERE supplierID = '{id}'",
+                    null);
+                return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
-
-            return true;
         }
 
-        public string getSupplierName(string id)
+        public string GetSupplierName(string id) =>
+            ExecuteQuery($"SELECT name FROM supplier WHERE supplierID = '{id}'").Rows[0][0].ToString();
+
+        public string GetSupplierCountry(string id) =>
+            ExecuteQuery($"SELECT country FROM supplier WHERE supplierID = '{id}'").Rows[0][0].ToString();
+
+        public string GetSupplierPhone(string id) =>
+            ExecuteQuery($"SELECT phone FROM supplier WHERE supplierID = '{id}'").Rows[0][0].ToString();
+
+        public string GetSupplierAddress(string id) =>
+            ExecuteQuery($"SELECT address FROM supplier WHERE supplierID = '{id}'").Rows[0][0].ToString();
+
+        public Boolean UpdateSupplier(string id, string name, string phone, string address)
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT name FROM supplier WHERE supplierID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
-
-        public string getSupplierCountry(string id)
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT country FROM supplier WHERE supplierID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
-
-        public string getSupplierPhone(string id)
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT phone FROM supplier WHERE supplierID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
-
-        public string getSupplierAddress(string id)
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT address FROM supplier WHERE supplierID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
-
-        public Boolean updateSupplier(string id, string name, string phone, string address)
-        {
-            string sqlCmd =
-                "UPDATE supplier SET name = @name, phone = @phone, address = @address WHERE supplierID = @id";
-
-            MySqlCommand command = new MySqlCommand(sqlCmd, conn);
-
-            command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@phone", phone);
-            command.Parameters.AddWithValue("@address", address);
-            command.Parameters.AddWithValue("@id", id);
-
-            conn.Open();
             try
             {
-                int rowsChange = command.ExecuteNonQuery();
-                conn.Close();
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE supplier SET name = @name, phone = @phone, address = @address WHERE supplierID = @id",
+                    new Dictionary<string, object>
+                        { { "@name", name }, { "@phone", phone }, { "@address", address }, { "@id", id } });
+                return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
-
-            return true;
         }
 
-        public int getSupplierNumFromSameCountry(string country)
+        public int GetSupplierNumFromSameCountry(string country) =>
+            int.Parse(ExecuteQuery($"SELECT COUNT(*) FROM supplier WHERE country = '{country}'").Rows[0][0].ToString());
+
+        public Boolean AddSupplier(string id, string name, string phone, string address, string country)
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT COUNT(*) FROM supplier WHERE country = \'{country}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return int.Parse(dt.Rows[0][0].ToString());
-        }
-
-        public Boolean addSupplier(string id, string name, string phone, string address, string country)
-        {
-            string sqlCmd = "INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)";
-
-            MySqlCommand command = new MySqlCommand(sqlCmd, conn);
-
-            command.Parameters.AddWithValue("@name", name);
-            command.Parameters.AddWithValue("@phone", phone);
-            command.Parameters.AddWithValue("@address", address);
-            command.Parameters.AddWithValue("@id", id);
-            command.Parameters.AddWithValue("@country", country);
-
-            conn.Open();
             try
             {
-                int rowsAdd = command.ExecuteNonQuery();
-                conn.Close();
+                _db.ExecuteNonQueryCommand("INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)",
+                    new Dictionary<string, object>
+                    {
+                        { "@id", id }, { "@name", name }, { "@phone", phone }, { "@address", address },
+                        { "@country", country }
+                    });
+                return true;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return false;
             }
-
-            return true;
         }
 
-        public string getCountryCode(string country)
+        public string GetCountryCode(string country)
         {
-            string cc = "";
-            switch (country)
-            {
-                case "Afghanistan": return "AF";
-                case "Albania": return "AL";
-                case "Algeria": return "DZ";
-                case "Andorra": return "AD";
-                case "Angola": return "AO";
-                case "Antigua and Barbuda": return "AG";
-                case "Argentina": return "AR";
-                case "Armenia": return "AM";
-                case "Australia": return "AU";
-                case "Austria": return "AT";
-                case "Azerbaijan": return "AZ";
-                case "The Bahamas": return "BS";
-                case "Bahrain": return "BH";
-                case "Bangladesh": return "BD";
-                case "Barbados": return "BB";
-                case "Belarus": return "BY";
-                case "Belgium": return "BE";
-                case "Belize": return "BZ";
-                case "Benin": return "BJ";
-                case "Bhutan": return "BT";
-                case "Bolivia": return "BO";
-                case "Bosnia and Herzegovina": return "BA";
-                case "Botswana": return "BW";
-                case "Brazil": return "BR";
-                case "Brunei": return "BN";
-                case "Bulgaria": return "BG";
-                case "Burkina Faso": return "BF";
-                case "Burundi": return "BI";
-                case "Cabo Verde": return "CV";
-                case "Cambodia": return "KH";
-                case "Cameroon": return "CM";
-                case "Canada": return "CA";
-                case "Central African Republic": return "CF";
-                case "Chad": return "TD";
-                case "Chile": return "CL";
-                case "China": return "CN";
-                case "Colombia": return "CO";
-                case "Comoros": return "KM";
-                case "Congo, Democratic Republic of the": return "CD";
-                case "Congo, Republic of the": return "CG";
-                case "Costa Rica": return "CR";
-                case "Côte d’Ivoire": return "CI";
-                case "Croatia": return "HR";
-                case "Cuba": return "CU";
-                case "Cyprus": return "CY";
-                case "Czech Republic": return "CZ";
-                case "Denmark": return "DK";
-                case "Djibouti": return "DJ";
-                case "Dominica": return "DM";
-                case "Dominican Republic": return "DO";
-                case "East Timor (Timor-Leste)": return "TL";
-                case "Ecuador": return "EC";
-                case "Egypt": return "EG";
-                case "El Salvador": return "SV";
-                case "Equatorial Guinea": return "GQ";
-                case "Eritrea": return "ER";
-                case "Estonia": return "EE";
-                case "Eswatini": return "SZ";
-                case "Ethiopia": return "ET";
-                case "Fiji": return "FJ";
-                case "Finland": return "FI";
-                case "France": return "FR";
-                case "Gabon": return "GA";
-                case "The Gambia": return "GM";
-                case "Georgia": return "GE";
-                case "Germany": return "DE";
-                case "Ghana": return "GH";
-                case "Greece": return "GR";
-                case "Grenada": return "GD";
-                case "Guatemala": return "GT";
-                case "Guinea": return "GN";
-                case "Guinea-Bissau": return "GW";
-                case "Guyana": return "GY";
-                case "Haiti": return "HT";
-                case "Honduras": return "HN";
-                case "Hungary": return "HU";
-                case "Iceland": return "IS";
-                case "India": return "IN";
-                case "Indonesia": return "ID";
-                case "Iran": return "IR";
-                case "Iraq": return "IQ";
-                case "Ireland": return "IE";
-                case "Israel": return "IL";
-                case "Italy": return "IT";
-                case "Jamaica": return "JM";
-                case "Japan": return "JP";
-                case "Jordan": return "JO";
-                case "Kazakhstan": return "KZ";
-                case "Kenya": return "KE";
-                case "Kiribati": return "KI";
-                case "North Korea": return "KP";
-                case "South Korea": return "KR";
-                case "Kosovo": return "XK";
-                case "Kuwait": return "KW";
-                case "Kyrgyzstan": return "KG";
-                case "Laos": return "LA";
-                case "Latvia": return "LV";
-                case "Lebanon": return "LB";
-                case "Lesotho": return "LS";
-                case "Liberia": return "LR";
-                case "Libya": return "LY";
-                case "Liechtenstein": return "LI";
-                case "Lithuania": return "LT";
-                case "Luxembourg": return "LU";
-                case "Madagascar": return "MG";
-                case "Malawi": return "MW";
-                case "Malaysia": return "MY";
-                case "Maldives": return "MV";
-                case "Mali": return "ML";
-                case "Malta": return "MT";
-                case "Marshall Islands": return "MH";
-                case "Mauritania": return "MR";
-                case "Mauritius": return "MU";
-                case "Mexico": return "MX";
-                case "Micronesia, Federated States of": return "FM";
-                case "Moldova": return "MD";
-                case "Monaco": return "MC";
-                case "Mongolia": return "MN";
-                case "Montenegro": return "ME";
-                case "Morocco": return "MA";
-                case "Mozambique": return "MZ";
-                case "Myanmar (Burma)": return "MM";
-                case "Namibia": return "NA";
-                case "Nauru": return "NR";
-                case "Nepal": return "NP";
-                case "Netherlands": return "NL";
-                case "New Zealand": return "NZ";
-                case "Nicaragua": return "NI";
-                case "Niger": return "NE";
-                case "Nigeria": return "NG";
-                case "North Macedonia": return "MK";
-                case "Norway": return "NO";
-                case "Oman": return "OM";
-                case "Pakistan": return "PK";
-                case "Palau": return "PW";
-                case "Panama": return "PA";
-                case "Papua New Guinea": return "PG";
-                case "Paraguay": return "PY";
-                case "Peru": return "PE";
-                case "Philippines": return "PH";
-                case "Poland": return "PL";
-                case "Portugal": return "PT";
-                case "Qatar": return "QA";
-                case "Romania": return "RO";
-                case "Russia": return "RU";
-                case "Rwanda": return "RW";
-                case "Saint Kitts and Nevis": return "KN";
-                case "Saint Lucia": return "LC";
-                case "Saint Vincent and the Grenadines": return "VC";
-                case "Samoa": return "WS";
-                case "San Marino": return "SM";
-                case "Sao Tome and Principe": return "ST";
-                case "Saudi Arabia": return "SA";
-                case "Senegal": return "SN";
-                case "Serbia": return "RS";
-                case "Seychelles": return "SC";
-                case "Sierra Leone": return "SL";
-                case "Singapore": return "SG";
-                case "Slovakia": return "SK";
-                case "Slovenia": return "SI";
-                case "Solomon Islands": return "SB";
-                case "Somalia": return "SO";
-                case "South Africa": return "ZA";
-                case "Spain": return "ES";
-                case "Sri Lanka": return "LK";
-                case "Sudan": return "SD";
-                case "Sudan, South": return "SS";
-                case "Suriname": return "SR";
-                case "Sweden": return "SE";
-                case "Switzerland": return "CH";
-                case "Syria": return "SY";
-                case "Tajikistan": return "TJ";
-                case "Tanzania": return "TZ";
-                case "Thailand": return "TH";
-                case "Togo": return "TG";
-                case "Tonga": return "TO";
-                case "Trinidad and Tobago": return "TT";
-                case "Tunisia": return "TN";
-                case "Turkey": return "TR";
-                case "Turkmenistan": return "TM";
-                case "Tuvalu": return "TV";
-                case "Uganda": return "UG";
-                case "Ukraine": return "UA";
-                case "United Arab Emirates": return "AE";
-                case "United Kingdom": return "UK";
-                case "United States": return "US";
-                case "Uruguay": return "UY";
-                case "Uzbekistan": return "UZ";
-                case "Vanuatu": return "VU";
-                case "Vatican City": return "VA";
-                case "Venezuela": return "VE";
-                case "Vietnam": return "VN";
-                case "Yemen": return "YE";
-                case "Zambia": return "ZM";
-                case "Zimbabwe": return "ZW";
-                default: return cc;
-            }
+            return CountryCodes.ContainsKey(country) ? CountryCodes[country] : CountryCodes["default"];
         }
+
+        private DataTable ExecuteQuery(string sqlQuery) =>
+            _db.ExecuteDataTable(sqlQuery);
     }
 }

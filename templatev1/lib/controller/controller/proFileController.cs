@@ -13,6 +13,7 @@ namespace controller
     public class proFileController : abstractController
     {
         private MySqlCommand cmd;
+        private Database _db;
 
         private string sqlStr;
         private string accountType, UID;
@@ -43,19 +44,21 @@ namespace controller
         {
         }
 
-        public proFileController(AccountController accountController)
+        public proFileController(AccountController accountController, Database db = null)
         {
             this.accountController = accountController;
+            _db = db ?? new Database();
         }
 
-        //For deparment manager view or modify user account.
+
+        //For department manager view or modify the user account.
         public proFileController(string UID)
         {
             this.UID = UID;
         }
 
         //Get the default address value for customer user from database and set the value.
-        private void getDfAdd()
+        private void GetDfAdd()
         {
             DataTable dt = new DataTable();
             sqlStr = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
@@ -87,7 +90,7 @@ namespace controller
             }
             else //Customer info
             {
-                getDfAdd();
+                GetDfAdd();
                 sqlStr =
                     $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";

@@ -1,33 +1,29 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1.Stock_Manag
 {
     public partial class viewSupplier : Form
     {
         DataTable dt;
-        controller.supplierController controller;
+        supplierController controller;
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
+        AccountController accountController;
+        UIController UIController;
 
         public viewSupplier()
         {
             InitializeComponent();
-            controller = new controller.supplierController();
+            controller = new supplierController();
         }
 
-        public viewSupplier(controller.AccountController accountController, controller.UIController UIController)
+        public viewSupplier(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
-            controller = new controller.supplierController();
+            controller = new supplierController();
             this.accountController = accountController;
             this.UIController = UIController;
         }
@@ -36,37 +32,37 @@ namespace templatev1.Stock_Manag
         {
             timer1.Enabled = true;
             //lblUid.Text = $"Uid: {accountController.getUID()}";  //not linked yet
-            int numOfSupplier = controller.countSupplier();
-            dt = controller.getSupplierList();
+            int numOfSupplier = controller.CountSupplier();
+            dt = controller.GetSupplierList();
 
             //create label 
             int yPosition = 15;
             for (int i = 1; i <= numOfSupplier; i++)
             {
-                Label lblID = new Label()
+                Label lblID = new Label
                 {
                     Name = $"lblID{i}", Text = $"{dt.Rows[i - 1][0]}",
                     Location = new Point(15, yPosition), Font = new Font("Microsoft Sans Serif", 11)
                 };
-                Label lblName = new Label()
+                Label lblName = new Label
                 {
                     Name = $"lblName{i}", Text = $"{dt.Rows[i - 1][1]}",
                     Location = new Point(152, yPosition), Font = new Font("Microsoft Sans Serif", 11),
                     Size = new Size(180, 50)
                 };
-                Label lblPhone = new Label()
+                Label lblPhone = new Label
                 {
                     Name = $"lblPhone{i}", Text = $"{dt.Rows[i - 1][2]}",
                     Location = new Point(341, yPosition), Font = new Font("Microsoft Sans Serif", 11),
                     Size = new Size(150, 50)
                 };
-                Label lblAddress = new Label()
+                Label lblAddress = new Label
                 {
                     Name = $"lblAddress{i}", Text = $"{dt.Rows[i - 1][3]}",
                     Location = new Point(510, yPosition), Font = new Font("Microsoft Sans Serif", 11),
                     Size = new Size(180, 50)
                 };
-                Label lblCountry = new Label()
+                Label lblCountry = new Label
                 {
                     Name = $"lblCountry{i}", Text = $"{dt.Rows[i - 1][4]}",
                     Location = new Point(716, yPosition - 7),
@@ -100,7 +96,7 @@ namespace templatev1.Stock_Manag
                     if (control.Name == $"lblID{index}")
                     {
                         label = (Label)control;
-                        Form editSupplier = new editSupplier(control.Text.ToString(), accountController, UIController);
+                        Form editSupplier = new editSupplier(control.Text, accountController, UIController);
                         Hide();
                         editSupplier.StartPosition = FormStartPosition.Manual;
                         editSupplier.Location = Location;
@@ -125,8 +121,8 @@ namespace templatev1.Stock_Manag
                 if (control.Name == $"lblID{index}")
                 {
                     label = (Label)control;
-                    Boolean del = controller.deleteSupplier(label.Text.ToString());
-                    if (del == true)
+                    Boolean del = controller.DeleteSupplier(label.Text);
+                    if (del)
                     {
                         Form viewSupplier = new viewSupplier();
                         Hide();

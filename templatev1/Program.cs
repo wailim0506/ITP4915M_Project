@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
-using MySql.Data.MySqlClient;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using templatev1.Online_Ordering_Platform;
 
 namespace templatev1
 {
@@ -51,8 +47,8 @@ namespace templatev1
             string connString =
                 //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
                 "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton<Database>(_ => new Database(Database.GetConnectionString()));
-            service.AddSingleton<Log>(_ => new Log());
+            service.AddSingleton(_ => new Database(Database.GetConnectionString()));
+            service.AddSingleton(_ => new Log());
 
             var controllers = new List<Type>
             {
@@ -92,7 +88,7 @@ namespace templatev1
             thread.Priority = ThreadPriority.Normal;
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
-            Log.LogMessage((Log.LogLevel)LogLevel.Information, "LMCIS", "Started thread");
+            Log.LogMessage(LogLevel.Information, "LMCIS", "Started thread");
         }
 
         // the Background thread is for the background process of the application
@@ -104,7 +100,7 @@ namespace templatev1
             thread.Priority = ThreadPriority.Normal;
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
-            Log.LogMessage((Log.LogLevel)LogLevel.Information, "LMCIS", "Started background thread");
+            Log.LogMessage(LogLevel.Information, "LMCIS", "Started background thread");
         }
 
         // the main thread is for the main process of the application

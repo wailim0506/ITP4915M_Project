@@ -40,7 +40,7 @@ namespace templatev1.Online_Ordering_Platform
         private void favourite_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            DataTable dt = controller.getFavourite(UID);
+            DataTable dt = controller.GetFavourite(UID);
             load_part(dt);
             cmbSorting.SelectedIndex = 0;
             cmbCategory.SelectedIndex = 0;
@@ -240,7 +240,7 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             if (control.Name == $"lblPartNum{index}") //get part Num
                             {
-                                if (controller.removeFromFavourite(control.Text, UID))
+                                if (controller.RemoveFromFavourite(control.Text, UID))
                                 {
                                     MessageBox.Show($"{control.Text} is removed from favourite", "Remove Favourite",
                                         MessageBoxButtons.OK);

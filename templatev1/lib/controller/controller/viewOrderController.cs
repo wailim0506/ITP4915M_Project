@@ -11,10 +11,12 @@ namespace controller
     public class viewOrderController : abstractController
     {
         string sqlCmd;
+        Database _db;
 
-        public viewOrderController()
+        public viewOrderController(Database database = null)
         {
             sqlCmd = "";
+            _db = database ?? new Database();
         }
 
         public DataTable getOrder(string id) //orderID

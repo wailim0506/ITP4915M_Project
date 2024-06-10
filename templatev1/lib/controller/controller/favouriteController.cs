@@ -19,7 +19,7 @@ namespace controller
             _database = database ?? new Database();
         }
 
-        public DataTable getFavourite(string id) //customer id
+        public DataTable GetFavourite(string id) //customer id
         {
             sqlCmd =
                 $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
@@ -27,7 +27,7 @@ namespace controller
             return dt;
         }
 
-        public Boolean removeFromFavourite(string num, string id) //partNum , customerID
+        public Boolean RemoveFromFavourite(string num, string id) //partNum , customerID
         {
             sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
             DataTable dt = _database.ExecuteDataTable(sqlCmd);
@@ -83,7 +83,7 @@ namespace controller
             return dt;
         }
 
-        public Boolean isFavourite(string num, string id) //part num, customer id
+        public Boolean IsFavourite(string num, string id) //part num, customer id
         {
             sqlCmd =
                 $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
@@ -96,7 +96,7 @@ namespace controller
             return false;
         }
 
-        public Boolean addToFavourite(string num, string id) //partNum , customerID
+        public Boolean AddToFavourite(string num, string id) //partNum , customerID
         {
             sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
             DataTable dt = _database.ExecuteDataTable(sqlCmd);

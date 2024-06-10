@@ -57,7 +57,7 @@ namespace templatev1
                 if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50 ||
                     tbPassword.Text.Equals("")) //Too short.
                 {
-                    Log.LogMessage(Log.LogLevel.Debug, "PasswordRe",
+                    Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "PasswordRe",
                         $"btnChangePass_Click method User id: {UID} Password too short or too long, minimum 10 maximum 50.");
                     lblChangePassMsg.Text = "Password too short or too long, minimum 10 maximum 50.";
                     tbPassword.Select();

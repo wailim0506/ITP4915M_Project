@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data; //must include in every controller file
-using MySqlConnector; //must include in every controller file 
-
 
 namespace controller
 {
@@ -20,7 +18,7 @@ namespace controller
             sqlCmd = "";
         }
 
-        public DataTable getInfo(string num) //part num
+        public DataTable GetInfo(string num) //part num
         {
             sqlCmd =
                 $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{num}\' AND x.supplierID = z.supplierID";
@@ -28,25 +26,25 @@ namespace controller
             return dt;
         }
 
-        public Boolean isFavourite(string num, string id) //part num, customer id
+        public Boolean IsFavourite(string num, string id) //part num, customer id
         {
             favouriteController c = new favouriteController();
-            return c.isFavourite(num, id);
+            return c.IsFavourite(num, id);
         }
 
-        public Boolean addToFavourite(string num, string id)
+        public Boolean AddToFavourite(string num, string id)
         {
             favouriteController c = new favouriteController();
-            return c.addToFavourite(num, id);
+            return c.AddToFavourite(num, id);
         }
 
-        public Boolean removeFavourite(string num, string id)
+        public Boolean RemoveFavourite(string num, string id)
         {
             favouriteController c = new favouriteController();
-            return c.removeFromFavourite(num, id);
+            return c.RemoveFromFavourite(num, id);
         }
 
-        public Boolean addToCart(string id, string num, int qty, Boolean isLM) //customer id,part num, quantity
+        public Boolean AddToCart(string id, string num, int qty, Boolean isLM) //customer id,part num, quantity
         {
             //get cart id of the customer first
             sqlCmd =
@@ -90,6 +88,7 @@ namespace controller
                 }
                 catch (Exception ex)
                 {
+                    Log.LogException(ex, "viewSparePartController");
                     return false;
                 }
 
@@ -113,6 +112,7 @@ namespace controller
                 }
                 catch (Exception ex)
                 {
+                    Log.LogException(ex, "viewSparePartController");
                     return false;
                 }
 

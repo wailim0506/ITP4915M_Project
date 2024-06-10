@@ -10,35 +10,17 @@ namespace controller
 {
     public class spareListController : abstractController
     {
-        public string sqlCmd;
+        private Database db = new Database();
 
-        public spareListController()
-        {
-            sqlCmd = "";
-        }
+        private DataTable ExecuteQuery(string sqlCmd) => db.ExecuteDataTable(sqlCmd);
 
-        public DataTable getAllPart()
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM spare_part";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
-        }
+        public DataTable getAllPart() => ExecuteQuery("SELECT * FROM spare_part");
 
         public DataTable getSpareWhenTextChange(string category, string kw, string sorting)
         {
-            sqlCmd = "SELECT * FROM spare_part x, product y WHERE x.partNumber = y.partNumber";
-            if (category != "All")
-            {
-                sqlCmd += $" AND x.categoryID = '{category}'";
-            }
-
-            if (kw != "")
-            {
-                sqlCmd += $" AND x.name LIKE '%{kw}%'";
-            }
-
+            string sqlCmd = "SELECT * FROM spare_part x, product y WHERE x.partNumber = y.partNumber";
+            if (category != "All") sqlCmd += $" AND x.categoryID = '{category}'";
+            if (kw != "") sqlCmd += $" AND x.name LIKE '%{kw}%'";
             switch (sorting)
             {
                 case "Category":
@@ -50,69 +32,32 @@ namespace controller
                 case "Price (Descending)":
                     sqlCmd += " ORDER BY y.price DESC";
                     break;
+                default:
+                    sqlCmd += "";
+                    break;
             }
 
-            DataTable dt = new DataTable();
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            return ExecuteQuery(sqlCmd);
         }
 
-        public string getCategoryName(string id) //category id
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT type FROM category WHERE categoryID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
+        public string getCategoryName(string id) =>
+            ExecuteQuery($"SELECT type FROM category WHERE categoryID = '{id}'").Rows[0][0].ToString();
 
-        public string getPrice(string num) //part num
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT price FROM product WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
-        }
+        public string getPrice(string num) =>
+            ExecuteQuery($"SELECT price FROM product WHERE partNumber = '{num}'").Rows[0][0].ToString();
 
         public int getOnSaleQty(string num, Boolean isLM)
         {
-            DataTable dt = new DataTable();
-            if (!isLM)
-            {
-                sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{num}\'";
-            }
-            else
-            {
-                sqlCmd = $"SELECT LM_onSaleQty FROM product WHERE partNumber = \'{num}\'";
-            }
-
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return int.Parse(dt.Rows[0][0].ToString());
+            string sqlCmd = isLM
+                ? $"SELECT LM_onSaleQty FROM product WHERE partNumber = '{num}'"
+                : $"SELECT onSaleQty FROM product WHERE partNumber = '{num}'";
+            return int.Parse(ExecuteQuery(sqlCmd).Rows[0][0].ToString());
         }
 
-        public Boolean addCart(string id, string num, int qty, Boolean isLM) //customer id, part num, quantity
-        {
-            viewSparePartController c = new viewSparePartController();
-            return c.addToCart(id, num, qty, isLM);
-        }
+        public Boolean addCart(string id, string num, int qty, Boolean isLM) =>
+            new viewSparePartController().AddToCart(id, num, qty, isLM);
 
-        public List<string> getAllPartName()
-        {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT name FROM spare_part";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-
-            List<string> partName = new List<string>();
-            for (int i = 0; i < partName.Count; i++)
-            {
-                partName.Add(dt.Rows[i][0].ToString());
-            }
-
-            return partName;
-        }
+        public List<string> getAllPartName() => ExecuteQuery("SELECT name FROM spare_part").AsEnumerable()
+            .Select(row => row[0].ToString()).ToList();
     }
 }

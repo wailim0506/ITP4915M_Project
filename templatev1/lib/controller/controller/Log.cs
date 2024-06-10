@@ -9,14 +9,6 @@ namespace controller
         private static ILogger<Log> _logger;
         private static readonly string CurrentTime = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss");
 
-        public enum LogLevel
-        {
-            Error,
-            Warning,
-            Information,
-            Debug
-        }
-
         public Log(ILogger<Log> logger = null)
         {
             _logger = logger ?? new LoggerFactory().CreateLogger<Log>();
@@ -27,10 +19,7 @@ namespace controller
         public static void LogMessage(LogLevel logLevel, string programName, string message)
         {
             var logMessage = $"[{CurrentTime}] - [{logLevel}] - [{programName}] - {message}";
-
-            Microsoft.Extensions.Logging.LogLevel LogLv = (Microsoft.Extensions.Logging.LogLevel)logLevel;
-
-            _logger.Log(LogLv, logMessage);
+            _logger.Log(logLevel, logMessage);
             WriteToLogFile(logMessage);
         }
 
@@ -53,8 +42,8 @@ namespace controller
             var loggerFactory = LoggerFactory.Create(builder =>
             {
                 builder
-                    .AddFilter("Microsoft", Microsoft.Extensions.Logging.LogLevel.Warning)
-                    .AddFilter("LoggingConsoleApp.Program", Microsoft.Extensions.Logging.LogLevel.Debug)
+                    .AddFilter("Microsoft", LogLevel.Warning)
+                    .AddFilter("LoggingConsoleApp.Program", LogLevel.Debug)
                     .AddConsole();
             });
             _logger = loggerFactory.CreateLogger<Log>();

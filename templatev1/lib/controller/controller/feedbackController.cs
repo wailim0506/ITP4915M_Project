@@ -10,115 +10,68 @@ namespace controller
 {
     public class feedbackController : abstractController
     {
-        public feedbackController()
+        private readonly Database _db;
+
+        public feedbackController(Database database = null)
         {
+            _db = database ?? new Database();
         }
 
-        public int countFeedback()
+        public int CountFeedback()
         {
-            //count how many feedback already in database
+            //count how much feedback already in the database
             int count = 0;
-            string sqlCmd = "SELECT COUNT(*) FROM feedback";
             try
             {
-                conn.Open();
-                using (MySqlCommand cmd = new MySqlCommand(sqlCmd, conn))
-                {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            count = reader.GetInt32(0);
-                        }
-                    }
-                }
+                string sqlCmd = "SELECT COUNT(*) FROM feedback";
+                return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
             }
             catch (Exception e)
             {
+                // ignored
             }
-            finally
-            {
-                conn.Close();
-            }
-
             return count;
         }
 
-        public Boolean addFeedback(string custID, string feedback, string orderID)
+        public Boolean AddFeedback(string custID, string feedback, string orderID)
         {
-            string feedbackID = feedBackIDGenerator();
+            string feedbackID = FeedBackIdGenerator();
             string customerID = custID;
             string content = feedback;
-            string feedbackDate = DateTime.Now.ToString("dd/MM/yyyy"); //today date 
+            string feedbackDate = DateTime.Now.ToString("dd/MM/yyyy"); //today date
+
+            string sqlCmd = orderID != "N/A"
+                ? "INSERT INTO feedback (feedbackID, customerID, orderID, content, feedbackDate) VALUES (@feedbackID, @customerID, @orderID, @content, @feedbackDate)"
+                : "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@feedbackID", feedbackID },
+                { "@customerID", customerID },
+                { "@content", content },
+                { "@feedbackDate", feedbackDate }
+            };
 
             if (orderID != "N/A")
             {
-                string sqlCmd =
-                    "INSERT INTO feedback (feedbackID, customerID, orderID, content, feedbackDate) VALUES (@feedbackID, @customerID, @orderID, @content, @feedbackDate)";
-
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@feedbackID", feedbackID);
-                            command.Parameters.AddWithValue("@customerID", customerID);
-                            command.Parameters.AddWithValue("@orderID", orderID);
-                            command.Parameters.AddWithValue("@content", content);
-                            command.Parameters.AddWithValue("@feedbackDate", feedbackDate);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return true;
+                parameters.Add("@orderID", orderID);
             }
-            else
+
+            try
             {
-                string sqlCmd =
-                    "INSERT INTO feedback (feedbackID, customerID, content, feedbackDate) VALUES (@feedbackID, @customerID, @content, @feedbackDate)";
-
-                try
-                {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@feedbackID", feedbackID);
-                            command.Parameters.AddWithValue("@customerID", customerID);
-                            command.Parameters.AddWithValue("@content", content);
-                            command.Parameters.AddWithValue("@feedbackDate", feedbackDate);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                }
-                finally
-                {
-                    conn.Close();
-                }
-
-                return true;
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
+            catch (Exception ex)
+            {
+                throw new Exception("Failed to add feedback", ex);
+            }
+
+            return true;
         }
 
-        public string feedBackIDGenerator()
+        public string FeedBackIdGenerator()
         {
-            int count = countFeedback();
+            int count = CountFeedback();
             string feedbackID = "";
             if (++count < 10)
             {
@@ -134,11 +87,9 @@ namespace controller
 
         public List<string> getOrderID(string id) //customer id
         {
-            DataTable dt = new DataTable();
             string sqlCmd =
-                $"SELECT orderID FROM order_ x, customer_account y WHERE x.customerAccountID = y.customerAccountID AND y.customerID = \'{id}\' ";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+                $"SELECT orderID FROM order_ x, customer_account y WHERE x.customerAccountID = y.customerAccountID AND y.customerID = '{id}' ";
+            var dt = _db.ExecuteDataTable(sqlCmd);
 
             List<string> orderID = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)

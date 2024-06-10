@@ -41,10 +41,10 @@ namespace templatev1.Stock_Manag
         private void editSupplier_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            tbName.Text = controller.getSupplierName(supplierID);
-            tbPhone.Text = controller.getSupplierPhone(supplierID);
-            tbAddress.Text = controller.getSupplierAddress(supplierID);
-            lblCountry.Text = controller.getSupplierCountry(supplierID);
+            tbName.Text = controller.GetSupplierName(supplierID);
+            tbPhone.Text = controller.GetSupplierPhone(supplierID);
+            tbAddress.Text = controller.GetSupplierAddress(supplierID);
+            lblCountry.Text = controller.GetSupplierCountry(supplierID);
             //lblUid.Text = $"Uid: {accountController.GetUID()}";  //not linked yet
         }
 
@@ -58,7 +58,7 @@ namespace templatev1.Stock_Manag
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (controller.updateSupplier(supplierID, tbName.Text.ToString(), tbPhone.Text.ToString(),
+            if (controller.UpdateSupplier(supplierID, tbName.Text.ToString(), tbPhone.Text.ToString(),
                     tbAddress.Text.ToString()) && tbName.Text.ToString() != "" && tbPhone.Text.ToString() != "" &&
                 tbAddress.Text.ToString() != "")
             {

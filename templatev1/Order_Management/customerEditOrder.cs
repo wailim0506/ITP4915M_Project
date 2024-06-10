@@ -90,20 +90,20 @@ namespace templatev1.Order_Management
             }
 
             //get quantity of the spare part in the order first
-            int qtyInOrderNow = controller.getPartQtyInOrder(partToDelete, orderID);
+            int qtyInOrderNow = controller.GetPartQtyInOrder(partToDelete, orderID);
             DialogResult dialogResult = MessageBox.Show(
-                $"Are you sure you want to remove {controller.getPartName(partToDelete)} from your order?\nYour action cannot be revoked after confirming it.",
+                $"Are you sure you want to remove {controller.GetPartName(partToDelete)} from your order?\nYour action cannot be revoked after confirming it.",
                 "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete))
+            if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete))
             {
                 //add qty back to db
-                controller.addQtyBack(partToDelete, qtyInOrderNow, 0, isLM);
+                controller.AddQtyBack(partToDelete, qtyInOrderNow, 0, isLM);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                 loadData(cmbSortOrder.Text.ToString());
             }
-            else if (dialogResult == DialogResult.Yes && controller.deleteSparePart(orderID, partToDelete) == false)
+            else if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete) == false)
             {
                 MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -185,11 +185,11 @@ namespace templatev1.Order_Management
             {
                 // add qty back to db first
                 //get quantity of the spare part in the order first
-                qtyInOrderNow = controller.getPartQtyInOrder(partToUpdate, orderID);
+                qtyInOrderNow = controller.GetPartQtyInOrder(partToUpdate, orderID);
                 //add back to db
                 try
                 {
-                    controller.addQtyBack(partToUpdate, qtyInOrderNow, int.Parse(quantity), isLM);
+                    controller.AddQtyBack(partToUpdate, qtyInOrderNow, int.Parse(quantity), isLM);
                 }
                 catch (Exception)
                 {
@@ -199,10 +199,10 @@ namespace templatev1.Order_Management
                 }
 
                 //deduct db qty after adding back order qty to db
-                if (controller.editDbQty(partToUpdate, int.Parse(quantity), isLM))
+                if (controller.EditDbQty(partToUpdate, int.Parse(quantity), isLM))
                 {
                     //edit order line qty
-                    if (controller.editOrderLineQuantity(orderID, partToUpdate, quantity))
+                    if (controller.EditOrderLineQuantity(orderID, partToUpdate, quantity))
                     {
                         MessageBox.Show("Edit successful.", " Edit Successful", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -306,7 +306,7 @@ namespace templatev1.Order_Management
             //ordered spare part
             DataTable dt;
             dt = new DataTable();
-            dt = controller.getOrderedSparePart(orderID, sortBy);
+            dt = controller.GetOrderedSparePart(orderID, sortBy);
             int row = dt.Rows.Count;
 
             if (row == 0) //all spare part is removed, the order can be delete
@@ -335,7 +335,7 @@ namespace templatev1.Order_Management
                 };
                 Label lblItemNum = new Label()
                 {
-                    Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
+                    Name = $"lblItemNum{i}", Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(35, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -347,7 +347,7 @@ namespace templatev1.Order_Management
                 };
                 Label lblPartName = new Label()
                 {
-                    Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
+                    Name = $"lblPartName{i}", Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(227, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -394,28 +394,28 @@ namespace templatev1.Order_Management
 
             //delivery info
             dt = new DataTable();
-            dt = controller.getShippingDetail(orderID);
+            dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
-            string[] delivermanDetail = controller.getDelivermanDetail(orderID);
+            string[] delivermanDetail = controller.GetDelivermanDetail(orderID);
             lblDelivermanID.Text = dt.Rows[0][1].ToString();
             lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
             lblDelivermanContact.Text = delivermanDetail[2];
             lblShippingDate.Text = $"{shippingDate}";
             lblExpressNum.Text = dt.Rows[0][4].ToString();
-            lblShippingAddress.Text = controller.getShippingAddress(UID);
+            lblShippingAddress.Text = controller.GetShippingAddress(UID);
 
             //order basic info
-            dt = controller.getOrder(orderID);
+            dt = controller.GetOrder(orderID);
             lblOrderID.Text = orderID;
             lblSerialNum.Text = $"{dt.Rows[0][3]}";
             lblOrderDate.Text = $"{dt.Rows[0][4]}";
-            lblStaffName.Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}";
-            lblStaffID.Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}";
-            lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
+            lblStaffName.Text = $"{controller.GetStaffName(dt.Rows[0][2].ToString())}";
+            lblStaffID.Text = $"{controller.GetStafftId(dt.Rows[0][2].ToString())}";
+            lblStaffContact.Text = $"{controller.GetStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
         }
 

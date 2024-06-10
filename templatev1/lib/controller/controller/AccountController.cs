@@ -17,7 +17,7 @@ namespace controller
         private string accountID, firstName, lastName, UserID, AccountType;
         private Boolean isLM;
         UIController UIController;
-        private Database db;
+        private readonly Database db;
 
         public AccountController(Database db = null)
         {
@@ -35,7 +35,7 @@ namespace controller
                 // Account not found
                 if (dt.Rows.Count < 1)
                 {
-                    Log.LogMessage(Log.LogLevel.Debug, "AccountController",
+                    Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "AccountController",
                         $"Login method User id: {UID} Account not found.");
                     return false;
                 }
@@ -69,7 +69,7 @@ namespace controller
             bool isValid = BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
             if (!isValid)
             {
-                Log.LogMessage(Log.LogLevel.Debug, "AccountController",
+                Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "AccountController",
                     $"Login method User id: {UserID} Password : {inputPassword} not valid with stored password : {storedPassword}.");
             }
 

@@ -49,7 +49,7 @@ namespace templatev1
             {
                 controller.feedbackController
                     controller = new controller.feedbackController(); //create controller object
-                Boolean addFeedback = controller.addFeedback("LMC00001", feedback, orderID);
+                Boolean addFeedback = controller.AddFeedback("LMC00001", feedback, orderID);
                 if (addFeedback == true)
                 {
                     tbFB.Text = "";

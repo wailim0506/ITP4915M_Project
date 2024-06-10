@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.Dynamic;
 using System.Windows.Forms;
 using System.Data;
-using MySqlConnector;
 
 namespace controller
 {
@@ -94,7 +93,7 @@ namespace controller
             }
         }
 
-        //Return the button name and whick to be shown.
+        //Return the button name and which to be shown.
         public dynamic showFun()
         {
             dynamic funbtn = new ExpandoObject();

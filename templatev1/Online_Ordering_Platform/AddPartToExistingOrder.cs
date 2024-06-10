@@ -51,7 +51,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void load_data()
         {
-            DataTable dt = controller.getPartDetail(partNum);
+            DataTable dt = controller.GetPartDetail(partNum);
             lblPartName.Text = dt.Rows[0][0].ToString();
             lblPartNum.Text = dt.Rows[0][1].ToString();
             lblCategory.Text = $"{dt.Rows[0][2]} - {dt.Rows[0][3]}";
@@ -61,7 +61,7 @@ namespace templatev1.Online_Ordering_Platform
             lblOnSaleQty.Text = dt.Rows[0][7].ToString();
             picSpare.Image = imageString(partNum);
 
-            dt = controller.getEditableOrderID(UID);
+            dt = controller.GetEditableOrderId(UID);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 cmbOrderSelection.Items.Add(dt.Rows[i][0].ToString());
@@ -74,10 +74,10 @@ namespace templatev1.Online_Ordering_Platform
         private void cmbOrderSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             string orderID = cmbOrderSelection.Text.ToString();
-            string shippingDateTime = controller.getShippingDate(orderID);
+            string shippingDateTime = controller.GetShippingDate(orderID);
             string[] shippingDate = shippingDateTime.Split(' ');
             lblShippingDate.Text = shippingDate[0];
-            lblOrderStatus.Text = controller.getOrderStatus(orderID);
+            lblOrderStatus.Text = controller.GetOrderStatus(orderID);
             lblDayUntilDelivery.Text = $"{dayDifference(orderID)} day(s) until shipping.";
             lblLoc.Text = $"Add {lblPartName.Text} to Order {orderID}";
         }
@@ -101,7 +101,7 @@ namespace templatev1.Online_Ordering_Platform
 
 
             DataTable dt;
-            dt = controller.getShippingDetail(orderID);
+            dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate

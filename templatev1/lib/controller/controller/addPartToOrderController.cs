@@ -10,69 +10,51 @@ namespace controller
 {
     public class addPartToOrderController : abstractController
     {
-        string sqlCmd;
+        private readonly Database _db;
 
-        public addPartToOrderController()
+        public addPartToOrderController(Database database = null)
         {
-            sqlCmd = "";
+            _db = database ?? new Database();
         }
 
-        public DataTable getPartDetail(string partNum)
+        public DataTable GetPartDetail(string partNum)
         {
-            DataTable dt = new DataTable();
-            sqlCmd =
-                $"SELECT w.name, w.partNumber, w.categoryID,x.type, y.name,y.country,z.price, z.onSaleQty FROM spare_part w, category x, supplier y, product z WHERE w.partNumber = z.partNumber AND w.categoryID = x.categoryID AND w.supplierID = y.supplierID AND w.partNumber = \'{partNum}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            string sqlCmd =
+                $"SELECT w.name, w.partNumber, w.categoryID,x.type, y.name,y.country,z.price, z.onSaleQty FROM spare_part w, category x, supplier y, product z WHERE w.partNumber = z.partNumber AND w.categoryID = x.categoryID AND w.supplierID = y.supplierID AND w.partNumber = '{partNum}'";
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
-        public DataTable getEditableOrderID(string id) //customer id
+        public DataTable GetEditableOrderId(string id) //customer id
         {
-            string customerAccountID = getCustomerAccountID(id);
-            DataTable dt = new DataTable();
-            sqlCmd =
-                $"SELECT orderID from order_ WHERE customerAccountID = \'{customerAccountID}\' AND (status = 'Pending' OR status = 'Processing')";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            string customerAccountID = GetCustomerAccountId(id);
+            string sqlCmd =
+                $"SELECT orderID from order_ WHERE customerAccountID = '{customerAccountID}' AND (status = 'Pending' OR status = 'Processing')";
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
-        public string getShippingDate(string id) //order id
+        public string GetShippingDate(string id) //order id
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT shippingDate from shipping_detail WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            string sqlCmd = $"SELECT shippingDate from shipping_detail WHERE orderID = '{id}'";
+            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
         }
 
-        public string getOrderStatus(string id) //order id
+        public string GetOrderStatus(string id) //order id
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT status from order_ WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            string sqlCmd = $"SELECT status from order_ WHERE orderID = '{id}'";
+            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
         }
 
-        public DataTable getShippingDetail(string id) //orderID
+        public DataTable GetShippingDetail(string id) //orderID
         {
             //orderID
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM shipping_detail WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            string sqlCmd = $"SELECT * FROM shipping_detail WHERE orderID = '{id}'";
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
-        public string getCustomerAccountID(string id) //id = customerID
+        public string GetCustomerAccountId(string id) //id = customerID
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            string sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'";
+            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
         }
     }
 }

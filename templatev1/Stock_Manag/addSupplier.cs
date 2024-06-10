@@ -33,7 +33,7 @@ namespace templatev1.Stock_Manag
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (controller.addSupplier(lblSupplierNumber.Text.ToString(), tbName.Text.ToString(),
+            if (controller.AddSupplier(lblSupplierNumber.Text.ToString(), tbName.Text.ToString(),
                     tbPhone.Text.ToString(), tbAddress.Text.ToString(), cmbCountry.Text.ToString()) &&
                 tbName.Text.ToString() != "" && tbPhone.Text.ToString() != "" && tbAddress.Text.ToString() != "" &&
                 cmbCountry.Text.ToString() != "")
@@ -62,9 +62,9 @@ namespace templatev1.Stock_Manag
 
         private void cmbCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int countCountry = controller.getSupplierNumFromSameCountry(cmbCountry.Text.ToString());
+            int countCountry = controller.GetSupplierNumFromSameCountry(cmbCountry.Text);
             countCountry++;
-            string countryCode = controller.getCountryCode(cmbCountry.Text.ToString());
+            string countryCode = controller.GetCountryCode(cmbCountry.Text);
             string id = $"SID{countryCode}";
             id += $"{countCountry:D5}";
             lblSupplierNumber.Text = id;

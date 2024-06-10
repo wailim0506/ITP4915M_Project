@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1.Online_Ordering_Platform
 {
@@ -15,27 +12,27 @@ namespace templatev1.Online_Ordering_Platform
     {
         private string uName, UID;
         private Boolean isLM;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.viewSparePartController controller;
+        AccountController accountController;
+        UIController UIController;
+        viewSparePartController controller;
         private string partNum;
 
         public viewSparePart()
         {
             InitializeComponent();
             partNum = "D00004";
-            controller = new controller.viewSparePartController();
+            controller = new viewSparePartController();
             UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public viewSparePart(string partNum, controller.AccountController accountController,
-            controller.UIController UIController)
+        public viewSparePart(string partNum, AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.viewSparePartController();
+            controller = new viewSparePartController();
             this.partNum = partNum;
             UID = accountController.GetUid();
             //UID = "LMC00001"; //hard code for testing
@@ -53,7 +50,7 @@ namespace templatev1.Online_Ordering_Platform
         public void load_part()
         {
             lblLoc.Text = "Spare Part";
-            DataTable dt = controller.getInfo(partNum);
+            DataTable dt = controller.GetInfo(partNum);
             lblPartNum.Text = partNum;
             lblCategory.Text = dt.Rows[0][2].ToString();
             lblName.Text = dt.Rows[0][3].ToString();
@@ -63,17 +60,17 @@ namespace templatev1.Online_Ordering_Platform
             lblPrice.Text = dt.Rows[0][12].ToString();
             lblSupplier.Text = dt.Rows[0][16].ToString();
             lblCountry.Text = dt.Rows[0][19].ToString();
-            picSpare.Image = imageString(partNum);
-            lblLoc.Text += $" - {dt.Rows[0][3].ToString()}";
+            picSpare.Image = ImageString(partNum);
+            lblLoc.Text += $" - {dt.Rows[0][3]}";
 
-            if (!isFavourite(partNum))
+            if (!IsFavourite(partNum))
             {
-                btnAddFavourit.Click += new EventHandler(addFavourite);
+                btnAddFavourit.Click += AddFavourite;
             }
             else
             {
                 btnAddFavourit.Text = "Remove Favourite";
-                btnAddFavourit.Click += new EventHandler(removeFavourite);
+                btnAddFavourit.Click += RemoveFavourite;
             }
         }
 
@@ -99,7 +96,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                int qty = int.Parse(tbQty.Text.ToString());
+                int qty = int.Parse(tbQty.Text);
                 qty++;
                 tbQty.Text = qty.ToString();
             }
@@ -115,17 +112,15 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text.ToString()) ==
+                if (int.Parse(tbQty.Text) ==
                     1) //check quantity input equal 0, do not perform anything if equal to 0
                 {
                     return;
                 }
-                else
-                {
-                    int qty = int.Parse(tbQty.Text.ToString());
-                    qty--;
-                    tbQty.Text = qty.ToString();
-                }
+
+                int qty = int.Parse(tbQty.Text);
+                qty--;
+                tbQty.Text = qty.ToString();
             }
         }
 
@@ -133,34 +128,32 @@ namespace templatev1.Online_Ordering_Platform
         {
             if (tbQty.Text != "")
             {
-                if (int.Parse(tbQty.Text.ToString()) <= 0)
+                if (int.Parse(tbQty.Text) <= 0)
                 {
                     MessageBox.Show("Quantity is invalid.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    if (int.Parse(tbQty.Text.ToString()) > int.Parse(lblOnSalesQty.Text.ToString()))
+                    if (int.Parse(tbQty.Text) > int.Parse(lblOnSalesQty.Text))
                     {
                         //check quantity input is larger than on sales quantity
                         MessageBox.Show(
-                            $"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text.ToString()})",
+                            $"Quantity input cannot exceed On Sales Quantity ({lblOnSalesQty.Text})",
                             "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
+                    int qty = int.Parse(tbQty.Text);
+                    if (controller.AddToCart(UID, partNum, qty, isLM))
+                    {
+                        MessageBox.Show($"{qty} {lblName.Text} has been added to cart.", "Add Cart");
+                        tbQty.Text = "";
+                        load_part();
+                    }
                     else
                     {
-                        int qty = int.Parse(tbQty.Text.ToString());
-                        if (controller.addToCart(UID, partNum, qty, isLM))
-                        {
-                            MessageBox.Show($"{qty} {lblName.Text.ToString()} has been added to cart.", "Add Cart");
-                            tbQty.Text = "";
-                            load_part();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
-                        }
+                        MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
@@ -176,19 +169,19 @@ namespace templatev1.Online_Ordering_Platform
         }
 
 
-        public Boolean isFavourite(string partNum)
+        public Boolean IsFavourite(string partNum)
         {
-            return controller.isFavourite(partNum, UID);
+            return controller.IsFavourite(partNum, UID);
         }
 
-        private void addFavourite(object sender, EventArgs e)
+        private void AddFavourite(object sender, EventArgs e)
         {
-            if (controller.addToFavourite(partNum, UID))
+            if (controller.AddToFavourite(partNum, UID))
             {
                 MessageBox.Show("Added to favourtie.", "Add Favourite", MessageBoxButtons.OK);
                 btnAddFavourit.Text = "Remove Favourite";
-                btnAddFavourit.Click -= addFavourite;
-                btnAddFavourit.Click += new EventHandler(removeFavourite);
+                btnAddFavourit.Click -= AddFavourite;
+                btnAddFavourit.Click += RemoveFavourite;
             }
             else
             {
@@ -196,14 +189,14 @@ namespace templatev1.Online_Ordering_Platform
             }
         }
 
-        private void removeFavourite(object sender, EventArgs e)
+        private void RemoveFavourite(object sender, EventArgs e)
         {
-            if (controller.removeFavourite(partNum, UID))
+            if (controller.RemoveFavourite(partNum, UID))
             {
                 MessageBox.Show("Removed from favourtie.", "Add Favourite", MessageBoxButtons.OK);
                 btnAddFavourit.Text = "Add to Favourite";
-                btnAddFavourit.Click -= removeFavourite;
-                btnAddFavourit.Click += new EventHandler(addFavourite);
+                btnAddFavourit.Click -= RemoveFavourite;
+                btnAddFavourit.Click += AddFavourite;
             }
             else
             {
@@ -219,7 +212,6 @@ namespace templatev1.Online_Ordering_Platform
             cart.Location = Location;
             cart.ShowDialog();
             Close();
-            return;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -277,16 +269,16 @@ namespace templatev1.Online_Ordering_Platform
             BWMode();
         }
 
-        private Image imageString(string imageName)
+        private Image ImageString(string imageName)
         {
             PropertyInfo property =
-                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+                typeof(Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
 
         private void btnAddToExistingOrder_Click(object sender, EventArgs e)
         {
-            Form addPart = new AddPartToExistingOrder(partNum, tbQty.Text.ToString(), accountController, UIController);
+            Form addPart = new AddPartToExistingOrder(partNum, tbQty.Text, accountController, UIController);
             Hide();
             addPart.StartPosition = FormStartPosition.Manual;
             addPart.Location = Location;
@@ -297,25 +289,25 @@ namespace templatev1.Online_Ordering_Platform
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

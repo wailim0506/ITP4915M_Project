@@ -11,77 +11,54 @@ namespace controller
     public class orderListController : abstractController
     {
         string sqlCmd;
+        private Database _db;
+        private AccountController _ac;
 
-        public orderListController()
+        public orderListController(Database db = null)
         {
+            _db = db ?? new Database(); 
+            _ac = new AccountController();
             sqlCmd = "";
         }
 
         public string getCustomerAccountID(string id) //id = customerID
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\' ";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt.Rows[0][0].ToString();
+            return _db.ExecuteDataTable($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Rows[0][0].ToString();
         }
 
         public int countOrder(string id, string sortBy)
         {
-            DataTable dt = new DataTable();
+            string sqlCmd = sortBy == "All" 
+                ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
+                : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
 
-            if (sortBy == "All")
-            {
-                sqlCmd = $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' ";
-            }
-            else
-            {
-                sqlCmd =
-                    $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
-            }
-
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return int.Parse(dt.Rows[0][0].ToString());
+            return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
         }
 
         public DataTable getOrder(string id, string sortBy)
         {
-            DataTable dt = new DataTable();
+            string sqlCmd = sortBy == "All" 
+                ? $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
+                : $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
 
-            if (sortBy == "All")
-            {
-                sqlCmd = $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\'";
-            }
-            else
-            {
-                sqlCmd =
-                    $"SELECT * FROM order_ WHERE customerAccountID = \'{getCustomerAccountID(id)}\' AND status = \'{sortBy}\'";
-            }
-
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
         public string getStafftID(string id) //staff account id
         {
-            AccountController ac = new AccountController();
-            DataTable dt = ac.GetStaffDetail(id);
+            DataTable dt = _ac.GetStaffDetail(id);
             return dt.Rows[0][0].ToString();
         }
 
         public string getStaffName(string id) //staff account id
         {
-            AccountController ac = new AccountController();
-            DataTable dt = ac.GetStaffDetail(id);
+            DataTable dt = _ac.GetStaffDetail(id);
             return $"{dt.Rows[0][2].ToString()} {dt.Rows[0][3].ToString()}";
         }
 
         public string getStaffContact(string id)
         {
-            AccountController ac = new AccountController();
-            DataTable dt = ac.GetStaffDetail(id);
+            DataTable dt = _ac.GetStaffDetail(id);
             return dt.Rows[0][6].ToString();
         }
     }

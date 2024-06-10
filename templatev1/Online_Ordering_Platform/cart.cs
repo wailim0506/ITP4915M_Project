@@ -209,7 +209,7 @@ namespace templatev1.Online_Ordering_Platform
                                 }
                             }
 
-                            if (controller.removePart(control.Text, UID)) //remove item from cart
+                            if (controller.RemovePart(control.Text, UID)) //remove item from cart
                             {
                             }
                             else
@@ -360,7 +360,7 @@ namespace templatev1.Online_Ordering_Platform
             if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString() != "")
             {
                 //get current quantity in cart first
-                int currentQty = controller.getCurrentQtyInCart(partToEdit, UID);
+                int currentQty = controller.GetCurrentQtyInCart(partToEdit, UID);
                 //add the current cart value back to db first
                 try
                 {

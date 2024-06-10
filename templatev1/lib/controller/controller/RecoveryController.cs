@@ -31,11 +31,11 @@ namespace controller
             this.db = db;
         }
 
-        public RecoveryController(AccountController accountController, Database db)
+        public RecoveryController(AccountController accountController, Database db = null)
         {
             _accountController = accountController;
             UID = accountController.GetUid();
-            this.db = db;
+            this.db = db ?? new Database();
         }
 
         //Find the user in the database
@@ -79,18 +79,15 @@ namespace controller
             return dataTable.AsEnumerable().Select(row => row["province"].ToString()).ToList();
         }
 
+        //Update password in the database
         public void ChangePassword(string newPwd)
         {
             string hashedPwd = HashPassword(newPwd);
-            //Update password in the database
-            conn.Open();
-            sqlStr = UID.StartsWith("LMC")
-                ? $"UPDATE customer_account SET password = \'{hashedPwd}\'" +
-                  $",pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
-                  $"WHERE customerID = \'{UID}\'"
-                : $"UPDATE staff_account SET password = \'{hashedPwd}\', " +
-                  $"pwdChangeDate = \'{DateTime.Now:yyyy-MM-dd HH:mm:ss}\' " +
-                  $"WHERE staffID = \'{UID}\'";
+            string table = UID.StartsWith("LMC") ? "customer_account" : "staff_account";
+            string idField = UID.StartsWith("LMC") ? "customerID" : "staffID";
+
+            string sqlStr =
+                $"UPDATE {table} SET password = '{hashedPwd}', pwdChangeDate = '{DateTime.Now:yyyy-MM-dd HH:mm:ss}' WHERE {idField} = '{UID}'";
             db.ExecuteNonQueryCommand(sqlStr, new Dictionary<string, object> { { "@id", UID } });
         }
 
@@ -113,12 +110,12 @@ namespace controller
         public bool create(dynamic Userinfo)
         {
             string hashedPwd = HashPassword(Userinfo.pwd);
-            string LMCID = "LMC" + getLMCID().ToString("D5");
-            string accountID = "CA" + getLMCID().ToString("D5");
+            string lmcid = "LMC" + getLMCID().ToString("D5");
+            string accountId = "CA" + getLMCID().ToString("D5");
 
             var customerParams = new Dictionary<string, object>
             {
-                { "@id", LMCID },
+                { "@id", lmcid },
                 { "@fName", Userinfo.fName },
                 { "@lName", Userinfo.lName },
                 { "@gender", Userinfo.gender },
@@ -137,15 +134,15 @@ namespace controller
 
             var accountParams = new Dictionary<string, object>
             {
-                { "@accountId", accountID },
-                { "@id", LMCID },
+                { "@accountId", accountId },
+                { "@id", lmcid },
                 { "@hashedPwd", hashedPwd },
                 { "@joinDate", Userinfo.joinDate }
             };
 
             var dfaddParams = new Dictionary<string, object>
             {
-                { "@id", LMCID }
+                { "@id", lmcid }
             };
 
             try

@@ -62,7 +62,7 @@ namespace controller
 
         public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
-            Log.LogMessage(Log.LogLevel.Debug, "Database", $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
+            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database", $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
             ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
         }
 

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.IO;
 using System.Drawing;
 using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
@@ -19,9 +15,9 @@ namespace templatev1
         dynamic placeholder, update;
         bool IMGUploaded;
 
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.proFileController proFileController;
+        AccountController accountController;
+        UIController UIController;
+        proFileController proFileController;
 
 
         public proFileMain()
@@ -29,8 +25,8 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public proFileMain(controller.AccountController accountController, controller.UIController UIController,
-            controller.proFileController proFileController)
+        public proFileMain(AccountController accountController, UIController UIController,
+            proFileController proFileController)
         {
             InitializeComponent();
 
@@ -93,10 +89,10 @@ namespace templatev1
             palSCMode.Visible = btnDelete.Visible = show.group2;
 
             //For icon color
-            if (Properties.Settings.Default.BWmode == true)
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
         }
 
@@ -161,7 +157,7 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
+            proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
 
@@ -189,7 +185,7 @@ namespace templatev1
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            UIController.setMode(Properties.Settings.Default.BWmode);
+            UIController.setMode(Settings.Default.BWmode);
             BWMode();
         }
 
@@ -221,25 +217,25 @@ namespace templatev1
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
 
@@ -318,8 +314,8 @@ namespace templatev1
                     tbFirstName.Select();
                     return false;
                 }
-                else
-                    update.fName = tbFirstName.Text;
+
+                update.fName = tbFirstName.Text;
             }
             else
                 update.fName = placeholder.fName;
@@ -333,8 +329,8 @@ namespace templatev1
                     tbLastName.Select();
                     return false;
                 }
-                else
-                    update.lName = tbLastName.Text;
+
+                update.lName = tbLastName.Text;
             }
             else
                 update.lName = placeholder.lName;
@@ -356,8 +352,8 @@ namespace templatev1
                     lblDateMsg.Text = "Please select a valid date or click NOT provided.";
                     return false;
                 }
-                else
-                    update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
+
+                update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
             }
             else if (chkNGDateOfBirth.Checked)
                 update.DFB = "NULL";
@@ -373,14 +369,15 @@ namespace templatev1
                     tbPhone.Select();
                     return false;
                 }
-                else if (!proFileController.checkEmailPhone(tbPhone.Text))
+
+                if (!proFileController.checkEmailPhone(tbPhone.Text))
                 {
                     lblPhoneMsg.Text = "The phone number has already registered an account.";
                     tbPhone.Select();
                     return false;
                 }
-                else
-                    update.phone = tbPhone.Text;
+
+                update.phone = tbPhone.Text;
             }
             else
                 update.phone = placeholder.phone;
@@ -398,8 +395,8 @@ namespace templatev1
                         tbCorp.Select();
                         return false;
                     }
-                    else
-                        update.corp = tbCorp.Text;
+
+                    update.corp = tbCorp.Text;
                 }
                 else
                     update.corp = placeholder.corp;
@@ -481,10 +478,10 @@ namespace templatev1
             {
                 if (accountController.MatchPwd(tbOldPass.Text))
                 {
-                    if (checkPwd() == true)
+                    if (checkPwd())
                     {
-                        controller.RecoveryController recoveryController =
-                            new controller.RecoveryController(accountController, null);
+                        RecoveryController recoveryController =
+                            new RecoveryController(accountController);
                         recoveryController.ChangePassword(tbConfirmPass.Text);
                         MessageBox.Show("Password changed successful!\nThe system will redirect to the login page.",
                             "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -505,12 +502,14 @@ namespace templatev1
                 lblPwdMsg.Text = "Please enter the new password.";
                 return false;
             }
-            else if (tbPass.Text.Length < 10 || tbPass.Text.Length > 50)
+
+            if (tbPass.Text.Length < 10 || tbPass.Text.Length > 50)
             {
                 lblPwdMsg.Text = "New password too short or too long, minimum 10 maximum 50.";
                 return false;
             }
-            else if (!tbPass.Text.Equals(tbConfirmPass.Text))
+
+            if (!tbPass.Text.Equals(tbConfirmPass.Text))
             {
                 lblPwdMsg.Text = "Confirm password does NOT match.";
                 return false;

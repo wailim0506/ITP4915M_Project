@@ -38,13 +38,13 @@ namespace templatev1.Order_Management
             lblOrderNum.Text = orderID;
             string[] d = controller.GetOrderDate(orderID).Split(' ');
             lblOrderDate.Text = d[0];
-            lblCustomerID.Text = controller.getCustomerID(orderID);
-            lblInvoiceNum.Text = controller.getInvoiceNum(orderID);
-            lblDelaerAddress.Text = controller.getCustomerAddress(orderID);
-            lblDeliveryAddress.Text = controller.getWarehouseAddress(orderID);
+            lblCustomerID.Text = controller.GetCustomerId(orderID);
+            lblInvoiceNum.Text = controller.GetInvoiceNum(orderID);
+            lblDelaerAddress.Text = controller.GetCustomerAddress(orderID);
+            lblDeliveryAddress.Text = controller.GetWarehouseAddress(orderID);
 
             //spare part
-            string[] partNum = controller.getOrderedSparePartNumber(orderID);
+            string[] partNum = controller.GetOrderedSparePartNumber(orderID);
             int rowPos = 1;
             for (int i = 0; i < partNum.Length; i++)
             {
@@ -56,19 +56,19 @@ namespace templatev1.Order_Management
                 };
                 Label lblPartName = new Label
                 {
-                    Text = $"{controller.getPartName(partNum[i])}", Location = new Point(174, rowPos),
+                    Text = $"{controller.GetPartName(partNum[i])}", Location = new Point(174, rowPos),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(316, 20)
                 };
                 Label lblQtyOrdered = new Label
                 {
-                    Text = $"{controller.getQty(orderID, partNum[i])}",
+                    Text = $"{controller.GetQty(orderID, partNum[i])}",
                     Location = new Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(123, 20)
                 };
                 Label lblQtyDelivered = new Label
                 {
-                    Text = $"{controller.getQty(orderID, partNum[i])}",
+                    Text = $"{controller.GetQty(orderID, partNum[i])}",
                     Location = new Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(139, 20)
                 };
@@ -80,12 +80,12 @@ namespace templatev1.Order_Management
                 rowPos += 27;
             }
 
-            lblDeliveryDate.Text += controller.getDeliveryDate(orderID);
+            lblDeliveryDate.Text += controller.GetDeliveryDate(orderID);
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (controller.confirmInvoice(lblInvoiceNum.Text))
+            if (controller.ConfirmInvoice(lblInvoiceNum.Text))
             {
                 MessageBox.Show("Invoice confirmed", "Confirm Invoice");
             }
