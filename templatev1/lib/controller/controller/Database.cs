@@ -62,7 +62,8 @@ namespace controller
 
         public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
-            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database", $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
+            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
+                $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
             ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
         }
 
@@ -129,6 +130,14 @@ namespace controller
             dt.Load(reader);
             return dt;
             //return (DataTable)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
+        }
+
+        public object ExecuteScalar(string sqlCmd)
+        {
+            using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            {
+                return command.ExecuteScalar();
+            }
         }
     }
 }

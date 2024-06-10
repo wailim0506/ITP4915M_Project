@@ -16,19 +16,20 @@ namespace controller
 
         public orderListController(Database db = null)
         {
-            _db = db ?? new Database(); 
+            _db = db ?? new Database();
             _ac = new AccountController();
             sqlCmd = "";
         }
 
         public string getCustomerAccountID(string id) //id = customerID
         {
-            return _db.ExecuteDataTable($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Rows[0][0].ToString();
+            return _db.ExecuteDataTable($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'")
+                .Rows[0][0].ToString();
         }
 
         public int countOrder(string id, string sortBy)
         {
-            string sqlCmd = sortBy == "All" 
+            string sqlCmd = sortBy == "All"
                 ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
                 : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
 
@@ -37,7 +38,7 @@ namespace controller
 
         public DataTable getOrder(string id, string sortBy)
         {
-            string sqlCmd = sortBy == "All" 
+            string sqlCmd = sortBy == "All"
                 ? $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
                 : $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
 

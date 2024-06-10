@@ -416,9 +416,9 @@ namespace templatev1.Online_Ordering_Platform
                         "Create Order", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (controller.createOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
+                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
                         {
-                            controller.clearCustomerCartAfterCreateOrder(UID);
+                            controller.ClearCustomerCartAfterCreateOrder(UID);
                             DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",
                                 "Create Order", MessageBoxButtons.YesNo);
                             if (dialogResult2 == DialogResult.Yes)

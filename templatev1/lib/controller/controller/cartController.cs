@@ -126,13 +126,11 @@ namespace controller
         public int GetCurrentQtyInCart(string num, string id) //part num, customer id
         {
             string cartID = getCartID(id);
-            string sqlCmd = $"SELECT itemID FROM product WHERE partNumber = '{num}'";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
-            string itemID = dt.Rows[0][0].ToString();
-
-            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
-            dt = _db.ExecuteDataTable(sqlCmd);
-            return int.Parse(dt.Rows[0][0].ToString());
+            string itemID = _db.ExecuteDataTable($"SELECT itemID FROM product " +
+                                                 $"WHERE partNumber = '{num}'").Rows[0][0].ToString();
+            return int.Parse(_db.ExecuteDataTable($"SELECT quantity FROM product_in_cart " +
+                                                  $"WHERE itemID = '{itemID}' " +
+                                                  $"AND cartID = '{cartID}'").Rows[0][0].ToString());
         }
 
         //add qty back to db for product table and spare_part table
@@ -141,7 +139,7 @@ namespace controller
             //get the qty in db first
 
             int qtyInProduct = getOnSaleQtyInDb(num, isLM);
-            int qtyInSpare_Part = getSpareQtyInDb(num);
+            int qtyInSpare_Part = GetSpareQtyInDb(num);
 
             //add db qty with cart qty
             qtyInProduct += currentCartQty;
@@ -228,7 +226,7 @@ namespace controller
         {
             //get the qty in db first
             int qtyInProduct = getOnSaleQtyInDb(num, isLM);
-            int qtyInSpare_Part = getSpareQtyInDb(num);
+            int qtyInSpare_Part = GetSpareQtyInDb(num);
 
             //deduct db qty with cart qty
             qtyInProduct -= newQty;
@@ -299,35 +297,24 @@ namespace controller
         public Boolean editCartQty(string num, string id, int newQty) //part num, customer id, new qty
         {
             string cartID = getCartID(id);
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            string itemID = dt.Rows[0][0].ToString();
-            sqlCmd = $"UPDATE product_in_cart SET quantity = @qty WHERE itemID = @num AND cartID = @cartID";
+            string itemID = _db.ExecuteDataTable($"SELECT itemID FROM product WHERE partNumber = '{num}'").Rows[0][0]
+                .ToString();
+
+            var parameters = new Dictionary<string, object>
+            {
+                { "@qty", newQty },
+                { "@num", itemID },
+                { "@cartID", cartID }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", newQty);
-                        command.Parameters.AddWithValue("@num", itemID);
-                        command.Parameters.AddWithValue("@cartID", cartID);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE product_in_cart SET quantity = @qty WHERE itemID = @num AND cartID = @cartID", parameters);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             return true;
@@ -335,129 +322,88 @@ namespace controller
 
         public int getOnSaleQtyInDb(string num, Boolean isLM) //part num
         {
-            DataTable dt = new DataTable();
-            if (!isLM)
-            {
-                sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{num}\'";
-            }
-            else
-            {
-                sqlCmd = $"SELECT LM_onSaleQty FROM product WHERE partNumber = \'{num}\'";
-            }
-
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int qtyInProduct = int.Parse(dt.Rows[0][0].ToString());
+            string column = isLM ? "LM_onSaleQty" : "onSaleQty";
+            string sqlCmd = $"SELECT {column} FROM product WHERE partNumber = '{num}'";
+            int qtyInProduct = int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
             return qtyInProduct;
         }
 
-        public int getSpareQtyInDb(string num)
+        public int GetSpareQtyInDb(string num)
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
+            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTable(
+                $"SELECT quantity FROM spare_part " +
+                $"WHERE partNumber = '{num}'").Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
 
-        public Boolean createOrder(string id, string shippingDate) //customerID
+        public Boolean CreateOrder(string id, string shippingDate) //customerID
         {
-            //get customer account id first
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            string customerAccountID = dt.Rows[0][0].ToString();
-
+            //get the customer account id first
+            string customerAccountID =
+                _db.ExecuteDataTable(
+                    $"SELECT customerAccountID " +
+                    $"FROM customer_account " +
+                    $"WHERE customerID = '{id}'").Rows[0][0].ToString();
             //generate an order id
-            string orderID = orderIdGenerator();
+            string orderID = OrderIdGenerator();
             //generate order serial num
-            string orderSerialNum = orderSerialNumGenerator();
+            string orderSerialNum = OrderSerialNumGenerator();
             //assign an order processing clerk to this order
-            string staffAccountID = orderProcessingClerkAssignment();
+            string staffAccountID = OrderProcessingClerkAssignment();
             //get today date
             string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
 
-
             //create order
-            sqlCmd =
-                $"INSERT INTO order_ (orderID, customerAccountID, staffAccountID, orderSerialNumber,orderDate, status) VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@orderID", orderID },
+                { "@CAID", customerAccountID },
+                { "@SAID", staffAccountID },
+                { "@OSN", orderSerialNum },
+                { "@date", orderDate },
+                { "@status", "Pending" }
+            };
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@orderID", orderID);
-                        command.Parameters.AddWithValue("@CAID", customerAccountID);
-                        command.Parameters.AddWithValue("@SAID", staffAccountID);
-                        command.Parameters.AddWithValue("@OSN", orderSerialNum);
-                        command.Parameters.AddWithValue("@date", orderDate);
-                        command.Parameters.AddWithValue("@status", "Pending");
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(
+                    "INSERT INTO order_ (orderID, customerAccountID, staffAccountID, " +
+                    "orderSerialNumber,orderDate, status) " +
+                    "VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)", parameters);
             }
             catch (Exception ex)
             {
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
             //insert to order line, create invoice
-            if (createOrderLineRow(id, orderID) && createInvoice(customerAccountID, orderID) &&
-                createShippingDetail(orderID, shippingDate))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
-            //create invoice
+            return CreateOrderLineRow(id, orderID) &&
+                   createInvoice(customerAccountID, orderID) &&
+                   createShippingDetail(orderID, shippingDate);
         }
 
-        public Boolean createOrderLineRow(string cid, string id) //customer id, order id
+        public Boolean CreateOrderLineRow(string cid, string id) //customer id, order id
         {
             //get item in cart
             DataTable dt = getCartItem(cid);
             //insert to db
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
+                string sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@partNum", dt.Rows[i][5].ToString() },
+                    { "@orderID", id },
+                    { "@qty", dt.Rows[i][2].ToString() },
+                    { "@price", dt.Rows[i][8].ToString() }
+                };
+
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@partNum", dt.Rows[i][5].ToString());
-                            command.Parameters.AddWithValue("@orderID", id);
-                            command.Parameters.AddWithValue("@qty", dt.Rows[i][2].ToString());
-                            command.Parameters.AddWithValue("@price", dt.Rows[i][8].ToString());
-
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
+                    _db.ExecuteNonQueryCommand(sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
                     return false;
-                }
-                finally
-                {
-                    conn.Close();
                 }
             }
 
@@ -466,61 +412,28 @@ namespace controller
 
         public Boolean createInvoice(string caid, string id) //customer account id, order id
         {
-            //count how many inovice in db first
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT COUNT(*) FROM invoice";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int numOfInvoice = int.Parse(dt.Rows[0][0].ToString());
+//count how many inovice in db first
+            string sqlCmd = $"SELECT COUNT(*) FROM invoice";
+            int numOfInvoice = Convert.ToInt32(_db.ExecuteScalarCommand(sqlCmd, null));
 
             numOfInvoice++; //invoice number of the order
-            string invoiceNum = "IN";
-            if (numOfInvoice <= 9)
-            {
-                invoiceNum += $"0000{numOfInvoice}";
-            }
-            else if (numOfInvoice <= 99)
-            {
-                invoiceNum += $"000{numOfInvoice}";
-            }
-            else if (numOfInvoice <= 999)
-            {
-                invoiceNum += $"00{numOfInvoice}";
-            }
-            else if (numOfInvoice <= 9999)
-            {
-                invoiceNum += $"0{numOfInvoice}";
-            }
-            else
-            {
-                invoiceNum += $"{numOfInvoice}";
-            }
+            string invoiceNum = $"IN{numOfInvoice:D5}";
 
             sqlCmd =
                 $"INSERT INTO invoice (customerAccountID, orderID, invoiceNumber) VALUES(@CAID,@orderID,@invoiceNum)";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@CAID", caid },
+                { "@orderID", id },
+                { "@invoiceNum", invoiceNum }
+            };
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@CAID", caid);
-                        command.Parameters.AddWithValue("@orderID", id);
-                        command.Parameters.AddWithValue("@invoiceNum", invoiceNum);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                throw new Exception("Failed to create invoice", ex);
             }
 
             return true;
@@ -529,139 +442,70 @@ namespace controller
         public Boolean createShippingDetail(string id, string shippingDate)
         {
             string deliverman = delivermanAssignment();
-            sqlCmd =
-                $"INSERT INTO shipping_detail (orderID, delivermanID, shippingDate) VALUES(@orderID,@deliverman,@date)";
+            string sqlCmd =
+                "INSERT INTO shipping_detail (orderID, delivermanID, shippingDate) VALUES(@orderID,@deliverman,@date)";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@orderID", id },
+                { "@deliverman", deliverman },
+                { "@date", shippingDate }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@orderID", id);
-                        command.Parameters.AddWithValue("@deliverman", deliverman);
-                        command.Parameters.AddWithValue("@date", shippingDate);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
-                return false;
-            }
-            finally
-            {
-                conn.Close();
+                throw new Exception("Failed to create shipping detail", ex);
             }
 
             return true;
         }
 
-        public void clearCustomerCartAfterCreateOrder(string id) //customer id
+        public void ClearCustomerCartAfterCreateOrder(string id) //customer id
         {
             string cartID = getCartID(id);
-            sqlCmd = $"DELETE FROM product_in_cart WHERE cartID = @cartID";
+            string sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
+            var parameters = new Dictionary<string, object> { { "@cartID", cartID } };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@cartID", cartID);
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
-                return;
-            }
-            finally
-            {
-                conn.Close();
+                throw new Exception("Failed to clear customer cart", ex);
             }
         }
 
 
-        public string orderIdGenerator()
+        public string OrderIdGenerator()
         {
-            string year = DateTime.Now.ToString("yy"); //today year 
-            string month = DateTime.Now.ToString("MM"); //today month
+            string yearMonth = DateTime.Now.ToString("yyMM");
+            string sqlCmd = $"SELECT COUNT(orderID) FROM order_ WHERE orderID LIKE 'OD{yearMonth}%'";
 
             //see how many order in this year month
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT orderID FROM order_ WHERE orderID LIKE \'OD{year}{month}%\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int orderInYearMonth = dt.Rows.Count;
-            ++orderInYearMonth; //+1 for order id
-
-            string generatedOrderID = $"OD{year}{month}";
-            if (orderInYearMonth <= 9)
-            {
-                generatedOrderID += $"000{orderInYearMonth}";
-            }
-            else if (orderInYearMonth <= 99)
-            {
-                generatedOrderID += $"00{orderInYearMonth}";
-            }
-            else if (orderInYearMonth <= 999)
-            {
-                generatedOrderID += $"0{orderInYearMonth}";
-            }
-            else
-            {
-                generatedOrderID += $"{orderInYearMonth}";
-            }
-
-            return generatedOrderID;
+            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalar(sqlCmd)) + 1; //+1 for order id
+            return $"OD{yearMonth}{orderInYearMonth:D4}";
         }
 
-        public string orderSerialNumGenerator()
+        public string OrderSerialNumGenerator()
         {
-            string year = DateTime.Now.ToString("yy"); //today year 
-            string month = DateTime.Now.ToString("MM"); //today month
+            string yearMonth = DateTime.Now.ToString("yyMM");
+            string sqlCmd =
+                $"SELECT COUNT(orderSerialNumber) FROM order_ WHERE orderSerialNumber LIKE 'SN{yearMonth}%'";
+            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalar(sqlCmd)) + 1; //+1 for order id
 
             //see how many order in this year month
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT orderSerialNumber FROM order_ WHERE orderSerialNumber LIKE \'SN{year}{month}%\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            int orderInYearMonth = dt.Rows.Count;
-            ++orderInYearMonth; //+1 for order id
-
-            string generatedOrderID = $"SN{year}{month}";
-            if (orderInYearMonth <= 9)
-            {
-                generatedOrderID += $"000{orderInYearMonth}";
-            }
-            else if (orderInYearMonth <= 99)
-            {
-                generatedOrderID += $"00{orderInYearMonth}";
-            }
-            else if (orderInYearMonth <= 999)
-            {
-                generatedOrderID += $"0{orderInYearMonth}";
-            }
-            else
-            {
-                generatedOrderID += $"{orderInYearMonth}";
-            }
-
-            return generatedOrderID;
+            return $"SN{yearMonth}{orderInYearMonth:D4}";
         }
 
-        public string orderProcessingClerkAssignment()
+        public string OrderProcessingClerkAssignment()
         {
             //get num of opc first
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT staffID, jobTitle FROM staff WHERE jobTitle = 'order processing clerk'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = "SELECT staffID FROM staff WHERE jobTitle = 'order processing clerk'";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
             int numOfOpc = dt.Rows.Count;
 
 
@@ -671,21 +515,17 @@ namespace controller
             string staffIDAssigned = dt.Rows[num][0].ToString(); //db dont have enough data now
             //string staffIDAssigned = "LMS00002";
 
-            //get staff account id
-            dt = new DataTable();
-            sqlCmd = $"SELECT staffAccountID FROM staff_account WHERE staffID = \'{staffIDAssigned}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            //get the staff account id
+            sqlCmd = $"SELECT staffAccountID FROM staff_account WHERE staffID = '{staffIDAssigned}'";
+            dt = _db.ExecuteDataTable(sqlCmd);
             return dt.Rows[0][0].ToString();
         }
 
         public string delivermanAssignment()
         {
             //get num of opc first
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT delivermanID FROM deliverman";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = "SELECT delivermanID FROM deliverman";
+            DataTable dt = _db.ExecuteDataTable(sqlCmd);
             int numOfDeliverman = dt.Rows.Count;
 
             //random assignment
@@ -696,16 +536,15 @@ namespace controller
 
         public DataTable getCustomerAddress(string id) //customer id
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT warehouseAddress, province, city FROM customer WHERE customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            return dt;
+            string sqlCmd = $"SELECT warehouseAddress, province, city FROM customer WHERE customerID = '{id}'";
+            return _db.ExecuteDataTable(sqlCmd);
         }
     }
 
     class notEnoughException : Exception
     {
-        public notEnoughException() : base("Not enough items in the cart.") { }
+        public notEnoughException() : base("Not enough items in the cart.")
+        {
+        }
     }
 }

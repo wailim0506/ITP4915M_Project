@@ -76,10 +76,14 @@ namespace controller
         //part num //order id
         public int GetPartQtyInOrder(string num, string id) //part num //order id
         {
-            return int.Parse(_db.ExecuteDataTable($"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'").Rows[0][0].ToString());
+            return int.Parse(
+                _db.ExecuteDataTable($"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'")
+                    .Rows[0][0].ToString());
         }
 
-        public Boolean AddQtyBack(string num, int currentOrderQty, int desiredQty, Boolean isLM) //part num //add qty back to db for product table and spare_part table
+        public Boolean
+            AddQtyBack(string num, int currentOrderQty, int desiredQty,
+                Boolean isLM) //part num //add qty back to db for product table and spare_part table
         {
             cartController cc = new cartController();
             try
@@ -104,14 +108,15 @@ namespace controller
             {
                 return false;
             }
-        } 
-        
+        }
+
         //id = order id, num = part num, qty = new qty wanted
-        public Boolean EditOrderLineQuantity(string id, string num, string qty) 
+        public Boolean EditOrderLineQuantity(string id, string num, string qty)
         {
             try
             {
-                _db.ExecuteNonQueryCommand("UPDATE order_line SET quantity = @qty WHERE partNumber = @num AND orderID = @id",
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE order_line SET quantity = @qty WHERE partNumber = @num AND orderID = @id",
                     new Dictionary<string, object> { { "@qty", qty }, { "@num", num }, { "@id", id } });
             }
             catch (Exception ex)

@@ -13,7 +13,7 @@ namespace controller
         protected static string connString = Database.GetConnectionString();
         protected MySqlConnection conn = new MySqlConnection(connString);
         protected MySqlDataAdapter adr;
-        
+
         protected Database _db;
     }
 }
