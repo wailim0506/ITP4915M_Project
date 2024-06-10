@@ -93,7 +93,7 @@ the password encryption will be encrypted by the Bcrypt Algorithm. which is a pa
 ```csharp
 // just the project just use the HashPassword method
 
-accountController.HashPassword("123456", thePwdFromDB); // <- it will return a boolean value
+accountController.HashPassword("123456"); // <- it will return a boolean value
 // for verifying the password
 accountController.isValidatePassword("123456", thePwdFromDB); // <- it will return a boolean value
 
