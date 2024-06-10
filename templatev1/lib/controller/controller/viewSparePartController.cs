@@ -115,16 +115,9 @@ namespace controller
                     Log.LogException(ex, "viewSparePartController");
                     return false;
                 }
-
-                if (deductQtyInDB(itemID, num, qty,
-                        isLM)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                
+                //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
+                return deductQtyInDB(itemID, num, qty, isLM);
             }
         }
 

@@ -69,6 +69,8 @@ namespace controller
 
         public MySqlDataReader ExecuteReaderCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
+            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
+                $"ExecuteReaderCommand : {sqlQuery + queryParameters}");
             return (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
         }
 
@@ -126,7 +128,7 @@ namespace controller
         public DataTable ExecuteDataTable(string sqlQuery)
         {
             var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
-            var dt = new DataTable();
+            DataTable dt = new DataTable();
             dt.Load(reader);
             return dt;
             //return (DataTable)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
