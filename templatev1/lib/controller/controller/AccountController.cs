@@ -32,9 +32,11 @@ namespace controller
             {
                 var dt = ExecuteSqlQuery(GetAccountDataQuery(UID));
 
+                // Account not found
                 if (dt.Rows.Count < 1)
                 {
-                    MessageBox.Show("Account not found.");
+                    Log.LogMessage(Log.LogLevel.Debug, "AccountController",
+                        $"Login method User id: {UID} Account not found.");
                     return false;
                 }
 
@@ -64,7 +66,14 @@ namespace controller
         // check if the password is valid
         private bool IsPasswordValid(string inputPassword, string storedPassword)
         {
-            return BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
+            bool isValid = BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
+            if (!isValid)
+            {
+                Log.LogMessage(Log.LogLevel.Debug, "AccountController",
+                    $"Login method User id: {UserID} Password : {inputPassword} not valid with stored password : {storedPassword}.");
+            }
+
+            return isValid;
         }
 
         private bool IsAccountActive(string status)

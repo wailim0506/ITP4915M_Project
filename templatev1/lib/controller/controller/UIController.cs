@@ -37,8 +37,11 @@ namespace controller
         public void SetPermission(string UserID)
         {
             AccountType = UserID.StartsWith("LMC") || UserID.StartsWith("LMS") ? "Customer" : "Staff";
-            string permissionIDQuery = $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
-            permission = AccountType.Equals("Customer") ? "C" : DB.ExecuteDataTable(permissionIDQuery).Rows[0]["permissionID"].ToString();
+            string permissionIDQuery =
+                $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
+            permission = AccountType.Equals("Customer")
+                ? "C"
+                : DB.ExecuteDataTable(permissionIDQuery).Rows[0]["permissionID"].ToString();
             DetermineFun(permission);
         }
 

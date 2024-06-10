@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
     public partial class PasswordRe : Form
     {
-        controller.RecoveryController recoveryController;
+        RecoveryController recoveryController;
         Boolean userFound;
         string UID, email, phone;
 
@@ -22,7 +16,7 @@ namespace templatev1
             userFound = false;
         }
 
-        public PasswordRe(controller.RecoveryController recoveryController)
+        public PasswordRe(RecoveryController recoveryController)
         {
             InitializeComponent();
             this.recoveryController = recoveryController;
@@ -60,8 +54,11 @@ namespace templatev1
             }
             else
             {
-                if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50) //Too short.
+                if (tbPassword.Text.Length < 10 || tbPassword.Text.Length > 50 ||
+                    tbPassword.Text.Equals("")) //Too short.
                 {
+                    Log.LogMessage(Log.LogLevel.Debug, "PasswordRe",
+                        $"btnChangePass_Click method User id: {UID} Password too short or too long, minimum 10 maximum 50.");
                     lblChangePassMsg.Text = "Password too short or too long, minimum 10 maximum 50.";
                     tbPassword.Select();
                 }

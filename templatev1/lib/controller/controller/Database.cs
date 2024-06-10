@@ -14,19 +14,19 @@ namespace controller
             connection = new MySqlConnection(connectionString ?? GetConnectionString());
             connection.Open();
         }
-        
+
         public static string GetConnectionString()
         {
             var connectionStrings = new List<string>
             {
-                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
                 "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
+                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
                 "server=hkg1.clusters.zeabur.com;port=32298;user id=root; password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
             };
 
             return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
         }
-        
+
         private static string TestConnection(List<string> connectionStrings)
         {
             foreach (var connectionString in connectionStrings)
@@ -62,6 +62,7 @@ namespace controller
 
         public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
+            Log.LogMessage(Log.LogLevel.Debug, "Database", $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
             ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
         }
 
@@ -90,6 +91,7 @@ namespace controller
                 }
                 catch (Exception ex)
                 {
+                    Log.LogException(ex, "Database");
                     throw new InvalidOperationException("Database operation failed", ex);
                 }
             }

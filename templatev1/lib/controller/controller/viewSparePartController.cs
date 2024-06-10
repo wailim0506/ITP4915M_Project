@@ -12,19 +12,19 @@ namespace controller
     public class viewSparePartController : abstractController
     {
         string sqlCmd;
+        private readonly Database _database;
 
-        public viewSparePartController()
+        public viewSparePartController(Database database = null)
         {
+            _database = database ?? new Database();
             sqlCmd = "";
         }
 
         public DataTable getInfo(string num) //part num
         {
-            DataTable dt = new DataTable();
             sqlCmd =
                 $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{num}\' AND x.supplierID = z.supplierID";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
 
@@ -49,36 +49,28 @@ namespace controller
         public Boolean addToCart(string id, string num, int qty, Boolean isLM) //customer id,part num, quantity
         {
             //get cart id of the customer first
-            DataTable dt = new DataTable();
             sqlCmd =
                 $"SELECT cartID FROM cart x, customer_account y where x.customerAccountID = y.customerAccountID AND y.customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             string cartID = dt.Rows[0][0].ToString();
 
             //get item id
-            dt = new DataTable();
             sqlCmd =
                 $"SELECT itemID from product x, spare_part y where x.partNumber = y.partNumber AND y.partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _database.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             //check in cart or not first
-            dt = new DataTable();
-            sqlCmd = $"SELECT * FROM `product_in_cart` WHERE itemID = \'{itemID}\' AND cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            sqlCmd = $"SELECT * FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
+            dt = _database.ExecuteDataTable(sqlCmd);
             Boolean isInCart = (dt.Rows.Count > 0);
 
             if (isInCart)
             {
                 //get qty already in cart first
-                dt = new DataTable();
                 sqlCmd =
-                    $"SELECT quantity FROM `product_in_cart` WHERE itemID = \'{itemID}\' AND cartID = \'{cartID}\'";
-                adr = new MySqlDataAdapter(sqlCmd, conn);
-                adr.Fill(dt);
+                    $"SELECT quantity FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
+                dt = _database.ExecuteDataTable(sqlCmd);
                 int qtyAlreadyInCart = int.Parse(dt.Rows[0][0].ToString());
 
                 //new qty in cart
@@ -87,71 +79,43 @@ namespace controller
                 //update cart value
                 sqlCmd =
                     $"UPDATE product_in_cart SET quantity = @qty WHERE itemID = \'{itemID}\' AND cartID = \'{cartID}\'";
+                Dictionary<string, object> parameters = new Dictionary<string, object>
+                {
+                    { "@qty", newQty }
+                };
 
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@cID", cartID);
-                            command.Parameters.AddWithValue("@iID", itemID);
-                            command.Parameters.AddWithValue("@qty", newQty);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
+                    _database.ExecuteNonQueryCommand(sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
                     return false;
                 }
-                finally
-                {
-                    conn.Close();
-                }
 
-                if (deductQtyInDB(itemID, num, qty,
-                        isLM)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                return deductQtyInDB(itemID, num, qty, isLM);
             }
             else
             {
                 //add to cart
                 sqlCmd = "INSERT INTO product_in_cart VALUES (@cID, @iID, @qty,@date)";
-
-                //try
-                //{
-                using (MySqlConnection connection = new MySqlConnection(connString))
+                Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@cID", cartID);
-                        command.Parameters.AddWithValue("@iID", itemID);
-                        command.Parameters.AddWithValue("@qty", qty);
-                        command.Parameters.AddWithValue("@date", DateTime.Now.ToString("dd/MM/yyyy"));
+                    { "@cID", cartID },
+                    { "@iID", itemID },
+                    { "@qty", qty },
+                    { "@date", DateTime.Now.ToString("dd/MM/yyyy") }
+                };
 
-                        command.ExecuteNonQuery();
-                    }
+                try
+                {
+                    _database.ExecuteNonQueryCommand(sqlCmd, parameters);
+                }
+                catch (Exception ex)
+                {
+                    return false;
                 }
 
-                //}
-                //catch (Exception ex)
-                //{
-                //    return false;
-                //}
-                //finally
-                //{
-                conn.Close();
-                //}
                 if (deductQtyInDB(itemID, num, qty,
                         isLM)) //deduct qty in db as stated in function requirement that when add item to cart, deduct qty in db
                 {
@@ -167,49 +131,37 @@ namespace controller
         public Boolean deductQtyInDB(string itemID, string partNum, int qty, Boolean isLM)
         {
             //get qty in spare_part table first
-            DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{partNum}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             int qtyInDB = int.Parse(dt.Rows[0][0].ToString());
 
             //new qty in spare_part
             qtyInDB -= qty;
 
             //update spare_part table
-            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
+            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@qty", qtyInDB },
+                { "@partNum", partNum }
+            };
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInDB);
-                        command.Parameters.AddWithValue("@partNum", partNum);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
+                Log.LogException(ex, "viewSparePartController");
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             //get qty in product table 
-            dt = new DataTable();
             sqlCmd = !isLM
                 ? $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'"
                 : $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
 
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _database.ExecuteDataTable(sqlCmd);
             qtyInDB = int.Parse(dt.Rows[0][0].ToString());
 
             //new qty in product
@@ -220,27 +172,20 @@ namespace controller
                 ? $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id"
                 : $"UPDATE product SET LM_OnSaleQty = @qty WHERE itemID = @id";
 
+            parameters = new Dictionary<string, object>
+            {
+                { "@qty", qtyInDB },
+                { "@id", itemID }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInDB);
-                        command.Parameters.AddWithValue("@id", itemID);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
+                Log.LogException(ex, "viewSparePartController");
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             return true;

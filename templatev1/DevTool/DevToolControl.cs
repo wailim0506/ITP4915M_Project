@@ -26,19 +26,13 @@ namespace templatev1.DevTool
             Button btnRedirectToStaffForm = new Button();
             btnRedirectToStaffForm.Text = "Redirect to Staff Form";
             btnRedirectToStaffForm.Location = new Point(10, 190);
-            btnRedirectToStaffForm.Click += (s, e) =>
-            {
-                RedirectToStaffForm();
-            };
+            btnRedirectToStaffForm.Click += (s, e) => { RedirectToStaffForm(); };
             Controls.Add(btnRedirectToStaffForm);
 
             Button btnTestDatabaseAndController = new Button();
             btnTestDatabaseAndController.Text = "Test Database and Controller";
             btnTestDatabaseAndController.Location = new Point(10, 220);
-            btnTestDatabaseAndController.Click += (s, e) =>
-            {
-                TestDatabaseAndControllerClicked?.Invoke();
-            };
+            btnTestDatabaseAndController.Click += (s, e) => { TestDatabaseAndControllerClicked?.Invoke(); };
             Controls.Add(btnTestDatabaseAndController);
         }
 
@@ -61,10 +55,7 @@ namespace templatev1.DevTool
             Button testButton = new Button();
             testButton.Text = text;
             testButton.Location = location;
-            testButton.Click += (s, e) =>
-            {
-                TestClicked?.Invoke(username, password);
-            };
+            testButton.Click += (s, e) => { TestClicked?.Invoke(username, password); };
             Controls.Add(testButton);
         }
     }

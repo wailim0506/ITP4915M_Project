@@ -3,7 +3,7 @@
 ## useful links
 
 1. jetbrains student license
-https://www.jetbrains.com/shop/eform/students
+   https://www.jetbrains.com/shop/eform/students
 
 ## package
 
@@ -114,19 +114,23 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 [//]: # (### to use the Mysql.Data package)
 
 [//]: # ()
+
 [//]: # (```csharp)
 
 [//]: # (using MySql.Data.MySqlClient;)
 
 [//]: # ()
+
 [//]: # (string password = "123456";)
 
 [//]: # ()
+
 [//]: # (// create a new instance of the MySqlConnection class)
 
 [//]: # (MySqlConnection connection = new MySqlConnection&#40;"server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"&#41;;)
 
 [//]: # ()
+
 [//]: # (using &#40;connection&#41;)
 
 [//]: # ({)
@@ -136,16 +140,19 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 [//]: # (    connection.Open&#40;&#41;;)
 
 [//]: # ()
+
 [//]: # (    // create a new instance of the MySqlCommand class)
 
 [//]: # (    MySqlCommand command = new MySqlCommand&#40;"SELECT * FROM users WHERE username = @username", connection&#41;;)
 
 [//]: # ()
+
 [//]: # (    // add the parameter to the command)
 
 [//]: # (    command.Parameters.AddWithValue&#40;"@username", "admin"&#41;;)
 
 [//]: # ()
+
 [//]: # (    // execute the command)
 
 [//]: # (    using &#40;MySqlDataReader reader = command.ExecuteReader&#40;&#41;&#41;)
@@ -165,6 +172,7 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 [//]: # (    })
 
 [//]: # (    )
+
 [//]: # (    // method 2)
 
 [//]: # (    // using the dictionary for the parameters)
@@ -176,6 +184,7 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 [//]: # (    command.Parameters.AddRange&#40;parameters.Keys.Select&#40;key => new MySqlParameter&#40;key, parameters[key]&#41;&#41;.ToArray&#40;&#41;&#41;;)
 
 [//]: # ()
+
 [//]: # (    // execute the command)
 
 [//]: # (    using &#40;MySqlDataReader reader = command.ExecuteReader&#40;&#41;&#41;)
@@ -195,6 +204,7 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 [//]: # (    })
 
 [//]: # (    )
+
 [//]: # (})
 
 [//]: # (```)

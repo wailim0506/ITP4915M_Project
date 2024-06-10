@@ -11,53 +11,42 @@ namespace controller
     public class favouriteController : abstractController
     {
         string sqlCmd;
+        private readonly Database _database;
 
-        public favouriteController()
+        public favouriteController(Database database = null)
         {
             sqlCmd = "";
+            _database = database ?? new Database();
         }
 
         public DataTable getFavourite(string id) //customer id
         {
-            DataTable dt = new DataTable();
             sqlCmd =
                 $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
 
         public Boolean removeFromFavourite(string num, string id) //partNum , customerID
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM Product WHERE partNumber = \'{num}\' ";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "DELETE FROM favourite WHERE itemID = @id AND customerID = @cid";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@id", itemID },
+                { "@cid", id }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", itemID);
-                        command.Parameters.AddWithValue("@cid", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception e)
             {
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             return true;
@@ -90,19 +79,15 @@ namespace controller
                     break;
             }
 
-            DataTable dt = new DataTable();
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
 
         public Boolean isFavourite(string num, string id) //part num, customer id
         {
-            DataTable dt = new DataTable();
             sqlCmd =
                 $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             if (dt.Rows.Count != 0)
             {
                 return true;
@@ -113,35 +98,25 @@ namespace controller
 
         public Boolean addToFavourite(string num, string id) //partNum , customerID
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM Product WHERE partNumber = \'{num}\' ";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "INSERT INTO favourite (customerID,itemID) VALUES (@cid,@id);";
+            Dictionary<string, object> parameters = new Dictionary<string, object>
+            {
+                { "@id", itemID },
+                { "@cid", id }
+            };
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", itemID);
-                        command.Parameters.AddWithValue("@cid", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception e)
             {
+                Log.LogException(e, "favouriteController");
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             return true;

@@ -13,6 +13,10 @@ namespace templatev1
 {
     public partial class Login : Form
     {
+        // loading form
+        LoadingForm loadingForm;
+
+
         //For install date in about page.
         public static string sysInsDate = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
@@ -25,6 +29,12 @@ namespace templatev1
         public Login()
         {
             InitializeComponent();
+            // Create an instance of LoadingForm
+            loadingForm = new LoadingForm();
+
+            // Subscribe to the LoadingCompleted event
+            loadingForm.OnExit += OnOnExit;
+            this.Controls.Add(loadingForm);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -66,10 +76,6 @@ namespace templatev1
                 IsLogin = true;
                 rememberMe();
                 accountController.SetLog(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                // loading 
-                LoadingForm loadingForm = new LoadingForm();
-                loadingForm.LoadingCompleted += () => this.Close();
-                loadingForm.Show();
                 //Back to login page
                 Form Home = new Home(accountController, UIController);
                 Hide();
@@ -210,6 +216,13 @@ namespace templatev1
             testDatabaseAndController.Location = new Point(100, 100);
             testDatabaseAndController.Size = Size;
             testDatabaseAndController.ShowDialog();
+        }
+
+        private void OnOnExit()
+        {
+            // Handle the completion of the loading process here
+            // For example, you can remove the LoadingForm from the Form
+            this.Controls.Remove(loadingForm);
         }
     }
 }

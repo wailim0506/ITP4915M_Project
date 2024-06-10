@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Order_Management;
+using templatev1.Properties;
 
 namespace templatev1.Online_Ordering_Platform
 {
@@ -14,25 +12,25 @@ namespace templatev1.Online_Ordering_Platform
     {
         DataTable dtOrder, dtStaff;
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.orderListController controller;
+        AccountController accountController;
+        UIController UIController;
+        orderListController controller;
 
         public customerOrderList()
         {
             InitializeComponent();
-            controller = new controller.orderListController();
+            controller = new orderListController();
             UID = "LMC00001"; //hard code for testing
             //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public customerOrderList(controller.AccountController accountController, controller.UIController UIController)
+        public customerOrderList(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.orderListController();
+            controller = new orderListController();
             //UID = accountController.getUID();
             UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
@@ -67,43 +65,43 @@ namespace templatev1.Online_Ordering_Platform
                         .Split(' '); //since the database also store the time follwing the date, split it so that only date will be disp;ay
                 orderDate = d[0];
 
-                Label lblID = new Label()
+                Label lblID = new Label
                 {
                     Name = $"lblID{i}", Text = $"{dtOrder.Rows[i - 1][0]}",
                     Location = new Point(10, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(109, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblDate = new Label()
+                Label lblDate = new Label
                 {
                     Name = $"lblDate{i}", Text = $"{orderDate}", Location = new Point(125, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12), Size = new Size(112, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblStaff = new Label()
+                Label lblStaff = new Label
                 {
                     Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID),
                     Location = new Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(180, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblContact = new Label()
+                Label lblContact = new Label
                 {
                     Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID),
                     Location = new Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(219, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblStatus = new Label()
+                Label lblStatus = new Label
                 {
                     Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}",
                     Location = new Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(115, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Button btnView = new Button()
+                Button btnView = new Button
                 {
                     Name = $"btnView{i}", Text = "View Order", Location = new Point(810, yPosition - 3),
                     Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true
                 };
-                btnView.Click += new EventHandler(btnView_Click);
+                btnView.Click += btnView_Click;
 
                 pnlOrder.Controls.Add(lblID);
                 pnlOrder.Controls.Add(lblDate);
@@ -197,7 +195,7 @@ namespace templatev1.Online_Ordering_Platform
                         if (control.Name == $"lblID{index}")
                         {
                             Form customerViewOrder =
-                                new Order_Management.customerViewOrder(control.Text, accountController, UIController);
+                                new customerViewOrder(control.Text, accountController, UIController);
                             Hide();
                             customerViewOrder.StartPosition = FormStartPosition.Manual;
                             customerViewOrder.Location = Location;
@@ -214,7 +212,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sortBy = cmbSortOrder.Text.ToString();
+            string sortBy = cmbSortOrder.Text;
             load_data(sortBy);
         }
 
@@ -238,25 +236,25 @@ namespace templatev1.Online_Ordering_Platform
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

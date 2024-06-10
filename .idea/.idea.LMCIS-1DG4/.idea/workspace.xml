@@ -7,20 +7,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="update readme.md">
-      <change afterPath="$PROJECT_DIR$/templatev1/DevTool/DevToolControl.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/DevTool/DevToolControl.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoadingForm.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoadingForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/DevTool/DevToolControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/DevTool/DevToolControl.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoadingForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/LoadingForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Trash/editSupplier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Trash/editSupplier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/User_Manag/SAccManage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/PasswordRecovery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +53,7 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7513305042d41128726d7378f1f9ba4531030/11/0537f6a6/IDisposable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project_github/templatev1/lib/controller/controller/Database.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -66,30 +69,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.LMCIS-1DG4.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.start-server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#9 on master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.LMCIS-1DG4.executor": "Run",
+    "Docker.start-server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "#9 on master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys_rider",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\a1667\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\a1667\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\a1667\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\a1667\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\a1667\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\a1667\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.LMCIS-1DG4">
     <configuration name="LMCIS-1DG4" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/templatev1/bin/Debug/templatev1.exe" />
@@ -128,7 +132,8 @@
       <workItem from="1717935690499" duration="989000" />
       <workItem from="1717937313508" duration="1708000" />
       <workItem from="1717940901204" duration="18701000" />
-      <workItem from="1717961029621" duration="2222000" />
+      <workItem from="1717961029621" duration="2363000" />
+      <workItem from="1717990003360" duration="4363000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -202,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1717954457660</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add LoadingForm for the loading page&#10;add the loading page to the main form&#10;&#10;feel to add the loading page to other forms if needed">
+      <option name="closed" value="true" />
+      <created>1717963309513</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1717963309513</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,25 +245,7 @@
     <MESSAGE value="delete repeating code" />
     <MESSAGE value="Fix the issue of Database.cs" />
     <MESSAGE value="fix Database.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix Database.cs" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs</url>
-          <line>123</line>
-          <properties documentPath="C:\Users\a1667\RiderProjects\ITP4915M_Project_github\templatev1\lib\controller\controller\Database.cs" containingFunctionPresentation="Method 'ExecuteDataTable'">
-            <startOffsets>
-              <option value="4522" />
-            </startOffsets>
-            <endOffsets>
-              <option value="4523" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="add LoadingForm for the loading page&#10;add the loading page to the main form&#10;&#10;feel to add the loading page to other forms if needed" />
+    <option name="LAST_COMMIT_MESSAGE" value="add LoadingForm for the loading page&#10;add the loading page to the main form&#10;&#10;feel to add the loading page to other forms if needed" />
   </component>
 </project>

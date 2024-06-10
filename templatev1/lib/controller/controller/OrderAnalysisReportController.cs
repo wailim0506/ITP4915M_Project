@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
@@ -6,23 +7,24 @@ namespace controller
 {
     public class OrderAnalysisReportController
     {
-        private readonly MySqlConnection _connection;
+        private readonly Database _database;
 
-        public OrderAnalysisReportController(MySqlConnection connection)
+        public OrderAnalysisReportController(Database database = null)
         {
-            _connection = connection;
+            _database = database ?? new Database();
         }
 
         public DataTable GenerateReport(string period, DateTime startDate, DateTime endDate)
         {
-            var report = new DataTable();
             var query =
-                $"SELECT OrderID, CustomerName, OrderDate, DeliveryDate, OrderStatus FROM ShippedOrderTotals WHERE OrderDate BETWEEN @StartDate AND @EndDate AND {GetPeriodCondition(period)}";
-            var command = new MySqlCommand(query, _connection);
-            command.Parameters.AddWithValue("@StartDate", startDate);
-            command.Parameters.AddWithValue("@EndDate", endDate);
-            AddPeriodParameters(command, period, startDate);
-            new MySqlDataAdapter(command).Fill(report);
+                $"SELECT OrderID, CustomerName, OrderDate, OrderStatus FROM shippedordertotals WHERE OrderDate BETWEEN @StartDate AND @EndDate AND {GetPeriodCondition(period)}";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@StartDate", startDate },
+                { "@EndDate", endDate }
+            };
+            AddPeriodParameters(parameters, period, startDate);
+            var report = _database.ExecuteDataTable(query, parameters);
             return report;
         }
 
@@ -42,19 +44,19 @@ namespace controller
             }
         }
 
-        private void AddPeriodParameters(MySqlCommand command, string period, DateTime startDate)
+        private void AddPeriodParameters(Dictionary<string, object> parameters, string period, DateTime startDate)
         {
             switch (period.ToLower())
             {
                 case "yearly":
-                    command.Parameters.AddWithValue("@Year", startDate.Year);
+                    parameters.Add("@Year", startDate.Year);
                     break;
                 case "monthly":
-                    command.Parameters.AddWithValue("@Month", startDate.Month);
-                    command.Parameters.AddWithValue("@Year", startDate.Year);
+                    parameters.Add("@Month", startDate.Month);
+                    parameters.Add("@Year", startDate.Year);
                     break;
                 case "daily":
-                    command.Parameters.AddWithValue("@Date", startDate.Date);
+                    parameters.Add("@Date", startDate.Date);
                     break;
                 default:
                     throw new ArgumentException(
