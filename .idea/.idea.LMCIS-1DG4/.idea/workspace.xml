@@ -8,12 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="replace mysql to db class">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +36,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/wailim0506/ITP4915M_Project.git&quot;,
-    &quot;accountId&quot;: &quot;57f30ebb-2ce3-4e45-84d9-f98f94d5146f&quot;
+    &quot;accountId&quot;: &quot;55d56015-6f21-4a08-bc76-d2d26f438c47&quot;
   },
   &quot;editorReviewEnabled&quot;: false
 }</component>
@@ -79,9 +77,9 @@
       "mysql"
     ],
     "rider.external.source.directories": [
-      "C:\\Users\\19647\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\19647\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\19647\\AppData\\Local\\Symbols\\src"
+      "C:\\Users\\Waili\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Waili\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Waili\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
@@ -128,6 +126,8 @@
       <workItem from="1718002882145" duration="1514000" />
       <workItem from="1718004553800" duration="3104000" />
       <workItem from="1718088337043" duration="62000" />
+      <workItem from="1718100955518" duration="795000" />
+      <workItem from="1718101864176" duration="2671000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />

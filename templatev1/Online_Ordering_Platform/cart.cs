@@ -72,19 +72,19 @@ namespace templatev1.Online_Ordering_Platform
                 };
                 Label lblCategory = new Label()
                 {
-                    Text = $"{dt.Rows[i][4]}", Location = new Point(37, yPosition),
+                    Text = $"{dt.Rows[i][5]}", Location = new Point(37, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(89, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label()
                 {
-                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][5]}",
+                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][6]}",
                     Location = new Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
                     Size = new Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label()
                 {
-                    Text = $"{dt.Rows[i][14]}", Location = new Point(279, yPosition),
+                    Text = $"{dt.Rows[i][16]}", Location = new Point(279, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -96,7 +96,7 @@ namespace templatev1.Online_Ordering_Platform
                 };
                 Label lblUnitPrice = new Label()
                 {
-                    Text = $"¥{dt.Rows[i][8]}", Location = new Point(629, yPosition),
+                    Text = $"¥{dt.Rows[i][10]}", Location = new Point(629, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(95, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -152,6 +152,7 @@ namespace templatev1.Online_Ordering_Platform
                             viewSparePart.ShowDialog();
                             Close();
                             return;
+                            //MessageBox.Show(control.Text);
                         }
                     }
                 }

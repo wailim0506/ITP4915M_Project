@@ -123,39 +123,40 @@ namespace controller
 
         public Boolean deductQtyInDB(string itemID, string partNum, int qty, Boolean isLM)
         {
+            // no need to deduct from spare part table when add to cart, only deduct from product table
             //get qty in spare_part table first
-            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{partNum}\'";
-            DataTable dt = _database.ExecuteDataTable(sqlCmd);
-            int qtyInDB = int.Parse(dt.Rows[0][0].ToString());
-
-            //new qty in spare_part
-            qtyInDB -= qty;
-
-            //update spare_part table
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
-            Dictionary<string, object> parameters = new Dictionary<string, object>
-            {
-                { "@qty", qtyInDB },
-                { "@partNum", partNum }
-            };
-
-            try
-            {
-                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
-            }
-            catch (Exception ex)
-            {
-                Log.LogException(ex, "viewSparePartController");
-                return false;
-            }
+            // sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{partNum}\'";
+            // DataTable dt = _database.ExecuteDataTable(sqlCmd);
+            // int qtyInDB = int.Parse(dt.Rows[0][0].ToString());
+            //
+            // //new qty in spare_part
+            // qtyInDB -= qty;
+            //
+            // //update spare_part table
+            // sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @partNum";
+            // Dictionary<string, object> parameters = new Dictionary<string, object>
+            // {
+            //     { "@qty", qtyInDB },
+            //     { "@partNum", partNum }
+            // };
+            //
+            // try
+            // {
+            //     _database.ExecuteNonQueryCommand(sqlCmd, parameters);
+            // }
+            // catch (Exception ex)
+            // {
+            //     Log.LogException(ex, "viewSparePartController");
+            //     return false;
+            // }
 
             //get qty in product table 
             sqlCmd = !isLM
                 ? $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'"
                 : $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
 
-            dt = _database.ExecuteDataTable(sqlCmd);
-            qtyInDB = int.Parse(dt.Rows[0][0].ToString());
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
+            int qtyInDB = int.Parse(dt.Rows[0][0].ToString());
 
             //new qty in product
             qtyInDB -= qty;
@@ -165,7 +166,7 @@ namespace controller
                 ? $"UPDATE product SET OnSaleQty = @qty WHERE itemID = @id"
                 : $"UPDATE product SET LM_OnSaleQty = @qty WHERE itemID = @id";
 
-            parameters = new Dictionary<string, object>
+            Dictionary<string, object> parameters = new Dictionary<string, object>
             {
                 { "@qty", qtyInDB },
                 { "@id", itemID }
