@@ -35,7 +35,7 @@ namespace controller
         //Set user permission and determine which function button to be shown.
         public void SetPermission(string UserID)
         {
-            AccountType = UserID.StartsWith("LMC") || UserID.StartsWith("LMS") ? "Customer" : "Staff";
+            AccountType = UserID.StartsWith("LMC") ? "Customer" : "Staff";
             string permissionIDQuery =
                 $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
             permission = AccountType.Equals("Customer")

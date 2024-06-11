@@ -133,7 +133,7 @@ namespace controller
 
         public static string HashPassword(string password)
         {
-            var RecoveryController = new RecoveryController();
+            RecoveryController RecoveryController = new RecoveryController();
             return RecoveryController.HashPassword(password);
         }
 

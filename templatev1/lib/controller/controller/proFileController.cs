@@ -205,7 +205,7 @@ namespace controller
         public List<string> getpriovince()
         {
             DataTable dt = new DataTable();
-            sqlStr = $"SELECT DISTINCT priovince FROM location";
+            sqlStr = $"SELECT DISTINCT province FROM location";
             adr = new MySqlDataAdapter(sqlStr, conn);
             adr.Fill(dt);
             adr.Dispose();
@@ -213,7 +213,7 @@ namespace controller
 
             for (int i = 0; i <= (dt.Rows.Count - 1); i++)
             {
-                priovince.Add(dt.Rows[i]["priovince"].ToString());
+                priovince.Add(dt.Rows[i]["province"].ToString());
             }
 
             return priovince;
