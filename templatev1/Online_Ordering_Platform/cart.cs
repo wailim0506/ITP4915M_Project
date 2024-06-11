@@ -375,7 +375,7 @@ namespace templatev1.Online_Ordering_Platform
                 }
 
                 //update db with user input
-                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM))
+                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM,false,0))
                 {
                     //update qty in user cart
                     if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))

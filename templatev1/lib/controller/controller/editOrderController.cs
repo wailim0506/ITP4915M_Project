@@ -76,9 +76,8 @@ namespace controller
                     .Rows[0][0].ToString());
         }
 
-        public Boolean
-            AddQtyBack(string num, int currentOrderQty, int desiredQty,
-                Boolean isLM) //part num //add qty back to db for product table and spare_part table
+        public Boolean AddQtyBack(string num, int currentOrderQty, int desiredQty,
+            Boolean isLM)
         {
             cartController cc = new cartController();
             try
@@ -92,10 +91,48 @@ namespace controller
             }
         }
 
-        public Boolean EditDbQty(string num, int desiredQty, Boolean isLM)
+        public Boolean
+            AddQtyBackToSparePart(string num,string id, int currentOrderQty)  //part num, order id
+           
+        {
+            
+
+
+            int partQtyInSparePart = GetSpareQtyInDb(num);  //current qty in db
+
+            partQtyInSparePart += currentOrderQty;
+            try
+            {
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE spare_part SET quantity = @qty WHERE partNumber = @num",
+                    new Dictionary<string, object> { { "@qty", partQtyInSparePart }, { "@num", num } });
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        
+        public int GetSpareQtyInDb(string num)
+        {
+            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTable(
+                $"SELECT quantity FROM spare_part " +
+                $"WHERE partNumber = '{num}'").Rows[0][0].ToString());
+            return qtyInSpare_Part;
+        }
+
+        public int getPartQtyInOrder(string id, string num) //order id, part num
+        {
+            sqlCmd = $"SELECT quantity from order_line WHERE partNumber = \'{num}\' AND orderID = \'{id}\'";
+            return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
+        }
+
+        public Boolean EditDbQty(string num, int desiredQty, Boolean isLM,string id) //order id
         {
             cartController cc = new cartController();
-            if (cc.editDbQty(num, desiredQty, isLM))
+            if (cc.editDbQty(num, desiredQty, isLM,true, getPartQtyInOrder(id,num)))
             {
                 return true;
             }

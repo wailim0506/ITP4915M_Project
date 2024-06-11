@@ -223,7 +223,7 @@ namespace controller
             return true;
         }
 
-        public Boolean editDbQty(string num, int newQty, Boolean isLM) //part num 
+        public Boolean editDbQty(string num, int newQty, Boolean isLM,Boolean editOrder,int currentQtyInOrder) //part num 
         {
             //get the qty in db first
             int qtyInProduct = getOnSaleQtyInDb(num, isLM);
@@ -231,7 +231,7 @@ namespace controller
 
             //deduct db qty with cart qty
             qtyInProduct -= newQty;
-            qtyInSpare_Part -= newQty;
+            
 
             //edit to db
             if (!isLM)
@@ -266,31 +266,38 @@ namespace controller
             {
                 conn.Close();
             }
-            //Since no deduction in spare part table when add to cat, no need to add back to spare part table
-            //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-            //try
-            //{
-            //    using (MySqlConnection connection = new MySqlConnection(connString))
-            //    {
-            //        connection.Open();
 
-            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-            //        {
-            //            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-            //            command.Parameters.AddWithValue("@num", num);
+            if (editOrder == true)
+            {
+                //Since no deduction in spare part table when add to cat, no need to deduct in spare part table, only deduct when editing order
+                qtyInSpare_Part += currentQtyInOrder;
+                qtyInSpare_Part -= newQty;
+                sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connString))
+                    {
+                        connection.Open();
 
-            //            command.ExecuteNonQuery();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return false;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
+                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                        {
+                            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
+                            command.Parameters.AddWithValue("@num", num);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            
 
             return true;
         }

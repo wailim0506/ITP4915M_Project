@@ -97,7 +97,7 @@ namespace templatev1.Order_Management
             if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete))
             {
                 //add qty back to db
-                controller.AddQtyBack(partToDelete, qtyInOrderNow, 0, isLM);
+                controller.AddQtyBackToSparePart(partToDelete, orderID,qtyInOrderNow);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
@@ -199,7 +199,7 @@ namespace templatev1.Order_Management
                 }
 
                 //deduct db qty after adding back order qty to db
-                if (controller.EditDbQty(partToUpdate, int.Parse(quantity), isLM))
+                if (controller.EditDbQty(partToUpdate, int.Parse(quantity), isLM, orderID))
                 {
                     //edit order line qty
                     if (controller.EditOrderLineQuantity(orderID, partToUpdate, quantity))

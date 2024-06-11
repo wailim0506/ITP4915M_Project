@@ -247,7 +247,7 @@ namespace templatev1.Order_Management
                     //add back now;
                     foreach (KeyValuePair<string, int> q in partNumQty)
                     {
-                        controller.addQtyback(q.Key, q.Value, isLM);
+                        controller.addQtyback(q.Key, q.Value, UID);
                     }
 
                     if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))

@@ -304,10 +304,10 @@ namespace controller
             return partNumQty;
         }
 
-        public void addQtyback(string partNum, int qtyInOrder, Boolean isLM)
+        public void addQtyback(string partNum, int qtyInOrder, string id) //order id
         {
-            cartController c = new cartController();
-            c.addQtyBack(partNum, qtyInOrder, 0, isLM);
+            editOrderController c = new editOrderController();
+            c.AddQtyBackToSparePart(partNum,id,qtyInOrder);
         }
 
         public Boolean addBackToSparePartQty(string num, int qtyInOrder)

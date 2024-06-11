@@ -7,7 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="fixed database row index in customer page">
+    <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="fix deduction in qty in spare part table when create order">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" afterDir="false" />
@@ -49,6 +49,7 @@
   &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder/templatev1/Online_Ordering_Platform/cart.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder/templatev1/Online_Ordering_Platform/cart.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -134,7 +135,7 @@
       <workItem from="1718004553800" duration="3104000" />
       <workItem from="1718088337043" duration="62000" />
       <workItem from="1718100955518" duration="795000" />
-      <workItem from="1718101864176" duration="6721000" />
+      <workItem from="1718101864176" duration="10449000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -248,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718110232475</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fix deduction in qty in spare part table when create order">
+      <option name="closed" value="true" />
+      <created>1718114187477</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1718114187477</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,6 +291,7 @@
     <MESSAGE value="Fix the LoadingForm.cs case program crash" />
     <MESSAGE value="replace mysql to db class" />
     <MESSAGE value="fixed database row index in customer page" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed database row index in customer page" />
+    <MESSAGE value="fix deduction in qty in spare part table when create order" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix deduction in qty in spare part table when create order" />
   </component>
 </project>
