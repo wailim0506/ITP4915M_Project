@@ -46,12 +46,7 @@ namespace controller
         {
             return c.getDelivermanDetail(id);
         }
-
-        public string GetShippingAddress(string id) //customerID
-        {
-            return c.getShippingAddress(id);
-        }
-
+        
         public DataTable GetOrder(string id) //orderID
         {
             return c.getOrder(id);

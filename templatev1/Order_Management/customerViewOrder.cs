@@ -105,7 +105,7 @@ namespace templatev1.Order_Management
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
 
-            lblShippingAddress.Text = controller.getShippingAddress(UID);
+            lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing")
             {
                 lblDayUntil.Text = $"{dayDifference(orderID)} day(s) until shipping";

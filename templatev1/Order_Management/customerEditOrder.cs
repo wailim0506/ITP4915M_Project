@@ -406,7 +406,7 @@ namespace templatev1.Order_Management
             lblDelivermanContact.Text = delivermanDetail[2];
             lblShippingDate.Text = $"{shippingDate}";
             lblExpressNum.Text = dt.Rows[0][4].ToString();
-            lblShippingAddress.Text = controller.GetShippingAddress(UID);
+            lblShippingAddress.Text = dt.Rows[0][5].ToString();
 
             //order basic info
             dt = controller.GetOrder(orderID);

@@ -193,7 +193,8 @@ namespace controller
             {
                 conn.Close();
             }
-
+            
+            //Since no deduction in spare part table when add to cat, no need to add back to spare part table
             //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
             //try
             //{
@@ -265,7 +266,7 @@ namespace controller
             {
                 conn.Close();
             }
-
+            //Since no deduction in spare part table when add to cat, no need to add back to spare part table
             //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
             //try
             //{
@@ -336,7 +337,44 @@ namespace controller
             return qtyInSpare_Part;
         }
 
-        public Boolean CreateOrder(string id, string shippingDate) //customerID
+        public Boolean deductQtyInSparePart(string id) //customer id
+        {
+            List<string> partNum = getAllPartNumInCart(id);//customer id
+            List<int> qtyInCart = getAllItemQtyInCart(id);//customer id
+            int qtyInSparePart;
+            for (int i = 0; i < partNum.Count; i++)
+            {
+                qtyInSparePart = GetSpareQtyInDb(partNum[i]);
+                qtyInSparePart -= qtyInCart[i]; //deduct the cart qty
+                sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+                try
+                {
+                    using (MySqlConnection connection = new MySqlConnection(connString))
+                    {
+                        connection.Open();
+
+                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+                        {
+                            command.Parameters.AddWithValue("@qty", qtyInSparePart);
+                            command.Parameters.AddWithValue("@num", partNum[i]);
+
+                            command.ExecuteNonQuery();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
+            return true;
+        }
+
+        public Boolean CreateOrder(string id, string shippingDate,string shippingAddress) //customerID
         {
             //get the customer account id first
             string customerAccountID =
@@ -376,9 +414,20 @@ namespace controller
             }
 
             //insert to order line, create invoice
-            return CreateOrderLineRow(id, orderID) &&
-                   createInvoice(customerAccountID, orderID) &&
-                   createShippingDetail(orderID, shippingDate);
+            if (CreateOrderLineRow(id, orderID) &&
+                createInvoice(customerAccountID, orderID) &&
+                createShippingDetail(orderID, shippingDate, shippingAddress))
+            {
+                //deduct qty in spare part table
+                return deductQtyInSparePart(id);
+            }
+            else
+            {
+                return false;
+            }
+            
+            
+
         }
 
         public Boolean CreateOrderLineRow(string cid, string id) //customer id, order id
@@ -391,10 +440,10 @@ namespace controller
                 string sqlCmd = $"INSERT INTO order_line VALUES(@partNum,@orderID,@qty,@price)";
                 var parameters = new Dictionary<string, object>
                 {
-                    { "@partNum", dt.Rows[i][5].ToString() },
+                    { "@partNum", dt.Rows[i][6].ToString() },
                     { "@orderID", id },
                     { "@qty", dt.Rows[i][2].ToString() },
-                    { "@price", dt.Rows[i][8].ToString() }
+                    { "@price", dt.Rows[i][10].ToString() }
                 };
 
                 try
@@ -439,16 +488,17 @@ namespace controller
             return true;
         }
 
-        public Boolean createShippingDetail(string id, string shippingDate)
+        public Boolean createShippingDetail(string id, string shippingDate,string shippingAddress)
         {
             string deliverman = delivermanAssignment();
             string sqlCmd =
-                "INSERT INTO shipping_detail (orderID, delivermanID, shippingDate) VALUES(@orderID,@deliverman,@date)";
+                "INSERT INTO shipping_detail (orderID, delivermanID, shippingDate, shippingAddress) VALUES(@orderID,@deliverman,@date,@shippingAddress)";
             var parameters = new Dictionary<string, object>
             {
                 { "@orderID", id },
                 { "@deliverman", deliverman },
-                { "@date", shippingDate }
+                { "@date", shippingDate },
+                { "@shippingAddress",shippingAddress }
             };
 
             try

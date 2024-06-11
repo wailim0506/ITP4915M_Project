@@ -100,14 +100,7 @@ namespace controller
             adr.Fill(dt);
             return dt.Rows[0][0].ToString();
         }
-
-        public string getShippingAddress(string id) //customerID
-        {
-            AccountController ac = new AccountController();
-            DataTable dt = ac.GetCustomerDetail(id);
-            return $"{dt.Rows[0][10].ToString()}, {dt.Rows[0][7].ToString()}, {dt.Rows[0][8].ToString()}";
-        }
-
+        
         public DataTable getShippingDetail(string id) //orderID
         {
             //orderID

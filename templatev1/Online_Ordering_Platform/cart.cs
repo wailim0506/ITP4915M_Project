@@ -412,12 +412,13 @@ namespace templatev1.Online_Ordering_Platform
                 if (tbAddress.Text != "" && tbProvince.Text != "" &&
                     tbCity.Text != "") //check shipping detail is filled
                 {
+                    string shippingAddress = $"{tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}";
                     DialogResult dialogResult = MessageBox.Show(
                         $"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}",
                         "Create Order", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")))
+                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),shippingAddress))
                         {
                             controller.ClearCustomerCartAfterCreateOrder(UID);
                             DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",
