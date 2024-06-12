@@ -228,9 +228,6 @@ namespace templatev1.Online_Ordering_Platform
 
                 i++;
             }
-
-            int x = -1;
-            return x;
         }
 
         private void BWMode()

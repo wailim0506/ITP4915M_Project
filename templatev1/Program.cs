@@ -24,8 +24,8 @@ namespace templatev1
                 ConfigureServices(service);
                 var serviceProvider = service.BuildServiceProvider();
                 // Start new thread to run the application
-                StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new customerOrderList()));
+                //StartThread(() => RunApplication(() => new Login()));
+                StartThread(() => RunApplication(() => new deliverman()));
             }
             catch (Exception ex)
             {
@@ -55,6 +55,7 @@ namespace templatev1
                 typeof(AccountController),
                 typeof(addPartToOrderController),
                 typeof(cartController),
+                typeof(delivermanOrderListController),
                 typeof(editOrderController),
                 typeof(favouriteController),
                 typeof(feedbackController),

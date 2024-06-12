@@ -47,22 +47,25 @@
             this.lblTitTime = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlUpJob = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
-            this.cmbSorting = new System.Windows.Forms.ComboBox();
+            this.cmbUpcomingSorting = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlOrder = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pnlFinishedJob = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbFinishedSorting = new System.Windows.Forms.ComboBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.pnlOrder.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -227,9 +230,8 @@
             // 
             // lblDBDate
             // 
-            this.lblDBDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDBDate.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblDBDate.Location = new System.Drawing.Point(261, 126);
+            this.lblDBDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBDate.Location = new System.Drawing.Point(257, 150);
             this.lblDBDate.Name = "lblDBDate";
             this.lblDBDate.Size = new System.Drawing.Size(129, 22);
             this.lblDBDate.TabIndex = 111;
@@ -238,9 +240,8 @@
             // 
             // lblTitTime
             // 
-            this.lblTitTime.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTitTime.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.lblTitTime.Location = new System.Drawing.Point(396, 126);
+            this.lblTitTime.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitTime.Location = new System.Drawing.Point(392, 150);
             this.lblTitTime.Name = "lblTitTime";
             this.lblTitTime.Size = new System.Drawing.Size(150, 22);
             this.lblTitTime.TabIndex = 112;
@@ -249,9 +250,8 @@
             // 
             // label2
             // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label2.Location = new System.Drawing.Point(552, 126);
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(548, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(489, 22);
             this.label2.TabIndex = 114;
@@ -260,17 +260,25 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.pnlOrder);
-            this.groupBox1.Location = new System.Drawing.Point(212, 149);
+            this.groupBox1.Controls.Add(this.pnlUpJob);
+            this.groupBox1.Location = new System.Drawing.Point(208, 173);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(946, 780);
+            this.groupBox1.Size = new System.Drawing.Size(946, 359);
             this.groupBox1.TabIndex = 115;
             this.groupBox1.TabStop = false;
+            // 
+            // pnlUpJob
+            // 
+            this.pnlUpJob.AutoScroll = true;
+            this.pnlUpJob.Location = new System.Drawing.Point(3, 10);
+            this.pnlUpJob.Name = "pnlUpJob";
+            this.pnlUpJob.Size = new System.Drawing.Size(940, 345);
+            this.pnlUpJob.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(942, 84);
+            this.label4.Location = new System.Drawing.Point(962, 109);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 24);
@@ -278,107 +286,131 @@
             this.label4.Text = "Sort By:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // cmbSorting
+            // cmbUpcomingSorting
             // 
-            this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "Category",
-            "Price (Ascending)",
-            "Price (Descending)"});
-            this.cmbSorting.Location = new System.Drawing.Point(1007, 84);
-            this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(151, 26);
-            this.cmbSorting.TabIndex = 116;
+            this.cmbUpcomingSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUpcomingSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUpcomingSorting.FormattingEnabled = true;
+            this.cmbUpcomingSorting.Items.AddRange(new object[] {
+            "Nearest Dates",
+            "Furthest Dates"});
+            this.cmbUpcomingSorting.Location = new System.Drawing.Point(1027, 109);
+            this.cmbUpcomingSorting.Name = "cmbUpcomingSorting";
+            this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbUpcomingSorting.TabIndex = 116;
+            this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
             // 
             // label1
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label1.Location = new System.Drawing.Point(225, 126);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label1.Location = new System.Drawing.Point(205, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(30, 22);
-            this.label1.TabIndex = 112;
-            this.label1.Text = "1.";
+            this.label1.Size = new System.Drawing.Size(168, 26);
+            this.label1.TabIndex = 118;
+            this.label1.Text = "Upcoming Jobs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pnlOrder
-            // 
-            this.pnlOrder.AutoScroll = true;
-            this.pnlOrder.Controls.Add(this.button1);
-            this.pnlOrder.Controls.Add(this.label3);
-            this.pnlOrder.Controls.Add(this.label5);
-            this.pnlOrder.Controls.Add(this.label6);
-            this.pnlOrder.Controls.Add(this.label7);
-            this.pnlOrder.Location = new System.Drawing.Point(3, 10);
-            this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(940, 764);
-            this.pnlOrder.TabIndex = 0;
             // 
             // label3
             // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label3.Location = new System.Drawing.Point(10, 9);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label3.Location = new System.Drawing.Point(206, 555);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 22);
-            this.label3.TabIndex = 116;
-            this.label3.Text = "1.";
+            this.label3.Size = new System.Drawing.Size(152, 26);
+            this.label3.TabIndex = 119;
+            this.label3.Text = "Finished Jobs";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label5
             // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label5.Location = new System.Drawing.Point(46, 9);
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(257, 594);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(129, 22);
-            this.label5.TabIndex = 115;
+            this.label5.TabIndex = 120;
             this.label5.Text = "Order ID";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label6
             // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label6.Location = new System.Drawing.Point(337, 9);
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(548, 594);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(489, 22);
-            this.label6.TabIndex = 118;
+            this.label6.TabIndex = 122;
             this.label6.Text = "Delivery Address";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.pnlFinishedJob);
+            this.groupBox2.Location = new System.Drawing.Point(208, 617);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(946, 303);
+            this.groupBox2.TabIndex = 123;
+            this.groupBox2.TabStop = false;
+            // 
+            // pnlFinishedJob
+            // 
+            this.pnlFinishedJob.AutoScroll = true;
+            this.pnlFinishedJob.Location = new System.Drawing.Point(3, 10);
+            this.pnlFinishedJob.Name = "pnlFinishedJob";
+            this.pnlFinishedJob.Size = new System.Drawing.Size(940, 290);
+            this.pnlFinishedJob.TabIndex = 0;
+            // 
             // label7
             // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.label7.Location = new System.Drawing.Point(181, 9);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(392, 594);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(150, 22);
-            this.label7.TabIndex = 117;
+            this.label7.TabIndex = 121;
             this.label7.Text = "Delivery Date";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // label8
             // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(832, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 31);
-            this.button1.TabIndex = 119;
-            this.button1.Text = "View Order";
-            this.button1.UseVisualStyleBackColor = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(962, 558);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(62, 24);
+            this.label8.TabIndex = 125;
+            this.label8.Text = "Sort By:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbFinishedSorting
+            // 
+            this.cmbFinishedSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFinishedSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbFinishedSorting.FormattingEnabled = true;
+            this.cmbFinishedSorting.Items.AddRange(new object[] {
+            "Nearest Dates",
+            "Furthest Dates"});
+            this.cmbFinishedSorting.Location = new System.Drawing.Point(1027, 558);
+            this.cmbFinishedSorting.Name = "cmbFinishedSorting";
+            this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbFinishedSorting.TabIndex = 124;
+            this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
             // 
             // deliverman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbFinishedSorting);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.cmbSorting);
+            this.Controls.Add(this.cmbUpcomingSorting);
             this.Controls.Add(this.lblDBDate);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox1);
@@ -399,9 +431,9 @@
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.pnlOrder.ResumeLayout(false);
-            this.pnlOrder.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -426,14 +458,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox cmbSorting;
+        private System.Windows.Forms.ComboBox cmbUpcomingSorting;
+        private System.Windows.Forms.Panel pnlUpJob;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlOrder;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel pnlFinishedJob;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbFinishedSorting;
     }
 }
 

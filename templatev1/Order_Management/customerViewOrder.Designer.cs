@@ -712,9 +712,8 @@ namespace templatev1.Order_Management
             this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(381, 124);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderID.Size = new System.Drawing.Size(0, 20);
             this.lblOrderID.TabIndex = 74;
-            this.lblOrderID.Text = "Order ID :";
             // 
             // lblOrderSerialNum
             // 
@@ -722,9 +721,8 @@ namespace templatev1.Order_Management
             this.lblOrderSerialNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderSerialNum.Location = new System.Drawing.Point(381, 170);
             this.lblOrderSerialNum.Name = "lblOrderSerialNum";
-            this.lblOrderSerialNum.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 20);
             this.lblOrderSerialNum.TabIndex = 75;
-            this.lblOrderSerialNum.Text = "Order ID :";
             // 
             // lblOrderDate
             // 
@@ -732,9 +730,8 @@ namespace templatev1.Order_Management
             this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(381, 217);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 20);
             this.lblOrderDate.TabIndex = 76;
-            this.lblOrderDate.Text = "Order ID :";
             // 
             // lblStaffIncharge
             // 
@@ -742,9 +739,8 @@ namespace templatev1.Order_Management
             this.lblStaffIncharge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffIncharge.Location = new System.Drawing.Point(381, 264);
             this.lblStaffIncharge.Name = "lblStaffIncharge";
-            this.lblStaffIncharge.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffIncharge.Size = new System.Drawing.Size(0, 20);
             this.lblStaffIncharge.TabIndex = 77;
-            this.lblStaffIncharge.Text = "Order ID :";
             // 
             // lblStaffID
             // 
@@ -752,9 +748,8 @@ namespace templatev1.Order_Management
             this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffID.Location = new System.Drawing.Point(381, 311);
             this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffID.Size = new System.Drawing.Size(0, 20);
             this.lblStaffID.TabIndex = 78;
-            this.lblStaffID.Text = "Order ID :";
             // 
             // lblStaffContact
             // 
@@ -762,9 +757,8 @@ namespace templatev1.Order_Management
             this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffContact.Location = new System.Drawing.Point(381, 358);
             this.lblStaffContact.Name = "lblStaffContact";
-            this.lblStaffContact.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffContact.Size = new System.Drawing.Size(0, 20);
             this.lblStaffContact.TabIndex = 79;
-            this.lblStaffContact.Text = "Order ID :";
             // 
             // lblStatus
             // 
@@ -772,9 +766,8 @@ namespace templatev1.Order_Management
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(381, 405);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(78, 20);
+            this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 80;
-            this.lblStatus.Text = "Order ID :";
             // 
             // btnReorder
             // 

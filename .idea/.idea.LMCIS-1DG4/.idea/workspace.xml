@@ -9,8 +9,10 @@
   <component name="ChangeListManager">
     <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerOrderList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,8 +47,7 @@
   &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder/templatev1/Online_Ordering_Platform/cart.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder/templatev1/Online_Ordering_Platform/cart.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder (2)/templatev1/lib/controller/controller/AccountController.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -62,31 +63,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.LMCIS-1DG4.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.start-server.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.Confirmation&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.LMCIS-1DG4.executor": "Run",
+    "Docker.start-server.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "project.propVCSSupport.Confirmation",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ],
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\19647\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\19647\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\19647\\AppData\\Local\\Symbols\\src&quot;
+    "rider.external.source.directories": [
+      "C:\\Users\\Waili\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Waili\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\Waili\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Project.LMCIS-1DG4">
     <configuration name="LMCIS-1DG4" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/templatev1/bin/Debug/templatev1.exe" />
@@ -135,6 +136,7 @@
       <workItem from="1718120030830" duration="119000" />
       <workItem from="1718160229207" duration="3205000" />
       <workItem from="1718163491142" duration="865000" />
+      <workItem from="1718196707488" duration="4009000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
@@ -264,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718118291075</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fixed if isLM  in AccountController.cs">
+      <option name="closed" value="true" />
+      <created>1718199229221</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1718199229221</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,6 +310,7 @@
     <MESSAGE value="fixed database row index in customer page" />
     <MESSAGE value="fix deduction in qty in spare part table when create order" />
     <MESSAGE value="fixed db qty handling when customer edit qty of spare part in order" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed db qty handling when customer edit qty of spare part in order" />
+    <MESSAGE value="fixed if isLM  in AccountController.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed if isLM  in AccountController.cs" />
   </component>
 </project>

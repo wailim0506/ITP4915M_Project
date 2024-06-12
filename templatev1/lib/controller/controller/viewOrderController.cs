@@ -466,5 +466,21 @@ namespace controller
             cartController c = new cartController();
             return c.addQtyBack(num, currentCartQty, desiredQty, isLM);
         }
+
+
+        public bool delivermanJobFinished(string id) //order id
+        {
+            try
+            {
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE order_ SET status = @status WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@status", "Shipped" }, { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return true;
+        }
     }
 }

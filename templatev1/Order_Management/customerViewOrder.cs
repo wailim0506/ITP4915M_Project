@@ -21,10 +21,11 @@ namespace templatev1.Order_Management
         string shipDate;
         private Boolean isLM;
 
-        public customerViewOrder()
+        public customerViewOrder(string orderID)
         {
             InitializeComponent();
             controller = new controller.viewOrderController();
+            this.orderID = orderID;
         }
 
         public customerViewOrder(string orderID, controller.AccountController accountController,
