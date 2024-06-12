@@ -29,6 +29,7 @@ namespace templatev1.Order_Management
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@ namespace templatev1.Order_Management
             this.pnlSP = new System.Windows.Forms.Panel();
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
             this.lblOrderDateLabel = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -699,6 +701,10 @@ namespace templatev1.Order_Management
             this.lblOrderDateLabel.TabIndex = 92;
             this.lblOrderDateLabel.Text = "Order Date :";
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // delivermanViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -817,5 +823,6 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Panel pnlSP;
         private System.Windows.Forms.Label lblOrderIDLabel;
         private System.Windows.Forms.Label lblOrderDateLabel;
+        private System.Windows.Forms.Timer timer1;
     }
 }

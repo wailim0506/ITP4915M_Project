@@ -45,6 +45,7 @@ namespace templatev1.Order_Management
 
         private void delivermanViewOrder_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
             load_data();
         }
@@ -333,6 +334,12 @@ namespace templatev1.Order_Management
                     MessageBox.Show("Please try again.", "Job Finished",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }          
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+
         }
 
         private string systemDateFormat()
