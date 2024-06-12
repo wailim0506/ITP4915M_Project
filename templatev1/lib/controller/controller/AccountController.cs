@@ -31,7 +31,7 @@ namespace controller
             try
             {
                 var dt = ExecuteSqlQuery(GetAccountDataQuery(UID));
-
+                
                 // Account not found
                 if (dt.Rows.Count < 1)
                 {
@@ -43,7 +43,7 @@ namespace controller
                 if (IsPasswordValid(Pass, dt.Rows[0]["password"].ToString()) &&
                     IsAccountActive(dt.Rows[0]["status"].ToString()))
                 {
-                    SetLoginStatus(UID, UI);
+                   SetLoginStatus(UID, UI);
                 }
 
                 return IsLogin;
@@ -83,15 +83,14 @@ namespace controller
 
         private void SetLoginStatus(string UID, UIController UI)
         {
-            var dt = ExecuteSqlQuery(GetIsLmDataQuery(UID));
-            if (dt.Rows[0][0].ToString() == "Y")
-            {
-                isLM = true;
-            }
+            //var dt = ExecuteSqlQuery(GetIsLmDataQuery(UID));
+            //if (dt.Rows[0][0].ToString() == "Y")
+            //{
+               // isLM = true;
+           // }
 
             IsLogin = true;
             UserID = UID;
-            AccountType = GetAccountType(UID);
             UIController = UI;
             UserInfo();
             UIController.SetPermission(UserID);
@@ -115,7 +114,7 @@ namespace controller
 
         private string GetUserInfoDataQuery(string UID)
         {
-            return UID.StartsWith("LMC") || UID.StartsWith("LMS")
+            return UID.StartsWith("LMC")
                 ? $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = '{UID}' AND C.customerID = '{UID}'"
                 : $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = '{UID}' AND S.staffID = '{UID}'";
         }
@@ -213,7 +212,7 @@ namespace controller
 
         public string GetAccountType(string UID)
         {
-            return UID.StartsWith("LMC") || UID.StartsWith("LMS")
+            return UID.StartsWith("LMC")
                 ? "Customer"
                 : "Staff";
         }
