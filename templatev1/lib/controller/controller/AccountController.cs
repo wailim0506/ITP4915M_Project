@@ -83,11 +83,20 @@ namespace controller
 
         private void SetLoginStatus(string UID, UIController UI)
         {
-            //var dt = ExecuteSqlQuery(GetIsLmDataQuery(UID));
-            //if (dt.Rows[0][0].ToString() == "Y")
-            //{
-               // isLM = true;
-           // }
+            try
+            {
+                var dt = ExecuteSqlQuery(GetIsLmDataQuery(UID));
+                if (dt.Rows[0][0].ToString() == "Y")
+                {
+                    isLM = true;
+                }
+            }
+            catch (Exception e)
+            {
+                //if it is a staff account, it will not have data on dt.Rows[0][0]
+                //ignore it
+            }
+            
 
             IsLogin = true;
             UserID = UID;
@@ -98,7 +107,7 @@ namespace controller
 
         private string GetIsLmDataQuery(string UID)
         {
-            return $"SELECT isLM from customer_account WHERE customerID = '{UID}'";
+            return $"SELECT isLM from customer_account WHERE customerID = \'{UID}\'";
         }
 
 

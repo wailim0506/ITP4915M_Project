@@ -20,6 +20,7 @@ namespace controller
 
         public DataTable GetInfo(string num) //part num
         {
+            
             sqlCmd =
                 $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{num}\' AND x.supplierID = z.supplierID";
             DataTable dt = _database.ExecuteDataTable(sqlCmd);
