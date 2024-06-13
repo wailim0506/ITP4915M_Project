@@ -24,7 +24,7 @@ namespace controller
                 { "@EndDate", endDate }
             };
             AddPeriodParameters(parameters, period, startDate);
-            var report = _database.ExecuteDataTable(query, parameters);
+            var report = _database.ExecuteDataTableAsync(query, parameters).Result;
             return report;
         }
 

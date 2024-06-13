@@ -221,7 +221,7 @@ namespace controller
         {
             try
             {
-                _db.ExecuteNonQueryCommand($"DELETE FROM supplier WHERE supplierID = '{id}'",
+                _ = _db.ExecuteNonQueryCommandAsync($"DELETE FROM supplier WHERE supplierID = '{id}'",
                     null);
                 return true;
             }
@@ -247,7 +247,7 @@ namespace controller
         {
             try
             {
-                _db.ExecuteNonQueryCommand(
+                _ = _db.ExecuteNonQueryCommandAsync(
                     "UPDATE supplier SET name = @name, phone = @phone, address = @address WHERE supplierID = @id",
                     new Dictionary<string, object>
                         { { "@name", name }, { "@phone", phone }, { "@address", address }, { "@id", id } });
@@ -266,7 +266,7 @@ namespace controller
         {
             try
             {
-                _db.ExecuteNonQueryCommand("INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)",
+                _ = _db.ExecuteNonQueryCommandAsync("INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)",
                     new Dictionary<string, object>
                     {
                         { "@id", id }, { "@name", name }, { "@phone", phone }, { "@address", address },
@@ -286,6 +286,6 @@ namespace controller
         }
 
         private DataTable ExecuteQuery(string sqlQuery) =>
-            _db.ExecuteDataTable(sqlQuery);
+            _db.ExecuteDataTableAsync(sqlQuery).Result;
     }
 }

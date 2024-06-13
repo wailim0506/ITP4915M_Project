@@ -100,7 +100,7 @@ namespace controller
             adr.Fill(dt);
             return dt.Rows[0][0].ToString();
         }
-        
+
         public DataTable getShippingDetail(string id) //orderID
         {
             //orderID
@@ -307,7 +307,7 @@ namespace controller
         public void addQtyback(string partNum, int qtyInOrder, string id) //order id
         {
             editOrderController c = new editOrderController();
-            c.AddQtyBackToSparePart(partNum,id,qtyInOrder);
+            c.AddQtyBackToSparePart(partNum, id, qtyInOrder);
         }
 
         public Boolean addBackToSparePartQty(string num, int qtyInOrder)
@@ -472,7 +472,7 @@ namespace controller
         {
             try
             {
-                _db.ExecuteNonQueryCommand(
+                _ = _db.ExecuteNonQueryCommandAsync(
                     "UPDATE order_ SET status = @status WHERE orderID = @id",
                     new Dictionary<string, object> { { "@status", "Shipped" }, { "@id", id } });
             }

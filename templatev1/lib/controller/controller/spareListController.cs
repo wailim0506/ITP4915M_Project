@@ -12,7 +12,7 @@ namespace controller
     {
         private Database db = new Database();
 
-        private DataTable ExecuteQuery(string sqlCmd) => db.ExecuteDataTable(sqlCmd);
+        private DataTable ExecuteQuery(string sqlCmd) => db.ExecuteDataTableAsync(sqlCmd).Result;
 
         public DataTable getAllPart() => ExecuteQuery("SELECT * FROM spare_part");
 

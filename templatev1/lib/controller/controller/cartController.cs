@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
 namespace controller
@@ -24,14 +25,14 @@ namespace controller
             string cartID = getCartID(id);
             string sqlCmd =
                 $"SELECT * from product_in_cart x, product y, spare_part z where x.cartID = \'{cartID}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber";
-            return _db.ExecuteDataTable(sqlCmd);
+            return _db.ExecuteDataTableAsync(sqlCmd).Result;
         }
 
         public List<string> getAllPartNumInCart(string id) //customer id  //for remove all item
         {
             string cartID = getCartID(id);
             string sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
+            DataTable dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
 
             List<string> itemId = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -44,7 +45,7 @@ namespace controller
             {
                 dt = new DataTable();
                 sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{itemId[i]}\'";
-                dt = _db.ExecuteDataTable(sqlCmd);
+                dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
                 partNum.Add(dt.Rows[0][0].ToString());
             }
 
@@ -55,7 +56,7 @@ namespace controller
         {
             string cartID = getCartID(id);
             string sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
+            DataTable dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
 
             List<int> itemQty = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -71,7 +72,7 @@ namespace controller
         {
             string cartID = getCartID(id);
             string sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\'";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
+            DataTable dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "DELETE FROM product_in_cart WHERE itemID = @id AND cartID = @cartID";
@@ -83,10 +84,12 @@ namespace controller
 
             try
             {
-                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters).Wait();
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to remove part Error: {ex.Message}");
                 throw new Exception("Failed to remove part", ex);
             }
 
@@ -104,10 +107,12 @@ namespace controller
 
             try
             {
-                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters).Wait();
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to clear customer cart Error: {ex.Message}");
                 throw new Exception("Failed to remove all items", ex);
             }
 
@@ -117,20 +122,20 @@ namespace controller
         public string getCartID(string id) //customer id
         {
             string sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'";
-            string customerAccointID = _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
+            string customerAccointID = _db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString();
 
             sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = '{customerAccointID}'";
-            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
+            return _db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString();
         }
 
         public int GetCurrentQtyInCart(string num, string id) //part num, customer id
         {
             string cartID = getCartID(id);
-            string itemID = _db.ExecuteDataTable($"SELECT itemID FROM product " +
-                                                 $"WHERE partNumber = '{num}'").Rows[0][0].ToString();
-            return int.Parse(_db.ExecuteDataTable($"SELECT quantity FROM product_in_cart " +
-                                                  $"WHERE itemID = '{itemID}' " +
-                                                  $"AND cartID = '{cartID}'").Rows[0][0].ToString());
+            string itemID = _db.ExecuteDataTableAsync($"SELECT itemID FROM product " +
+                                                 $"WHERE partNumber = '{num}'").Result.Rows[0][0].ToString();
+            return int.Parse(_db.ExecuteDataTableAsync($"SELECT quantity FROM product_in_cart " +
+                                                       $"WHERE itemID = '{itemID}' " +
+                                                       $"AND cartID = '{cartID}'").Result.Rows[0][0].ToString());
         }
 
         //add qty back to db for product table and spare_part table
@@ -151,6 +156,8 @@ namespace controller
                     (qtyInSpare_Part - desiredQty <
                      0)) //check if the desired qty is larger than availabe qty after add cart qty to db
                 {
+                    Log.LogMessage(LogLevel.Error, "CartController",
+                        $"Failed to edit database qty Error: desiredQty: {desiredQty}, qtyInProduct: {qtyInProduct}, qtyInSpare_Part: {qtyInSpare_Part}");
                     throw new notEnoughException();
                 }
             }
@@ -172,28 +179,17 @@ namespace controller
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, new Dictionary<string, object>
                 {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInProduct);
-                        command.Parameters.AddWithValue("@num", num);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                    { "@qty", qtyInProduct },
+                    { "@num", num }
+                });
             }
             catch (Exception ex)
             {
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
-            
+
             //Since no deduction in spare part table when add to cat, no need to add back to spare part table
             //sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
             //try
@@ -223,7 +219,7 @@ namespace controller
             return true;
         }
 
-        public Boolean editDbQty(string num, int newQty, Boolean isLM,Boolean editOrder,int currentQtyInOrder) //part num 
+        public Boolean EditDbQty(string num, int newQty, Boolean isLM, Boolean editOrder, int currentQtyInOrder) //part num 
         {
             //get the qty in db first
             int qtyInProduct = getOnSaleQtyInDb(num, isLM);
@@ -231,7 +227,7 @@ namespace controller
 
             //deduct db qty with cart qty
             qtyInProduct -= newQty;
-            
+
 
             //edit to db
             if (!isLM)
@@ -245,26 +241,16 @@ namespace controller
 
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, new Dictionary<string, object>
                 {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInProduct);
-                        command.Parameters.AddWithValue("@num", num);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                    { "@qty", qtyInProduct },
+                    { "@num", num }
+                });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController", $"Failed to edit db qty Error: {ex.Message}");
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             if (editOrder == true)
@@ -273,31 +259,23 @@ namespace controller
                 qtyInSpare_Part += currentQtyInOrder;
                 qtyInSpare_Part -= newQty;
                 sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@qty", qtyInSpare_Part },
+                    { "@num", num }
+                };
+
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
-                    {
-                        connection.Open();
-
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                            command.Parameters.AddWithValue("@num", num);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
+                    _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
+                    Log.LogMessage(LogLevel.Error, "CartController", $"Failed to edit db qty Error: {ex.Message}");
                     return false;
                 }
-                finally
-                {
-                    conn.Close();
-                }
             }
-            
+
 
             return true;
         }
@@ -305,8 +283,8 @@ namespace controller
         public Boolean editCartQty(string num, string id, int newQty) //part num, customer id, new qty
         {
             string cartID = getCartID(id);
-            string itemID = _db.ExecuteDataTable($"SELECT itemID FROM product WHERE partNumber = '{num}'").Rows[0][0]
-                .ToString();
+            string itemID = _db.ExecuteDataTableAsync($"SELECT itemID FROM product WHERE partNumber = '{num}'").Result
+                .Rows[0][0].ToString();
 
             var parameters = new Dictionary<string, object>
             {
@@ -317,11 +295,12 @@ namespace controller
 
             try
             {
-                _db.ExecuteNonQueryCommand(
+                _ = _db.ExecuteNonQueryCommandAsync(
                     "UPDATE product_in_cart SET quantity = @qty WHERE itemID = @num AND cartID = @cartID", parameters);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController", $"Failed to edit cart qty Error: {ex.Message}");
                 return false;
             }
 
@@ -332,22 +311,22 @@ namespace controller
         {
             string column = isLM ? "LM_onSaleQty" : "onSaleQty";
             string sqlCmd = $"SELECT {column} FROM product WHERE partNumber = '{num}'";
-            int qtyInProduct = int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
+            int qtyInProduct = int.Parse(_db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString());
             return qtyInProduct;
         }
 
         public int GetSpareQtyInDb(string num)
         {
-            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTable(
+            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTableAsync(
                 $"SELECT quantity FROM spare_part " +
-                $"WHERE partNumber = '{num}'").Rows[0][0].ToString());
+                $"WHERE partNumber = '{num}'").Result.Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
 
-        public Boolean deductQtyInSparePart(string id) //customer id
+        public Boolean DeductQtyInSparePart(string id) //customer id
         {
-            List<string> partNum = getAllPartNumInCart(id);//customer id
-            List<int> qtyInCart = getAllItemQtyInCart(id);//customer id
+            List<string> partNum = getAllPartNumInCart(id); //customer id
+            List<int> qtyInCart = getAllItemQtyInCart(id); //customer id
             int qtyInSparePart;
             for (int i = 0; i < partNum.Count; i++)
             {
@@ -356,46 +335,38 @@ namespace controller
                 sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
                 try
                 {
-                    using (MySqlConnection connection = new MySqlConnection(connString))
+                    _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, new Dictionary<string, object>
                     {
-                        connection.Open();
-
-                        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                        {
-                            command.Parameters.AddWithValue("@qty", qtyInSparePart);
-                            command.Parameters.AddWithValue("@num", partNum[i]);
-
-                            command.ExecuteNonQuery();
-                        }
-                    }
+                        { "@qty", qtyInSparePart },
+                        { "@num", partNum[i] }
+                    });
                 }
                 catch (Exception ex)
                 {
+                    Log.LogMessage(LogLevel.Error, "CartController",
+                        $"Failed to deduct qty in spare part Error: {ex.Message}");
                     return false;
                 }
-                finally
-                {
-                    conn.Close();
-                }
             }
+
             return true;
         }
 
-        public Boolean CreateOrder(string id, string shippingDate,string shippingAddress) //customerID
+        public Boolean CreateOrder(string id, string shippingDate, string shippingAddress) //customerID
         {
             //get the customer account id first
             string customerAccountID =
-                _db.ExecuteDataTable(
+                _db.ExecuteDataTableAsync(
                     $"SELECT customerAccountID " +
                     $"FROM customer_account " +
-                    $"WHERE customerID = '{id}'").Rows[0][0].ToString();
+                    $"WHERE customerID = '{id}'").Result.Rows[0][0].ToString();
             //generate an order id
             string orderID = OrderIdGenerator();
             //generate order serial num
             string orderSerialNum = OrderSerialNumGenerator();
             //assign an order processing clerk to this order
             string staffAccountID = OrderProcessingClerkAssignment();
-            //get today date
+            //get date today
             string orderDate = DateTime.Now.ToString("yyyy-MM-dd");
 
             //create order
@@ -410,13 +381,15 @@ namespace controller
             };
             try
             {
-                _db.ExecuteNonQueryCommand(
+                _ = _db.ExecuteNonQueryCommandAsync(
                     "INSERT INTO order_ (orderID, customerAccountID, staffAccountID, " +
                     "orderSerialNumber,orderDate, status) " +
                     "VALUES(@orderID,@CAID,@SAID,@OSN,@date,@status)", parameters);
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to create order Error: {ex.Message}");
                 return false;
             }
 
@@ -426,15 +399,12 @@ namespace controller
                 createShippingDetail(orderID, shippingDate, shippingAddress))
             {
                 //deduct qty in spare part table
-                return deductQtyInSparePart(id);
+                return DeductQtyInSparePart(id);
             }
             else
             {
                 return false;
             }
-            
-            
-
         }
 
         public Boolean CreateOrderLineRow(string cid, string id) //customer id, order id
@@ -455,10 +425,12 @@ namespace controller
 
                 try
                 {
-                    _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                    _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
+                    Log.LogMessage(LogLevel.Error, "CartController",
+                        $"Failed to create order line Error: {ex.Message}");
                     return false;
                 }
             }
@@ -468,9 +440,10 @@ namespace controller
 
         public Boolean createInvoice(string caid, string id) //customer account id, order id
         {
-//count how many inovice in db first
+            //count how many inovice in db first
             string sqlCmd = $"SELECT COUNT(*) FROM invoice";
-            int numOfInvoice = Convert.ToInt32(_db.ExecuteScalarCommand(sqlCmd, null));
+            string result = (string)_db.ExecuteScalarCommandAsync(sqlCmd).Result;
+            int numOfInvoice = result != null ? Convert.ToInt32(result) : 0;
 
             numOfInvoice++; //invoice number of the order
             string invoiceNum = $"IN{numOfInvoice:D5}";
@@ -485,19 +458,21 @@ namespace controller
             };
             try
             {
-                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to create invoice Error: {ex.Message}");
                 throw new Exception("Failed to create invoice", ex);
             }
 
             return true;
         }
 
-        public Boolean createShippingDetail(string id, string shippingDate,string shippingAddress)
+        public Boolean createShippingDetail(string id, string shippingDate, string shippingAddress)
         {
-            string deliverman = delivermanAssignment();
+            string deliverman = DelivermanAssignment();
             string sqlCmd =
                 "INSERT INTO shipping_detail (orderID, delivermanID, shippingDate, shippingAddress) VALUES(@orderID,@deliverman,@date,@shippingAddress)";
             var parameters = new Dictionary<string, object>
@@ -505,15 +480,17 @@ namespace controller
                 { "@orderID", id },
                 { "@deliverman", deliverman },
                 { "@date", shippingDate },
-                { "@shippingAddress",shippingAddress }
+                { "@shippingAddress", shippingAddress }
             };
 
             try
             {
-                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to create shipping detail Error: {ex.Message}");
                 throw new Exception("Failed to create shipping detail", ex);
             }
 
@@ -528,10 +505,12 @@ namespace controller
 
             try
             {
-                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "CartController",
+                    $"Failed to clear customer cart Error: {ex.Message}");
                 throw new Exception("Failed to clear customer cart", ex);
             }
         }
@@ -542,8 +521,8 @@ namespace controller
             string yearMonth = DateTime.Now.ToString("yyMM");
             string sqlCmd = $"SELECT COUNT(orderID) FROM order_ WHERE orderID LIKE 'OD{yearMonth}%'";
 
-            //see how many order in this year month
-            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalar(sqlCmd)) + 1; //+1 for order id
+            //see how many orders in this year month
+            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalarCommandAsync(sqlCmd)) + 1; //+1 for order id
             return $"OD{yearMonth}{orderInYearMonth:D4}";
         }
 
@@ -552,7 +531,7 @@ namespace controller
             string yearMonth = DateTime.Now.ToString("yyMM");
             string sqlCmd =
                 $"SELECT COUNT(orderSerialNumber) FROM order_ WHERE orderSerialNumber LIKE 'SN{yearMonth}%'";
-            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalar(sqlCmd)) + 1; //+1 for order id
+            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalarCommandAsync(sqlCmd)) + 1; //+1 for order id
 
             //see how many order in this year month
             return $"SN{yearMonth}{orderInYearMonth:D4}";
@@ -562,7 +541,7 @@ namespace controller
         {
             //get num of opc first
             string sqlCmd = "SELECT staffID FROM staff WHERE jobTitle = 'order processing clerk'";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
+            DataTable dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
             int numOfOpc = dt.Rows.Count;
 
 
@@ -574,15 +553,15 @@ namespace controller
 
             //get the staff account id
             sqlCmd = $"SELECT staffAccountID FROM staff_account WHERE staffID = '{staffIDAssigned}'";
-            dt = _db.ExecuteDataTable(sqlCmd);
+            dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
             return dt.Rows[0][0].ToString();
         }
 
-        public string delivermanAssignment()
+        public string DelivermanAssignment()
         {
             //get num of opc first
             string sqlCmd = "SELECT delivermanID FROM deliverman";
-            DataTable dt = _db.ExecuteDataTable(sqlCmd);
+            DataTable dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
             int numOfDeliverman = dt.Rows.Count;
 
             //random assignment
@@ -591,10 +570,10 @@ namespace controller
             return dt.Rows[num][0].ToString();
         }
 
-        public DataTable getCustomerAddress(string id) //customer id
+        public DataTable GetCustomerAddress(string id) //customer id
         {
             string sqlCmd = $"SELECT warehouseAddress, province, city FROM customer WHERE customerID = '{id}'";
-            return _db.ExecuteDataTable(sqlCmd);
+            return _db.ExecuteDataTableAsync(sqlCmd).Result;
         }
     }
 

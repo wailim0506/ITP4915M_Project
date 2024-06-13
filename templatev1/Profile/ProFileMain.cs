@@ -370,7 +370,7 @@ namespace templatev1
                     return false;
                 }
 
-                if (!proFileController.checkEmailPhone(tbPhone.Text))
+                if (!proFileController.CheckEmailPhone(tbPhone.Text))
                 {
                     lblPhoneMsg.Text = "The phone number has already registered an account.";
                     tbPhone.Select();
@@ -420,7 +420,7 @@ namespace templatev1
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (checkInfo())
-                if (proFileController.modify(update))
+                if (proFileController.ModifyUserInfo(update))
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);

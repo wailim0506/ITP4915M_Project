@@ -97,7 +97,7 @@ namespace templatev1.Order_Management
             if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete))
             {
                 //add qty back to db
-                controller.AddQtyBackToSparePart(partToDelete, orderID,qtyInOrderNow);
+                controller.AddQtyBackToSparePart(partToDelete, orderID, qtyInOrderNow);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
@@ -311,7 +311,7 @@ namespace templatev1.Order_Management
 
             if (row == 0) //all spare part is removed, the order can be delete
             {
-                controller.deleteOrder(orderID);
+                controller.DeleteOrder(orderID);
                 MessageBox.Show("Since no spare part exist in this order, this order is deleted");
                 Form orderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
                 Hide();

@@ -51,8 +51,8 @@ namespace templatev1.Online_Ordering_Platform
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();
-            int numOfOrder = controller.countOrder(UID, sortBy);
-            dtOrder = controller.getOrder(UID, sortBy);
+            int numOfOrder = controller.CountOrder(UID, sortBy);
+            dtOrder = controller.GetOrder(UID, sortBy);
 
             //create label
             int yPosition = 6;
@@ -79,13 +79,13 @@ namespace templatev1.Online_Ordering_Platform
                 };
                 Label lblStaff = new Label
                 {
-                    Name = $"lblStaff{i}", Text = controller.getStaffName(staffAccountID),
+                    Name = $"lblStaff{i}", Text = controller.GetStaffName(staffAccountID),
                     Location = new Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(180, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblContact = new Label
                 {
-                    Name = $"lblContact{i}", Text = controller.getStaffContact(staffAccountID),
+                    Name = $"lblContact{i}", Text = controller.GetStaffContact(staffAccountID),
                     Location = new Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(219, 20), TextAlign = ContentAlignment.MiddleCenter
                 };

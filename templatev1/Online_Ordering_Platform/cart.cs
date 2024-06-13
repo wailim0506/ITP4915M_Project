@@ -45,7 +45,7 @@ namespace templatev1.Online_Ordering_Platform
         {
             timer1.Enabled = true;
             load_part(controller.getCartItem(UID));
-            load_customer_address(controller.getCustomerAddress(UID));
+            load_customer_address(controller.GetCustomerAddress(UID));
         }
 
         public void load_customer_address(DataTable dt)
@@ -375,7 +375,7 @@ namespace templatev1.Online_Ordering_Platform
                 }
 
                 //update db with user input
-                if (controller.editDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM,false,0))
+                if (controller.EditDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM, false, 0))
                 {
                     //update qty in user cart
                     if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
@@ -418,7 +418,8 @@ namespace templatev1.Online_Ordering_Platform
                         "Create Order", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),shippingAddress))
+                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),
+                                shippingAddress))
                         {
                             controller.ClearCustomerCartAfterCreateOrder(UID);
                             DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",

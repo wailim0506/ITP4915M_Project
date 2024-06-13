@@ -1,21 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace controller
 {
     public class Database : IDisposable
     {
-        private readonly MySqlConnection connection;
+        private readonly MySqlConnection _connection;
 
         public Database(string connectionString = null)
         {
-            connection = new MySqlConnection(connectionString ?? GetConnectionString());
-            connection.Open();
+            _connection = new MySqlConnection(connectionString ?? GetConnectionStringAsync().Result);
+            _connection.Open();
         }
 
-        public static string GetConnectionString()
+        public static async Task<string> GetConnectionStringAsync()
         {
             var connectionStrings = new List<string>
             {
@@ -24,122 +26,86 @@ namespace controller
                 "server=hkg1.clusters.zeabur.com;port=32298;user id=root; password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
             };
 
-            return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
+            var tasks = connectionStrings.Select(TestConnectionAsync).ToArray();
+            var completedTask = await Task.WhenAny(tasks);
+
+            return await completedTask ?? throw new Exception("No valid connection string found.");
         }
 
-        private static string TestConnection(List<string> connectionStrings)
+        private static async Task<string> TestConnectionAsync(string connectionString)
         {
-            foreach (var connectionString in connectionStrings)
+            try
             {
                 using (var connection = new MySqlConnection(connectionString))
                 {
-                    try
-                    {
-                        connection.Open();
-                        return connectionString;
-                    }
-                    catch
-                    {
-                        // Ignore the exception and try the next connection string
-                    }
+                    await connection.OpenAsync();
+                    return connectionString;
                 }
             }
-
-            // If none of the connection strings work, throw an exception or return null
-            throw new Exception("No valid connection string found.");
+            catch
+            {
+                return null;
+            }
         }
 
         public void Dispose()
         {
-            connection?.Close();
-            connection?.Dispose();
+            _connection?.Close();
+            _connection?.Dispose();
         }
 
-        public object ExecuteScalarCommand(string sqlQuery, Dictionary<string, object> queryParameters)
+        private async Task ExecuteCommandAsync(string sqlQuery, Dictionary<string, object> queryParameters,
+            Func<MySqlCommand, Task> execute)
         {
-            return ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteScalar());
-        }
-
-        public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
-        {
-            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
-                $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
-            ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
-        }
-
-        public MySqlDataReader ExecuteReaderCommand(string sqlQuery, Dictionary<string, object> queryParameters)
-        {
-            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
-                $"ExecuteReaderCommand : {sqlQuery + queryParameters}");
-            return (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
-        }
-
-        private object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
-            Func<MySqlCommand, object> execute)
-        {
-            using (var command = connection.CreateCommand())
+            try
             {
-                command.CommandText = sqlQuery;
-                if (queryParameters != null)
+                using (var command = _connection.CreateCommand())
                 {
-                    foreach (var parameter in queryParameters)
+                    command.CommandText = sqlQuery;
+                    if (queryParameters != null)
                     {
-                        command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                        foreach (var parameter in queryParameters)
+                        {
+                            command.Parameters.Add(new MySqlParameter(parameter.Key, parameter.Value));
+                        }
                     }
-                }
 
-                try
-                {
-                    return execute(command);
-                }
-                catch (Exception ex)
-                {
-                    Log.LogException(ex, "Database");
-                    throw new InvalidOperationException("Database operation failed", ex);
+                    await execute(command);
                 }
             }
-        }
-
-        public MySqlCommand CreateCommand(string query, Dictionary<string, object> parameters)
-        {
-            var command = connection.CreateCommand();
-            command.CommandText = query;
-            foreach (var parameter in parameters)
+            catch (Exception ex)
             {
-                command.Parameters.AddWithValue(parameter.Key, parameter.Value);
+                throw new Exception("Error executing command", ex);
             }
-
-            return command;
         }
 
-        public void ExecuteNonQuery(MySqlCommand command)
+        public async Task<object> ExecuteScalarCommandAsync(string sqlQuery,
+            Dictionary<string, object> queryParameters = null)
         {
-            command.ExecuteNonQuery();
+            object result = null;
+            await ExecuteCommandAsync(sqlQuery, queryParameters,
+                async command => result = await command.ExecuteScalarAsync());
+            return result;
         }
 
-        public DataTable ExecuteDataTable(string sqlQuery, Dictionary<string, object> queryParameters)
+        public async Task ExecuteNonQueryCommandAsync(string sqlQuery,
+            Dictionary<string, object> queryParameters = null)
         {
-            var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
+            await ExecuteCommandAsync(sqlQuery, queryParameters, async command => await command.ExecuteNonQueryAsync());
+        }
+
+        public async Task<DataTable> ExecuteDataTableAsync(string sqlQuery,
+            Dictionary<string, object> queryParameters = null)
+        {
             var dt = new DataTable();
-            dt.Load(reader);
-            return dt;
-        }
-
-        public DataTable ExecuteDataTable(string sqlQuery)
-        {
-            var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
-            DataTable dt = new DataTable();
-            dt.Load(reader);
-            return dt;
-            //return (DataTable)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
-        }
-
-        public object ExecuteScalar(string sqlCmd)
-        {
-            using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            await ExecuteCommandAsync(sqlQuery, queryParameters, async command =>
             {
-                return command.ExecuteScalar();
-            }
+                using (var reader = await command.ExecuteReaderAsync())
+                {
+                    dt.Load(reader);
+                }
+            });
+            return dt;
         }
     }
 }

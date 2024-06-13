@@ -18,60 +18,66 @@ namespace controller
 
         public string GetOrderDate(string id) //order id
         {
-            return _db.ExecuteDataTable($"SELECT orderDate FROM order_ WHERE orderID = '{id}'").Rows[0][0].ToString();
+            return _db.ExecuteDataTableAsync($"SELECT orderDate FROM order_ WHERE orderID = '{id}'").Result.Rows[0][0]
+                .ToString();
         }
 
         public string GetCustomerId(string id)
         {
-            return _db.ExecuteDataTable(
-                    $"SELECT customerID FROM customer_account WHERE customerAccountID = '{_db.ExecuteDataTable($"SELECT customerAccountID FROM order_ WHERE orderID = '{id}'").Rows[0][0]}'")
-                .Rows[0][0].ToString();
+            return _db.ExecuteDataTableAsync(
+                    $"SELECT customerID FROM customer_account WHERE customerAccountID = '{_db.ExecuteDataTableAsync($"SELECT customerAccountID FROM order_ WHERE orderID = '{id}'").Result.Rows[0][0]}'")
+                .Result.Rows[0][0].ToString();
         }
 
         public string GetInvoiceNum(string id)
         {
-            return _db.ExecuteDataTable($"SELECT invoiceNumber FROM invoice WHERE orderID = '{id}'").Rows[0][0]
+            return _db.ExecuteDataTableAsync($"SELECT invoiceNumber FROM invoice WHERE orderID = '{id}'").Result
+                .Rows[0][0]
                 .ToString();
         }
 
         public string GetCustomerAddress(string id)
         {
             return string.Join(", ",
-                _db.ExecuteDataTable(
+                _db.ExecuteDataTableAsync(
                         $"SELECT companyAddress, province, city FROM customer WHERE customerID = '{GetCustomerId(id)}'")
-                    .Rows[0].ItemArray);
+                    .Result.Rows[0].ItemArray);
         }
 
         public string GetWarehouseAddress(string id)
         {
             return string.Join(", ",
-                _db.ExecuteDataTable(
+                _db.ExecuteDataTableAsync(
                         $"SELECT warehouseAddress, province, city FROM customer WHERE customerID = '{GetCustomerId(id)}'")
+                    .Result
                     .Rows[0].ItemArray);
         }
 
         public string[] GetOrderedSparePartNumber(string id)
         {
-            return _db.ExecuteDataTable($"SELECT partNumber FROM order_line WHERE orderID = '{id}'").AsEnumerable()
+            return _db.ExecuteDataTableAsync($"SELECT partNumber FROM order_line WHERE orderID = '{id}'").Result
+                .AsEnumerable()
                 .Select(row => row[0].ToString()).ToArray();
         }
 
         public string GetPartName(string num) //part num
         {
-            return _db.ExecuteDataTable($"SELECT name FROM spare_part WHERE partNumber = '{num}'").Rows[0][0]
+            return _db.ExecuteDataTableAsync($"SELECT name FROM spare_part WHERE partNumber = '{num}'").Result
+                .Rows[0][0]
                 .ToString();
         }
 
         public int GetQty(string id, string num) //id = order id, num = part num
         {
             return int.Parse(
-                _db.ExecuteDataTable($"SELECT quantity FROM order_line WHERE partNumber = '{num}' AND orderID = '{id}'")
+                _db.ExecuteDataTableAsync($"SELECT quantity FROM order_line WHERE partNumber = '{num}' AND orderID = '{id}'").Result
                     .Rows[0][0].ToString());
         }
 
         public string GetDeliveryDate(string id)
         {
-            return _db.ExecuteDataTable($"SELECT shippingDate FROM shipping_detail WHERE orderID = '{id}'").Rows[0][0]
+            return _db.ExecuteDataTableAsync($"SELECT shippingDate FROM shipping_detail WHERE orderID = '{id}'").Result.
+                Rows[0][0]
                 .ToString().Split(' ')[0];
         }
 
@@ -79,8 +85,8 @@ namespace controller
         {
             try
             {
-                _db.ExecuteNonQueryCommand("UPDATE invoice SET status = @status WHERE invoiceNumber = @num",
-                    new Dictionary<string, object> { { "@status", "confirmed" }, { "@num", num } });
+                _db.ExecuteNonQueryCommandAsync("UPDATE invoice SET status = @status WHERE invoiceNumber = @num",
+                    new Dictionary<string, object> { { "@status", "confirmed" }, { "@num", num } }).Wait();
                 return true;
             }
             catch (Exception)

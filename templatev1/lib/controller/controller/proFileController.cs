@@ -5,8 +5,10 @@ using System.Text;
 using System.Dynamic;
 using System.Threading.Tasks;
 using System.Data;
+using System.IO;
 using MySqlConnector;
 using System.Windows.Forms;
+using Microsoft.Extensions.Logging;
 
 namespace controller
 {
@@ -220,22 +222,21 @@ namespace controller
         }
 
         //Check whether the email or phone has registered an account.
-        public bool checkEmailPhone(string data)
+        public bool CheckEmailPhone(string data)
         {
             try
             {
-                DataTable dt = new DataTable();
-                sqlStr =
-                    $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                    $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');)";
-                adr = new MySqlDataAdapter(sqlStr, conn);
-                adr.Fill(dt);
-                adr.Dispose();
+                string sqlCmd =
+                    "SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = @data OR emailAddress = @data) " +
+                    "UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = @data OR emailAddress = @data)";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@data", data }
+                };
 
-                if (dt.Rows.Count >= 1)
-                    return false;
-                else
-                    return true;
+                DataTable dt = _db.ExecuteDataTableAsync(sqlCmd, parameters).Result;
+
+                return dt.Rows.Count < 1;
             }
             catch (Exception e)
             {
@@ -244,25 +245,41 @@ namespace controller
         }
 
         //Update the user's info in the database.
-        public bool modify(dynamic info)
+        public bool ModifyUserInfo(dynamic info)
         {
             try
             {
-                conn.Open();
+                string sqlCmd;
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@fName", info.fName },
+                    { "@lName", info.lName },
+                    { "@sex", info.sex },
+                    { "@phone", info.phone },
+                    { "@DFB", info.DFB },
+                    { "@UID", UID }
+                };
+
                 if (accountType.Equals("Customer"))
-                    sqlStr =
-                        $"UPDATE customer SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\'" +
-                        $", paymentMethod = \'{info.pay}\', dateofBirth = {info.DFB}, company = \'{info.corp}\' WHERE customerID = \'{UID}\'";
+                {
+                    sqlCmd =
+                        "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, paymentMethod = @pay, dateofBirth = @DFB, company = @corp WHERE customerID = @UID";
+                    parameters.Add("@pay", info.pay);
+                    parameters.Add("@corp", info.corp);
+                }
                 else
-                    sqlStr =
-                        $"UPDATE staff SET firstName = \'{info.fName}\', lastName = \'{info.lName}\', sex = \'{info.sex}\', phoneNumber = \'{info.phone}\', dateofBirth = {info.DFB} WHERE staffID = \'{UID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                {
+                    sqlCmd =
+                        "UPDATE staff SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, dateofBirth = @DFB WHERE staffID = @UID";
+                }
+
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
+
                 return true;
             }
             catch (Exception e)
             {
+                Log.LogMessage(LogLevel.Error, "profile controller", $"Error modifying user info: {e.Message}");
                 return false; //Something went wrong.
             }
         }
@@ -272,23 +289,73 @@ namespace controller
         {
             try
             {
-                conn.Open();
-                sqlStr =
-                    $"UPDATE customer SET province = \'{Addinfo.province}\', city = \'{Addinfo.city}\', companyAddress = \'{Addinfo.corpAdd}\'" +
-                    $", warehouseAddress = \'{Addinfo.wAdd1}\', warehouseAddress2 = \'{Addinfo.wAdd2}\' WHERE customerID = \'{UID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
+                string sqlCmd1 =
+                    "UPDATE customer SET province = @province, city = @city, companyAddress = @corpAdd, warehouseAddress = @wAdd1, warehouseAddress2 = @wAdd2 WHERE customerID = @UID";
+                var parameters1 = new Dictionary<string, object>
+                {
+                    { "@province", Addinfo.province },
+                    { "@city", Addinfo.city },
+                    { "@corpAdd", Addinfo.corpAdd },
+                    { "@wAdd1", Addinfo.wAdd1 },
+                    { "@wAdd2", Addinfo.wAdd2 },
+                    { "@UID", UID }
+                };
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd1, parameters1);
 
-                sqlStr = $"UPDATE customer_dfadd SET dfadd = \'{Addinfo.dfvalue}\' WHERE customerID = \'{UID}\'";
-                cmd = new MySqlCommand(sqlStr, conn);
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                string sqlCmd2 = "UPDATE customer_dfadd SET dfadd = @dfvalue WHERE customerID = @UID";
+                var parameters2 = new Dictionary<string, object>
+                {
+                    { "@dfvalue", Addinfo.dfvalue },
+                    { "@UID", UID }
+                };
+                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd2, parameters2);
+
                 return true;
             }
             catch (Exception e)
             {
+                Log.LogMessage(LogLevel.Error, "profile controller", $"Error modifying address: {e.Message}");
                 return false; //Something went wrong.
             }
+        }
+
+        private string GetUserImageDirectory(string userId)
+        {
+            string userImagesDirectory = Path.Combine("UserImages", userId);
+
+            // Create the directory if it doesn't exist
+            if (!Directory.Exists(userImagesDirectory))
+            {
+                Directory.CreateDirectory(userImagesDirectory);
+            }
+
+            return userImagesDirectory;
+        }
+
+        public string GetUserImagePath(string userId, string imageName)
+        {
+            string userImagesDirectory = GetUserImageDirectory(userId);
+            string imagePath = Path.Combine(userImagesDirectory, imageName);
+
+            // If the image doesn't exist, return the path of the default icon
+            return File.Exists(imagePath) ? imagePath : "DefaultIconPath";
+        }
+
+        public void uploadUserimage(string userId, string imageName)
+        {
+            string imagePath = GetUserImagePath(userId, imageName);
+
+            // If the image doesn't exist, return
+            if (imagePath == "DefaultIconPath")
+            {
+                return;
+            }
+
+            // Upload the image to the server aka insert userid and rename the imageName as uuid
+            string sql = $"";
+
+            // Update the database with the new image path
+            // ...
         }
     }
 }

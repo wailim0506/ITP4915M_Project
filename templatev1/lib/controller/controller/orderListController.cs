@@ -21,43 +21,43 @@ namespace controller
             sqlCmd = "";
         }
 
-        public string getCustomerAccountID(string id) //id = customerID
+        public string GetCustomerAccountId(string id) //id = customerID
         {
-            return _db.ExecuteDataTable($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'")
+            return _db.ExecuteDataTableAsync($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Result
                 .Rows[0][0].ToString();
         }
 
-        public int countOrder(string id, string sortBy)
+        public int CountOrder(string id, string sortBy)
         {
             string sqlCmd = sortBy == "All"
-                ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
-                : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
+                ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
+                : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
-            return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
+            return int.Parse(_db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString());
         }
 
-        public DataTable getOrder(string id, string sortBy)
+        public DataTable GetOrder(string id, string sortBy)
         {
             string sqlCmd = sortBy == "All"
-                ? $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}'"
-                : $"SELECT * FROM order_ WHERE customerAccountID = '{getCustomerAccountID(id)}' AND status = '{sortBy}'";
+                ? $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
+                : $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
-            return _db.ExecuteDataTable(sqlCmd);
+            return _db.ExecuteDataTableAsync(sqlCmd).Result;
         }
 
-        public string getStafftID(string id) //staff account id
+        public string GetStafftId(string id) //staff account id
         {
             DataTable dt = _ac.GetStaffDetail(id);
             return dt.Rows[0][0].ToString();
         }
 
-        public string getStaffName(string id) //staff account id
+        public string GetStaffName(string id) //staff account id
         {
             DataTable dt = _ac.GetStaffDetail(id);
             return $"{dt.Rows[0][2].ToString()} {dt.Rows[0][3].ToString()}";
         }
 
-        public string getStaffContact(string id)
+        public string GetStaffContact(string id)
         {
             DataTable dt = _ac.GetStaffDetail(id);
             return dt.Rows[0][6].ToString();

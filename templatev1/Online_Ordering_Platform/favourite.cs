@@ -311,13 +311,13 @@ namespace templatev1.Online_Ordering_Platform
 
         private void tbKW_TextChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
                 cmbSorting.Text.ToString()));
         }
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
                 cmbSorting.Text.ToString()));
         }
 
@@ -388,7 +388,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
                 cmbSorting.Text.ToString()));
         }
 

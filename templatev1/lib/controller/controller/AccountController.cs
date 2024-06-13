@@ -31,7 +31,7 @@ namespace controller
             try
             {
                 var dt = ExecuteSqlQuery(GetAccountDataQuery(UID));
-                
+
                 // Account not found
                 if (dt.Rows.Count < 1)
                 {
@@ -43,7 +43,7 @@ namespace controller
                 if (IsPasswordValid(Pass, dt.Rows[0]["password"].ToString()) &&
                     IsAccountActive(dt.Rows[0]["status"].ToString()))
                 {
-                   SetLoginStatus(UID, UI);
+                    SetLoginStatus(UID, UI);
                 }
 
                 return IsLogin;
@@ -96,7 +96,7 @@ namespace controller
                 //if it is a staff account, it will not have data on dt.Rows[0][0]
                 //ignore it
             }
-            
+
 
             IsLogin = true;
             UserID = UID;
@@ -135,7 +135,7 @@ namespace controller
                 ? $"INSERT INTO customer_login_history VALUES('{accountID}', '{Date}')"
                 : $"INSERT INTO staff_login_history VALUES('{accountID}', '{Date}')";
 
-            db.ExecuteNonQueryCommand(query, null);
+            _ = db.ExecuteNonQueryCommandAsync(query, null);
         }
 
         //Return the last login date time.
@@ -179,7 +179,7 @@ namespace controller
         {
             try
             {
-                db.ExecuteNonQueryCommand(
+                _ = db.ExecuteNonQueryCommandAsync(
                     $"UPDATE customer_account SET Status = 'disable' WHERE customerAccountID = '{accountID}'", null);
                 return true;
             }
@@ -233,7 +233,7 @@ namespace controller
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
-            return db.ExecuteDataTable(sqlQuery);
+            return db.ExecuteDataTableAsync(sqlQuery).Result;
         }
     }
 }

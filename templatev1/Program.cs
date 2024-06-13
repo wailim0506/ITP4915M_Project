@@ -47,7 +47,7 @@ namespace templatev1
             string connString =
                 //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
                 "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton(_ => new Database(Database.GetConnectionString()));
+            service.AddSingleton(_ => new Database(Database.GetConnectionStringAsync().Result));
             service.AddSingleton(_ => new Log());
 
             var controllers = new List<Type>
@@ -71,11 +71,19 @@ namespace templatev1
                 // add controllers here
                 // typeof(The name of the controller)
             };
-
-
             foreach (var controller in controllers)
             {
                 service.AddTransient(controller);
+            }
+            
+            var Forms = new List<Type>
+            {
+                typeof(Login)
+                // add forms here
+            };
+            foreach (var form in Forms)
+            {
+                service.AddTransient(form);
             }
         }
 

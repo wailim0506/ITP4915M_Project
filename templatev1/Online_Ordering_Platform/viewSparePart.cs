@@ -63,7 +63,7 @@ namespace templatev1.Online_Ordering_Platform
             {
                 lblOnSalesQty.Text = dt.Rows[0][11].ToString();
             }
-            
+
             lblDescription.Text = dt.Rows[0][12].ToString();
             lblPrice.Text = dt.Rows[0][13].ToString();
             lblSupplier.Text = dt.Rows[0][17].ToString();

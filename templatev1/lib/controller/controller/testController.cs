@@ -20,7 +20,7 @@ namespace controller
         //database = the name of your database
         private static string connString =
             //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30";
-        "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
+            "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;"; //just copy here, change the attribute stated above
 
         MySqlConnection conn = new MySqlConnection(connString); //just copy here
         MySqlDataAdapter adr; //just copy here
