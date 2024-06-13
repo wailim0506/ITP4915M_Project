@@ -23,7 +23,8 @@ namespace controller
 
         public string GetCustomerAccountId(string id) //id = customerID
         {
-            return _db.ExecuteDataTableAsync($"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Result
+            return _db.ExecuteDataTableAsync(
+                    $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Result
                 .Rows[0][0].ToString();
         }
 

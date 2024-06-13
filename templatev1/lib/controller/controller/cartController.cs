@@ -132,7 +132,7 @@ namespace controller
         {
             string cartID = getCartID(id);
             string itemID = _db.ExecuteDataTableAsync($"SELECT itemID FROM product " +
-                                                 $"WHERE partNumber = '{num}'").Result.Rows[0][0].ToString();
+                                                      $"WHERE partNumber = '{num}'").Result.Rows[0][0].ToString();
             return int.Parse(_db.ExecuteDataTableAsync($"SELECT quantity FROM product_in_cart " +
                                                        $"WHERE itemID = '{itemID}' " +
                                                        $"AND cartID = '{cartID}'").Result.Rows[0][0].ToString());
@@ -219,7 +219,8 @@ namespace controller
             return true;
         }
 
-        public Boolean EditDbQty(string num, int newQty, Boolean isLM, Boolean editOrder, int currentQtyInOrder) //part num 
+        public Boolean
+            EditDbQty(string num, int newQty, Boolean isLM, Boolean editOrder, int currentQtyInOrder) //part num 
         {
             //get the qty in db first
             int qtyInProduct = getOnSaleQtyInDb(num, isLM);

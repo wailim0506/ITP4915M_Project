@@ -72,7 +72,8 @@ namespace controller
         public int GetPartQtyInOrder(string num, string id) //part num //order id
         {
             return int.Parse(
-                _db.ExecuteDataTableAsync($"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'").Result
+                _db.ExecuteDataTableAsync(
+                        $"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'").Result
                     .Rows[0][0].ToString());
         }
 

@@ -70,14 +70,15 @@ namespace controller
         public int GetQty(string id, string num) //id = order id, num = part num
         {
             return int.Parse(
-                _db.ExecuteDataTableAsync($"SELECT quantity FROM order_line WHERE partNumber = '{num}' AND orderID = '{id}'").Result
+                _db.ExecuteDataTableAsync(
+                        $"SELECT quantity FROM order_line WHERE partNumber = '{num}' AND orderID = '{id}'").Result
                     .Rows[0][0].ToString());
         }
 
         public string GetDeliveryDate(string id)
         {
-            return _db.ExecuteDataTableAsync($"SELECT shippingDate FROM shipping_detail WHERE orderID = '{id}'").Result.
-                Rows[0][0]
+            return _db.ExecuteDataTableAsync($"SELECT shippingDate FROM shipping_detail WHERE orderID = '{id}'").Result
+                .Rows[0][0]
                 .ToString().Split(' ')[0];
         }
 

@@ -85,7 +85,7 @@ namespace templatev1.Online_Ordering_Platform
         private int dayDifference(string orderID) //calculate day difference
         {
             string
-                systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
+                systemFormat = SystemDateFormat(); //the date format got from db depend on the operation system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst;
@@ -130,38 +130,14 @@ namespace templatev1.Online_Ordering_Platform
                 shipYear = splitShipDate[2];
             }
 
-            if (monthFirst && splitSystemFormat[0] == "M" && int.Parse(shipMonth) < 10)
+            if (int.Parse(shipMonth) < 10)
             {
-                shipMonth = $"0{shipMonth}";
-            }
-            else if (monthFirst && splitSystemFormat[0] == "MM" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"{shipMonth}";
-            }
-            else if (!monthFirst && splitSystemFormat[1] == "M" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"0{shipMonth}";
-            }
-            else if (!monthFirst && splitSystemFormat[1] == "MM" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"{shipMonth}";
+                shipMonth = shipMonth.PadLeft(2, '0');
             }
 
-            if (monthFirst && splitSystemFormat[1] == "d" && int.Parse(shipDay) < 10)
+            if (int.Parse(shipDay) < 10)
             {
-                shipDay = $"0{shipDay}";
-            }
-            else if (monthFirst && splitSystemFormat[1] == "dd" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"{shipDay}";
-            }
-            else if (!monthFirst && splitSystemFormat[0] == "d" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"0{shipDay}";
-            }
-            else if (!monthFirst && splitSystemFormat[0] == "dd" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"{shipDay}";
+                shipDay = shipDay.PadLeft(2, '0');
             }
 
 
@@ -247,7 +223,7 @@ namespace templatev1.Online_Ordering_Platform
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
-        private string systemDateFormat()
+        private string SystemDateFormat()
         {
             CultureInfo culture = CultureInfo.CurrentCulture;
             DateTimeFormatInfo dtfi = culture.DateTimeFormat;
@@ -257,7 +233,7 @@ namespace templatev1.Online_Ordering_Platform
         }
 
 
-        private Image imageString(string imageName)
+        private static Image imageString(string imageName)
         {
             PropertyInfo property =
                 typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);

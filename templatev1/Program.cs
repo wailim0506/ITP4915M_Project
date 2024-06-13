@@ -75,7 +75,7 @@ namespace templatev1
             {
                 service.AddTransient(controller);
             }
-            
+
             var Forms = new List<Type>
             {
                 typeof(Login)

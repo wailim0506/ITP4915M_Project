@@ -266,7 +266,8 @@ namespace controller
         {
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync("INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)",
+                _ = _db.ExecuteNonQueryCommandAsync(
+                    "INSERT INTO supplier VALUES(@id, @name, @phone, @address, @country)",
                     new Dictionary<string, object>
                     {
                         { "@id", id }, { "@name", name }, { "@phone", phone }, { "@address", address },

@@ -19,6 +19,7 @@ namespace templatev1.Order_Management
         private string uName, UID;
         string orderID;
         string shipDate;
+
         public delivermanViewOrder(string orderID)
         {
             InitializeComponent();
@@ -65,7 +66,7 @@ namespace templatev1.Order_Management
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
-            if($"{dt.Rows[0][6]}" == "Shipped") //if status is shipped, hide the job finish button
+            if ($"{dt.Rows[0][6]}" == "Shipped") //if status is shipped, hide the job finish button
             {
                 btnJobFinished.Visible = false;
                 btnReturn.Location = new Point(1037, 820);
@@ -171,7 +172,6 @@ namespace templatev1.Order_Management
                     Size = new Size(116, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-               
 
 
                 rowPosition += 50;
@@ -302,7 +302,7 @@ namespace templatev1.Order_Management
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Form deliverman =
-                 new deliverman(); //for testing
+                new deliverman(); //for testing
             // new deliverman(accountController, UIController);
             Hide();
             deliverman.StartPosition = FormStartPosition.Manual;
@@ -313,16 +313,16 @@ namespace templatev1.Order_Management
 
         private void btnJobFinished_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes) //confirmed shipped
             {
-
-                if(controller.delivermanJobFinished(orderID))
+                if (controller.delivermanJobFinished(orderID))
                 {
                     MessageBox.Show("Order status changed.", "Job Finished");
                     Form d =
                         new delivermanViewOrder(orderID); //for testing
-                        // new delivermanViewOrder(orderID,accountController, UIController);
+                    // new delivermanViewOrder(orderID,accountController, UIController);
                     Hide();
                     d.StartPosition = FormStartPosition.Manual;
                     d.Location = Location;
@@ -331,15 +331,14 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Please try again.", "Job Finished",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Please try again.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }          
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
-
         }
 
         private string systemDateFormat()
@@ -350,7 +349,5 @@ namespace templatev1.Order_Management
             string dateFormat = dtfi.ShortDatePattern;
             return dateFormat;
         }
-
-
     }
 }
