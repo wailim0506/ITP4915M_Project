@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Online_Ordering_Platform;
+using templatev1.Properties;
 
 namespace templatev1.Order_Management
 {
     public partial class customerViewOrder : Form
     {
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.viewOrderController controller;
+        AccountController accountController;
+        UIController UIController;
+        viewOrderController controller;
         private string uName, UID;
         string orderID;
         string shipDate;
@@ -24,18 +23,18 @@ namespace templatev1.Order_Management
         public customerViewOrder(string orderID)
         {
             InitializeComponent();
-            controller = new controller.viewOrderController();
+            controller = new viewOrderController();
             this.orderID = orderID;
         }
 
-        public customerViewOrder(string orderID, controller.AccountController accountController,
-            controller.UIController UIController)
+        public customerViewOrder(string orderID, AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.viewOrderController();
+            controller = new viewOrderController();
             shipDate = "";
             UID = this.accountController.GetUid();
             isLM = accountController.GetIsLm();
@@ -51,8 +50,8 @@ namespace templatev1.Order_Management
         {
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
-            lblLoc.Text += $" {orderID.ToString()}";
-            load_data(cmbSortOrder.Text.ToString());
+            lblLoc.Text += $" {orderID}";
+            load_data(cmbSortOrder.Text);
         }
 
         public void load_data(string sortBy)
@@ -72,20 +71,20 @@ namespace templatev1.Order_Management
 
             //delivery info
             dt = new DataTable();
-            dt = controller.getShippingDetail(orderID);
+            dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
-            string[] delivermanDetail = controller.getDelivermanDetail(orderID);
-            if (lblStatus.Text.ToString() == "Cancelled")
+            string[] delivermanDetail = controller.GetDelivermanDetail(orderID).Result;
+            if (lblStatus.Text == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";
-                lblDelivermanName.Text = $"N/A";
+                lblDelivermanName.Text = "N/A";
                 lblDelivermanContact.Text = "N/A";
-                lblShippingDate.Text = $"N/A";
+                lblShippingDate.Text = "N/A";
 
                 lblExpressNum.Text = "N/A";
             }
@@ -94,14 +93,9 @@ namespace templatev1.Order_Management
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                if (dayDifference(orderID) >= 0)
-                {
-                    lblShippingDate.Text = $"Scheduled on {shippingDate}";
-                }
-                else
-                {
-                    lblShippingDate.Text = $"Delivered on {shippingDate}";
-                }
+                lblShippingDate.Text = dayDifference(orderID) >= 0
+                    ? $"Scheduled on {shippingDate}"
+                    : $"Delivered on {shippingDate}";
 
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
@@ -126,45 +120,45 @@ namespace templatev1.Order_Management
             int orderTotalPrice = 0;
             for (int i = 1; i <= row; i++)
             {
-                Label lblRowNum = new Label()
+                Label lblRowNum = new Label
                 {
                     Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
                     Location = new Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(30, 20)
                 };
-                Label lblItemNum = new Label()
+                Label lblItemNum = new Label
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartNum = new Label()
+                Label lblPartNum = new Label
                 {
-                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}",
+                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0]}",
                     Location = new Point(127, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartName = new Label()
+                Label lblPartName = new Label
                 {
                     Name = $"lblPartName{i}", Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(230, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblQuantity = new Label()
+                Label lblQuantity = new Label
                 {
-                    Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}",
+                    Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2]}",
                     Location = new Point(536, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblUnitPrice = new Label()
+                Label lblUnitPrice = new Label
                 {
-                    Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}",
+                    Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3]}",
                     Location = new Point(648, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblRowTotalPrice = new Label()
+                Label lblRowTotalPrice = new Label
                 {
-                    Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4].ToString()}",
+                    Name = $"lblRowTotalPrice{i}", Text = $"¥{dt.Rows[i - 1][4]}",
                     Location = new Point(798, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -191,16 +185,10 @@ namespace templatev1.Order_Management
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (lblStatus.Text.ToString() == "Cancelled" || lblStatus.Text.ToString() == "Shipped")
+            if (lblStatus.Text == "Cancelled" || lblStatus.Text == "Shipped")
             {
-                if (lblStatus.Text.ToString() == "Cancelled")
-                {
-                    MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -223,16 +211,11 @@ namespace templatev1.Order_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (lblStatus.Text.ToString() == "Cancelled" || lblStatus.Text.ToString() == "Shipped")
+            if (lblStatus.Text == "Cancelled" || lblStatus.Text == "Shipped")
             {
-                if (lblStatus.Text.ToString() == "Cancelled")
-                {
-                    MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    MessageBox.Show("Order already finish.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show(
+                    lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -244,27 +227,27 @@ namespace templatev1.Order_Management
                             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     //add qty back to db
                     //get part num and it's qty in the order
-                    Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
+                    Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
                     //add back now;
                     foreach (KeyValuePair<string, int> q in partNumQty)
                     {
                         controller.addQtyback(q.Key, q.Value, UID);
                     }
 
-                    if (dialogResult == DialogResult.Yes && controller.deleteOrder(orderID))
+                    if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID).Result)
                     {
                         MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
                         Form customerOrderList =
-                            new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                            new customerOrderList(accountController, UIController);
                         Hide();
                         customerOrderList.StartPosition = FormStartPosition.Manual;
                         customerOrderList.Location = Location;
                         customerOrderList.ShowDialog();
                         Close();
                     }
-                    else if (dialogResult == DialogResult.Yes && !controller.deleteOrder(orderID))
+                    else if (dialogResult == DialogResult.Yes && !controller.DeleteOrder(orderID).Result)
                     {
                         MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -280,7 +263,7 @@ namespace templatev1.Order_Management
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form customerOrderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            Form customerOrderList = new customerOrderList(accountController, UIController);
             Hide();
             customerOrderList.StartPosition = FormStartPosition.Manual;
             customerOrderList.Location = Location;
@@ -290,7 +273,7 @@ namespace templatev1.Order_Management
 
         private void btnViewInvoice_Click(object sender, EventArgs e)
         {
-            if (lblStatus.Text.ToString() == "Cancelled")
+            if (lblStatus.Text == "Cancelled")
             {
                 MessageBox.Show("Order already cancelled.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -332,8 +315,7 @@ namespace templatev1.Order_Management
             }
 
 
-            DataTable dt;
-            dt = controller.getShippingDetail(orderID);
+            var dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
@@ -441,7 +423,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form fav = new Online_Ordering_Platform.favourite(accountController, UIController);
+            Form fav = new favourite(accountController, UIController);
             Hide();
             fav.StartPosition = FormStartPosition.Manual;
             fav.Location = Location;
@@ -451,7 +433,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
+            Form cart = new cart(accountController, UIController);
             Hide();
             cart.StartPosition = FormStartPosition.Manual;
             cart.Location = Location;
@@ -461,7 +443,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form spare = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            Form spare = new sparePartList(accountController, UIController);
             Hide();
             spare.StartPosition = FormStartPosition.Manual;
             spare.Location = Location;
@@ -471,7 +453,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            Form o = new customerOrderList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -510,11 +492,11 @@ namespace templatev1.Order_Management
         private void btnReorder_Click(object sender, EventArgs e)
         {
             //get all part num and qty in the order first
-            Dictionary<string, int> partNumQty = controller.getPartNumWithQty(orderID);
+            Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
             //add to cart
             try
             {
-                foreach (KeyValuePair<string, int> k in partNumQty)
+                foreach (var k in partNumQty)
                 {
                     if (k.Value <= controller.checkOnSaleQty(k.Key))
                     {
@@ -529,31 +511,27 @@ namespace templatev1.Order_Management
                         {
                             continue;
                         }
-                        else
+
+                        DialogResult dialogResult3 = MessageBox.Show("Clear item in cart?", "Re-order",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        if (dialogResult3 == DialogResult.Yes)
                         {
-                            DialogResult dialogResult3 = MessageBox.Show($"Clear item in cart?", "Re-order",
-                                MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                            if (dialogResult3 == DialogResult.Yes)
+                            List<string> allPartNum = controller.GetAllPartNumInCart(UID);
+                            List<int> allItemQty = controller.GetAllItemQtyInCart(UID);
+                            for (int i = 0; i < allPartNum.Count; i++)
                             {
-                                List<string> allPartNum = controller.getAllPartNumInCart(UID);
-                                List<int> allItemQty = controller.getAllItemQtyInCart(UID);
-                                for (int i = 0; i < allPartNum.Count; i++)
-                                {
-                                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
-                                }
-
-                                if (controller.removeAll(UID)) //remove from cart
-                                {
-                                    MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
-                                }
-
-                                return;
+                                controller.AddQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
                             }
-                            else
+
+                            if (controller.RemoveAll(UID).Result) //remove from cart
                             {
-                                return;
+                                MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
                             }
+
+                            return;
                         }
+
+                        return;
                     }
                 }
 
@@ -562,7 +540,7 @@ namespace templatev1.Order_Management
                         "Re-order", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Form cart = new Online_Ordering_Platform.cart(accountController, UIController);
+                    Form cart = new cart(accountController, UIController);
                     Hide();
                     cart.StartPosition = FormStartPosition.Manual;
                     cart.Location = Location;
@@ -578,31 +556,31 @@ namespace templatev1.Order_Management
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_data(cmbSortOrder.Text.ToString());
+            load_data(cmbSortOrder.Text);
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

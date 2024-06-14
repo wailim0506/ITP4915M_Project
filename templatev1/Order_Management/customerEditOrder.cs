@@ -136,9 +136,6 @@ namespace templatev1.Order_Management
 
                 i++;
             }
-
-            int x = -1;
-            return x;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)

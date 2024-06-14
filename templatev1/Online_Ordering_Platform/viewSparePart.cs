@@ -55,14 +55,7 @@ namespace templatev1.Online_Ordering_Platform
             lblCategory.Text = dt.Rows[0][2].ToString();
             lblName.Text = dt.Rows[0][3].ToString();
             lblItemNum.Text = dt.Rows[0][7].ToString();
-            if (!isLM)
-            {
-                lblOnSalesQty.Text = dt.Rows[0][10].ToString();
-            }
-            else
-            {
-                lblOnSalesQty.Text = dt.Rows[0][11].ToString();
-            }
+            lblOnSalesQty.Text = !isLM ? dt.Rows[0][10].ToString() : dt.Rows[0][11].ToString();
 
             lblDescription.Text = dt.Rows[0][12].ToString();
             lblPrice.Text = dt.Rows[0][13].ToString();

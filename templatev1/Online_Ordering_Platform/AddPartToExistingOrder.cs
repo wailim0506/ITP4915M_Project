@@ -191,19 +191,17 @@ namespace templatev1.Online_Ordering_Platform
 
         private void btnMinusQty_Click(object sender, EventArgs e)
         {
-            if (tbQty.Text != "") //check have quantity input
+            if (tbQty.Text == "") return; //check have quantity input
+            if (int.Parse(tbQty.Text.ToString()) ==
+                1) //check quantity input equal 0, do not perform anything if equal to 0
             {
-                if (int.Parse(tbQty.Text.ToString()) ==
-                    1) //check quantity input equal 0, do not perform anything if equal to 0
-                {
-                    return;
-                }
-                else
-                {
-                    int qty = int.Parse(tbQty.Text.ToString());
-                    qty--;
-                    tbQty.Text = qty.ToString();
-                }
+                return;
+            }
+            else
+            {
+                int qty = int.Parse(tbQty.Text.ToString());
+                qty--;
+                tbQty.Text = qty.ToString();
             }
         }
 

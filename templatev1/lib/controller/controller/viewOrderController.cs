@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Microsoft.Extensions.Logging;
 using MySqlConnector;
 
 namespace controller
@@ -21,10 +20,9 @@ namespace controller
 
         public DataTable getOrder(string id) //orderID
         {
+            string sqlCmd = $"SELECT * FROM order_ WHERE orderID = \'{id}\'";
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM order_ WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             return dt;
         }
 
@@ -51,248 +49,147 @@ namespace controller
 
         public DataTable getOrderedSparePart(string id, string sortBy) //orderID
         {
-            DataTable dt = new DataTable();
-            if (sortBy == "None")
+            switch (sortBy)
             {
-                sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
-            }
-            else if (sortBy == "Quantity(Ascending)")
-            {
-                sqlCmd =
-                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
-            }
-            else if (sortBy == "Quantity(Descending)")
-            {
-                sqlCmd =
-                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
-            }
-            else if (sortBy == "Total Price(Ascending)")
-            {
-                sqlCmd =
-                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
-            }
-            else if (sortBy == "Total Price(Descending)")
-            {
-                sqlCmd =
-                    $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
+                case "None":
+                    sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
+                    break;
+                case "Quantity(Ascending)":
+                    sqlCmd =
+                        $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
+                    break;
+                case "Quantity(Descending)":
+                    sqlCmd =
+                        $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
+                    break;
+                case "Total Price(Ascending)":
+                    sqlCmd =
+                        $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
+                    break;
+                case "Total Price(Descending)":
+                    sqlCmd =
+                        $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
+                    break;
             }
 
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            DataTable dt = new DataTable();
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             return dt;
         }
 
 
         public string getItemNum(string id) //part number
         {
+            string query = $"SELECT itemID FROM product WHERE partNumber = \'{id}\'";
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(query, null).Result;
             return dt.Rows[0][0].ToString();
         }
 
         public string getPartName(string id)
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT name FROM spare_part WHERE partNumber = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string query = $"SELECT name FROM spare_part WHERE partNumber = \'{id}\'";
+            dt = _db.ExecuteDataTableAsync(query, null).Result;
             return dt.Rows[0][0].ToString();
         }
 
-        public DataTable getShippingDetail(string id) //orderID
+        public DataTable GetShippingDetail(string id) //orderID
         {
             //orderID
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT * FROM shipping_detail WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string query = $"SELECT * FROM shipping_detail WHERE orderID = \'{id}\'";
+            dt = _db.ExecuteDataTableAsync(query, null).Result;
             return dt;
         }
 
-        public string[] getDelivermanDetail(string id) //orderID
+        public async Task<string[]> GetDelivermanDetail(string id) //orderID
         {
-            DataTable dt = new DataTable();
-            sqlCmd = $"SELECT delivermanID FROM shipping_detail WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            string delivermanID = dt.Rows[0][0].ToString();
+            string delivermanID =
+                await ExecuteSqlQueryAndReturnFirstRowAsync(
+                    $"SELECT delivermanID FROM shipping_detail WHERE orderID = '{id}'");
 
             //get deliverman name and contact from staff table
-            dt = new DataTable();
-            sqlCmd = $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = \'{delivermanID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-            string[] delivermanDetail = new string[3];
-            for (int i = 0; i < delivermanDetail.Length; ++i)
-            {
-                delivermanDetail[i] = dt.Rows[0][i].ToString();
-            }
+            DataTable dt = await _db.ExecuteDataTableAsync(
+                $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = '{delivermanID}'", null);
 
-            return delivermanDetail;
+            return new string[] { dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString() };
         }
 
-
-        public Boolean deleteOrder(string id) //order id
+        private async Task<string> ExecuteSqlQueryAndReturnFirstRowAsync(string s)
         {
-            string sqlCmd = "DELETE FROM invoice WHERE orderID = @id";
+            DataTable dt = await _db.ExecuteDataTableAsync(sqlCmd, null);
+            return dt.Rows[0][0].ToString();
+        }
+
+        public async Task<bool> DeleteOrder(string id) //order id
+        {
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("DELETE FROM invoice WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error deleting order from invoice: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
-            sqlCmd = "DELETE FROM feedback WHERE orderID = @id";
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("DELETE FROM feedback WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error deleting order from feedback: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
-            sqlCmd = "UPDATE shipping_detail SET remark = 'Cancelled' WHERE orderID = @id";
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync(
+                    "UPDATE shipping_detail SET remark = 'Cancelled' WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error updating shipping detail: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
-            sqlCmd = "DELETE FROM instruction WHERE orderID = @id";
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("DELETE FROM instruction WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "order controller",
+                    $"Error deleting order from instruction: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
-            //keep record
-            //sqlCmd = "DELETE FROM order_line WHERE orderID = @id";
-            //try
-            //{
-            //    using (MySqlConnection connection = new MySqlConnection(connString))
-            //    {
-            //        connection.Open();
-
-            //        using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-            //        {
-            //            command.Parameters.AddWithValue("@id", id);
-
-            //            command.ExecuteNonQuery();
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    return false;
-            //}
-            //finally
-            //{
-            //    conn.Close();
-            //}
-
-            sqlCmd = "UPDATE order_ SET status = @status WHERE orderID = @id";
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@status", "Cancelled");
-                        command.Parameters.AddWithValue("@id", id);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("UPDATE order_ SET status = @status WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@status", "Cancelled" }, { "@id", id } });
             }
             catch (Exception ex)
             {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error updating order status: {ex.Message}");
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
-
 
             return true;
         }
 
 
-        public Dictionary<string, int> getPartNumWithQty(string id) //order id
+        public Dictionary<string, int> GetPartNumWithQty(string id) //order id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            string sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
 
             Dictionary<string, int> partNumQty = new Dictionary<string, int>();
 
@@ -310,38 +207,22 @@ namespace controller
             c.AddQtyBackToSparePart(partNum, id, qtyInOrder);
         }
 
-        public Boolean addBackToSparePartQty(string num, int qtyInOrder)
+        public async Task<bool> AddBackToSparePartQty(string num, int qtyInOrder)
         {
             //get the qty in db first
-
             int qtyInSpare_Part = getSpareQtyInDb(num);
 
             //add db qty with cart qty
             qtyInSpare_Part += qtyInOrder;
-            sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@qty", qtyInSpare_Part);
-                        command.Parameters.AddWithValue("@num", num);
-
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("UPDATE spare_part SET quantity = @qty WHERE partNumber = @num",
+                    new Dictionary<string, object> { { "@qty", qtyInSpare_Part }, { "@num", num } });
             }
             catch (Exception ex)
             {
                 return false;
-            }
-            finally
-            {
-                conn.Close();
             }
 
             return true;
@@ -351,8 +232,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
@@ -367,64 +247,45 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT OnSaleQty FROM product WHERE partNumber = \'{partNum}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public Boolean removeAll(string id) //customer id
+        public async Task<bool> RemoveAll(string id) //customer id
         {
-            string cartID = getCartID(id);
-            sqlCmd = "DELETE FROM product_in_cart WHERE cartID = @cartID";
+            string cartID = GetCartId(id);
             try
             {
-                using (MySqlConnection connection = new MySqlConnection(connString))
-                {
-                    connection.Open();
-
-                    using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
-                    {
-                        command.Parameters.AddWithValue("@cartID", cartID);
-
-                        command.ExecuteNonQuery();
-                    }
-                }
+                await _db.ExecuteNonQueryCommandAsync("DELETE FROM product_in_cart WHERE cartID = @cartID",
+                    new Dictionary<string, object> { { "@cartID", cartID } });
             }
             catch (Exception ex)
             {
                 return false;
             }
-            finally
-            {
-                conn.Close();
-            }
 
             return true;
         }
 
-        public string getCartID(string id) //customer id
+        public string GetCartId(string id) //customer id
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             string customerAccointID = dt.Rows[0][0].ToString();
 
             dt = new DataTable();
             sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             return dt.Rows[0][0].ToString();
         }
 
-        public List<string> getAllPartNumInCart(string id) //customer id  //for remove all item
+        public List<string> GetAllPartNumInCart(string id) //customer id  //for remove all item
         {
-            string cartID = getCartID(id);
+            string cartID = GetCartId(id);
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             List<string> itemId = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -432,26 +293,23 @@ namespace controller
             }
 
             List<string> partNum = new List<string>();
-            for (int i = 0; i < itemId.Count; i++)
+            foreach (var t in itemId)
             {
                 dt = new DataTable();
-                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{itemId[i]}\'";
-                adr = new MySqlDataAdapter(sqlCmd, conn);
-                adr.Fill(dt);
+                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{t}\'";
+                dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
                 partNum.Add(dt.Rows[0][0].ToString());
             }
 
             return partNum;
         }
 
-        public List<int> getAllItemQtyInCart(string id) //for remove all item
+        public List<int> GetAllItemQtyInCart(string id) //for remove all item
         {
-            string cartID = getCartID(id);
+            string cartID = GetCartId(id);
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            adr = new MySqlDataAdapter(sqlCmd, conn);
-            adr.Fill(dt);
-
+            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
             List<int> itemQty = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -461,14 +319,14 @@ namespace controller
             return itemQty;
         }
 
-        public Boolean addQtyBack(string num, int currentCartQty, int desiredQty, Boolean isLM)
+        public Boolean AddQtyBack(string num, int currentCartQty, int desiredQty, Boolean isLM)
         {
             cartController c = new cartController();
             return c.addQtyBack(num, currentCartQty, desiredQty, isLM);
         }
 
 
-        public bool delivermanJobFinished(string id) //order id
+        public bool DelivermanJobFinished(string id) //order id
         {
             try
             {

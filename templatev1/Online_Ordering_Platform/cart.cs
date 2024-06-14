@@ -133,28 +133,22 @@ namespace templatev1.Online_Ordering_Platform
 
         public void btnView_Click(object sender, EventArgs e)
         {
-            Button clickedButton = sender as Button;
-
-            if (clickedButton != null)
+            if (sender is Button clickedButton)
             {
                 string buttonName = clickedButton.Name;
                 int index = getViewIndex(buttonName);
-                if (index != -1)
+                if (index == -1) return;
+                foreach (Control control in pnlSP.Controls)
                 {
-                    foreach (Control control in pnlSP.Controls)
-                    {
-                        if (control.Name == $"lblPartNum{index}")
-                        {
-                            Form viewSparePart = new viewSparePart(control.Text, accountController, UIController);
-                            Hide();
-                            viewSparePart.StartPosition = FormStartPosition.Manual;
-                            viewSparePart.Location = Location;
-                            viewSparePart.ShowDialog();
-                            Close();
-                            return;
-                            //MessageBox.Show(control.Text);
-                        }
-                    }
+                    if (control.Name != $"lblPartNum{index}") continue;
+                    Form viewSparePart = new viewSparePart(control.Text, accountController, UIController);
+                    Hide();
+                    viewSparePart.StartPosition = FormStartPosition.Manual;
+                    viewSparePart.Location = Location;
+                    viewSparePart.ShowDialog();
+                    Close();
+                    return;
+                    //MessageBox.Show(control.Text);
                 }
             }
         }
@@ -171,9 +165,6 @@ namespace templatev1.Online_Ordering_Platform
 
                 i++;
             }
-
-            int x = -1;
-            return x;
         }
 
 
@@ -187,30 +178,16 @@ namespace templatev1.Online_Ordering_Platform
             List<int> checkedIndex = getCheckedIndex(getChecked());
             if (checkedIndex.Count > 0)
             {
-                for (int i = 0; i < checkedIndex.Count; i++)
+                foreach (var t in checkedIndex)
                 {
                     foreach (Control control in pnlSP.Controls)
                     {
-                        if (control.Name == $"lblPartNum{checkedIndex[i]}")
+                        if (control.Name != $"lblPartNum{t}") continue;
+                        foreach (Control controls in pnlSP.Controls) //add qty back to db
                         {
-                            foreach (Control controls in pnlSP.Controls) //add qty back to db
-                            {
-                                if (controls.Name == $"lblQty{checkedIndex[i]}")
-                                {
-                                    if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()), 0,
-                                            isLM))
-                                    {
-                                    }
-                                    else
-                                    {
-                                        MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        return;
-                                    }
-                                }
-                            }
-
-                            if (controller.RemovePart(control.Text, UID)) //remove item from cart
+                            if (controls.Name != $"lblQty{t}") continue;
+                            if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()), 0,
+                                    isLM))
                             {
                             }
                             else
@@ -219,6 +196,16 @@ namespace templatev1.Online_Ordering_Platform
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
+                        }
+
+                        if (controller.RemovePart(control.Text, UID)) //remove item from cart
+                        {
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error occur.\nPlease try again", "Remove From Cart",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
                         }
                     }
                 }
@@ -252,11 +239,11 @@ namespace templatev1.Online_Ordering_Platform
         {
             List<int> index = new List<int>();
             int numOfCheckBoxInPage = getNumOfCheckBox();
-            for (int i = 0; i < checkedBox.Count; i++)
+            foreach (var t in checkedBox)
             {
                 for (int j = 0; j < numOfCheckBoxInPage; j++)
                 {
-                    if (checkedBox[i] == $"chk{j}")
+                    if (t == $"chk{j}")
                     {
                         index.Add(j);
                     }
@@ -286,25 +273,23 @@ namespace templatev1.Online_Ordering_Platform
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to remove all items in cart?",
                     "Remove All", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Yes)
+                if (dialogResult != DialogResult.Yes) return;
+                List<string> allPartNum = controller.getAllPartNumInCart(UID);
+                List<int> allItemQty = controller.getAllItemQtyInCart(UID);
+                for (int i = 0; i < allPartNum.Count; i++)
                 {
-                    List<string> allPartNum = controller.getAllPartNumInCart(UID);
-                    List<int> allItemQty = controller.getAllItemQtyInCart(UID);
-                    for (int i = 0; i < allPartNum.Count; i++)
-                    {
-                        controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
-                    }
+                    controller.addQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
+                }
 
-                    if (controller.removeAll(UID)) //remove from cart
-                    {
-                        MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
-                        load_part(controller.getCartItem(UID));
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error occur\nPlease try again", "Remove All", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
-                    }
+                if (controller.removeAll(UID)) //remove from cart
+                {
+                    MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
+                    load_part(controller.getCartItem(UID));
+                }
+                else
+                {
+                    MessageBox.Show("Error occur\nPlease try again", "Remove All", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
                 }
             }
             else
@@ -330,14 +315,12 @@ namespace templatev1.Online_Ordering_Platform
                 List<int> checkedIndex = getCheckedIndex(checkedBox);
                 foreach (Control control in pnlSP.Controls)
                 {
-                    if (control.Name == $"lblPartNum{checkedIndex[0]}")
-                    {
-                        partToEdit = control.Text;
-                        lblEditQty.Text = $"Edit {partToEdit} Quantity:";
-                        lblEditQty.Visible = true;
-                        tbQauntity.Visible = true;
-                        picTick.Visible = true;
-                    }
+                    if (control.Name != $"lblPartNum{checkedIndex[0]}") continue;
+                    partToEdit = control.Text;
+                    lblEditQty.Text = $"Edit {partToEdit} Quantity:";
+                    lblEditQty.Visible = true;
+                    tbQauntity.Visible = true;
+                    picTick.Visible = true;
                 }
             }
         }
@@ -416,33 +399,31 @@ namespace templatev1.Online_Ordering_Platform
                     DialogResult dialogResult = MessageBox.Show(
                         $"Confrim the following detail:\nShipping Date: {dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd")}\nShipping Address: {tbAddress.Text}, {tbProvince.Text}, {tbCity.Text}",
                         "Create Order", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    if (dialogResult != DialogResult.Yes) return;
+                    if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),
+                            shippingAddress))
                     {
-                        if (controller.CreateOrder(UID, dtpShippingDate.SelectionStart.ToString("yyyy-MM-dd"),
-                                shippingAddress))
+                        controller.ClearCustomerCartAfterCreateOrder(UID);
+                        DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",
+                            "Create Order", MessageBoxButtons.YesNo);
+                        if (dialogResult2 == DialogResult.Yes)
                         {
-                            controller.ClearCustomerCartAfterCreateOrder(UID);
-                            DialogResult dialogResult2 = MessageBox.Show("Order created\nBrowse other spare part?",
-                                "Create Order", MessageBoxButtons.YesNo);
-                            if (dialogResult2 == DialogResult.Yes)
-                            {
-                                Form sparePartList = new sparePartList(accountController, UIController);
-                                Hide();
-                                sparePartList.StartPosition = FormStartPosition.Manual;
-                                sparePartList.Location = Location;
-                                sparePartList.ShowDialog();
-                                Close();
-                            }
-                            else
-                            {
-                                load_part(controller.getCartItem(UID));
-                            }
+                            Form sparePartList = new sparePartList(accountController, UIController);
+                            Hide();
+                            sparePartList.StartPosition = FormStartPosition.Manual;
+                            sparePartList.Location = Location;
+                            sparePartList.ShowDialog();
+                            Close();
                         }
                         else
                         {
-                            MessageBox.Show("Please try again", "Create Order", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                            load_part(controller.getCartItem(UID));
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again", "Create Order", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
                 else

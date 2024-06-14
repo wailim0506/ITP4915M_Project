@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Dynamic;
-using System.Windows.Forms;
-using System.Data;
+﻿using System.Dynamic;
 
 namespace controller
 {
@@ -186,14 +179,7 @@ namespace controller
         public dynamic store()
         {
             dynamic store = new ExpandoObject();
-            if (permission.Equals("MP02"))
-            {
-                store.group1 = false;
-            }
-            else
-            {
-                store.group1 = true;
-            }
+            store.group1 = !permission.Equals("MP02");
 
             return store;
         }

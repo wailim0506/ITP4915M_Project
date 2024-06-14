@@ -46,29 +46,29 @@ namespace templatev1.Order_Management
             //spare part
             string[] partNum = controller.GetOrderedSparePartNumber(orderID);
             int rowPos = 1;
-            for (int i = 0; i < partNum.Length; i++)
+            foreach (var t in partNum)
             {
                 Label lblPartNum = new Label
                 {
-                    Text = $"{partNum[i]}", Location = new Point(4, rowPos),
+                    Text = $"{t}", Location = new Point(4, rowPos),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(164, 20)
                 };
                 Label lblPartName = new Label
                 {
-                    Text = $"{controller.GetPartName(partNum[i])}", Location = new Point(174, rowPos),
+                    Text = $"{controller.GetPartName(t)}", Location = new Point(174, rowPos),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(316, 20)
                 };
                 Label lblQtyOrdered = new Label
                 {
-                    Text = $"{controller.GetQty(orderID, partNum[i])}",
+                    Text = $"{controller.GetQty(orderID, t)}",
                     Location = new Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(123, 20)
                 };
                 Label lblQtyDelivered = new Label
                 {
-                    Text = $"{controller.GetQty(orderID, partNum[i])}",
+                    Text = $"{controller.GetQty(orderID, t)}",
                     Location = new Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(139, 20)
                 };

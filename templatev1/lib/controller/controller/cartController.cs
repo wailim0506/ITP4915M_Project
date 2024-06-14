@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Extensions.Logging;
-using MySqlConnector;
 
 namespace controller
 {
@@ -41,10 +37,10 @@ namespace controller
             }
 
             List<string> partNum = new List<string>();
-            for (int i = 0; i < itemId.Count; i++)
+            foreach (var t in itemId)
             {
                 dt = new DataTable();
-                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{itemId[i]}\'";
+                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{t}\'";
                 dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
                 partNum.Add(dt.Rows[0][0].ToString());
             }
@@ -168,14 +164,9 @@ namespace controller
 
 
             //Add to db
-            if (!isLM)
-            {
-                sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
-            }
-            else
-            {
-                sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
-            }
+            sqlCmd = !isLM
+                ? $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num"
+                : $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
 
             try
             {
@@ -231,14 +222,8 @@ namespace controller
 
 
             //edit to db
-            if (!isLM)
-            {
-                sqlCmd = $"UPDATE product SET onSaleQty = @qty WHERE partNumber = @num";
-            }
-            else
-            {
-                sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = @num";
-            }
+            string column = isLM ? "LM_onSaleQty" : "onSaleQty";
+            sqlCmd = $"UPDATE product SET {column} = @qty WHERE partNumber = @num";
 
             try
             {
@@ -254,7 +239,7 @@ namespace controller
                 return false;
             }
 
-            if (editOrder == true)
+            if (editOrder != true) return true;
             {
                 //Since no deduction in spare part table when add to cat, no need to deduct in spare part table, only deduct when editing order
                 qtyInSpare_Part += currentQtyInOrder;

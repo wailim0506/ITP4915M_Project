@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using MySql.Data.MySqlClient;
+﻿using System.Data;
 
 namespace controller
 {
@@ -20,16 +17,9 @@ namespace controller
             string status = "Ready to Ship";
             string sqlCmd = "";
 
-            if (sortBy == "Nearest Dates")
-            {
-                sqlCmd =
-                    $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
-            }
-            else
-            {
-                sqlCmd =
-                    $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC";
-            }
+            sqlCmd = sortBy == "Nearest Dates"
+                ? $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'"
+                : $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC";
 
             return _db.ExecuteDataTableAsync(sqlCmd).Result;
         }

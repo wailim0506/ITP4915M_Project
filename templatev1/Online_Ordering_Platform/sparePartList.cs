@@ -213,16 +213,14 @@ namespace templatev1.Online_Ordering_Platform
         private void viewPart(object sender, EventArgs e)
         {
             string partNum = "";
-            Button clickedButton = sender as Button;
 
-            if (clickedButton != null)
+            if (sender is Button clickedButton)
             {
                 string buttonName = clickedButton.Name;
                 int index = getViewIndex(buttonName);
                 if (index != -1)
                 {
-                    GroupBox parentGroupBox = clickedButton.Parent as GroupBox;
-                    if (parentGroupBox != null)
+                    if (clickedButton.Parent is GroupBox parentGroupBox)
                     {
                         foreach (Control control in parentGroupBox.Controls)
                         {
@@ -246,15 +244,13 @@ namespace templatev1.Online_Ordering_Platform
         {
             string partNum = "";
             int qty = 0;
-            Button clickedButton = sender as Button;
-            if (clickedButton != null)
+            if (sender is Button clickedButton)
             {
                 string buttonName = clickedButton.Name;
                 int index = getAddCartIndex(buttonName);
                 if (index != -1)
                 {
-                    GroupBox parentGroupBox = clickedButton.Parent as GroupBox;
-                    if (parentGroupBox != null)
+                    if (clickedButton.Parent is GroupBox parentGroupBox)
                     {
                         foreach (Control control in parentGroupBox.Controls)
                         {

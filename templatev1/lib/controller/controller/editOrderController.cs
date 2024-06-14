@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySqlConnector;
 
 namespace controller
 {
@@ -39,12 +35,12 @@ namespace controller
 
         public DataTable GetShippingDetail(string id) //orderID
         {
-            return c.getShippingDetail(id);
+            return c.GetShippingDetail(id);
         }
 
         public string[] GetDelivermanDetail(string id) //orderID
         {
-            return c.getDelivermanDetail(id);
+            return c.GetDelivermanDetail(id).Result;
         }
 
         public DataTable GetOrder(string id) //orderID
@@ -174,7 +170,7 @@ namespace controller
 
         public void DeleteOrder(string id) //order id
         {
-            c.deleteOrder(id);
+            _ = c.DeleteOrder(id);
         }
     }
 }

@@ -1,19 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Security.Cryptography;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-using MySqlConnector;
-using System.Windows.Forms;
 
 namespace controller
 {
     public class RecoveryController : abstractController
     {
-        private MySqlCommand cmd;
         private Database db;
 
         private string UID, email, phone;

@@ -178,14 +178,14 @@ namespace templatev1
             cmbCity.SelectedIndex = -1; //clear the selected value when the province has change.
             cmbCity.Text = "";
             cmbCity.Items.Clear(); //clear the value when the selected province has change.
-            cmbCity.Items.AddRange(proFileController.getcity(cmbProvince.Text)
+            cmbCity.Items.AddRange(proFileController.GetCity(cmbProvince.Text)
                 .ToArray()); //change city list base on current selected province.
         }
 
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (checkInfo())
-                if (proFileController.modifyAdd(update))
+                if (proFileController.ModifyAddress(update))
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
@@ -284,10 +284,7 @@ namespace templatev1
             else
                 update.wAdd2 = placeholder.wAdd2;
 
-            if (rbtA1.Checked)
-                update.dfvalue = "1";
-            else
-                update.dfvalue = "2";
+            update.dfvalue = rbtA1.Checked ? "1" : "2";
 
             //Check city.
             if (string.IsNullOrEmpty(cmbCity.Text))

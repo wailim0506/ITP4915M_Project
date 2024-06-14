@@ -47,7 +47,7 @@ namespace templatev1
             string connString =
                 //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
                 "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton(_ => new Database(Database.GetConnectionStringAsync().Result));
+            service.AddSingleton(_ => new Database(Database.GetConnectionString()));
             service.AddSingleton(_ => new Log());
 
             var controllers = new List<Type>
@@ -92,9 +92,11 @@ namespace templatev1
         // maximized the performance of the application
         private static void StartThread(ThreadStart threadStart)
         {
-            var thread = new Thread(threadStart);
-            thread.Name = "LMCIS Thread";
-            thread.Priority = ThreadPriority.Normal;
+            var thread = new Thread(threadStart)
+            {
+                Name = "LMCIS Thread",
+                Priority = ThreadPriority.Normal
+            };
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             Log.LogMessage(LogLevel.Information, "LMCIS", "Started thread");
@@ -104,9 +106,11 @@ namespace templatev1
         // it is welcome to add more background process here
         private static void StartBackgroundThread(ThreadStart threadStart)
         {
-            var thread = new Thread(threadStart);
-            thread.Name = "LMCIS Background Thread";
-            thread.Priority = ThreadPriority.Normal;
+            var thread = new Thread(threadStart)
+            {
+                Name = "LMCIS Background Thread",
+                Priority = ThreadPriority.Normal
+            };
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();
             Log.LogMessage(LogLevel.Information, "LMCIS", "Started background thread");

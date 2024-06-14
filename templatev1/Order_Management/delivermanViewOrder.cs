@@ -1,21 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1.Order_Management
 {
     public partial class delivermanViewOrder : Form
     {
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.viewOrderController controller;
+        AccountController accountController;
+        UIController UIController;
+        viewOrderController controller;
         private string uName, UID;
         string orderID;
         string shipDate;
@@ -23,18 +19,18 @@ namespace templatev1.Order_Management
         public delivermanViewOrder(string orderID)
         {
             InitializeComponent();
-            controller = new controller.viewOrderController();
+            controller = new viewOrderController();
             this.orderID = orderID;
         }
 
-        public delivermanViewOrder(string orderID, controller.AccountController accountController,
-            controller.UIController UIController)
+        public delivermanViewOrder(string orderID, AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.viewOrderController();
+            controller = new viewOrderController();
             shipDate = "";
             UID = this.accountController.GetUid();
 
@@ -74,20 +70,20 @@ namespace templatev1.Order_Management
 
             //delivery info
             dt = new DataTable();
-            dt = controller.getShippingDetail(orderID);
+            dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
-            string[] delivermanDetail = controller.getDelivermanDetail(orderID);
-            if (lblStatus.Text.ToString() == "Cancelled")
+            string[] delivermanDetail = controller.GetDelivermanDetail(orderID).Result;
+            if (lblStatus.Text == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";
-                lblDelivermanName.Text = $"N/A";
+                lblDelivermanName.Text = "N/A";
                 lblDelivermanContact.Text = "N/A";
-                lblShippingDate.Text = $"N/A";
+                lblShippingDate.Text = "N/A";
 
                 lblExpressNum.Text = "N/A";
             }
@@ -96,14 +92,7 @@ namespace templatev1.Order_Management
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                if (dayDifference(orderID) >= 0)
-                {
-                    lblShippingDate.Text = $"Scheduled on {shippingDate}";
-                }
-                else
-                {
-                    lblShippingDate.Text = $"Delivered on {shippingDate}";
-                }
+                lblShippingDate.Text = dayDifference(orderID) >= 0 ? $"Scheduled on {shippingDate}" : $"Delivered on {shippingDate}";
 
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
@@ -127,7 +116,7 @@ namespace templatev1.Order_Management
             int rowPosition = 6;
             for (int i = 1; i <= row; i++)
             {
-                Label lblRowNum = new Label()
+                Label lblRowNum = new Label
                 {
                     Name = $"lblRowNum{i}",
                     Text = $"{i.ToString()}.",
@@ -136,7 +125,7 @@ namespace templatev1.Order_Management
                     TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(33, 20)
                 };
-                Label lblItemNum = new Label()
+                Label lblItemNum = new Label
                 {
                     Name = $"lblItemNum{i}",
                     Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
@@ -145,16 +134,16 @@ namespace templatev1.Order_Management
                     Size = new Size(109, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartNum = new Label()
+                Label lblPartNum = new Label
                 {
                     Name = $"lblPartNum{i}",
-                    Text = $"{dt.Rows[i - 1][0].ToString()}",
+                    Text = $"{dt.Rows[i - 1][0]}",
                     Location = new Point(153, rowPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(128, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartName = new Label()
+                Label lblPartName = new Label
                 {
                     Name = $"lblPartName{i}",
                     Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
@@ -163,10 +152,10 @@ namespace templatev1.Order_Management
                     Size = new Size(508, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblQuantity = new Label()
+                Label lblQuantity = new Label
                 {
                     Name = $"lblQuantity{i}",
-                    Text = $"{dt.Rows[i - 1][2].ToString()}",
+                    Text = $"{dt.Rows[i - 1][2]}",
                     Location = new Point(801, rowPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(116, 20),
@@ -202,8 +191,7 @@ namespace templatev1.Order_Management
             }
 
 
-            DataTable dt;
-            dt = controller.getShippingDetail(orderID);
+            var dt = controller.GetShippingDetail(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
@@ -317,7 +305,7 @@ namespace templatev1.Order_Management
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogResult == DialogResult.Yes) //confirmed shipped
             {
-                if (controller.delivermanJobFinished(orderID))
+                if (controller.DelivermanJobFinished(orderID))
                 {
                     MessageBox.Show("Order status changed.", "Job Finished");
                     Form d =

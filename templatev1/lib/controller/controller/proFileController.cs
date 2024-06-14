@@ -1,20 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Dynamic;
-using System.Threading.Tasks;
 using System.Data;
 using System.IO;
 using MySqlConnector;
-using System.Windows.Forms;
 using Microsoft.Extensions.Logging;
 
 namespace controller
 {
     public class proFileController : abstractController
     {
-        private MySqlCommand cmd;
         private Database _db;
 
         private string sqlStr;
@@ -37,7 +32,7 @@ namespace controller
             city,
             province;
 
-        private bool NGDateOfBirth = false;
+        private bool NGDateOfBirth;
         private int dfadd;
 
         AccountController accountController;
@@ -59,15 +54,12 @@ namespace controller
             this.UID = UID;
         }
 
-        //Get the default address value for customer user from database and set the value.
+        //Get the default address value for customer user from the database and set the value.
         private void GetDfAdd()
         {
             DataTable dt = new DataTable();
-            sqlStr = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-
+            string query = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
+            dt = _db.ExecuteDataTableAsync(query).Result;
             dfadd = int.Parse(dt.Rows[0]["dfadd"].ToString());
         }
 
@@ -98,10 +90,7 @@ namespace controller
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
 
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-
+            dt = _db.ExecuteDataTableAsync(sqlStr).Result;
 
             //Set user data to gobal variable
             if (accountType.Equals("Staff"))
@@ -113,10 +102,7 @@ namespace controller
             {
                 waddress1 = dt.Rows[0]["warehouseAddress"].ToString();
                 waddress2 = dt.Rows[0]["warehouseAddress2"].ToString();
-                if (dfadd == 1)
-                    dfwaddress = waddress1;
-                else
-                    dfwaddress = waddress2;
+                dfwaddress = dfadd == 1 ? waddress1 : waddress2;
 
                 payment = dt.Rows[0]["paymentMethod"].ToString();
                 caddress = dt.Rows[0]["companyAddress"].ToString();
@@ -172,10 +158,7 @@ namespace controller
 
             sqlStr =
                 $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
-
+            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
             AddInfo.province = province;
             AddInfo.city = city;
             AddInfo.corpAdd = caddress;
@@ -187,13 +170,11 @@ namespace controller
         }
 
         //Values for listbox
-        public List<string> getcity(string priovince)
+        public List<string> GetCity(string priovince)
         {
             DataTable dt = new DataTable();
             sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
+            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
             List<string> city = new List<string>();
 
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
@@ -208,9 +189,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlStr = $"SELECT DISTINCT province FROM location";
-            adr = new MySqlDataAdapter(sqlStr, conn);
-            adr.Fill(dt);
-            adr.Dispose();
+            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
             List<string> priovince = new List<string>();
 
             for (int i = 0; i <= (dt.Rows.Count - 1); i++)
@@ -285,7 +264,7 @@ namespace controller
         }
 
         //Update the address in the database.
-        public bool modifyAdd(dynamic Addinfo)
+        public bool ModifyAddress(dynamic Addinfo)
         {
             try
             {
@@ -332,7 +311,7 @@ namespace controller
             return userImagesDirectory;
         }
 
-        public string GetUserImagePath(string userId, string imageName)
+        private string GetUserImagePath(string userId, string imageName)
         {
             string userImagesDirectory = GetUserImageDirectory(userId);
             string imagePath = Path.Combine(userImagesDirectory, imageName);
@@ -341,7 +320,7 @@ namespace controller
             return File.Exists(imagePath) ? imagePath : "DefaultIconPath";
         }
 
-        public void uploadUserimage(string userId, string imageName)
+        public void UploadUserimage(string userId, string imageName)
         {
             string imagePath = GetUserImagePath(userId, imageName);
 

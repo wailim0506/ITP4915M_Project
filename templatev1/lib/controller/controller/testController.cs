@@ -2,9 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
 using System.IO;
 using System.Security.Cryptography;
@@ -133,7 +130,6 @@ namespace controller
 
         public static string HashPassword(string password)
         {
-            RecoveryController RecoveryController = new RecoveryController();
             return RecoveryController.HashPassword(password);
         }
 
@@ -152,14 +148,9 @@ namespace controller
 
             foreach (var user in usersToUpdate)
             {
-                if (UpdatePasswordAndTestLogin(user.Key, user.Value))
-                {
-                    MessageBox.Show($"Password updated and login successful at {user.Key}");
-                }
-                else
-                {
-                    MessageBox.Show($"Update or login failed at {user.Key}");
-                }
+                MessageBox.Show(UpdatePasswordAndTestLogin(user.Key, user.Value)
+                    ? $"Password updated and login successful at {user.Key}"
+                    : $"Update or login failed at {user.Key}");
             }
         }
 

@@ -5,6 +5,7 @@
 本指南將詳細說明如何使用新版 `Database` 類別中的各種方法，以及在不同情況下應該使用哪種方法。此外，我們將展示每個方法返回的模擬數據結果，並解釋新舊版本之間的主要區別。
 
 ## 目錄
+
 1. [初始化](#初始化)
 2. [方法概覽](#方法概覽)
 3. [不同情況下的最佳使用方法](#不同情況下的最佳使用方法)
@@ -36,10 +37,12 @@ string connectionString = Database.GetConnectionStringAsync().Result;
 執行一個 SQL 查詢，並返回查詢結果的第一行第一列的值。
 
 **參數：**
+
 - `sqlQuery`: 要執行的 SQL 查詢。
 - `queryParameters`: SQL 查詢的參數集合，使用字典來表示。
 
 **返回值：**
+
 - 查詢結果的第一行第一列的值。
 
 ```csharp
@@ -51,10 +54,12 @@ object result = db.ExecuteScalarCommandAsync("SELECT COUNT(*) FROM users", null)
 執行一個不返回結果集的 SQL 命令，例如 `INSERT`、`UPDATE` 或 `DELETE`。
 
 **參數：**
+
 - `sqlQuery`: 要執行的 SQL 查詢。
 - `queryParameters`: SQL 查詢的參數集合，使用字典來表示。
 
 **返回值：**
+
 - 無返回值。
 
 ```csharp
@@ -66,10 +71,12 @@ db.ExecuteNonQueryCommandAsync("UPDATE users SET name = @name WHERE id = @id", n
 執行一個 SQL 查詢，並返回一個 `DataTable` 對象來保存結果集。
 
 **參數：**
+
 - `sqlQuery`: 要執行的 SQL 查詢。
 - `queryParameters`: SQL 查詢的參數集合，使用字典來表示。
 
 **返回值：**
+
 - `DataTable` 對象。
 
 ```csharp
@@ -83,25 +90,31 @@ foreach (DataRow row in dt.Rows)
 ## 不同情況下的最佳使用方法
 
 ### 1. 獲取單一值
+
 當需要從資料庫獲取單一值（例如計算總數或獲取單個字段值）時，應使用 `ExecuteScalarCommandAsync` 方法。
 
 **示例：**
+
 ```csharp
 var count = db.ExecuteScalarCommandAsync("SELECT COUNT(*) FROM users", null).Result;
 ```
 
 ### 2. 執行不返回結果的命令
+
 當需要執行 `INSERT`、`UPDATE` 或 `DELETE` 等不返回結果集的命令時，應使用 `ExecuteNonQueryCommandAsync` 方法。
 
 **示例：**
+
 ```csharp
 db.ExecuteNonQueryCommandAsync("UPDATE users SET name = @name WHERE id = @id", new Dictionary<string, object> { { "@name", "John Doe" }, { "@id", 1 } }).Wait();
 ```
 
 ### 3. 獲取結果集
+
 當需要執行一個返回結果集的查詢時，應使用 `ExecuteDataTableAsync` 方法。
 
 **示例：**
+
 ```csharp
 DataTable dt = db.ExecuteDataTableAsync("SELECT * FROM users").Result;
 foreach (DataRow row in dt.Rows)
@@ -113,18 +126,21 @@ foreach (DataRow row in dt.Rows)
 ## 模擬數據結果
 
 ### `ExecuteScalarCommandAsync`
+
 ```csharp
 var result = db.ExecuteScalarCommandAsync("SELECT COUNT(*) FROM users", null).Result;
 // 假設結果為：5
 ```
 
 ### `ExecuteNonQueryCommandAsync`
+
 ```csharp
 db.ExecuteNonQueryCommandAsync("UPDATE users SET name = @name WHERE id = @id", new Dictionary<string, object> { { "@name", "John Doe" }, { "@id", 1 } }).Wait();
 // 假設更新了1行數據
 ```
 
 ### `ExecuteDataTableAsync`
+
 ```csharp
 DataTable dt = db.ExecuteDataTableAsync("SELECT * FROM users").Result;
 // 假設返回兩行數據：
@@ -135,15 +151,20 @@ DataTable dt = db.ExecuteDataTableAsync("SELECT * FROM users").Result;
 ## 新版與舊版的區別
 
 ### 1. 非同步方法
-新版代碼中，所有主要的數據庫操作方法都改為了非同步方法，使用 `async` 和 `await` 關鍵字來提高性能，特別是在處理大量數據或需要等待數據庫響應時。舊版代碼中，很多方法是同步的，這可能會導致應用程序在等待數據庫響應時變得無響應。
+
+新版代碼中，所有主要的數據庫操作方法都改為了非同步方法，使用 `async` 和 `await`
+關鍵字來提高性能，特別是在處理大量數據或需要等待數據庫響應時。舊版代碼中，很多方法是同步的，這可能會導致應用程序在等待數據庫響應時變得無響應。
 
 ### 2. 簡化的內部邏輯
+
 新版代碼中，通過 `ExecuteCommandAsync` 方法統一了數據庫命令的執行邏輯，減少了代碼重複，提高了可讀性和可維護性。這使得新增或修改數據庫操作邏輯變得更加容易。
 
 ### 3. 改進的異常處理
+
 新版代碼中的異常處理更具體，將異常捕獲和處理封裝在統一的方法中，使得異常處理邏輯更加集中和一致，便於調試和維護。
 
 ### 4. 減少了不必要的同步方法
+
 新版代碼中去除了部分不必要的同步方法，鼓勵使用非同步方法來進行數據庫操作，這符合現代 C# 編程的最佳實踐，有助於提升應用程序的響應速度和用戶體驗。
 
 這些改進使得新版 `Database` 類別在性能和可維護性上都有了顯著提升。
@@ -151,6 +172,7 @@ DataTable dt = db.ExecuteDataTableAsync("SELECT * FROM users").Result;
 ## 新增示例方法
 
 ### 獲取送貨日期
+
 此方法展示如何使用 `ExecuteDataTableAsync` 方法來獲取送貨日期。
 
 ```csharp
@@ -162,8 +184,8 @@ public string GetDeliveryDate(string id)
 }
 ```
 
-這個方法中使用 `ExecuteDataTableAsync` 來執行查詢，並且使用 `.Result` 來等待查詢完成並獲取結果。隨後，從結果中提取 `shippingDate` 字段，並返回日期部分。
-
+這個方法中使用 `ExecuteDataTableAsync` 來執行查詢，並且使用 `.Result`
+來等待查詢完成並獲取結果。隨後，從結果中提取 `shippingDate` 字段，並返回日期部分。
 
 ## useful links
 

@@ -36,7 +36,7 @@ namespace templatev1
             lblPlatform.Text = Environment.OSVersion.ToString();
             lblInsDate.Text = Login.getInsDate();
             TimeSpan span = (DateTime.Now - DateTime.Parse(Login.getInsDate()));
-            lblTotalOpTime.Text = String.Format("{0} hours, {1} minutes", span.Hours, span.Minutes);
+            lblTotalOpTime.Text = $"{span.Hours} hours, {span.Minutes} minutes";
         }
 
         private void Initialization()

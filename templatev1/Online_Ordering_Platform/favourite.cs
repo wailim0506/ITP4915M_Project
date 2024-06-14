@@ -63,115 +63,113 @@ namespace templatev1.Online_Ordering_Platform
             {
                 for (int k = 0; k < columnPerRow; k++)
                 {
-                    if (currentGrpBox < grpBoxNeeded)
+                    if (currentGrpBox >= grpBoxNeeded) continue;
+                    GroupBox grpSpareBox;
+                    if (k == 0)
                     {
-                        GroupBox grpSpareBox;
-                        if (k == 0)
+                        grpSpareBox = new GroupBox
                         {
-                            grpSpareBox = new GroupBox
-                            {
-                                Name = $"grpBox{currentGrpBox}", Size = new Size(281, 383),
-                                Location = new Point(firstColumnXPosition, yPosition)
-                            };
-                        }
-                        else if (k == 1)
-                        {
-                            grpSpareBox = new GroupBox
-                            {
-                                Size = new Size(281, 383),
-                                Location = new Point(secondColumnXPosition, yPosition)
-                            };
-                        }
-                        else
-                        {
-                            grpSpareBox = new GroupBox
-                            {
-                                Size = new Size(281, 383),
-                                Location = new Point(thirdColumnXPosition, yPosition)
-                            };
-                        }
-
-                        PictureBox picPartImage = new PictureBox
-                        {
-                            Size = new Size(275, 186), Location = new Point(3, 16),
-                            SizeMode = PictureBoxSizeMode.Zoom, Image = imageString($"{dt.Rows[currentGrpBox][4]}")
+                            Name = $"grpBox{currentGrpBox}", Size = new Size(281, 383),
+                            Location = new Point(firstColumnXPosition, yPosition)
                         };
-                        Label lblCategoryLabel = new Label
-                        {
-                            Text = "Category :", AutoSize = true, Location = new Point(6, 207),
-                            Font = new Font("Microsoft Sans Serif", 12)
-                        };
-                        Label lblPartNumLabel = new Label
-                        {
-                            Text = "Part Number :", AutoSize = true, Location = new Point(6, 237),
-                            Font = new Font("Microsoft Sans Serif", 12)
-                        };
-                        Label lblNameLabel = new Label
-                        {
-                            Text = "Name :", AutoSize = true, Location = new Point(6, 267),
-                            Font = new Font("Microsoft Sans Serif", 12)
-                        };
-                        Label lblPriceLabel = new Label
-                        {
-                            Text = "Price :¥", AutoSize = true, Location = new Point(6, 297),
-                            Font = new Font("Microsoft Sans Serif", 12)
-                        };
-
-                        Label lblCategory = new Label
-                        {
-                            Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18].ToString()}",
-                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
-                            Location = new Point(83, 208), Size = new Size(174, 20)
-                        };
-                        Label lblPartNum = new Label
-                        {
-                            Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][4]}",
-                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
-                            Location = new Point(108, 238), Size = new Size(171, 20)
-                        };
-                        Label lblName = new Label
-                        {
-                            Text = $"{dt.Rows[currentGrpBox][13]}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(62, 268),
-                            Size = new Size(218, 20)
-                        };
-                        Label lblPrice = new Label
-                        {
-                            Text = $"{dt.Rows[currentGrpBox][7].ToString()}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
-                            Size = new Size(213, 20)
-                        };
-                        Button btnView = new Button
-                        {
-                            Name = $"btnView{currentGrpBox}", Text = "View", Font = new Font("Times New Roman", 12),
-                            Cursor = Cursors.Hand, Location = new Point(3, 319),
-                            Size = new Size(272, 30)
-                        };
-                        Button btnRemove = new Button
-                        {
-                            Name = $"btnRemove{currentGrpBox}", Text = "Remove from favourite",
-                            Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand,
-                            Location = new Point(3, 350), Size = new Size(272, 30)
-                        };
-                        btnView.Click += new EventHandler(viewPart);
-                        btnRemove.Click += new EventHandler(removeFavourite);
-
-                        grpSpareBox.Controls.Add(picPartImage);
-                        grpSpareBox.Controls.Add(lblCategoryLabel);
-                        grpSpareBox.Controls.Add(lblPartNumLabel);
-                        grpSpareBox.Controls.Add(lblNameLabel);
-                        grpSpareBox.Controls.Add(lblPriceLabel);
-                        grpSpareBox.Controls.Add(lblCategory);
-                        grpSpareBox.Controls.Add(lblPartNum);
-                        grpSpareBox.Controls.Add(lblName);
-                        grpSpareBox.Controls.Add(lblPrice);
-                        grpSpareBox.Controls.Add(btnView);
-                        grpSpareBox.Controls.Add(btnRemove);
-
-
-                        pnlSP.Controls.Add(grpSpareBox);
-                        ++currentGrpBox;
                     }
+                    else if (k == 1)
+                    {
+                        grpSpareBox = new GroupBox
+                        {
+                            Size = new Size(281, 383),
+                            Location = new Point(secondColumnXPosition, yPosition)
+                        };
+                    }
+                    else
+                    {
+                        grpSpareBox = new GroupBox
+                        {
+                            Size = new Size(281, 383),
+                            Location = new Point(thirdColumnXPosition, yPosition)
+                        };
+                    }
+
+                    PictureBox picPartImage = new PictureBox
+                    {
+                        Size = new Size(275, 186), Location = new Point(3, 16),
+                        SizeMode = PictureBoxSizeMode.Zoom, Image = imageString($"{dt.Rows[currentGrpBox][4]}")
+                    };
+                    Label lblCategoryLabel = new Label
+                    {
+                        Text = "Category :", AutoSize = true, Location = new Point(6, 207),
+                        Font = new Font("Microsoft Sans Serif", 12)
+                    };
+                    Label lblPartNumLabel = new Label
+                    {
+                        Text = "Part Number :", AutoSize = true, Location = new Point(6, 237),
+                        Font = new Font("Microsoft Sans Serif", 12)
+                    };
+                    Label lblNameLabel = new Label
+                    {
+                        Text = "Name :", AutoSize = true, Location = new Point(6, 267),
+                        Font = new Font("Microsoft Sans Serif", 12)
+                    };
+                    Label lblPriceLabel = new Label
+                    {
+                        Text = "Price :¥", AutoSize = true, Location = new Point(6, 297),
+                        Font = new Font("Microsoft Sans Serif", 12)
+                    };
+
+                    Label lblCategory = new Label
+                    {
+                        Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18].ToString()}",
+                        AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                        Location = new Point(83, 208), Size = new Size(174, 20)
+                    };
+                    Label lblPartNum = new Label
+                    {
+                        Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][4]}",
+                        AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                        Location = new Point(108, 238), Size = new Size(171, 20)
+                    };
+                    Label lblName = new Label
+                    {
+                        Text = $"{dt.Rows[currentGrpBox][13]}", AutoSize = false,
+                        Font = new Font("Microsoft Sans Serif", 12), Location = new Point(62, 268),
+                        Size = new Size(218, 20)
+                    };
+                    Label lblPrice = new Label
+                    {
+                        Text = $"{dt.Rows[currentGrpBox][7].ToString()}", AutoSize = false,
+                        Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
+                        Size = new Size(213, 20)
+                    };
+                    Button btnView = new Button
+                    {
+                        Name = $"btnView{currentGrpBox}", Text = "View", Font = new Font("Times New Roman", 12),
+                        Cursor = Cursors.Hand, Location = new Point(3, 319),
+                        Size = new Size(272, 30)
+                    };
+                    Button btnRemove = new Button
+                    {
+                        Name = $"btnRemove{currentGrpBox}", Text = "Remove from favourite",
+                        Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand,
+                        Location = new Point(3, 350), Size = new Size(272, 30)
+                    };
+                    btnView.Click += new EventHandler(viewPart);
+                    btnRemove.Click += new EventHandler(removeFavourite);
+
+                    grpSpareBox.Controls.Add(picPartImage);
+                    grpSpareBox.Controls.Add(lblCategoryLabel);
+                    grpSpareBox.Controls.Add(lblPartNumLabel);
+                    grpSpareBox.Controls.Add(lblNameLabel);
+                    grpSpareBox.Controls.Add(lblPriceLabel);
+                    grpSpareBox.Controls.Add(lblCategory);
+                    grpSpareBox.Controls.Add(lblPartNum);
+                    grpSpareBox.Controls.Add(lblName);
+                    grpSpareBox.Controls.Add(lblPrice);
+                    grpSpareBox.Controls.Add(btnView);
+                    grpSpareBox.Controls.Add(btnRemove);
+
+
+                    pnlSP.Controls.Add(grpSpareBox);
+                    ++currentGrpBox;
                 }
 
                 yPosition += 388;
@@ -193,9 +191,8 @@ namespace templatev1.Online_Ordering_Platform
         private void viewPart(object sender, EventArgs e)
         {
             string partNum = "";
-            Button clickedButton = sender as Button;
 
-            if (clickedButton != null)
+            if (sender is Button clickedButton)
             {
                 string buttonName = clickedButton.Name;
                 int index = getViewIndex(buttonName);
@@ -226,15 +223,13 @@ namespace templatev1.Online_Ordering_Platform
         {
             string partNum = "";
             string qty = "";
-            Button clickedButton = sender as Button;
-            if (clickedButton != null)
+            if (sender is Button clickedButton)
             {
                 string buttonName = clickedButton.Name;
                 int index = getRemoveIndex(buttonName);
                 if (index != -1)
                 {
-                    GroupBox parentGroupBox = clickedButton.Parent as GroupBox;
-                    if (parentGroupBox != null)
+                    if (clickedButton.Parent is GroupBox parentGroupBox)
                     {
                         foreach (Control control in parentGroupBox.Controls)
                         {
@@ -275,9 +270,6 @@ namespace templatev1.Online_Ordering_Platform
 
                 i++;
             }
-
-            int x = -1;
-            return x;
         }
 
         private int getRemoveIndex(string btnName)
@@ -292,9 +284,6 @@ namespace templatev1.Online_Ordering_Platform
 
                 i++;
             }
-
-            int x = -1;
-            return x;
         }
 
         private void timer1_Tick(object sender, EventArgs e)

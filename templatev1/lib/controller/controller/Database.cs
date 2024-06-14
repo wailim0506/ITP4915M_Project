@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
@@ -13,39 +12,42 @@ namespace controller
 
         public Database(string connectionString = null)
         {
-            _connection = new MySqlConnection(connectionString ?? GetConnectionStringAsync().Result);
+            _connection = new MySqlConnection(connectionString ?? GetConnectionString());
             _connection.Open();
         }
 
-        public static async Task<string> GetConnectionStringAsync()
+        public static string GetConnectionString()
         {
             var connectionStrings = new List<string>
             {
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
-                // "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
-                // "server=hkg1.clusters.zeabur.com;port=32298;user id=root; password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
+                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
+                "server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=1",
+                "server=hkg1.clusters.zeabur.com;port=32298;user id=root; password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30"
             };
 
-            var tasks = connectionStrings.Select(TestConnectionAsync).ToArray();
-            var completedTask = await Task.WhenAny(tasks);
-
-            return await completedTask ?? throw new Exception("No valid connection string found.");
+            return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
         }
 
-        private static async Task<string> TestConnectionAsync(string connectionString)
+        private static string TestConnection(List<string> connectionStrings)
         {
-            try
+            foreach (var connectionString in connectionStrings)
             {
                 using (var connection = new MySqlConnection(connectionString))
                 {
-                    await connection.OpenAsync();
-                    return connectionString;
+                    try
+                    {
+                        connection.Open();
+                        return connectionString;
+                    }
+                    catch
+                    {
+                        // Ignore the exception and try the next connection string
+                    }
                 }
             }
-            catch
-            {
-                return null;
-            }
+
+            // If none of the connection strings work, throw an exception or return null
+            throw new Exception("No valid connection string found.");
         }
 
         public void Dispose()

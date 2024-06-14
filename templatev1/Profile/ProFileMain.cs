@@ -336,10 +336,7 @@ namespace templatev1
                 update.lName = placeholder.lName;
 
             //Check and update gender if have change.
-            if (cmbGender.SelectedIndex == 0)
-                update.sex = "M";
-            else
-                update.sex = "F";
+            update.sex = cmbGender.SelectedIndex == 0 ? "M" : "F";
 
             //Check and update date of birth if have change.
             if (dtpDateOfBirth.Value !=
