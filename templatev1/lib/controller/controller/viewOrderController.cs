@@ -106,18 +106,18 @@ namespace controller
         public string[] GetDelivermanDetail(string id) //orderID
         {
             string delivermanID = ExecuteSqlQueryAndReturnFirstRow(
-                $"SELECT delivermanID FROM shipping_detail WHERE orderID = '{id}'");
+                $"SELECT delivermanID FROM shipping_detail WHERE orderID = \'{id}\'");
 
             //get deliverman name and contact from staff table
             DataTable dt = _db.ExecuteDataTable(
-                $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = '{delivermanID}'", null);
+                $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = \'{delivermanID}\'", null);
 
             return new string[] { dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString() };
         }
 
         private string ExecuteSqlQueryAndReturnFirstRow(string s)
         {
-            DataTable dt = _db.ExecuteDataTable(sqlCmd, null);
+            DataTable dt = _db.ExecuteDataTable(s, null);
             return dt.Rows[0][0].ToString();
         }
 

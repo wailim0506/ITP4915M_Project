@@ -85,7 +85,7 @@ namespace templatev1.Order_Management
                 lblDelivermanName.Text = "N/A";
                 lblDelivermanContact.Text = "N/A";
                 lblShippingDate.Text = "N/A";
-
+            
                 lblExpressNum.Text = "N/A";
             }
             else
@@ -96,10 +96,10 @@ namespace templatev1.Order_Management
                 lblShippingDate.Text = dayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
-
+            
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
-
+            
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing")
             {
