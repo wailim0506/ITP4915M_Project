@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
+using System.Windows.Forms;
 
 namespace controller
 {
@@ -88,7 +89,7 @@ namespace controller
         public int getLMCID()
         {
             DataTable dt = new DataTable();
-            string SqlQuery = "SELECT COUNT(*) FROM customer";
+            string SqlQuery = "SELECT * FROM customer";
             dt = db.ExecuteDataTable(SqlQuery);
             return dt.Rows.Count + 1;
         }
@@ -144,7 +145,7 @@ namespace controller
                     "INSERT INTO customer VALUES(@id, @fName, @lName, @gender, @email, @company, @phone, @province, @city, @address1, @address2, @joinDate, @payment, @img, @dob, NULL)",
                     customerParams);
                 db.ExecuteNonQueryCommand(
-                    "INSERT INTO customer_account VALUES(@accountId, @id, 'active', @hashedPwd, @joinDate, @joinDate)",
+                    "INSERT INTO customer_account VALUES(@accountId, @id, 'N', 'active', @hashedPwd, @joinDate, @joinDate)",
                     accountParams);
                 db.ExecuteNonQueryCommand("INSERT INTO customer_dfadd VALUES(@id, '1')", dfaddParams);
                 return true;
