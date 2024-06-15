@@ -353,7 +353,7 @@ namespace templatev1
                 update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
             }
             else if (chkNGDateOfBirth.Checked)
-                update.DFB = "NULL";
+                update.DFB = DBNull.Value;
             else
                 update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
 

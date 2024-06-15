@@ -47,10 +47,9 @@ namespace templatev1
                 setValue(); //If passed set the value in to dynameic.
                 if (recoveryController.create(value))
                 {
-                    MessageBox.Show(
-                        "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
-                        ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    //MessageBox.Show(
+                      //  "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
+                      // ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Form Login = new Login();
                     Hide();
@@ -343,7 +342,7 @@ namespace templatev1
                 value.gender = "F";
 
             if (chkNGDateOfBirth.Checked)
-                value.dateOfBirth = "NULL";
+                value.dateOfBirth = DBNull.Value;
             else
                 value.dateOfBirth = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
 

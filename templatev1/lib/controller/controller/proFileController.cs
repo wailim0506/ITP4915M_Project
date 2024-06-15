@@ -241,7 +241,7 @@ namespace controller
 
                 if (accountType.Equals("Customer"))
                 {
-                    sqlCmd =
+                    sqlCmd = 
                         "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, paymentMethod = @pay, dateofBirth = @DFB, company = @corp WHERE customerID = @UID";
                     parameters.Add("@pay", info.pay);
                     parameters.Add("@corp", info.corp);
