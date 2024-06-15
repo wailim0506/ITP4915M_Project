@@ -9,42 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/AddPartToExistingOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/AddPartToExistingOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/cart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/favourite.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/favourite.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/sparePartList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/sparePartList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Online_Ordering_Platform/viewSparePart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerEditOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewInvoice.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/delivermanViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/delivermanViewOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Profile/AddressMgmt.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/AddressMgmt.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/About.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/About.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/OrderAnalysisReportController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Properties/AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Properties/AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/RecoveryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/UIController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/addPartToOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/addPartToOrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/cartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/cartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/delivermanOrderListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/delivermanOrderListController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/editOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/editOrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/feedbackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/feedbackController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/orderListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/orderListController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/proFileController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/spareListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/spareListController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/supplierController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/supplierController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/testController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewInvoiceController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewSparePartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/test_Database_and_Controller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.resx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,10 +45,8 @@
   &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project/templatev1/Online_Ordering_Platform/AddPartToExistingOrder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/a1667/RiderProjects/ITP4915M_Project/templatev1/lib/controller/controller/abstractController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://diff.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/19647/source/repos/wailim0506/ITP4915M_Project/templatev1/Profile/ProFileMain.Designer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Users/19647/source/repos/wailim0506/ITP4915M_Project/templatev1/Profile/ProFileMain.resx" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
