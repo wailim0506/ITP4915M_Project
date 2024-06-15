@@ -189,7 +189,7 @@
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(45, 22);
+            this.lblUid.Size = new System.Drawing.Size(91, 46);
             this.lblUid.TabIndex = 1;
             this.lblUid.Text = "Uid:";
             // 
@@ -200,7 +200,7 @@
             this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
+            this.lblTimeDate.Size = new System.Drawing.Size(116, 46);
             this.lblTimeDate.TabIndex = 0;
             this.lblTimeDate.Text = "TIME";
             // 
@@ -224,7 +224,7 @@
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 9);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(161, 22);
+            this.lblLoc.Size = new System.Drawing.Size(330, 46);
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "Order Management";
             // 
@@ -291,14 +291,12 @@
             this.cmbUpcomingSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUpcomingSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUpcomingSorting.FormattingEnabled = true;
-            this.cmbUpcomingSorting.Items.AddRange(new object[] {
-            "Nearest Dates",
-            "Furthest Dates"});
+            this.cmbUpcomingSorting.Items.AddRange(new object[] { "Nearest Dates", "Furthest Dates" });
             this.cmbUpcomingSorting.Location = new System.Drawing.Point(1027, 109);
             this.cmbUpcomingSorting.Name = "cmbUpcomingSorting";
-            this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 44);
             this.cmbUpcomingSorting.TabIndex = 116;
-            // this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
+            this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -307,7 +305,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label1.Location = new System.Drawing.Point(205, 106);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 26);
+            this.label1.Size = new System.Drawing.Size(341, 55);
             this.label1.TabIndex = 118;
             this.label1.Text = "Upcoming Jobs";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -319,7 +317,7 @@
             this.label3.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.label3.Location = new System.Drawing.Point(206, 555);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 26);
+            this.label3.Size = new System.Drawing.Size(304, 55);
             this.label3.TabIndex = 119;
             this.label3.Text = "Finished Jobs";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -387,18 +385,16 @@
             this.cmbFinishedSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFinishedSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFinishedSorting.FormattingEnabled = true;
-            this.cmbFinishedSorting.Items.AddRange(new object[] {
-            "Nearest Dates",
-            "Furthest Dates"});
+            this.cmbFinishedSorting.Items.AddRange(new object[] { "Nearest Dates", "Furthest Dates" });
             this.cmbFinishedSorting.Location = new System.Drawing.Point(1027, 558);
             this.cmbFinishedSorting.Name = "cmbFinishedSorting";
-            this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 44);
             this.cmbFinishedSorting.TabIndex = 124;
-            // this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
+            this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
             // 
             // deliverman
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.label8);
@@ -434,7 +430,6 @@
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
