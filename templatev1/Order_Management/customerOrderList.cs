@@ -47,7 +47,7 @@ namespace templatev1.Online_Ordering_Platform
             load_data("All");
             cmbSortOrder.SelectedIndex = 0;
         }
-
+        
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();

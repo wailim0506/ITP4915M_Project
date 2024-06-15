@@ -160,8 +160,8 @@ namespace templatev1
 
         private void btnTest3_Click(object sender, EventArgs e)
         {
-            tbUsername.Text = "LMS00002";
-            tbPassword.Text = "abc123456";
+            tbUsername.Text = "LMS00006";
+            tbPassword.Text = "1234567890";
         }
 
         private void btnTest4_Click_1(object sender, EventArgs e)

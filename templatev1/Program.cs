@@ -58,6 +58,7 @@ namespace templatev1
                 typeof(AccountController),
                 typeof(addPartToOrderController),
                 typeof(cartController),
+                typeof(staffOrderListController),
                 typeof(delivermanOrderListController),
                 typeof(editOrderController),
                 typeof(favouriteController),

@@ -97,7 +97,13 @@ namespace templatev1
             {
                 //my version
                 case "Order Management":
-                    next = new customerOrderList(accountController, UIController);
+                    if (UID.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(accountController, UIController);
+                    }
+                    else {
+                        next = new Order_Management.staffOrderList(accountController, UIController);
+                    }
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);

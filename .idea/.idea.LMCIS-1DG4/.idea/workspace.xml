@@ -8,12 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,6 +153,7 @@
       <workItem from="1718324971521" duration="11362000" />
       <workItem from="1718465548262" duration="383000" />
       <workItem from="1718466050649" duration="1981000" />
+      <workItem from="1718471317628" duration="229000" />
     </task>
     <task id="LOCAL-00001" summary="modify the algorithm of hashing passwords replace it with bcrypt.net&#10;Please use the same algorithm for hashing passwords in the database and in the controller.&#10;btw I add way for Developer to change password if the password is not working.">
       <option name="closed" value="true" />
