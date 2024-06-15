@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1.Stock_Manag
 {

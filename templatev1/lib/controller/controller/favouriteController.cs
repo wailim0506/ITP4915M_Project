@@ -19,14 +19,14 @@ namespace controller
         {
             sqlCmd =
                 $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
-            DataTable dt = _database.ExecuteDataTableAsync(sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
 
         public Boolean RemoveFromFavourite(string num, string id) //partNum , customerID
         {
             sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
-            DataTable dt = _database.ExecuteDataTableAsync(sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "DELETE FROM favourite WHERE itemID = @id AND customerID = @cid";
@@ -38,7 +38,7 @@ namespace controller
 
             try
             {
-                _ = _database.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception e)
             {
@@ -75,7 +75,7 @@ namespace controller
                     break;
             }
 
-            DataTable dt = _database.ExecuteDataTableAsync(sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
 
@@ -83,7 +83,7 @@ namespace controller
         {
             sqlCmd =
                 $"SELECT * FROM favourite x, product y WHERE x.itemID = y.itemID AND partNumber = '{num}' AND x.customerID = \'{id}\';";
-            DataTable dt = _database.ExecuteDataTableAsync(sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             if (dt.Rows.Count != 0)
             {
                 return true;
@@ -95,7 +95,7 @@ namespace controller
         public Boolean AddToFavourite(string num, string id) //partNum , customerID
         {
             sqlCmd = $"SELECT itemID FROM product WHERE partNumber = \'{num}\' ";
-            DataTable dt = _database.ExecuteDataTableAsync(sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             sqlCmd = "INSERT INTO favourite (customerID,itemID) VALUES (@cid,@id);";
@@ -107,7 +107,7 @@ namespace controller
 
             try
             {
-                _ = _database.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
+                _database.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception e)
             {

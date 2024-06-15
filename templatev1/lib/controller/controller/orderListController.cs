@@ -17,8 +17,8 @@ namespace controller
 
         public string GetCustomerAccountId(string id) //id = customerID
         {
-            return _db.ExecuteDataTableAsync(
-                    $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'").Result
+            return _db.ExecuteDataTable(
+                    $"SELECT customerAccountID FROM customer_account WHERE customerID = '{id}'")
                 .Rows[0][0].ToString();
         }
 
@@ -28,7 +28,7 @@ namespace controller
                 ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
                 : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
-            return int.Parse(_db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString());
+            return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
         }
 
         public DataTable GetOrder(string id, string sortBy)
@@ -37,7 +37,7 @@ namespace controller
                 ? $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
                 : $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
-            return _db.ExecuteDataTableAsync(sqlCmd).Result;
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
         public string GetStafftId(string id) //staff account id

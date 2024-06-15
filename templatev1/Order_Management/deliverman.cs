@@ -1,20 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
     public partial class deliverman : Form
     {
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.delivermanOrderListController controller;
+        AccountController accountController;
+        UIController UIController;
+        delivermanOrderListController controller;
         private string uName, UID;
 
         public deliverman()
@@ -22,16 +18,16 @@ namespace templatev1
             InitializeComponent();
             UID = "LMS00009"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
-            controller = new controller.delivermanOrderListController();
+            controller = new delivermanOrderListController();
         }
 
-        public deliverman(controller.AccountController accountController,
-            controller.UIController UIController)
+        public deliverman(AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.delivermanOrderListController();
+            controller = new delivermanOrderListController();
             UID = this.accountController.GetUid();
 
 
@@ -47,7 +43,7 @@ namespace templatev1
 
         public void load_data(string sortBy)
         {
-            pnlOrder.Controls.Clear();
+            // pnlOrder.Controls.Clear();
             DataTable dt = controller.getAllOrder(UID, "");
 
             int yPosition = 9;
@@ -110,11 +106,11 @@ namespace templatev1
                     AutoSize = true
                 };
                 //btnView.Click += btnView_Click;
-                pnlOrder.Controls.Add(lblRowNum);
-                pnlOrder.Controls.Add(lblOrderID);
-                pnlOrder.Controls.Add(lblDate);
-                pnlOrder.Controls.Add(lblAddress);
-                pnlOrder.Controls.Add(btnView);
+                // pnlOrder.Controls.Add(lblRowNum);
+                // pnlOrder.Controls.Add(lblOrderID);
+                // pnlOrder.Controls.Add(lblDate);
+                // pnlOrder.Controls.Add(lblAddress);
+                // pnlOrder.Controls.Add(btnView);
 
 
                 yPosition += 50;

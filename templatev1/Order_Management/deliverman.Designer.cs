@@ -298,7 +298,7 @@
             this.cmbUpcomingSorting.Name = "cmbUpcomingSorting";
             this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 26);
             this.cmbUpcomingSorting.TabIndex = 116;
-            this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
+            // this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -394,7 +394,7 @@
             this.cmbFinishedSorting.Name = "cmbFinishedSorting";
             this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 26);
             this.cmbFinishedSorting.TabIndex = 124;
-            this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
+            // this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
             // 
             // deliverman
             // 

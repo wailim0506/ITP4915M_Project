@@ -21,7 +21,7 @@ namespace controller
                 ? $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'"
                 : $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC";
 
-            return _db.ExecuteDataTableAsync(sqlCmd).Result;
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
         public DataTable getAllFinishedOrder(string id, string sortBy) //staff id
@@ -41,14 +41,14 @@ namespace controller
                     $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
             }
 
-            return _db.ExecuteDataTableAsync(sqlCmd).Result;
+            return _db.ExecuteDataTable(sqlCmd);
         }
 
         public string getDelivermanID(string id) //staff id
         {
             string sqlCmd =
                 $"SELECT delivermanID from staff WHERE staffID = \'{id}\'";
-            return _db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString();
+            return _db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString();
         }
     }
 }

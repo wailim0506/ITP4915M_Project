@@ -34,5 +34,9 @@ namespace templatev1
         private void label1_Click(object sender, EventArgs e)
         {
         }
+
+        private void btnUploadIMG_Click(object sender, EventArgs e)
+        {
+        }
     }
 }

@@ -11,6 +11,10 @@ namespace templatev1
     internal static class Program
     {
         private static Log log = new Log();
+        private static IServiceProvider serviceProvider;
+
+        // private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
+        // private static Database db = new Database(connString);
 
         /// <summary>
         /// The main entry point for the application.
@@ -22,7 +26,7 @@ namespace templatev1
             {
                 var service = new ServiceCollection();
                 ConfigureServices(service);
-                var serviceProvider = service.BuildServiceProvider();
+                IServiceProvider serviceProvider = service.BuildServiceProvider();
                 // Start new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
                 //StartThread(() => RunApplication(() => new deliverman()));
@@ -45,9 +49,8 @@ namespace templatev1
         {
             // time out for connection for 30 seconds
             string connString =
-                //"server=localhost;port=8088;user id=root; password=password;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
                 "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton(_ => new Database(Database.GetConnectionString()));
+            service.AddSingleton(_ => new Database(connString));
             service.AddSingleton(_ => new Log());
 
             var controllers = new List<Type>
@@ -76,12 +79,12 @@ namespace templatev1
                 service.AddTransient(controller);
             }
 
-            var Forms = new List<Type>
+            var forms = new List<Type>
             {
                 typeof(Login)
                 // add forms here
             };
-            foreach (var form in Forms)
+            foreach (var form in forms)
             {
                 service.AddTransient(form);
             }
@@ -92,10 +95,16 @@ namespace templatev1
         // maximized the performance of the application
         private static void StartThread(ThreadStart threadStart)
         {
+            int workerThreads = 100;
+            int completionPortThreads = 100;
+
+            ThreadPool.SetMaxThreads(workerThreads, completionPortThreads);
+            ThreadPool.SetMinThreads(workerThreads, completionPortThreads);
+
             var thread = new Thread(threadStart)
             {
                 Name = "LMCIS Thread",
-                Priority = ThreadPriority.Normal
+                Priority = ThreadPriority.Highest
             };
             thread.SetApartmentState(ApartmentState.STA);
             thread.Start();

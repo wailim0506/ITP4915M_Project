@@ -23,7 +23,7 @@ namespace controller
             try
             {
                 string sqlCmd = "SELECT COUNT(*) FROM feedback";
-                return int.Parse(_db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString());
+                return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
             }
             catch (Exception e)
             {
@@ -59,7 +59,7 @@ namespace controller
 
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
+                 _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {
@@ -89,7 +89,7 @@ namespace controller
         {
             string sqlCmd =
                 $"SELECT orderID FROM order_ x, customer_account y WHERE x.customerAccountID = y.customerAccountID AND y.customerID = '{id}' ";
-            var dt = _db.ExecuteDataTableAsync(sqlCmd).Result;
+            var dt = _db.ExecuteDataTable(sqlCmd);
 
             List<string> orderID = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)

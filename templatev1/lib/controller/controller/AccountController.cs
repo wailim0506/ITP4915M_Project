@@ -128,7 +128,7 @@ namespace controller
                 ? $"INSERT INTO customer_login_history VALUES('{accountID}', '{Date}')"
                 : $"INSERT INTO staff_login_history VALUES('{accountID}', '{Date}')";
 
-            _ = db.ExecuteNonQueryCommandAsync(query, null);
+            db.ExecuteNonQueryCommand(query, null);
         }
 
         //Return the last login date time.
@@ -172,7 +172,7 @@ namespace controller
         {
             try
             {
-                _ = db.ExecuteNonQueryCommandAsync(
+                db.ExecuteNonQueryCommand(
                     $"UPDATE customer_account SET Status = 'disable' WHERE customerAccountID = '{accountID}'", null);
                 return true;
             }
@@ -226,7 +226,7 @@ namespace controller
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
-            return db.ExecuteDataTableAsync(sqlQuery).Result;
+            return db.ExecuteDataTable(sqlQuery);
         }
     }
 }

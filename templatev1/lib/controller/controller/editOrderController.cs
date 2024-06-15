@@ -40,7 +40,7 @@ namespace controller
 
         public string[] GetDelivermanDetail(string id) //orderID
         {
-            return c.GetDelivermanDetail(id).Result;
+            return c.GetDelivermanDetail(id);
         }
 
         public DataTable GetOrder(string id) //orderID
@@ -68,8 +68,8 @@ namespace controller
         public int GetPartQtyInOrder(string num, string id) //part num //order id
         {
             return int.Parse(
-                _db.ExecuteDataTableAsync(
-                        $"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'").Result
+                _db.ExecuteDataTable(
+                        $"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'")
                     .Rows[0][0].ToString());
         }
 
@@ -97,7 +97,7 @@ namespace controller
             partQtyInSparePart += currentOrderQty;
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync(
+                _db.ExecuteNonQueryCommand(
                     "UPDATE spare_part SET quantity = @qty WHERE partNumber = @num",
                     new Dictionary<string, object> { { "@qty", partQtyInSparePart }, { "@num", num } });
             }
@@ -111,16 +111,16 @@ namespace controller
 
         public int GetSpareQtyInDb(string num)
         {
-            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTableAsync(
+            int qtyInSpare_Part = int.Parse(_db.ExecuteDataTable(
                 $"SELECT quantity FROM spare_part " +
-                $"WHERE partNumber = '{num}'").Result.Rows[0][0].ToString());
+                $"WHERE partNumber = '{num}'").Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
 
         public int getPartQtyInOrder(string id, string num) //order id, part num
         {
             sqlCmd = $"SELECT quantity from order_line WHERE partNumber = \'{num}\' AND orderID = \'{id}\'";
-            return int.Parse(_db.ExecuteDataTableAsync(sqlCmd).Result.Rows[0][0].ToString());
+            return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
         }
 
         public Boolean EditDbQty(string num, int desiredQty, Boolean isLM, string id) //order id
@@ -141,7 +141,7 @@ namespace controller
         {
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync(
+                _db.ExecuteNonQueryCommand(
                     "UPDATE order_line SET quantity = @qty WHERE partNumber = @num AND orderID = @id",
                     new Dictionary<string, object> { { "@qty", qty }, { "@num", num }, { "@id", id } });
             }
@@ -157,7 +157,7 @@ namespace controller
         {
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync("DELETE FROM order_line WHERE partNumber = @num AND orderID = @id",
+                _db.ExecuteNonQueryCommand("DELETE FROM order_line WHERE partNumber = @num AND orderID = @id",
                     new Dictionary<string, object> { { "@num", num }, { "@id", id } });
             }
             catch (Exception ex)
@@ -170,7 +170,7 @@ namespace controller
 
         public void DeleteOrder(string id) //order id
         {
-            _ = c.DeleteOrder(id);
+            c.DeleteOrder(id);
         }
     }
 }

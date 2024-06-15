@@ -29,12 +29,6 @@ namespace templatev1
         public Login()
         {
             InitializeComponent();
-            // Create an instance of LoadingForm
-            loadingForm = new LoadingForm();
-
-            // Subscribe to the LoadingCompleted event
-            loadingForm.OnExit += OnOnExit;
-            this.Controls.Add(loadingForm);
         }
 
         private void Form1_Load(object sender, EventArgs e)

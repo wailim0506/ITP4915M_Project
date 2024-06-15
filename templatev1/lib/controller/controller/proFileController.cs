@@ -59,7 +59,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             string query = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
-            dt = _db.ExecuteDataTableAsync(query).Result;
+            dt = _db.ExecuteDataTable(query);
             dfadd = int.Parse(dt.Rows[0]["dfadd"].ToString());
         }
 
@@ -90,7 +90,7 @@ namespace controller
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
 
-            dt = _db.ExecuteDataTableAsync(sqlStr).Result;
+            dt = _db.ExecuteDataTable(sqlStr);
 
             //Set user data to gobal variable
             if (accountType.Equals("Staff"))
@@ -158,7 +158,7 @@ namespace controller
 
             sqlStr =
                 $"SELECT province, city, companyAddress, warehouseAddress, warehouseAddress2 FROM customer WHERE customerID =\'{UID}\'";
-            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
+            dt = _db.ExecuteDataTable(sqlStr, null);
             AddInfo.province = province;
             AddInfo.city = city;
             AddInfo.corpAdd = caddress;
@@ -174,7 +174,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
-            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
+            dt = _db.ExecuteDataTable(sqlStr, null);
             List<string> city = new List<string>();
 
             for (int i = 0; i <= dt.Rows.Count - 1; i++)
@@ -189,7 +189,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlStr = $"SELECT DISTINCT province FROM location";
-            dt = _db.ExecuteDataTableAsync(sqlStr, null).Result;
+            dt = _db.ExecuteDataTable(sqlStr, null);
             List<string> priovince = new List<string>();
 
             for (int i = 0; i <= (dt.Rows.Count - 1); i++)
@@ -213,7 +213,7 @@ namespace controller
                     { "@data", data }
                 };
 
-                DataTable dt = _db.ExecuteDataTableAsync(sqlCmd, parameters).Result;
+                DataTable dt = _db.ExecuteDataTable(sqlCmd, parameters);
 
                 return dt.Rows.Count < 1;
             }
@@ -252,7 +252,7 @@ namespace controller
                         "UPDATE staff SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, dateofBirth = @DFB WHERE staffID = @UID";
                 }
 
-                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd, parameters);
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
 
                 return true;
             }
@@ -279,7 +279,7 @@ namespace controller
                     { "@wAdd2", Addinfo.wAdd2 },
                     { "@UID", UID }
                 };
-                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd1, parameters1);
+                _db.ExecuteNonQueryCommand(sqlCmd1, parameters1);
 
                 string sqlCmd2 = "UPDATE customer_dfadd SET dfadd = @dfvalue WHERE customerID = @UID";
                 var parameters2 = new Dictionary<string, object>
@@ -287,7 +287,7 @@ namespace controller
                     { "@dfvalue", Addinfo.dfvalue },
                     { "@UID", UID }
                 };
-                _ = _db.ExecuteNonQueryCommandAsync(sqlCmd2, parameters2);
+                _db.ExecuteNonQueryCommand(sqlCmd2, parameters2);
 
                 return true;
             }

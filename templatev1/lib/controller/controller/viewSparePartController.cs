@@ -19,7 +19,7 @@ namespace controller
         {
             _sqlCmd =
                 $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{num}\' AND x.supplierID = z.supplierID";
-            DataTable dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(_sqlCmd);
             return dt;
         }
 
@@ -46,18 +46,18 @@ namespace controller
             //get cart id of the customer first
             _sqlCmd =
                 $"SELECT cartID FROM cart x, customer_account y where x.customerAccountID = y.customerAccountID AND y.customerID = \'{id}\'";
-            DataTable dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(_sqlCmd);
             string cartID = dt.Rows[0][0].ToString();
 
             //get item id
             _sqlCmd =
                 $"SELECT itemID from product x, spare_part y where x.partNumber = y.partNumber AND y.partNumber = \'{num}\'";
-            dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+            dt = _database.ExecuteDataTable(_sqlCmd);
             string itemID = dt.Rows[0][0].ToString();
 
             //check in cart or not first
             _sqlCmd = $"SELECT * FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
-            dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+            dt = _database.ExecuteDataTable(_sqlCmd);
             Boolean isInCart = (dt.Rows.Count > 0);
 
             if (isInCart)
@@ -65,7 +65,7 @@ namespace controller
                 //get qty already in cart first
                 _sqlCmd =
                     $"SELECT quantity FROM product_in_cart WHERE itemID = '{itemID}' AND cartID = '{cartID}'";
-                dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+                dt = _database.ExecuteDataTable(_sqlCmd);
                 int qtyAlreadyInCart = int.Parse(dt.Rows[0][0].ToString());
 
                 //new qty in cart
@@ -81,7 +81,7 @@ namespace controller
 
                 try
                 {
-                    _database.ExecuteNonQueryCommandAsync(_sqlCmd, parameters).Wait();
+                    _database.ExecuteNonQueryCommand(_sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
@@ -105,7 +105,7 @@ namespace controller
 
                 try
                 {
-                    _database.ExecuteNonQueryCommandAsync(_sqlCmd, parameters).Wait();
+                    _database.ExecuteNonQueryCommand(_sqlCmd, parameters);
                 }
                 catch (Exception ex)
                 {
@@ -152,7 +152,7 @@ namespace controller
                 ? $"SELECT OnSaleQty FROM product WHERE itemID = \'{itemID}\'"
                 : $"SELECT LM_OnSaleQty FROM product WHERE itemID = \'{itemID}\'";
 
-            DataTable dt = _database.ExecuteDataTableAsync(_sqlCmd).Result;
+            DataTable dt = _database.ExecuteDataTable(_sqlCmd);
             int qtyInDB = int.Parse(dt.Rows[0][0].ToString());
 
             //new qty in product
@@ -171,7 +171,7 @@ namespace controller
 
             try
             {
-                _ = _database.ExecuteNonQueryCommandAsync(_sqlCmd, parameters);
+                _database.ExecuteNonQueryCommand(_sqlCmd, parameters);
             }
             catch (Exception ex)
             {

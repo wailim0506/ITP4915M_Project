@@ -78,7 +78,7 @@ namespace templatev1.Order_Management
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
-            string[] delivermanDetail = controller.GetDelivermanDetail(orderID).Result;
+            string[] delivermanDetail = controller.GetDelivermanDetail(orderID);
             if (lblStatus.Text == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";
@@ -234,7 +234,7 @@ namespace templatev1.Order_Management
                         controller.addQtyback(q.Key, q.Value, UID);
                     }
 
-                    if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID).Result)
+                    if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID))
                     {
                         MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
@@ -247,7 +247,7 @@ namespace templatev1.Order_Management
                         customerOrderList.ShowDialog();
                         Close();
                     }
-                    else if (dialogResult == DialogResult.Yes && !controller.DeleteOrder(orderID).Result)
+                    else if (dialogResult == DialogResult.Yes && !controller.DeleteOrder(orderID))
                     {
                         MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -523,7 +523,7 @@ namespace templatev1.Order_Management
                                 controller.AddQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
                             }
 
-                            if (controller.RemoveAll(UID).Result) //remove from cart
+                            if (controller.RemoveAll(UID)) //remove from cart
                             {
                                 MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
                             }

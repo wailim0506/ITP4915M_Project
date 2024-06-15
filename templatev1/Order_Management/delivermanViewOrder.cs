@@ -77,7 +77,7 @@ namespace templatev1.Order_Management
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
-            string[] delivermanDetail = controller.GetDelivermanDetail(orderID).Result;
+            string[] delivermanDetail = controller.GetDelivermanDetail(orderID);
             if (lblStatus.Text == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";
@@ -92,7 +92,9 @@ namespace templatev1.Order_Management
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                lblShippingDate.Text = dayDifference(orderID) >= 0 ? $"Scheduled on {shippingDate}" : $"Delivered on {shippingDate}";
+                lblShippingDate.Text = dayDifference(orderID) >= 0
+                    ? $"Scheduled on {shippingDate}"
+                    : $"Delivered on {shippingDate}";
 
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }

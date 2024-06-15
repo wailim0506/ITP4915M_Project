@@ -22,7 +22,7 @@ namespace controller
         {
             string sqlCmd = $"SELECT * FROM order_ WHERE orderID = \'{id}\'";
             DataTable dt = new DataTable();
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt;
         }
 
@@ -73,7 +73,7 @@ namespace controller
             }
 
             DataTable dt = new DataTable();
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt;
         }
 
@@ -82,7 +82,7 @@ namespace controller
         {
             string query = $"SELECT itemID FROM product WHERE partNumber = \'{id}\'";
             DataTable dt = new DataTable();
-            dt = _db.ExecuteDataTableAsync(query, null).Result;
+            dt = _db.ExecuteDataTable(query, null);
             return dt.Rows[0][0].ToString();
         }
 
@@ -90,7 +90,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             string query = $"SELECT name FROM spare_part WHERE partNumber = \'{id}\'";
-            dt = _db.ExecuteDataTableAsync(query, null).Result;
+            dt = _db.ExecuteDataTable(query, null);
             return dt.Rows[0][0].ToString();
         }
 
@@ -99,34 +99,33 @@ namespace controller
             //orderID
             DataTable dt = new DataTable();
             string query = $"SELECT * FROM shipping_detail WHERE orderID = \'{id}\'";
-            dt = _db.ExecuteDataTableAsync(query, null).Result;
+            dt = _db.ExecuteDataTable(query, null);
             return dt;
         }
 
-        public async Task<string[]> GetDelivermanDetail(string id) //orderID
+        public string[] GetDelivermanDetail(string id) //orderID
         {
-            string delivermanID =
-                await ExecuteSqlQueryAndReturnFirstRowAsync(
-                    $"SELECT delivermanID FROM shipping_detail WHERE orderID = '{id}'");
+            string delivermanID = ExecuteSqlQueryAndReturnFirstRow(
+                $"SELECT delivermanID FROM shipping_detail WHERE orderID = '{id}'");
 
             //get deliverman name and contact from staff table
-            DataTable dt = await _db.ExecuteDataTableAsync(
+            DataTable dt = _db.ExecuteDataTable(
                 $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = '{delivermanID}'", null);
 
             return new string[] { dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString() };
         }
 
-        private async Task<string> ExecuteSqlQueryAndReturnFirstRowAsync(string s)
+        private string ExecuteSqlQueryAndReturnFirstRow(string s)
         {
-            DataTable dt = await _db.ExecuteDataTableAsync(sqlCmd, null);
+            DataTable dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt.Rows[0][0].ToString();
         }
 
-        public async Task<bool> DeleteOrder(string id) //order id
+        public bool DeleteOrder(string id) //order id
         {
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("DELETE FROM invoice WHERE orderID = @id",
+                _db.ExecuteNonQueryCommand("DELETE FROM invoice WHERE orderID = @id",
                     new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
@@ -137,7 +136,7 @@ namespace controller
 
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("DELETE FROM feedback WHERE orderID = @id",
+                _db.ExecuteNonQueryCommand("DELETE FROM feedback WHERE orderID = @id",
                     new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
@@ -148,7 +147,7 @@ namespace controller
 
             try
             {
-                await _db.ExecuteNonQueryCommandAsync(
+                _db.ExecuteNonQueryCommand(
                     "UPDATE shipping_detail SET remark = 'Cancelled' WHERE orderID = @id",
                     new Dictionary<string, object> { { "@id", id } });
             }
@@ -160,7 +159,7 @@ namespace controller
 
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("DELETE FROM instruction WHERE orderID = @id",
+                _db.ExecuteNonQueryCommand("DELETE FROM instruction WHERE orderID = @id",
                     new Dictionary<string, object> { { "@id", id } });
             }
             catch (Exception ex)
@@ -172,7 +171,7 @@ namespace controller
 
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("UPDATE order_ SET status = @status WHERE orderID = @id",
+                _db.ExecuteNonQueryCommand("UPDATE order_ SET status = @status WHERE orderID = @id",
                     new Dictionary<string, object> { { "@status", "Cancelled" }, { "@id", id } });
             }
             catch (Exception ex)
@@ -189,7 +188,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             string sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
 
             Dictionary<string, int> partNumQty = new Dictionary<string, int>();
 
@@ -217,7 +216,7 @@ namespace controller
 
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("UPDATE spare_part SET quantity = @qty WHERE partNumber = @num",
+                _db.ExecuteNonQueryCommand("UPDATE spare_part SET quantity = @qty WHERE partNumber = @num",
                     new Dictionary<string, object> { { "@qty", qtyInSpare_Part }, { "@num", num } });
             }
             catch (Exception ex)
@@ -232,7 +231,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
@@ -247,16 +246,16 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT OnSaleQty FROM product WHERE partNumber = \'{partNum}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
-        public async Task<bool> RemoveAll(string id) //customer id
+        public bool RemoveAll(string id) //customer id
         {
             string cartID = GetCartId(id);
             try
             {
-                await _db.ExecuteNonQueryCommandAsync("DELETE FROM product_in_cart WHERE cartID = @cartID",
+                _db.ExecuteNonQueryCommand("DELETE FROM product_in_cart WHERE cartID = @cartID",
                     new Dictionary<string, object> { { "@cartID", cartID } });
             }
             catch (Exception ex)
@@ -271,12 +270,12 @@ namespace controller
         {
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             string customerAccointID = dt.Rows[0][0].ToString();
 
             dt = new DataTable();
             sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt.Rows[0][0].ToString();
         }
 
@@ -285,7 +284,7 @@ namespace controller
             string cartID = GetCartId(id);
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             List<string> itemId = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -297,7 +296,7 @@ namespace controller
             {
                 dt = new DataTable();
                 sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{t}\'";
-                dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+                dt = _db.ExecuteDataTable(sqlCmd, null);
                 partNum.Add(dt.Rows[0][0].ToString());
             }
 
@@ -309,7 +308,7 @@ namespace controller
             string cartID = GetCartId(id);
             DataTable dt = new DataTable();
             sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            dt = _db.ExecuteDataTableAsync(sqlCmd, null).Result;
+            dt = _db.ExecuteDataTable(sqlCmd, null);
             List<int> itemQty = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -330,7 +329,7 @@ namespace controller
         {
             try
             {
-                _ = _db.ExecuteNonQueryCommandAsync(
+                _db.ExecuteNonQueryCommand(
                     "UPDATE order_ SET status = @status WHERE orderID = @id",
                     new Dictionary<string, object> { { "@status", "Shipped" }, { "@id", id } });
             }

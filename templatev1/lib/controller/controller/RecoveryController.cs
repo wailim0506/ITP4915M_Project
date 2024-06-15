@@ -47,7 +47,7 @@ namespace controller
                 sqlStr =
                     $"SELECT * FROM {table} WHERE {(table == "customer" ? "customerID" : "staffID")} = '{UID}' AND (phoneNumber = '{phone}' OR emailAddress = '{email}')";
                 Dictionary<string, object> queryParameters = new Dictionary<string, object> { { "@id", UID } };
-                dt = db.ExecuteDataTableAsync(sqlStr, queryParameters).Result;
+                dt = db.ExecuteDataTable(sqlStr, queryParameters);
                 return dt.Rows.Count == 1;
             }
             catch (Exception e)
@@ -61,14 +61,14 @@ namespace controller
         {
             var query = $"SELECT city FROM location WHERE province = '{province}'";
             DataTable dataTable =
-                db.ExecuteDataTableAsync(query, new Dictionary<string, object> { { "@province", province } }).Result;
+                db.ExecuteDataTable(query, new Dictionary<string, object> { { "@province", province } });
             return dataTable.AsEnumerable().Select(row => row["city"].ToString()).ToList();
         }
 
         public List<string> GetProvince()
         {
             var query = "SELECT DISTINCT province FROM location";
-            DataTable dataTable = db.ExecuteDataTableAsync(query).Result;
+            DataTable dataTable = db.ExecuteDataTable(query);
             return dataTable.AsEnumerable().Select(row => row["province"].ToString()).ToList();
         }
 
@@ -81,7 +81,7 @@ namespace controller
 
             string sqlStr =
                 $"UPDATE {table} SET password = '{hashedPwd}', pwdChangeDate = '{DateTime.Now:yyyy-MM-dd HH:mm:ss}' WHERE {idField} = '{UID}'";
-            db.ExecuteNonQueryCommandAsync(sqlStr, new Dictionary<string, object> { { "@id", UID } }).Wait();
+            db.ExecuteNonQueryCommand(sqlStr, new Dictionary<string, object> { { "@id", UID } });
         }
 
         //Return the new LMC ID to the create account form.
@@ -89,7 +89,7 @@ namespace controller
         {
             DataTable dt = new DataTable();
             string SqlQuery = "SELECT COUNT(*) FROM customer";
-            dt = db.ExecuteDataTableAsync(SqlQuery).Result;
+            dt = db.ExecuteDataTable(SqlQuery);
             return dt.Rows.Count + 1;
         }
 
@@ -140,20 +140,20 @@ namespace controller
 
             try
             {
-                _ = db.ExecuteNonQueryCommandAsync(
+                db.ExecuteNonQueryCommand(
                     "INSERT INTO customer VALUES(@id, @fName, @lName, @gender, @email, @company, @phone, @province, @city, @address1, @address2, @joinDate, @payment, @img, @dob, NULL)",
                     customerParams);
-                _ = db.ExecuteNonQueryCommandAsync(
+                db.ExecuteNonQueryCommand(
                     "INSERT INTO customer_account VALUES(@accountId, @id, 'active', @hashedPwd, @joinDate, @joinDate)",
                     accountParams);
-                _ = db.ExecuteNonQueryCommandAsync("INSERT INTO customer_dfadd VALUES(@id, '1')", dfaddParams);
+                db.ExecuteNonQueryCommand("INSERT INTO customer_dfadd VALUES(@id, '1')", dfaddParams);
                 return true;
             }
             catch (Exception)
             {
-                _ = db.ExecuteNonQueryCommandAsync("DELETE FROM customer WHERE customerID = @id", dfaddParams);
-                _ = db.ExecuteNonQueryCommandAsync("DELETE FROM customer_account WHERE customerID = @id", dfaddParams);
-                _ = db.ExecuteNonQueryCommandAsync("DELETE FROM customer_dfadd WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_account WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_dfadd WHERE customerID = @id", dfaddParams);
                 return false;
             }
         }
@@ -165,7 +165,7 @@ namespace controller
             sqlStr =
                 $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
                 $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
-            dt = db.ExecuteDataTableAsync(sqlStr).Result;
+            dt = db.ExecuteDataTable(sqlStr);
             return dt.Rows.Count < 1;
         }
     }

@@ -33,7 +33,7 @@ namespace controller
                 $"SELECT permissionID FROM staff_account_permission SP, staff_account S WHERE SP.staffAccountID = S.staffAccountID AND S.staffID = \'{UserID}\'";
             permission = AccountType.Equals("Customer")
                 ? "C"
-                : DB.ExecuteDataTableAsync(permissionIDQuery).Result.Rows[0]["permissionID"].ToString();
+                : DB.ExecuteDataTable(permissionIDQuery).Rows[0]["permissionID"].ToString();
             DetermineFun(permission);
         }
 
