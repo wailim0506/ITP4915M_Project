@@ -208,6 +208,12 @@
     <Compile Include="Order_Management\clerkInvoiceList.Designer.cs">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\staffViewInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\staffViewInvoice.Designer.cs">
+      <DependentUpon>staffViewInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order_Management\staffViewOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -477,8 +483,12 @@
     <EmbeddedResource Include="Order_Management\clerkInvoiceList.resx">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\staffViewInvoice.resx">
+      <DependentUpon>staffViewInvoice.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\staffViewOrder.resx">
       <DependentUpon>staffViewOrder.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\customerEditOrder.resx">
       <DependentUpon>customerEditOrder.cs</DependentUpon>

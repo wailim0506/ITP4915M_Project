@@ -178,14 +178,13 @@ namespace templatev1.Order_Management
                     {
                         if (control.Name == $"lblOrderID{index}")
                         {
-                            MessageBox.Show(control.Text);
-                            //Form customerViewOrder =
-                            //    new customerViewOrder(control.Text, accountController, UIController);
-                            //Hide();
-                            //customerViewOrder.StartPosition = FormStartPosition.Manual;
-                            //customerViewOrder.Location = Location;
-                            //customerViewOrder.ShowDialog();
-                            //Close();
+                            Form o =
+                                new staffViewOrder(control.Text, accountController, UIController);
+                            Hide();
+                            o.StartPosition = FormStartPosition.Manual;
+                            o.Location = Location;
+                            o.ShowDialog();
+                            Close();
                             return;
                         }
 

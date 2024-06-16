@@ -325,6 +325,7 @@ namespace controller
         }
 
 
+        //for deliverman
         public bool DelivermanJobFinished(string id) //order id
         {
             try

@@ -38,10 +38,6 @@ namespace templatev1.Order_Management
             shipDate = "";
             UID = this.accountController.GetUid();
             isLM = accountController.GetIsLm();
-
-
-            //UID = "LMC00001"; //hard code for testing
-            //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 

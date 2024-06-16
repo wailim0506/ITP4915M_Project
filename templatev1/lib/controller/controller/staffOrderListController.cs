@@ -7,7 +7,7 @@ using System.Data;
 
 namespace controller
 {
-    public class staffOrderListController
+    public class staffOrderListController : abstractController
     {
         private readonly Database _db;
         public staffOrderListController(Database database = null)
@@ -15,10 +15,6 @@ namespace controller
             _db = database ?? new Database();
         }
 
-//        Delivery Date(Nearest)
-//Delivery Date(Furtherest)
-//Customer ID(Ascending)
-//Customer ID(Descending)
 
         public DataTable getOrder(string id, string status, string sortBy, bool isManager) {  //id = staff id
             String sqlCmd = "";
@@ -232,19 +228,7 @@ namespace controller
                 }
             }
             return _db.ExecuteDataTable(sqlCmd,null);
-
-            //string sqlCmd = sortBy == "All"
-            //    ? $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
-            //    : $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
-
-
         }
     }
 }
 
-
-//None
-//Order ID (Ascending)
-//OrderID(Descending)
-//Order Date(Nearest)
-//Order Date(Furtherest)
