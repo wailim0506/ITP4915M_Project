@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMCIS-1DG4", "templatev1\LM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "controller", "templatev1\lib\controller\controller\controller.csproj", "{795B0300-8375-4599-A4AF-38A88EAB2F07}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestController", "TestController\TestController.csproj", "{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{795B0300-8375-4599-A4AF-38A88EAB2F07}.Release|Any CPU.Build.0 = Release|Any CPU
 		{795B0300-8375-4599-A4AF-38A88EAB2F07}.Release|x64.ActiveCfg = Release|x64
 		{795B0300-8375-4599-A4AF-38A88EAB2F07}.Release|x64.Build.0 = Release|x64
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Debug|x64.Build.0 = Debug|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Release|x64.ActiveCfg = Release|Any CPU
+		{73DE4ED1-0F28-41D7-ADC6-9EDAEFF36BBE}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

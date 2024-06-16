@@ -1,25 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Dynamic;
-using System.Windows.Forms;
-using System.Data;
-using MySqlConnector;
-
-namespace controller
+﻿namespace controller
 {
     public class stockController : abstractController
     {
-        controller.accountController accountController;
+        AccountController accountController;
 
         public stockController()
         {
 
         }
 
-        public stockController(controller.accountController accountController)
+        public stockController(AccountController accountController)
         {
             this.accountController = accountController;
         }

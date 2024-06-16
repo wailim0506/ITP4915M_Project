@@ -25,12 +25,12 @@ namespace controller
 
         public string GetItemNum(string id) //part Number
         {
-            return c.getItemNum(id);
+            return c.GetItemNum(id);
         }
 
         public string GetPartName(string id) //part Number
         {
-            return c.getPartName(id);
+            return c.GetPartName(id);
         }
 
         public DataTable GetShippingDetail(string id) //orderID
@@ -45,17 +45,17 @@ namespace controller
 
         public DataTable GetOrder(string id) //orderID
         {
-            return c.getOrder(id);
+            return c.GetOrder(id);
         }
 
         public string GetStaffName(string id) //staff account id
         {
-            return c.getStaffName(id);
+            return c.GetStaffName(id);
         }
 
         public string GetStafftId(string id) //staff account id
         {
-            return c.getStafftID(id);
+            return viewOrderController.GetStafftId(id);
         }
 
         public string GetStaffContact(string id)

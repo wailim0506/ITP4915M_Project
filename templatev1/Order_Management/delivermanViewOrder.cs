@@ -50,15 +50,15 @@ namespace templatev1.Order_Management
         public void load_data()
         {
             pnlSP.Controls.Clear();
-            DataTable dt = controller.getOrder(orderID);
+            DataTable dt = controller.GetOrder(orderID);
             string[] f = dt.Rows[0][4].ToString().Split(' ');
 
             //order info
             lblOrderID.Text = orderID;
             lblOrderSerialNum.Text = $"{dt.Rows[0][3]}";
             lblOrderDate.Text = f[0];
-            lblStaffIncharge.Text = $"{controller.getStaffName(dt.Rows[0][2].ToString())}";
-            lblStaffID.Text = $"{controller.getStafftID(dt.Rows[0][2].ToString())}";
+            lblStaffIncharge.Text = $"{controller.GetStaffName(dt.Rows[0][2].ToString())}";
+            lblStaffID.Text = $"{viewOrderController.GetStafftId(dt.Rows[0][2].ToString())}";
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
@@ -130,7 +130,7 @@ namespace templatev1.Order_Management
                 Label lblItemNum = new Label
                 {
                     Name = $"lblItemNum{i}",
-                    Text = $"{controller.getItemNum(dt.Rows[i - 1][0].ToString())}",
+                    Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(38, rowPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(109, 20),
@@ -148,7 +148,7 @@ namespace templatev1.Order_Management
                 Label lblPartName = new Label
                 {
                     Name = $"lblPartName{i}",
-                    Text = $"{controller.getPartName(dt.Rows[i - 1][0].ToString())}",
+                    Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(287, rowPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(508, 20),

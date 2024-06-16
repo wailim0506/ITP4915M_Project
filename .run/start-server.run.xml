@@ -5,8 +5,8 @@
         <option name="envFilePath" value="" />
         <option name="services">
           <list>
-            <option value="mysql" />
-            <option value="phpmyadmin" />
+            <option value="db" />
+            <option value="phppgadmin" />
           </list>
         </option>
         <option name="sourceFilePath" value="templatev1/Docker-compose.yml" />

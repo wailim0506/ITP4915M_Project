@@ -3,22 +3,21 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Extensions.Logging;
-using MySqlConnector;
 
 namespace controller
 {
     public class viewOrderController : abstractController
     {
-        string sqlCmd;
+        string _sqlCmd;
         Database _db;
 
         public viewOrderController(Database database = null)
         {
-            sqlCmd = "";
+            _sqlCmd = "";
             _db = database ?? new Database();
         }
 
-        public DataTable getOrder(string id) //orderID
+        public DataTable GetOrder(string id) //orderID
         {
             string sqlCmd = $"SELECT * FROM order_ WHERE orderID = \'{id}\'";
             DataTable dt = new DataTable();
@@ -26,14 +25,14 @@ namespace controller
             return dt;
         }
 
-        public string getStafftID(string id) //staff account id
+        public static string GetStafftId(string id) //staff account id
         {
             AccountController ac = new AccountController();
             DataTable dt = ac.GetStaffDetail(id);
             return dt.Rows[0][0].ToString();
         }
 
-        public string getStaffName(string id) //staff account id
+        public string GetStaffName(string id) //staff account id
         {
             AccountController ac = new AccountController();
             DataTable dt = ac.GetStaffDetail(id);
@@ -52,33 +51,33 @@ namespace controller
             switch (sortBy)
             {
                 case "None":
-                    sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
+                    _sqlCmd = $"SELECT *,(quantity*orderUnitPrice)FROM order_line WHERE orderID = \'{id}\'";
                     break;
                 case "Quantity(Ascending)":
-                    sqlCmd =
+                    _sqlCmd =
                         $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity";
                     break;
                 case "Quantity(Descending)":
-                    sqlCmd =
+                    _sqlCmd =
                         $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY quantity DESC";
                     break;
                 case "Total Price(Ascending)":
-                    sqlCmd =
+                    _sqlCmd =
                         $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice)";
                     break;
                 case "Total Price(Descending)":
-                    sqlCmd =
+                    _sqlCmd =
                         $"SELECT *,(quantity*orderUnitPrice) FROM order_line WHERE orderID = \'{id}\' ORDER BY (quantity*orderUnitPrice) DESC";
                     break;
             }
 
             DataTable dt = new DataTable();
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             return dt;
         }
 
 
-        public string getItemNum(string id) //part number
+        public string GetItemNum(string id) //part number
         {
             string query = $"SELECT itemID FROM product WHERE partNumber = \'{id}\'";
             DataTable dt = new DataTable();
@@ -86,7 +85,7 @@ namespace controller
             return dt.Rows[0][0].ToString();
         }
 
-        public string getPartName(string id)
+        public string GetPartName(string id)
         {
             DataTable dt = new DataTable();
             string query = $"SELECT name FROM spare_part WHERE partNumber = \'{id}\'";
@@ -209,7 +208,7 @@ namespace controller
         public async Task<bool> AddBackToSparePartQty(string num, int qtyInOrder)
         {
             //get the qty in db first
-            int qtyInSpare_Part = getSpareQtyInDb(num);
+            int qtyInSpare_Part = GetSpareQtyInDb(num);
 
             //add db qty with cart qty
             qtyInSpare_Part += qtyInOrder;
@@ -227,11 +226,11 @@ namespace controller
             return true;
         }
 
-        public int getSpareQtyInDb(string num)
+        public int GetSpareQtyInDb(string num)
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT quantity FROM spare_part WHERE partNumber = \'{num}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             int qtyInSpare_Part = int.Parse(dt.Rows[0][0].ToString());
             return qtyInSpare_Part;
         }
@@ -245,8 +244,8 @@ namespace controller
         public int checkOnSaleQty(string partNum)
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT OnSaleQty FROM product WHERE partNumber = \'{partNum}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT OnSaleQty FROM product WHERE partNumber = \'{partNum}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             return int.Parse(dt.Rows[0][0].ToString());
         }
 
@@ -269,13 +268,13 @@ namespace controller
         public string GetCartId(string id) //customer id
         {
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT customerAccountID FROM customer_account WHERE customerID = \'{id}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             string customerAccointID = dt.Rows[0][0].ToString();
 
             dt = new DataTable();
-            sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT cartID FROM cart WHERE customerAccountID = \'{customerAccointID}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             return dt.Rows[0][0].ToString();
         }
 
@@ -283,8 +282,8 @@ namespace controller
         {
             string cartID = GetCartId(id);
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT itemID FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             List<string> itemId = new List<string>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -295,8 +294,8 @@ namespace controller
             foreach (var t in itemId)
             {
                 dt = new DataTable();
-                sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{t}\'";
-                dt = _db.ExecuteDataTable(sqlCmd, null);
+                _sqlCmd = $"SELECT partNumber FROM product WHERE itemID = \'{t}\'";
+                dt = _db.ExecuteDataTable(_sqlCmd, null);
                 partNum.Add(dt.Rows[0][0].ToString());
             }
 
@@ -307,8 +306,8 @@ namespace controller
         {
             string cartID = GetCartId(id);
             DataTable dt = new DataTable();
-            sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
-            dt = _db.ExecuteDataTable(sqlCmd, null);
+            _sqlCmd = $"SELECT quantity FROM product_in_cart WHERE cartID = \'{cartID}\'";
+            dt = _db.ExecuteDataTable(_sqlCmd, null);
             List<int> itemQty = new List<int>();
             for (int i = 0; i < dt.Rows.Count; i++)
             {

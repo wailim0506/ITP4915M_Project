@@ -8,12 +8,12 @@ namespace controller
 {
     public class Database : IDisposable
     {
-        private readonly MySqlConnection connection;
+        private readonly MySqlConnection _connection;
 
         public Database(string connectionString = null)
         {
-            connection = new MySqlConnection(connectionString ?? GetConnectionString());
-            connection.Open();
+            _connection = new MySqlConnection(connectionString ?? GetConnectionString());
+            _connection.Open();
         }
 
         public static string GetConnectionString()
@@ -49,8 +49,8 @@ namespace controller
 
         public void Dispose()
         {
-            connection?.Close();
-            connection?.Dispose();
+            _connection?.Close();
+            _connection?.Dispose();
         }
 
         public object ExecuteScalarCommand(string sqlQuery, Dictionary<string, object> queryParameters)
@@ -75,7 +75,7 @@ namespace controller
         private object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
             Func<MySqlCommand, object> execute)
         {
-            using (var command = connection.CreateCommand())
+            using (var command = _connection.CreateCommand())
             {
                 command.CommandText = sqlQuery;
                 if (queryParameters != null)
@@ -100,7 +100,7 @@ namespace controller
 
         public MySqlCommand CreateCommand(string query, Dictionary<string, object> parameters)
         {
-            var command = connection.CreateCommand();
+            var command = _connection.CreateCommand();
             command.CommandText = query;
             foreach (var parameter in parameters)
             {
@@ -134,7 +134,7 @@ namespace controller
 
         public object ExecuteScalar(string sqlCmd)
         {
-            using (MySqlCommand command = new MySqlCommand(sqlCmd, connection))
+            using (MySqlCommand command = new MySqlCommand(sqlCmd, _connection))
             {
                 return command.ExecuteScalar();
             }
@@ -142,7 +142,7 @@ namespace controller
 
         public string ExecuteScalarCommand(string sqlQuery)
         {
-            using (MySqlCommand command = new MySqlCommand(sqlQuery, connection))
+            using (MySqlCommand command = new MySqlCommand(sqlQuery, _connection))
             {
                 return (string)command.ExecuteScalar();
             }

@@ -229,7 +229,7 @@ namespace controller
             return db.ExecuteDataTable(sqlQuery);
         }
 
-        public bool checkIsManager() 
+        public bool CheckIsManager() 
         {
             if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() == "Sales Manager") 
             {
