@@ -61,12 +61,12 @@ namespace controller
 
                     break;
                 case "MP01": //Sales manager
-                    showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = true;
+                    showbtn1 = showbtn2 = showbtn3 = showbtn4 /*= showbtn5*/ = true;
                     funbtn1 = "Order Management";
-                    funbtn2 = "Invoice Management";
-                    funbtn3 = "On-Sale Product Management";
-                    funbtn4 = "Stock Management";
-                    funbtn5 = "User Managemnet";
+                    //funbtn2 = "Invoice Management";
+                    funbtn2 = "On-Sale Product Management";
+                    funbtn3 = "Stock Management";
+                    funbtn4 = "User Managemnet";
                     break;
                 case "MP02": //Storeman
                     showbtn1 = showbtn2 = showbtn3 = true;
@@ -79,6 +79,7 @@ namespace controller
                     funbtn1 = "User Managemnet";
                     break;
                 case "MP04": //Delivery man
+                case "MP06": //Order Processing Clerk
                     showbtn1 = showbtn2 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "User Management";

@@ -405,13 +405,14 @@ namespace templatev1.Online_Ordering_Platform
             // 
             // label4
             // 
+            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(971, 107);
+            this.label4.Location = new System.Drawing.Point(963, 112);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(45, 24);
+            this.label4.Size = new System.Drawing.Size(54, 18);
             this.label4.TabIndex = 86;
-            this.label4.Text = "View:";
+            this.label4.Text = "Status:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cmbSortOrder
@@ -460,6 +461,7 @@ namespace templatev1.Online_Ordering_Platform
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

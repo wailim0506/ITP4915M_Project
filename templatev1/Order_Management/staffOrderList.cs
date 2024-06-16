@@ -60,6 +60,18 @@ namespace templatev1.Order_Management
                     dt = controller.getOrder(UID, status, "Date", isManager);
                     break;
                 case "Order Date (Furtherest)":
+                    dt = controller.getOrder(UID, status, "DateDESC", isManager);
+                    break;
+                case "Delivery Date (Nearest)":
+                    dt = controller.getOrder(UID, status, "DDate", isManager);
+                    break;
+                case "Delivery Date (Furtherest)":
+                    dt = controller.getOrder(UID, status, "DDateDESC", isManager);
+                    break;
+                case "Customer ID (Ascending)":
+                    dt = controller.getOrder(UID, status, "cId", isManager);
+                    break;
+                case "Customer ID (Descending)":
                     dt = controller.getOrder(UID, status, "", isManager);
                     break;
             }
@@ -83,64 +95,123 @@ namespace templatev1.Order_Management
                     Text = $"{dt.Rows[i][0]}",
                     Location = new Point(10, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(109, 20),
+                    Size = new Size(128, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblOrderDate = new Label
                 {
                     Name = $"lblOrderDate{i}",
                     Text = $"{orderDate}",
-                    Location = new Point(125, yPosition),
+                    Location = new Point(164, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(112, 20),
+                    Size = new Size(153, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblCustomerId = new Label
                 {
                     Name = $"lblCustomerId{i}",
                     Text = $"{dt.Rows[i][2]}",
-                    Location = new Point(125, yPosition),
+                    Location = new Point(347, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(112, 20),
+                    Size = new Size(141, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblDeliveryDate = new Label
                 {
                     Name = $"lblDeliveryDate{i}",
                     Text = $"{deliveryDate}",
-                    Location = new Point(125, yPosition),
+                    Location = new Point(516, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(112, 20),
+                    Size = new Size(152, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblStatus = new Label
                 {
                     Name = $"lblStatus{i}",
                     Text = $"{dt.Rows[i][4]}",
-                    Location = new Point(125, yPosition),
+                    Location = new Point(697, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(112, 20),
+                    Size = new Size(115, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
+
+                Button btnView = new Button
+                {
+                    Name = $"btnView{i}",
+                    Text = "View Order",
+                    Location = new Point(835, yPosition - 5),
+                    Font = new Font("Microsoft Sans Serif", 12),
+                    TextAlign = ContentAlignment.MiddleCenter,
+                    AutoSize = true
+                };
+                btnView.Click += btnView_Click;
 
                 pnlOrder.Controls.Add(lblOrderID);
                 pnlOrder.Controls.Add(lblOrderDate);
                 pnlOrder.Controls.Add(lblCustomerId);
                 pnlOrder.Controls.Add(lblDeliveryDate);
                 pnlOrder.Controls.Add(lblStatus);
+                pnlOrder.Controls.Add(btnView);
 
                 yPosition += 50;
             }
         }
 
-//Order ID(Ascending)
-//Order ID(Descending)
-//Order Date(Nearest)
-//Order Date(Furtherest)
+        public void btnView_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
 
+            if (clickedButton != null)
+            {
+                string buttonName = clickedButton.Name;
+                int index = getIndex(buttonName);
+                if (index != -1)
+                {
+                    int i = 0;
+
+                    foreach (Control control in pnlOrder.Controls)
+                    {
+                        if (control.Name == $"lblOrderID{index}")
+                        {
+                            MessageBox.Show(control.Text);
+                            //Form customerViewOrder =
+                            //    new customerViewOrder(control.Text, accountController, UIController);
+                            //Hide();
+                            //customerViewOrder.StartPosition = FormStartPosition.Manual;
+                            //customerViewOrder.Location = Location;
+                            //customerViewOrder.ShowDialog();
+                            //Close();
+                            return;
+                        }
+
+                        ++i;
+                    }
+                }
+            }
+        }
+
+        private int getIndex(string btnName)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (btnName == $"btnView{i}")
+                {
+                    return i;
+                }
+
+                i++;
+            }
+        }
+
+        private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data(cmbStatus.Text, cmbSorting.Text, isManager);
+        }
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblHeading.Text = cmbStatus.Text + " Order";
+            lblHeading.Text = cmbStatus.Text + " Order(s)";
+            load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
 
 

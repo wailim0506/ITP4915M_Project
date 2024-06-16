@@ -57,17 +57,17 @@ namespace templatev1.Order_Management
             this.lblStaff = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
             this.pnlOrder = new System.Windows.Forms.Panel();
-            this.lblOrderDate = new System.Windows.Forms.Label();
-            this.lblOrderID = new System.Windows.Forms.Label();
-            this.lblHeading = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbSorting = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.lblOrderID = new System.Windows.Forms.Label();
+            this.lblHeading = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbSorting = new System.Windows.Forms.ComboBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -342,7 +342,7 @@ namespace templatev1.Order_Management
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(759, 110);
+            this.label4.Location = new System.Drawing.Point(716, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 18);
@@ -362,7 +362,7 @@ namespace templatev1.Order_Management
             "Processing",
             "Pending",
             "Cancelled"});
-            this.cmbStatus.Location = new System.Drawing.Point(816, 106);
+            this.cmbStatus.Location = new System.Drawing.Point(773, 106);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(109, 26);
             this.cmbStatus.TabIndex = 93;
@@ -424,64 +424,16 @@ namespace templatev1.Order_Management
             this.pnlOrder.Size = new System.Drawing.Size(938, 747);
             this.pnlOrder.TabIndex = 0;
             // 
-            // lblOrderDate
+            // button1
             // 
-            this.lblOrderDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDate.Location = new System.Drawing.Point(378, 148);
-            this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(153, 20);
-            this.lblOrderDate.TabIndex = 88;
-            this.lblOrderDate.Text = "Order Date";
-            this.lblOrderDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblOrderID
-            // 
-            this.lblOrderID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(224, 148);
-            this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(128, 20);
-            this.lblOrderID.TabIndex = 87;
-            this.lblOrderID.Text = "Order ID";
-            this.lblOrderID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblHeading
-            // 
-            this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.Location = new System.Drawing.Point(207, 95);
-            this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(121, 37);
-            this.lblHeading.TabIndex = 95;
-            this.lblHeading.Text = "Orders";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(931, 110);
-            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 18);
-            this.label2.TabIndex = 97;
-            this.label2.Text = "Sort By:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbSorting
-            // 
-            this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "Order ID (Ascending)",
-            "Order ID (Descending)",
-            "Order Date (Nearest)",
-            "Order Date (Furtherest)"});
-            this.cmbSorting.Location = new System.Drawing.Point(995, 106);
-            this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(163, 26);
-            this.cmbSorting.TabIndex = 96;
+            this.button1.AutoSize = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(835, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 30);
+            this.button1.TabIndex = 104;
+            this.button1.Text = "View";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -538,16 +490,69 @@ namespace templatev1.Order_Management
             this.label9.Text = "Order ID";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button1
+            // lblOrderDate
             // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(835, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 30);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "View";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblOrderDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Location = new System.Drawing.Point(378, 148);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(153, 20);
+            this.lblOrderDate.TabIndex = 88;
+            this.lblOrderDate.Text = "Order Date";
+            this.lblOrderDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblOrderID
+            // 
+            this.lblOrderID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderID.Location = new System.Drawing.Point(224, 148);
+            this.lblOrderID.Name = "lblOrderID";
+            this.lblOrderID.Size = new System.Drawing.Size(128, 20);
+            this.lblOrderID.TabIndex = 87;
+            this.lblOrderID.Text = "Order ID";
+            this.lblOrderID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeading
+            // 
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Location = new System.Drawing.Point(207, 95);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(121, 37);
+            this.lblHeading.TabIndex = 95;
+            this.lblHeading.Text = "Orders";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(898, 110);
+            this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.TabIndex = 97;
+            this.label2.Text = "Sort By:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbSorting
+            // 
+            this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSorting.FormattingEnabled = true;
+            this.cmbSorting.Items.AddRange(new object[] {
+            "Order ID (Ascending)",
+            "Order ID (Descending)",
+            "Order Date (Nearest)",
+            "Order Date (Furtherest)",
+            "Delivery Date (Nearest)",
+            "Delivery Date (Furtherest)",
+            "Customer ID (Ascending)",
+            "Customer ID (Descending)"});
+            this.cmbSorting.Location = new System.Drawing.Point(962, 106);
+            this.cmbSorting.Name = "cmbSorting";
+            this.cmbSorting.Size = new System.Drawing.Size(196, 26);
+            this.cmbSorting.TabIndex = 96;
+            this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
             // staffOrderList
             // 
