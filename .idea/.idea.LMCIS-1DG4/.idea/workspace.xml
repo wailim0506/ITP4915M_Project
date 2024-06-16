@@ -8,17 +8,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="92c9b927-9919-4b1a-9c1b-2918247ae8f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/LMCIS-1DG4.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/clerkOrderList.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/App.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/TestController.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/TestDatabase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/TestSupplierController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/Tests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestController/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LMCIS-1DG4/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.run/start-server.run.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.run/start-server.run.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LMCIS-1DG4.sln" beforeDir="false" afterPath="$PROJECT_DIR$/LMCIS-1DG4.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/customerViewOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/deliverman.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/delivermanViewOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/delivermanViewOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Order_Management/staffOrderList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.resx" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Profile/ProFileMain.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Home.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/Login.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/READMDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/READMDE.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/System_page (In Progress)/CreateCustomerAcc.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/Database.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/abstractController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/controller.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/delivermanOrderListController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/delivermanOrderListController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/editOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/editOrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/favouriteController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/feedbackController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/feedbackController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/packages.config" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/packages.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/stockController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/stockController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/templatev1/lib/controller/controller/viewOrderController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,19 +73,30 @@
   &quot;editorReviewEnabled&quot;: false
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://C:/Users/19647/source/repos/wailim0506/ITP4915M_Project/templatev1/Profile/ProFileMain.Designer.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Users/19647/source/repos/wailim0506/ITP4915M_Project/templatev1/Profile/ProFileMain.resx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2ef0191b30684937a869061138f38973572e20/04/76e1b014/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/a9/f50ae8cd/TestExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/af/8705aab3/WorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/dc/bf7ead64/CompositeWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/e8/d6205a42/SimpleWorkItem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/e8/fba4492f/SetUpTearDownCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/497e7c0354334ae6b2579b219192bcf04a000/f6/c67786c4/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b7513305042d41128726d7378f1f9ba4531030/60/ede3ea48/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4117ae48b3954af098dc2bcb9d4faf457872e2718768ea11ac4054d4f02a9fa9/Guard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templatev1/lib/controller/controller/controller.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/templatev1/lib/controller/controller/stockController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="SWEA" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2haeYZyIIE1ycn4CZB61DU17iOt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -95,9 +126,21 @@
     ]
   }
 }</component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localReportPersistedInfo">
+      <LocalReportPersistedInfo>
+        <option name="path" value="C:\Users\a1667\RiderProjects\ITP4915M_Project\qodana.sarif.json" />
+        <option name="reportGuid" value="37feded4-9b56-477a-b91f-89f9f49f6f74" />
+        <option name="reportName" value="LMCIS-1DG4/qodana/2024-06-14" />
+      </LocalReportPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
   <component name="QodanaReportsService">
     <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\a1667\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="37feded4-9b56-477a-b91f-89f9f49f6f74" reportId="LMCIS-1DG4/qodana/2024-06-14" />
+      <ReportDescription path="C:\Users\a1667\RiderProjects\ITP4915M_Project\qodana.sarif.json" reportGuid="37feded4-9b56-477a-b91f-89f9f49f6f74" reportId="LMCIS-1DG4/qodana/2024-06-14" />
     </option>
   </component>
   <component name="RunManager" selected=".NET Project.LMCIS-1DG4">

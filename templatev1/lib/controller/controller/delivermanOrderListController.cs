@@ -24,22 +24,13 @@ namespace controller
             return _db.ExecuteDataTable(sqlCmd);
         }
 
-        public DataTable getAllFinishedOrder(string id, string sortBy) //staff id
+        public DataTable GetAllFinishedOrder(string id, string sortBy) //staff id
         {
             string delivermanID = getDelivermanID(id);
             string status = "Shipped";
             string sqlCmd = "";
 
-            if (sortBy == "Nearest Dates")
-            {
-                sqlCmd =
-                    $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC";
-            }
-            else
-            {
-                sqlCmd =
-                    $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
-            }
+            sqlCmd = sortBy == "Nearest Dates" ? $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC" : $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
 
             return _db.ExecuteDataTable(sqlCmd);
         }

@@ -98,8 +98,9 @@ namespace templatev1
         {
             int workerThreads = 100;
             int completionPortThreads = 100;
-
+            // Set the maximum number of worker threads and completion port threads
             ThreadPool.SetMaxThreads(workerThreads, completionPortThreads);
+            // Set the minimum number of worker threads and completion port threads
             ThreadPool.SetMinThreads(workerThreads, completionPortThreads);
 
             var thread = new Thread(threadStart)

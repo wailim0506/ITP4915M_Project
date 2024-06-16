@@ -59,7 +59,7 @@ namespace controller
 
             try
             {
-                 _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
             }
             catch (Exception ex)
             {

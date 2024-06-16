@@ -180,8 +180,7 @@ namespace templatev1
                 cmbGender.Select();
                 return false;
             }
-
-            ;
+            
             //Check date of birth, MUST today > selected value > age 17.
             if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date == DateTime.Now.Date))
             {

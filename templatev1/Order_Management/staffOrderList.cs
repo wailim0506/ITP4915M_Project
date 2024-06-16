@@ -34,7 +34,7 @@ namespace templatev1.Order_Management
             controller = new staffOrderListController();
             UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
-            isManager = accountController.checkIsManager();
+            isManager = accountController.CheckIsManager();
         }
 
         private void staffOrderList_Load(object sender, EventArgs e)

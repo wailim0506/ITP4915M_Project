@@ -18,7 +18,8 @@ namespace controller
         public DataTable GetFavourite(string id) //customer id
         {
             sqlCmd =
-                $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
+                $"SELECT * FROM favourite x, product y, spare_part z, category zz " +
+                $"WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
             DataTable dt = _database.ExecuteDataTable(sqlCmd);
             return dt;
         }
@@ -51,7 +52,8 @@ namespace controller
         public DataTable GetFavouriteWhenTextChange(string id, string category, string kw, string sorting)
         {
             sqlCmd =
-                $"SELECT * FROM favourite x, product y, spare_part z, category zz WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
+                $"SELECT * FROM favourite x, product y, spare_part z, category zz " +
+                $"WHERE x.customerID = \'{id}\' AND x.itemID = y.itemID AND y.partNumber = z.partNumber AND z.categoryID = zz.categoryID";
             if (category != "All")
             {
                 sqlCmd += $" AND z.categoryID = '{category}'";

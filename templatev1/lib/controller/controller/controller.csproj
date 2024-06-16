@@ -189,6 +189,7 @@
     <Compile Include="AccountController.cs" />
     <Compile Include="addPartToOrderController.cs" />
     <Compile Include="cartController.cs" />
+    <Compile Include="controller.cs" />
     <Compile Include="staffOrderListController.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="delivermanOrderListController.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="RecoveryController.cs" />
     <Compile Include="OrderAnalysisReportController.cs" />
     <Compile Include="spareListController.cs" />
+    <Compile Include="stockController.cs" />
     <Compile Include="staffViewOrderController.cs" />
     <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
@@ -213,6 +215,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="test\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

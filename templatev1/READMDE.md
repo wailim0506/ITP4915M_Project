@@ -207,9 +207,18 @@ MySql.Data version 8.4.0
 Bcrypt.Net-Next version 4.0.3
 
 Microsoft.Extensions.Logging version 8.0.0
+
 Microsoft.Extensions.Logging.Abstractions version 8.0.0
+
 Microsoft.Extensions.Logging.Console version 8.0.0
+
 Microsoft.Extensions.Logging.Configuration version 8.0.0
+
+### for testing
+
+NUnit version 4.1.0
+
+Moq version 4.20.70
 
 ### install the package via Visual Studio
 
@@ -227,6 +236,8 @@ Install-Package Microsoft.Extensions.Logging -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Abstractions -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Console -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Configuration -Version 8.0.0
+Install-Package NUnit -Version 4.1.0
+Install-Package Moq -Version 4.20.70
 ```
 
 ### install the package via the terminal
@@ -299,13 +310,3 @@ bool isPasswordMatch = BCrypt.Net.Next.BCrypt.EnhancedVerify(password, passwordF
 ```
 
 ## Remote Database Connection
-
-1. userid:`root`
-2. password:`ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt`
-3. Host:`hkg1.clusters.zeabur.com`
-4. Port:`32298`
-
-```shell
-mysqlsh --sql --host=hkg1.clusters.zeabur.com --port=32298 --user=root --password=ixYr958dIF4Zo3Xvbnp62SQ7f1yVs0Mt --schema=zeabur
-```
-

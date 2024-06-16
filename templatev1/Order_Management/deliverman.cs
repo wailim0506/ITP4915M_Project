@@ -128,7 +128,7 @@ namespace templatev1
 
             //finished job
             pnlFinishedJob.Controls.Clear();
-            dt = controller.getAllFinishedOrder(UID, $"{sortBy2}");
+            dt = controller.GetAllFinishedOrder(UID, $"{sortBy2}");
 
             //create label
             for (int i = 0; i < dt.Rows.Count; i++)
