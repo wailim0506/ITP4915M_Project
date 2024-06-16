@@ -1,7 +1,7 @@
 ﻿
 namespace templatev1.Order_Management
 {
-    partial class clerkViewOrder
+    partial class staffViewOrder
     {
         /// <summary>
         /// Required designer variable.

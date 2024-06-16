@@ -29,7 +29,7 @@ namespace templatev1
                 IServiceProvider serviceProvider = service.BuildServiceProvider();
                 // Start new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new deliverman()));
+                //StartThread(() => RunApplication(() => new Order_Management.staffViewOrder()));
             }
             catch (Exception ex)
             {

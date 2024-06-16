@@ -39,12 +39,17 @@ namespace templatev1.Order_Management
 
         private void staffOrderList_Load(object sender, EventArgs e)
         {
+            timer1.Enabled = true;
+            if (!isManager) {
+                hideButton();
+            }
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
 
         public void load_data(string status, string sortBy, bool isManager) {
+
             pnlOrder.Controls.Clear();
             DataTable dt = new DataTable();
 
@@ -212,6 +217,20 @@ namespace templatev1.Order_Management
         {
             lblHeading.Text = cmbStatus.Text + " Order(s)";
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
+
+        public void hideButton() {
+            palSelect3.Visible = false;
+            btnFunction3.Visible = false;
+            palSelect4.Visible = false;
+            btnFunction4.Visible = false;
+            btnFunction5.Location = new Point(0, 233);
+            btnFunction5.Controls.Add(palSelect5);
         }
 
 

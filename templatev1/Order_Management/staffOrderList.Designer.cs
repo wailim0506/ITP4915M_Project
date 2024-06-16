@@ -29,6 +29,7 @@ namespace templatev1.Order_Management
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -43,8 +44,6 @@ namespace templatev1.Order_Management
             this.lblCorpName = new System.Windows.Forms.Label();
             this.palSelect1 = new System.Windows.Forms.Panel();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.btnFunction2 = new System.Windows.Forms.Button();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -57,24 +56,20 @@ namespace templatev1.Order_Management
             this.lblStaff = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
             this.pnlOrder = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.lblOrderDate = new System.Windows.Forms.Label();
             this.lblOrderID = new System.Windows.Forms.Label();
             this.lblHeading = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSorting = new System.Windows.Forms.ComboBox();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.btnFunction2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.grpOrder.SuspendLayout();
-            this.pnlOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -259,30 +254,6 @@ namespace templatev1.Order_Management
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 36;
-            this.palSelect2.Visible = false;
-            // 
-            // btnFunction2
-            // 
-            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
-            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction2.TabIndex = 29;
-            this.btnFunction2.Text = "Invoice Management";
-            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction2.UseVisualStyleBackColor = false;
-            // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -342,7 +313,7 @@ namespace templatev1.Order_Management
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(716, 110);
+            this.label4.Location = new System.Drawing.Point(676, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 18);
@@ -362,15 +333,14 @@ namespace templatev1.Order_Management
             "Processing",
             "Pending",
             "Cancelled"});
-            this.cmbStatus.Location = new System.Drawing.Point(773, 106);
+            this.cmbStatus.Location = new System.Drawing.Point(734, 106);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(109, 26);
+            this.cmbStatus.Size = new System.Drawing.Size(148, 26);
             this.cmbStatus.TabIndex = 93;
             this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
             // lblStatus
             // 
-            this.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(911, 148);
             this.lblStatus.Name = "lblStatus";
@@ -381,7 +351,6 @@ namespace templatev1.Order_Management
             // 
             // lblStaffContact
             // 
-            this.lblStaffContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffContact.Location = new System.Drawing.Point(730, 148);
             this.lblStaffContact.Name = "lblStaffContact";
@@ -392,7 +361,6 @@ namespace templatev1.Order_Management
             // 
             // lblStaff
             // 
-            this.lblStaff.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaff.Location = new System.Drawing.Point(561, 148);
             this.lblStaff.Name = "lblStaff";
@@ -413,86 +381,13 @@ namespace templatev1.Order_Management
             // pnlOrder
             // 
             this.pnlOrder.AutoScroll = true;
-            this.pnlOrder.Controls.Add(this.button1);
-            this.pnlOrder.Controls.Add(this.label5);
-            this.pnlOrder.Controls.Add(this.label6);
-            this.pnlOrder.Controls.Add(this.label7);
-            this.pnlOrder.Controls.Add(this.label8);
-            this.pnlOrder.Controls.Add(this.label9);
             this.pnlOrder.Location = new System.Drawing.Point(6, 10);
             this.pnlOrder.Name = "pnlOrder";
             this.pnlOrder.Size = new System.Drawing.Size(938, 747);
             this.pnlOrder.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.AutoSize = true;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(835, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(86, 30);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "View";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(697, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(115, 20);
-            this.label5.TabIndex = 103;
-            this.label5.Text = "Status";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(516, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(152, 20);
-            this.label6.TabIndex = 102;
-            this.label6.Text = "Delivery Date";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(347, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(141, 20);
-            this.label7.TabIndex = 101;
-            this.label7.Text = "Customer ID";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(164, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(153, 20);
-            this.label8.TabIndex = 100;
-            this.label8.Text = "Order Date";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(10, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(128, 20);
-            this.label9.TabIndex = 99;
-            this.label9.Text = "Order ID";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblOrderDate
             // 
-            this.lblOrderDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(378, 148);
             this.lblOrderDate.Name = "lblOrderDate";
@@ -503,7 +398,6 @@ namespace templatev1.Order_Management
             // 
             // lblOrderID
             // 
-            this.lblOrderID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(224, 148);
             this.lblOrderID.Name = "lblOrderID";
@@ -554,6 +448,34 @@ namespace templatev1.Order_Management
             this.cmbSorting.TabIndex = 96;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 36;
+            this.palSelect2.Visible = false;
+            // 
+            // btnFunction2
+            // 
+            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction2.Name = "btnFunction2";
+            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.TabIndex = 29;
+            this.btnFunction2.Text = "Invoice Management";
+            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction2.UseVisualStyleBackColor = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // staffOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -584,8 +506,6 @@ namespace templatev1.Order_Management
             this.palTime.ResumeLayout(false);
             this.palTime.PerformLayout();
             this.grpOrder.ResumeLayout(false);
-            this.pnlOrder.ResumeLayout(false);
-            this.pnlOrder.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -607,8 +527,6 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Label lblCorpName;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Panel palSelect2;
-        private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Panel palTime;
@@ -626,11 +544,8 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbSorting;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel palSelect2;
+        private System.Windows.Forms.Button btnFunction2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

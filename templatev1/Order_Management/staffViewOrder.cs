@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace templatev1.Order_Management
 {
-    public partial class clerkViewOrder : Form
+    public partial class staffViewOrder : Form
     {
-        public clerkViewOrder()
+        public staffViewOrder()
         {
             InitializeComponent();
         }
