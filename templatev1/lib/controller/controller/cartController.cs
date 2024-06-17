@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+ `  using System.Windows.Forms;
 using Microsoft.Extensions.Logging;
 
 namespace controller
@@ -427,8 +428,8 @@ namespace controller
         public Boolean createInvoice(string caid, string id) //customer account id, order id
         {
             //count how many inovice in db first
-            string sqlCmd = $"SELECT COUNT(*) FROM invoice";
-            string result = (string)_db.ExecuteScalarCommand(sqlCmd);
+            string sqlCmd = "SELECT COUNT(*) FROM invoice";
+            string result = _db.ExecuteScalarCommand(sqlCmd);
             int numOfInvoice = result != null ? Convert.ToInt32(result) : 0;
 
             numOfInvoice++; //invoice number of the order
@@ -508,7 +509,7 @@ namespace controller
             string sqlCmd = $"SELECT COUNT(orderID) FROM order_ WHERE orderID LIKE 'OD{yearMonth}%'";
 
             //see how many orders in this year month
-            int orderInYearMonth = Convert.ToInt32(_db.ExecuteScalarCommand(sqlCmd)) + 1; //+1 for order id
+            int orderInYearMonth = Int32.Parse(_db.ExecuteScalarCommand(sqlCmd)) + 1; //+1 for order id
             return $"OD{yearMonth}{orderInYearMonth:D4}";
         }
 

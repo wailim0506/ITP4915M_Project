@@ -40,7 +40,7 @@ namespace templatev1.Order_Management
             shipDate = "";
             UID = this.accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
-            isManager = accountController.checkIsManager();
+            isManager = accountController.CheckIsManager();
         }
 
         private void clerkViewOrder_Load(object sender, EventArgs e)
@@ -371,6 +371,60 @@ namespace templatev1.Order_Management
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+            if (lblStatus.Text == "Cancelled" || lblStatus.Text == "Shipped")
+            {
+                MessageBox.Show(
+                    lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (dayDifference(orderID) >= 3)
+                {
+                    DialogResult dialogResult =
+                        MessageBox.Show(
+                            $"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.",
+                            "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    //add qty back to db
+                    //get part num and it's qty in the order
+                    Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
+                    //add back now;
+                    foreach (KeyValuePair<string, int> q in partNumQty)
+                    {
+                        controller.addQtyback(q.Key, q.Value, UID);
+                    }
+
+                    if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID))
+                    {
+                        MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+
+                        Form customerOrderList =
+                            new staffOrderList(accountController, UIController);
+                        Hide();
+                        customerOrderList.StartPosition = FormStartPosition.Manual;
+                        customerOrderList.Location = Location;
+                        customerOrderList.ShowDialog();
+                        Close();
+                    }
+                    else if (dialogResult == DialogResult.Yes && !controller.DeleteOrder(orderID))
+                    {
+                        MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
         public void hideButton()
         {

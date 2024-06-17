@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging; 
 
 namespace controller
 {
@@ -111,6 +112,90 @@ namespace controller
                 $"SELECT firstName, lastName, phoneNumber FROM staff WHERE delivermanID = \'{delivermanID}\'", null);
 
             return new string[] { dt.Rows[0][0].ToString(), dt.Rows[0][1].ToString(), dt.Rows[0][2].ToString() };
+        }
+
+        public Dictionary<string, int> GetPartNumWithQty(string id) //order id
+        {
+            DataTable dt = new DataTable();
+            string sqlCmd = $"SELECT partNumber, quantity FROM order_line WHERE orderID = \'{id}\'";
+            dt = _db.ExecuteDataTable(sqlCmd, null);
+
+            Dictionary<string, int> partNumQty = new Dictionary<string, int>();
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                partNumQty.Add($"{dt.Rows[i][0]}", int.Parse(dt.Rows[i][1].ToString()));
+            }
+
+            return partNumQty;
+        }
+
+        public void addQtyback(string partNum, int qtyInOrder, string id) //order id
+        {
+            editOrderController c = new editOrderController();
+            c.AddQtyBackToSparePart(partNum, id, qtyInOrder);
+        }
+
+        public bool DeleteOrder(string id) //order id
+        {
+            try
+            {
+                _db.ExecuteNonQueryCommand("DELETE FROM invoice WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error deleting order from invoice: {ex.Message}");
+                return false;
+            }
+
+            try
+            {
+                _db.ExecuteNonQueryCommand("DELETE FROM feedback WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error deleting order from feedback: {ex.Message}");
+                return false;
+            }
+
+            try
+            {
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE shipping_detail SET remark = 'Cancelled' WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error updating shipping detail: {ex.Message}");
+                return false;
+            }
+
+            try
+            {
+                _db.ExecuteNonQueryCommand("DELETE FROM instruction WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "order controller",
+                    $"Error deleting order from instruction: {ex.Message}");
+                return false;
+            }
+
+            try
+            {
+                _db.ExecuteNonQueryCommand("UPDATE order_ SET status = @status WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@status", "Cancelled" }, { "@id", id } });
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "order controller", $"Error updating order status: {ex.Message}");
+                return false;
+            }
+
+            return true;
         }
 
         private string ExecuteSqlQueryAndReturnFirstRow(string s)

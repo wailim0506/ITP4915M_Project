@@ -39,7 +39,7 @@ namespace templatev1.Order_Management
             shipDate = "";
             UID = this.accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
-            isManager = accountController.checkIsManager();
+            isManager = accountController.CheckIsManager();
         }
 
 

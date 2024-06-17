@@ -144,7 +144,7 @@ namespace controller
         {
             using (MySqlCommand command = new MySqlCommand(sqlQuery, _connection))
             {
-                return (string)command.ExecuteScalar();
+                return command.ExecuteScalar().ToString();
             }
         }
     }

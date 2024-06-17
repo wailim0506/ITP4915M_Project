@@ -96,6 +96,8 @@ namespace templatev1.Order_Management
             this.pnlSP = new System.Windows.Forms.Panel();
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
             this.lblOrderDateLabel = new System.Windows.Forms.Label();
+            this.btnDIC = new System.Windows.Forms.Button();
+            this.btnDID = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -480,12 +482,13 @@ namespace templatev1.Order_Management
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(813, 834);
+            this.btnDelete.Location = new System.Drawing.Point(585, 834);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 49);
             this.btnDelete.TabIndex = 198;
             this.btnDelete.Text = "Cancel Order";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnEdit
             // 
@@ -805,11 +808,37 @@ namespace templatev1.Order_Management
             this.lblOrderDateLabel.TabIndex = 168;
             this.lblOrderDateLabel.Text = "Order Date :";
             // 
+            // btnDIC
+            // 
+            this.btnDIC.AutoSize = true;
+            this.btnDIC.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDIC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDIC.Location = new System.Drawing.Point(703, 833);
+            this.btnDIC.Name = "btnDIC";
+            this.btnDIC.Size = new System.Drawing.Size(107, 49);
+            this.btnDIC.TabIndex = 211;
+            this.btnDIC.Text = "View DIC";
+            this.btnDIC.UseVisualStyleBackColor = true;
+            // 
+            // btnDID
+            // 
+            this.btnDID.AutoSize = true;
+            this.btnDID.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDID.Location = new System.Drawing.Point(816, 834);
+            this.btnDID.Name = "btnDID";
+            this.btnDID.Size = new System.Drawing.Size(107, 49);
+            this.btnDID.TabIndex = 212;
+            this.btnDID.Text = "View DID";
+            this.btnDID.UseVisualStyleBackColor = true;
+            // 
             // staffViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 890);
+            this.Controls.Add(this.btnDID);
+            this.Controls.Add(this.btnDIC);
             this.Controls.Add(this.lblDayUntil);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -940,5 +969,7 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Panel pnlSP;
         private System.Windows.Forms.Label lblOrderIDLabel;
         private System.Windows.Forms.Label lblOrderDateLabel;
+        private System.Windows.Forms.Button btnDIC;
+        private System.Windows.Forms.Button btnDID;
     }
 }
