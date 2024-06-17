@@ -43,13 +43,13 @@
     &quot;assignee&quot;: &quot;mythic3011&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/wailim0506/ITP4915M_Project",
-    "accountId": "55d56015-6f21-4a08-bc76-d2d26f438c47"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wailim0506/ITP4915M_Project&quot;,
+    &quot;accountId&quot;: &quot;55d56015-6f21-4a08-bc76-d2d26f438c47&quot;
   },
-  "editorReviewEnabled": false
-}]]></component>
+  &quot;editorReviewEnabled&quot;: false
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock://C:/Users/Waili/OneDrive/桌面/New folder/wailim0506/ITP4915M_Project/templatev1/lib/controller/controller/cartController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/templatev1/lib/controller/controller/controller.cs" root0="FORCE_HIGHLIGHTING" />

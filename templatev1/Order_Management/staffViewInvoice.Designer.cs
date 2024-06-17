@@ -35,16 +35,16 @@ namespace templatev1.Order_Management
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
             this.palSelect3 = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -87,6 +87,9 @@ namespace templatev1.Order_Management
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnPDF = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.pnlInvoice = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -101,6 +104,7 @@ namespace templatev1.Order_Management
             this.grpDeliveryAddress.SuspendLayout();
             this.grpInvoiceAddress.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.pnlInvoice.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -168,6 +172,16 @@ namespace templatev1.Order_Management
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 28;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -195,6 +209,18 @@ namespace templatev1.Order_Management
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -281,28 +307,6 @@ namespace templatev1.Order_Management
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
-            // 
             // palLoc
             // 
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -362,7 +366,7 @@ namespace templatev1.Order_Management
             // 
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(935, 911);
+            this.btnReturn.Location = new System.Drawing.Point(250, 911);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(95, 40);
             this.btnReturn.TabIndex = 178;
@@ -374,7 +378,7 @@ namespace templatev1.Order_Management
             // 
             this.grpDeliveryDate.Controls.Add(this.lblDeliveryDate);
             this.grpDeliveryDate.Controls.Add(this.label5);
-            this.grpDeliveryDate.Location = new System.Drawing.Point(250, 816);
+            this.grpDeliveryDate.Location = new System.Drawing.Point(3, 718);
             this.grpDeliveryDate.Name = "grpDeliveryDate";
             this.grpDeliveryDate.Size = new System.Drawing.Size(780, 86);
             this.grpDeliveryDate.TabIndex = 177;
@@ -407,7 +411,7 @@ namespace templatev1.Order_Management
             this.grpItem.Controls.Add(this.label15);
             this.grpItem.Controls.Add(this.label14);
             this.grpItem.Controls.Add(this.label13);
-            this.grpItem.Location = new System.Drawing.Point(250, 435);
+            this.grpItem.Location = new System.Drawing.Point(3, 337);
             this.grpItem.Name = "grpItem";
             this.grpItem.Size = new System.Drawing.Size(780, 382);
             this.grpItem.TabIndex = 176;
@@ -465,7 +469,7 @@ namespace templatev1.Order_Management
             // 
             this.grpOrderNum.Controls.Add(this.lblOrderNum);
             this.grpOrderNum.Controls.Add(this.label9);
-            this.grpOrderNum.Location = new System.Drawing.Point(646, 360);
+            this.grpOrderNum.Location = new System.Drawing.Point(399, 262);
             this.grpOrderNum.Margin = new System.Windows.Forms.Padding(0);
             this.grpOrderNum.Name = "grpOrderNum";
             this.grpOrderNum.Padding = new System.Windows.Forms.Padding(0);
@@ -496,7 +500,7 @@ namespace templatev1.Order_Management
             // 
             this.grpCustomerID.Controls.Add(this.lblCustomerID);
             this.grpCustomerID.Controls.Add(this.label10);
-            this.grpCustomerID.Location = new System.Drawing.Point(847, 360);
+            this.grpCustomerID.Location = new System.Drawing.Point(600, 262);
             this.grpCustomerID.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grpCustomerID.Name = "grpCustomerID";
             this.grpCustomerID.Size = new System.Drawing.Size(183, 75);
@@ -526,7 +530,7 @@ namespace templatev1.Order_Management
             // 
             this.grpSerialNum.Controls.Add(this.lblInvoiceNum);
             this.grpSerialNum.Controls.Add(this.label8);
-            this.grpSerialNum.Location = new System.Drawing.Point(451, 360);
+            this.grpSerialNum.Location = new System.Drawing.Point(204, 262);
             this.grpSerialNum.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grpSerialNum.Name = "grpSerialNum";
             this.grpSerialNum.Size = new System.Drawing.Size(189, 75);
@@ -560,7 +564,7 @@ namespace templatev1.Order_Management
             this.grpDate.Controls.Add(this.groupBox8);
             this.grpDate.Controls.Add(this.groupBox10);
             this.grpDate.Controls.Add(this.groupBox9);
-            this.grpDate.Location = new System.Drawing.Point(250, 360);
+            this.grpDate.Location = new System.Drawing.Point(3, 262);
             this.grpDate.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grpDate.Name = "grpDate";
             this.grpDate.Size = new System.Drawing.Size(195, 75);
@@ -626,7 +630,7 @@ namespace templatev1.Order_Management
             // 
             this.grpDeliveryAddress.Controls.Add(this.lblDeliveryAddress);
             this.grpDeliveryAddress.Controls.Add(this.label12);
-            this.grpDeliveryAddress.Location = new System.Drawing.Point(646, 261);
+            this.grpDeliveryAddress.Location = new System.Drawing.Point(399, 163);
             this.grpDeliveryAddress.Margin = new System.Windows.Forms.Padding(0);
             this.grpDeliveryAddress.Name = "grpDeliveryAddress";
             this.grpDeliveryAddress.Padding = new System.Windows.Forms.Padding(0);
@@ -656,7 +660,7 @@ namespace templatev1.Order_Management
             // 
             this.grpInvoiceAddress.Controls.Add(this.lblDelaerAddress);
             this.grpInvoiceAddress.Controls.Add(this.label11);
-            this.grpInvoiceAddress.Location = new System.Drawing.Point(250, 261);
+            this.grpInvoiceAddress.Location = new System.Drawing.Point(3, 163);
             this.grpInvoiceAddress.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.grpInvoiceAddress.Name = "grpInvoiceAddress";
             this.grpInvoiceAddress.Size = new System.Drawing.Size(390, 100);
@@ -687,7 +691,7 @@ namespace templatev1.Order_Management
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(250, 106);
+            this.groupBox1.Location = new System.Drawing.Point(3, 8);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(780, 156);
             this.groupBox1.TabIndex = 169;
@@ -733,21 +737,57 @@ namespace templatev1.Order_Management
             this.label1.TabIndex = 0;
             this.label1.Text = "Legend MOTOR Co. Ltd.";
             // 
+            // btnPDF
+            // 
+            this.btnPDF.AutoSize = true;
+            this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDF.Location = new System.Drawing.Point(807, 911);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(112, 40);
+            this.btnPDF.TabIndex = 201;
+            this.btnPDF.Text = "Save as PDF";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
+            // 
+            // btnPrint
+            // 
+            this.btnPrint.AutoSize = true;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(931, 911);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(105, 40);
+            this.btnPrint.TabIndex = 200;
+            this.btnPrint.Text = "Print Invoice";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // pnlInvoice
+            // 
+            this.pnlInvoice.Controls.Add(this.groupBox1);
+            this.pnlInvoice.Controls.Add(this.grpInvoiceAddress);
+            this.pnlInvoice.Controls.Add(this.grpDeliveryAddress);
+            this.pnlInvoice.Controls.Add(this.grpDate);
+            this.pnlInvoice.Controls.Add(this.grpDeliveryDate);
+            this.pnlInvoice.Controls.Add(this.grpSerialNum);
+            this.pnlInvoice.Controls.Add(this.grpItem);
+            this.pnlInvoice.Controls.Add(this.grpCustomerID);
+            this.pnlInvoice.Controls.Add(this.grpOrderNum);
+            this.pnlInvoice.Location = new System.Drawing.Point(250, 97);
+            this.pnlInvoice.Name = "pnlInvoice";
+            this.pnlInvoice.Size = new System.Drawing.Size(786, 808);
+            this.pnlInvoice.TabIndex = 202;
+            // 
             // staffViewInvoice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1113, 963);
+            this.Controls.Add(this.pnlInvoice);
+            this.Controls.Add(this.btnPDF);
+            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.grpDeliveryDate);
-            this.Controls.Add(this.grpItem);
-            this.Controls.Add(this.grpOrderNum);
-            this.Controls.Add(this.grpCustomerID);
-            this.Controls.Add(this.grpSerialNum);
-            this.Controls.Add(this.grpDate);
-            this.Controls.Add(this.grpDeliveryAddress);
-            this.Controls.Add(this.grpInvoiceAddress);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
@@ -778,7 +818,9 @@ namespace templatev1.Order_Management
             this.grpInvoiceAddress.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.pnlInvoice.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -842,5 +884,8 @@ namespace templatev1.Order_Management
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnPDF;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Panel pnlInvoice;
     }
 }

@@ -425,6 +425,15 @@ namespace templatev1.Order_Management
             }
         }
 
+        private void btnDIC_Click(object sender, EventArgs e)
+        {
+            Form o = new DIC(orderID,accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
 
         public void hideButton()
         {

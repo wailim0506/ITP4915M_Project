@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.Drawing.Printing;
+using System.IO;
 using System.Windows.Forms;
 using controller;
 using templatev1.Online_Ordering_Platform;
@@ -169,6 +172,72 @@ namespace templatev1.Order_Management
             customerViewOrder.Location = Location;
             customerViewOrder.ShowDialog();
             Close();
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            printInvoice(pnlInvoice);
+        }
+
+        private void btnPDF_Click(object sender, EventArgs e)
+        {
+            WebBrowser webBrowser = new WebBrowser
+            {
+                Location = new Point(0, 0),
+                Size = new Size(0, 0)
+            };
+            Controls.Add(webBrowser);
+            string imagePath = Path.Combine(Path.GetTempPath(), "Invoice.png");
+            toImg(imagePath, pnlInvoice);
+            string pdfPath = Path.Combine(Path.GetTempPath(), $"Invoice of {orderID}.pdf");
+            toPDF(imagePath, pdfPath);
+            webBrowser.Navigate(pdfPath);
+        }
+
+        private void toImg(string filePath, Panel p)
+        {
+            Bitmap panelBitmap = new Bitmap(p.Width, p.Height);
+            p.DrawToBitmap(panelBitmap, new Rectangle(0, 0, p.Width, p.Height));
+            panelBitmap.Save(filePath, ImageFormat.Png);
+        }
+
+        private void toPDF(string imagePath, string pdfPath)
+        {
+
+            PrintDocument p = new PrintDocument();
+            p.PrintPage += (sender, e) =>
+            {
+                Image i = Image.FromFile(imagePath);
+                e.Graphics.DrawImage(i, 0, 0, e.PageBounds.Width, e.PageBounds.Height);
+            };
+
+            p.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+            p.PrinterSettings.PrintToFile = true;
+            p.PrinterSettings.PrintFileName = pdfPath;
+            p.Print();
+        }
+        private Bitmap CaptureInvoice(Panel p)
+        {
+            Bitmap bitmap = new Bitmap(p.Width, p.Height);
+            p.DrawToBitmap(bitmap, new Rectangle(0, 0, p.Width, p.Height));
+            return bitmap;
+        }
+
+        private void printInvoice(Panel panel)
+        {
+            Bitmap pnlDIC = CaptureInvoice(panel);
+
+            PrintDocument p = new PrintDocument();
+            p.PrintPage += (sender, e) =>
+            {
+                e.Graphics.DrawImage(pnlDIC, new Point(0, 0));
+            };
+
+            PrintPreviewDialog preview = new PrintPreviewDialog
+            {
+                Document = p
+            };
+            preview.ShowDialog();
         }
 
         private void BWMode()

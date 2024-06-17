@@ -190,6 +190,7 @@
     <Compile Include="addPartToOrderController.cs" />
     <Compile Include="cartController.cs" />
     <Compile Include="controller.cs" />
+    <Compile Include="dicController.cs" />
     <Compile Include="staffOrderListController.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="delivermanOrderListController.cs" />

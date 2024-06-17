@@ -819,6 +819,7 @@ namespace templatev1.Order_Management
             this.btnDIC.TabIndex = 211;
             this.btnDIC.Text = "View DIC";
             this.btnDIC.UseVisualStyleBackColor = true;
+            this.btnDIC.Click += new System.EventHandler(this.btnDIC_Click);
             // 
             // btnDID
             // 
