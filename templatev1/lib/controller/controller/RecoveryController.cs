@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data;
 using System.Windows.Forms;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -17,7 +18,7 @@ namespace controller
 
         public RecoveryController()
         {
-            db = new Database();
+            _db = ServiceProvider.GetRequiredService<Database>();
         }
 
         public RecoveryController(Database db)

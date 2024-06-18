@@ -423,7 +423,7 @@ namespace templatev1.Order_Management
 
         private void BWMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = UIController.GetMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);

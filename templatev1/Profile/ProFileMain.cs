@@ -185,7 +185,7 @@ namespace templatev1
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            UIController.setMode(Settings.Default.BWmode);
+            UIController.SetMode(Settings.Default.BWmode);
             BWMode();
         }
 
@@ -216,7 +216,7 @@ namespace templatev1
         //For Dark Color function
         private void BWMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = UIController.GetMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);

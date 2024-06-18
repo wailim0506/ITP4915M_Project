@@ -83,7 +83,7 @@ namespace templatev1.Order_Management
                 lblDelivermanName.Text = "N/A";
                 lblDelivermanContact.Text = "N/A";
                 lblShippingDate.Text = "N/A";
-            
+
                 lblExpressNum.Text = "N/A";
             }
             else
@@ -94,10 +94,10 @@ namespace templatev1.Order_Management
                 lblShippingDate.Text = dateHandler.dayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
-            
+
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
-            
+
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing" || lblStatus.Text == "Ready to Ship")
             {
@@ -295,7 +295,6 @@ namespace templatev1.Order_Management
         }
 
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form feedback = new giveFeedback(accountController, UIController);
@@ -365,7 +364,6 @@ namespace templatev1.Order_Management
             BWMode();
         }
 
- 
 
         private void btnReorder_Click(object sender, EventArgs e)
         {
@@ -439,7 +437,7 @@ namespace templatev1.Order_Management
 
         private void BWMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = UIController.GetMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);

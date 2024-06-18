@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -8,7 +9,7 @@ namespace controller
 
         public addPartToOrderController(Database database = null)
         {
-            _db = database ?? new Database();
+            _db = ServiceProvider.GetRequiredService<Database>();
         }
 
         public DataTable GetPartDetail(string partNum)

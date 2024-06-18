@@ -1,4 +1,7 @@
-﻿namespace controller
+﻿using Microsoft.Extensions.DependencyInjection;
+using controller.Utils;
+
+namespace controller
 {
     public class stockController : abstractController
     {
@@ -6,14 +9,12 @@
 
         public stockController()
         {
-
+            _db = ServiceProvider.GetRequiredService<Database>();
         }
 
         public stockController(AccountController accountController)
         {
             this.accountController = accountController;
         }
-
-
     }
 }

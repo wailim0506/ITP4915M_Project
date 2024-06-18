@@ -47,7 +47,7 @@ namespace templatev1.Online_Ordering_Platform
             load_data("All");
             cmbSortOrder.SelectedIndex = 0;
         }
-        
+
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();
@@ -175,7 +175,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            BWMode();
+            BwMode();
         }
 
         public void btnView_Click(object sender, EventArgs e)
@@ -230,9 +230,9 @@ namespace templatev1.Online_Ordering_Platform
             }
         }
 
-        private void BWMode()
+        private void BwMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = UIController.GetMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
