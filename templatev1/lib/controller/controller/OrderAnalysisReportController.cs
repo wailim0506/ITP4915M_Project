@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
@@ -15,6 +15,12 @@ namespace controller
 
         public void GenerateReportDocument(DataTable reportData, string reportFormat, string outputPath)
         {
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+            _database = database ?? new Database();
+=======
+>>>>>>> Stashed changes
             Directory.CreateDirectory(outputPath);
             Log.LogMessage(LogLevel.Information, "OrderAnalysisReportController",
                 $"Output path created at {outputPath}");
@@ -33,6 +39,7 @@ namespace controller
             byte[] bytes = viewer.LocalReport.Render(formatDetails.Encoding, null, out string mimeTypeOut, out _, out _,
                 out _, out _);
             File.WriteAllBytes(outputFile, bytes);
+<<<<<<< Updated upstream
         }
 
         private (string MimeType, string Encoding, string Extension) GetFormatDetails(string reportFormat)
@@ -44,6 +51,9 @@ namespace controller
                 {
                     Source = "OrderAnalysisReportController",
                 };
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
         }
 
         public DataTable GenerateReport(string period, DateTime startDate, DateTime endDate)
