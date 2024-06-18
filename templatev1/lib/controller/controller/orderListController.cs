@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -10,8 +11,8 @@ namespace controller
 
         public orderListController(Database db = null)
         {
-            _db = db ?? new Database();
-            _ac = new AccountController();
+            _db = ServiceProvider.GetRequiredService<Database>();
+            _ac = ServiceProvider.GetRequiredService<AccountController>();
             sqlCmd = "";
         }
 

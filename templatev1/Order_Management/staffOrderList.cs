@@ -18,6 +18,7 @@ namespace templatev1.Order_Management
         UIController UIController;
         staffOrderListController controller;
         Boolean isManager;
+
         public staffOrderList()
         {
             InitializeComponent();
@@ -27,7 +28,8 @@ namespace templatev1.Order_Management
         }
 
 
-        public staffOrderList(AccountController accountController, UIController UIController) {
+        public staffOrderList(AccountController accountController, UIController UIController)
+        {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
@@ -40,16 +42,18 @@ namespace templatev1.Order_Management
         private void staffOrderList_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            if (!isManager) {
+            if (!isManager)
+            {
                 hideButton();
             }
+
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
 
-        public void load_data(string status, string sortBy, bool isManager) {
-
+        public void load_data(string status, string sortBy, bool isManager)
+        {
             pnlOrder.Controls.Clear();
             DataTable dt = new DataTable();
 
@@ -82,8 +86,8 @@ namespace templatev1.Order_Management
             }
 
             int yPosition = 9;
-            for (int i = 0; i < dt.Rows.Count; i++) {
-
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
                 string orderDate = dt.Rows[i][1].ToString();
                 string[]
                     d = orderDate
@@ -213,6 +217,7 @@ namespace templatev1.Order_Management
         {
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
+
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblHeading.Text = cmbStatus.Text + " Order(s)";
@@ -224,7 +229,8 @@ namespace templatev1.Order_Management
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
-        public void hideButton() {
+        public void hideButton()
+        {
             palSelect3.Visible = false;
             btnFunction3.Visible = false;
             palSelect4.Visible = false;
@@ -232,7 +238,5 @@ namespace templatev1.Order_Management
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
-
-
     }
 }

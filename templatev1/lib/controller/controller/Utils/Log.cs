@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Logging;
 
-namespace controller
+namespace controller.Utils
 {
     public class Log
     {

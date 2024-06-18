@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data; //must include in every controller file
+using System.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 //must include in every controller file 
 
@@ -207,7 +208,7 @@ namespace controller
             { "Zimbabwe", "ZW" }
         };
 
-        private Database _db = new Database();
+        protected Database _db = ServiceProvider.GetRequiredService<Database>();
 
         public DataTable GetSupplierList() =>
             ExecuteQuery("SELECT * FROM supplier");

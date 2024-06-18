@@ -11,13 +11,16 @@ namespace templatev1.Order_Management
     class dateHandler
     {
         viewOrderController controller;
-        public dateHandler() {
 
+        public dateHandler()
+        {
             controller = new viewOrderController();
         }
+
         public int dayDifference(string orderID) //calculate day difference
         {
-            string systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
+            string
+                systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst = false;

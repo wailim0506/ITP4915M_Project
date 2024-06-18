@@ -22,6 +22,7 @@ namespace templatev1.Order_Management
         private string uName, UID;
         string orderID;
         bool isManager;
+
         public DIC(string orderID)
         {
             controller = new dicController();
@@ -47,13 +48,15 @@ namespace templatev1.Order_Management
             {
                 hideButton();
             }
+
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
             lblHeading.Text += $" of Order {orderID}";
             load_data();
         }
 
-        public void load_data() {
+        public void load_data()
+        {
             DataTable dt = controller.getData(orderID);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
@@ -64,7 +67,7 @@ namespace templatev1.Order_Management
             string orderDate = dt.Rows[0][0].ToString();
             string[]
                 e = orderDate
-                    .Split(' '); 
+                    .Split(' ');
             orderDate = e[0];
 
             lblOrderDate.Text = orderDate;
@@ -113,10 +116,7 @@ namespace templatev1.Order_Management
             Bitmap pnlDIC = CaptureDIC(panel);
 
             PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) =>
-            {
-                e.Graphics.DrawImage(pnlDIC, new Point(0, 0));
-            };
+            p.PrintPage += (sender, e) => { e.Graphics.DrawImage(pnlDIC, new Point(0, 0)); };
 
             PrintPreviewDialog preview = new PrintPreviewDialog
             {
@@ -129,12 +129,12 @@ namespace templatev1.Order_Management
         {
             WebBrowser webBrowser = new WebBrowser
             {
-                Location = new Point(0,0),
-                Size = new Size(0,0)
+                Location = new Point(0, 0),
+                Size = new Size(0, 0)
             };
-            Controls.Add(webBrowser);    
+            Controls.Add(webBrowser);
             string imagePath = Path.Combine(Path.GetTempPath(), "DIC.png");
-            toImg(imagePath,pnlDIC);
+            toImg(imagePath, pnlDIC);
             string pdfPath = Path.Combine(Path.GetTempPath(), $"DIC of {orderID}.pdf");
             toPDF(imagePath, pdfPath);
             webBrowser.Navigate(pdfPath);
@@ -149,7 +149,6 @@ namespace templatev1.Order_Management
 
         private void toPDF(string imagePath, string pdfPath)
         {
-
             PrintDocument p = new PrintDocument();
             p.PrintPage += (sender, e) =>
             {
@@ -167,6 +166,5 @@ namespace templatev1.Order_Management
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
-
     }
 }

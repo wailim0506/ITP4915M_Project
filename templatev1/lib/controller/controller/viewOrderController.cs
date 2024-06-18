@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data;
+using controller.Utils;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace controller
 {
     public class viewOrderController : abstractController
     {
-        string _sqlCmd;
-        Database _db;
-
-        public viewOrderController(Database database = null)
-        {
-            _sqlCmd = "";
-            _db = database ?? new Database();
-        }
+        string _sqlCmd = "";
+        Database _db = ServiceProvider.GetRequiredService<Database>();
 
         public DataTable GetOrder(string id) //orderID
         {

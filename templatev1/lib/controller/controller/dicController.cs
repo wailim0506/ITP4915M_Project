@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -13,7 +14,7 @@ namespace controller
 
         public dicController(Database database = null)
         {
-            _db = database ?? new Database();
+            _db = ServiceProvider.GetRequiredService<Database>();
         }
 
         public DataTable getData(string id) //order id

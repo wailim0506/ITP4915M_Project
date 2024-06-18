@@ -23,6 +23,7 @@ namespace templatev1.Order_Management
         string shipDate;
         bool isLMOrder;
         bool isManager;
+
         public staffViewOrder(string orderID)
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace templatev1.Order_Management
         }
 
         public staffViewOrder(string orderID, AccountController accountController,
-            UIController UIController) 
+            UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
@@ -51,6 +52,7 @@ namespace templatev1.Order_Management
             {
                 hideButton();
             }
+
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
             lblLoc.Text += $" {orderID}";
@@ -59,7 +61,6 @@ namespace templatev1.Order_Management
 
         public void load_data(string sortBy)
         {
-
             pnlSP.Controls.Clear();
             DataTable dt = controller.getOrder(orderID);
             string[] f = dt.Rows[0][4].ToString().Split(' ');
@@ -200,11 +201,8 @@ namespace templatev1.Order_Management
                 pnlSP.Controls.Add(lblQuantity);
                 pnlSP.Controls.Add(lblUnitPrice);
                 pnlSP.Controls.Add(lblRowTotalPrice);
-
             }
         }
-
-        
 
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
@@ -256,7 +254,6 @@ namespace templatev1.Order_Management
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
             if (lblStatus.Text == "Cancelled" || lblStatus.Text == "Shipped")
             {
                 MessageBox.Show(
@@ -309,7 +306,7 @@ namespace templatev1.Order_Management
 
         private void btnDIC_Click(object sender, EventArgs e)
         {
-            Form o = new DIC(orderID,accountController, UIController);
+            Form o = new DIC(orderID, accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -326,6 +323,5 @@ namespace templatev1.Order_Management
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
-
     }
 }

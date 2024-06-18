@@ -1,4 +1,8 @@
-﻿using System.Dynamic;
+﻿using System;
+using System.Dynamic;
+using controller.Utils;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace controller
 {
@@ -6,6 +10,8 @@ namespace controller
     {
         //For DataBase
         private Database DB;
+        private Log Log;
+        protected IServiceProvider serviceProvider;
 
         private bool BWMode;
         private bool showbtn1, showbtn2, showbtn3, showbtn4, showbtn5; //whether the button is visible.
@@ -18,9 +24,11 @@ namespace controller
         {
         }
 
-        public UIController(AccountController accountController, Database db = null)
+        public UIController(AccountController accountController)
         {
-            DB = db ?? new Database();
+            serviceProvider = Startup.ServiceProvider ?? Startup.GetServiceProvider();
+            DB = serviceProvider.GetService<Database>();
+            Log = serviceProvider.GetService<Log>();
             this.accountController = accountController;
             showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = BWMode = false;
         }
@@ -35,6 +43,7 @@ namespace controller
                 ? "C"
                 : DB.ExecuteDataTable(permissionIDQuery).Rows[0]["permissionID"].ToString();
             DetermineFun(permission);
+            Log.LogMessage(LogLevel.Information, "UIController", $"User {UserID} has permission {permission}");
         }
 
         public void SetAccountType(string accType)
@@ -90,6 +99,8 @@ namespace controller
                     funbtn3 = "User Management";
                     break;
             }
+
+            Log.LogMessage(LogLevel.Debug, "UIController - Determine Fun", $"Set permission {permission}");
         }
 
         //Return the button name and which to be shown.
@@ -106,16 +117,18 @@ namespace controller
             funbtn.btn4value = funbtn4;
             funbtn.btn5show = showbtn5;
             funbtn.btn5value = funbtn5;
+            Log.LogMessage(LogLevel.Debug, "UIController - showFun", $"Return {funbtn}");
             return funbtn;
         }
 
         //For dark mode function.
-        public void setMode(bool value)
+        public void SetMode(bool value)
         {
             BWMode = value;
+            Log.LogMessage(LogLevel.Debug, "UIController - SetMode", $"Set BWmode to {BWMode}");
         }
 
-        public dynamic getMode()
+        public dynamic GetMode()
         {
             dynamic mode = new ExpandoObject();
             if (!BWMode) //normal
@@ -130,6 +143,7 @@ namespace controller
                 mode.profileColor = "#BDB76B";
                 mode.btnColor = "#808080";
                 mode.BWmode = true;
+                Log.LogMessage(LogLevel.Debug, "UIController - GetMode", $"Return {mode}");
                 return mode;
             }
             else //dark.
@@ -144,6 +158,7 @@ namespace controller
                 mode.profileColor = "#ffffc0";
                 mode.btnColor = "#FFFFFF";
                 mode.BWmode = false;
+                Log.LogMessage(LogLevel.Debug, "UIController - GetMode", $"Return {mode}");
                 return mode;
             }
         }
@@ -153,14 +168,13 @@ namespace controller
         {
             if (btnText.Equals(funbtn1))
                 return 1;
-            else if (btnText.Equals(funbtn2))
+            if (btnText.Equals(funbtn2))
                 return 2;
-            else if (btnText.Equals(funbtn3))
+            if (btnText.Equals(funbtn3))
                 return 3;
-            else if (btnText.Equals(funbtn4))
+            if (btnText.Equals(funbtn4))
                 return 4;
-            else
-                return 5;
+            return 5;
         }
 
         //Change the information needs to show between customer and staff.
@@ -188,12 +202,6 @@ namespace controller
             store.group1 = !permission.Equals("MP02");
 
             return store;
-        }
-
-        //Change the information needs to show between storeman and sale manager.
-        public bool UserMgmt()
-        {
-            return permission.Equals("MP03");
         }
     }
 }

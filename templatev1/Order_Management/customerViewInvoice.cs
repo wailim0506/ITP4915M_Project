@@ -203,7 +203,6 @@ namespace templatev1.Order_Management
 
         private void toPDF(string imagePath, string pdfPath)
         {
-
             PrintDocument p = new PrintDocument();
             p.PrintPage += (sender, e) =>
             {
@@ -216,6 +215,7 @@ namespace templatev1.Order_Management
             p.PrinterSettings.PrintFileName = pdfPath;
             p.Print();
         }
+
         private Bitmap CaptureInvoice(Panel p)
         {
             Bitmap bitmap = new Bitmap(p.Width, p.Height);
@@ -228,10 +228,7 @@ namespace templatev1.Order_Management
             Bitmap pnlDIC = CaptureInvoice(panel);
 
             PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) =>
-            {
-                e.Graphics.DrawImage(pnlDIC, new Point(0, 0));
-            };
+            p.PrintPage += (sender, e) => { e.Graphics.DrawImage(pnlDIC, new Point(0, 0)); };
 
             PrintPreviewDialog preview = new PrintPreviewDialog
             {
@@ -242,7 +239,7 @@ namespace templatev1.Order_Management
 
         private void BWMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = UIController.GetMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
