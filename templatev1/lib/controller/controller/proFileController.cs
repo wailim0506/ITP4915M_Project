@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using MySqlConnector;
 using Microsoft.Extensions.Logging;
+using System.Windows.Forms;
 
 namespace controller
 {
@@ -37,22 +38,22 @@ namespace controller
 
         AccountController accountController;
 
-        public proFileController()
+        //For department manager view or modify the user account.
+        public proFileController(string uid, string type, Database db = null)
         {
+            _db = db ?? new Database();
+            UID = uid;
+            accountType = type;
+            UserInfo();
         }
 
         public proFileController(AccountController accountController, Database db = null)
         {
             this.accountController = accountController;
             _db = db ?? new Database();
+            UID = accountController.GetUid();
         }
 
-
-        //For department manager view or modify the user account.
-        public proFileController(string UID)
-        {
-            this.UID = UID;
-        }
 
         //Get the default address value for customer user from the database and set the value.
         private void GetDfAdd()
@@ -73,7 +74,6 @@ namespace controller
 
         private void UserInfo()
         {
-            UID = accountController.GetUid();
             DataTable dt = new DataTable();
 
             if (accountType.Equals("Staff")) //Staff info
@@ -89,6 +89,7 @@ namespace controller
                     $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
+
 
             dt = _db.ExecuteDataTable(sqlStr);
 
@@ -241,7 +242,7 @@ namespace controller
 
                 if (accountType.Equals("Customer"))
                 {
-                    sqlCmd = 
+                    sqlCmd =
                         "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, paymentMethod = @pay, dateofBirth = @DFB, company = @corp WHERE customerID = @UID";
                     parameters.Add("@pay", info.pay);
                     parameters.Add("@corp", info.corp);

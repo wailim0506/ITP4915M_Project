@@ -66,17 +66,17 @@ namespace controller
                     funbtn2 = "Invoice Management";
                     funbtn3 = "On-Sale Product Management";
                     funbtn4 = "Stock Management";
-                    funbtn5 = "User Managemnet";
+                    funbtn5 = "User Management";
                     break;
                 case "MP02": //Storeman
                     showbtn1 = showbtn2 = showbtn3 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Stock Management";
-                    funbtn3 = "User Managemnet";
+                    funbtn3 = "User Management";
                     break;
                 case "MP03": //Department manager
                     showbtn1 = true;
-                    funbtn1 = "User Managemnet";
+                    funbtn1 = "User Management";
                     break;
                 case "MP04": //Delivery man
                     showbtn1 = showbtn2 = true;
@@ -188,6 +188,12 @@ namespace controller
             store.group1 = !permission.Equals("MP02");
 
             return store;
+        }
+
+        //Change the information needs to show between storeman and sale manager.
+        public bool UserMgmt()
+        {
+            return permission.Equals("MP03");
         }
     }
 }

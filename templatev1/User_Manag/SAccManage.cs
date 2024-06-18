@@ -6,22 +6,18 @@ namespace templatev1
 {
     public partial class SAccManage : Form
     {
-        private string uName, UID;
+        private string uName, UID, selectedUid;
         AccountController accountController;
         UIController UIController;
-
-        public SAccManage()
-        {
-            InitializeComponent();
-            palSelect1.Visible =
-                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
-        }
+        UserController UserController;
+        private int index;
 
         public SAccManage(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             palSelect1.Visible =
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            UserController = new UserController();
             this.accountController = accountController;
             this.UIController = UIController;
         }
@@ -38,11 +34,15 @@ namespace templatev1
 
         private void Initialization()
         {
-            setIndicator(UIController.getIndicator("User Managemnet"));
+            setIndicator(UIController.getIndicator("User Management"));
             timer1.Enabled = true;
             UID = accountController.GetUid();
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
+            rdoStaff.Checked = true;
+            cmbDept.Items.AddRange(UserController.GetDept().ToArray());
+            radioButtons_CheckedChanged(this, new EventArgs());
+            btnDept.Visible = btnAddStaffAcc.Visible = palMgmt.Visible = UIController.UserMgmt();
 
 
             //For determine which button needs to be shown.
@@ -92,5 +92,146 @@ namespace templatev1
             login.ShowDialog();
             Close();
         }
+
+        private void btnAddStaffAcc_Click(object sender, EventArgs e)
+        {
+            Form createAcc = new ScreateAccount(accountController, UIController, UserController);
+            Hide();
+            //Swap the current form to another.
+            createAcc.StartPosition = FormStartPosition.Manual;
+            createAcc.Location = Location;
+            createAcc.Size = Size;
+            createAcc.ShowDialog();
+            Close();
+        }
+
+        private void cmbDept_SelectedValueChanged(object sender, EventArgs e)
+        {
+            dgvUser.DataSource = UserController.GetUserList("Staff", cmbDept.SelectedItem.ToString());
+
+        }
+
+        private void btnBlock_Click(object sender, EventArgs e)
+        {
+            index = dgvUser.CurrentCell.RowIndex;
+            selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
+
+
+            if (selectedUid == UID)
+                MessageBox.Show("You cannot DISABLE your account.",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (dgvUser.Rows[index].Cells[4].Value.ToString().Equals("disable"))
+                MessageBox.Show("The current status is DISABLE!",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                var result =
+                    MessageBox.Show(
+                        "Are you sure to DISABLE user account " + selectedUid + " ?\nClick Yes to continue.",
+                        "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (rdoStaff.Checked == true)
+                        UserController.StatusAcc("Staff", selectedUid, 1);
+                    else
+                        UserController.StatusAcc("Customer", selectedUid, 1);
+                }
+
+                radioButtons_CheckedChanged(this, new EventArgs());
+            }
+        }
+
+        private void btnAct_Click(object sender, EventArgs e)
+        {
+            index = dgvUser.CurrentCell.RowIndex;
+            selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
+
+            if (dgvUser.Rows[index].Cells[4].Value.ToString().Equals("active"))
+                MessageBox.Show("The current status is ACTIVE!",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                var result =
+                    MessageBox.Show(
+                        "Are you sure to ACTIVE user account " + selectedUid + "?\nClick Yes to continue.",
+                        "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (rdoStaff.Checked == true)
+                        UserController.StatusAcc("Staff", selectedUid, 0);
+                    else
+                        UserController.StatusAcc("Customer", selectedUid, 0);
+                }
+
+                radioButtons_CheckedChanged(this, new EventArgs());
+            }
+        }
+
+        private void picSearch_Click(object sender, EventArgs e)
+        {
+            if (tbSearch.Text.StartsWith("LMC") || tbSearch.Text.StartsWith("LMS"))
+            {
+                if (tbSearch.Text.StartsWith("LMS"))
+                    rdoStaff.Checked = true;
+                else
+                    rdoCustomer.Checked = true;
+
+                dgvUser.DataSource = UserController.GetUser(tbSearch.Text);
+            }
+            else
+                MessageBox.Show("Not a valid UserID",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dgvUser_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dgvUser.Rows.Count > 0)
+            {
+                index = dgvUser.CurrentCell.RowIndex;
+                selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
+
+                proFileController UserInfo = new proFileController(selectedUid, rdoStaff.Checked == true ? "Staff" : "Customer");
+                dynamic info = UserInfo.getUserInfo();
+                lblDUname.Text = info.fName + ", " + info.lName;
+                lblUGender.Text = info.sex;
+                lblUEmail.Text = info.email;
+                lblUPhone.Text = info.phone;
+                lblUCorpName.Text = info.corp;
+                lblUCorpAdd.Text = info.caddress;
+                lblUAdd.Text = info.waddress;
+            }
+            else
+                MessageBox.Show("User NOT found.",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+
+
+        private void radioButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            lblDUname.Text = lblUGender.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text =  lblUAdd.Text = "";
+            if (rdoStaff.Checked == true)
+            {
+                lblTitTotalNoUser.Text = "No. of staff in the system: " + UserController.GetTotalUser("Staff");
+                cmbDept.Visible = lblTitDept.Visible = true;
+                btnBlock.Text = "Disable staff account";
+                btnAct.Text = "Active staff account";
+                dgvUser.DataSource = UserController.GetUserList("Staff");
+                palCus.Visible = false;
+            }
+            else
+            {
+                lblTitTotalNoUser.Text = "No. of customer in the system: " +UserController.GetTotalUser("Customer");
+                cmbDept.Visible = lblTitDept.Visible = false;
+                btnBlock.Text = "Disable Customer Account";
+                btnAct.Text = "Active Customer account";
+                dgvUser.DataSource = UserController.GetUserList("Customer");
+                palCus.Visible = true;
+            }
+
+        }
+        
     }
 }

@@ -129,7 +129,7 @@ namespace templatev1
                 case "Stock Management":
                     next = new StockMgmt(accountController, UIController);
                     break;
-                case "User Managemnet":
+                case "User Management":
                     next = new SAccManage(accountController, UIController);
                     break;
             }
