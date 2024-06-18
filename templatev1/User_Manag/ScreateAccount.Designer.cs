@@ -53,6 +53,7 @@
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.grpPass = new System.Windows.Forms.GroupBox();
+            this.lblPwdMsg = new System.Windows.Forms.Label();
             this.lblTitPass = new System.Windows.Forms.Label();
             this.tbConfirmPass = new System.Windows.Forms.TextBox();
             this.lblTitConfirmPass = new System.Windows.Forms.Label();
@@ -72,6 +73,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
             this.grpContact = new System.Windows.Forms.GroupBox();
+            this.lblEmailMsg = new System.Windows.Forms.Label();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblTitPhone = new System.Windows.Forms.Label();
@@ -89,9 +92,6 @@
             this.lblLNameMsg = new System.Windows.Forms.Label();
             this.lblSexMsg = new System.Windows.Forms.Label();
             this.lblDateMsg = new System.Windows.Forms.Label();
-            this.lblPhoneMsg = new System.Windows.Forms.Label();
-            this.lblEmailMsg = new System.Windows.Forms.Label();
-            this.lblPwdMsg = new System.Windows.Forms.Label();
             this.lblJobMsg = new System.Windows.Forms.Label();
             this.lblDeptMsg = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
@@ -152,6 +152,7 @@
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -164,6 +165,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -175,6 +177,7 @@
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
+            this.lblCorpName.Click += new System.EventHandler(this.lblCorpName_Click);
             // 
             // btnProFile
             // 
@@ -189,6 +192,7 @@
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // palSelect5
             // 
@@ -383,6 +387,15 @@
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Password";
             // 
+            // lblPwdMsg
+            // 
+            this.lblPwdMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPwdMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPwdMsg.Location = new System.Drawing.Point(176, 102);
+            this.lblPwdMsg.Name = "lblPwdMsg";
+            this.lblPwdMsg.Size = new System.Drawing.Size(295, 19);
+            this.lblPwdMsg.TabIndex = 108;
+            // 
             // lblTitPass
             // 
             this.lblTitPass.AutoSize = true;
@@ -425,7 +438,7 @@
             this.cmbJobTitle.FormattingEnabled = true;
             this.cmbJobTitle.Location = new System.Drawing.Point(372, 319);
             this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(121, 27);
+            this.cmbJobTitle.Size = new System.Drawing.Size(199, 27);
             this.cmbJobTitle.TabIndex = 124;
             // 
             // cmbDept
@@ -434,7 +447,7 @@
             this.cmbDept.FormattingEnabled = true;
             this.cmbDept.Location = new System.Drawing.Point(372, 353);
             this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(121, 27);
+            this.cmbDept.Size = new System.Drawing.Size(199, 27);
             this.cmbDept.TabIndex = 123;
             // 
             // lblTitDept
@@ -534,7 +547,7 @@
             "Female"});
             this.cmbGender.Location = new System.Drawing.Point(372, 285);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(121, 27);
+            this.cmbGender.Size = new System.Drawing.Size(199, 27);
             this.cmbGender.TabIndex = 109;
             // 
             // btnCancel
@@ -574,6 +587,24 @@
             this.grpContact.TabIndex = 106;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
+            // 
+            // lblEmailMsg
+            // 
+            this.lblEmailMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblEmailMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblEmailMsg.Location = new System.Drawing.Point(132, 100);
+            this.lblEmailMsg.Name = "lblEmailMsg";
+            this.lblEmailMsg.Size = new System.Drawing.Size(377, 19);
+            this.lblEmailMsg.TabIndex = 115;
+            // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(318, 42);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(264, 19);
+            this.lblPhoneMsg.TabIndex = 114;
             // 
             // tbEmail
             // 
@@ -719,7 +750,7 @@
             // lblSexMsg
             // 
             this.lblSexMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblSexMsg.Location = new System.Drawing.Point(499, 293);
+            this.lblSexMsg.Location = new System.Drawing.Point(577, 293);
             this.lblSexMsg.Name = "lblSexMsg";
             this.lblSexMsg.Size = new System.Drawing.Size(221, 19);
             this.lblSexMsg.TabIndex = 151;
@@ -732,37 +763,10 @@
             this.lblDateMsg.Size = new System.Drawing.Size(466, 19);
             this.lblDateMsg.TabIndex = 152;
             // 
-            // lblPhoneMsg
-            // 
-            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneMsg.Location = new System.Drawing.Point(318, 42);
-            this.lblPhoneMsg.Name = "lblPhoneMsg";
-            this.lblPhoneMsg.Size = new System.Drawing.Size(264, 19);
-            this.lblPhoneMsg.TabIndex = 114;
-            // 
-            // lblEmailMsg
-            // 
-            this.lblEmailMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblEmailMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblEmailMsg.Location = new System.Drawing.Point(132, 100);
-            this.lblEmailMsg.Name = "lblEmailMsg";
-            this.lblEmailMsg.Size = new System.Drawing.Size(377, 19);
-            this.lblEmailMsg.TabIndex = 115;
-            // 
-            // lblPwdMsg
-            // 
-            this.lblPwdMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblPwdMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPwdMsg.Location = new System.Drawing.Point(176, 102);
-            this.lblPwdMsg.Name = "lblPwdMsg";
-            this.lblPwdMsg.Size = new System.Drawing.Size(295, 19);
-            this.lblPwdMsg.TabIndex = 108;
-            // 
             // lblJobMsg
             // 
             this.lblJobMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblJobMsg.Location = new System.Drawing.Point(499, 327);
+            this.lblJobMsg.Location = new System.Drawing.Point(577, 327);
             this.lblJobMsg.Name = "lblJobMsg";
             this.lblJobMsg.Size = new System.Drawing.Size(221, 19);
             this.lblJobMsg.TabIndex = 153;
@@ -770,7 +774,7 @@
             // lblDeptMsg
             // 
             this.lblDeptMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblDeptMsg.Location = new System.Drawing.Point(499, 361);
+            this.lblDeptMsg.Location = new System.Drawing.Point(577, 361);
             this.lblDeptMsg.Name = "lblDeptMsg";
             this.lblDeptMsg.Size = new System.Drawing.Size(221, 19);
             this.lblDeptMsg.TabIndex = 154;

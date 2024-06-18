@@ -26,5 +26,10 @@ namespace templatev1
         {
             timer1.Enabled = true;
         }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

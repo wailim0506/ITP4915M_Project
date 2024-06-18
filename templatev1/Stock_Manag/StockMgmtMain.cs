@@ -211,11 +211,28 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
+            Form StockModify = new StockModify();
+            Hide();
+            //Swap the current form to another.
+            StockModify.StartPosition = FormStartPosition.Manual;
+            StockModify.Location = Location;
+            StockModify.Size = Size;
+            StockModify.ShowDialog();
+            Close();
         }
 
         private void btnAddSpare_Click(object sender, EventArgs e)
         {
+            Form StockAdd = new StockAdd();
+            Hide();
+            //Swap the current form to another.
+            StockAdd.StartPosition = FormStartPosition.Manual;
+            StockAdd.Location = Location;
+            StockAdd.Size = Size;
+            StockAdd.ShowDialog();
+            Close();
         }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {

@@ -118,13 +118,9 @@ namespace templatev1
                     next = new giveFeedback(accountController, UIController);
                     break;
                 //my version
-                case "Invoice Management":
 
-
-                    break;
                 case "On-Sale Product Management":
-
-
+                    next = new OnSaleMain(accountController, UIController);
                     break;
                 case "Stock Management":
                     next = new StockMgmt(accountController, UIController);

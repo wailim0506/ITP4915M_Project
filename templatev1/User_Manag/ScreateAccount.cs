@@ -15,6 +15,7 @@ namespace templatev1
     public partial class ScreateAccount : Form
     {
         private string uName, UID;
+        proFileController proFileController;
         AccountController accountController;
         UIController UIController;
         UserController UserController;
@@ -348,7 +349,57 @@ namespace templatev1
             }
         }
 
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController = new proFileController(accountController);
 
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.Size = Size;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form login = new Login();
+            Hide();
+            //Swap the current form to another.
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = Location;
+            login.Size = Size;
+            login.ShowDialog();
+            Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.Size = Size;
+            home.ShowDialog();
+            Close();
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

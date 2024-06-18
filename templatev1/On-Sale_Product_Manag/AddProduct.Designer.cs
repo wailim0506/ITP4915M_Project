@@ -74,9 +74,6 @@
             this.btnQtyMinus = new System.Windows.Forms.Button();
             this.btnQtyAdd = new System.Windows.Forms.Button();
             this.lstDiscription = new System.Windows.Forms.ListBox();
-            this.chkEmbedMulti = new System.Windows.Forms.CheckBox();
-            this.btnUploadFile = new System.Windows.Forms.Button();
-            this.lblEmbedMulti = new System.Windows.Forms.Label();
             this.btnRemoveIMG = new System.Windows.Forms.Button();
             this.lblDescription = new System.Windows.Forms.Label();
             this.cmbStatus = new System.Windows.Forms.ComboBox();
@@ -541,7 +538,7 @@
             // 
             this.chkAppToDiscount.AutoSize = true;
             this.chkAppToDiscount.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.chkAppToDiscount.Location = new System.Drawing.Point(440, 587);
+            this.chkAppToDiscount.Location = new System.Drawing.Point(440, 558);
             this.chkAppToDiscount.Name = "chkAppToDiscount";
             this.chkAppToDiscount.Size = new System.Drawing.Size(56, 25);
             this.chkAppToDiscount.TabIndex = 82;
@@ -552,7 +549,7 @@
             // 
             this.lblAppToDiscount.AutoSize = true;
             this.lblAppToDiscount.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppToDiscount.Location = new System.Drawing.Point(245, 588);
+            this.lblAppToDiscount.Location = new System.Drawing.Point(245, 559);
             this.lblAppToDiscount.Name = "lblAppToDiscount";
             this.lblAppToDiscount.Size = new System.Drawing.Size(187, 21);
             this.lblAppToDiscount.TabIndex = 81;
@@ -601,41 +598,10 @@
             this.lstDiscription.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.lstDiscription.FormattingEnabled = true;
             this.lstDiscription.ItemHeight = 21;
-            this.lstDiscription.Location = new System.Drawing.Point(349, 619);
+            this.lstDiscription.Location = new System.Drawing.Point(349, 590);
             this.lstDiscription.Name = "lstDiscription";
             this.lstDiscription.Size = new System.Drawing.Size(438, 172);
             this.lstDiscription.TabIndex = 76;
-            // 
-            // chkEmbedMulti
-            // 
-            this.chkEmbedMulti.AutoSize = true;
-            this.chkEmbedMulti.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.chkEmbedMulti.Location = new System.Drawing.Point(440, 557);
-            this.chkEmbedMulti.Name = "chkEmbedMulti";
-            this.chkEmbedMulti.Size = new System.Drawing.Size(56, 25);
-            this.chkEmbedMulti.TabIndex = 75;
-            this.chkEmbedMulti.Text = "Yes";
-            this.chkEmbedMulti.UseVisualStyleBackColor = true;
-            // 
-            // btnUploadFile
-            // 
-            this.btnUploadFile.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.btnUploadFile.Location = new System.Drawing.Point(513, 554);
-            this.btnUploadFile.Name = "btnUploadFile";
-            this.btnUploadFile.Size = new System.Drawing.Size(108, 30);
-            this.btnUploadFile.TabIndex = 74;
-            this.btnUploadFile.Text = "Upload File";
-            this.btnUploadFile.UseVisualStyleBackColor = true;
-            // 
-            // lblEmbedMulti
-            // 
-            this.lblEmbedMulti.AutoSize = true;
-            this.lblEmbedMulti.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmbedMulti.Location = new System.Drawing.Point(245, 557);
-            this.lblEmbedMulti.Name = "lblEmbedMulti";
-            this.lblEmbedMulti.Size = new System.Drawing.Size(156, 21);
-            this.lblEmbedMulti.TabIndex = 73;
-            this.lblEmbedMulti.Text = "Embed multimedia?";
             // 
             // btnRemoveIMG
             // 
@@ -651,7 +617,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(245, 619);
+            this.lblDescription.Location = new System.Drawing.Point(245, 590);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(96, 21);
             this.lblDescription.TabIndex = 70;
@@ -851,9 +817,6 @@
             this.Controls.Add(this.btnQtyAdd);
             this.Controls.Add(this.lstDiscription);
             this.Controls.Add(this.lblProductID);
-            this.Controls.Add(this.chkEmbedMulti);
-            this.Controls.Add(this.btnUploadFile);
-            this.Controls.Add(this.lblEmbedMulti);
             this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.cmbStatus);
@@ -922,9 +885,6 @@
         private System.Windows.Forms.Button btnQtyMinus;
         private System.Windows.Forms.Button btnQtyAdd;
         private System.Windows.Forms.ListBox lstDiscription;
-        private System.Windows.Forms.CheckBox chkEmbedMulti;
-        private System.Windows.Forms.Button btnUploadFile;
-        private System.Windows.Forms.Label lblEmbedMulti;
         private System.Windows.Forms.Button btnRemoveIMG;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.ComboBox cmbStatus;
