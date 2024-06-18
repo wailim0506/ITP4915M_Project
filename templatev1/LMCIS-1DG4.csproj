@@ -208,7 +208,6 @@
     <Compile Include="Order_Management\clerkInvoiceList.Designer.cs">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Management\dateHandler.cs" />
     <Compile Include="Order_Management\DID_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +334,10 @@
     <Compile Include="test_Database_and_Controller.Designer.cs">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Manag\CAccountMang.cs" />
+    <Compile Include="User_Manag\CAccountMang.Designer.cs" />
+    <Compile Include="User_Manag\SAccountMang.cs" />
+    <Compile Include="User_Manag\SAccountMang.Designer.cs" />
     <Compile Include="User_Manag\StoreSearchU.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -548,6 +551,8 @@
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_Manag\CAccountMang.resx" />
+    <EmbeddedResource Include="User_Manag\SAccountMang.resx" />
     <EmbeddedResource Include="User_Manag\StoreSearchU.resx">
       <DependentUpon>StoreSearchU.cs</DependentUpon>
     </EmbeddedResource>
@@ -699,6 +704,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="docker\" />
+    <Folder Include="lib\controller\Utils\" />
     <Folder Include="Resources\UserIcon\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

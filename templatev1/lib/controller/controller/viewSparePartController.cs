@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data; //must include in every controller file
+using System.Data;
+using controller.Utilities; //must include in every controller file
 
 namespace controller
 {

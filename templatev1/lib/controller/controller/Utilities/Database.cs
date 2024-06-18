@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace controller
+namespace controller.Utilities
 {
     public class Database : IDisposable
     {
