@@ -147,7 +147,8 @@ namespace templatev1.Order_Management
                     Location = new Point(835, yPosition - 5),
                     Font = new Font("Microsoft Sans Serif", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
-                    AutoSize = true
+                    AutoSize = true,
+                    Cursor = Cursors.Hand
                 };
                 btnView.Click += btnView_Click;
 

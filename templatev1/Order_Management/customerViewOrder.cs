@@ -12,6 +12,7 @@ namespace templatev1.Order_Management
 {
     public partial class customerViewOrder : Form
     {
+        dateHandler dateHandler;
         AccountController accountController;
         UIController UIController;
         viewOrderController controller;
@@ -34,6 +35,7 @@ namespace templatev1.Order_Management
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
+            dateHandler = new dateHandler();
             controller = new viewOrderController();
             shipDate = "";
             UID = this.accountController.GetUid();
@@ -89,7 +91,7 @@ namespace templatev1.Order_Management
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                lblShippingDate.Text = dayDifference(orderID) >= 0
+                lblShippingDate.Text = dateHandler.dayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
             
@@ -97,9 +99,9 @@ namespace templatev1.Order_Management
             }
             
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
-            if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing")
+            if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing" || lblStatus.Text == "Ready to Ship")
             {
-                lblDayUntil.Text = $"{dayDifference(orderID)} day(s) until shipping";
+                lblDayUntil.Text = $"{dateHandler.dayDifference(orderID)} day(s) until shipping";
             }
             else
             {
@@ -188,7 +190,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dayDifference(orderID) >= 3)
+                if (dateHandler.dayDifference(orderID) >= 3)
                 {
                     Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                     Hide();
@@ -215,7 +217,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dayDifference(orderID) >= 3)
+                if (dateHandler.dayDifference(orderID) >= 3)
                 {
                     DialogResult dialogResult =
                         MessageBox.Show(
@@ -275,7 +277,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dayDifference(orderID) >= 0)
+                if (dateHandler.dayDifference(orderID) >= 0)
                 {
                     MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -293,119 +295,6 @@ namespace templatev1.Order_Management
         }
 
 
-        private int dayDifference(string orderID) //calculate day difference
-        {
-            string
-                systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
-            string[] splitSystemFormat = systemFormat.Split('/');
-
-            Boolean monthFirst;
-
-            if (splitSystemFormat[0] == "M" || splitSystemFormat[0] == "MM")
-            {
-                monthFirst = true;
-            }
-            else
-            {
-                monthFirst = false;
-            }
-
-
-            var dt = controller.GetShippingDetail(orderID);
-            string shippingDate = dt.Rows[0][2].ToString();
-            string[]
-                d = shippingDate
-                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
-            shippingDate = d[0];
-            string shipDate = shippingDate; //   d/M/yyyy
-
-
-            string sysYear = DateTime.Now.ToString("yyyy"); //today year 
-            string sysMonth = DateTime.Now.ToString("MM"); //today month
-            string sysDay = DateTime.Now.ToString("dd"); //today month
-
-            string[] splitShipDate = shipDate.Split('/');
-
-            string shipMonth, shipDay, shipYear;
-            if (monthFirst)
-            {
-                shipMonth = splitShipDate[0];
-                shipDay = splitShipDate[1];
-                shipYear = splitShipDate[2];
-            }
-            else
-            {
-                shipMonth = splitShipDate[1];
-                shipDay = splitShipDate[0];
-                shipYear = splitShipDate[2];
-            }
-
-            if (monthFirst && splitSystemFormat[0] == "M" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"0{shipMonth}";
-            }
-            else if (monthFirst && splitSystemFormat[0] == "MM" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"{shipMonth}";
-            }
-            else if (!monthFirst && splitSystemFormat[1] == "M" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"0{shipMonth}";
-            }
-            else if (!monthFirst && splitSystemFormat[1] == "MM" && int.Parse(shipMonth) < 10)
-            {
-                shipMonth = $"{shipMonth}";
-            }
-
-            if (monthFirst && splitSystemFormat[1] == "d" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"0{shipDay}";
-            }
-            else if (monthFirst && splitSystemFormat[1] == "dd" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"{shipDay}";
-            }
-            else if (!monthFirst && splitSystemFormat[0] == "d" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"0{shipDay}";
-            }
-            else if (!monthFirst && splitSystemFormat[0] == "dd" && int.Parse(shipDay) < 10)
-            {
-                shipDay = $"{shipDay}";
-            }
-
-
-            string formatedShippingDate = $"{shipDay}/{shipMonth}/{shipYear}";
-            string formatedSysDate = $"{sysDay}/{sysMonth}/{sysYear}";
-
-            DateTime parsedFormatedShippingDate;
-            DateTime parsedFormatedSysDate;
-
-            try
-            {
-                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "MM/dd/yyyy", null);
-            }
-            //MessageBox.Show(parsedFormatedShippingDate.ToString());
-
-            try
-            {
-                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "MM/dd/yyyy", null);
-            }
-
-
-            TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
-
-            string[] f = difference.ToString().Split('.');
-            return int.Parse(f[0]);
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -476,14 +365,7 @@ namespace templatev1.Order_Management
             BWMode();
         }
 
-        private string systemDateFormat()
-        {
-            CultureInfo culture = CultureInfo.CurrentCulture;
-            DateTimeFormatInfo dtfi = culture.DateTimeFormat;
-
-            string dateFormat = dtfi.ShortDatePattern;
-            return dateFormat;
-        }
+ 
 
         private void btnReorder_Click(object sender, EventArgs e)
         {

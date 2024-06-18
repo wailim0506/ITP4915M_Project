@@ -208,6 +208,7 @@
     <Compile Include="Order_Management\clerkInvoiceList.Designer.cs">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\dateHandler.cs" />
     <Compile Include="Order_Management\DID_List.cs">
       <SubType>Form</SubType>
     </Compile>
