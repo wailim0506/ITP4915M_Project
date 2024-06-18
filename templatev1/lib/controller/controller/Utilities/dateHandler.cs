@@ -10,9 +10,9 @@ namespace controller.Utilities
 
             controller = new viewOrderController();
         }
-        public int dayDifference(string orderID) //calculate day difference
+        public int DayDifference(string orderID) //calculate day difference
         {
-            string systemFormat = systemDateFormat(); //the date format got from db depend on the operation system setting
+            string systemFormat = SystemDateFormat(); //the date format got from db depend on the operation system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst = false;
@@ -102,7 +102,7 @@ namespace controller.Utilities
             return (int)difference.TotalDays;
         }
 
-        private string systemDateFormat()
+        private string SystemDateFormat()
         {
             CultureInfo culture = CultureInfo.CurrentCulture;
             DateTimeFormatInfo dtfi = culture.DateTimeFormat;

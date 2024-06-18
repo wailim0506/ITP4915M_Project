@@ -92,7 +92,7 @@ namespace templatev1.Order_Management
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                lblShippingDate.Text = dateHandler.dayDifference(orderID) >= 0
+                lblShippingDate.Text = dateHandler.DayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
             
@@ -102,7 +102,7 @@ namespace templatev1.Order_Management
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing" || lblStatus.Text == "Ready to Ship")
             {
-                lblDayUntil.Text = $"{dateHandler.dayDifference(orderID)} day(s) until shipping";
+                lblDayUntil.Text = $"{dateHandler.DayDifference(orderID)} day(s) until shipping";
             }
             else
             {
@@ -191,7 +191,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dateHandler.dayDifference(orderID) >= 3)
+                if (dateHandler.DayDifference(orderID) >= 3)
                 {
                     Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                     Hide();
@@ -218,7 +218,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dateHandler.dayDifference(orderID) >= 3)
+                if (dateHandler.DayDifference(orderID) >= 3)
                 {
                     DialogResult dialogResult =
                         MessageBox.Show(
@@ -278,7 +278,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dateHandler.dayDifference(orderID) >= 0)
+                if (dateHandler.DayDifference(orderID) >= 0)
                 {
                     MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
