@@ -85,6 +85,15 @@
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.lblAccTypeSys = new System.Windows.Forms.Label();
             this.lblTitAccType = new System.Windows.Forms.Label();
+            this.lblfNameMsg = new System.Windows.Forms.Label();
+            this.lblLNameMsg = new System.Windows.Forms.Label();
+            this.lblSexMsg = new System.Windows.Forms.Label();
+            this.lblDateMsg = new System.Windows.Forms.Label();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
+            this.lblEmailMsg = new System.Windows.Forms.Label();
+            this.lblPwdMsg = new System.Windows.Forms.Label();
+            this.lblJobMsg = new System.Windows.Forms.Label();
+            this.lblDeptMsg = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -235,6 +244,7 @@
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -250,6 +260,7 @@
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction3
             // 
@@ -264,6 +275,7 @@
             this.btnFunction3.TabIndex = 40;
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -279,6 +291,7 @@
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
             // 
@@ -294,6 +307,7 @@
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palTime
             // 
@@ -356,6 +370,7 @@
             // 
             // grpPass
             // 
+            this.grpPass.Controls.Add(this.lblPwdMsg);
             this.grpPass.Controls.Add(this.lblTitPass);
             this.grpPass.Controls.Add(this.tbConfirmPass);
             this.grpPass.Controls.Add(this.lblTitConfirmPass);
@@ -363,7 +378,7 @@
             this.grpPass.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpPass.Location = new System.Drawing.Point(242, 589);
             this.grpPass.Name = "grpPass";
-            this.grpPass.Size = new System.Drawing.Size(493, 115);
+            this.grpPass.Size = new System.Drawing.Size(611, 138);
             this.grpPass.TabIndex = 125;
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Password";
@@ -510,8 +525,13 @@
             // 
             // cmbGender
             // 
+            this.cmbGender.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbGender.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(372, 285);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
@@ -537,9 +557,12 @@
             this.btnCreate.TabIndex = 107;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
             // grpContact
             // 
+            this.grpContact.Controls.Add(this.lblEmailMsg);
+            this.grpContact.Controls.Add(this.lblPhoneMsg);
             this.grpContact.Controls.Add(this.tbEmail);
             this.grpContact.Controls.Add(this.tbPhone);
             this.grpContact.Controls.Add(this.lblTitPhone);
@@ -547,7 +570,7 @@
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContact.Location = new System.Drawing.Point(242, 443);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(493, 125);
+            this.grpContact.Size = new System.Drawing.Size(611, 125);
             this.grpContact.TabIndex = 106;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
@@ -621,7 +644,7 @@
             // btnRemoveIMG
             // 
             this.btnRemoveIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnRemoveIMG.Location = new System.Drawing.Point(984, 401);
+            this.btnRemoveIMG.Location = new System.Drawing.Point(979, 361);
             this.btnRemoveIMG.Name = "btnRemoveIMG";
             this.btnRemoveIMG.Size = new System.Drawing.Size(142, 29);
             this.btnRemoveIMG.TabIndex = 127;
@@ -631,7 +654,7 @@
             // picUserIMG
             // 
             this.picUserIMG.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.picUserIMG.Location = new System.Drawing.Point(932, 150);
+            this.picUserIMG.Location = new System.Drawing.Point(927, 110);
             this.picUserIMG.Name = "picUserIMG";
             this.picUserIMG.Size = new System.Drawing.Size(192, 243);
             this.picUserIMG.TabIndex = 143;
@@ -640,7 +663,7 @@
             // btnUploadIMG
             // 
             this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnUploadIMG.Location = new System.Drawing.Point(984, 232);
+            this.btnUploadIMG.Location = new System.Drawing.Point(979, 192);
             this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(4);
             this.btnUploadIMG.Name = "btnUploadIMG";
             this.btnUploadIMG.Size = new System.Drawing.Size(90, 73);
@@ -677,11 +700,92 @@
             this.lblTitAccType.TabIndex = 147;
             this.lblTitAccType.Text = "Account Type:";
             // 
+            // lblfNameMsg
+            // 
+            this.lblfNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblfNameMsg.Location = new System.Drawing.Point(555, 225);
+            this.lblfNameMsg.Name = "lblfNameMsg";
+            this.lblfNameMsg.Size = new System.Drawing.Size(366, 19);
+            this.lblfNameMsg.TabIndex = 149;
+            // 
+            // lblLNameMsg
+            // 
+            this.lblLNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblLNameMsg.Location = new System.Drawing.Point(555, 261);
+            this.lblLNameMsg.Name = "lblLNameMsg";
+            this.lblLNameMsg.Size = new System.Drawing.Size(366, 19);
+            this.lblLNameMsg.TabIndex = 150;
+            // 
+            // lblSexMsg
+            // 
+            this.lblSexMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblSexMsg.Location = new System.Drawing.Point(499, 293);
+            this.lblSexMsg.Name = "lblSexMsg";
+            this.lblSexMsg.Size = new System.Drawing.Size(221, 19);
+            this.lblSexMsg.TabIndex = 151;
+            // 
+            // lblDateMsg
+            // 
+            this.lblDateMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblDateMsg.Location = new System.Drawing.Point(577, 395);
+            this.lblDateMsg.Name = "lblDateMsg";
+            this.lblDateMsg.Size = new System.Drawing.Size(466, 19);
+            this.lblDateMsg.TabIndex = 152;
+            // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(318, 42);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(264, 19);
+            this.lblPhoneMsg.TabIndex = 114;
+            // 
+            // lblEmailMsg
+            // 
+            this.lblEmailMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblEmailMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblEmailMsg.Location = new System.Drawing.Point(132, 100);
+            this.lblEmailMsg.Name = "lblEmailMsg";
+            this.lblEmailMsg.Size = new System.Drawing.Size(377, 19);
+            this.lblEmailMsg.TabIndex = 115;
+            // 
+            // lblPwdMsg
+            // 
+            this.lblPwdMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPwdMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPwdMsg.Location = new System.Drawing.Point(176, 102);
+            this.lblPwdMsg.Name = "lblPwdMsg";
+            this.lblPwdMsg.Size = new System.Drawing.Size(295, 19);
+            this.lblPwdMsg.TabIndex = 108;
+            // 
+            // lblJobMsg
+            // 
+            this.lblJobMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblJobMsg.Location = new System.Drawing.Point(499, 327);
+            this.lblJobMsg.Name = "lblJobMsg";
+            this.lblJobMsg.Size = new System.Drawing.Size(221, 19);
+            this.lblJobMsg.TabIndex = 153;
+            // 
+            // lblDeptMsg
+            // 
+            this.lblDeptMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblDeptMsg.Location = new System.Drawing.Point(499, 361);
+            this.lblDeptMsg.Name = "lblDeptMsg";
+            this.lblDeptMsg.Size = new System.Drawing.Size(221, 19);
+            this.lblDeptMsg.TabIndex = 154;
+            // 
             // ScreateAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.lblDeptMsg);
+            this.Controls.Add(this.lblJobMsg);
+            this.Controls.Add(this.lblDateMsg);
+            this.Controls.Add(this.lblSexMsg);
+            this.Controls.Add(this.lblLNameMsg);
+            this.Controls.Add(this.lblfNameMsg);
             this.Controls.Add(this.lblAccTypeSys);
             this.Controls.Add(this.lblTitAccType);
             this.Controls.Add(this.dtpDateOfBirth);
@@ -790,6 +894,15 @@
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.Label lblAccTypeSys;
         private System.Windows.Forms.Label lblTitAccType;
+        private System.Windows.Forms.Label lblfNameMsg;
+        private System.Windows.Forms.Label lblLNameMsg;
+        private System.Windows.Forms.Label lblSexMsg;
+        private System.Windows.Forms.Label lblDateMsg;
+        private System.Windows.Forms.Label lblPhoneMsg;
+        private System.Windows.Forms.Label lblEmailMsg;
+        private System.Windows.Forms.Label lblPwdMsg;
+        private System.Windows.Forms.Label lblJobMsg;
+        private System.Windows.Forms.Label lblDeptMsg;
     }
 }
 

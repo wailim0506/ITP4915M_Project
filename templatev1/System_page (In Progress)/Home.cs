@@ -89,7 +89,7 @@ namespace templatev1
         {
             getPage(btnFunction5.Text);
         }
-
+        //Determine next page.
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);

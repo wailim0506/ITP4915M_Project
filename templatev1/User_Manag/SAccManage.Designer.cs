@@ -449,9 +449,9 @@
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(218, 703);
+            this.grpContact.Location = new System.Drawing.Point(218, 736);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(903, 209);
+            this.grpContact.Size = new System.Drawing.Size(903, 183);
             this.grpContact.TabIndex = 167;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "User contact info";
@@ -715,18 +715,21 @@
             // 
             this.dgvUser.AllowUserToAddRows = false;
             this.dgvUser.AllowUserToDeleteRows = false;
-            this.dgvUser.AllowUserToResizeRows = false;
             this.dgvUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvUser.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUser.GridColor = System.Drawing.SystemColors.Control;
             this.dgvUser.Location = new System.Drawing.Point(218, 296);
             this.dgvUser.MultiSelect = false;
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.ReadOnly = true;
             this.dgvUser.RowHeadersVisible = false;
+            this.dgvUser.RowHeadersWidth = 30;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUser.RowTemplate.Height = 23;
-            this.dgvUser.Size = new System.Drawing.Size(903, 339);
+            this.dgvUser.Size = new System.Drawing.Size(903, 365);
             this.dgvUser.TabIndex = 171;
             this.dgvUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvUser_MouseClick);
             // 
@@ -747,7 +750,7 @@
             this.palMgmt.Controls.Add(this.btnAct);
             this.palMgmt.Controls.Add(this.btnBlock);
             this.palMgmt.Controls.Add(this.btnModify);
-            this.palMgmt.Location = new System.Drawing.Point(208, 641);
+            this.palMgmt.Location = new System.Drawing.Point(208, 674);
             this.palMgmt.Name = "palMgmt";
             this.palMgmt.Size = new System.Drawing.Size(745, 50);
             this.palMgmt.TabIndex = 173;

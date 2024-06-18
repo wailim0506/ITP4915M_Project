@@ -89,8 +89,7 @@ namespace controller
             return type.Equals("Staff")
                 ? "SELECT S.staffID, firstName, lastName, createDate, status, jobTitle, name " +
                 "FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID ORDER BY staffID"
-                : "SELECT C.customerID, firstName, lastName, createDate, status, isLM " +
-                "FROM customer C, customer_account CA WHERE C.customerID = CA.customerID ORDER BY customerID";
+                : "SELECT C.customerID, firstName, lastName, createDate, status, isLM as LM_Account FROM customer C, customer_account CA WHERE C.customerID = CA.customerID ORDER BY customerID";
         }
 
         private string GetUserListQuery(string type, string dept)
@@ -108,8 +107,23 @@ namespace controller
         }
 
 
+        //Check whether the email or phone has registered an account.
+        public bool CheckEmailPhone(string data)
+        {
+            DataTable dt = new DataTable();
+            sqlstr =
+                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
+                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
+            dt = ExecuteSqlQuery(sqlstr);
+            return dt.Rows.Count < 1;
+        }
 
-
+        public List<string> GetJobTitle()
+        {
+            var query = "SELECT jobtitle FROM jobTitle";
+            DataTable dataTable = db.ExecuteDataTable(query);
+            return dataTable.AsEnumerable().Select(row => row["jobTitle"].ToString()).ToList();
+        }
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
