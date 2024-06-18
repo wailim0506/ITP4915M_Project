@@ -19,7 +19,7 @@ namespace controller
             Log.LogMessage(LogLevel.Information, "OrderAnalysisReportController",
                 $"Output path created at {outputPath}");
 
-            string currentDate = System.DateTime.Now.ToString("yyyy-MM-dd");
+            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
             ReportDataSource dataSource = new ReportDataSource("OrderDataSet", reportData);
 
             string reportPath = "Resources\\OrderAnalysisReport.rdlc" ??
