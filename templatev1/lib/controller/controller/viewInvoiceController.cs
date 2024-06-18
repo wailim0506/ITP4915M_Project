@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -10,9 +9,9 @@ namespace controller
     {
         private Database _db;
 
-        public viewInvoiceController()
+        public viewInvoiceController(Database db = null)
         {
-            _db = ServiceProvider.GetRequiredService<Database>();
+            _db = db ?? new Database();
         }
 
         public string GetOrderDate(string id) //order id

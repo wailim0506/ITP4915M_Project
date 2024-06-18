@@ -23,7 +23,6 @@ namespace templatev1.Order_Management
         string orderID;
         string shipDate;
         bool isManager;
-
         public staffViewInvoice(string orderID)
         {
             InitializeComponent();
@@ -53,12 +52,10 @@ namespace templatev1.Order_Management
             {
                 hideButton();
             }
-
             load_data();
         }
 
-        public void load_data()
-        {
+        public void load_data() {
             lblOrderNum.Text = orderID;
             string[] d = controller.GetOrderDate(orderID).Split(' ');
             lblOrderDate.Text = d[0];
@@ -139,7 +136,10 @@ namespace templatev1.Order_Management
             Bitmap pnlDIC = CaptureInvoice(panel);
 
             PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) => { e.Graphics.DrawImage(pnlDIC, new Point(0, 0)); };
+            p.PrintPage += (sender, e) =>
+            {
+                e.Graphics.DrawImage(pnlDIC, new Point(0, 0));
+            };
 
             PrintPreviewDialog preview = new PrintPreviewDialog
             {
@@ -172,6 +172,7 @@ namespace templatev1.Order_Management
 
         private void toPDF(string imagePath, string pdfPath)
         {
+
             PrintDocument p = new PrintDocument();
             p.PrintPage += (sender, e) =>
             {
@@ -199,5 +200,6 @@ namespace templatev1.Order_Management
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
+
     }
 }

@@ -55,9 +55,10 @@ namespace templatev1
             //create label
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+
                 Label lblRowNum = new Label
                 {
-                    Text = $"{(i + 1)}{"."} ",
+                    Text = $"{(i+1)}{"."} ",
                     Location = new Point(10, yPosition),
                     Font = new Font("Times New Roman", 15),
                     Size = new Size(30, 22),
@@ -109,6 +110,7 @@ namespace templatev1
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true,
                     Cursor = Cursors.Hand
+                    
                 };
                 btnView.Click += btnView_Click;
                 pnlUpJob.Controls.Add(lblRowNum);
@@ -116,6 +118,7 @@ namespace templatev1
                 pnlUpJob.Controls.Add(lblDate);
                 pnlUpJob.Controls.Add(lblAddress);
                 pnlUpJob.Controls.Add(btnView);
+
 
 
                 yPosition += 50;
@@ -130,6 +133,7 @@ namespace templatev1
             //create label
             for (int i = 0; i < dt.Rows.Count; i++)
             {
+
                 Label lblRowNum = new Label
                 {
                     Text = $"{(i + 1)}{"."} ",
@@ -184,6 +188,7 @@ namespace templatev1
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true,
                     Cursor = Cursors.Hand
+
                 };
                 btnView.Click += btnView_Click_Finished;
                 pnlFinishedJob.Controls.Add(lblRowNum);
@@ -191,6 +196,7 @@ namespace templatev1
                 pnlFinishedJob.Controls.Add(lblDate);
                 pnlFinishedJob.Controls.Add(lblAddress);
                 pnlFinishedJob.Controls.Add(btnView);
+
 
 
                 yPosition += 50;
@@ -214,9 +220,10 @@ namespace templatev1
                     {
                         if (control.Name == $"lblOrderID{index}")
                         {
+                            
                             Form delivermanViewOrder =
                                 new delivermanViewOrder(control.Text); //for testing
-                            // new delivermanViewOrder(control.Text, accountController, UIController);
+                                // new delivermanViewOrder(control.Text, accountController, UIController);
                             Hide();
                             delivermanViewOrder.StartPosition = FormStartPosition.Manual;
                             delivermanViewOrder.Location = Location;
@@ -247,9 +254,10 @@ namespace templatev1
                     {
                         if (control.Name == $"lblOrderID{index}")
                         {
+
                             Form delivermanViewOrder =
                                 new delivermanViewOrder(control.Text); //for testing
-                            // new delivermanViewOrder(control.Text, accountController, UIController);
+                                                                       // new delivermanViewOrder(control.Text, accountController, UIController);
                             Hide();
                             delivermanViewOrder.StartPosition = FormStartPosition.Manual;
                             delivermanViewOrder.Location = Location;
@@ -280,7 +288,7 @@ namespace templatev1
 
         private void cmbUpcomingSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_data(cmbUpcomingSorting.Text.ToString(), cmbFinishedSorting.Text.ToString());
+            load_data(cmbUpcomingSorting.Text.ToString(),cmbFinishedSorting.Text.ToString());
         }
 
         private void cmbFinishedSorting_SelectedIndexChanged(object sender, EventArgs e)

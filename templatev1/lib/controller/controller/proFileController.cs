@@ -6,8 +6,6 @@ using System.IO;
 using MySqlConnector;
 using Microsoft.Extensions.Logging;
 using System.Windows.Forms;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -43,7 +41,7 @@ namespace controller
         //For department manager view or modify the user account.
         public proFileController(string uid, string type, Database db = null)
         {
-            _db = ServiceProvider.GetRequiredService<Database>();
+            _db = db ?? new Database();
             UID = uid;
             accountType = type;
             UserInfo();
@@ -52,7 +50,7 @@ namespace controller
         public proFileController(AccountController accountController, Database db = null)
         {
             this.accountController = accountController;
-            _db = ServiceProvider.GetRequiredService<Database>();
+            _db = db ?? new Database();
             UID = accountController.GetUid();
         }
 

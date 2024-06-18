@@ -18,8 +18,7 @@ namespace templatev1
         UIController UIController;
         UserController UserController;
 
-        public ScreateAccount(AccountController accountController, UIController UIController,
-            UserController userController)
+        public ScreateAccount(AccountController accountController, UIController UIController, UserController userController)
         {
             InitializeComponent();
             palSelect1.Visible =

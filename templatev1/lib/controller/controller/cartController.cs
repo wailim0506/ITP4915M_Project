@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace controller
@@ -13,10 +11,10 @@ namespace controller
         string sqlCmd;
         private readonly Database _db;
 
-        public cartController()
+        public cartController(Database database = null)
         {
             sqlCmd = "";
-            _db = ServiceProvider.GetRequiredService<Database>();
+            _db = database ?? new Database();
         }
 
         public DataTable getCartItem(string id)

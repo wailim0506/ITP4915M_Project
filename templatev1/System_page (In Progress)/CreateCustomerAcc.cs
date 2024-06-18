@@ -48,8 +48,8 @@ namespace templatev1
                 if (recoveryController.create(value))
                 {
                     //MessageBox.Show(
-                    //  "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
-                    // ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                      //  "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
+                      // ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     Form Login = new Login();
                     Hide();
@@ -180,7 +180,7 @@ namespace templatev1
                 cmbGender.Select();
                 return false;
             }
-
+            
             //Check date of birth, MUST today > selected value > age 17.
             if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date == DateTime.Now.Date))
             {

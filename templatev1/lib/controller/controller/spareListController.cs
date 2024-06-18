@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
     public class spareListController : abstractController
     {
-        private Database db = ServiceProvider.GetRequiredService<Database>();
+        private Database db = new Database();
 
         private DataTable ExecuteQuery(string sqlCmd) => db.ExecuteDataTable(sqlCmd);
 

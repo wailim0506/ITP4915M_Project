@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -11,10 +9,10 @@ namespace controller
         string sqlCmd;
         private readonly Database _database;
 
-        public favouriteController()
+        public favouriteController(Database database = null)
         {
             sqlCmd = "";
-            _database = ServiceProvider.GetRequiredService<Database>();
+            _database = database ?? new Database();
         }
 
         public DataTable GetFavourite(string id) //customer id

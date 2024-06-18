@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
-using controller.Utils;
 using MySql.Data.MySqlClient;
 
 namespace controller

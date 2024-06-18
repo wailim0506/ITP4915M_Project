@@ -1,20 +1,16 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.IO;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Reporting.WinForms;
 
 namespace controller
 {
-    public class OrderAnalysisReportController : abstractController
+    public class OrderAnalysisReportController
     {
-        private readonly Database _database = ServiceProvider.GetService<Database>();
+        private readonly Database _database;
 
-        public void GenerateReportDocument(DataTable reportData, string reportFormat, string outputPath)
+        public OrderAnalysisReportController(Database database = null)
         {
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< Updated upstream
@@ -54,23 +50,39 @@ namespace controller
 =======
 >>>>>>> Stashed changes
 >>>>>>> Stashed changes
+=======
+            _database = database ?? new Database();
+>>>>>>> parent of 208587a (change all files fleld DataBase to ServiceProvider aka Dependency Injection)
         }
 
         public DataTable GenerateReport(string period, DateTime startDate, DateTime endDate)
         {
             var query =
                 $"SELECT OrderID, CustomerName, OrderDate, OrderStatus FROM shippedordertotals WHERE OrderDate BETWEEN @StartDate AND @EndDate AND {GetPeriodCondition(period)}";
-            var parameters = new Dictionary<string, object> { { "@StartDate", startDate }, { "@EndDate", endDate } };
+            var parameters = new Dictionary<string, object>
+            {
+                { "@StartDate", startDate },
+                { "@EndDate", endDate }
+            };
             AddPeriodParameters(parameters, period, startDate);
-            return _database.ExecuteDataTable(query, parameters);
+            var report = _database.ExecuteDataTable(query, parameters);
+            return report;
         }
 
         private string GetPeriodCondition(string period)
         {
-            return period.ToLower() == "yearly" ? "YEAR(OrderDate) = @Year" :
-                period.ToLower() == "monthly" ? "MONTH(OrderDate) = @Month AND YEAR(OrderDate) = @Year" :
-                period.ToLower() == "daily" ? "CAST(OrderDate AS DATE) = @Date" :
-                throw new ArgumentException("Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
+            switch (period.ToLower())
+            {
+                case "yearly":
+                    return "YEAR(OrderDate) = @Year";
+                case "monthly":
+                    return "MONTH(OrderDate) = @Month AND YEAR(OrderDate) = @Year";
+                case "daily":
+                    return "CAST(OrderDate AS DATE) = @Date";
+                default:
+                    throw new ArgumentException(
+                        "Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
+            }
         }
 
         private void AddPeriodParameters(Dictionary<string, object> parameters, string period, DateTime startDate)

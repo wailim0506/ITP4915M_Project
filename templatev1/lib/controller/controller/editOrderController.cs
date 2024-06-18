@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -14,8 +13,8 @@ namespace controller
         public editOrderController(Database database = null)
         {
             sqlCmd = "";
-            _db = ServiceProvider.GetRequiredService<Database>();
-            c = ServiceProvider.GetRequiredService<viewOrderController>();
+            _db = database ?? new Database();
+            c = new viewOrderController(_db);
         }
 
         // getter
@@ -77,7 +76,7 @@ namespace controller
         public Boolean AddQtyBack(string num, int currentOrderQty, int desiredQty,
             Boolean isLM)
         {
-            cartController cc = ServiceProvider.GetRequiredService<cartController>();
+            cartController cc = new cartController();
             try
             {
                 cc.addQtyBack(num, currentOrderQty, desiredQty, isLM);

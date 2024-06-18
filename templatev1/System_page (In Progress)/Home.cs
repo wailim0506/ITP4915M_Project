@@ -101,11 +101,9 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else
-                    {
+                    else {
                         next = new Order_Management.staffOrderList(accountController, UIController);
                     }
-
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);
@@ -172,13 +170,13 @@ namespace templatev1
         //For Dark Color function
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            UIController.SetMode(Settings.Default.BWmode);
+            UIController.setMode(Settings.Default.BWmode);
             BWMode();
         }
 
         private void BWMode()
         {
-            dynamic value = UIController.GetMode();
+            dynamic value = UIController.getMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);

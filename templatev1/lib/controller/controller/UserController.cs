@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Data;
 using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -14,9 +13,9 @@ namespace controller
         private string sqlstr;
         private DataTable dt;
 
-        public UserController()
+        public UserController(Database db = null)
         {
-            db = ServiceProvider.GetRequiredService<Database>();
+            this.db = db ?? new Database();
         }
 
         public List<string> GetDept()
@@ -37,7 +36,7 @@ namespace controller
             catch (Exception e)
             {
                 MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
+                        MessageBoxIcon.Warning);
             }
         }
 
@@ -61,9 +60,9 @@ namespace controller
         {
             return UID.StartsWith("LMS")
                 ? $"SELECT S.staffID, firstName, lastName, createDate, status, jobTitle, name " +
-                  $"FROM staff S, staff_account SA, department D WHERE S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\' AND S.deptID = D.deptID ORDER BY staffID"
+                $"FROM staff S, staff_account SA, department D WHERE S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\' AND S.deptID = D.deptID ORDER BY staffID"
                 : $"SELECT C.customerID, firstName, lastName, createDate, status, isLM " +
-                  $"FROM customer C, customer_account CA WHERE C.customerID = \'{UID}\' AND CA.customerID = \'{UID}\' ORDER BY customerID";
+                $"FROM customer C, customer_account CA WHERE C.customerID = \'{UID}\' AND CA.customerID = \'{UID}\' ORDER BY customerID";
         }
 
         public DataTable GetUserList(String type)
@@ -81,21 +80,22 @@ namespace controller
         {
             dt = ExecuteSqlQuery(GetUserListQuery(type));
             return dt.Rows.Count.ToString();
+
         }
 
         private string GetUserListQuery(string type)
         {
             return type.Equals("Staff")
                 ? "SELECT S.staffID, firstName, lastName, createDate, status, jobTitle, name " +
-                  "FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID ORDER BY staffID"
+                "FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID ORDER BY staffID"
                 : "SELECT C.customerID, firstName, lastName, createDate, status, isLM " +
-                  "FROM customer C, customer_account CA WHERE C.customerID = CA.customerID ORDER BY customerID";
+                "FROM customer C, customer_account CA WHERE C.customerID = CA.customerID ORDER BY customerID";
         }
 
         private string GetUserListQuery(string type, string dept)
         {
             return $"SELECT S.staffID, firstName, lastName, createDate, status, jobTitle, name " +
-                   $"FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID AND name = \'{dept}\'ORDER BY staffID";
+                $"FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID AND name = \'{dept}\'ORDER BY staffID";
         }
 
         public int getLMSID()
@@ -105,6 +105,9 @@ namespace controller
             dt = ExecuteSqlQuery(SqlQuery);
             return dt.Rows.Count + 1;
         }
+
+
+
 
 
         private DataTable ExecuteSqlQuery(string sqlQuery)

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection; //must include in every controller file
+using System.Data; //must include in every controller file
 
 namespace controller
 {
@@ -13,7 +11,7 @@ namespace controller
 
         public viewSparePartController(Database database = null)
         {
-            _database = ServiceProvider.GetRequiredService<Database>();
+            _database = database ?? new Database();
             _sqlCmd = "";
         }
 

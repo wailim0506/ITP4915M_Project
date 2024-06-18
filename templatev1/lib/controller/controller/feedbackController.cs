@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
 
 //must include in every controller file
 
@@ -12,9 +11,9 @@ namespace controller
     {
         private readonly Database _db;
 
-        public feedbackController()
+        public feedbackController(Database database = null)
         {
-            _db = ServiceProvider.GetRequiredService<Database>();
+            _db = database ?? new Database();
         }
 
         public int CountFeedback()

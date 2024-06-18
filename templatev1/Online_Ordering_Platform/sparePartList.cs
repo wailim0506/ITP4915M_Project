@@ -442,7 +442,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void BWMode()
         {
-            dynamic value = UIController.GetMode();
+            dynamic value = UIController.getMode();
             Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);

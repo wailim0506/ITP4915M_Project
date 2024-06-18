@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using controller.Utils;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace controller
 {
@@ -14,11 +12,11 @@ namespace controller
         UIController UIController;
         private readonly Database db;
 
-        public AccountController()
+        public AccountController(Database db = null)
         {
             IsLogin = false;
             isLM = false;
-            _db = ServiceProvider.GetRequiredService<Database>();
+            this.db = db ?? new Database();
         }
 
         public bool Login(string UID, string Pass, UIController UI)
@@ -233,8 +231,7 @@ namespace controller
 
         public bool CheckIsManager()
         {
-            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
-                "Sales Manager")
+            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() == "Sales Manager")
             {
                 return true;
             }
