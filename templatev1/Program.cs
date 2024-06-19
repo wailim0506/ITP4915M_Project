@@ -30,7 +30,7 @@ namespace templatev1
                 IServiceProvider serviceProvider = service.BuildServiceProvider();
                 // Start new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new Order_Management.staffViewOrder()));
+                //StartThread(() => RunApplication(() => new Order_Management.DID("OD24020001", "C00002")));
             }
             catch (Exception ex)
             {
@@ -61,6 +61,8 @@ namespace templatev1
                 typeof(cartController),
                 typeof(staffOrderListController),
                 typeof(delivermanOrderListController),
+                typeof(dicController),
+                typeof(didController),
                 typeof(editOrderController),
                 typeof(favouriteController),
                 typeof(feedbackController),
@@ -68,6 +70,8 @@ namespace templatev1
                 typeof(proFileController),
                 typeof(RecoveryController),
                 typeof(spareListController),
+                typeof(staffOrderListController),
+                typeof(staffViewOrderController),
                 typeof(supplierController),
                 typeof(UIController),
                 typeof(viewInvoiceController),

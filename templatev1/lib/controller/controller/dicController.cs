@@ -10,7 +10,7 @@ namespace controller
 {
     public class dicController : abstractController
     {
-        private readonly Database _database;
+        private readonly Database _db;
 
         public dicController(Database database = null)
         {

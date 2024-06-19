@@ -7,7 +7,7 @@ namespace controller.Utilities
     public class dateHandler
     {
         // reference fields
-        readonly IServiceProvider _serviceProvider = Startup.ServiceProvider;
+        //readonly IServiceProvider _serviceProvider = Startup.ServiceProvider;
         readonly viewOrderController controller;
 
         // class fields
@@ -16,7 +16,8 @@ namespace controller.Utilities
 
         public dateHandler()
         {
-            controller = _serviceProvider.GetRequiredService<viewOrderController>();
+            //controller = _serviceProvider.GetRequiredService<viewOrderController>();
+            controller = new viewOrderController();
             SystemDateTime = DateTime.Now.ToString(GetSystemDateTime());
             SystemDate = DateTime.Now.ToString(GetSystemDate());
         }
