@@ -59,7 +59,7 @@ namespace templatev1
                 string orderDate = dtOrder.Rows[i - 1][4].ToString();
                 string[]
                     d = orderDate
-                        .Split(' '); //since the database also store the time follwing the date, split it so that only date will be disp;ay
+                        .Split(' '); //since the database also store the time following the date, split it so that only date will be disp;ay
                 orderDate = d[0];
 
                 Label lblID = new Label

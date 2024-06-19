@@ -11,7 +11,7 @@ namespace templatev1
 {
     internal static class Program
     {
-        private static Log log = new Log();
+        private static Log log;
         private static IServiceProvider serviceProvider;
 
         // private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
@@ -28,6 +28,7 @@ namespace templatev1
                 var service = new ServiceCollection();
                 ConfigureServices(service);
                 IServiceProvider serviceProvider = service.BuildServiceProvider();
+                log = serviceProvider.GetService<Log>();
                 // Start new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
                 //StartThread(() => RunApplication(() => new Order_Management.DID("OD24020001", "C00002")));
