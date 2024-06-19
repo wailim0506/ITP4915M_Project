@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class clerkInvoiceList : Form
     {

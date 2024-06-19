@@ -16,10 +16,10 @@ namespace controller
             _sqlCmd = "";
         }
 
-        public DataTable GetInfo(string num) //part num
+        public DataTable GetInfo(string partNun) //part num
         {
             _sqlCmd =
-                $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{num}\' AND x.supplierID = z.supplierID";
+                $"SELECT * FROM spare_part x, product y, supplier z WHERE x.partNumber = y.partNumber AND x.partNumber =\'{partNun}\' AND x.supplierID = z.supplierID";
             DataTable dt = _database.ExecuteDataTable(_sqlCmd);
             return dt;
         }

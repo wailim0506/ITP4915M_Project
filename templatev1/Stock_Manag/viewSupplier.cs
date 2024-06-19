@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1.Stock_Manag
+namespace templatev1
 {
     public partial class viewSupplier : Form
     {

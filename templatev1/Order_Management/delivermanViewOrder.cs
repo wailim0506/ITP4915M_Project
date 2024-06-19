@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class delivermanViewOrder : Form
     {
@@ -33,10 +33,6 @@ namespace templatev1.Order_Management
             controller = new viewOrderController();
             shipDate = "";
             UID = this.accountController.GetUid();
-
-
-            //UID = "LMC00001"; //hard code for testing
-            //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 

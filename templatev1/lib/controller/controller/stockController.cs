@@ -6,14 +6,11 @@
 
         public stockController()
         {
-
         }
 
         public stockController(AccountController accountController)
         {
             this.accountController = accountController;
         }
-
-
     }
 }

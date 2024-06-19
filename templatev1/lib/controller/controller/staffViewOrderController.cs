@@ -5,13 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using controller.Utilities;
-using Microsoft.Extensions.Logging; 
+using Microsoft.Extensions.Logging;
 
 namespace controller
 {
     public class staffViewOrderController : abstractController
     {
         string sqlCmd;
+
         public staffViewOrderController(Database database = null)
         {
             sqlCmd = "";

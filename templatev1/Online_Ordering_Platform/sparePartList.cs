@@ -1,41 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class sparePartList : Form
     {
         private string uName, UID;
         private Boolean isLM;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.spareListController controller;
+        AccountController accountController;
+        UIController UIController;
+        spareListController controller;
 
         public sparePartList()
         {
             InitializeComponent();
-            controller = new controller.spareListController();
-            UID = "LMC00001"; //hard code for testing
+            controller = new spareListController();
             lblUid.Text = $"Uid: {UID}";
         }
 
-        public sparePartList(controller.AccountController accountController, controller.UIController UIController)
+        public sparePartList(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
             isLM = accountController.GetIsLm();
-            controller = new controller.spareListController();
+            controller = new spareListController();
             UID = accountController.GetUid();
-            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -166,8 +162,8 @@ namespace templatev1.Online_Ordering_Platform
                             MaxLength = 4, Size = new Size(61, 26),
                             TextAlign = HorizontalAlignment.Center
                         };
-                        btnView.Click += new EventHandler(viewPart);
-                        btnAddCart.Click += new EventHandler(addCart);
+                        btnView.Click += viewPart;
+                        btnAddCart.Click += addCart;
                         tbQty.KeyPress += qtyBox_KeyPress;
 
                         grpSpareBox.Controls.Add(picPartImage);
@@ -226,7 +222,7 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             if (control.Name == $"lblPartNum{index}")
                             {
-                                Form viewSparePart = new viewSparePart(control.Text.ToString(), accountController,
+                                Form viewSparePart = new viewSparePart(control.Text, accountController,
                                     UIController);
                                 Hide();
                                 viewSparePart.StartPosition = FormStartPosition.Manual;
@@ -271,18 +267,18 @@ namespace templatev1.Online_Ordering_Platform
 
             if (qty <= 0)
             {
-                MessageBox.Show($"The quantity input is not valid.\nPlease adjust the quantity input", "Add Cart",
+                MessageBox.Show("The quantity input is not valid.\nPlease adjust the quantity input", "Add Cart",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (qty <= controller.getOnSaleQty(partNum, isLM))
             {
                 if (controller.addCart(UID, partNum, qty, isLM))
                 {
-                    MessageBox.Show($"Added to cart", "Add Cart", MessageBoxButtons.OK);
+                    MessageBox.Show("Added to cart", "Add Cart", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show($"/*Please try aga*/in", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("/*Please try aga*/in", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -338,20 +334,20 @@ namespace templatev1.Online_Ordering_Platform
 
         private void tbKW_TextChanged(object sender, EventArgs e)
         {
-            load_part(controller.getSpareWhenTextChange(cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.getSpareWhenTextChange(cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getSpareWhenTextChange(cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.getSpareWhenTextChange(cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.getSpareWhenTextChange(cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.getSpareWhenTextChange(cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -436,32 +432,32 @@ namespace templatev1.Online_Ordering_Platform
         private Image imageString(string imageName)
         {
             PropertyInfo property =
-                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+                typeof(Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

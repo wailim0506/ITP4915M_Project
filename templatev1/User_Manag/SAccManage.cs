@@ -2,7 +2,7 @@
 using System.Windows.Forms;
 using controller;
 using System.Drawing;
-using templatev1.Online_Ordering_Platform;
+using templatev1;
 using templatev1.Properties;
 
 namespace templatev1
@@ -109,6 +109,7 @@ namespace templatev1
         {
             getPage(btnFunction5.Text);
         }
+
         //Determine next page.
         private void getPage(string Function)
         {
@@ -123,8 +124,9 @@ namespace templatev1
                     }
                     else
                     {
-                        next = new Order_Management.staffOrderList(accountController, UIController);
+                        next = new templatev1.staffOrderList(accountController, UIController);
                     }
+
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);
@@ -228,7 +230,6 @@ namespace templatev1
         private void cmbDept_SelectedValueChanged(object sender, EventArgs e)
         {
             dgvUser.DataSource = UserController.GetUserList("Staff", cmbDept.SelectedItem.ToString());
-
         }
 
         private void btnBlock_Click(object sender, EventArgs e)
@@ -239,10 +240,10 @@ namespace templatev1
 
             if (selectedUid == UID)
                 MessageBox.Show("You cannot DISABLE your account.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (dgvUser.Rows[index].Cells[4].Value.ToString().Equals("disable"))
                 MessageBox.Show("The current status is DISABLE!",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 var result =
@@ -269,7 +270,7 @@ namespace templatev1
 
             if (dgvUser.Rows[index].Cells[4].Value.ToString().Equals("active"))
                 MessageBox.Show("The current status is ACTIVE!",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
             {
                 var result =
@@ -302,7 +303,7 @@ namespace templatev1
             }
             else
                 MessageBox.Show("Not a valid UserID",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -324,7 +325,8 @@ namespace templatev1
                 index = dgvUser.CurrentCell.RowIndex;
                 selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
 
-                proFileController UserInfo = new proFileController(selectedUid, rdoStaff.Checked == true ? "Staff" : "Customer");
+                proFileController UserInfo =
+                    new proFileController(selectedUid, rdoStaff.Checked == true ? "Staff" : "Customer");
                 dynamic info = UserInfo.getUserInfo();
                 lblDUname.Text = info.fName + ", " + info.lName;
                 lblUGender.Text = info.sex;
@@ -336,14 +338,14 @@ namespace templatev1
             }
             else
                 MessageBox.Show("User NOT found.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
 
         private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
-            lblDUname.Text = lblUGender.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text =  lblUAdd.Text = "";
+            lblDUname.Text = lblUGender.Text =
+                lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text = lblUAdd.Text = "";
             if (rdoStaff.Checked == true)
             {
                 lblTitTotalNoUser.Text = "No. of staff in the system: " + UserController.GetTotalUser("Staff");
@@ -355,15 +357,13 @@ namespace templatev1
             }
             else
             {
-                lblTitTotalNoUser.Text = "No. of customer in the system: " +UserController.GetTotalUser("Customer");
+                lblTitTotalNoUser.Text = "No. of customer in the system: " + UserController.GetTotalUser("Customer");
                 cmbDept.Visible = lblTitDept.Visible = false;
                 btnBlock.Text = "Disable Customer Account";
                 btnAct.Text = "Active Customer account";
                 dgvUser.DataSource = UserController.GetUserList("Customer");
                 palCus.Visible = true;
             }
-
         }
-        
     }
 }

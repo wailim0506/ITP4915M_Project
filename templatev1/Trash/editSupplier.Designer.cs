@@ -1,5 +1,5 @@
 ﻿
-namespace templatev1.Stock_Manag
+namespace templatev1
 {
     partial class editSupplier
     {

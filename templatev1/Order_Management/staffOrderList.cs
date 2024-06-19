@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class staffOrderList : Form
     {
@@ -18,16 +18,17 @@ namespace templatev1.Order_Management
         UIController UIController;
         staffOrderListController controller;
         Boolean isManager;
+
         public staffOrderList()
         {
             InitializeComponent();
             controller = new staffOrderListController();
-            UID = "LMS00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
 
-        public staffOrderList(AccountController accountController, UIController UIController) {
+        public staffOrderList(AccountController accountController, UIController UIController)
+        {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
@@ -40,50 +41,52 @@ namespace templatev1.Order_Management
         private void staffOrderList_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            if (!isManager) {
+            if (!isManager)
+            {
                 hideButton();
             }
+
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
 
-        public void load_data(string status, string sortBy, bool isManager) {
-
+        public void load_data(string status, string sortBy, bool isManager)
+        {
             pnlOrder.Controls.Clear();
             DataTable dt = new DataTable();
 
             switch (sortBy)
             {
                 case "Order ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "Id", isManager);
+                    dt = controller.GetOrder(UID, status, "Id", isManager);
                     break;
                 case "Order ID (Descending)":
-                    dt = controller.getOrder(UID, status, "IdDESC", isManager);
+                    dt = controller.GetOrder(UID, status, "IdDESC", isManager);
                     break;
                 case "Order Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "Date", isManager);
+                    dt = controller.GetOrder(UID, status, "Date", isManager);
                     break;
                 case "Order Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DateDESC", isManager);
+                    dt = controller.GetOrder(UID, status, "DateDESC", isManager);
                     break;
                 case "Delivery Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "DDate", isManager);
+                    dt = controller.GetOrder(UID, status, "DDate", isManager);
                     break;
                 case "Delivery Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DDateDESC", isManager);
+                    dt = controller.GetOrder(UID, status, "DDateDESC", isManager);
                     break;
                 case "Customer ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "cId", isManager);
+                    dt = controller.GetOrder(UID, status, "cId", isManager);
                     break;
                 case "Customer ID (Descending)":
-                    dt = controller.getOrder(UID, status, "", isManager);
+                    dt = controller.GetOrder(UID, status, "", isManager);
                     break;
             }
 
             int yPosition = 9;
-            for (int i = 0; i < dt.Rows.Count; i++) {
-
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
                 string orderDate = dt.Rows[i][1].ToString();
                 string[]
                     d = orderDate
@@ -213,6 +216,7 @@ namespace templatev1.Order_Management
         {
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
+
         private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblHeading.Text = cmbStatus.Text + " Order(s)";
@@ -224,7 +228,8 @@ namespace templatev1.Order_Management
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
-        public void hideButton() {
+        public void hideButton()
+        {
             palSelect3.Visible = false;
             btnFunction3.Visible = false;
             palSelect4.Visible = false;
@@ -232,7 +237,5 @@ namespace templatev1.Order_Management
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
-
-
     }
 }

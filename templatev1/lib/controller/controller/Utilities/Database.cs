@@ -5,7 +5,7 @@ using MySql.Data.MySqlClient;
 
 namespace controller.Utilities
 {
-    public class Database : IDisposable
+    public class Database : IDisposable, IDatabase
     {
         private readonly MySqlConnection _connection;
 
@@ -15,7 +15,7 @@ namespace controller.Utilities
             _connection.Open();
         }
 
-        public static string GetConnectionString()
+        public string GetConnectionString()
         {
             var connectionStrings = new List<string>
             {
@@ -24,7 +24,7 @@ namespace controller.Utilities
             return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
         }
 
-        private static string TestConnection(List<string> connectionStrings)
+        public string TestConnection(List<string> connectionStrings)
         {
             foreach (var connectionString in connectionStrings)
             {
@@ -71,7 +71,7 @@ namespace controller.Utilities
             return (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
         }
 
-        private object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
+        public object ExecuteCommand(string sqlQuery, Dictionary<string, object> queryParameters,
             Func<MySqlCommand, object> execute)
         {
             using (var command = _connection.CreateCommand())

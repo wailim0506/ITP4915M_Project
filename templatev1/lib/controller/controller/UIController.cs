@@ -13,11 +13,7 @@ namespace controller
         private static string funbtn1, funbtn2, funbtn3, funbtn4, funbtn5; //Text in the button.
         private static string AccountType, permission;
 
-        AccountController accountController;
-
-        public UIController()
-        {
-        }
+        private AccountController accountController;
 
         public UIController(AccountController accountController, Database db = null)
         {
@@ -52,7 +48,7 @@ namespace controller
                     //funbtn1 = "Spare Part";
                     //funbtn2 = "Invoice Management";
 
-                    //my version I think
+                    //my version, I think
                     showbtn1 = showbtn2 = showbtn3 = showbtn4 = showbtn5 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Spare Part";

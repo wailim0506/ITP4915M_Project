@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class customerEditOrder : Form
     {
@@ -158,7 +158,7 @@ namespace templatev1.Order_Management
             }
         }
 
-        private void picTick_Click(object sender, EventArgs e)  //edit quantity
+        private void picTick_Click(object sender, EventArgs e) //edit quantity
         {
             string partToUpdate = tbQauntity.Name; //part number
             string quantity = tbQauntity.Text; //quantity
@@ -245,7 +245,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
+            Form o = new templatev1.favourite(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -255,7 +255,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
+            Form o = new templatev1.cart(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -265,7 +265,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            Form o = new templatev1.sparePartList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -275,7 +275,7 @@ namespace templatev1.Order_Management
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            Form o = new templatev1.customerOrderList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -311,7 +311,7 @@ namespace templatev1.Order_Management
             {
                 controller.DeleteOrder(orderID);
                 MessageBox.Show("Since no spare part exist in this order, this order is deleted");
-                Form orderList = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+                Form orderList = new templatev1.customerOrderList(accountController, UIController);
                 Hide();
                 orderList.StartPosition = FormStartPosition.Manual;
                 orderList.Location = Location;

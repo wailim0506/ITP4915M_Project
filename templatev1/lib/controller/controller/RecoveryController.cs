@@ -21,11 +21,6 @@ namespace controller
             db = new Database();
         }
 
-        public RecoveryController(Database db)
-        {
-            this.db = db;
-        }
-
         public RecoveryController(AccountController accountController, Database db = null)
         {
             _accountController = accountController;

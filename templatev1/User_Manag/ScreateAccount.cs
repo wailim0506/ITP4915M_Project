@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
-using templatev1.Online_Ordering_Platform;
+using templatev1;
 
 namespace templatev1
 {
@@ -23,7 +23,8 @@ namespace templatev1
         UIController UIController;
         UserController UserController;
 
-        public ScreateAccount(AccountController accountController, UIController UIController, UserController userController)
+        public ScreateAccount(AccountController accountController, UIController UIController,
+            UserController userController)
         {
             InitializeComponent();
             palSelect1.Visible =
@@ -122,6 +123,7 @@ namespace templatev1
         {
             getPage(btnFunction5.Text);
         }
+
         //Determine next page.
         private void getPage(string Function)
         {
@@ -136,8 +138,9 @@ namespace templatev1
                     }
                     else
                     {
-                        next = new Order_Management.staffOrderList(accountController, UIController);
+                        next = new templatev1.staffOrderList(accountController, UIController);
                     }
+
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);
@@ -178,14 +181,16 @@ namespace templatev1
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-          if (checkInfo()) //Pass to controller and create account
+            if (checkInfo()) //Pass to controller and create account
             {
                 setValue(); //If passed set the value in to dynameic.
                 if (UserController.create(value))
                 {
                     var nextAccc = MessageBox.Show(
-                     "Create account success! The new account is LMS" + (UserController.getLMSID() - 1).ToString("D5") +
-                    ".\nDo you want to create the next account?", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        "Create account success! The new account is LMS" +
+                        (UserController.getLMSID() - 1).ToString("D5") +
+                        ".\nDo you want to create the next account?", "System message", MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Information);
 
                     if (nextAccc == DialogResult.Yes)
                     {
@@ -283,7 +288,7 @@ namespace templatev1
                 return false;
             }
             else if ((dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
-                                                   dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
+                      dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
             {
                 lblDateMsg.Text = "Please select a valid date.";
                 return false;

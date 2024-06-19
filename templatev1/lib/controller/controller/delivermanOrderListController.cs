@@ -3,7 +3,7 @@ using controller.Utilities;
 
 namespace controller
 {
-    public class delivermanOrderListController
+    public class delivermanOrderListController : abstractController
     {
         private readonly Database _db;
 
@@ -31,8 +31,12 @@ namespace controller
             string status = "Shipped";
             string sqlCmd = "";
 
-            sqlCmd = sortBy == "Nearest Dates" ? $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' ORDER BY shippingDate DESC" : $"SELECT x.*,y.status from shipping_detail x, order_ y WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
-
+            sqlCmd = sortBy == "Nearest Dates"
+                ? $"SELECT x.*,y.status from shipping_detail x, order_ y " +
+                  $"WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\' " +
+                  $"ORDER BY shippingDate DESC"
+                : $"SELECT x.*,y.status from shipping_detail x, order_ y " +
+                  $"WHERE x.delivermanID = \'{delivermanID}\' AND x.orderID = y.orderID AND y.status = \'{status}\'";
             return _db.ExecuteDataTable(sqlCmd);
         }
 

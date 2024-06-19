@@ -3,10 +3,10 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using controller;
-using templatev1.Order_Management;
+using templatev1;
 using templatev1.Properties;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class customerOrderList : Form
     {
@@ -20,8 +20,6 @@ namespace templatev1.Online_Ordering_Platform
         {
             InitializeComponent();
             controller = new orderListController();
-            UID = "LMC00001"; //hard code for testing
-            //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -32,7 +30,6 @@ namespace templatev1.Online_Ordering_Platform
             this.UIController = UIController;
             controller = new orderListController();
             UID = accountController.GetUid();
-            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -47,7 +44,7 @@ namespace templatev1.Online_Ordering_Platform
             load_data("All");
             cmbSortOrder.SelectedIndex = 0;
         }
-        
+
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();

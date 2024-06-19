@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
-using templatev1.Online_Ordering_Platform;
+using templatev1;
 
 namespace templatev1
 {
@@ -109,6 +109,7 @@ namespace templatev1
         {
             getPage(btnFunction5.Text);
         }
+
         //Determine next page.
         private void getPage(string Function)
         {
@@ -123,8 +124,9 @@ namespace templatev1
                     }
                     else
                     {
-                        next = new Order_Management.staffOrderList(accountController, UIController);
+                        next = new templatev1.staffOrderList(accountController, UIController);
                     }
+
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);

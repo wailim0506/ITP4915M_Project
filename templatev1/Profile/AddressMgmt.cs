@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Dynamic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
@@ -15,17 +10,17 @@ namespace templatev1
     {
         private string uName, UID;
         dynamic placeholder, update;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.proFileController proFileController;
+        AccountController accountController;
+        UIController UIController;
+        proFileController proFileController;
 
         public AddressMgmt()
         {
             InitializeComponent();
         }
 
-        public AddressMgmt(controller.AccountController accountController, controller.UIController UIController,
-            controller.proFileController proFileController)
+        public AddressMgmt(AccountController accountController, UIController UIController,
+            proFileController proFileController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -74,10 +69,10 @@ namespace templatev1
                 rbtA2.Checked = true;
 
             //For icon color
-            if (Properties.Settings.Default.BWmode == true)
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
         }
 
@@ -142,7 +137,7 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
+            proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
 
@@ -158,7 +153,7 @@ namespace templatev1
 
         private void chkCancel_Click(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
+            proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
 
@@ -248,8 +243,8 @@ namespace templatev1
                     tbCorpAdd.Select();
                     return false;
                 }
-                else
-                    update.corpAdd = tbCorpAdd.Text;
+
+                update.corpAdd = tbCorpAdd.Text;
             }
             else
                 update.corpAdd = placeholder.corpAdd;
@@ -263,8 +258,8 @@ namespace templatev1
                     tbWarehouseAdd1.Select();
                     return false;
                 }
-                else
-                    update.wAdd1 = tbWarehouseAdd1.Text;
+
+                update.wAdd1 = tbWarehouseAdd1.Text;
             }
             else
                 update.wAdd1 = placeholder.wAdd1;
@@ -278,8 +273,8 @@ namespace templatev1
                     tbWarehouseAdd2.Select();
                     return false;
                 }
-                else
-                    update.wAdd2 = tbWarehouseAdd2.Text;
+
+                update.wAdd2 = tbWarehouseAdd2.Text;
             }
             else
                 update.wAdd2 = placeholder.wAdd2;
@@ -293,8 +288,8 @@ namespace templatev1
                 cmbCity.Select();
                 return false;
             }
-            else
-                update.city = cmbCity.Text;
+
+            update.city = cmbCity.Text;
 
             update.province = cmbProvince.Text;
 

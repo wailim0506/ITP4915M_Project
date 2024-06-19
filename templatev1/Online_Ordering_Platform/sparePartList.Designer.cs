@@ -1,5 +1,5 @@
 ﻿
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     partial class sparePartList
     {

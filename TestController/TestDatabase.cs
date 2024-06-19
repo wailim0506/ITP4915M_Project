@@ -22,13 +22,13 @@ namespace TestController
                 var query = "SELECT firstName FROM customer WHERE customerID = @id";
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    {"@id", "LMC00001"}
+                    { "@id", "LMC00001" }
                 };
 
                 // Act
                 var result = database.ExecuteScalarCommand(query, parameters);
                 var expectedResult = "Peter";
-                
+
                 // Assert
                 Assert.AreEqual(expectedResult, result);
             }
@@ -41,8 +41,8 @@ namespace TestController
                 var query = "UPDATE customer SET firstName = '@firstName' WHERE customerID = @id";
                 Dictionary<string, object> parameters = new Dictionary<string, object>
                 {
-                    {"@firstName", "John"},
-                    {"@id", "LMC00004"}
+                    { "@firstName", "John" },
+                    { "@id", "LMC00004" }
                 };
                 // Act & Assert
                 Assert.DoesNotThrow(() => database.ExecuteNonQueryCommand(query, parameters));

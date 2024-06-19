@@ -1,39 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Reflection;
+using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class favourite : Form
     {
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.favouriteController controller;
+        AccountController accountController;
+        UIController UIController;
+        favouriteController controller;
 
         public favourite()
         {
             InitializeComponent();
-            controller = new controller.favouriteController();
-            UID = "LMC00001"; //hard code for testing
+            controller = new favouriteController();
         }
 
 
-        public favourite(controller.AccountController accountController, controller.UIController UIController)
+        public favourite(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.favouriteController();
+            controller = new favouriteController();
             UID = accountController.GetUid();
-            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -118,7 +113,7 @@ namespace templatev1.Online_Ordering_Platform
 
                     Label lblCategory = new Label
                     {
-                        Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18].ToString()}",
+                        Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][18]}",
                         AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
                         Location = new Point(83, 208), Size = new Size(174, 20)
                     };
@@ -136,7 +131,7 @@ namespace templatev1.Online_Ordering_Platform
                     };
                     Label lblPrice = new Label
                     {
-                        Text = $"{dt.Rows[currentGrpBox][7].ToString()}", AutoSize = false,
+                        Text = $"{dt.Rows[currentGrpBox][7]}", AutoSize = false,
                         Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
                         Size = new Size(213, 20)
                     };
@@ -152,8 +147,8 @@ namespace templatev1.Online_Ordering_Platform
                         Font = new Font("Times New Roman", 12), Cursor = Cursors.Hand,
                         Location = new Point(3, 350), Size = new Size(272, 30)
                     };
-                    btnView.Click += new EventHandler(viewPart);
-                    btnRemove.Click += new EventHandler(removeFavourite);
+                    btnView.Click += viewPart;
+                    btnRemove.Click += removeFavourite;
 
                     grpSpareBox.Controls.Add(picPartImage);
                     grpSpareBox.Controls.Add(lblCategoryLabel);
@@ -205,7 +200,7 @@ namespace templatev1.Online_Ordering_Platform
                         {
                             if (control.Name == $"lblPartNum{index}")
                             {
-                                Form viewSparePart = new viewSparePart(control.Text.ToString(), accountController,
+                                Form viewSparePart = new viewSparePart(control.Text, accountController,
                                     UIController);
                                 Hide();
                                 viewSparePart.StartPosition = FormStartPosition.Manual;
@@ -294,20 +289,20 @@ namespace templatev1.Online_Ordering_Platform
         private Image imageString(string imageName)
         {
             PropertyInfo property =
-                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+                typeof(Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
 
         private void tbKW_TextChanged(object sender, EventArgs e)
         {
-            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -377,32 +372,32 @@ namespace templatev1.Online_Ordering_Platform
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text.ToString(), tbKW.Text.ToString(),
-                cmbSorting.Text.ToString()));
+            load_part(controller.GetFavouriteWhenTextChange(UID, cmbCategory.Text, tbKW.Text,
+                cmbSorting.Text));
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

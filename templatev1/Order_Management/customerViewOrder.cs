@@ -6,10 +6,10 @@ using System.Globalization;
 using System.Windows.Forms;
 using controller;
 using controller.Utilities;
-using templatev1.Online_Ordering_Platform;
+using templatev1;
 using templatev1.Properties;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class customerViewOrder : Form
     {
@@ -84,7 +84,7 @@ namespace templatev1.Order_Management
                 lblDelivermanName.Text = "N/A";
                 lblDelivermanContact.Text = "N/A";
                 lblShippingDate.Text = "N/A";
-            
+
                 lblExpressNum.Text = "N/A";
             }
             else
@@ -95,10 +95,10 @@ namespace templatev1.Order_Management
                 lblShippingDate.Text = dateHandler.DayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
-            
+
                 lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
-            
+
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing" || lblStatus.Text == "Ready to Ship")
             {
@@ -298,7 +298,6 @@ namespace templatev1.Order_Management
         }
 
 
-
         private void button1_Click(object sender, EventArgs e)
         {
             Form feedback = new giveFeedback(accountController, UIController);
@@ -368,7 +367,6 @@ namespace templatev1.Order_Management
             BWMode();
         }
 
- 
 
         private void btnReorder_Click(object sender, EventArgs e)
         {

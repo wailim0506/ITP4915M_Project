@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class AddPartToExistingOrder : Form
     {
@@ -25,7 +25,6 @@ namespace templatev1.Online_Ordering_Platform
             InitializeComponent();
             //partNum = "D00004";
             //controller = new controller.addPartToOrderController();
-            //UID = "LMC00001"; //hard code for testing
             //lblUid.Text = $"Uid: {UID}";
         }
 

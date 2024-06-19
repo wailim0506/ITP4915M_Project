@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class DID : Form
     {
@@ -20,6 +20,7 @@ namespace templatev1.Order_Management
         string orderID;
         string partNum;
         bool isManager;
+
         public DID(string orderID, string partNum)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace templatev1.Order_Management
             this.partNum = partNum;
         }
 
-        public DID(string orderID,string partNum, AccountController accountController,
+        public DID(string orderID, string partNum, AccountController accountController,
             UIController UIController)
         {
             InitializeComponent();
@@ -53,7 +54,8 @@ namespace templatev1.Order_Management
             load_data();
         }
 
-        private void load_data() {
+        private void load_data()
+        {
             DataTable dt;
             dt = controller.getData(orderID, partNum);
             lblOrderDate.Text = dt.Rows[0][0].ToString();
@@ -61,10 +63,10 @@ namespace templatev1.Order_Management
             lblOrderQty.Text = dt.Rows[0][2].ToString();
             lblTotalToDespatch.Text = dt.Rows[0][2].ToString();
             lblPartName.Text = dt.Rows[0][3].ToString();
-            lblCategory.Text = $"{ dt.Rows[0][4]} - {dt.Rows[0][5]}";
+            lblCategory.Text = $"{dt.Rows[0][4]} - {dt.Rows[0][5]}";
             lblCustomerID.Text = dt.Rows[0][6].ToString();
             lblDeliveryman.Text = $"{dt.Rows[0][7]} - {dt.Rows[0][8]} " +
-                                    $"{dt.Rows[0][9]}";
+                                  $"{dt.Rows[0][9]}";
         }
     }
 }

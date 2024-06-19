@@ -5,10 +5,10 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using controller;
-using templatev1.Online_Ordering_Platform;
+using templatev1;
 using templatev1.Properties;
 
-namespace templatev1.Order_Management
+namespace templatev1
 {
     public partial class customerViewInvoice : Form
     {
@@ -32,7 +32,6 @@ namespace templatev1.Order_Management
             this.accountController = accountController;
             this.UIController = UIController;
             //this.UID = this.accountController.getUID();
-            UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -203,7 +202,6 @@ namespace templatev1.Order_Management
 
         private void toPDF(string imagePath, string pdfPath)
         {
-
             PrintDocument p = new PrintDocument();
             p.PrintPage += (sender, e) =>
             {
@@ -216,6 +214,7 @@ namespace templatev1.Order_Management
             p.PrinterSettings.PrintFileName = pdfPath;
             p.Print();
         }
+
         private Bitmap CaptureInvoice(Panel p)
         {
             Bitmap bitmap = new Bitmap(p.Width, p.Height);
@@ -228,10 +227,7 @@ namespace templatev1.Order_Management
             Bitmap pnlDIC = CaptureInvoice(panel);
 
             PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) =>
-            {
-                e.Graphics.DrawImage(pnlDIC, new Point(0, 0));
-            };
+            p.PrintPage += (sender, e) => { e.Graphics.DrawImage(pnlDIC, new Point(0, 0)); };
 
             PrintPreviewDialog preview = new PrintPreviewDialog
             {

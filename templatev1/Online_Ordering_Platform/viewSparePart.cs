@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using controller;
 using templatev1.Properties;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class viewSparePart : Form
     {

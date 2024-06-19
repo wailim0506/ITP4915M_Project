@@ -1,5 +1,5 @@
 ﻿
-namespace templatev1.Order_Management
+namespace templatev1
 {
     partial class clerkInvoiceList
     {

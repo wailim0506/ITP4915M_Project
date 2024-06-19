@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
     public partial class giveFeedback : Form
     {
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
+        AccountController accountController;
+        UIController UIController;
 
         public giveFeedback()
         {
             InitializeComponent();
         }
 
-        public giveFeedback(controller.AccountController accountController, controller.UIController UIController)
+        public giveFeedback(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -32,8 +29,8 @@ namespace templatev1
 
         private void btnSend_Click(object sender, EventArgs e)
         {
-            string feedback = tbFB.Text.ToString();
-            string orderID = cmbOrder.Text.ToString();
+            string feedback = tbFB.Text;
+            string orderID = cmbOrder.Text;
             int wordCount = CountWords(feedback);
             if (wordCount > 100)
             {
@@ -47,13 +44,13 @@ namespace templatev1
             }
             else
             {
-                controller.feedbackController
-                    controller = new controller.feedbackController(); //create controller object
+                feedbackController
+                    controller = new feedbackController(); //create controller object
                 Boolean addFeedback = controller.AddFeedback("LMC00001", feedback, orderID);
-                if (addFeedback == true)
+                if (addFeedback)
                 {
                     tbFB.Text = "";
-                    lblWordCount.Text = $"Word Count: 0";
+                    lblWordCount.Text = "Word Count: 0";
                     cmbOrder.Text = "N/A";
                     MessageBox.Show("Feedback Sent.\nThank you for your feedback.");
                 }
@@ -63,13 +60,13 @@ namespace templatev1
         private void btnClear_Click(object sender, EventArgs e)
         {
             tbFB.Text = "";
-            lblWordCount.Text = $"Word Count: 0";
+            lblWordCount.Text = "Word Count: 0";
         }
 
 
         private void tbFB_TextChanged(object sender, EventArgs e) //show word count instantly after typeing a new word
         {
-            string feedback = tbFB.Text.ToString();
+            string feedback = tbFB.Text;
             int wordCount = CountWords(feedback);
             lblWordCount.Text = $"Word Count: {wordCount}";
         }
@@ -83,7 +80,7 @@ namespace templatev1
             }
 
             // Split the text into words based on delimiters
-            string[] words = text.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?' },
+            string[] words = text.Split(new[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?' },
                 StringSplitOptions.RemoveEmptyEntries);
 
             // Return the number of words
@@ -107,7 +104,7 @@ namespace templatev1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.favourite(accountController, UIController);
+            Form o = new favourite(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -117,7 +114,7 @@ namespace templatev1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.cart(accountController, UIController);
+            Form o = new cart(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -127,7 +124,7 @@ namespace templatev1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.sparePartList(accountController, UIController);
+            Form o = new sparePartList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -137,7 +134,7 @@ namespace templatev1
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Form o = new Online_Ordering_Platform.customerOrderList(accountController, UIController);
+            Form o = new customerOrderList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -172,7 +169,7 @@ namespace templatev1
         {
             List<string> order = new List<string> { "N/A" };
 
-            controller.feedbackController controller = new controller.feedbackController(); //create controller object
+            feedbackController controller = new feedbackController(); //create controller object
             List<string> d = controller.getOrderID(UID);
 
             foreach (string x in d)
@@ -186,25 +183,25 @@ namespace templatev1
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

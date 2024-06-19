@@ -1,42 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
-namespace templatev1.Online_Ordering_Platform
+namespace templatev1
 {
     public partial class cart : Form
     {
         private string uName, UID;
         private string partToEdit; //for edit qty function
         private Boolean isLM;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.cartController controller;
+        AccountController accountController;
+        UIController UIController;
+        cartController controller;
 
         public cart()
         {
             InitializeComponent();
-            UID = "LMC00001"; //hard code for testing
-            controller = new controller.cartController();
+            controller = new cartController();
             lblUid.Text = $"Uid: {UID}";
         }
 
 
-        public cart(controller.AccountController accountController, controller.UIController UIController)
+        public cart(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.cartController();
+            controller = new cartController();
             UID = accountController.GetUid();
             isLM = accountController.GetIsLm();
-            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -65,55 +61,55 @@ namespace templatev1.Online_Ordering_Platform
             int yPosition = 8;
             for (int i = 0; i < countRow(dt); i++)
             {
-                CheckBox checkBox = new CheckBox()
+                CheckBox checkBox = new CheckBox
                 {
                     Name = $"chk{i}", Text = "", Location = new Point(11, yPosition + 6),
                     Size = new Size(15, 14), Cursor = Cursors.Hand
                 };
-                Label lblCategory = new Label()
+                Label lblCategory = new Label
                 {
                     Text = $"{dt.Rows[i][5]}", Location = new Point(37, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(89, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartNum = new Label()
+                Label lblPartNum = new Label
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][6]}",
                     Location = new Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
                     Size = new Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartName = new Label()
+                Label lblPartName = new Label
                 {
                     Text = $"{dt.Rows[i][16]}", Location = new Point(279, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblQty = new Label()
+                Label lblQty = new Label
                 {
                     Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new Point(538, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(85, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblUnitPrice = new Label()
+                Label lblUnitPrice = new Label
                 {
                     Text = $"¥{dt.Rows[i][10]}", Location = new Point(629, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(95, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblRowTotalPrice = new Label()
+                Label lblRowTotalPrice = new Label
                 {
                     Name = $"lbRowPrice{i}",
                     Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}",
                     Location = new Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
                     Size = new Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Button btnView = new Button()
+                Button btnView = new Button
                 {
                     Name = $"btnView{i}", Text = "View", Location = new Point(824, yPosition - 3),
                     Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = false, Size = new Size(64, 28), Cursor = Cursors.Hand
                 };
-                btnView.Click += new EventHandler(btnView_Click);
+                btnView.Click += btnView_Click;
 
                 pnlSP.Controls.Add(checkBox);
                 pnlSP.Controls.Add(lblCategory);
@@ -186,7 +182,7 @@ namespace templatev1.Online_Ordering_Platform
                         foreach (Control controls in pnlSP.Controls) //add qty back to db
                         {
                             if (controls.Name != $"lblQty{t}") continue;
-                            if (controller.addQtyBack(control.Text, int.Parse(controls.Text.ToString()), 0,
+                            if (controller.addQtyBack(control.Text, int.Parse(controls.Text), 0,
                                     isLM))
                             {
                             }
@@ -335,20 +331,20 @@ namespace templatev1.Online_Ordering_Platform
 
         private void picTick_Click(object sender, EventArgs e)
         {
-            if (tbQauntity.Text.ToString() == "")
+            if (tbQauntity.Text == "")
             {
                 MessageBox.Show("Please enter a number", "Edit Quantity", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (int.Parse(tbQauntity.Text.ToString()) > 0 && tbQauntity.Text.ToString() != "")
+            if (int.Parse(tbQauntity.Text) > 0 && tbQauntity.Text != "")
             {
                 //get current quantity in cart first
                 int currentQty = controller.GetCurrentQtyInCart(partToEdit, UID);
                 //add the current cart value back to db first
                 try
                 {
-                    controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text.ToString()), isLM);
+                    controller.addQtyBack(partToEdit, currentQty, int.Parse(tbQauntity.Text), isLM);
                 }
                 catch (Exception)
                 {
@@ -358,10 +354,10 @@ namespace templatev1.Online_Ordering_Platform
                 }
 
                 //update db with user input
-                if (controller.EditDbQty(partToEdit, int.Parse(tbQauntity.Text.ToString()), isLM, false, 0))
+                if (controller.EditDbQty(partToEdit, int.Parse(tbQauntity.Text), isLM, false, 0))
                 {
                     //update qty in user cart
-                    if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text.ToString())))
+                    if (controller.editCartQty(partToEdit, UID, int.Parse(tbQauntity.Text)))
                     {
                         MessageBox.Show("Quantity updated", "Update Quantity", MessageBoxButtons.OK);
                         lblEditQty.Visible = false;
@@ -455,7 +451,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void picPencil_Click(object sender, EventArgs e)
         {
-            if (tbAddress.ReadOnly == true)
+            if (tbAddress.ReadOnly)
             {
                 tbAddress.ReadOnly = false;
                 tbProvince.ReadOnly = false;
@@ -536,7 +532,7 @@ namespace templatev1.Online_Ordering_Platform
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            UIController.setMode(Properties.Settings.Default.BWmode);
+            UIController.setMode(Settings.Default.BWmode);
             BWMode();
         }
 
@@ -552,25 +548,25 @@ namespace templatev1.Online_Ordering_Platform
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }
