@@ -440,7 +440,7 @@
             this.cmbJobTitle.FormattingEnabled = true;
             this.cmbJobTitle.Location = new System.Drawing.Point(372, 349);
             this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(226, 27);
+            this.cmbJobTitle.Size = new System.Drawing.Size(248, 27);
             this.cmbJobTitle.TabIndex = 124;
             // 
             // cmbDept
@@ -451,7 +451,7 @@
             this.cmbDept.FormattingEnabled = true;
             this.cmbDept.Location = new System.Drawing.Point(372, 318);
             this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(226, 27);
+            this.cmbDept.Size = new System.Drawing.Size(248, 27);
             this.cmbDept.TabIndex = 123;
             this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
@@ -771,7 +771,7 @@
             // lblJobMsg
             // 
             this.lblJobMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblJobMsg.Location = new System.Drawing.Point(609, 357);
+            this.lblJobMsg.Location = new System.Drawing.Point(628, 357);
             this.lblJobMsg.Name = "lblJobMsg";
             this.lblJobMsg.Size = new System.Drawing.Size(221, 19);
             this.lblJobMsg.TabIndex = 153;
@@ -779,7 +779,7 @@
             // lblDeptMsg
             // 
             this.lblDeptMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblDeptMsg.Location = new System.Drawing.Point(609, 326);
+            this.lblDeptMsg.Location = new System.Drawing.Point(628, 326);
             this.lblDeptMsg.Name = "lblDeptMsg";
             this.lblDeptMsg.Size = new System.Drawing.Size(221, 19);
             this.lblDeptMsg.TabIndex = 154;

@@ -74,12 +74,18 @@
             this.lblTitGender = new System.Windows.Forms.Label();
             this.lblTitLastName = new System.Windows.Forms.Label();
             this.lblTitFirstName = new System.Windows.Forms.Label();
-            this.cmbJobTitle = new System.Windows.Forms.ComboBox();
-            this.cmbDept = new System.Windows.Forms.ComboBox();
             this.picUserIMG = new System.Windows.Forms.PictureBox();
             this.btnUploadIMG = new System.Windows.Forms.Button();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.palstaff = new System.Windows.Forms.Panel();
+            this.lblJob = new System.Windows.Forms.Label();
+            this.lblDept = new System.Windows.Forms.Label();
+            this.chkNGDateOfBirth = new System.Windows.Forms.CheckBox();
+            this.lblSexMsg = new System.Windows.Forms.Label();
+            this.lbllNameMsg = new System.Windows.Forms.Label();
+            this.lblfNameMsg = new System.Windows.Forms.Label();
+            this.lblDateMsg = new System.Windows.Forms.Label();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -319,9 +325,9 @@
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(134, 22);
+            this.lblUid.Size = new System.Drawing.Size(43, 22);
             this.lblUid.TabIndex = 1;
-            this.lblUid.Text = "Uid: LMXXXX";
+            this.lblUid.Text = "UID";
             // 
             // lblTimeDate
             // 
@@ -361,22 +367,24 @@
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(388, 881);
+            this.btnModify.Location = new System.Drawing.Point(520, 881);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(96, 34);
             this.btnModify.TabIndex = 27;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnCancel.Location = new System.Drawing.Point(548, 881);
+            this.btnCancel.Location = new System.Drawing.Point(680, 881);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(96, 34);
             this.btnCancel.TabIndex = 28;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblFormUID
             // 
@@ -386,7 +394,6 @@
             this.lblFormUID.Name = "lblFormUID";
             this.lblFormUID.Size = new System.Drawing.Size(153, 26);
             this.lblFormUID.TabIndex = 76;
-            this.lblFormUID.Text = "LMXXXX";
             this.lblFormUID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblCreateDate
@@ -397,7 +404,6 @@
             this.lblCreateDate.Name = "lblCreateDate";
             this.lblCreateDate.Size = new System.Drawing.Size(153, 26);
             this.lblCreateDate.TabIndex = 75;
-            this.lblCreateDate.Text = "2024/01/01";
             this.lblCreateDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitUID
@@ -428,7 +434,6 @@
             this.lblAccType.Name = "lblAccType";
             this.lblAccType.Size = new System.Drawing.Size(153, 26);
             this.lblAccType.TabIndex = 72;
-            this.lblAccType.Text = "Staff";
             this.lblAccType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitAccType
@@ -445,7 +450,7 @@
             // 
             this.lblTitDept.AutoSize = true;
             this.lblTitDept.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDept.Location = new System.Drawing.Point(13, 62);
+            this.lblTitDept.Location = new System.Drawing.Point(13, 60);
             this.lblTitDept.Name = "lblTitDept";
             this.lblTitDept.Size = new System.Drawing.Size(94, 19);
             this.lblTitDept.TabIndex = 95;
@@ -455,7 +460,7 @@
             // 
             this.lblTitJobTitle.AutoSize = true;
             this.lblTitJobTitle.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitJobTitle.Location = new System.Drawing.Point(13, 22);
+            this.lblTitJobTitle.Location = new System.Drawing.Point(13, 28);
             this.lblTitJobTitle.Name = "lblTitJobTitle";
             this.lblTitJobTitle.Size = new System.Drawing.Size(73, 19);
             this.lblTitJobTitle.TabIndex = 94;
@@ -474,10 +479,10 @@
             // lblTitDateOfBirth
             // 
             this.lblTitDateOfBirth.AutoSize = true;
-            this.lblTitDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.lblTitDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.lblTitDateOfBirth.Location = new System.Drawing.Point(245, 374);
             this.lblTitDateOfBirth.Name = "lblTitDateOfBirth";
-            this.lblTitDateOfBirth.Size = new System.Drawing.Size(108, 20);
+            this.lblTitDateOfBirth.Size = new System.Drawing.Size(104, 19);
             this.lblTitDateOfBirth.TabIndex = 87;
             this.lblTitDateOfBirth.Text = "Date of Birth:";
             // 
@@ -488,6 +493,8 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(177, 27);
             this.tbLastName.TabIndex = 86;
+            this.tbLastName.Enter += new System.EventHandler(this.tbLastName_Enter);
+            this.tbLastName.Leave += new System.EventHandler(this.tbLastName_Leave);
             // 
             // tbFirstName
             // 
@@ -496,11 +503,16 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(177, 27);
             this.tbFirstName.TabIndex = 85;
+            this.tbFirstName.Enter += new System.EventHandler(this.tbFirstName_Enter);
+            this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
             // 
             // cmbGender
             // 
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbGender.FormattingEnabled = true;
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(334, 321);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
@@ -508,6 +520,7 @@
             // 
             // grpContact
             // 
+            this.grpContact.Controls.Add(this.lblPhoneMsg);
             this.grpContact.Controls.Add(this.tbEmail);
             this.grpContact.Controls.Add(this.tbPhone);
             this.grpContact.Controls.Add(this.lblTitPhone);
@@ -515,7 +528,7 @@
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContact.Location = new System.Drawing.Point(249, 421);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(533, 129);
+            this.grpContact.Size = new System.Drawing.Size(533, 154);
             this.grpContact.TabIndex = 82;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
@@ -527,6 +540,8 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(322, 26);
             this.tbEmail.TabIndex = 35;
+            this.tbEmail.Enter += new System.EventHandler(this.tbEmail_Enter);
+            this.tbEmail.Leave += new System.EventHandler(this.tbEmail_Leave);
             // 
             // tbPhone
             // 
@@ -535,6 +550,8 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(177, 26);
             this.tbPhone.TabIndex = 34;
+            this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
+            this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
             // 
             // lblTitPhone
             // 
@@ -586,24 +603,6 @@
             this.lblTitFirstName.TabIndex = 78;
             this.lblTitFirstName.Text = "FirstName:";
             // 
-            // cmbJobTitle
-            // 
-            this.cmbJobTitle.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.cmbJobTitle.FormattingEnabled = true;
-            this.cmbJobTitle.Location = new System.Drawing.Point(113, 19);
-            this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(121, 27);
-            this.cmbJobTitle.TabIndex = 98;
-            // 
-            // cmbDept
-            // 
-            this.cmbDept.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.cmbDept.FormattingEnabled = true;
-            this.cmbDept.Location = new System.Drawing.Point(113, 59);
-            this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(121, 27);
-            this.cmbDept.TabIndex = 99;
-            // 
             // picUserIMG
             // 
             this.picUserIMG.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -627,27 +626,104 @@
             // dtpDateOfBirth
             // 
             this.dtpDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.dtpDateOfBirth.Location = new System.Drawing.Point(362, 368);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(361, 368);
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 27);
             this.dtpDateOfBirth.TabIndex = 149;
             // 
             // palstaff
             // 
-            this.palstaff.Controls.Add(this.cmbDept);
-            this.palstaff.Controls.Add(this.cmbJobTitle);
+            this.palstaff.Controls.Add(this.lblDept);
+            this.palstaff.Controls.Add(this.lblJob);
             this.palstaff.Controls.Add(this.lblTitDept);
             this.palstaff.Controls.Add(this.lblTitJobTitle);
-            this.palstaff.Location = new System.Drawing.Point(548, 220);
+            this.palstaff.Location = new System.Drawing.Point(516, 104);
             this.palstaff.Name = "palstaff";
-            this.palstaff.Size = new System.Drawing.Size(271, 113);
+            this.palstaff.Size = new System.Drawing.Size(419, 113);
             this.palstaff.TabIndex = 150;
+            // 
+            // lblJob
+            // 
+            this.lblJob.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJob.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJob.Location = new System.Drawing.Point(113, 24);
+            this.lblJob.Name = "lblJob";
+            this.lblJob.Size = new System.Drawing.Size(153, 26);
+            this.lblJob.TabIndex = 151;
+            this.lblJob.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblDept
+            // 
+            this.lblDept.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblDept.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDept.Location = new System.Drawing.Point(113, 56);
+            this.lblDept.Name = "lblDept";
+            this.lblDept.Size = new System.Drawing.Size(153, 26);
+            this.lblDept.TabIndex = 152;
+            this.lblDept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chkNGDateOfBirth
+            // 
+            this.chkNGDateOfBirth.AutoSize = true;
+            this.chkNGDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.chkNGDateOfBirth.Location = new System.Drawing.Point(361, 401);
+            this.chkNGDateOfBirth.Name = "chkNGDateOfBirth";
+            this.chkNGDateOfBirth.Size = new System.Drawing.Size(117, 23);
+            this.chkNGDateOfBirth.TabIndex = 151;
+            this.chkNGDateOfBirth.Text = "Not provided";
+            this.chkNGDateOfBirth.UseVisualStyleBackColor = true;
+            // 
+            // lblSexMsg
+            // 
+            this.lblSexMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblSexMsg.Location = new System.Drawing.Point(460, 329);
+            this.lblSexMsg.Name = "lblSexMsg";
+            this.lblSexMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblSexMsg.TabIndex = 154;
+            // 
+            // lbllNameMsg
+            // 
+            this.lbllNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lbllNameMsg.Location = new System.Drawing.Point(517, 287);
+            this.lbllNameMsg.Name = "lbllNameMsg";
+            this.lbllNameMsg.Size = new System.Drawing.Size(406, 19);
+            this.lbllNameMsg.TabIndex = 153;
+            // 
+            // lblfNameMsg
+            // 
+            this.lblfNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblfNameMsg.Location = new System.Drawing.Point(517, 247);
+            this.lblfNameMsg.Name = "lblfNameMsg";
+            this.lblfNameMsg.Size = new System.Drawing.Size(386, 19);
+            this.lblfNameMsg.TabIndex = 152;
+            // 
+            // lblDateMsg
+            // 
+            this.lblDateMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblDateMsg.Location = new System.Drawing.Point(489, 401);
+            this.lblDateMsg.Name = "lblDateMsg";
+            this.lblDateMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblDateMsg.TabIndex = 155;
+            // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(92, 117);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblPhoneMsg.TabIndex = 156;
             // 
             // UserModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.lblDateMsg);
+            this.Controls.Add(this.lblSexMsg);
+            this.Controls.Add(this.lbllNameMsg);
+            this.Controls.Add(this.lblfNameMsg);
+            this.Controls.Add(this.chkNGDateOfBirth);
             this.Controls.Add(this.palstaff);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.btnUploadIMG);
@@ -731,8 +807,6 @@
         private System.Windows.Forms.Label lblTitGender;
         private System.Windows.Forms.Label lblTitLastName;
         private System.Windows.Forms.Label lblTitFirstName;
-        private System.Windows.Forms.ComboBox cmbJobTitle;
-        private System.Windows.Forms.ComboBox cmbDept;
         private System.Windows.Forms.Panel palSelect5;
         private System.Windows.Forms.Panel palSelect4;
         private System.Windows.Forms.Panel palSelect2;
@@ -747,6 +821,14 @@
         private System.Windows.Forms.Button btnUploadIMG;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.Panel palstaff;
+        private System.Windows.Forms.Label lblDept;
+        private System.Windows.Forms.Label lblJob;
+        private System.Windows.Forms.CheckBox chkNGDateOfBirth;
+        private System.Windows.Forms.Label lblSexMsg;
+        private System.Windows.Forms.Label lbllNameMsg;
+        private System.Windows.Forms.Label lblfNameMsg;
+        private System.Windows.Forms.Label lblDateMsg;
+        private System.Windows.Forms.Label lblPhoneMsg;
     }
 }
 

@@ -308,21 +308,32 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            Form UserModify = new UserModify(accountController, UIController);
-            Hide();
-            //Swap the current form to another.
-            UserModify.StartPosition = FormStartPosition.Manual;
-            UserModify.Location = Location;
-            UserModify.Size = Size;
-            UserModify.ShowDialog();
-            Close();
+            if(!string.IsNullOrEmpty(selectedUid))
+            {
+                Form UserModify = new UserModify(accountController, UIController, selectedUid);
+                Hide();
+                //Swap the current form to another.
+                UserModify.StartPosition = FormStartPosition.Manual;
+                UserModify.Location = Location;
+                UserModify.Size = Size;
+                UserModify.ShowDialog();
+                Close();
+            }
+            else
+                MessageBox.Show("NOT user selected.",
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void dgvUser_MouseClick(object sender, MouseEventArgs e)
         {
             if (dgvUser.Rows.Count > 0)
             {
+                dgvUser.ClearSelection();
                 index = dgvUser.CurrentCell.RowIndex;
+
+                for (int r = 0; r < dgvUser.ColumnCount; r++)
+                    dgvUser[r, index].Selected = true;
+
                 selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
 
                 proFileController UserInfo =

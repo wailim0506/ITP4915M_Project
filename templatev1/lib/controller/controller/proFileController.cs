@@ -265,6 +265,46 @@ namespace controller
             }
         }
 
+        //Manager Update the user's info in the database.
+        public bool MgmtModifyUserInfo(dynamic info)
+        {
+            try
+            {
+                string sqlCmd;
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@fName", info.fName },
+                    { "@lName", info.lName },
+                    { "@sex", info.sex },
+                    { "@phone", info.phone },
+                    { "@Email", info.email },
+                    { "@DFB", info.DFB },
+                    { "@UID", UID }
+                };
+
+                if (accountType.Equals("Customer"))
+                {
+                    sqlCmd =
+                        "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, emailAddress = @email, dateOfBirth = @DFB WHERE customerID = @UID";
+                }
+                else
+                {
+                    sqlCmd =
+                        "UPDATE staff SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, dateofBirth = @DFB, emailAddress = @email WHERE staffID = @UID";
+                }
+
+
+                _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "profile controller", $"Error modifying user info: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
         //Update the address in the database.
         public bool ModifyAddress(dynamic Addinfo)
         {

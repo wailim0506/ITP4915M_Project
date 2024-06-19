@@ -346,16 +346,17 @@ namespace templatev1
                 if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
                                                   dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
                 {
-                    lblDateMsg.Text = "Please select a valid date or click NOT provided.";
+                    lblDateMsg.Text = UID.StartsWith("LMS") ? "Please select a valid date or click NOT provided." 
+                        : "Please select a valid date or click NOT provided.";
                     return false;
                 }
 
-                update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
+                update.DFB = dtpDateOfBirth.Value.ToString("yyyy-MM-dd");
             }
             else if (chkNGDateOfBirth.Checked)
                 update.DFB = DBNull.Value;
             else
-                update.DFB = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
+                update.DFB = dtpDateOfBirth.Value.ToString("yyyy-MM-dd");
 
             //Check and update phone if have change.
             if (tbPhone.Text != placeholder.phone)
@@ -514,6 +515,7 @@ namespace templatev1
 
             return true;
         }
+
 
         //Delete the account, only available for customer account.
         private void btnDelete_Click(object sender, EventArgs e)
