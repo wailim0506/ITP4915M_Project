@@ -191,7 +191,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dateHandler.DayDifference(orderID) >= 3)
+                if (lblStatus.Text != "Ready to Ship")
                 {
                     Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
                     Hide();
@@ -202,7 +202,7 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be edited three day before the shipping date", "Error",
+                    MessageBox.Show("Order cannot be edited when it is ready to ship", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -218,7 +218,7 @@ namespace templatev1.Order_Management
             }
             else
             {
-                if (dateHandler.DayDifference(orderID) >= 3)
+                if (lblStatus.Text != "Ready to Ship")
                 {
                     DialogResult dialogResult =
                         MessageBox.Show(
@@ -256,7 +256,7 @@ namespace templatev1.Order_Management
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error",
+                    MessageBox.Show("Order cannot be cancel when it is ready to ship", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
