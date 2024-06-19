@@ -579,7 +579,9 @@
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.ForeColor = System.Drawing.Color.Black;
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] { "Male", "Female" });
+            this.cmbGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
             this.cmbGender.Location = new System.Drawing.Point(333, 310);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
@@ -707,10 +709,14 @@
             this.cmbPayment.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbPayment.ForeColor = System.Drawing.Color.Black;
             this.cmbPayment.FormattingEnabled = true;
-            this.cmbPayment.Items.AddRange(new object[] { "AmericanExpress", "MasterCard", "UnionPay", "Visa" });
+            this.cmbPayment.Items.AddRange(new object[] {
+            "AmericanExpress",
+            "MasterCard",
+            "UnionPay",
+            "Visa"});
             this.cmbPayment.Location = new System.Drawing.Point(202, 35);
             this.cmbPayment.Name = "cmbPayment";
-            this.cmbPayment.Size = new System.Drawing.Size(129, 27);
+            this.cmbPayment.Size = new System.Drawing.Size(169, 27);
             this.cmbPayment.TabIndex = 6;
             // 
             // btnRemoveIMG
@@ -976,9 +982,9 @@
             // lblPayMsg
             // 
             this.lblPayMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPayMsg.Location = new System.Drawing.Point(337, 43);
+            this.lblPayMsg.Location = new System.Drawing.Point(377, 43);
             this.lblPayMsg.Name = "lblPayMsg";
-            this.lblPayMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblPayMsg.Size = new System.Drawing.Size(394, 19);
             this.lblPayMsg.TabIndex = 106;
             // 
             // lblContactMsg
@@ -1082,6 +1088,7 @@
             this.palSatffInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

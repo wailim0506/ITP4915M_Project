@@ -729,12 +729,11 @@
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.GridColor = System.Drawing.SystemColors.Control;
             this.dgvUser.Location = new System.Drawing.Point(218, 296);
-            this.dgvUser.MultiSelect = false;
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.ReadOnly = true;
             this.dgvUser.RowHeadersVisible = false;
             this.dgvUser.RowHeadersWidth = 30;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 15F);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 13.5F);
             this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUser.RowTemplate.Height = 23;
             this.dgvUser.Size = new System.Drawing.Size(928, 365);
