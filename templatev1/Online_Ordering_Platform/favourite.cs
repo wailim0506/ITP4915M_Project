@@ -53,7 +53,7 @@ namespace templatev1
             int thirdColumnXPosition = 636;
             int yPosition = 11; //first row y position  
             int currentGrpBox = 0;
-
+            
             for (int i = 0; i < rowNeed; i++)
             {
                 for (int k = 0; k < columnPerRow; k++)
@@ -131,7 +131,7 @@ namespace templatev1
                     };
                     Label lblPrice = new Label
                     {
-                        Text = $"{dt.Rows[currentGrpBox][7]}", AutoSize = false,
+                        Text = $"{dt.Rows[currentGrpBox][8]}", AutoSize = false,
                         Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
                         Size = new Size(213, 20)
                     };
