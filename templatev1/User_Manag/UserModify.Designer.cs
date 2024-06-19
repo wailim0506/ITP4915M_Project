@@ -62,7 +62,6 @@
             this.lblTitDept = new System.Windows.Forms.Label();
             this.lblTitJobTitle = new System.Windows.Forms.Label();
             this.btnReomveIMG = new System.Windows.Forms.Button();
-            this.calDateOfBirth = new System.Windows.Forms.MonthCalendar();
             this.lblTitDateOfBirth = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
@@ -79,6 +78,8 @@
             this.cmbDept = new System.Windows.Forms.ComboBox();
             this.picUserIMG = new System.Windows.Forms.PictureBox();
             this.btnUploadIMG = new System.Windows.Forms.Button();
+            this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
+            this.palstaff = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -86,6 +87,7 @@
             this.palLoc.SuspendLayout();
             this.grpContact.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserIMG)).BeginInit();
+            this.palstaff.SuspendLayout();
             this.SuspendLayout();
             // 
             // palNav
@@ -380,7 +382,7 @@
             // 
             this.lblFormUID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblFormUID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFormUID.Location = new System.Drawing.Point(326, 123);
+            this.lblFormUID.Location = new System.Drawing.Point(357, 160);
             this.lblFormUID.Name = "lblFormUID";
             this.lblFormUID.Size = new System.Drawing.Size(153, 26);
             this.lblFormUID.TabIndex = 76;
@@ -391,7 +393,7 @@
             // 
             this.lblCreateDate.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblCreateDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreateDate.Location = new System.Drawing.Point(326, 154);
+            this.lblCreateDate.Location = new System.Drawing.Point(357, 191);
             this.lblCreateDate.Name = "lblCreateDate";
             this.lblCreateDate.Size = new System.Drawing.Size(153, 26);
             this.lblCreateDate.TabIndex = 75;
@@ -402,7 +404,7 @@
             // 
             this.lblTitUID.AutoSize = true;
             this.lblTitUID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitUID.Location = new System.Drawing.Point(214, 127);
+            this.lblTitUID.Location = new System.Drawing.Point(245, 164);
             this.lblTitUID.Name = "lblTitUID";
             this.lblTitUID.Size = new System.Drawing.Size(43, 19);
             this.lblTitUID.TabIndex = 74;
@@ -412,7 +414,7 @@
             // 
             this.lblTitCreateDate.AutoSize = true;
             this.lblTitCreateDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCreateDate.Location = new System.Drawing.Point(214, 158);
+            this.lblTitCreateDate.Location = new System.Drawing.Point(245, 195);
             this.lblTitCreateDate.Name = "lblTitCreateDate";
             this.lblTitCreateDate.Size = new System.Drawing.Size(95, 19);
             this.lblTitCreateDate.TabIndex = 73;
@@ -422,7 +424,7 @@
             // 
             this.lblAccType.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblAccType.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccType.Location = new System.Drawing.Point(327, 91);
+            this.lblAccType.Location = new System.Drawing.Point(358, 128);
             this.lblAccType.Name = "lblAccType";
             this.lblAccType.Size = new System.Drawing.Size(153, 26);
             this.lblAccType.TabIndex = 72;
@@ -433,7 +435,7 @@
             // 
             this.lblTitAccType.AutoSize = true;
             this.lblTitAccType.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitAccType.Location = new System.Drawing.Point(214, 95);
+            this.lblTitAccType.Location = new System.Drawing.Point(245, 132);
             this.lblTitAccType.Name = "lblTitAccType";
             this.lblTitAccType.Size = new System.Drawing.Size(107, 19);
             this.lblTitAccType.TabIndex = 71;
@@ -443,7 +445,7 @@
             // 
             this.lblTitDept.AutoSize = true;
             this.lblTitDept.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDept.Location = new System.Drawing.Point(530, 245);
+            this.lblTitDept.Location = new System.Drawing.Point(13, 62);
             this.lblTitDept.Name = "lblTitDept";
             this.lblTitDept.Size = new System.Drawing.Size(94, 19);
             this.lblTitDept.TabIndex = 95;
@@ -453,7 +455,7 @@
             // 
             this.lblTitJobTitle.AutoSize = true;
             this.lblTitJobTitle.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitJobTitle.Location = new System.Drawing.Point(530, 205);
+            this.lblTitJobTitle.Location = new System.Drawing.Point(13, 22);
             this.lblTitJobTitle.Name = "lblTitJobTitle";
             this.lblTitJobTitle.Size = new System.Drawing.Size(73, 19);
             this.lblTitJobTitle.TabIndex = 94;
@@ -462,24 +464,18 @@
             // btnReomveIMG
             // 
             this.btnReomveIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnReomveIMG.Location = new System.Drawing.Point(1016, 342);
+            this.btnReomveIMG.Location = new System.Drawing.Point(1006, 383);
             this.btnReomveIMG.Name = "btnReomveIMG";
             this.btnReomveIMG.Size = new System.Drawing.Size(142, 29);
             this.btnReomveIMG.TabIndex = 93;
             this.btnReomveIMG.Text = "Remove Image";
             this.btnReomveIMG.UseVisualStyleBackColor = true;
             // 
-            // calDateOfBirth
-            // 
-            this.calDateOfBirth.Location = new System.Drawing.Point(351, 337);
-            this.calDateOfBirth.Name = "calDateOfBirth";
-            this.calDateOfBirth.TabIndex = 88;
-            // 
             // lblTitDateOfBirth
             // 
             this.lblTitDateOfBirth.AutoSize = true;
             this.lblTitDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.lblTitDateOfBirth.Location = new System.Drawing.Point(214, 337);
+            this.lblTitDateOfBirth.Location = new System.Drawing.Point(245, 374);
             this.lblTitDateOfBirth.Name = "lblTitDateOfBirth";
             this.lblTitDateOfBirth.Size = new System.Drawing.Size(108, 20);
             this.lblTitDateOfBirth.TabIndex = 87;
@@ -488,7 +484,7 @@
             // tbLastName
             // 
             this.tbLastName.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbLastName.Location = new System.Drawing.Point(303, 242);
+            this.tbLastName.Location = new System.Drawing.Point(334, 279);
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(177, 27);
             this.tbLastName.TabIndex = 86;
@@ -496,7 +492,7 @@
             // tbFirstName
             // 
             this.tbFirstName.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbFirstName.Location = new System.Drawing.Point(303, 202);
+            this.tbFirstName.Location = new System.Drawing.Point(334, 239);
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(177, 27);
             this.tbFirstName.TabIndex = 85;
@@ -505,7 +501,7 @@
             // 
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Location = new System.Drawing.Point(303, 284);
+            this.cmbGender.Location = new System.Drawing.Point(334, 321);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
             this.cmbGender.TabIndex = 84;
@@ -517,7 +513,7 @@
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(218, 529);
+            this.grpContact.Location = new System.Drawing.Point(249, 421);
             this.grpContact.Name = "grpContact";
             this.grpContact.Size = new System.Drawing.Size(533, 129);
             this.grpContact.TabIndex = 82;
@@ -564,7 +560,7 @@
             // 
             this.lblTitGender.AutoSize = true;
             this.lblTitGender.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitGender.Location = new System.Drawing.Point(214, 287);
+            this.lblTitGender.Location = new System.Drawing.Point(245, 324);
             this.lblTitGender.Name = "lblTitGender";
             this.lblTitGender.Size = new System.Drawing.Size(64, 19);
             this.lblTitGender.TabIndex = 80;
@@ -574,7 +570,7 @@
             // 
             this.lblTitLastName.AutoSize = true;
             this.lblTitLastName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitLastName.Location = new System.Drawing.Point(214, 245);
+            this.lblTitLastName.Location = new System.Drawing.Point(245, 282);
             this.lblTitLastName.Name = "lblTitLastName";
             this.lblTitLastName.Size = new System.Drawing.Size(83, 19);
             this.lblTitLastName.TabIndex = 79;
@@ -584,7 +580,7 @@
             // 
             this.lblTitFirstName.AutoSize = true;
             this.lblTitFirstName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitFirstName.Location = new System.Drawing.Point(214, 205);
+            this.lblTitFirstName.Location = new System.Drawing.Point(245, 242);
             this.lblTitFirstName.Name = "lblTitFirstName";
             this.lblTitFirstName.Size = new System.Drawing.Size(86, 19);
             this.lblTitFirstName.TabIndex = 78;
@@ -594,7 +590,7 @@
             // 
             this.cmbJobTitle.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbJobTitle.FormattingEnabled = true;
-            this.cmbJobTitle.Location = new System.Drawing.Point(630, 202);
+            this.cmbJobTitle.Location = new System.Drawing.Point(113, 19);
             this.cmbJobTitle.Name = "cmbJobTitle";
             this.cmbJobTitle.Size = new System.Drawing.Size(121, 27);
             this.cmbJobTitle.TabIndex = 98;
@@ -603,7 +599,7 @@
             // 
             this.cmbDept.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.cmbDept.FormattingEnabled = true;
-            this.cmbDept.Location = new System.Drawing.Point(630, 242);
+            this.cmbDept.Location = new System.Drawing.Point(113, 59);
             this.cmbDept.Name = "cmbDept";
             this.cmbDept.Size = new System.Drawing.Size(121, 27);
             this.cmbDept.TabIndex = 99;
@@ -611,7 +607,7 @@
             // picUserIMG
             // 
             this.picUserIMG.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.picUserIMG.Location = new System.Drawing.Point(964, 91);
+            this.picUserIMG.Location = new System.Drawing.Point(954, 132);
             this.picUserIMG.Name = "picUserIMG";
             this.picUserIMG.Size = new System.Drawing.Size(192, 243);
             this.picUserIMG.TabIndex = 146;
@@ -620,7 +616,7 @@
             // btnUploadIMG
             // 
             this.btnUploadIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnUploadIMG.Location = new System.Drawing.Point(1016, 173);
+            this.btnUploadIMG.Location = new System.Drawing.Point(1006, 214);
             this.btnUploadIMG.Margin = new System.Windows.Forms.Padding(4);
             this.btnUploadIMG.Name = "btnUploadIMG";
             this.btnUploadIMG.Size = new System.Drawing.Size(90, 73);
@@ -628,19 +624,35 @@
             this.btnUploadIMG.Text = "Upload Image";
             this.btnUploadIMG.UseVisualStyleBackColor = true;
             // 
+            // dtpDateOfBirth
+            // 
+            this.dtpDateOfBirth.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.dtpDateOfBirth.Location = new System.Drawing.Point(362, 368);
+            this.dtpDateOfBirth.Name = "dtpDateOfBirth";
+            this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 27);
+            this.dtpDateOfBirth.TabIndex = 149;
+            // 
+            // palstaff
+            // 
+            this.palstaff.Controls.Add(this.cmbDept);
+            this.palstaff.Controls.Add(this.cmbJobTitle);
+            this.palstaff.Controls.Add(this.lblTitDept);
+            this.palstaff.Controls.Add(this.lblTitJobTitle);
+            this.palstaff.Location = new System.Drawing.Point(548, 220);
+            this.palstaff.Name = "palstaff";
+            this.palstaff.Size = new System.Drawing.Size(271, 113);
+            this.palstaff.TabIndex = 150;
+            // 
             // UserModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.palstaff);
+            this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.btnUploadIMG);
             this.Controls.Add(this.picUserIMG);
-            this.Controls.Add(this.cmbDept);
-            this.Controls.Add(this.cmbJobTitle);
-            this.Controls.Add(this.lblTitDept);
-            this.Controls.Add(this.lblTitJobTitle);
             this.Controls.Add(this.btnReomveIMG);
-            this.Controls.Add(this.calDateOfBirth);
             this.Controls.Add(this.lblTitDateOfBirth);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
@@ -675,6 +687,8 @@
             this.grpContact.ResumeLayout(false);
             this.grpContact.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picUserIMG)).EndInit();
+            this.palstaff.ResumeLayout(false);
+            this.palstaff.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -705,7 +719,6 @@
         private System.Windows.Forms.Label lblTitDept;
         private System.Windows.Forms.Label lblTitJobTitle;
         private System.Windows.Forms.Button btnReomveIMG;
-        private System.Windows.Forms.MonthCalendar calDateOfBirth;
         private System.Windows.Forms.Label lblTitDateOfBirth;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbFirstName;
@@ -732,6 +745,8 @@
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.PictureBox picUserIMG;
         private System.Windows.Forms.Button btnUploadIMG;
+        private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
+        private System.Windows.Forms.Panel palstaff;
     }
 }
 

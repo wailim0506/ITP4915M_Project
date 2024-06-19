@@ -46,7 +46,7 @@ namespace templatev1
             rdoStaff.Checked = true;
             cmbDept.Items.AddRange(UserController.GetDept().ToArray());
             radioButtons_CheckedChanged(this, new EventArgs());
-            btnDept.Visible = btnAddStaffAcc.Visible = palMgmt.Visible = UIController.UserMgmt();
+            btnAddStaffAcc.Visible = palMgmt.Visible = UIController.UserMgmt();
 
 
             //For determine which button needs to be shown.

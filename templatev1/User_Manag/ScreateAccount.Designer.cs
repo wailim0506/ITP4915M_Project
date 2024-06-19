@@ -434,27 +434,32 @@
             // 
             // cmbJobTitle
             // 
+            this.cmbJobTitle.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbJobTitle.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbJobTitle.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbJobTitle.FormattingEnabled = true;
-            this.cmbJobTitle.Location = new System.Drawing.Point(372, 319);
+            this.cmbJobTitle.Location = new System.Drawing.Point(372, 349);
             this.cmbJobTitle.Name = "cmbJobTitle";
-            this.cmbJobTitle.Size = new System.Drawing.Size(199, 27);
+            this.cmbJobTitle.Size = new System.Drawing.Size(226, 27);
             this.cmbJobTitle.TabIndex = 124;
             // 
             // cmbDept
             // 
+            this.cmbDept.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbDept.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbDept.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbDept.FormattingEnabled = true;
-            this.cmbDept.Location = new System.Drawing.Point(372, 353);
+            this.cmbDept.Location = new System.Drawing.Point(372, 318);
             this.cmbDept.Name = "cmbDept";
-            this.cmbDept.Size = new System.Drawing.Size(199, 27);
+            this.cmbDept.Size = new System.Drawing.Size(226, 27);
             this.cmbDept.TabIndex = 123;
+            this.cmbDept.SelectedIndexChanged += new System.EventHandler(this.cmbDept_SelectedIndexChanged);
             // 
             // lblTitDept
             // 
             this.lblTitDept.AutoSize = true;
             this.lblTitDept.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.lblTitDept.Location = new System.Drawing.Point(261, 356);
+            this.lblTitDept.Location = new System.Drawing.Point(261, 320);
             this.lblTitDept.Name = "lblTitDept";
             this.lblTitDept.Size = new System.Drawing.Size(94, 19);
             this.lblTitDept.TabIndex = 122;
@@ -464,7 +469,7 @@
             // 
             this.lblTitJobTitle.AutoSize = true;
             this.lblTitJobTitle.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.lblTitJobTitle.Location = new System.Drawing.Point(261, 322);
+            this.lblTitJobTitle.Location = new System.Drawing.Point(261, 352);
             this.lblTitJobTitle.Name = "lblTitJobTitle";
             this.lblTitJobTitle.Size = new System.Drawing.Size(73, 19);
             this.lblTitJobTitle.TabIndex = 121;
@@ -547,7 +552,7 @@
             "Female"});
             this.cmbGender.Location = new System.Drawing.Point(372, 285);
             this.cmbGender.Name = "cmbGender";
-            this.cmbGender.Size = new System.Drawing.Size(199, 27);
+            this.cmbGender.Size = new System.Drawing.Size(177, 27);
             this.cmbGender.TabIndex = 109;
             // 
             // btnCancel
@@ -750,7 +755,7 @@
             // lblSexMsg
             // 
             this.lblSexMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblSexMsg.Location = new System.Drawing.Point(577, 293);
+            this.lblSexMsg.Location = new System.Drawing.Point(609, 291);
             this.lblSexMsg.Name = "lblSexMsg";
             this.lblSexMsg.Size = new System.Drawing.Size(221, 19);
             this.lblSexMsg.TabIndex = 151;
@@ -766,7 +771,7 @@
             // lblJobMsg
             // 
             this.lblJobMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblJobMsg.Location = new System.Drawing.Point(577, 327);
+            this.lblJobMsg.Location = new System.Drawing.Point(609, 357);
             this.lblJobMsg.Name = "lblJobMsg";
             this.lblJobMsg.Size = new System.Drawing.Size(221, 19);
             this.lblJobMsg.TabIndex = 153;
@@ -774,7 +779,7 @@
             // lblDeptMsg
             // 
             this.lblDeptMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblDeptMsg.Location = new System.Drawing.Point(577, 361);
+            this.lblDeptMsg.Location = new System.Drawing.Point(609, 326);
             this.lblDeptMsg.Name = "lblDeptMsg";
             this.lblDeptMsg.Size = new System.Drawing.Size(221, 19);
             this.lblDeptMsg.TabIndex = 154;
@@ -792,14 +797,14 @@
             this.Controls.Add(this.lblfNameMsg);
             this.Controls.Add(this.lblAccTypeSys);
             this.Controls.Add(this.lblTitAccType);
+            this.Controls.Add(this.cmbDept);
             this.Controls.Add(this.dtpDateOfBirth);
+            this.Controls.Add(this.lblTitDept);
             this.Controls.Add(this.btnUploadIMG);
             this.Controls.Add(this.picUserIMG);
             this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.grpPass);
             this.Controls.Add(this.cmbJobTitle);
-            this.Controls.Add(this.cmbDept);
-            this.Controls.Add(this.lblTitDept);
             this.Controls.Add(this.lblTitJobTitle);
             this.Controls.Add(this.lblFormUID);
             this.Controls.Add(this.lblCreateDate);

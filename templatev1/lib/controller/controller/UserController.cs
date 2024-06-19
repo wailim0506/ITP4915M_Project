@@ -100,7 +100,6 @@ namespace controller
 
         public int getLMSID()
         {
-            DataTable dt = new DataTable();
             string SqlQuery = "SELECT * FROM staff";
             dt = ExecuteSqlQuery(SqlQuery);
             return dt.Rows.Count + 1;
@@ -110,7 +109,6 @@ namespace controller
         //Check whether the email or phone has registered an account.
         public bool CheckEmailPhone(string data)
         {
-            DataTable dt = new DataTable();
             sqlstr =
                 $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
                 $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
@@ -118,16 +116,110 @@ namespace controller
             return dt.Rows.Count < 1;
         }
 
-        public List<string> GetJobTitle()
+        public List<string> GetJob(string dept)
         {
-            var query = "SELECT jobtitle FROM jobTitle";
-            DataTable dataTable = db.ExecuteDataTable(query);
+            sqlstr = $"SELECT jobtitle FROM jobTitle WHERE department = \'{dept}\'";
+            DataTable dataTable = db.ExecuteDataTable(sqlstr);
             return dataTable.AsEnumerable().Select(row => row["jobTitle"].ToString()).ToList();
         }
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
             return db.ExecuteDataTable(sqlQuery);
+        }
+
+        private int GetDeliveryManID()
+        {
+            sqlstr = "SELECT * FROM deliverman";
+            dt = db.ExecuteDataTable(sqlstr);
+            return dt.Rows.Count + 1;
+
+        }
+
+        private string GetPermission(string job)
+        {
+            sqlstr = $"SELECT permissionID FROM jobtitle WHERE jobTitle = \'{job}\'";
+            dt = db.ExecuteDataTable(sqlstr);
+            return dt.Rows[0]["permissionID"].ToString();
+
+
+        }
+
+
+        //For create a new staff accounr.
+        public bool create(dynamic Userinfo)
+        {
+            string hashedPwd = HashPassword(Userinfo.pwd);
+            string lmsid = "LMS" + getLMSID().ToString("D5");
+            string accountId = "SA" + getLMSID().ToString("D5");
+            string dept = Userinfo.dept;
+            string permission = GetPermission(Userinfo.jobTitle);
+            string LMDID = "LMD" + GetDeliveryManID().ToString("D3");
+
+            var staffParams = new Dictionary<string, object>
+            {
+                { "@id", lmsid },
+                { "@fName", Userinfo.fName },
+                { "@lName", Userinfo.lName },
+                { "@gender", Userinfo.gender },
+                { "@email", Userinfo.email },
+                { "@phone", Userinfo.phone },
+                { "@img", Userinfo.IMG },
+                { "@dob", Userinfo.dateOfBirth },
+                { "@dept", Userinfo.dept },
+                { "@job", Userinfo.jobTitle }
+            };
+
+            var accountParams = new Dictionary<string, object>
+            {
+                { "@accountId", accountId },
+                { "@id", lmsid },
+                { "@hashedPwd", hashedPwd },
+                { "@joinDate", Userinfo.joinDate },
+                { "@dept", Userinfo.dept },
+                { "@permission", permission }
+            };
+
+
+            if (dept.Equals("LMD03"))
+            {
+                staffParams.Add("@LMDID", ("LMD" + GetDeliveryManID().ToString("D3")));
+            }
+            else
+                staffParams.Add("@LMDID", DBNull.Value);
+
+
+            try
+            {
+                if (dept.Equals("LMD03"))
+                {
+                    db.ExecuteNonQueryCommand(
+                    "INSERT INTO deliverman VALUES(@LMDID, @id)", staffParams);
+                }
+                db.ExecuteNonQueryCommand(
+                    "INSERT INTO staff VALUES(@id, @dept, @fName, @lName, @gender, @email, @phone, @dob, @job, NULL, NULL)",
+                    staffParams);
+                db.ExecuteNonQueryCommand(
+                    "INSERT INTO staff_account VALUES(@accountId, @id, 'active', @hashedPwd, @joinDate, @joinDate)",
+                    accountParams);
+                db.ExecuteNonQueryCommand(
+                    "INSERT INTO staff_account_permission VALUES(@accountId, @permission)", accountParams);
+                return true;
+            }
+            catch (Exception)
+            {
+                
+                db.ExecuteNonQueryCommand("DELETE FROM staff WHERE staffID = @id", accountParams);
+                db.ExecuteNonQueryCommand("DELETE FROM staff_account WHERE staffID = @id", accountParams);
+                db.ExecuteNonQueryCommand("DELETE FROM staff_account_permission WHERE staffID = @id", accountParams);
+                db.ExecuteNonQueryCommand("DELETE FROM deliverman WHERE staffID = @id", accountParams);
+                return false;
+            }
+        }
+        public static string HashPassword(string password)
+        {
+            string salt = BCrypt.Net.BCrypt.GenerateSalt();
+            return BCrypt.Net.BCrypt.HashPassword(password, salt);
         }
     }
 }

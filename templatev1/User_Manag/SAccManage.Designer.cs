@@ -90,7 +90,6 @@
             this.btnAct = new System.Windows.Forms.Button();
             this.palMgmt = new System.Windows.Forms.Panel();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.btnDept = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -320,7 +319,7 @@
             // 
             this.lblClickToSelect.AutoSize = true;
             this.lblClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblClickToSelect.Location = new System.Drawing.Point(1020, 268);
+            this.lblClickToSelect.Location = new System.Drawing.Point(1045, 268);
             this.lblClickToSelect.Name = "lblClickToSelect";
             this.lblClickToSelect.Size = new System.Drawing.Size(101, 17);
             this.lblClickToSelect.TabIndex = 166;
@@ -460,7 +459,7 @@
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpContact.Location = new System.Drawing.Point(218, 736);
             this.grpContact.Name = "grpContact";
-            this.grpContact.Size = new System.Drawing.Size(903, 183);
+            this.grpContact.Size = new System.Drawing.Size(928, 183);
             this.grpContact.TabIndex = 167;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "User contact info";
@@ -738,7 +737,7 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.dgvUser.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvUser.RowTemplate.Height = 23;
-            this.dgvUser.Size = new System.Drawing.Size(903, 365);
+            this.dgvUser.Size = new System.Drawing.Size(928, 365);
             this.dgvUser.TabIndex = 171;
             this.dgvUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvUser_MouseClick);
             // 
@@ -764,24 +763,12 @@
             this.palMgmt.Size = new System.Drawing.Size(745, 50);
             this.palMgmt.TabIndex = 173;
             // 
-            // btnDept
-            // 
-            this.btnDept.BackColor = System.Drawing.Color.White;
-            this.btnDept.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDept.Location = new System.Drawing.Point(924, 216);
-            this.btnDept.Name = "btnDept";
-            this.btnDept.Size = new System.Drawing.Size(227, 35);
-            this.btnDept.TabIndex = 174;
-            this.btnDept.Text = "Modify Department info";
-            this.btnDept.UseVisualStyleBackColor = false;
-            // 
             // SAccManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.btnDept);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.palMgmt);
             this.Controls.Add(this.dgvUser);
@@ -890,7 +877,6 @@
         private System.Windows.Forms.Label lblUCorpAdd;
         private System.Windows.Forms.Label lblUCorpName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Button btnDept;
     }
 }
 

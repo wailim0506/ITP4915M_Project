@@ -343,8 +343,8 @@ namespace templatev1
             if (chkNGDateOfBirth.Checked)
                 value.dateOfBirth = DBNull.Value;
             else
-                value.dateOfBirth = "'" + dtpDateOfBirth.Value.ToString("yyyy-MM-dd") + "'";
-
+                value.dateOfBirth = dtpDateOfBirth.Value.ToString("yyyy/MM/dd");
+            
             if (IMGUploaded)
                 value.IMG = "''";
             else

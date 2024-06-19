@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
+using System.Dynamic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,9 @@ namespace templatev1
     public partial class ScreateAccount : Form
     {
         private string uName, UID;
+        Bitmap IMG;
+        bool IMGUploaded;
+        dynamic value;
         proFileController proFileController;
         AccountController accountController;
         UIController UIController;
@@ -46,7 +49,6 @@ namespace templatev1
             lblCreateDate.Text = DateTime.Now.ToString("yyyy/MM/dd");
             tbPass.PasswordChar = tbConfirmPass.PasswordChar = '*';
             cmbDept.Items.AddRange(UserController.GetDept().ToArray());
-            cmbJobTitle.Items.AddRange(UserController.GetJobTitle().ToArray());
 
 
             //For determine which button needs to be shown.
@@ -176,21 +178,43 @@ namespace templatev1
 
         private void btnCreate_Click(object sender, EventArgs e)
         {
-          //  if (checkInfo()) //Pass to controller and create account
+          if (checkInfo()) //Pass to controller and create account
             {
-              //  setValue(); //If passed set the value in to dynameic.
-               // if (recoveryController.create(value))
-              //  {
-                   // MessageBox.Show(
-                    // "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
-                   // ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                setValue(); //If passed set the value in to dynameic.
+                if (UserController.create(value))
+                {
+                    var nextAccc = MessageBox.Show(
+                     "Create account success! The new account is LMS" + (UserController.getLMSID() - 1).ToString("D5") +
+                    ".\nDo you want to create the next account?", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
 
-            //    }
-              //  else
-             //   {
-            //        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-            //            MessageBoxIcon.Warning);
-              //  }
+                    if (nextAccc == DialogResult.Yes)
+                    {
+                        Form ScreateAccount = new ScreateAccount(accountController, UIController, UserController);
+                        Hide();
+                        //Swap the current form to another.
+                        ScreateAccount.StartPosition = FormStartPosition.Manual;
+                        ScreateAccount.Location = Location;
+                        ScreateAccount.Size = Size;
+                        ScreateAccount.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        Form SAccManage = new SAccManage(accountController, UIController);
+                        Hide();
+                        //Swap the current form to another.
+                        SAccManage.StartPosition = FormStartPosition.Manual;
+                        SAccManage.Location = Location;
+                        SAccManage.Size = Size;
+                        SAccManage.ShowDialog();
+                        Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                }
             }
         }
 
@@ -349,6 +373,31 @@ namespace templatev1
             }
         }
 
+        private void setValue()
+        {
+            value = new ExpandoObject();
+            value.fName = tbFirstName.Text;
+            value.lName = tbLastName.Text;
+            value.joinDate = DateTime.Now.ToString("yyyy/MM/dd");
+
+            if (cmbGender.SelectedIndex == 0)
+                value.gender = "M";
+            else
+                value.gender = "F";
+
+            if (IMGUploaded)
+                value.IMG = "''";
+            else
+                value.IMG = "NULL";
+
+            value.dateOfBirth = dtpDateOfBirth.Value.ToString("yyyy/MM/dd");
+            value.jobTitle = cmbJobTitle.SelectedItem.ToString();
+            value.dept = "LMD" + (cmbDept.SelectedIndex + 1).ToString("D2");
+            value.phone = tbPhone.Text;
+            value.email = tbEmail.Text;
+            value.pwd = tbConfirmPass.Text;
+        }
+
         private void btnProFile_Click(object sender, EventArgs e)
         {
             proFileController = new proFileController(accountController);
@@ -399,6 +448,14 @@ namespace templatev1
             home.Size = Size;
             home.ShowDialog();
             Close();
+        }
+
+        private void cmbDept_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbJobTitle.SelectedIndex = -1; //clear the selected value when the province has change.
+            cmbJobTitle.Items.Clear(); //clear the value when the selected province has change.
+            cmbJobTitle.Items.AddRange(UserController.GetJob(cmbDept.Text)
+                .ToArray()); //change city list base on current selected province.
         }
 
         private void timer1_Tick(object sender, EventArgs e)

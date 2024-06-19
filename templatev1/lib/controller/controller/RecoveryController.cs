@@ -153,9 +153,9 @@ namespace controller
             }
             catch (Exception)
             {
-                db.ExecuteNonQueryCommand("DELETE FROM customer WHERE customerID = @id", dfaddParams);
-                db.ExecuteNonQueryCommand("DELETE FROM customer_account WHERE customerID = @id", dfaddParams);
-                db.ExecuteNonQueryCommand("DELETE FROM customer_dfadd WHERE customerID = @id", dfaddParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer WHERE customerID = @id", accountParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_account WHERE customerID = @id", accountParams);
+                db.ExecuteNonQueryCommand("DELETE FROM customer_dfadd WHERE customerID = @id", accountParams);
                 return false;
             }
         }
