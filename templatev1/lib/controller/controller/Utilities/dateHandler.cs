@@ -125,12 +125,12 @@ namespace controller.Utilities
 
         public string GetSystemDateTime()
         {
-            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+            return DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.CurrentCulture);
         }
 
         public string GetSystemDate()
         {
-            return DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.CurrentCulture);
+            return DateTime.Now.ToString("yyyy/MM/dd", CultureInfo.CurrentCulture);
         }
     }
 }
