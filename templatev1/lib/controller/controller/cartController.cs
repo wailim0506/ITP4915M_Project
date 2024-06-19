@@ -241,28 +241,29 @@ namespace controller
                 return false;
             }
 
-            if (editOrder != true) return true;
-            {
-                //Since no deduction in spare part table when add to cat, no need to deduct in spare part table, only deduct when editing order
-                qtyInSpare_Part += currentQtyInOrder;
-                qtyInSpare_Part -= newQty;
-                sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
-                var parameters = new Dictionary<string, object>
-                {
-                    { "@qty", qtyInSpare_Part },
-                    { "@num", num }
-                };
+            //no need to do it now as no deductin in qty when create order
+            //if (editOrder != true) return true;
+            //{
+            //    //Since no deduction in spare part table when add to cat, no need to deduct in spare part table, only deduct when editing order
+            //    qtyInSpare_Part += currentQtyInOrder;
+            //    qtyInSpare_Part -= newQty;
+            //    sqlCmd = $"UPDATE spare_part SET quantity = @qty WHERE partNumber = @num";
+            //    var parameters = new Dictionary<string, object>
+            //    {
+            //        { "@qty", qtyInSpare_Part },
+            //        { "@num", num }
+            //    };
 
-                try
-                {
-                    _db.ExecuteNonQueryCommand(sqlCmd, parameters);
-                }
-                catch (Exception ex)
-                {
-                    Log.LogMessage(LogLevel.Error, "CartController", $"Failed to edit db qty Error: {ex.Message}");
-                    return false;
-                }
-            }
+            //    try
+            //    {
+            //        _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Log.LogMessage(LogLevel.Error, "CartController", $"Failed to edit db qty Error: {ex.Message}");
+            //        return false;
+            //    }
+            //}
 
 
             return true;
@@ -336,7 +337,6 @@ namespace controller
                     return false;
                 }
             }
-
             return true;
         }
 
@@ -386,8 +386,10 @@ namespace controller
                 createInvoice(customerAccountID, orderID) &&
                 createShippingDetail(orderID, shippingDate, shippingAddress))
             {
+                //no need to deduct qty in spare part now, shuold be deduct by storeman
                 //deduct qty in spare part table
-                return DeductQtyInSparePart(id);
+                //return DeductQtyInSparePart(id);
+                return true;
             }
             else
             {

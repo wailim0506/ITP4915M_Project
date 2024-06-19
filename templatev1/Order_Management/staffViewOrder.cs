@@ -276,10 +276,11 @@ namespace templatev1.Order_Management
                     //get part num and it's qty in the order
                     Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
                     //add back now;
-                    foreach (KeyValuePair<string, int> q in partNumQty)
-                    {
-                        controller.addQtyback(q.Key, q.Value, UID);
-                    }
+                    //no need now
+                    //foreach (KeyValuePair<string, int> q in partNumQty)
+                    //{
+                    //    controller.addQtyback(q.Key, q.Value, UID);
+                    //}
 
                     if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID))
                     {

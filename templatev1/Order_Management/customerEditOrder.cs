@@ -97,7 +97,8 @@ namespace templatev1.Order_Management
             if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete))
             {
                 //add qty back to db
-                controller.AddQtyBackToSparePart(partToDelete, orderID, qtyInOrderNow);
+                //no need to add back as no deduction when create order
+                //controller.AddQtyBackToSparePart(partToDelete, orderID, qtyInOrderNow);
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
@@ -157,7 +158,7 @@ namespace templatev1.Order_Management
             }
         }
 
-        private void picTick_Click(object sender, EventArgs e)
+        private void picTick_Click(object sender, EventArgs e)  //edit quantity
         {
             string partToUpdate = tbQauntity.Name; //part number
             string quantity = tbQauntity.Text; //quantity
