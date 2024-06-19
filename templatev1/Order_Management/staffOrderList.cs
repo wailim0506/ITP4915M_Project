@@ -59,28 +59,28 @@ namespace templatev1
             switch (sortBy)
             {
                 case "Order ID (Ascending)":
-                    dt = controller.GetOrder(UID, status, "Id", isManager);
+                    dt = controller.getOrder(UID, status, "Id", isManager);
                     break;
                 case "Order ID (Descending)":
-                    dt = controller.GetOrder(UID, status, "IdDESC", isManager);
+                    dt = controller.getOrder(UID, status, "IdDESC", isManager);
                     break;
                 case "Order Date (Nearest)":
-                    dt = controller.GetOrder(UID, status, "Date", isManager);
+                    dt = controller.getOrder(UID, status, "Date", isManager);
                     break;
                 case "Order Date (Furtherest)":
-                    dt = controller.GetOrder(UID, status, "DateDESC", isManager);
+                    dt = controller.getOrder(UID, status, "DateDESC", isManager);
                     break;
                 case "Delivery Date (Nearest)":
-                    dt = controller.GetOrder(UID, status, "DDate", isManager);
+                    dt = controller.getOrder(UID, status, "DDate", isManager);
                     break;
                 case "Delivery Date (Furtherest)":
-                    dt = controller.GetOrder(UID, status, "DDateDESC", isManager);
+                    dt = controller.getOrder(UID, status, "DDateDESC", isManager);
                     break;
                 case "Customer ID (Ascending)":
-                    dt = controller.GetOrder(UID, status, "cId", isManager);
+                    dt = controller.getOrder(UID, status, "cId", isManager);
                     break;
                 case "Customer ID (Descending)":
-                    dt = controller.GetOrder(UID, status, "", isManager);
+                    dt = controller.getOrder(UID, status, "cIdDESC", isManager);
                     break;
             }
 

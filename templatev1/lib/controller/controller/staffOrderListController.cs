@@ -17,17 +17,37 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable GetOrder(string id, string status, string sortBy, bool isManager)
+        public DataTable getOrder(string id, string status, string sortBy, bool isManager)
         {
-            string statusCondition = status == "All" ? "" : $"AND x.status = '{status}'";
-            string staffCondition = isManager
-                ? ""
-                : $"AND x.staffAccountID = (SELECT staffAccountID FROM staff_account WHERE staffID = '{id}')";
-            string orderCondition = sortBy.EndsWith("DESC") ? $"{sortBy.Substring(0, sortBy.Length - 4)} DESC" : sortBy;
-            string sqlCmd = $"SELECT x.orderID, x.orderDate, y.customerID, z.shippingDate, x.status FROM order_ x, " +
-                            $"customer_account y, shipping_detail z WHERE x.orderID = z.orderID AND y.customerAccountID = " +
-                            $"x.customerAccountID {statusCondition} {staffCondition} ORDER BY {orderCondition}";
-            return _db.ExecuteDataTable(sqlCmd, null) ?? throw new Exception("No data found");
+            //id = staff id
+            String sqlCmd = "";
+            var sortByOptions = new Dictionary<string, string>
+            {
+                { "Id", "x.orderID" },
+                { "IdDESC", "x.orderID DESC" },
+                { "Date", "x.orderDate DESC" },
+                { "DateDESC", "x.orderDate" },
+                { "DDate", "z.shippingDate" },
+                { "DDateDESC", "z.shippingDate DESC" },
+                { "cId", "y.customerID" },
+                { "cIdDESC", "y.customerID DESC" }
+            };
+
+            if (!sortByOptions.ContainsKey(sortBy)) return _db.ExecuteDataTable(sqlCmd, null);
+            sqlCmd = $"SELECT x.orderID, x.orderDate, y.customerID, z.shippingDate, x.status FROM order_ x, " +
+                     $"customer_account y, shipping_detail z";
+            sqlCmd += !isManager
+                ? ", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = '{id}'"
+                : " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
+
+            if (status != "All")
+            {
+                sqlCmd += $" AND x.status = '{status}'";
+            }
+
+            sqlCmd += $" ORDER BY {sortByOptions[sortBy]}";
+
+            return _db.ExecuteDataTable(sqlCmd, null);
         }
     }
 }

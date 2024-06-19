@@ -26,7 +26,7 @@ namespace Tests
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns(expectedDataTable);
 
             var result = _controller.GetInfo("A00001");
-            
+
             Assert.AreEqual(expectedDataTable, result);
         }
 
@@ -69,7 +69,7 @@ namespace Tests
             var expectedDataTable = new DataTable();
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns(expectedDataTable);
 
-            var result = _controller.AddToCart( "LMSC0001", "A00001", 1,false);
+            var result = _controller.AddToCart("LMSC0001", "A00001", 1, false);
 
             Assert.AreEqual(expectedDataTable, result);
         }
