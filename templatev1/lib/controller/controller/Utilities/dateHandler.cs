@@ -1,18 +1,31 @@
 ﻿using System;
 using System.Globalization;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace controller.Utilities
 {
     public class dateHandler
     {
-        viewOrderController controller;
-        public dateHandler() {
+        // reference fields
+        readonly IServiceProvider _serviceProvider = Startup.ServiceProvider;
+        readonly viewOrderController controller;
 
-            controller = new viewOrderController();
+        // class fields
+        public string SystemDateTime { get; private set; }
+        public string SystemDate { get; private set; }
+
+        public dateHandler()
+        {
+            controller = _serviceProvider.GetRequiredService<viewOrderController>();
+            SystemDateTime = DateTime.Now.ToString(GetSystemDateTime());
+            SystemDate = DateTime.Now.ToString(GetSystemDate());
         }
+
+
         public int DayDifference(string orderID) //calculate day difference
         {
-            string systemFormat = SystemDateFormat(); //the date format got from db depend on the operation system setting
+            string
+                systemFormat = SystemDateFormat(); //the date format got from db depends on the operating system setting
             string[] splitSystemFormat = systemFormat.Split('/');
 
             Boolean monthFirst = false;
@@ -67,7 +80,7 @@ namespace controller.Utilities
             shipMonth = shipMonth.PadLeft(2, '0');
             shipDay = shipDay.PadLeft(2, '0');
 
-            // Handle two-digit year format
+            // Handle two-digit year formats
             if (shortYear && shipYear.Length == 2)
             {
                 shipYear = DateTime.Now.ToString("yyyy").Substring(0, 2) + shipYear;
@@ -108,6 +121,16 @@ namespace controller.Utilities
             DateTimeFormatInfo dtfi = culture.DateTimeFormat;
             string dateFormat = dtfi.ShortDatePattern;
             return dateFormat;
+        }
+
+        public string GetSystemDateTime()
+        {
+            return DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.CurrentCulture);
+        }
+
+        public string GetSystemDate()
+        {
+            return DateTime.Now.ToString("yyyy-MM-dd", CultureInfo.CurrentCulture);
         }
     }
 }
