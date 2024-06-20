@@ -263,7 +263,7 @@ namespace templatev1
             }
             else
             {
-                if (dateHandler.DayDifference(orderID) >= 3)
+                if (lblStatus.Text != "Ready to Ship")
                 {
                     DialogResult dialogResult =
                         MessageBox.Show(
@@ -300,7 +300,7 @@ namespace templatev1
                 }
                 else
                 {
-                    MessageBox.Show("Order cannot be cancel three day before the shipping date", "Error",
+                    MessageBox.Show("Order cannot be cancel when it is ready to ship", "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
