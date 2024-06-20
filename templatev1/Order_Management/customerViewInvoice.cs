@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -194,7 +195,6 @@ namespace templatev1
             //toPDF(imagePath, pdfPath);
             //webBrowser.Navigate(pdfPath);
 
-            PanelToPdfConverter converter = new PanelToPdfConverter();
 
             // Get the directory of the project
             string projectDirectory = Directory.GetCurrentDirectory();

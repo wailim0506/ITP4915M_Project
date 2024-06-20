@@ -13,7 +13,7 @@ namespace controller
     public class proFileController : abstractController
     {
         private Database _db;
-
+        
         private string sqlStr;
         private string accountType, UID;
         private DateTime dateOfBirth, createDate;
@@ -46,6 +46,7 @@ namespace controller
             UID = uid;
             accountType = type;
             UserInfo();
+            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: UserID = {UID}");
         }
 
         public proFileController(AccountController accountController, Database db = null)
@@ -53,6 +54,7 @@ namespace controller
             this.accountController = accountController;
             _db = db ?? new Database();
             UID = accountController.GetUid();
+            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: UserID = {UID}");
         }
 
 
@@ -62,6 +64,7 @@ namespace controller
             DataTable dt = new DataTable();
             string query = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
             dt = _db.ExecuteDataTable(query);
+            Log.LogMessage(LogLevel.Debug,  "proFileController",$"GetDfAdd: DFAdd = {dfadd}");
             dfadd = int.Parse(dt.Rows[0]["dfadd"].ToString());
         }
 
@@ -93,6 +96,7 @@ namespace controller
 
 
             dt = _db.ExecuteDataTable(sqlStr);
+            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: SQL = {sqlStr}");
 
             //Set user data to gobal variable
             if (accountType.Equals("Staff"))
@@ -221,6 +225,7 @@ namespace controller
             }
             catch (Exception e)
             {
+                Log.LogException(new Exception($"Error in CheckEmailPhone. {e.Message}"), "proFileController");
                 return false; //Something went wrong.
             }
         }
@@ -351,32 +356,6 @@ namespace controller
             }
 
             return userImagesDirectory;
-        }
-
-        private string GetUserImagePath(string userId, string imageName)
-        {
-            string userImagesDirectory = GetUserImageDirectory(userId);
-            string imagePath = Path.Combine(userImagesDirectory, imageName);
-
-            // If the image doesn't exist, return the path of the default icon
-            return File.Exists(imagePath) ? imagePath : "DefaultIconPath";
-        }
-
-        public void UploadUserimage(string userId, string imageName)
-        {
-            string imagePath = GetUserImagePath(userId, imageName);
-
-            // If the image doesn't exist, return
-            if (imagePath == "DefaultIconPath")
-            {
-                return;
-            }
-
-            // Upload the image to the server aka insert userid and rename the imageName as uuid
-            string sql = $"";
-
-            // Update the database with the new image path
-            // ...
         }
     }
 }

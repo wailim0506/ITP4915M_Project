@@ -1,25 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
     public partial class AddPartToExistingOrder : Form
     {
         private string uName, UID;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.addPartToOrderController controller;
+        AccountController accountController;
+        UIController UIController;
+        addPartToOrderController controller;
         private string partNum, qty;
-
+        
         public AddPartToExistingOrder()
         {
             InitializeComponent();
@@ -29,13 +26,13 @@ namespace templatev1
         }
 
 
-        public AddPartToExistingOrder(string partNum, string qty, controller.AccountController accountController,
-            controller.UIController UIController)
+        public AddPartToExistingOrder(string partNum, string qty, AccountController accountController,
+            UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.addPartToOrderController();
+            controller = new addPartToOrderController();
             this.partNum = partNum;
             this.qty = qty;
             UID = accountController.GetUid();
@@ -72,7 +69,7 @@ namespace templatev1
 
         private void cmbOrderSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string orderID = cmbOrderSelection.Text.ToString();
+            string orderID = cmbOrderSelection.Text;
             string shippingDateTime = controller.GetShippingDate(orderID);
             string[] shippingDate = shippingDateTime.Split(' ');
             lblShippingDate.Text = shippingDate[0];
@@ -176,7 +173,7 @@ namespace templatev1
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                int qty = int.Parse(tbQty.Text.ToString());
+                int qty = int.Parse(tbQty.Text);
                 qty++;
                 tbQty.Text = qty.ToString();
             }
@@ -191,17 +188,15 @@ namespace templatev1
         private void btnMinusQty_Click(object sender, EventArgs e)
         {
             if (tbQty.Text == "") return; //check have quantity input
-            if (int.Parse(tbQty.Text.ToString()) ==
+            if (int.Parse(tbQty.Text) ==
                 1) //check quantity input equal 0, do not perform anything if equal to 0
             {
                 return;
             }
-            else
-            {
-                int qty = int.Parse(tbQty.Text.ToString());
-                qty--;
-                tbQty.Text = qty.ToString();
-            }
+
+            int qty = int.Parse(tbQty.Text);
+            qty--;
+            tbQty.Text = qty.ToString();
         }
 
         private void btnBackViewPart_Click(object sender, EventArgs e)
@@ -212,7 +207,6 @@ namespace templatev1
             c.Location = Location;
             c.ShowDialog();
             Close();
-            return;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -233,7 +227,7 @@ namespace templatev1
         private static Image imageString(string imageName)
         {
             PropertyInfo property =
-                typeof(Properties.Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
+                typeof(Resources).GetProperty(imageName, BindingFlags.NonPublic | BindingFlags.Static);
             return property?.GetValue(null, null) as Image;
         }
     }
