@@ -832,6 +832,7 @@ namespace templatev1
             this.btnDID.TabIndex = 212;
             this.btnDID.Text = "View DID";
             this.btnDID.UseVisualStyleBackColor = true;
+            this.btnDID.Click += new System.EventHandler(this.btnDID_Click);
             // 
             // staffViewOrder
             // 

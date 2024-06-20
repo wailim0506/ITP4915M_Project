@@ -128,14 +128,27 @@ namespace templatev1
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-
+            Form o = new DID_List(orderID, accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
         }
 
         private void load_data()
         {
             DataTable dt;
             dt = controller.getData(orderID, partNum);
-            lblOrderDate.Text = dt.Rows[0][0].ToString();
+
+            string orderDate = dt.Rows[0][0].ToString();
+            string[]
+                d = orderDate
+                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be disp;ay
+            orderDate = d[0];
+
+            lblOrderDate.Text = orderDate;
             lblOrderSerialNum.Text = dt.Rows[0][1].ToString();
             lblOrderQty.Text = dt.Rows[0][2].ToString();
             lblTotalToDespatch.Text = dt.Rows[0][2].ToString();
@@ -144,7 +157,9 @@ namespace templatev1
             lblCustomerID.Text = dt.Rows[0][6].ToString();
             lblDeliveryman.Text = $"{dt.Rows[0][7]} - {dt.Rows[0][8]} " +
                                   $"{dt.Rows[0][9]}";
-            lblLoc.Text += $"{lblPartName.Text}"; 
+            lblPartNum.Text = partNum;
+            lblLoc.Text += $"{lblPartName.Text}";
+            lblHeading.Text += $"{lblPartName.Text}";
         }
     }
 }

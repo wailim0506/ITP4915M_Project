@@ -34,6 +34,7 @@ namespace templatev1
                 // Start new thread to run the application
 
                 StartThread(() => RunApplication(() => new Login()));
+                //StartThread(() => RunApplication(() => new DID_List("OD24020001")));
 
             }
             catch (Exception ex)

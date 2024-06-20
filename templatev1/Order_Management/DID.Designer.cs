@@ -37,8 +37,10 @@ namespace templatev1
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
             this.palSelect3 = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
@@ -81,14 +83,14 @@ namespace templatev1
             this.btnReturn = new System.Windows.Forms.Button();
             this.pnlDID = new System.Windows.Forms.Panel();
             this.lblHeading = new System.Windows.Forms.Label();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.lblUid = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palLoc = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,8 +103,6 @@ namespace templatev1
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.pnlDID.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.SuspendLayout();
@@ -176,6 +176,16 @@ namespace templatev1
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 28;
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -203,6 +213,18 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -314,7 +336,7 @@ namespace templatev1
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(3, 85);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 100);
+            this.groupBox2.Size = new System.Drawing.Size(379, 100);
             this.groupBox2.TabIndex = 170;
             this.groupBox2.TabStop = false;
             // 
@@ -339,9 +361,9 @@ namespace templatev1
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(392, 85);
+            this.groupBox3.Location = new System.Drawing.Point(388, 85);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(379, 100);
+            this.groupBox3.Size = new System.Drawing.Size(383, 100);
             this.groupBox3.TabIndex = 171;
             this.groupBox3.TabStop = false;
             // 
@@ -641,31 +663,9 @@ namespace templatev1
             this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(222, 117);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(368, 31);
+            this.lblHeading.Size = new System.Drawing.Size(394, 31);
             this.lblHeading.TabIndex = 204;
-            this.lblHeading.Text = "Despatch Instruction Detail";
-            // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
+            this.lblHeading.Text = "Despatch Instruction Detail - ";
             // 
             // lblTimeDate
             // 
@@ -740,6 +740,8 @@ namespace templatev1
             this.Text = "DID";
             this.Load += new System.EventHandler(this.DID_Load);
             this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -762,8 +764,6 @@ namespace templatev1
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.pnlDID.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.palTime.ResumeLayout(false);
             this.palTime.PerformLayout();
             this.palLoc.ResumeLayout(false);

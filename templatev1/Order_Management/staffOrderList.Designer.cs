@@ -44,6 +44,8 @@ namespace templatev1
             this.lblCorpName = new System.Windows.Forms.Label();
             this.palSelect1 = new System.Windows.Forms.Panel();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.btnFunction2 = new System.Windows.Forms.Button();
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -61,8 +63,6 @@ namespace templatev1
             this.lblHeading = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSorting = new System.Windows.Forms.ComboBox();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.btnFunction2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
@@ -253,6 +253,30 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 36;
+            this.palSelect2.Visible = false;
+            // 
+            // btnFunction2
+            // 
+            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction2.Name = "btnFunction2";
+            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.TabIndex = 29;
+            this.btnFunction2.Text = "Invoice Management";
+            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction2.UseVisualStyleBackColor = false;
             // 
             // palLoc
             // 
@@ -447,30 +471,6 @@ namespace templatev1
             this.cmbSorting.Size = new System.Drawing.Size(196, 26);
             this.cmbSorting.TabIndex = 96;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 36;
-            this.palSelect2.Visible = false;
-            // 
-            // btnFunction2
-            // 
-            this.btnFunction2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
-            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction2.TabIndex = 29;
-            this.btnFunction2.Text = "Invoice Management";
-            this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction2.UseVisualStyleBackColor = false;
             // 
             // timer1
             // 

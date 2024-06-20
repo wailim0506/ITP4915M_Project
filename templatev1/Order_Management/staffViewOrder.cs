@@ -316,6 +316,17 @@ namespace templatev1
             Close();
         }
 
+        private void btnDID_Click(object sender, EventArgs e)
+        {
+            Form o = new DID_List(orderID, accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
         public void hideButton()
         {
             palSelect3.Visible = false;
