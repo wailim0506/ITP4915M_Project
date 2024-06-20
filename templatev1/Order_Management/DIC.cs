@@ -87,7 +87,7 @@ namespace templatev1
             btnFunction3.Visible = false;
             palSelect4.Visible = false;
             btnFunction4.Visible = false;
-            btnFunction5.Location = new Point(0, 233);
+            btnFunction5.Location = new Point(0, 223);
             btnFunction5.Controls.Add(palSelect5);
         }
 

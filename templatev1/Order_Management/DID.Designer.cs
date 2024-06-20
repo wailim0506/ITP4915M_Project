@@ -37,21 +37,14 @@ namespace templatev1
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
             this.palSelect3 = new System.Windows.Forms.Panel();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.palLoc = new System.Windows.Forms.Panel();
-            this.lblLoc = new System.Windows.Forms.Label();
-            this.palTime = new System.Windows.Forms.Panel();
-            this.lblUid = new System.Windows.Forms.Label();
-            this.lblTimeDate = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -88,11 +81,14 @@ namespace templatev1
             this.btnReturn = new System.Windows.Forms.Button();
             this.pnlDID = new System.Windows.Forms.Panel();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblTimeDate = new System.Windows.Forms.Label();
+            this.lblUid = new System.Windows.Forms.Label();
+            this.palTime = new System.Windows.Forms.Panel();
+            this.lblLoc = new System.Windows.Forms.Label();
+            this.palLoc = new System.Windows.Forms.Panel();
             this.palNav.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            this.palLoc.SuspendLayout();
-            this.palTime.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -105,6 +101,10 @@ namespace templatev1
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.pnlDID.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.palTime.SuspendLayout();
+            this.palLoc.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -176,16 +176,6 @@ namespace templatev1
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 28;
             // 
-            // picBWMode
-            // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
-            this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
-            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picBWMode.TabIndex = 22;
-            this.picBWMode.TabStop = false;
-            // 
             // btnProFile
             // 
             this.btnProFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
@@ -213,18 +203,6 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
-            // 
-            // picHome
-            // 
-            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
-            this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
-            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHome.TabIndex = 18;
-            this.picHome.TabStop = false;
             // 
             // lblCorpName
             // 
@@ -310,62 +288,6 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
-            // 
-            // palLoc
-            // 
-            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.palLoc.Controls.Add(this.lblLoc);
-            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 40);
-            this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(824, 38);
-            this.palLoc.TabIndex = 168;
-            // 
-            // lblLoc
-            // 
-            this.lblLoc.AutoSize = true;
-            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblLoc.Location = new System.Drawing.Point(6, 9);
-            this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(249, 22);
-            this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Order Management -> DID of ";
-            // 
-            // palTime
-            // 
-            this.palTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.palTime.Controls.Add(this.lblUid);
-            this.palTime.Controls.Add(this.lblTimeDate);
-            this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palTime.Location = new System.Drawing.Point(198, 0);
-            this.palTime.Margin = new System.Windows.Forms.Padding(2);
-            this.palTime.Name = "palTime";
-            this.palTime.Size = new System.Drawing.Size(824, 40);
-            this.palTime.TabIndex = 167;
-            // 
-            // lblUid
-            // 
-            this.lblUid.AutoSize = true;
-            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(664, 13);
-            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(134, 22);
-            this.lblUid.TabIndex = 1;
-            this.lblUid.Text = "Uid: LMXXXX";
-            // 
-            // lblTimeDate
-            // 
-            this.lblTimeDate.AutoSize = true;
-            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
-            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
-            this.lblTimeDate.TabIndex = 0;
-            this.lblTimeDate.Text = "TIME";
             // 
             // groupBox1
             // 
@@ -723,6 +645,84 @@ namespace templatev1
             this.lblHeading.TabIndex = 204;
             this.lblHeading.Text = "Despatch Instruction Detail";
             // 
+            // picBWMode
+            // 
+            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Name = "picBWMode";
+            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBWMode.TabIndex = 22;
+            this.picBWMode.TabStop = false;
+            // 
+            // picHome
+            // 
+            this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHome.TabIndex = 18;
+            this.picHome.TabStop = false;
+            // 
+            // lblTimeDate
+            // 
+            this.lblTimeDate.AutoSize = true;
+            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTimeDate.Name = "lblTimeDate";
+            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
+            this.lblTimeDate.TabIndex = 0;
+            this.lblTimeDate.Text = "TIME";
+            // 
+            // lblUid
+            // 
+            this.lblUid.AutoSize = true;
+            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUid.Location = new System.Drawing.Point(664, 13);
+            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUid.Name = "lblUid";
+            this.lblUid.Size = new System.Drawing.Size(134, 22);
+            this.lblUid.TabIndex = 1;
+            this.lblUid.Text = "Uid: LMXXXX";
+            // 
+            // palTime
+            // 
+            this.palTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.palTime.Controls.Add(this.lblUid);
+            this.palTime.Controls.Add(this.lblTimeDate);
+            this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palTime.Location = new System.Drawing.Point(198, 0);
+            this.palTime.Margin = new System.Windows.Forms.Padding(2);
+            this.palTime.Name = "palTime";
+            this.palTime.Size = new System.Drawing.Size(824, 40);
+            this.palTime.TabIndex = 167;
+            // 
+            // lblLoc
+            // 
+            this.lblLoc.AutoSize = true;
+            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoc.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Name = "lblLoc";
+            this.lblLoc.Size = new System.Drawing.Size(249, 22);
+            this.lblLoc.TabIndex = 0;
+            this.lblLoc.Text = "Order Management -> DID of ";
+            // 
+            // palLoc
+            // 
+            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.palLoc.Controls.Add(this.lblLoc);
+            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Name = "palLoc";
+            this.palLoc.Size = new System.Drawing.Size(824, 38);
+            this.palLoc.TabIndex = 168;
+            // 
             // DID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,12 +740,6 @@ namespace templatev1
             this.Text = "DID";
             this.Load += new System.EventHandler(this.DID_Load);
             this.palNav.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.palLoc.ResumeLayout(false);
-            this.palLoc.PerformLayout();
-            this.palTime.ResumeLayout(false);
-            this.palTime.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -768,6 +762,12 @@ namespace templatev1
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.pnlDID.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
+            this.palTime.ResumeLayout(false);
+            this.palTime.PerformLayout();
+            this.palLoc.ResumeLayout(false);
+            this.palLoc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -792,11 +792,6 @@ namespace templatev1
         private System.Windows.Forms.Button btnFunction3;
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Panel palLoc;
-        private System.Windows.Forms.Label lblLoc;
-        private System.Windows.Forms.Panel palTime;
-        private System.Windows.Forms.Label lblUid;
-        private System.Windows.Forms.Label lblTimeDate;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -833,5 +828,10 @@ namespace templatev1
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Panel pnlDID;
         private System.Windows.Forms.Label lblHeading;
+        private System.Windows.Forms.Label lblTimeDate;
+        private System.Windows.Forms.Label lblUid;
+        private System.Windows.Forms.Panel palTime;
+        private System.Windows.Forms.Label lblLoc;
+        private System.Windows.Forms.Panel palLoc;
     }
 }

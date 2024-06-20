@@ -17,10 +17,10 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable getOrder(string id, string status, string sortBy, bool isManager)
+        public DataTable getOrder(string id, string status, string sortBy, bool isManager)//id = staff id
         {
-            //id = staff id
-            String sqlCmd = "";
+            
+            string sqlCmd = "";
             var sortByOptions = new Dictionary<string, string>
             {
                 { "Id", "x.orderID" },
@@ -37,7 +37,7 @@ namespace controller
             sqlCmd = $"SELECT x.orderID, x.orderDate, y.customerID, z.shippingDate, x.status FROM order_ x, " +
                      $"customer_account y, shipping_detail z";
             sqlCmd += !isManager
-                ? ", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = '{id}'"
+                ? $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'"
                 : " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
 
             if (status != "All")
