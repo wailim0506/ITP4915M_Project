@@ -53,14 +53,17 @@ namespace templatev1
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblPartNum = new System.Windows.Forms.Label();
             this.pnlPartList = new System.Windows.Forms.Panel();
+            this.lblPartNum = new System.Windows.Forms.Label();
             this.lblPartName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbSorting = new System.Windows.Forms.ComboBox();
             this.lblHeading = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -338,16 +341,6 @@ namespace templatev1
             this.groupBox1.TabIndex = 171;
             this.groupBox1.TabStop = false;
             // 
-            // lblPartNum
-            // 
-            this.lblPartNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartNum.Location = new System.Drawing.Point(267, 189);
-            this.lblPartNum.Name = "lblPartNum";
-            this.lblPartNum.Size = new System.Drawing.Size(128, 20);
-            this.lblPartNum.TabIndex = 172;
-            this.lblPartNum.Text = "Part Number";
-            this.lblPartNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pnlPartList
             // 
             this.pnlPartList.AutoScroll = true;
@@ -356,12 +349,22 @@ namespace templatev1
             this.pnlPartList.Size = new System.Drawing.Size(775, 558);
             this.pnlPartList.TabIndex = 0;
             // 
+            // lblPartNum
+            // 
+            this.lblPartNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartNum.Location = new System.Drawing.Point(360, 189);
+            this.lblPartNum.Name = "lblPartNum";
+            this.lblPartNum.Size = new System.Drawing.Size(128, 20);
+            this.lblPartNum.TabIndex = 172;
+            this.lblPartNum.Text = "Part Number";
+            this.lblPartNum.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblPartName
             // 
             this.lblPartName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartName.Location = new System.Drawing.Point(405, 189);
+            this.lblPartName.Location = new System.Drawing.Point(502, 189);
             this.lblPartName.Name = "lblPartName";
-            this.lblPartName.Size = new System.Drawing.Size(307, 20);
+            this.lblPartName.Size = new System.Drawing.Size(242, 20);
             this.lblPartName.TabIndex = 173;
             this.lblPartName.Text = "Spare Part Name";
             this.lblPartName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -369,9 +372,9 @@ namespace templatev1
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(724, 189);
+            this.label1.Location = new System.Drawing.Point(759, 189);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(94, 20);
             this.label1.TabIndex = 174;
             this.label1.Text = "Quantity";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -428,11 +431,53 @@ namespace templatev1
             this.lblHeading.TabIndex = 211;
             this.lblHeading.Text = "List of Despatch Instruction Detail - ";
             // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(259, 189);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(86, 20);
+            this.label2.TabIndex = 212;
+            this.label2.Text = "Category";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(659, 153);
+            this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(72, 18);
+            this.label8.TabIndex = 214;
+            this.label8.Text = "Category:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "All",
+            "A",
+            "B",
+            "C",
+            "D"});
+            this.cmbCategory.Location = new System.Drawing.Point(734, 150);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(52, 26);
+            this.cmbCategory.TabIndex = 213;
+            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            // 
             // DID_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 854);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cmbCategory);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblHeading);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.btnReturn);
@@ -493,5 +538,8 @@ namespace templatev1
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbSorting;
         private System.Windows.Forms.Label lblHeading;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmbCategory;
     }
 }

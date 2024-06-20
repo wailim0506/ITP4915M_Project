@@ -16,34 +16,38 @@ namespace controller
         {
             _db = database ?? new Database();
         }
-        public DataTable getData(string sortBy, string id) //id = order id 
+        public DataTable getData(string category, string sortBy, string id) //id = order id 
         {
             DataTable dt;
-            string sqlCmd = "";
+            string sqlCmd = "SELECT x.partNumber, y.name, x.quantity, y.categoryID FROM order_line x, spare_part y " +
+                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\'";
+
+
+            if (category != "All") 
+            {
+                sqlCmd += $" AND y.categoryID = \'{category}\'";
+            }
 
             switch (sortBy) 
             {
                 case "Part Number (Ascending)":
-                    sqlCmd = $"SELECT x.partNumber,y.name, x.quantity FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\' ORDER BY x.partNumber";
+                    sqlCmd += " ORDER BY x.partNumber";
                     break;
                 case "Part Number (Descending)":
-                    sqlCmd = $"SELECT x.partNumber,y.name, x.quantity FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\' ORDER BY x.partNumber DESC";
+                    sqlCmd += " ORDER BY x.partNumber DESC";
                     break;
                 case "Quantity (Ascending)":
-                    sqlCmd = $"SELECT x.partNumber,y.name, x.quantity FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\' ORDER BY x.quantity";
+                    sqlCmd += " ORDER BY x.quantity";
                     break;
                 case "Quantity (Descending)":
-                    sqlCmd = $"SELECT x.partNumber,y.name, x.quantity FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\' ORDER BY x.quantity DESC";
+                    sqlCmd += " ORDER BY x.quantity DESC";
                     break;
                 default:  //sort by = none
-                    sqlCmd = $"SELECT x.partNumber,y.name, x.quantity FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\'";
+                    sqlCmd += "";
                     break;
             }
+
+            
 
             dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt;

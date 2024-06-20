@@ -51,12 +51,13 @@ namespace templatev1
             }
             timer1.Enabled = true;
             cmbSorting.SelectedIndex = 0;
-            load_data(cmbSorting.Text);
+            cmbCategory.SelectedIndex = 0;
+            load_data(cmbCategory.Text,cmbSorting.Text);
         }
 
-        public void load_data(string sortBy) {
+        public void load_data(string category, string sortBy) {
             pnlPartList.Controls.Clear();
-            DataTable dt = controller.getData(sortBy,orderID);
+            DataTable dt = controller.getData(category,sortBy,orderID);
 
             int yPosition = 8;
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -70,11 +71,20 @@ namespace templatev1
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
+                Label lblCategory = new Label
+                {
+                    Text = $"{dt.Rows[i][3]}",
+                    Location = new Point(42, yPosition),
+                    Font = new Font("Microsoft Sans Serif", 12),
+                    Size = new Size(86, 20),
+                    TextAlign = ContentAlignment.MiddleCenter
+                };
+
                 Label lblPartNum = new Label
                 {
                     Name = $"lblPartNum{i}",
                     Text = $"{dt.Rows[i][0]}",
-                    Location = new Point(50, yPosition),
+                    Location = new Point(143, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(128, 20),
                     TextAlign = ContentAlignment.MiddleCenter
@@ -83,18 +93,18 @@ namespace templatev1
                 Label lblPartName = new Label
                 {
                     Text = $"{dt.Rows[i][1]}",
-                    Location = new Point(188, yPosition),
+                    Location = new Point(285, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(307, 20),
+                    Size = new Size(242, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
                 Label lblQty = new Label
                 {
                     Text = $"{dt.Rows[i][2]}",
-                    Location = new Point(507, yPosition),
+                    Location = new Point(542, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(128, 20),
+                    Size = new Size(94, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
@@ -113,6 +123,7 @@ namespace templatev1
                 yPosition += 50;
 
                 pnlPartList.Controls.Add(lblRowNum);
+                pnlPartList.Controls.Add(lblCategory);
                 pnlPartList.Controls.Add(lblPartNum);
                 pnlPartList.Controls.Add(lblPartName);
                 pnlPartList.Controls.Add(lblQty);
@@ -190,7 +201,12 @@ namespace templatev1
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_data(cmbSorting.Text);
+            load_data(cmbCategory.Text,cmbSorting.Text);
+        }
+
+        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            load_data(cmbCategory.Text, cmbSorting.Text);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
