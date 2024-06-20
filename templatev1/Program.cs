@@ -32,7 +32,9 @@ namespace templatev1
                 log = new Log();
                 handler = new dateHandler();
                 // Start new thread to run the application
+
                 StartThread(() => RunApplication(() => new Login()));
+
             }
             catch (Exception ex)
             {

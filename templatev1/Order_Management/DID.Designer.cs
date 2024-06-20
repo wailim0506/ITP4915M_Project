@@ -55,34 +55,39 @@ namespace templatev1
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblOrderDate = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblOrderSerialNum = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.lblCustomerID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.lblPartNum = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.lblCategory = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.lblPartName = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.lblOrderQty = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.lblDeliveryman = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblOrderDate = new System.Windows.Forms.Label();
-            this.lblOrderSerialNum = new System.Windows.Forms.Label();
-            this.lblCustomerID = new System.Windows.Forms.Label();
-            this.lblPartNum = new System.Windows.Forms.Label();
-            this.lblOrderQty = new System.Windows.Forms.Label();
-            this.lblPartName = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
             this.lblTotalToDespatch = new System.Windows.Forms.Label();
-            this.lblDeliveryman = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnPDF = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
+            this.btnReturn = new System.Windows.Forms.Button();
+            this.pnlDID = new System.Windows.Forms.Panel();
+            this.lblHeading = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -99,6 +104,7 @@ namespace templatev1
             this.groupBox9.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox12.SuspendLayout();
+            this.pnlDID.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -127,7 +133,7 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 845);
+            this.palNav.Size = new System.Drawing.Size(198, 753);
             this.palNav.TabIndex = 164;
             // 
             // palSelect5
@@ -186,7 +192,7 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(3, 694);
+            this.btnProFile.Location = new System.Drawing.Point(3, 595);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
@@ -200,7 +206,7 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(3, 736);
+            this.btnLogOut.Location = new System.Drawing.Point(3, 637);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
@@ -224,7 +230,7 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(4, 792);
+            this.lblCorpName.Location = new System.Drawing.Point(4, 693);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
@@ -312,7 +318,7 @@ namespace templatev1
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 40);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.Size = new System.Drawing.Size(824, 38);
             this.palLoc.TabIndex = 168;
             // 
             // lblLoc
@@ -336,14 +342,14 @@ namespace templatev1
             this.palTime.Location = new System.Drawing.Point(198, 0);
             this.palTime.Margin = new System.Windows.Forms.Padding(2);
             this.palTime.Name = "palTime";
-            this.palTime.Size = new System.Drawing.Size(972, 40);
+            this.palTime.Size = new System.Drawing.Size(824, 40);
             this.palTime.TabIndex = 167;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(814, 9);
+            this.lblUid.Location = new System.Drawing.Point(664, 13);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(134, 22);
@@ -364,7 +370,7 @@ namespace templatev1
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(301, 195);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(768, 83);
             this.groupBox1.TabIndex = 169;
@@ -384,16 +390,34 @@ namespace templatev1
             // 
             this.groupBox2.Controls.Add(this.lblOrderDate);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(301, 277);
+            this.groupBox2.Location = new System.Drawing.Point(3, 85);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(383, 100);
             this.groupBox2.TabIndex = 170;
             this.groupBox2.TabStop = false;
             // 
+            // lblOrderDate
+            // 
+            this.lblOrderDate.AutoSize = true;
+            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Location = new System.Drawing.Point(54, 50);
+            this.lblOrderDate.Name = "lblOrderDate";
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderDate.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(160, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Order Date:";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Location = new System.Drawing.Point(690, 277);
+            this.groupBox3.Location = new System.Drawing.Point(392, 85);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(379, 100);
             this.groupBox3.TabIndex = 171;
@@ -408,44 +432,24 @@ namespace templatev1
             this.label2.TabIndex = 0;
             this.label2.Text = "From: Sales Office\r\nTo: Spare Parts Stores\r\n";
             // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(160, 30);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Order Date:";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblOrderSerialNum);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Location = new System.Drawing.Point(301, 376);
+            this.groupBox4.Location = new System.Drawing.Point(3, 184);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(257, 100);
             this.groupBox4.TabIndex = 172;
             this.groupBox4.TabStop = false;
             // 
-            // groupBox5
+            // lblOrderSerialNum
             // 
-            this.groupBox5.Controls.Add(this.lblCustomerID);
-            this.groupBox5.Controls.Add(this.label5);
-            this.groupBox5.Location = new System.Drawing.Point(560, 376);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(253, 100);
-            this.groupBox5.TabIndex = 173;
-            this.groupBox5.TabStop = false;
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.lblPartNum);
-            this.groupBox6.Controls.Add(this.label6);
-            this.groupBox6.Location = new System.Drawing.Point(816, 376);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(253, 100);
-            this.groupBox6.TabIndex = 174;
-            this.groupBox6.TabStop = false;
+            this.lblOrderSerialNum.AutoSize = true;
+            this.lblOrderSerialNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderSerialNum.Location = new System.Drawing.Point(54, 54);
+            this.lblOrderSerialNum.Name = "lblOrderSerialNum";
+            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderSerialNum.TabIndex = 3;
             // 
             // label4
             // 
@@ -456,6 +460,25 @@ namespace templatev1
             this.label4.TabIndex = 2;
             this.label4.Text = "Order Serial Number:";
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.lblCustomerID);
+            this.groupBox5.Controls.Add(this.label5);
+            this.groupBox5.Location = new System.Drawing.Point(262, 184);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(253, 100);
+            this.groupBox5.TabIndex = 173;
+            this.groupBox5.TabStop = false;
+            // 
+            // lblCustomerID
+            // 
+            this.lblCustomerID.AutoSize = true;
+            this.lblCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerID.Location = new System.Drawing.Point(44, 54);
+            this.lblCustomerID.Name = "lblCustomerID";
+            this.lblCustomerID.Size = new System.Drawing.Size(0, 24);
+            this.lblCustomerID.TabIndex = 3;
+            // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -464,6 +487,25 @@ namespace templatev1
             this.label5.Size = new System.Drawing.Size(160, 30);
             this.label5.TabIndex = 2;
             this.label5.Text = "Dealer Code:";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.lblPartNum);
+            this.groupBox6.Controls.Add(this.label6);
+            this.groupBox6.Location = new System.Drawing.Point(518, 184);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(253, 100);
+            this.groupBox6.TabIndex = 174;
+            this.groupBox6.TabStop = false;
+            // 
+            // lblPartNum
+            // 
+            this.lblPartNum.AutoSize = true;
+            this.lblPartNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartNum.Location = new System.Drawing.Point(42, 54);
+            this.lblPartNum.Name = "lblPartNum";
+            this.lblPartNum.Size = new System.Drawing.Size(0, 24);
+            this.lblPartNum.TabIndex = 3;
             // 
             // label6
             // 
@@ -478,11 +520,20 @@ namespace templatev1
             // 
             this.groupBox7.Controls.Add(this.lblCategory);
             this.groupBox7.Controls.Add(this.label7);
-            this.groupBox7.Location = new System.Drawing.Point(301, 475);
+            this.groupBox7.Location = new System.Drawing.Point(3, 283);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(257, 100);
             this.groupBox7.TabIndex = 175;
             this.groupBox7.TabStop = false;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(54, 54);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(0, 24);
+            this.lblCategory.TabIndex = 3;
             // 
             // label7
             // 
@@ -497,11 +548,20 @@ namespace templatev1
             // 
             this.groupBox8.Controls.Add(this.lblPartName);
             this.groupBox8.Controls.Add(this.label8);
-            this.groupBox8.Location = new System.Drawing.Point(560, 475);
+            this.groupBox8.Location = new System.Drawing.Point(262, 283);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(253, 100);
             this.groupBox8.TabIndex = 176;
             this.groupBox8.TabStop = false;
+            // 
+            // lblPartName
+            // 
+            this.lblPartName.AutoSize = true;
+            this.lblPartName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartName.Location = new System.Drawing.Point(44, 54);
+            this.lblPartName.Name = "lblPartName";
+            this.lblPartName.Size = new System.Drawing.Size(0, 24);
+            this.lblPartName.TabIndex = 3;
             // 
             // label8
             // 
@@ -516,11 +576,20 @@ namespace templatev1
             // 
             this.groupBox9.Controls.Add(this.lblOrderQty);
             this.groupBox9.Controls.Add(this.label9);
-            this.groupBox9.Location = new System.Drawing.Point(816, 475);
+            this.groupBox9.Location = new System.Drawing.Point(518, 283);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(253, 100);
             this.groupBox9.TabIndex = 177;
             this.groupBox9.TabStop = false;
+            // 
+            // lblOrderQty
+            // 
+            this.lblOrderQty.AutoSize = true;
+            this.lblOrderQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderQty.Location = new System.Drawing.Point(42, 54);
+            this.lblOrderQty.Name = "lblOrderQty";
+            this.lblOrderQty.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderQty.TabIndex = 3;
             // 
             // label9
             // 
@@ -535,11 +604,20 @@ namespace templatev1
             // 
             this.groupBox11.Controls.Add(this.lblDeliveryman);
             this.groupBox11.Controls.Add(this.label11);
-            this.groupBox11.Location = new System.Drawing.Point(690, 574);
+            this.groupBox11.Location = new System.Drawing.Point(392, 382);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(379, 100);
             this.groupBox11.TabIndex = 179;
             this.groupBox11.TabStop = false;
+            // 
+            // lblDeliveryman
+            // 
+            this.lblDeliveryman.AutoSize = true;
+            this.lblDeliveryman.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryman.Location = new System.Drawing.Point(55, 54);
+            this.lblDeliveryman.Name = "lblDeliveryman";
+            this.lblDeliveryman.Size = new System.Drawing.Size(0, 24);
+            this.lblDeliveryman.TabIndex = 3;
             // 
             // label11
             // 
@@ -554,11 +632,20 @@ namespace templatev1
             // 
             this.groupBox12.Controls.Add(this.lblTotalToDespatch);
             this.groupBox12.Controls.Add(this.label12);
-            this.groupBox12.Location = new System.Drawing.Point(301, 574);
+            this.groupBox12.Location = new System.Drawing.Point(3, 382);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(383, 100);
             this.groupBox12.TabIndex = 178;
             this.groupBox12.TabStop = false;
+            // 
+            // lblTotalToDespatch
+            // 
+            this.lblTotalToDespatch.AutoSize = true;
+            this.lblTotalToDespatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalToDespatch.Location = new System.Drawing.Point(54, 54);
+            this.lblTotalToDespatch.Name = "lblTotalToDespatch";
+            this.lblTotalToDespatch.Size = new System.Drawing.Size(0, 24);
+            this.lblTotalToDespatch.TabIndex = 3;
             // 
             // label12
             // 
@@ -569,112 +656,83 @@ namespace templatev1
             this.label12.TabIndex = 2;
             this.label12.Text = "Total to Despatach:";
             // 
-            // lblOrderDate
+            // btnPDF
             // 
-            this.lblOrderDate.AutoSize = true;
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDate.Location = new System.Drawing.Point(54, 50);
-            this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(80, 24);
-            this.lblOrderDate.TabIndex = 3;
-            this.lblOrderDate.Text = "12/12/23";
+            this.btnPDF.AutoSize = true;
+            this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDF.Location = new System.Drawing.Point(784, 680);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(112, 49);
+            this.btnPDF.TabIndex = 202;
+            this.btnPDF.Text = "Save as PDF";
+            this.btnPDF.UseVisualStyleBackColor = true;
+            this.btnPDF.Click += new System.EventHandler(this.btnPDF_Click);
             // 
-            // lblOrderSerialNum
+            // btnPrint
             // 
-            this.lblOrderSerialNum.AutoSize = true;
-            this.lblOrderSerialNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderSerialNum.Location = new System.Drawing.Point(54, 54);
-            this.lblOrderSerialNum.Name = "lblOrderSerialNum";
-            this.lblOrderSerialNum.Size = new System.Drawing.Size(80, 24);
-            this.lblOrderSerialNum.TabIndex = 3;
-            this.lblOrderSerialNum.Text = "12/12/23";
+            this.btnPrint.AutoSize = true;
+            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrint.Location = new System.Drawing.Point(902, 680);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(94, 49);
+            this.btnPrint.TabIndex = 201;
+            this.btnPrint.Text = "Print DID";
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
-            // lblCustomerID
+            // btnReturn
             // 
-            this.lblCustomerID.AutoSize = true;
-            this.lblCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomerID.Location = new System.Drawing.Point(44, 54);
-            this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(80, 24);
-            this.lblCustomerID.TabIndex = 3;
-            this.lblCustomerID.Text = "12/12/23";
+            this.btnReturn.AutoSize = true;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(228, 680);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(94, 49);
+            this.btnReturn.TabIndex = 200;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // lblPartNum
+            // pnlDID
             // 
-            this.lblPartNum.AutoSize = true;
-            this.lblPartNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartNum.Location = new System.Drawing.Point(42, 54);
-            this.lblPartNum.Name = "lblPartNum";
-            this.lblPartNum.Size = new System.Drawing.Size(80, 24);
-            this.lblPartNum.TabIndex = 3;
-            this.lblPartNum.Text = "12/12/23";
+            this.pnlDID.Controls.Add(this.groupBox1);
+            this.pnlDID.Controls.Add(this.groupBox2);
+            this.pnlDID.Controls.Add(this.groupBox3);
+            this.pnlDID.Controls.Add(this.groupBox4);
+            this.pnlDID.Controls.Add(this.groupBox11);
+            this.pnlDID.Controls.Add(this.groupBox5);
+            this.pnlDID.Controls.Add(this.groupBox12);
+            this.pnlDID.Controls.Add(this.groupBox6);
+            this.pnlDID.Controls.Add(this.groupBox9);
+            this.pnlDID.Controls.Add(this.groupBox7);
+            this.pnlDID.Controls.Add(this.groupBox8);
+            this.pnlDID.Location = new System.Drawing.Point(221, 167);
+            this.pnlDID.Name = "pnlDID";
+            this.pnlDID.Size = new System.Drawing.Size(775, 485);
+            this.pnlDID.TabIndex = 203;
             // 
-            // lblOrderQty
+            // lblHeading
             // 
-            this.lblOrderQty.AutoSize = true;
-            this.lblOrderQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderQty.Location = new System.Drawing.Point(42, 55);
-            this.lblOrderQty.Name = "lblOrderQty";
-            this.lblOrderQty.Size = new System.Drawing.Size(80, 24);
-            this.lblOrderQty.TabIndex = 3;
-            this.lblOrderQty.Text = "12/12/23";
-            // 
-            // lblPartName
-            // 
-            this.lblPartName.AutoSize = true;
-            this.lblPartName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartName.Location = new System.Drawing.Point(44, 55);
-            this.lblPartName.Name = "lblPartName";
-            this.lblPartName.Size = new System.Drawing.Size(80, 24);
-            this.lblPartName.TabIndex = 3;
-            this.lblPartName.Text = "12/12/23";
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(54, 55);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(80, 24);
-            this.lblCategory.TabIndex = 3;
-            this.lblCategory.Text = "12/12/23";
-            // 
-            // lblTotalToDespatch
-            // 
-            this.lblTotalToDespatch.AutoSize = true;
-            this.lblTotalToDespatch.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalToDespatch.Location = new System.Drawing.Point(54, 57);
-            this.lblTotalToDespatch.Name = "lblTotalToDespatch";
-            this.lblTotalToDespatch.Size = new System.Drawing.Size(80, 24);
-            this.lblTotalToDespatch.TabIndex = 3;
-            this.lblTotalToDespatch.Text = "12/12/23";
-            // 
-            // lblDeliveryman
-            // 
-            this.lblDeliveryman.AutoSize = true;
-            this.lblDeliveryman.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryman.Location = new System.Drawing.Point(55, 57);
-            this.lblDeliveryman.Name = "lblDeliveryman";
-            this.lblDeliveryman.Size = new System.Drawing.Size(80, 24);
-            this.lblDeliveryman.TabIndex = 3;
-            this.lblDeliveryman.Text = "12/12/23";
+            this.lblHeading.AutoSize = true;
+            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Location = new System.Drawing.Point(222, 117);
+            this.lblHeading.Name = "lblHeading";
+            this.lblHeading.Size = new System.Drawing.Size(368, 31);
+            this.lblHeading.TabIndex = 204;
+            this.lblHeading.Text = "Despatch Instruction Detail";
             // 
             // DID
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 845);
-            this.Controls.Add(this.groupBox11);
-            this.Controls.Add(this.groupBox12);
-            this.Controls.Add(this.groupBox9);
-            this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1022, 753);
+            this.Controls.Add(this.lblHeading);
+            this.Controls.Add(this.pnlDID);
+            this.Controls.Add(this.btnPDF);
+            this.Controls.Add(this.btnPrint);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
@@ -709,7 +767,9 @@ namespace templatev1
             this.groupBox11.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
+            this.pnlDID.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -768,5 +828,10 @@ namespace templatev1
         private System.Windows.Forms.Label lblOrderQty;
         private System.Windows.Forms.Label lblDeliveryman;
         private System.Windows.Forms.Label lblTotalToDespatch;
+        private System.Windows.Forms.Button btnPDF;
+        private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Panel pnlDID;
+        private System.Windows.Forms.Label lblHeading;
     }
 }

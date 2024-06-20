@@ -183,67 +183,36 @@ namespace templatev1
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            //WebBrowser webBrowser = new WebBrowser
-            //{
-            //    Location = new Point(0, 0),
-            //    Size = new Size(0, 0)
-            //};
-            //Controls.Add(webBrowser);
-            //string imagePath = Path.Combine(Path.GetTempPath(), "Invoice.png");
-            //toImg(imagePath, pnlInvoice);
-            //string pdfPath = Path.Combine(Path.GetTempPath(), $"Invoice of {orderID}.pdf");
-            //toPDF(imagePath, pdfPath);
-            //webBrowser.Navigate(pdfPath);
+            string filePath = $"Invoice of {orderID}.pdf";
 
+            SaveInvoiceToPdf(pnlInvoice, filePath);
+            PreviewInvoiceInBrowser(filePath);
 
-            // Get the directory of the project
-            string projectDirectory = Directory.GetCurrentDirectory();
-            string filePath = Path.Combine(projectDirectory, "panel_output.pdf");
-
-            SavePanelToPdf(pnlInvoice, "panel_output.pdf");
-            MessageBox.Show("Panel saved to PDF successfully.");
-
-            // Open the PDF in the default web browser
-            PreviewPdfInBrowser(filePath);
         }
 
-        //private void toImg(string filePath, Panel p)
-        //{
-        //    Bitmap panelBitmap = new Bitmap(p.Width, p.Height);
-        //    p.DrawToBitmap(panelBitmap, new Rectangle(0, 0, p.Width, p.Height));
-        //    panelBitmap.Save(filePath, ImageFormat.Png);
-        //}
-
-        //private void toPDF(string imagePath, string pdfPath)
-        //{
-        //    PrintDocument p = new PrintDocument();
-        //    p.PrintPage += (sender, e) =>
-        //    {
-        //        Image i = Image.FromFile(imagePath);
-        //        e.Graphics.DrawImage(i, 0, 0, e.PageBounds.Width, e.PageBounds.Height);
-        //    };
-
-        //    p.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-        //    p.PrinterSettings.PrintToFile = true;
-        //    p.PrinterSettings.PrintFileName = pdfPath;
-        //    p.Print();
-        //}
-
-        public void SavePanelToPdf(Panel panel, string filePath)
+        private void PreviewInvoiceInBrowser(string filePath)
         {
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open PDF: {ex.Message}");
+            }
+        }
 
-            // Create a new PDF document
+        public void SaveInvoiceToPdf(Panel panel, string filePath)
+        {
             PdfDocument document = new PdfDocument();
-
-            // Add a page to the document
             PdfPage page = document.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
-
-            // Convert panel to bitmap
             Bitmap panelBitmap = new Bitmap(panel.Width, panel.Height);
             panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
-
-            // Convert the bitmap to XImage
             using (MemoryStream stream = new MemoryStream())
             {
                 panelBitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
@@ -251,13 +220,10 @@ namespace templatev1
                 XImage image = XImage.FromStream(stream);
                 gfx.DrawImage(image, 0, 0, page.Width, page.Height);
             }
-
-            // Save the document
             document.Save(filePath);
-
-            // Close the document
             document.Close();
         }
+
 
         private void PreviewPdfInBrowser(string filePath)
         {
