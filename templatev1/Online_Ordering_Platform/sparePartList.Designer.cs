@@ -337,9 +337,6 @@ namespace templatev1
             // 
             // tbKW
             // 
-            this.tbKW.AutoCompleteCustomSource.AddRange(new string[] {
-            "door",
-            "test"});
             this.tbKW.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.tbKW.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbKW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;

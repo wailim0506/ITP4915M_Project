@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Reflection;
@@ -54,6 +55,7 @@ namespace templatev1
             int yPosition = 11; //first row y position  
             int currentGrpBox = 0;
 
+            List <string> partName = new List <string>();
             for (int i = 0; i < rowNeed; i++)
             {
                 for (int k = 0; k < columnPerRow; k++)
@@ -165,12 +167,17 @@ namespace templatev1
 
                     pnlSP.Controls.Add(grpSpareBox);
                     ++currentGrpBox;
+                    partName.Add(lblName.Text);
                 }
 
                 yPosition += 388;
             }
 
             lblResultNum.Text = grpBoxNeeded.ToString();
+
+            AutoCompleteStringCollection autoCompleteCollection = new AutoCompleteStringCollection();
+            autoCompleteCollection.AddRange(partName.ToArray());
+            tbKW.AutoCompleteCustomSource = autoCompleteCollection;
         }
 
         public int countSparePart(DataTable dt)
