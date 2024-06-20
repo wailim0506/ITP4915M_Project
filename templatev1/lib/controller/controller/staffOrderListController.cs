@@ -14,9 +14,8 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable getOrder(string id, string status, string sortBy, bool isManager)//id = staff id
+        public DataTable getOrder(string id, string status, string sortBy, bool isManager) //id = staff id
         {
-            
             string sqlCmd = "";
             var sortByOptions = new Dictionary<string, string>
             {

@@ -59,7 +59,7 @@ namespace controller
             return "AIzaSyCvDbMpDYOev7-eygdiIP0e9xG-gPV18H8";
         }
 
-        private string GenerateMapUrl(string location , string orderId)
+        private string GenerateMapUrl(string location, string orderId)
         {
             return $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15" +
                    $"&size=764x548&maptype=roadmap" +

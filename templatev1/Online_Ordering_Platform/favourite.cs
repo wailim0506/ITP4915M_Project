@@ -55,7 +55,7 @@ namespace templatev1
             int yPosition = 11; //first row y position  
             int currentGrpBox = 0;
 
-            List <string> partName = new List <string>();
+            List<string> partName = new List<string>();
             for (int i = 0; i < rowNeed; i++)
             {
                 for (int k = 0; k < columnPerRow; k++)

@@ -44,12 +44,12 @@ namespace templatev1
             lblUid.Text = $"Uid: {UID}";
             load_data();
         }
-        
+
         private void CustomerViewOrderDelivery_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            lblLoc.Text += $" {orderID}"; 
-            Log.LogMessage(LogLevel.Information,"DeliveryController",DeliveryController.GetDeliveryMap(orderID));
+            lblLoc.Text += $" {orderID}";
+            Log.LogMessage(LogLevel.Information, "DeliveryController", DeliveryController.GetDeliveryMap(orderID));
             //load_data();
         }
 
@@ -71,8 +71,8 @@ namespace templatev1
             shippingDate = d[0];
             shipDate = shippingDate;
             string[] delivermanDetail = ViewController.GetDelivermanDetail(orderID);
-            
-            
+
+
             if (ViewController.GetStatus(orderID) == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";

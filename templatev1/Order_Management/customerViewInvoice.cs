@@ -24,8 +24,7 @@ namespace templatev1
             controller = new viewInvoiceController();
         }
 
-        public customerViewInvoice(string orderID, AccountController accountController,
-            UIController UIController)
+        public customerViewInvoice(string orderID, AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             controller = new viewInvoiceController();

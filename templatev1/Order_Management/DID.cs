@@ -129,7 +129,6 @@ namespace templatev1
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-
         }
 
         private void load_data()
@@ -145,7 +144,7 @@ namespace templatev1
             lblCustomerID.Text = dt.Rows[0][6].ToString();
             lblDeliveryman.Text = $"{dt.Rows[0][7]} - {dt.Rows[0][8]} " +
                                   $"{dt.Rows[0][9]}";
-            lblLoc.Text += $"{lblPartName.Text}"; 
+            lblLoc.Text += $"{lblPartName.Text}";
         }
     }
 }

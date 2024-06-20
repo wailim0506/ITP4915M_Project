@@ -216,6 +216,5 @@ namespace templatev1
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
-
     }
 }

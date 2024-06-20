@@ -14,12 +14,7 @@ namespace TestController
 
             if (viewOrder.GetStatus(orderid) != "Shipped")
             {
-                
             }
-            
-            
         }
-
-
     }
 }

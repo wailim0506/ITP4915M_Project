@@ -18,6 +18,7 @@ namespace templatev1
         UIController UIController;
         staffInvoiceListController controller;
         Boolean isManager;
+
         public staffInvoiceList()
         {
             InitializeComponent();
@@ -42,10 +43,10 @@ namespace templatev1
             {
                 hideButton();
             }
+
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbSorting.Text, cmbStatus.Text);
-
         }
 
         public void load_data(string sortBy, string status)
@@ -102,7 +103,7 @@ namespace templatev1
                 {
                     Invoicestatus = "Not Confirm";
                 }
-                else 
+                else
                 {
                     Invoicestatus = "Confirmed";
                 }
@@ -173,7 +174,7 @@ namespace templatev1
                     Cursor = Cursors.Hand
                 };
 
-               //btnView.Click += btnView_Click;
+                //btnView.Click += btnView_Click;
 
                 pnl_Invoice.Controls.Add(lblRowNum);
                 pnl_Invoice.Controls.Add(lblInvoiceNumebr);
@@ -184,7 +185,6 @@ namespace templatev1
                 pnl_Invoice.Controls.Add(btnView);
 
                 yPosition += 50;
-
             }
         }
 
@@ -196,7 +196,6 @@ namespace templatev1
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
             load_data(cmbSorting.Text, cmbStatus.Text);
-
         }
 
         public void hideButton()
@@ -208,7 +207,5 @@ namespace templatev1
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
-
-        
     }
 }

@@ -2,15 +2,17 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
     public partial class customerEditOrder : Form
     {
-        int index = 0;
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.editOrderController controller;
+        int index;
+        AccountController accountController;
+        UIController UIController;
+        editOrderController controller;
         private string uName, UID;
         string orderID;
         private Boolean isLM;
@@ -18,17 +20,16 @@ namespace templatev1
         public customerEditOrder()
         {
             InitializeComponent();
-            controller = new controller.editOrderController();
+            controller = new editOrderController();
         }
 
-        public customerEditOrder(string orderID, controller.AccountController accountController,
-            controller.UIController UIController)
+        public customerEditOrder(string orderID, AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new controller.editOrderController();
+            controller = new editOrderController();
             //UID = this.accountController.getUID();
 
             UID = "LMC00001"; //hard code for testing
@@ -41,7 +42,7 @@ namespace templatev1
         private void customerEditOrder_Load(object sender, EventArgs e)
         {
             cmbSortOrder.SelectedIndex = 0;
-            loadData(cmbSortOrder.Text.ToString());
+            loadData(cmbSortOrder.Text);
         }
 
         public void picPencil_Click(object sender, EventArgs e)
@@ -62,8 +63,8 @@ namespace templatev1
                         {
                             string partToEdit = control.Text;
                             showEdit(partToEdit);
-                            clickedPencil.Image = Properties.Resources.bin;
-                            clickedPencil.Click += new EventHandler(bin_click);
+                            clickedPencil.Image = Resources.bin;
+                            clickedPencil.Click += bin_click;
                             return;
                         }
 
@@ -97,7 +98,7 @@ namespace templatev1
                 MessageBox.Show("Delete successful.", " Delete Successful", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                loadData(cmbSortOrder.Text.ToString());
+                loadData(cmbSortOrder.Text);
             }
             else if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete) == false)
             {
@@ -107,7 +108,7 @@ namespace templatev1
             else
             {
                 Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
-                loadData(cmbSortOrder.Text.ToString());
+                loadData(cmbSortOrder.Text);
             }
         }
 
@@ -142,7 +143,6 @@ namespace templatev1
             customerViewOrder.Location = Location;
             customerViewOrder.ShowDialog();
             Close();
-            return;
         }
 
         private void tbQauntity_KeyPress(object sender, KeyPressEventArgs e)
@@ -199,7 +199,7 @@ namespace templatev1
                     {
                         MessageBox.Show("Edit successful.", " Edit Successful", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-                        loadData(cmbSortOrder.Text.ToString());
+                        loadData(cmbSortOrder.Text);
                         lblEditQuantity.Visible = false;
                         tbQauntity.Visible = false;
                         picTick.Visible = false;
@@ -225,7 +225,7 @@ namespace templatev1
 
         private void picRefresh_Click(object sender, EventArgs e)
         {
-            loadData(cmbSortOrder.Text.ToString());
+            loadData(cmbSortOrder.Text);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -240,7 +240,7 @@ namespace templatev1
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form o = new templatev1.favourite(accountController, UIController);
+            Form o = new favourite(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -250,7 +250,7 @@ namespace templatev1
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o = new templatev1.cart(accountController, UIController);
+            Form o = new cart(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -260,7 +260,7 @@ namespace templatev1
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form o = new templatev1.sparePartList(accountController, UIController);
+            Form o = new sparePartList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -270,7 +270,7 @@ namespace templatev1
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new templatev1.customerOrderList(accountController, UIController);
+            Form o = new customerOrderList(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -306,7 +306,7 @@ namespace templatev1
             {
                 controller.DeleteOrder(orderID);
                 MessageBox.Show("Since no spare part exist in this order, this order is deleted");
-                Form orderList = new templatev1.customerOrderList(accountController, UIController);
+                Form orderList = new customerOrderList(accountController, UIController);
                 Hide();
                 orderList.StartPosition = FormStartPosition.Manual;
                 orderList.Location = Location;
@@ -320,43 +320,43 @@ namespace templatev1
             int orderTotalPrice = 0;
             for (int i = 1; i <= row; i++)
             {
-                Label lblRowNum = new Label()
+                Label lblRowNum = new Label
                 {
                     Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
                     Location = new Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(30, 20)
                 };
-                Label lblItemNum = new Label()
+                Label lblItemNum = new Label
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(35, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartNum = new Label()
+                Label lblPartNum = new Label
                 {
-                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0].ToString()}",
+                    Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0]}",
                     Location = new Point(124, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblPartName = new Label()
+                Label lblPartName = new Label
                 {
                     Name = $"lblPartName{i}", Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(227, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblQuantity = new Label()
+                Label lblQuantity = new Label
                 {
-                    Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2].ToString()}",
+                    Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2]}",
                     Location = new Point(533, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblUnitPrice = new Label()
+                Label lblUnitPrice = new Label
                 {
-                    Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3].ToString()}",
+                    Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3]}",
                     Location = new Point(645, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                Label lblRowTotalPrice = new Label()
+                Label lblRowTotalPrice = new Label
                 {
                     Name = $"lblRowTotalPrice{i}",
                     Text =
@@ -364,14 +364,14 @@ namespace templatev1
                     Location = new Point(795, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
-                PictureBox picPencil = new PictureBox()
+                PictureBox picPencil = new PictureBox
                 {
                     Name = $"picPencil{i}", SizeMode = PictureBoxSizeMode.Zoom, Size = new Size(23, 29),
-                    Location = new Point(907, rowPosition - 5), Image = Properties.Resources.pencil,
+                    Location = new Point(907, rowPosition - 5), Image = Resources.pencil,
                     Cursor = Cursors.Hand
                 };
 
-                picPencil.Click += new EventHandler(picPencil_Click);
+                picPencil.Click += picPencil_Click;
                 rowPosition += 50;
                 orderTotalPrice += (int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString()));
 
@@ -414,31 +414,31 @@ namespace templatev1
 
         private void cmbSortOrder_SelectedIndexChanged(object sender, EventArgs e)
         {
-            loadData(cmbSortOrder.Text.ToString());
+            loadData(cmbSortOrder.Text);
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.btnColor = ColorTranslator.FromHtml(value.btnColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
     }

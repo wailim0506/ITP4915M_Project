@@ -14,6 +14,7 @@ namespace templatev1
         private string uName, UID;
         string orderID;
         bool isManager;
+
         public DID_List(string orderID)
         {
             InitializeComponent();
@@ -44,22 +45,24 @@ namespace templatev1
             {
                 hideButton();
             }
+
             timer1.Enabled = true;
             cmbSorting.SelectedIndex = 0;
             cmbCategory.SelectedIndex = 0;
-            load_data(cmbCategory.Text,cmbSorting.Text);
+            load_data(cmbCategory.Text, cmbSorting.Text);
         }
 
-        public void load_data(string category, string sortBy) {
+        public void load_data(string category, string sortBy)
+        {
             pnlPartList.Controls.Clear();
-            DataTable dt = controller.getData(category,sortBy,orderID);
+            DataTable dt = controller.getData(category, sortBy, orderID);
 
             int yPosition = 8;
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 Label lblRowNum = new Label
                 {
-                    Text = $"{(i+1)}.",
+                    Text = $"{(i + 1)}.",
                     Location = new Point(3, yPosition),
                     Font = new Font("Microsoft Sans Serif", 12),
                     Size = new Size(41, 20),
@@ -123,7 +126,6 @@ namespace templatev1
                 pnlPartList.Controls.Add(lblPartName);
                 pnlPartList.Controls.Add(lblQty);
                 pnlPartList.Controls.Add(btnView);
-
             }
         }
 
@@ -144,7 +146,7 @@ namespace templatev1
                         if (control.Name == $"lblPartNum{index}")
                         {
                             Form o =
-                                new DID(orderID,control.Text, accountController, UIController);
+                                new DID(orderID, control.Text, accountController, UIController);
                             Hide();
                             o.StartPosition = FormStartPosition.Manual;
                             o.Location = Location;
@@ -196,7 +198,7 @@ namespace templatev1
 
         private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
-            load_data(cmbCategory.Text,cmbSorting.Text);
+            load_data(cmbCategory.Text, cmbSorting.Text);
         }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)

@@ -16,19 +16,20 @@ namespace controller
         {
             _db = database ?? new Database();
         }
+
         public DataTable getData(string category, string sortBy, string id) //id = order id 
         {
             DataTable dt;
             string sqlCmd = "SELECT x.partNumber, y.name, x.quantity, y.categoryID FROM order_line x, spare_part y " +
-                             $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\'";
+                            $"WHERE x.partNumber = y.partNumber AND x.orderID = \'{id}\'";
 
 
-            if (category != "All") 
+            if (category != "All")
             {
                 sqlCmd += $" AND y.categoryID = \'{category}\'";
             }
 
-            switch (sortBy) 
+            switch (sortBy)
             {
                 case "Part Number (Ascending)":
                     sqlCmd += " ORDER BY x.partNumber";
@@ -42,12 +43,11 @@ namespace controller
                 case "Quantity (Descending)":
                     sqlCmd += " ORDER BY x.quantity DESC";
                     break;
-                default:  //sort by = none
+                default: //sort by = none
                     sqlCmd += "";
                     break;
             }
 
-            
 
             dt = _db.ExecuteDataTable(sqlCmd, null);
             return dt;

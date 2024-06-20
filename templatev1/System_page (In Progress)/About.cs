@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using controller;
+using templatev1.Properties;
 
 namespace templatev1
 {
     public partial class About : Form
     {
         public static string UID; //The user ID.
-        controller.AccountController accountController;
-        controller.UIController UIController;
-        controller.proFileController proFileController;
+        AccountController accountController;
+        UIController UIController;
+        proFileController proFileController;
 
         public About()
         {
             InitializeComponent();
         }
 
-        public About(controller.AccountController accountController, controller.UIController UIController)
+        public About(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -54,10 +56,10 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
 
             //For icon color
-            if (Properties.Settings.Default.BWmode == true)
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
         }
 
@@ -122,7 +124,7 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            proFileController = new controller.proFileController(accountController);
+            proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
 
@@ -175,31 +177,31 @@ namespace templatev1
         //For dark mode function.
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            UIController.setMode(Properties.Settings.Default.BWmode);
+            UIController.setMode(Settings.Default.BWmode);
             BWMode();
         }
 
         private void BWMode()
         {
             dynamic value = UIController.getMode();
-            Properties.Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
-            Properties.Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
-            Properties.Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
-            Properties.Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
-            Properties.Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
-            Properties.Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
-            Properties.Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
-            Properties.Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
-            Properties.Settings.Default.BWmode = value.BWmode;
-            if (Properties.Settings.Default.BWmode == true)
+            Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
+            Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
+            Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
+            Settings.Default.navColor = ColorTranslator.FromHtml(value.navColor);
+            Settings.Default.timeColor = ColorTranslator.FromHtml(value.timeColor);
+            Settings.Default.locTbColor = ColorTranslator.FromHtml(value.locTbColor);
+            Settings.Default.logoutColor = ColorTranslator.FromHtml(value.logoutColor);
+            Settings.Default.profileColor = ColorTranslator.FromHtml(value.profileColor);
+            Settings.Default.BWmode = value.BWmode;
+            if (Settings.Default.BWmode)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
             else
             {
-                picBWMode.Image = Properties.Resources.LB;
-                picHome.Image = Properties.Resources.home;
+                picBWMode.Image = Resources.LB;
+                picHome.Image = Resources.home;
             }
         }
 
