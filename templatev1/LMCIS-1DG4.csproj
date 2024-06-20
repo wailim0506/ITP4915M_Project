@@ -220,19 +220,21 @@
     <Compile Include="Order_Management\clerkEditOrder.Designer.cs">
       <DependentUpon>clerkEditOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Order_Management\clerkInvoiceList.cs">
+    <Compile Include="Order_Management\CustomerViewOrderDelivery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Management\clerkInvoiceList.Designer.cs">
-      <DependentUpon>clerkInvoiceList.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Order_Management\CustomerViewOrderDelivery.cs" />
     <Compile Include="Order_Management\CustomerViewOrderDelivery.Designer.cs" />
     <Compile Include="Order_Management\DID_List.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Order_Management\DID_List.Designer.cs">
       <DependentUpon>DID_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Management\staffInvoiceList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\staffInvoiceList.Designer.cs">
+      <DependentUpon>staffInvoiceList.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\staffViewInvoice.cs">
       <SubType>Form</SubType>
@@ -384,7 +386,9 @@
     <Compile Include="Trash\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserMangeS.cs" />
+    <Compile Include="UserMangeS.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserMangeS.Designer.cs" />
     <Compile Include="User_Manag\UserModify.cs">
       <SubType>Form</SubType>
@@ -481,12 +485,12 @@
     <EmbeddedResource Include="Order_Management\clerkEditOrder.resx">
       <DependentUpon>clerkEditOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Order_Management\clerkInvoiceList.resx">
-      <DependentUpon>clerkInvoiceList.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\CustomerViewOrderDelivery.resx" />
     <EmbeddedResource Include="Order_Management\DID_List.resx">
       <DependentUpon>DID_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\staffInvoiceList.resx">
+      <DependentUpon>staffInvoiceList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\staffViewInvoice.resx">
       <DependentUpon>staffViewInvoice.cs</DependentUpon>
