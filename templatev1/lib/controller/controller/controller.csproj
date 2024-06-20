@@ -189,6 +189,7 @@
         <Compile Include="AccountController.cs"/>
         <Compile Include="addPartToOrderController.cs"/>
         <Compile Include="cartController.cs"/>
+        <Compile Include="DeliveryController.cs" />
         <Compile Include="dicController.cs"/>
         <Compile Include="didController.cs"/>
         <Compile Include="staffOrderListController.cs"/>

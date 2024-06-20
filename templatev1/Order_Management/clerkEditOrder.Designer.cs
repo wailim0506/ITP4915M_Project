@@ -277,7 +277,7 @@ namespace templatev1
             this.lblLoc.Name = "lblLoc";
             this.lblLoc.Size = new System.Drawing.Size(435, 22);
             this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Stock Management -> View Supplier -> Add Supplier";
+            this.lblLoc.Text = "Order Management -> Order -> Edit Order";
             // 
             // palTime
             // 

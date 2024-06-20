@@ -28,7 +28,7 @@ namespace TestController
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns(expectedDataTable);
 
             // Act
-            var result = _controller.GetOrder("SA00001", "All", "orderID", true);
+            var result = _controller.getOrder("SA00001", "All", "orderID", true);
 
             // Assert
             Assert.AreEqual(expectedDataTable, result);
@@ -42,7 +42,7 @@ namespace TestController
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns(expectedDataTable);
 
             // Act
-            var result = _controller.GetOrder("SA00001", "Pending", "orderID", false);
+            var result = _controller.getOrder("SA00001", "Pending", "orderID", false);
 
             // Assert
             Assert.AreEqual(expectedDataTable, result);
@@ -56,7 +56,7 @@ namespace TestController
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns(expectedDataTable);
 
             // Act
-            var result = _controller.GetOrder("SA00001", "All", "orderID DESC", true);
+            var result = _controller.getOrder("SA00001", "All", "orderID DESC", true);
 
             // Assert
             Assert.AreEqual(expectedDataTable, result);
@@ -69,7 +69,7 @@ namespace TestController
             _mockDatabase.Setup(db => db.ExecuteDataTable(It.IsAny<string>(), null)).Returns((DataTable)null);
 
             // Act & Assert
-            Assert.Throws<Exception>(() => _controller.GetOrder("SA00001", "All", "orderID", true));
+            Assert.Throws<Exception>(() => _controller.getOrder("SA00001", "All", "orderID", true));
         }
     }
 }

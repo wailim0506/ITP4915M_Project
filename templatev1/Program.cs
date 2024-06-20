@@ -11,9 +11,9 @@ namespace templatev1
 {
     internal static class Program
     {
-        private static Log log;
+        public static Log log;
         private static IServiceProvider serviceProvider;
-
+        public static dateHandler handler;
         // private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
         // private static Database db = new Database(connString);
 
@@ -25,13 +25,16 @@ namespace templatev1
         {
             try
             {
-                var service = new ServiceCollection();
-                ConfigureServices(service);
-                IServiceProvider serviceProvider = service.BuildServiceProvider();
-                log = serviceProvider.GetService<Log>();
+                // var service = new ServiceCollection();
+                // ConfigureServices(service);
+                // IServiceProvider serviceProvider = service.BuildServiceProvider();
+                // log = serviceProvider.GetService<Log>();
+                log = new Log();
+                handler = new dateHandler();
                 // Start new thread to run the application
-                //StartThread(() => RunApplication(() => new Login()));
-                StartThread(() => RunApplication(() => new DID("OD24020001", "C00002")));
+
+                StartThread(() => RunApplication(() => new Login()));
+
             }
             catch (Exception ex)
             {

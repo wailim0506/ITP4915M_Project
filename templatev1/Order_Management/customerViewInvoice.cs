@@ -187,6 +187,7 @@ namespace templatev1
 
             SaveInvoiceToPdf(pnlInvoice, filePath);
             PreviewInvoiceInBrowser(filePath);
+
         }
 
         private void PreviewInvoiceInBrowser(string filePath)
@@ -221,6 +222,24 @@ namespace templatev1
             }
             document.Save(filePath);
             document.Close();
+        }
+
+
+        private void PreviewPdfInBrowser(string filePath)
+        {
+            try
+            {
+                // Use the default system browser to open the PDF file
+                //Process.Start(new ProcessStartInfo
+                //{
+                //    FileName = filePath,
+                //    UseShellExecute = true
+                //});
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open PDF: {ex.Message}");
+            }
         }
 
         private Bitmap CaptureInvoice(Panel p)

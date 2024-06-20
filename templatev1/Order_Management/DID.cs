@@ -34,8 +34,7 @@ namespace templatev1
             this.partNum = partNum;
         }
 
-        public DID(string orderID, string partNum, AccountController accountController,
-            UIController UIController)
+        public DID(string orderID, string partNum, AccountController accountController, UIController UIController)
         {
             InitializeComponent();
             this.orderID = orderID;
