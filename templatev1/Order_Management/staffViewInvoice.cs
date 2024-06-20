@@ -189,6 +189,7 @@ namespace templatev1
                 XImage image = XImage.FromStream(stream);
                 gfx.DrawImage(image, 0, 0, page.Width, page.Height);
             }
+
             document.Save(filePath);
             document.Close();
         }

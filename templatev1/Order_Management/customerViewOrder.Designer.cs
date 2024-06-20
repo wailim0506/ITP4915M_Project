@@ -97,6 +97,7 @@ namespace templatev1
             this.cmbSortOrder = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.lblDayUntil = new System.Windows.Forms.Label();
+            this.btnViewDelivery = new System.Windows.Forms.Button();
             this.grpSparePart.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
@@ -444,7 +445,7 @@ namespace templatev1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(823, 830);
+            this.btnDelete.Location = new System.Drawing.Point(821, 830);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 49);
             this.btnDelete.TabIndex = 70;
@@ -774,7 +775,7 @@ namespace templatev1
             this.btnReorder.AutoSize = true;
             this.btnReorder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReorder.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReorder.Location = new System.Drawing.Point(723, 830);
+            this.btnReorder.Location = new System.Drawing.Point(721, 830);
             this.btnReorder.Name = "btnReorder";
             this.btnReorder.Size = new System.Drawing.Size(94, 49);
             this.btnReorder.TabIndex = 81;
@@ -799,12 +800,7 @@ namespace templatev1
             this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortOrder.FormattingEnabled = true;
-            this.cmbSortOrder.Items.AddRange(new object[] {
-            "None",
-            "Quantity(Ascending)",
-            "Quantity(Descending)",
-            "Total Price(Ascending)",
-            "Total Price(Descending)"});
+            this.cmbSortOrder.Items.AddRange(new object[] { "None", "Quantity(Ascending)", "Quantity(Descending)", "Total Price(Ascending)", "Total Price(Descending)" });
             this.cmbSortOrder.Location = new System.Drawing.Point(283, 774);
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
@@ -830,12 +826,26 @@ namespace templatev1
             this.lblDayUntil.Size = new System.Drawing.Size(0, 20);
             this.lblDayUntil.TabIndex = 90;
             // 
+            // btnViewDelivery
+            // 
+            this.btnViewDelivery.AutoSize = true;
+            this.btnViewDelivery.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewDelivery.Location = new System.Drawing.Point(603, 829);
+            this.btnViewDelivery.Name = "btnViewDelivery";
+            this.btnViewDelivery.Size = new System.Drawing.Size(112, 49);
+            this.btnViewDelivery.TabIndex = 91;
+            this.btnViewDelivery.Text = "View Delivery";
+            this.btnViewDelivery.UseVisualStyleBackColor = true;
+            this.btnViewDelivery.Click += new System.EventHandler(this.btnViewDelivery_Click);
+            // 
             // customerViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1174, 891);
+            this.Controls.Add(this.btnViewDelivery);
             this.Controls.Add(this.lblDayUntil);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -897,8 +907,9 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btnViewDelivery;
 
         #endregion
 

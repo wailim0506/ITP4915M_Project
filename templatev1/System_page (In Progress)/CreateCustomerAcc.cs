@@ -1,10 +1,8 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Dynamic;
-using System.Windows;
 
 namespace templatev1
 {

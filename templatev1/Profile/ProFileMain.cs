@@ -346,7 +346,8 @@ namespace templatev1
                 if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
                                                   dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
                 {
-                    lblDateMsg.Text = UID.StartsWith("LMS") ? "Please select a valid date or click NOT provided." 
+                    lblDateMsg.Text = UID.StartsWith("LMS")
+                        ? "Please select a valid date or click NOT provided."
                         : "Please select a valid date or click NOT provided.";
                     return false;
                 }

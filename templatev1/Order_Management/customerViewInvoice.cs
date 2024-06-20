@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using controller;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-using templatev1;
 using templatev1.Properties;
 
 namespace templatev1
@@ -187,7 +185,6 @@ namespace templatev1
 
             SaveInvoiceToPdf(pnlInvoice, filePath);
             PreviewInvoiceInBrowser(filePath);
-
         }
 
         private void PreviewInvoiceInBrowser(string filePath)
@@ -220,6 +217,7 @@ namespace templatev1
                 XImage image = XImage.FromStream(stream);
                 gfx.DrawImage(image, 0, 0, page.Width, page.Height);
             }
+
             document.Save(filePath);
             document.Close();
         }

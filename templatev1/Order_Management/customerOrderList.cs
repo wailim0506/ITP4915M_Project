@@ -3,7 +3,6 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using controller;
-using templatev1;
 using templatev1.Properties;
 
 namespace templatev1

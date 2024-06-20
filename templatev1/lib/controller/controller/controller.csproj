@@ -144,6 +144,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\System.Diagnostics.DiagnosticSource.8.0.0\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -214,6 +215,7 @@
     <Compile Include="Utilities\dateHandler.cs" />
     <Compile Include="Utilities\IDatabase.cs" />
     <Compile Include="Utilities\Log.cs" />
+    <Compile Include="Utilities\UrlSigner.cs" />
     <Compile Include="viewInvoiceController.cs" />
     <Compile Include="viewOrderController.cs" />
     <Compile Include="viewSparePartController.cs" />

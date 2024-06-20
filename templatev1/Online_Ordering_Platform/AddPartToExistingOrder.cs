@@ -16,7 +16,7 @@ namespace templatev1
         UIController UIController;
         addPartToOrderController controller;
         private string partNum, qty;
-        
+
         public AddPartToExistingOrder()
         {
             InitializeComponent();

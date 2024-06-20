@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Data;
 using System.IO;
-using MySqlConnector;
 using Microsoft.Extensions.Logging;
-using System.Windows.Forms;
 using controller.Utilities;
 
 namespace controller
@@ -13,7 +11,7 @@ namespace controller
     public class proFileController : abstractController
     {
         private Database _db;
-        
+
         private string sqlStr;
         private string accountType, UID;
         private DateTime dateOfBirth, createDate;
@@ -46,7 +44,7 @@ namespace controller
             UID = uid;
             accountType = type;
             UserInfo();
-            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: UserID = {UID}");
+            Log.LogMessage(LogLevel.Debug, "proFileController", $"UserInfo: UserID = {UID}");
         }
 
         public proFileController(AccountController accountController, Database db = null)
@@ -54,7 +52,7 @@ namespace controller
             this.accountController = accountController;
             _db = db ?? new Database();
             UID = accountController.GetUid();
-            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: UserID = {UID}");
+            Log.LogMessage(LogLevel.Debug, "proFileController", $"UserInfo: UserID = {UID}");
         }
 
 
@@ -64,7 +62,7 @@ namespace controller
             DataTable dt = new DataTable();
             string query = $"SELECT dfadd FROM customer_dfadd WHERE customerID = \'{UID}\'";
             dt = _db.ExecuteDataTable(query);
-            Log.LogMessage(LogLevel.Debug,  "proFileController",$"GetDfAdd: DFAdd = {dfadd}");
+            Log.LogMessage(LogLevel.Debug, "proFileController", $"GetDfAdd: DFAdd = {dfadd}");
             dfadd = int.Parse(dt.Rows[0]["dfadd"].ToString());
         }
 
@@ -96,7 +94,7 @@ namespace controller
 
 
             dt = _db.ExecuteDataTable(sqlStr);
-            Log.LogMessage(LogLevel.Debug,  "proFileController",$"UserInfo: SQL = {sqlStr}");
+            Log.LogMessage(LogLevel.Debug, "proFileController", $"UserInfo: SQL = {sqlStr}");
 
             //Set user data to gobal variable
             if (accountType.Equals("Staff"))

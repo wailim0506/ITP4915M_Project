@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Globalization;
 using System.Windows.Forms;
 using controller;
 using controller.Utilities;
-using templatev1;
 using templatev1.Properties;
 
 namespace templatev1
@@ -67,6 +65,13 @@ namespace templatev1
             lblStaffID.Text = $"{viewOrderController.GetStafftId(dt.Rows[0][2].ToString())}";
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
+
+            if (lblStatus.Text != "Shipping")
+            {
+                btnViewDelivery.Visible = false;
+                btnViewDelivery.Enabled = false;
+                btnViewDelivery.Controls.Clear();
+            }
 
             //delivery info
             dt = new DataTable();
@@ -461,6 +466,16 @@ namespace templatev1
                 picBWMode.Image = Resources.LB;
                 picHome.Image = Resources.home;
             }
+        }
+
+        private void btnViewDelivery_Click(object sender, EventArgs e)
+        {
+            Form o = new CustomerViewOrderDelivery(orderID, accountController, UIController, controller);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
         }
     }
 }

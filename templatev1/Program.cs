@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Windows.Forms;
-using controller;
 using controller.Utilities;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace templatev1
@@ -13,6 +10,7 @@ namespace templatev1
     {
         public static Log log;
         private static IServiceProvider serviceProvider;
+
         public static dateHandler handler;
         // private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
         // private static Database db = new Database(connString);
@@ -25,17 +23,11 @@ namespace templatev1
         {
             try
             {
-                // var service = new ServiceCollection();
-                // ConfigureServices(service);
-                // IServiceProvider serviceProvider = service.BuildServiceProvider();
-                // log = serviceProvider.GetService<Log>();
                 log = new Log();
                 handler = new dateHandler();
                 // Start new thread to run the application
 
                 StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new DID_List("OD24020001")));
-
             }
             catch (Exception ex)
             {
@@ -47,58 +39,6 @@ namespace templatev1
             // Application.Run(new Login());
 
             //Application.Run(new customerOrderList());
-        }
-
-        // Configure the services
-        // make the MysqlConnection as models
-        private static void ConfigureServices(IServiceCollection service)
-        {
-            // time out for connection for 30 seconds
-            string connString =
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-            service.AddSingleton(_ => new Database(connString));
-            service.AddSingleton(_ => new Log());
-
-            var controllers = new List<Type>
-            {
-                typeof(AccountController),
-                typeof(addPartToOrderController),
-                typeof(cartController),
-                typeof(staffOrderListController),
-                typeof(delivermanOrderListController),
-                typeof(dicController),
-                typeof(didController),
-                typeof(editOrderController),
-                typeof(favouriteController),
-                typeof(feedbackController),
-                typeof(orderListController),
-                typeof(proFileController),
-                typeof(RecoveryController),
-                typeof(spareListController),
-                typeof(staffOrderListController),
-                typeof(staffViewOrderController),
-                typeof(supplierController),
-                typeof(UIController),
-                typeof(viewInvoiceController),
-                typeof(viewOrderController),
-                typeof(viewSparePartController)
-                // add controllers here
-                // typeof(The name of the controller)
-            };
-            foreach (var controller in controllers)
-            {
-                service.AddTransient(controller);
-            }
-
-            var forms = new List<Type>
-            {
-                typeof(Login)
-                // add forms here
-            };
-            foreach (var form in forms)
-            {
-                service.AddTransient(form);
-            }
         }
 
         // Try to run the application in a new thread

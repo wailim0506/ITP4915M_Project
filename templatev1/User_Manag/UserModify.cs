@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Dynamic;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
-using templatev1;
 
 namespace templatev1
 {
@@ -76,7 +70,7 @@ namespace templatev1
             dynamic info = UserInfo.getUserInfo();
             tbFirstName.Text = info.fName;
             tbLastName.Text = info.lName;
-            cmbGender.Text = (info.sex).Equals("M")?"Male":"Female";
+            cmbGender.Text = (info.sex).Equals("M") ? "Male" : "Female";
             tbEmail.Text = info.email;
             tbPhone.Text = info.phone;
             lblDept.Text = info.dept;
@@ -250,7 +244,7 @@ namespace templatev1
         private void tbEmail_Leave(object sender, EventArgs e)
         {
             if (tbEmail.Text == "")
-                tbEmail.Text = placeholder.email; 
+                tbEmail.Text = placeholder.email;
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -260,7 +254,6 @@ namespace templatev1
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-                    
                 }
                 else //Something wrong from the controller.
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
@@ -313,7 +306,9 @@ namespace templatev1
                 if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
                                                   dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
                 {
-                    lblDateMsg.Text = type.Equals("Staff")?"Please select a valid date or click NOT provided.": "Please select a valid date or click NOT provided.";
+                    lblDateMsg.Text = type.Equals("Staff")
+                        ? "Please select a valid date or click NOT provided."
+                        : "Please select a valid date or click NOT provided.";
                     return false;
                 }
 

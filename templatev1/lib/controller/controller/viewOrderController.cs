@@ -341,5 +341,15 @@ namespace controller
 
             return true;
         }
+
+        public string GetStatus(string orderId)
+        {
+            _db.ExecuteNonQueryCommand(
+                "SELECT status FROM order_ WHERE orderID = @id",
+                new Dictionary<string, object> { { "@id", orderId } });
+            DataTable dt = _db.ExecuteDataTable("SELECT status FROM order_ WHERE orderID = @id",
+                new Dictionary<string, object> { { "@id", orderId } });
+            return dt.Rows[0][0].ToString();
+        }
     }
 }
