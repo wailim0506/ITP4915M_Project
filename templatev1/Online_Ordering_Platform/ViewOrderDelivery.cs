@@ -40,8 +40,8 @@ namespace templatev1
         private void cart_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            load_part(controller.getCartItem(UID));
-            load_customer_address(controller.GetCustomerAddress(UID));
+            // load_part(controller.getCartItem(UID));
+            // load_customer_address(controller.GetCustomerAddress(UID));
         }
 
         public void load_customer_address(DataTable dt)
