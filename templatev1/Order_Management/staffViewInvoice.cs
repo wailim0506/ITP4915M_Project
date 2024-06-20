@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -11,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 
 namespace templatev1
 {
@@ -150,39 +153,44 @@ namespace templatev1
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            WebBrowser webBrowser = new WebBrowser
-            {
-                Location = new Point(0, 0),
-                Size = new Size(0, 0)
-            };
-            Controls.Add(webBrowser);
-            string imagePath = Path.Combine(Path.GetTempPath(), "Invoice.png");
-            toImg(imagePath, pnlInvoice);
-            string pdfPath = Path.Combine(Path.GetTempPath(), $"Invoice of {orderID}.pdf");
-            toPDF(imagePath, pdfPath);
-            webBrowser.Navigate(pdfPath);
+            string filePath = $"Invoice of {orderID}.pdf";
+
+            SaveInvoiceToPdf(pnlInvoice, filePath);
+            PreviewInvoiceInBrowser(filePath);
         }
 
-        private void toImg(string filePath, Panel p)
+        private void PreviewInvoiceInBrowser(string filePath)
         {
-            Bitmap panelBitmap = new Bitmap(p.Width, p.Height);
-            p.DrawToBitmap(panelBitmap, new Rectangle(0, 0, p.Width, p.Height));
-            panelBitmap.Save(filePath, ImageFormat.Png);
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open PDF: {ex.Message}");
+            }
         }
 
-        private void toPDF(string imagePath, string pdfPath)
+        public void SaveInvoiceToPdf(Panel panel, string filePath)
         {
-            PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) =>
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            Bitmap panelBitmap = new Bitmap(panel.Width, panel.Height);
+            panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+            using (MemoryStream stream = new MemoryStream())
             {
-                Image i = Image.FromFile(imagePath);
-                e.Graphics.DrawImage(i, 0, 0, e.PageBounds.Width, e.PageBounds.Height);
-            };
-
-            p.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-            p.PrinterSettings.PrintToFile = true;
-            p.PrinterSettings.PrintFileName = pdfPath;
-            p.Print();
+                panelBitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                stream.Position = 0;
+                XImage image = XImage.FromStream(stream);
+                gfx.DrawImage(image, 0, 0, page.Width, page.Height);
+            }
+            document.Save(filePath);
+            document.Close();
         }
 
         private void btnPrint_Click(object sender, EventArgs e)

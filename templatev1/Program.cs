@@ -30,8 +30,8 @@ namespace templatev1
                 IServiceProvider serviceProvider = service.BuildServiceProvider();
                 log = serviceProvider.GetService<Log>();
                 // Start new thread to run the application
-                StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new Order_Management.DID("OD24020001", "C00002")));
+                //StartThread(() => RunApplication(() => new Login()));
+                StartThread(() => RunApplication(() => new DID("OD24020001", "C00002")));
             }
             catch (Exception ex)
             {

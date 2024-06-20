@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
@@ -11,6 +12,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
 
 namespace templatev1
 {
@@ -127,39 +130,44 @@ namespace templatev1
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            WebBrowser webBrowser = new WebBrowser
-            {
-                Location = new Point(0, 0),
-                Size = new Size(0, 0)
-            };
-            Controls.Add(webBrowser);
-            string imagePath = Path.Combine(Path.GetTempPath(), "DIC.png");
-            toImg(imagePath, pnlDIC);
-            string pdfPath = Path.Combine(Path.GetTempPath(), $"DIC of {orderID}.pdf");
-            toPDF(imagePath, pdfPath);
-            webBrowser.Navigate(pdfPath);
+            string filePath = $"DIC of {orderID}.pdf";
+
+            SaveDICToPdf(pnlDIC, filePath);
+            PreviewDICInBrowser(filePath);
         }
 
-        private void toImg(string filePath, Panel p)
+        public void SaveDICToPdf(Panel panel, string filePath)
         {
-            Bitmap panelBitmap = new Bitmap(p.Width, p.Height);
-            p.DrawToBitmap(panelBitmap, new Rectangle(0, 0, p.Width, p.Height));
-            panelBitmap.Save(filePath, ImageFormat.Png);
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            Bitmap panelBitmap = new Bitmap(panel.Width, panel.Height);
+            panel.DrawToBitmap(panelBitmap, new Rectangle(0, 0, panel.Width, panel.Height));
+            using (MemoryStream stream = new MemoryStream())
+            {
+                panelBitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                stream.Position = 0;
+                XImage image = XImage.FromStream(stream);
+                gfx.DrawImage(image, 0, 0, page.Width, page.Height);
+            }
+            document.Save(filePath);
+            document.Close();
         }
 
-        private void toPDF(string imagePath, string pdfPath)
+        private void PreviewDICInBrowser(string filePath)
         {
-            PrintDocument p = new PrintDocument();
-            p.PrintPage += (sender, e) =>
+            try
             {
-                Image i = Image.FromFile(imagePath);
-                e.Graphics.DrawImage(i, 0, 0, e.PageBounds.Width, e.PageBounds.Height);
-            };
-
-            p.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-            p.PrinterSettings.PrintToFile = true;
-            p.PrinterSettings.PrintFileName = pdfPath;
-            p.Print();
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = filePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Could not open PDF: {ex.Message}");
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
