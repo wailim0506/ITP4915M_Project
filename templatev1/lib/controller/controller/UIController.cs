@@ -80,6 +80,11 @@ namespace controller
                     funbtn1 = "Order Management";
                     funbtn2 = "User Management";
                     break;
+                case "MP05": //Purchasing Staff
+                    showbtn1 = showbtn2 = true;
+                    funbtn1 = "Stock Management";
+                    funbtn2 = "User Management";
+                    break;
                 case "MP06": //Order Processing Clerk
                     showbtn1 = showbtn2 = showbtn3 = true;
                     funbtn1 = "Order Management";
