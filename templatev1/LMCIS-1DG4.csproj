@@ -358,16 +358,6 @@
     <Compile Include="test_Database_and_Controller.Designer.cs">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Manag\CAccountMang.cs" />
-    <Compile Include="User_Manag\CAccountMang.Designer.cs" />
-    <Compile Include="User_Manag\SAccountMang.cs" />
-    <Compile Include="User_Manag\SAccountMang.Designer.cs" />
-    <Compile Include="User_Manag\StoreSearchU.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User_Manag\StoreSearchU.Designer.cs">
-      <DependentUpon>StoreSearchU.cs</DependentUpon>
-    </Compile>
     <Compile Include="Stock_Manag\StockAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -398,35 +388,17 @@
     <Compile Include="Trash\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trash\CUserModify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\CUserModify.Designer.cs">
-      <DependentUpon>CUserModify.cs</DependentUpon>
-    </Compile>
     <Compile Include="User_Manag\UserModify.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User_Manag\UserModify.Designer.cs">
       <DependentUpon>UserModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Manag\DeptManagerMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="User_Manag\DeptManagerMain.Designer.cs">
-      <DependentUpon>DeptManagerMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="User_Manag\SAccManage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="User_Manag\SAccManage.Designer.cs">
       <DependentUpon>SAccManage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Trash\Ccreatesub.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\Ccreatesub.Designer.cs">
-      <DependentUpon>Ccreatesub.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Manag\ScreateAccount.cs">
       <SubType>Form</SubType>
@@ -487,12 +459,6 @@
     </Compile>
     <Compile Include="Profile\ProFileMain.Designer.cs">
       <DependentUpon>ProFileMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Trash\StaffProfile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\StaffProfile.Designer.cs">
-      <DependentUpon>StaffProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -578,11 +544,6 @@
     <EmbeddedResource Include="test_Database_and_Controller.resx">
       <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Manag\CAccountMang.resx" />
-    <EmbeddedResource Include="User_Manag\SAccountMang.resx" />
-    <EmbeddedResource Include="User_Manag\StoreSearchU.resx">
-      <DependentUpon>StoreSearchU.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Stock_Manag\StockAdd.resx">
       <DependentUpon>StockAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -598,20 +559,11 @@
     <EmbeddedResource Include="Trash\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Trash\CUserModify.resx">
-      <DependentUpon>CUserModify.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\UserModify.resx">
       <DependentUpon>UserModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Manag\DeptManagerMain.resx">
-      <DependentUpon>DeptManagerMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\SAccManage.resx">
       <DependentUpon>SAccManage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Trash\Ccreatesub.resx">
-      <DependentUpon>Ccreatesub.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Manag\ScreateAccount.resx">
       <DependentUpon>ScreateAccount.cs</DependentUpon>
@@ -642,9 +594,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\ProFileMain.resx">
       <DependentUpon>ProFileMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Trash\StaffProfile.resx">
-      <DependentUpon>StaffProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -724,15 +673,15 @@
     <Content Include="Trash\Trash.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="docker\" />
+    <Folder Include="lib\controller\Utils\" />
+    <Folder Include="Resources\UserIcon\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="lib\controller\controller\controller.csproj">
       <Project>{795b0300-8375-4599-a4af-38a88eab2f07}</Project>
       <Name>controller</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="docker\" />
-    <Folder Include="lib\controller\Utils\" />
-    <Folder Include="Resources\UserIcon\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
