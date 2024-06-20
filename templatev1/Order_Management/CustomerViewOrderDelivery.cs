@@ -36,24 +36,24 @@ namespace templatev1
             this.accountController = accountController;
             this.UIController = UIController;
             dateHandler = new dateHandler();
-            this.DeliveryController = new DeliveryController();
+            DeliveryController = new DeliveryController();
             this.ViewController = ViewController;
             shipDate = "";
             UID = this.accountController.GetUid();
             isLM = accountController.GetIsLm();
             lblUid.Text = $"Uid: {UID}";
+            load_data();
         }
-
-
+        
         private void CustomerViewOrderDelivery_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            lblLoc.Text += $" {orderID}";
-            MessageBox.Show(DeliveryController.GetDeliveryMap(orderID));
+            lblLoc.Text += $" {orderID}"; 
+            Log.LogMessage(LogLevel.Information,"DeliveryController",DeliveryController.GetDeliveryMap(orderID));
             //load_data();
         }
 
-        private async void load_data()
+        private void load_data()
         {
             DataTable dt = ViewController.GetOrder(orderID);
             string[] f = dt.Rows[0][4].ToString().Split(' ');
@@ -67,7 +67,7 @@ namespace templatev1
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
-                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
+                    .Split(' '); //since the database also stores the time following the date, split it so that only date will be display
             shippingDate = d[0];
             shipDate = shippingDate;
             string[] delivermanDetail = ViewController.GetDelivermanDetail(orderID);

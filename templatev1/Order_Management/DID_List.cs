@@ -1,4 +1,7 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Data;
+using System.Drawing;
+using System.Windows.Forms;
 using controller;
 
 namespace templatev1

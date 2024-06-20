@@ -135,6 +135,7 @@
     <ItemGroup>
         <Compile Include="StaffOrderListControllerTests.cs"/>
         <Compile Include="TestDatabase.cs"/>
+        <Compile Include="TestDeliveryController.cs" />
         <Compile Include="Tests.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="TestSupplierController.cs"/>

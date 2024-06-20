@@ -2,6 +2,8 @@
 using System.Data;
 using System.Windows.Forms;
 using controller.Utilities;
+using Microsoft.Extensions.Logging;
+
 
 namespace controller
 {
@@ -29,7 +31,7 @@ namespace controller
                 // Account not found
                 if (dt.Rows.Count < 1)
                 {
-                    Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "AccountController",
+                    Log.LogMessage(LogLevel.Debug, "AccountController",
                         $"Login method User id: {UID} Account not found.");
                     return false;
                 }
