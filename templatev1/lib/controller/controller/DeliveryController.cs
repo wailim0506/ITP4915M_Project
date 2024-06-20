@@ -15,33 +15,32 @@ namespace controller
         public string GetDeliveryMap(string orderId)
         {
             var orderStatus = GetOrderStatus(orderId);
-            var location = orderStatus == "Ready to Ship" ? "Not available" : GetLocation(orderId, orderStatus);
-            return location == "Not available"
-                ? location
-                : $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15&size=600x400&maptype=roadmap&markers=color:red%7C{location}&key={GetApiKey()}";
+            var location = orderStatus == "Ready to Ship" ? "" : GetLocation(orderId);
+            return location == "" ? location : GenerateMapUrl(location, orderId);
         }
 
         private string GetOrderStatus(string orderId) =>
             _database.ExecuteDataTable("SELECT status FROM order_ WHERE OrderID = @orderId",
                 new Dictionary<string, object> { { "@orderId", orderId } }).Rows[0][0].ToString();
 
-        private string GetLocation(string orderId, string orderStatus)
+        private string GetLocation(string orderId)
         {
-            if (orderStatus != "Shipping")
-            {
-                return "Not available";
-            }
-
-            return GetDeliveryRelay(orderId);
+            var orderStatus = GetOrderStatus(orderId);
+            return orderStatus != "Processing" ? "" : GetDeliveryRelay(orderId);
         }
 
         private string GetDeliveryRelay(string orderId)
         {
-            var lat = _database.ExecuteDataTable("SELECT latitude FROM deliveryrelay WHERE RelayID = @relayId",
-                new Dictionary<string, object> { { "@relayId", orderId } }).Rows[0][0].ToString();
-            var lng = _database.ExecuteDataTable("SELECT longitude FROM deliveryrelay WHERE RelayID = @relayId",
-                new Dictionary<string, object> { { "@relayId", orderId } }).Rows[0][0].ToString();
-            return $"{lat},{lng}";
+            var relayId = GetDeliveryRelayId(orderId);
+            var dataTable = _database.ExecuteDataTable("SELECT * FROM deliveryrelay WHERE RelayID = @relayId",
+                new Dictionary<string, object> { { "@relayId", relayId } });
+            return dataTable.Rows.Count > 0 ? $"{dataTable.Rows[0][4]},{dataTable.Rows[0][5]}" : "";
+        }
+
+        private string GetDeliveryRelayId(string orderId)
+        {
+            return _database.ExecuteDataTable("SELECT DeliveryRelayID FROM order_ WHERE OrderID = @orderId",
+                new Dictionary<string, object> { { "@orderId", orderId } }).Rows[0][0].ToString();
         }
 
         public async Task LoadImageAsync(string url, PictureBox pictureBox)
@@ -57,7 +56,22 @@ namespace controller
 
         private string GetApiKey()
         {
-            return "AIzaSyCkf_QIkfACP5z6IlGJzZqqJHl6KBBn4Kg";
+            return "AIzaSyCvDbMpDYOev7-eygdiIP0e9xG-gPV18H8";
+        }
+
+        private string GenerateMapUrl(string location , string orderId)
+        {
+            return $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15" +
+                   $"&size=764x548&maptype=roadmap" +
+                   $"&markers=color:red%7Clabel:{GetLocationName(GetDeliveryRelayId(orderId))}%7C{location}" +
+                   $"&key={GetApiKey()}";
+        }
+
+        private string GetLocationName(string getDeliveryRelayId)
+        {
+            var dataTable = _database.ExecuteDataTable("SELECT * FROM deliveryrelay WHERE RelayID = @relayId",
+                new Dictionary<string, object> { { "@relayId", getDeliveryRelayId } });
+            return dataTable.Rows.Count > 0 ? dataTable.Rows[0][2].ToString() : "";
         }
     }
 }

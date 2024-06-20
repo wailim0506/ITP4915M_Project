@@ -442,7 +442,7 @@
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitPrice.Location = new System.Drawing.Point(254, 407);
             this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(77, 21);
+            this.lblTitPrice.Size = new System.Drawing.Size(74, 21);
             this.lblTitPrice.TabIndex = 81;
             this.lblTitPrice.Text = "Price: ￥";
             // 
@@ -677,7 +677,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "SMStockModify";
-            this.Text = "Form1";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -688,7 +688,6 @@
             this.palLoc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

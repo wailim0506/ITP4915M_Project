@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerViewOrderDelivery));
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblLoc = new System.Windows.Forms.Label();
@@ -148,7 +149,7 @@ namespace templatev1
             // 
             this.lblDelivermanID.AutoSize = true;
             this.lblDelivermanID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDelivermanID.Location = new System.Drawing.Point(809, 102);
+            this.lblDelivermanID.Location = new System.Drawing.Point(795, 102);
             this.lblDelivermanID.Name = "lblDelivermanID";
             this.lblDelivermanID.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanID.TabIndex = 62;
@@ -157,7 +158,7 @@ namespace templatev1
             // 
             this.lblDelivermanName.AutoSize = true;
             this.lblDelivermanName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDelivermanName.Location = new System.Drawing.Point(838, 130);
+            this.lblDelivermanName.Location = new System.Drawing.Point(795, 122);
             this.lblDelivermanName.Name = "lblDelivermanName";
             this.lblDelivermanName.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanName.TabIndex = 63;
@@ -166,7 +167,7 @@ namespace templatev1
             // 
             this.lblDelivermanContact.AutoSize = true;
             this.lblDelivermanContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDelivermanContact.Location = new System.Drawing.Point(838, 167);
+            this.lblDelivermanContact.Location = new System.Drawing.Point(795, 167);
             this.lblDelivermanContact.Name = "lblDelivermanContact";
             this.lblDelivermanContact.Size = new System.Drawing.Size(0, 20);
             this.lblDelivermanContact.TabIndex = 64;
@@ -475,6 +476,7 @@ namespace templatev1
             this.Controls.Add(this.label7);
             this.Controls.Add(this.lblOrderIDLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "CustomerViewOrderDelivery";
             this.Text = "CustomerViewOrderDelivery";

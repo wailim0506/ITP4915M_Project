@@ -66,7 +66,7 @@ namespace templatev1
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
-            if (lblStatus.Text != "Shipping")
+            if (lblStatus.Text != "Processing")
             {
                 btnViewDelivery.Visible = false;
                 btnViewDelivery.Enabled = false;

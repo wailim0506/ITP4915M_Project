@@ -349,10 +349,7 @@ namespace templatev1
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "Category",
-            "Price (Ascending)",
-            "Price (Descending)"});
+            this.cmbSorting.Items.AddRange(new object[] { "Category", "Price (Ascending)", "Price (Descending)" });
             this.cmbSorting.Location = new System.Drawing.Point(1002, 164);
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(151, 26);
@@ -384,12 +381,7 @@ namespace templatev1
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "All",
-            "A",
-            "B",
-            "C",
-            "D"});
+            this.cmbCategory.Items.AddRange(new object[] { "All", "A", "B", "C", "D" });
             this.cmbCategory.Location = new System.Drawing.Point(311, 102);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(48, 28);
@@ -470,7 +462,7 @@ namespace templatev1
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "favourite";
-            this.Text = "favourite";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.favourite_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -482,7 +474,6 @@ namespace templatev1
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

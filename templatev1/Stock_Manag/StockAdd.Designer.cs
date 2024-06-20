@@ -301,7 +301,7 @@
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(170, 29);
+            this.lblUid.Size = new System.Drawing.Size(134, 22);
             this.lblUid.TabIndex = 1;
             this.lblUid.Text = "Uid: LMXXXX";
             // 
@@ -312,7 +312,7 @@
             this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(72, 29);
+            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
             this.lblTimeDate.TabIndex = 0;
             this.lblTimeDate.Text = "TIME";
             // 
@@ -336,7 +336,7 @@
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 9);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(347, 29);
+            this.lblLoc.Size = new System.Drawing.Size(270, 22);
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "Stock Management -> Add Spare";
             // 
@@ -355,7 +355,7 @@
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(378, 140);
             this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(152, 25);
+            this.comboBox5.Size = new System.Drawing.Size(152, 23);
             this.comboBox5.TabIndex = 102;
             // 
             // cmbDangerLevel
@@ -364,7 +364,7 @@
             this.cmbDangerLevel.FormattingEnabled = true;
             this.cmbDangerLevel.Location = new System.Drawing.Point(378, 276);
             this.cmbDangerLevel.Name = "cmbDangerLevel";
-            this.cmbDangerLevel.Size = new System.Drawing.Size(224, 33);
+            this.cmbDangerLevel.Size = new System.Drawing.Size(224, 27);
             this.cmbDangerLevel.TabIndex = 129;
             // 
             // tbName
@@ -372,7 +372,7 @@
             this.tbName.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.tbName.Location = new System.Drawing.Point(378, 173);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(224, 32);
+            this.tbName.Size = new System.Drawing.Size(224, 27);
             this.tbName.TabIndex = 124;
             // 
             // lblTitCatID
@@ -381,7 +381,7 @@
             this.lblTitCatID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitCatID.Location = new System.Drawing.Point(254, 138);
             this.lblTitCatID.Name = "lblTitCatID";
-            this.lblTitCatID.Size = new System.Drawing.Size(122, 29);
+            this.lblTitCatID.Size = new System.Drawing.Size(97, 22);
             this.lblTitCatID.TabIndex = 122;
             this.lblTitCatID.Text = "CatalogID:";
             // 
@@ -391,7 +391,7 @@
             this.lblTitPartNumber.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitPartNumber.Location = new System.Drawing.Point(254, 110);
             this.lblTitPartNumber.Name = "lblTitPartNumber";
-            this.lblTitPartNumber.Size = new System.Drawing.Size(143, 29);
+            this.lblTitPartNumber.Size = new System.Drawing.Size(111, 22);
             this.lblTitPartNumber.TabIndex = 104;
             this.lblTitPartNumber.Text = "Part number:";
             // 
@@ -412,7 +412,7 @@
             this.lblTitSuppiler.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitSuppiler.Location = new System.Drawing.Point(254, 207);
             this.lblTitSuppiler.Name = "lblTitSuppiler";
-            this.lblTitSuppiler.Size = new System.Drawing.Size(129, 29);
+            this.lblTitSuppiler.Size = new System.Drawing.Size(104, 22);
             this.lblTitSuppiler.TabIndex = 109;
             this.lblTitSuppiler.Text = "SuppilerID:";
             // 
@@ -421,7 +421,7 @@
             this.tbPrice.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.tbPrice.Location = new System.Drawing.Point(329, 315);
             this.tbPrice.Name = "tbPrice";
-            this.tbPrice.Size = new System.Drawing.Size(106, 32);
+            this.tbPrice.Size = new System.Drawing.Size(106, 27);
             this.tbPrice.TabIndex = 120;
             // 
             // lblTitPrice
@@ -430,7 +430,7 @@
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitPrice.Location = new System.Drawing.Point(254, 319);
             this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(98, 27);
+            this.lblTitPrice.Size = new System.Drawing.Size(74, 21);
             this.lblTitPrice.TabIndex = 119;
             this.lblTitPrice.Text = "Price: ￥";
             // 
@@ -439,7 +439,7 @@
             this.tbQty.Font = new System.Drawing.Font("Times New Roman", 13F);
             this.tbQty.Location = new System.Drawing.Point(366, 351);
             this.tbQty.Name = "tbQty";
-            this.tbQty.Size = new System.Drawing.Size(44, 32);
+            this.tbQty.Size = new System.Drawing.Size(44, 27);
             this.tbQty.TabIndex = 118;
             // 
             // lblTitName
@@ -448,7 +448,7 @@
             this.lblTitName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitName.Location = new System.Drawing.Point(256, 174);
             this.lblTitName.Name = "lblTitName";
-            this.lblTitName.Size = new System.Drawing.Size(79, 29);
+            this.lblTitName.Size = new System.Drawing.Size(62, 22);
             this.lblTitName.TabIndex = 105;
             this.lblTitName.Text = "Name:";
             // 
@@ -476,10 +476,10 @@
             // 
             this.lstDis.Font = new System.Drawing.Font("Times New Roman", 14F);
             this.lstDis.FormattingEnabled = true;
-            this.lstDis.ItemHeight = 26;
+            this.lstDis.ItemHeight = 21;
             this.lstDis.Location = new System.Drawing.Point(360, 426);
             this.lstDis.Name = "lstDis";
-            this.lstDis.Size = new System.Drawing.Size(438, 160);
+            this.lstDis.Size = new System.Drawing.Size(438, 151);
             this.lstDis.TabIndex = 115;
             // 
             // lblTitRecordLevel
@@ -488,7 +488,7 @@
             this.lblTitRecordLevel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitRecordLevel.Location = new System.Drawing.Point(254, 239);
             this.lblTitRecordLevel.Name = "lblTitRecordLevel";
-            this.lblTitRecordLevel.Size = new System.Drawing.Size(144, 29);
+            this.lblTitRecordLevel.Size = new System.Drawing.Size(119, 22);
             this.lblTitRecordLevel.TabIndex = 108;
             this.lblTitRecordLevel.Text = "Record level:";
             // 
@@ -498,7 +498,7 @@
             this.lblTitDis.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitDis.Location = new System.Drawing.Point(254, 426);
             this.lblTitDis.Name = "lblTitDis";
-            this.lblTitDis.Size = new System.Drawing.Size(124, 27);
+            this.lblTitDis.Size = new System.Drawing.Size(96, 21);
             this.lblTitDis.TabIndex = 114;
             this.lblTitDis.Text = "Discription:";
             // 
@@ -508,7 +508,7 @@
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Location = new System.Drawing.Point(329, 387);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(106, 33);
+            this.cmbStatus.Size = new System.Drawing.Size(106, 27);
             this.cmbStatus.TabIndex = 113;
             // 
             // lblTitStatus
@@ -517,7 +517,7 @@
             this.lblTitStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitStatus.Location = new System.Drawing.Point(254, 389);
             this.lblTitStatus.Name = "lblTitStatus";
-            this.lblTitStatus.Size = new System.Drawing.Size(76, 27);
+            this.lblTitStatus.Size = new System.Drawing.Size(60, 21);
             this.lblTitStatus.TabIndex = 112;
             this.lblTitStatus.Text = "Status:";
             // 
@@ -527,7 +527,7 @@
             this.lblTitDangerLevel.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitDangerLevel.Location = new System.Drawing.Point(254, 277);
             this.lblTitDangerLevel.Name = "lblTitDangerLevel";
-            this.lblTitDangerLevel.Size = new System.Drawing.Size(151, 29);
+            this.lblTitDangerLevel.Size = new System.Drawing.Size(123, 22);
             this.lblTitDangerLevel.TabIndex = 106;
             this.lblTitDangerLevel.Text = "Damger level:";
             // 
@@ -537,7 +537,7 @@
             this.lblTitQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitQty.Location = new System.Drawing.Point(254, 353);
             this.lblTitQty.Name = "lblTitQty";
-            this.lblTitQty.Size = new System.Drawing.Size(89, 27);
+            this.lblTitQty.Size = new System.Drawing.Size(68, 21);
             this.lblTitQty.TabIndex = 111;
             this.lblTitQty.Text = "Quanty:";
             // 
@@ -556,12 +556,12 @@
             this.cmbSuppiler.FormattingEnabled = true;
             this.cmbSuppiler.Location = new System.Drawing.Point(378, 207);
             this.cmbSuppiler.Name = "cmbSuppiler";
-            this.cmbSuppiler.Size = new System.Drawing.Size(224, 25);
+            this.cmbSuppiler.Size = new System.Drawing.Size(224, 23);
             this.cmbSuppiler.TabIndex = 130;
             // 
             // StockAdd
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.cmbSuppiler);
@@ -593,7 +593,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StockAdd";
-            this.Text = "StockAdd";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -604,7 +604,6 @@
             this.palLoc.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

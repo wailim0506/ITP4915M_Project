@@ -409,12 +409,7 @@ namespace templatev1
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "None",
-            "Part Number (Ascending)",
-            "Part Number (Descending)",
-            "Quantity (Ascending)",
-            "Quantity (Descending)"});
+            this.cmbSorting.Items.AddRange(new object[] { "None", "Part Number (Ascending)", "Part Number (Descending)", "Quantity (Ascending)", "Quantity (Descending)" });
             this.cmbSorting.Location = new System.Drawing.Point(856, 150);
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(154, 26);
@@ -458,12 +453,7 @@ namespace templatev1
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "All",
-            "A",
-            "B",
-            "C",
-            "D"});
+            this.cmbCategory.Items.AddRange(new object[] { "All", "A", "B", "C", "D" });
             this.cmbCategory.Location = new System.Drawing.Point(734, 150);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(52, 26);
@@ -490,7 +480,7 @@ namespace templatev1
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Name = "DID_List";
-            this.Text = "DID_List";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.DID_List_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -502,7 +492,6 @@ namespace templatev1
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

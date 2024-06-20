@@ -895,7 +895,7 @@ namespace templatev1
             this.Controls.Add(this.lblOrderDateLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "customerViewOrder";
-            this.Text = "customerViewOrder";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.customerViewOrder_Load);
             this.grpSparePart.ResumeLayout(false);
             this.palLoc.ResumeLayout(false);
