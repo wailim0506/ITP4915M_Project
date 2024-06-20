@@ -208,12 +208,6 @@
     <Compile Include="Online_Ordering_Platform\sparePartList.Designer.cs">
       <DependentUpon>sparePartList.cs</DependentUpon>
     </Compile>
-    <Compile Include="Online_Ordering_Platform\ViewOrderDelivery.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Online_Ordering_Platform\ViewOrderDelivery.Designer.cs">
-      <DependentUpon>ViewOrderDelivery.cs</DependentUpon>
-    </Compile>
     <Compile Include="Online_Ordering_Platform\viewSparePart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +226,8 @@
     <Compile Include="Order_Management\clerkInvoiceList.Designer.cs">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\CustomerViewOrderDelivery.cs" />
+    <Compile Include="Order_Management\CustomerViewOrderDelivery.Designer.cs" />
     <Compile Include="Order_Management\DID_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +384,8 @@
     <Compile Include="Trash\SalesManagStockMain.Designer.cs">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserMangeS.cs" />
+    <Compile Include="UserMangeS.Designer.cs" />
     <Compile Include="User_Manag\UserModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -474,8 +472,8 @@
     <EmbeddedResource Include="Online_Ordering_Platform\sparePartList.resx">
       <DependentUpon>sparePartList.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Online_Ordering_Platform\ViewOrderDelivery.resx">
-      <DependentUpon>ViewOrderDelivery.cs</DependentUpon>
+    <EmbeddedResource Include="Order_Management\CustomerViewOrderDelivery.resx">
+      <DependentUpon>CustomerViewOrderDelivery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart.resx">
       <DependentUpon>viewSparePart.cs</DependentUpon>
@@ -486,6 +484,7 @@
     <EmbeddedResource Include="Order_Management\clerkInvoiceList.resx">
       <DependentUpon>clerkInvoiceList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\CustomerViewOrderDelivery.resx" />
     <EmbeddedResource Include="Order_Management\DID_List.resx">
       <DependentUpon>DID_List.cs</DependentUpon>
     </EmbeddedResource>
@@ -562,6 +561,7 @@
     <EmbeddedResource Include="Trash\SalesManagStockMain.resx">
       <DependentUpon>SalesManagStockMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserMangeS.resx" />
     <EmbeddedResource Include="User_Manag\UserModify.resx">
       <DependentUpon>UserModify.cs</DependentUpon>
     </EmbeddedResource>

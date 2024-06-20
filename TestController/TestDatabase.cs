@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using controller;
+﻿using System.Collections.Generic;
 using controller.Utilities;
-using Moq;
-using MySql.Data.MySqlClient;
 using NUnit.Framework;
 
 namespace TestController

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using controller;
-using System.Drawing;
-using templatev1;
-using templatev1.Properties;
 
 namespace templatev1
 {
@@ -308,7 +305,7 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(selectedUid))
+            if (!string.IsNullOrEmpty(selectedUid))
             {
                 Form UserModify = new UserModify(accountController, UIController, selectedUid);
                 Hide();
@@ -321,7 +318,7 @@ namespace templatev1
             }
             else
                 MessageBox.Show("NOT user selected.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void dgvUser_MouseClick(object sender, MouseEventArgs e)

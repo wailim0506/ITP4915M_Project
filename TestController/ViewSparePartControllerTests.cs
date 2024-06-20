@@ -1,9 +1,8 @@
-﻿using NUnit.Framework;
-using controller;
+﻿using controller;
 using controller.Utilities;
 using System.Data;
 using Moq;
-using System.Collections.Generic;
+using NUnit.Framework;
 
 namespace Tests
 {

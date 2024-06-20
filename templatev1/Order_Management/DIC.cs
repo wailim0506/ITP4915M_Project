@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
 using PdfSharp.Drawing;
@@ -150,6 +145,7 @@ namespace templatev1
                 XImage image = XImage.FromStream(stream);
                 gfx.DrawImage(image, 0, 0, page.Width, page.Height);
             }
+
             document.Save(filePath);
             document.Close();
         }

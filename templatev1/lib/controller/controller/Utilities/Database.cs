@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms;
 
 namespace controller.Utilities
 {
@@ -60,14 +60,14 @@ namespace controller.Utilities
 
         public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
-            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
+            Log.LogMessage(LogLevel.Debug, "Database",
                 $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
             ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteNonQuery());
         }
 
         public MySqlDataReader ExecuteReaderCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
-            Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "Database",
+            Log.LogMessage(LogLevel.Debug, "Database",
                 $"ExecuteReaderCommand : {sqlQuery + queryParameters}");
             return (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
         }
@@ -107,6 +107,7 @@ namespace controller.Utilities
                 command.Parameters.AddWithValue(parameter.Key, parameter.Value);
             }
 
+            Log.LogMessage(LogLevel.Debug, "Database", $"CreateCommand : {command.CommandText}");
             return command;
         }
 
@@ -120,6 +121,7 @@ namespace controller.Utilities
             var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
             var dt = new DataTable();
             dt.Load(reader);
+            Log.LogMessage(LogLevel.Debug, "Database", $"ExecuteDataTable : {sqlQuery}");
             return dt;
         }
 
@@ -136,6 +138,7 @@ namespace controller.Utilities
         {
             using (MySqlCommand command = new MySqlCommand(sqlCmd, _connection))
             {
+                Log.LogMessage(LogLevel.Debug, "Database", $"ExecuteScalar : {sqlCmd}");
                 return command.ExecuteScalar();
             }
         }
@@ -144,6 +147,7 @@ namespace controller.Utilities
         {
             using (MySqlCommand command = new MySqlCommand(sqlQuery, _connection))
             {
+                Log.LogMessage(LogLevel.Debug, "Database", $"ExecuteScalarCommand : {sqlQuery}");
                 return command.ExecuteScalar().ToString();
             }
         }
