@@ -66,10 +66,11 @@ namespace controller
                     funbtn5 = "User Management";
                     break;
                 case "MP02": //Storeman
-                    showbtn1 = showbtn2 = showbtn3 = true;
+                    showbtn1 = showbtn2 = showbtn3 = showbtn4 =true;
                     funbtn1 = "Order Management";
-                    funbtn2 = "Stock Management";
-                    funbtn3 = "User Management";
+                    funbtn2 = "Invoice Management";
+                    funbtn3 = "Stock Management";
+                    funbtn4 = "User Management";
                     break;
                 case "MP03": //Department manager
                     showbtn1 = true;
@@ -188,7 +189,7 @@ namespace controller
         {
             dynamic store = new ExpandoObject();
             store.group1 = !permission.Equals("MP02");
-
+            store.group2 = permission.Equals("MP02");
             return store;
         }
 

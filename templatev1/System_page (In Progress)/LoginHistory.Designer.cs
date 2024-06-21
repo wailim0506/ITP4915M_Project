@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.palNav = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
@@ -328,6 +329,7 @@
             this.dgvLog.AllowUserToDeleteRows = false;
             this.dgvLog.AllowUserToResizeColumns = false;
             this.dgvLog.AllowUserToResizeRows = false;
+            this.dgvLog.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLog.BackgroundColor = global::templatev1.Properties.Settings.Default.btnColor;
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLog.ColumnHeadersVisible = false;
@@ -338,6 +340,8 @@
             this.dgvLog.Name = "dgvLog";
             this.dgvLog.ReadOnly = true;
             this.dgvLog.RowHeadersVisible = false;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvLog.RowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvLog.RowTemplate.Height = 23;
             this.dgvLog.Size = new System.Drawing.Size(790, 735);
             this.dgvLog.TabIndex = 113;

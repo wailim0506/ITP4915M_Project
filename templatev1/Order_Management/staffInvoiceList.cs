@@ -39,14 +39,15 @@ namespace templatev1
 
         private void staffInvoiceList_Load(object sender, EventArgs e)
         {
-            if (!isManager)
-            {
-                hideButton();
-            }
+            
+            hideButton();
+            
 
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbSorting.Text, cmbStatus.Text);
+            
+            
         }
 
         public void load_data(string sortBy, string status)
@@ -166,7 +167,7 @@ namespace templatev1
                 Button btnView = new Button
                 {
                     Name = $"btnView{i}",
-                    Text = "View DID",
+                    Text = "View",
                     Location = new Point(845, yPosition - 5),
                     Font = new Font("Microsoft Sans Serif", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
@@ -174,7 +175,7 @@ namespace templatev1
                     Cursor = Cursors.Hand
                 };
 
-                //btnView.Click += btnView_Click;
+                btnView.Click += btnView_Click;
 
                 pnl_Invoice.Controls.Add(lblRowNum);
                 pnl_Invoice.Controls.Add(lblInvoiceNumebr);
@@ -185,6 +186,52 @@ namespace templatev1
                 pnl_Invoice.Controls.Add(btnView);
 
                 yPosition += 50;
+            }
+        }
+        
+        public void btnView_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                string buttonName = clickedButton.Name;
+                int index = getIndex(buttonName);
+                if (index != -1)
+                {
+                    int i = 0;
+
+                    foreach (Control control in pnl_Invoice.Controls)
+                    {
+                        if (control.Name == $"lblOrderID{index}")
+                        {
+                            Form o =
+                                new staffViewInvoice(control.Text, accountController, UIController, true);
+                            Hide();
+                            o.StartPosition = FormStartPosition.Manual;
+                            o.Location = Location;
+                            o.ShowDialog();
+                            Close();
+                            return;
+                        }
+
+                        ++i;
+                    }
+                }
+            }
+        }
+
+        private int getIndex(string btnName)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (btnName == $"btnView{i}")
+                {
+                    return i;
+                }
+
+                i++;
             }
         }
 
@@ -200,12 +247,56 @@ namespace templatev1
 
         public void hideButton()
         {
-            palSelect3.Visible = false;
-            btnFunction3.Visible = false;
-            palSelect4.Visible = false;
-            btnFunction4.Visible = false;
-            btnFunction5.Location = new Point(0, 233);
-            btnFunction5.Controls.Add(palSelect5);
+            dynamic btnFun = UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffOrderList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffInvoiceList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
         }
     }
 }

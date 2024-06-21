@@ -67,6 +67,7 @@
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.cmbGender = new System.Windows.Forms.ComboBox();
             this.grpContact = new System.Windows.Forms.GroupBox();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbPhone = new System.Windows.Forms.TextBox();
             this.lblTitPhone = new System.Windows.Forms.Label();
@@ -78,14 +79,13 @@
             this.btnUploadIMG = new System.Windows.Forms.Button();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.palstaff = new System.Windows.Forms.Panel();
-            this.lblJob = new System.Windows.Forms.Label();
             this.lblDept = new System.Windows.Forms.Label();
+            this.lblJob = new System.Windows.Forms.Label();
             this.chkNGDateOfBirth = new System.Windows.Forms.CheckBox();
             this.lblSexMsg = new System.Windows.Forms.Label();
             this.lbllNameMsg = new System.Windows.Forms.Label();
             this.lblfNameMsg = new System.Windows.Forms.Label();
             this.lblDateMsg = new System.Windows.Forms.Label();
-            this.lblPhoneMsg = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -533,6 +533,15 @@
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
             // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(92, 117);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(434, 19);
+            this.lblPhoneMsg.TabIndex = 156;
+            // 
             // tbEmail
             // 
             this.tbEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -642,16 +651,6 @@
             this.palstaff.Size = new System.Drawing.Size(419, 113);
             this.palstaff.TabIndex = 150;
             // 
-            // lblJob
-            // 
-            this.lblJob.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblJob.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblJob.Location = new System.Drawing.Point(113, 24);
-            this.lblJob.Name = "lblJob";
-            this.lblJob.Size = new System.Drawing.Size(153, 26);
-            this.lblJob.TabIndex = 151;
-            this.lblJob.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblDept
             // 
             this.lblDept.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -661,6 +660,16 @@
             this.lblDept.Size = new System.Drawing.Size(153, 26);
             this.lblDept.TabIndex = 152;
             this.lblDept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblJob
+            // 
+            this.lblJob.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblJob.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJob.Location = new System.Drawing.Point(113, 24);
+            this.lblJob.Name = "lblJob";
+            this.lblJob.Size = new System.Drawing.Size(153, 26);
+            this.lblJob.TabIndex = 151;
+            this.lblJob.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // chkNGDateOfBirth
             // 
@@ -705,15 +714,6 @@
             this.lblDateMsg.Size = new System.Drawing.Size(434, 19);
             this.lblDateMsg.TabIndex = 155;
             // 
-            // lblPhoneMsg
-            // 
-            this.lblPhoneMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPhoneMsg.Location = new System.Drawing.Point(92, 117);
-            this.lblPhoneMsg.Name = "lblPhoneMsg";
-            this.lblPhoneMsg.Size = new System.Drawing.Size(434, 19);
-            this.lblPhoneMsg.TabIndex = 156;
-            // 
             // UserModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -751,7 +751,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserModify";
-            this.Text = "Form1";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
