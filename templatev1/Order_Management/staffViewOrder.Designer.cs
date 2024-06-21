@@ -212,6 +212,7 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -294,6 +295,7 @@ namespace templatev1
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
             // 
@@ -309,6 +311,7 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palLoc
             // 
@@ -401,12 +404,7 @@ namespace templatev1
             this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortOrder.FormattingEnabled = true;
-            this.cmbSortOrder.Items.AddRange(new object[] {
-            "None",
-            "Quantity(Ascending)",
-            "Quantity(Descending)",
-            "Total Price(Ascending)",
-            "Total Price(Descending)"});
+            this.cmbSortOrder.Items.AddRange(new object[] { "None", "Quantity(Ascending)", "Quantity(Descending)", "Total Price(Ascending)", "Total Price(Descending)" });
             this.cmbSortOrder.Location = new System.Drawing.Point(273, 778);
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
@@ -900,7 +898,6 @@ namespace templatev1
             this.grpSparePart.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

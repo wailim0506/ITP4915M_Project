@@ -232,5 +232,39 @@ namespace templatev1
             btnFunction5.Location = new Point(0, 233);
             btnFunction5.Controls.Add(palSelect5);
         }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffOrderList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffInvoiceList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
     }
 }

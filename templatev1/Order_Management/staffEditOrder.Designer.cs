@@ -1,7 +1,7 @@
 ﻿
 namespace templatev1
 {
-    partial class clerkEditOrder
+    partial class staffEditOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -161,6 +161,7 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -258,6 +259,7 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palLoc
             // 
@@ -275,7 +277,7 @@ namespace templatev1
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 9);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(435, 22);
+            this.lblLoc.Size = new System.Drawing.Size(349, 22);
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "Order Management -> Order -> Edit Order";
             // 
@@ -318,7 +320,7 @@ namespace templatev1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // clerkEditOrder
+            // staffEditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -326,7 +328,7 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
-            this.Name = "clerkEditOrder";
+            this.Name = "staffEditOrder";
             this.Text = "clerkEditOrder";
             this.Load += new System.EventHandler(this.clerkEditOrder_Load);
             this.palNav.ResumeLayout(false);
@@ -337,7 +339,6 @@ namespace templatev1
             this.palTime.ResumeLayout(false);
             this.palTime.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion

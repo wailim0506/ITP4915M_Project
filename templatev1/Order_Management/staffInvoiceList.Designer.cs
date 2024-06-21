@@ -166,6 +166,7 @@ namespace templatev1
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // picBWMode
             // 
@@ -204,6 +205,7 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -251,6 +253,7 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palSelect2
             // 
@@ -275,6 +278,7 @@ namespace templatev1
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // palLoc
             // 
@@ -348,16 +352,7 @@ namespace templatev1
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "All",
-            "Invoice Number (Ascending)",
-            "Invoice Number (Descending)",
-            "Order Date (Nearest)",
-            "Order Date (Furtherest)",
-            "Order ID (Ascending)",
-            "Order ID (Descending)",
-            "Delivery Date (Nearest)",
-            "Delivery Date (Furtherest)"});
+            this.cmbSorting.Items.AddRange(new object[] { "All", "Invoice Number (Ascending)", "Invoice Number (Descending)", "Order Date (Nearest)", "Order Date (Furtherest)", "Order ID (Ascending)", "Order ID (Descending)", "Delivery Date (Nearest)", "Delivery Date (Furtherest)" });
             this.cmbSorting.Location = new System.Drawing.Point(962, 106);
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(196, 26);
@@ -391,10 +386,7 @@ namespace templatev1
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "All",
-            "Confirmed",
-            "Not Confirmed"});
+            this.cmbStatus.Items.AddRange(new object[] { "All", "Confirmed", "Not Confirmed" });
             this.cmbStatus.Location = new System.Drawing.Point(734, 106);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(148, 26);
@@ -500,7 +492,6 @@ namespace templatev1
             this.grpOrder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

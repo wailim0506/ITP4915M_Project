@@ -4,11 +4,11 @@ using controller.Utilities;
 
 namespace templatev1
 {
-    public partial class clerkEditOrder : Form
+    public partial class staffEditOrder : Form
     {
         private dateHandler handler;
 
-        public clerkEditOrder()
+        public staffEditOrder()
         {
             InitializeComponent();
             dateHandler handler = new dateHandler();
@@ -22,6 +22,21 @@ namespace templatev1
         private void clerkEditOrder_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
         }
     }
 }
