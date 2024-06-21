@@ -214,6 +214,9 @@ Microsoft.Extensions.Logging.Console version 8.0.0
 
 Microsoft.Extensions.Logging.Configuration version 8.0.0
 
+JetBrains.Annotations -Version 2023.3.0
+
+
 ### for testing
 
 NUnit version 4.1.0
@@ -236,8 +239,7 @@ Install-Package Microsoft.Extensions.Logging -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Abstractions -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Console -Version 8.0.0
 Install-Package Microsoft.Extensions.Logging.Configuration -Version 8.0.0
-Install-Package NUnit -Version 4.1.0
-Install-Package Moq -Version 4.20.70
+Install-Package JetBrains.Annotations -Version 2023.3.0
 ```
 
 ### install the package via the terminal
