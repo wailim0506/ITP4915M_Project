@@ -3,48 +3,56 @@ using System.Threading;
 using System.Windows.Forms;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
+using JetBrains.Annotations;
 
 namespace templatev1
 {
     internal static class Program
     {
+        // Log instance for logging application events
         public static Log log;
+
+        // Service provider instance for dependency injection
         private static IServiceProvider serviceProvider;
 
+        // Date handler instance for handling date related operations
         public static dateHandler handler;
-        // private static string connString = "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30;";
-        // private static Database db = new Database(connString);
 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
+        [UsedImplicitly]
         static void Main()
         {
             try
             {
+                // Initialize log and date handler
                 log = new Log();
                 handler = new dateHandler();
+
                 // Start a new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
-                //StartThread(() => RunApplication(() => new DeliverymanEditOrderRelay("OD24060003")));
             }
             catch (Exception ex)
             {
                 throw new Exception("Error while running the application", ex);
-                //Log.LogException(new Exception("Error while running the application", ex), "LMCIS");
             }
         }
 
-        // Try to run the application in a new thread
-        // to avoid the application to be closed before the thread is finished and
-        // maximized the performance of the application
+        /// <summary>
+        /// Starts a new thread for running the application.
+        /// </summary>
+        /// <param name="threadStart">The ThreadStart delegate to be invoked when the thread begins executing.</param>
+        [UsedImplicitly]
         private static void StartThread(ThreadStart threadStart)
         {
             int workerThreads = 100;
             int completionPortThreads = 100;
+
             // Set the maximum number of worker threads and completion port threads
             ThreadPool.SetMaxThreads(workerThreads, completionPortThreads);
+
             // Set the minimum number of worker threads and completion port threads
             ThreadPool.SetMinThreads(workerThreads, completionPortThreads);
 
@@ -58,8 +66,11 @@ namespace templatev1
             Log.LogMessage(LogLevel.Information, "LMCIS", "Started thread");
         }
 
-        // the Background thread is for the background process of the application
-        // it is welcome to add more background process here
+        /// <summary>
+        /// Starts a new background thread for the application.
+        /// </summary>
+        /// <param name="threadStart">The ThreadStart delegate to be invoked when the thread begins executing.</param>
+        [UsedImplicitly]
         private static void StartBackgroundThread(ThreadStart threadStart)
         {
             var thread = new Thread(threadStart)
@@ -72,7 +83,11 @@ namespace templatev1
             Log.LogMessage(LogLevel.Information, "LMCIS", "Started background thread");
         }
 
-        // the main thread is for the main process of the application
+        /// <summary>
+        /// Runs the application in the main thread.
+        /// </summary>
+        /// <param name="createForm">A function that creates the main form of the application.</param>
+        [UsedImplicitly]
         private static void RunApplication(Func<Form> createForm)
         {
             try
