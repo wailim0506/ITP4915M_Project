@@ -88,6 +88,7 @@ namespace templatev1
             this.lblOrderIDLabel = new System.Windows.Forms.Label();
             this.lblOrderDateLabel = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnRelayEdit = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -705,11 +706,25 @@ namespace templatev1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // btnRelayEdit
+            // 
+            this.btnRelayEdit.AutoSize = true;
+            this.btnRelayEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRelayEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRelayEdit.Location = new System.Drawing.Point(211, 821);
+            this.btnRelayEdit.Name = "btnRelayEdit";
+            this.btnRelayEdit.Size = new System.Drawing.Size(131, 49);
+            this.btnRelayEdit.TabIndex = 135;
+            this.btnRelayEdit.Text = "Edit Relay Point";
+            this.btnRelayEdit.UseVisualStyleBackColor = true;
+            this.btnRelayEdit.Click += new System.EventHandler(this.btnRelayEdit_Click_1);
+            // 
             // delivermanViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 891);
+            this.Controls.Add(this.btnRelayEdit);
             this.Controls.Add(this.lblDayUntil);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblStatus);
@@ -761,8 +776,9 @@ namespace templatev1
             this.grpSparePart.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btnRelayEdit;
 
         #endregion
 

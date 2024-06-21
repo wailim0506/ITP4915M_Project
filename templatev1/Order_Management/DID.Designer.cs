@@ -737,7 +737,7 @@ namespace templatev1
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Name = "DID";
-            this.Text = "DID";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.DID_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();

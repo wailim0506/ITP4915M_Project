@@ -36,9 +36,9 @@ namespace templatev1
         private void staffOrderList_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            
+
             hideButton();
-            
+
 
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;

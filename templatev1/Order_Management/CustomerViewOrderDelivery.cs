@@ -42,15 +42,14 @@ namespace templatev1
             UID = this.accountController.GetUid();
             isLM = accountController.GetIsLm();
             lblUid.Text = $"Uid: {UID}";
-            load_data();
         }
 
         private void CustomerViewOrderDelivery_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
-            Log.LogMessage(LogLevel.Information, "DeliveryController", DeliveryController.GetDeliveryMap(orderID));
-            //load_data();
+
+            load_data();
         }
 
         private void load_data()
@@ -84,9 +83,11 @@ namespace templatev1
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                if (DeliveryController.GetDeliveryMap(orderID) != "Cancelled")
+                if (DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size) != "Cancelled")
                 {
-                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID));
+                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size));
+                    Log.LogMessage(LogLevel.Information, "Delivery Controller",
+                        DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size));
                 }
                 else
                 {

@@ -39,15 +39,12 @@ namespace templatev1
 
         private void staffInvoiceList_Load(object sender, EventArgs e)
         {
-            
             hideButton();
-            
+
 
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbSorting.Text, cmbStatus.Text);
-            
-            
         }
 
         public void load_data(string sortBy, string status)
@@ -188,7 +185,7 @@ namespace templatev1
                 yPosition += 50;
             }
         }
-        
+
         public void btnView_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;

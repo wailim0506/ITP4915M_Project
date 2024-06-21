@@ -66,7 +66,7 @@ namespace controller
                     funbtn5 = "User Management";
                     break;
                 case "MP02": //Storeman
-                    showbtn1 = showbtn2 = showbtn3 = showbtn4 =true;
+                    showbtn1 = showbtn2 = showbtn3 = showbtn4 = true;
                     funbtn1 = "Order Management";
                     funbtn2 = "Invoice Management";
                     funbtn3 = "Stock Management";

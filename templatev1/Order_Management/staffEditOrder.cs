@@ -26,7 +26,6 @@ namespace templatev1
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-           
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
@@ -58,6 +59,7 @@ namespace controller.Utilities
             return ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteScalar());
         }
 
+        // Execute a non-query command and return the number of affected rows
         public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
             Log.LogMessage(LogLevel.Debug, "Database",
@@ -134,6 +136,7 @@ namespace controller.Utilities
             //return (DataTable)ExecuteCommand(sqlQuery, null, command => command.ExecuteReader());
         }
 
+        // Execute a scalar command and return the result
         public object ExecuteScalar(string sqlCmd)
         {
             using (MySqlCommand command = new MySqlCommand(sqlCmd, _connection))
@@ -143,6 +146,7 @@ namespace controller.Utilities
             }
         }
 
+        // Execute a scalar command and return the result as a string
         public string ExecuteScalarCommand(string sqlQuery)
         {
             using (MySqlCommand command = new MySqlCommand(sqlQuery, _connection))

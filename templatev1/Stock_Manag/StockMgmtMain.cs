@@ -30,7 +30,6 @@ namespace templatev1
             this.UIController = UIController;
             stockController = new stockController(accountController);
             printDocument1.PrintPage += new PrintPageEventHandler(printdoc1_PrintPage);
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,9 +53,7 @@ namespace templatev1
             dgvStock.DataSource = stockController.GetPart();
             dgvStock.ClearSelection();
             dgvStock.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 13F, FontStyle.Bold);
-            DgvIndicator();            //If lower than danger level change color of the row to red. 
-
-
+            DgvIndicator(); //If lower than danger level change color of the row to red. 
 
 
             //For determine which button needs to be shown.
@@ -220,7 +217,7 @@ namespace templatev1
         private void chkAdvancedSearch_CheckedChanged(object sender, EventArgs e)
         {
             grpAdvancedSearch.Visible = chkAdvancedSearch.Checked;
-            
+
             //Clean All condition.
             if (!chkAdvancedSearch.Checked)
                 btnClean_Click(this, new EventArgs());
@@ -254,9 +251,9 @@ namespace templatev1
         private void dgvStock_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvStock.ClearSelection();
-            lblPartID.Text = lblCat.Text = lblPName.Text = lblSuppID.Text = lblCountry.Text 
-                = lblPhoneNo.Text = lblSName.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text 
-                = lblQty.Text = lblCardPartNo.Text = "";
+            lblPartID.Text = lblCat.Text = lblPName.Text = lblSuppID.Text = lblCountry.Text
+                = lblPhoneNo.Text = lblSName.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text
+                    = lblQty.Text = lblCardPartNo.Text = "";
         }
 
         //Select a spare part and set value to stockInfo.
@@ -271,7 +268,8 @@ namespace templatev1
                 //Select the whole row.
                 for (int r = 0; r < dgvStock.ColumnCount; r++)
                     dgvStock[r, index].Selected = true;
-                selectedPartID = dgvStock.Rows[index].Cells[0].Value.ToString();          //Get the spare part ID for the selected row.
+                selectedPartID =
+                    dgvStock.Rows[index].Cells[0].Value.ToString(); //Get the spare part ID for the selected row.
 
                 //Set value to stockInfo.
                 lblPartID.Text = stockController.GetPartInfo(selectedPartID).partNumber;
@@ -286,9 +284,6 @@ namespace templatev1
                 lblDLevel.Text = stockController.GetPartInfo(selectedPartID).dangerLevel;
                 lblQty.Text = stockController.GetPartInfo(selectedPartID).quantity;
                 lblCardPartNo.Text = stockController.GetPartInfo(selectedPartID).partNumber;
-
-
-
             }
             else
                 MessageBox.Show("Spare part NOT found.",
@@ -298,17 +293,15 @@ namespace templatev1
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
             if (chkPrtStockCard.Checked && !string.IsNullOrEmpty(selectedPartID)
-                && stockController.CheckOutOfStock(selectedPartID))
+                                        && stockController.CheckOutOfStock(selectedPartID))
                 Print(this.palOutOfStock);
-            else
-                if (chkPrtStockCard.Checked)
-                {
-                    MessageBox.Show("The selected item is still in stock.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    chkPrtStockCard.Checked = false;
-                }
+            else if (chkPrtStockCard.Checked)
+            {
+                MessageBox.Show("The selected item is still in stock.",
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                chkPrtStockCard.Checked = false;
+            }
         }
-
 
 
         //For print stock card function.
@@ -317,6 +310,7 @@ namespace templatev1
             MemoryImage = new Bitmap(pnl.Width, pnl.Height);
             pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (MemoryImage != null)
@@ -325,10 +319,12 @@ namespace templatev1
                 base.OnPaint(e);
             }
         }
+
         void printdoc1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Rectangle pagearea = e.PageBounds;
-            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.palOutOfStock.Width / 2), this.palOutOfStock.Location.Y);
+            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.palOutOfStock.Width / 2),
+                this.palOutOfStock.Location.Y);
         }
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
@@ -341,14 +337,15 @@ namespace templatev1
 
         private void picSearch_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(tbPartName.Text) && !chkAdvancedSearch.Checked)
-            { 
+            if (string.IsNullOrEmpty(tbPartName.Text) && !chkAdvancedSearch.Checked)
+            {
                 dgvStock.DataSource = stockController.GetPart();
                 DgvIndicator();
-            }   
-            else if (tbSearch.Text.StartsWith("A") || tbSearch.Text.StartsWith("B") || tbSearch.Text.StartsWith("C") || tbSearch.Text.StartsWith("D") || chkAdvancedSearch.Checked)
+            }
+            else if (tbSearch.Text.StartsWith("A") || tbSearch.Text.StartsWith("B") || tbSearch.Text.StartsWith("C") ||
+                     tbSearch.Text.StartsWith("D") || chkAdvancedSearch.Checked)
             {
-                if (chkAdvancedSearch.Checked)         //Using advanced serch.
+                if (chkAdvancedSearch.Checked) //Using advanced serch.
                 {
                     dynamic partValues = new ExpandoObject();
                     partValues.partName = string.IsNullOrEmpty(tbPartName.Text) ? null : tbPartName.Text;
@@ -365,7 +362,7 @@ namespace templatev1
                     DgvIndicator();
                 }
             }
-            else          //Not a valid part number.
+            else //Not a valid part number.
                 MessageBox.Show("Not a valid part number",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -375,15 +372,17 @@ namespace templatev1
             DgvIndicator();
         }
 
-        private void DgvIndicator() 
+        private void DgvIndicator()
         {
             dgvStock.ClearSelection();
             //If lower than danger level change color of the row to red. 
             for (int r = 0; r < dgvStock.RowCount; r++)
             {
-                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <= int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString()))          //meets re-order level
+                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <=
+                    int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString())) //meets re-order level
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FDFF6F");
-                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <= int.Parse(dgvStock.Rows[r].Cells[5].Value.ToString()))          //meets danger level
+                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <=
+                    int.Parse(dgvStock.Rows[r].Cells[5].Value.ToString())) //meets danger level
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FF8486");
             }
         }

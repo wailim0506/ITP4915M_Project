@@ -216,5 +216,13 @@ namespace templatev1
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
+
+        private void btnRelayEdit_Click_1(object sender, EventArgs e)
+        {
+            Form d = new DeliverymanEditOrderRelay(orderID, accountController, UIController);
+            d.StartPosition = FormStartPosition.Manual;
+            d.Location = Location;
+            d.ShowDialog();
+        }
     }
 }
