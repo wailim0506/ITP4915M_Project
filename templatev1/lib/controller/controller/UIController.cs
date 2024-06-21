@@ -189,7 +189,7 @@ namespace controller
         {
             dynamic store = new ExpandoObject();
             store.group1 = !permission.Equals("MP02");
-
+            store.group2 = permission.Equals("MP02");
             return store;
         }
 

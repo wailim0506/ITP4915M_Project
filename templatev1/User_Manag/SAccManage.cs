@@ -44,6 +44,7 @@ namespace templatev1
             cmbDept.Items.AddRange(UserController.GetDept().ToArray());
             radioButtons_CheckedChanged(this, new EventArgs());
             btnAddStaffAcc.Visible = palMgmt.Visible = UIController.UserMgmt();
+            dgvUser.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 13F, FontStyle.Bold);
 
 
             //For determine which button needs to be shown.
@@ -319,6 +320,14 @@ namespace templatev1
             else
                 MessageBox.Show("NOT user selected.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                picSearch_Click(this, new EventArgs());
+            }
         }
 
         private void dgvUser_MouseClick(object sender, MouseEventArgs e)
