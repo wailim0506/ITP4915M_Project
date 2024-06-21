@@ -11,7 +11,7 @@ namespace templatev1
         public staffEditOrder()
         {
             InitializeComponent();
-            dateHandler handler = new dateHandler();
+            handler = new dateHandler();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

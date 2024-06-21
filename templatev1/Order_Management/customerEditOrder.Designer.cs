@@ -397,9 +397,8 @@ namespace templatev1
             this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(399, 528);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderID.Size = new System.Drawing.Size(0, 20);
             this.lblOrderID.TabIndex = 90;
-            this.lblOrderID.Text = "Order ID :";
             // 
             // lblSerialNum
             // 
@@ -407,9 +406,8 @@ namespace templatev1
             this.lblSerialNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSerialNum.Location = new System.Drawing.Point(399, 575);
             this.lblSerialNum.Name = "lblSerialNum";
-            this.lblSerialNum.Size = new System.Drawing.Size(78, 20);
+            this.lblSerialNum.Size = new System.Drawing.Size(0, 20);
             this.lblSerialNum.TabIndex = 91;
-            this.lblSerialNum.Text = "Order ID :";
             // 
             // lblOrderDate
             // 
@@ -417,9 +415,8 @@ namespace templatev1
             this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(399, 622);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 20);
             this.lblOrderDate.TabIndex = 92;
-            this.lblOrderDate.Text = "Order ID :";
             // 
             // lblStaffName
             // 
@@ -427,9 +424,8 @@ namespace templatev1
             this.lblStaffName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffName.Location = new System.Drawing.Point(399, 670);
             this.lblStaffName.Name = "lblStaffName";
-            this.lblStaffName.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffName.Size = new System.Drawing.Size(0, 20);
             this.lblStaffName.TabIndex = 93;
-            this.lblStaffName.Text = "Order ID :";
             // 
             // lblStaffID
             // 
@@ -437,9 +433,8 @@ namespace templatev1
             this.lblStaffID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffID.Location = new System.Drawing.Point(399, 715);
             this.lblStaffID.Name = "lblStaffID";
-            this.lblStaffID.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffID.Size = new System.Drawing.Size(0, 20);
             this.lblStaffID.TabIndex = 94;
-            this.lblStaffID.Text = "Order ID :";
             // 
             // lblStaffContact
             // 
@@ -447,9 +442,8 @@ namespace templatev1
             this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffContact.Location = new System.Drawing.Point(399, 763);
             this.lblStaffContact.Name = "lblStaffContact";
-            this.lblStaffContact.Size = new System.Drawing.Size(78, 20);
+            this.lblStaffContact.Size = new System.Drawing.Size(0, 20);
             this.lblStaffContact.TabIndex = 95;
-            this.lblStaffContact.Text = "Order ID :";
             // 
             // lblStatus
             // 
@@ -457,9 +451,8 @@ namespace templatev1
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(399, 810);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(78, 20);
+            this.lblStatus.Size = new System.Drawing.Size(0, 20);
             this.lblStatus.TabIndex = 96;
-            this.lblStatus.Text = "Order ID :";
             // 
             // lblEditQuantity
             // 
@@ -539,9 +532,8 @@ namespace templatev1
             this.lblUid.Location = new System.Drawing.Point(814, 9);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(134, 22);
+            this.lblUid.Size = new System.Drawing.Size(0, 22);
             this.lblUid.TabIndex = 1;
-            this.lblUid.Text = "Uid: LMXXXX";
             // 
             // lblTimeDate
             // 
@@ -550,9 +542,8 @@ namespace templatev1
             this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
+            this.lblTimeDate.Size = new System.Drawing.Size(0, 22);
             this.lblTimeDate.TabIndex = 0;
-            this.lblTimeDate.Text = "TIME";
             // 
             // palNav
             // 
@@ -696,7 +687,6 @@ namespace templatev1
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 56);
             this.lblCorpName.TabIndex = 10;
-            this.lblCorpName.Text = "Legend Motor Company";
             // 
             // btnFunction4
             // 
@@ -779,12 +769,7 @@ namespace templatev1
             this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortOrder.FormattingEnabled = true;
-            this.cmbSortOrder.Items.AddRange(new object[] {
-            "None",
-            "Quantity(Ascending)",
-            "Quantity(Descending)",
-            "Total Price(Ascending)",
-            "Total Price(Descending)"});
+            this.cmbSortOrder.Items.AddRange(new object[] { "None", "Quantity(Ascending)", "Quantity(Descending)", "Total Price(Ascending)", "Total Price(Descending)" });
             this.cmbSortOrder.Location = new System.Drawing.Point(268, 473);
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
@@ -795,6 +780,7 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1170, 911);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbSortOrder);
@@ -839,8 +825,8 @@ namespace templatev1
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpSparePart);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Name = "customerEditOrder";
-            this.Text = "customerEditOrder";
             this.Load += new System.EventHandler(this.customerEditOrder_Load);
             this.grpSparePart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).EndInit();
@@ -854,7 +840,6 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
