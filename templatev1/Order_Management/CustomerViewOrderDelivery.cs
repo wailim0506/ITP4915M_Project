@@ -84,10 +84,9 @@ namespace templatev1
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                if (DeliveryController.GetDeliveryMap(orderID) != "Processing")
+                if (DeliveryController.GetDeliveryMap(orderID) != "Cancelled")
                 {
                     DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID));
-                    //await DeliveryController.LoadImageAsync(DeliveryController.GetDeliveryMap(orderID), DeliverayImage).ConfigureAwait(false);
                 }
                 else
                 {

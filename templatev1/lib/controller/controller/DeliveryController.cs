@@ -11,11 +11,27 @@ namespace controller
     public class DeliveryController : abstractController
     {
         private readonly Database _database = new Database();
+        
 
         public string GetDeliveryMap(string orderId)
         {
             var orderStatus = GetOrderStatus(orderId);
-            var location = orderStatus == "Ready to Ship" ? "" : GetLocation(orderId);
+            string location;
+            switch (orderStatus)
+            {
+                case "Processing":
+                    location = GetLocation(orderId);
+                    break;
+                case "Ready to Ship":
+                    location = GetReadyToShipAddress();
+                    break;
+                case "Shipped":
+                    location = GetShippedAddress();
+                    break;
+                default:
+                    location = "";
+                    break;
+            }
             return location == "" ? location : GenerateMapUrl(location, orderId);
         }
 
@@ -66,12 +82,20 @@ namespace controller
                    $"&markers=color:red%7Clabel:{GetLocationName(GetDeliveryRelayId(orderId))}%7C{location}" +
                    $"&key={GetApiKey()}";
         }
-
+        
         private string GetLocationName(string getDeliveryRelayId)
         {
             var dataTable = _database.ExecuteDataTable("SELECT * FROM deliveryrelay WHERE RelayID = @relayId",
                 new Dictionary<string, object> { { "@relayId", getDeliveryRelayId } });
             return dataTable.Rows.Count > 0 ? dataTable.Rows[0][2].ToString() : "";
+        }
+        private string GetShippedAddress()
+        {
+            return "22.390715003644328, 114.19828146266907";
+        }
+        private string GetReadyToShipAddress()
+        {
+            return GetShippedAddress();
         }
     }
 }
