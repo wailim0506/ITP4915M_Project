@@ -44,9 +44,8 @@ namespace templatev1
 
         private void clerkViewOrder_Load(object sender, EventArgs e)
         {
-            
             hideButton();
-            
+
 
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;

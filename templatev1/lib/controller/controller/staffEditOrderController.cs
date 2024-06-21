@@ -17,7 +17,7 @@ namespace controller
             _db = database ?? new Database();
             c = new viewOrderController(_db);
         }
-        
+
         // getter
         public DataTable GetOrderedSparePart(string orderID, string sortBy)
         {
@@ -175,4 +175,3 @@ namespace controller
         }
     }
 }
-

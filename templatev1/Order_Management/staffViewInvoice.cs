@@ -54,9 +54,8 @@ namespace templatev1
 
         private void staffViewInvoice_Load(object sender, EventArgs e)
         {
-            
             hideButton();
-            
+
 
             load_data();
         }
@@ -122,7 +121,7 @@ namespace templatev1
         private void btnReturn_Click(object sender, EventArgs e)
         {
             if (comeFromInvoiceList)
-            {   
+            {
                 Form o = new staffInvoiceList(accountController, UIController);
                 Hide();
                 o.StartPosition = FormStartPosition.Manual;

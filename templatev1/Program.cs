@@ -25,20 +25,15 @@ namespace templatev1
             {
                 log = new Log();
                 handler = new dateHandler();
-                // Start new thread to run the application
-
-                StartThread(() => RunApplication(() => new Login()));
+                // Start a new thread to run the application
+                //StartThread(() => RunApplication(() => new Login()));
+                StartThread(() => RunApplication(() => new DeliverymanEditOrderRelay("OD24060003")));
             }
             catch (Exception ex)
             {
                 throw new Exception("Error while running the application", ex);
                 //Log.LogException(new Exception("Error while running the application", ex), "LMCIS");
             }
-            // Application.EnableVisualStyles();
-            // Application.SetCompatibleTextRenderingDefault(false);
-            // Application.Run(new Login());
-
-            //Application.Run(new customerOrderList());
         }
 
         // Try to run the application in a new thread

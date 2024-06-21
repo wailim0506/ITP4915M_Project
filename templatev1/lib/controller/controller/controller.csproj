@@ -194,7 +194,7 @@
         <Compile Include="dicController.cs"/>
         <Compile Include="didController.cs"/>
         <Compile Include="didListController.cs"/>
-        <Compile Include="staffEditOrderController.cs" />
+        <Compile Include="staffEditOrderController.cs"/>
         <Compile Include="staffInvoiceListController.cs"/>
         <Compile Include="staffOrderListController.cs"/>
         <Compile Include="delivermanOrderListController.cs"/>
@@ -213,6 +213,7 @@
         <Compile Include="Properties\AssemblyInfo.cs"/>
         <Compile Include="testController.cs"/>
         <Compile Include="UserController.cs"/>
+        <Compile Include="Utilities\Configuration.cs" />
         <Compile Include="Utilities\Database.cs"/>
         <Compile Include="Utilities\dateHandler.cs"/>
         <Compile Include="Utilities\IDatabase.cs"/>

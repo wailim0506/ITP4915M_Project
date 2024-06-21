@@ -27,28 +27,31 @@ namespace controller
         public DataTable GetPart()
         {
             sqlStr = "SELECT * FROM spare_part WHERE quantity <= dangerLevel " +
-                "UNION ALL SELECT * FROM spare_part WHERE quantity <= reorderLevel AND quantity > dangerLevel " +    //Move the spare to the top which meets the danger level.
-                "UNION ALL SELECT * FROM spare_part WHERE quantity > dangerLevel AND quantity > reorderLevel";    //Move the spare to the top which meets the reorder level.
+                     "UNION ALL SELECT * FROM spare_part WHERE quantity <= reorderLevel AND quantity > dangerLevel " + //Move the spare to the top which meets the danger level.
+                     "UNION ALL SELECT * FROM spare_part WHERE quantity > dangerLevel AND quantity > reorderLevel"; //Move the spare to the top which meets the reorder level.
             return ExecuteSqlQuery(sqlStr);
         }
 
-        public DataTable SearchPart(string PartID) 
+        public DataTable SearchPart(string PartID)
         {
             sqlStr = $"SELECT * FROM spare_part WHERE partNumber = \'{PartID}\'";
             return ExecuteSqlQuery(sqlStr);
         }
 
-        public DataTable AdvancedSearch(dynamic partValues) 
+        public DataTable AdvancedSearch(dynamic partValues)
         {
             string condition;
             condition = "";
 
-            condition += string.IsNullOrEmpty(partValues.partName) ? "" : $" AND SP.name LIKE '%{partValues.partName}%' ";
+            condition += string.IsNullOrEmpty(partValues.partName)
+                ? ""
+                : $" AND SP.name LIKE '%{partValues.partName}%' ";
             condition += string.IsNullOrEmpty(partValues.supplier) ? "" : $" AND S.name = \'{partValues.supplier}\' ";
             condition += string.IsNullOrEmpty(partValues.category) ? "" : $" AND C.type = \'{partValues.category}\' ";
             condition += string.IsNullOrEmpty(partValues.country) ? "" : $" AND S.country = \'{partValues.country}\' ";
 
-            sqlStr = $"SELECT SP.partNumber, SP.supplierID, SP.categoryID, SP.name, SP.reorderLevel, SP.dangerLevel, SP.quantity " +
+            sqlStr =
+                $"SELECT SP.partNumber, SP.supplierID, SP.categoryID, SP.name, SP.reorderLevel, SP.dangerLevel, SP.quantity " +
                 $"FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID " +
                 $"{condition}";
@@ -65,11 +68,12 @@ namespace controller
             return dt.Rows.Count == 1;
         }
 
-        public dynamic GetPartInfo(string PartID) 
+        public dynamic GetPartInfo(string PartID)
         {
             dt = new DataTable();
 
-            sqlStr = $"SELECT SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
+            sqlStr =
+                $"SELECT SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
                 $"S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.partNumber = \'{PartID}\' AND SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID";
 
@@ -114,10 +118,6 @@ namespace controller
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetSupplier was executed.");
             return dataTable.AsEnumerable().Select(row => row["name"].ToString()).ToList();
         }
-
-      
-
-
 
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
