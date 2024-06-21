@@ -26,8 +26,8 @@ namespace templatev1
                 log = new Log();
                 handler = new dateHandler();
                 // Start a new thread to run the application
-                //StartThread(() => RunApplication(() => new Login()));
-                StartThread(() => RunApplication(() => new DeliverymanEditOrderRelay("OD24060003")));
+                StartThread(() => RunApplication(() => new Login()));
+                //StartThread(() => RunApplication(() => new DeliverymanEditOrderRelay("OD24060003")));
             }
             catch (Exception ex)
             {
