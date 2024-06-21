@@ -173,6 +173,20 @@ namespace controller
         {
             c.DeleteOrder(id);
         }
+
+        public bool isLMOrder(string id) //order id 
+        {
+            sqlCmd = $"SELECT x.isLM FROM customer_account x, order_ y WHERE x.customerAccountID = y.customerAccountID AND y.orderID = \'{id}\'";
+            DataTable dt =  _db.ExecuteDataTable(sqlCmd, null);
+            if (dt.Rows[0][0] == "Y")
+            {
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
     }
 }
 
