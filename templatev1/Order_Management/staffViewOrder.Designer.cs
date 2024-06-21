@@ -32,11 +32,6 @@ namespace templatev1
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav = new System.Windows.Forms.Panel();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.palSelect3 = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -113,11 +108,6 @@ namespace templatev1
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.palNav.Controls.Add(this.palSelect5);
-            this.palNav.Controls.Add(this.palSelect4);
-            this.palNav.Controls.Add(this.palSelect2);
-            this.palNav.Controls.Add(this.palSelect1);
-            this.palNav.Controls.Add(this.palSelect3);
             this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
             this.palNav.Controls.Add(this.btnLogOut);
@@ -134,46 +124,6 @@ namespace templatev1
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 890);
             this.palNav.TabIndex = 163;
-            // 
-            // palSelect5
-            // 
-            this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
-            this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
-            this.palSelect5.TabIndex = 29;
-            // 
-            // palSelect4
-            // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 30;
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 31;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 32;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 28;
             // 
             // picBWMode
             // 
@@ -904,11 +854,6 @@ namespace templatev1
 
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel palNav;
-        private System.Windows.Forms.Panel palSelect5;
-        private System.Windows.Forms.Panel palSelect4;
-        private System.Windows.Forms.Panel palSelect2;
-        private System.Windows.Forms.Panel palSelect1;
-        private System.Windows.Forms.Panel palSelect3;
         private System.Windows.Forms.PictureBox picBWMode;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.Button btnLogOut;
