@@ -166,7 +166,7 @@ namespace templatev1
                 Button btnView = new Button
                 {
                     Name = $"btnView{i}",
-                    Text = "View DID",
+                    Text = "View",
                     Location = new Point(845, yPosition - 5),
                     Font = new Font("Microsoft Sans Serif", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
@@ -174,7 +174,7 @@ namespace templatev1
                     Cursor = Cursors.Hand
                 };
 
-                //btnView.Click += btnView_Click;
+                btnView.Click += btnView_Click;
 
                 pnl_Invoice.Controls.Add(lblRowNum);
                 pnl_Invoice.Controls.Add(lblInvoiceNumebr);
@@ -185,6 +185,52 @@ namespace templatev1
                 pnl_Invoice.Controls.Add(btnView);
 
                 yPosition += 50;
+            }
+        }
+        
+        public void btnView_Click(object sender, EventArgs e)
+        {
+            Button clickedButton = sender as Button;
+
+            if (clickedButton != null)
+            {
+                string buttonName = clickedButton.Name;
+                int index = getIndex(buttonName);
+                if (index != -1)
+                {
+                    int i = 0;
+
+                    foreach (Control control in pnl_Invoice.Controls)
+                    {
+                        if (control.Name == $"lblOrderID{index}")
+                        {
+                            Form o =
+                                new staffViewInvoice(control.Text, accountController, UIController, true);
+                            Hide();
+                            o.StartPosition = FormStartPosition.Manual;
+                            o.Location = Location;
+                            o.ShowDialog();
+                            Close();
+                            return;
+                        }
+
+                        ++i;
+                    }
+                }
+            }
+        }
+
+        private int getIndex(string btnName)
+        {
+            int i = 0;
+            while (true)
+            {
+                if (btnName == $"btnView{i}")
+                {
+                    return i;
+                }
+
+                i++;
             }
         }
 

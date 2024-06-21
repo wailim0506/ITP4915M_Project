@@ -26,6 +26,7 @@ namespace templatev1
         string orderID;
         string shipDate;
         bool isManager;
+        private bool comeFromInvoiceList;
 
         public staffViewInvoice(string orderID)
         {
@@ -36,12 +37,13 @@ namespace templatev1
 
 
         public staffViewInvoice(string orderID, AccountController accountController,
-            UIController UIController)
+            UIController UIController, bool comeFromInvoiceList)
         {
             InitializeComponent();
             this.orderID = orderID;
             this.accountController = accountController;
             this.UIController = UIController;
+            this.comeFromInvoiceList = comeFromInvoiceList;
             controller = new viewInvoiceController();
             shipDate = "";
             UID = this.accountController.GetUid();
@@ -120,13 +122,26 @@ namespace templatev1
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form o = new staffOrderList(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-            return;
+            if (comeFromInvoiceList)
+            {   
+                Form o = new staffInvoiceList(accountController, UIController);
+                Hide();
+                o.StartPosition = FormStartPosition.Manual;
+                o.Location = Location;
+                o.ShowDialog();
+                Close();
+                return;
+            }
+            else
+            {
+                Form o = new staffOrderList(accountController, UIController);
+                Hide();
+                o.StartPosition = FormStartPosition.Manual;
+                o.Location = Location;
+                o.ShowDialog();
+                Close();
+                return;
+            }
         }
 
 

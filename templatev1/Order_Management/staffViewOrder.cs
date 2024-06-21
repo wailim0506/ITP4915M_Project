@@ -232,7 +232,7 @@ namespace templatev1
                 }
                 else
                 {
-                    Form o = new staffViewInvoice(orderID, accountController, UIController);
+                    Form o = new staffViewInvoice(orderID, accountController, UIController, false);
                     Hide();
                     o.StartPosition = FormStartPosition.Manual;
                     o.Location = Location;
