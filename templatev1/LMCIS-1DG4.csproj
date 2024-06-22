@@ -215,6 +215,13 @@
     <Compile Include="Online_Ordering_Platform\viewSparePart.Designer.cs">
       <DependentUpon>viewSparePart.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\CustomerViewOrderDelivery.Designer.cs" />
+    <Compile Include="Order_Management\DeliverymanEditOrderRelay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\DeliverymanEditOrderRelay.Designer.cs">
+      <DependentUpon>DeliverymanEditOrderRelay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order_Management\staffEditOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,7 +231,6 @@
     <Compile Include="Order_Management\CustomerViewOrderDelivery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Order_Management\CustomerViewOrderDelivery.Designer.cs" />
     <Compile Include="Order_Management\DID_List.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -482,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Online_Ordering_Platform\viewSparePart.resx">
       <DependentUpon>viewSparePart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\DeliverymanEditOrderRelay.resx">
+      <DependentUpon>DeliverymanEditOrderRelay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\staffEditOrder.resx">
       <DependentUpon>staffEditOrder.cs</DependentUpon>
