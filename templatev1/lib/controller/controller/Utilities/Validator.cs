@@ -13,7 +13,8 @@ namespace controller.Utilities
             @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$";
 
         private static readonly string NameRegex = @"^[a-zA-Z]+$";
-        private static readonly string PhoneNumberRegex = @"^[0-9]{10}$";
+        private static readonly string PhoneNumberRegex = @"^([0-9]{11})$";
+        private static readonly string PhoneNumberRegex2 = @"^([0-9]{8})$";
         private static readonly string UsernameRegex = @"^(LMS|LMC)\d{5}$";
         private static readonly string EnglishAddressRegex = @"^[a-zA-Z0-9\s]+$";
         private static readonly string ChineseAddressRegex = @"^[\u4e00-\u9fa5]+$";
@@ -50,7 +51,7 @@ namespace controller.Utilities
 
         public bool IsValidPhoneNumber(string phoneNumber)
         {
-            return Regex.IsMatch(phoneNumber, @"^[0-9]{10}$");
+            return Regex.IsMatch(phoneNumber, @"^[0-9]{10}$") || Regex.IsMatch(phoneNumber, @"^[0-9]{8}$");
         }
 
         public bool IsValidPassword(string inputPassword)

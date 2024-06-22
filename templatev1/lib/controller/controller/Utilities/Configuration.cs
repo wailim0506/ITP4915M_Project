@@ -12,6 +12,7 @@ namespace controller.Utilities
         public Configuration(IConfiguration configuration)
         {
             _configuration = configuration;
+            Setup();
         }
 
         private string GetApiKey()
@@ -35,6 +36,11 @@ namespace controller.Utilities
             {
                 Directory.CreateDirectory(path);
             }
+        }
+
+        public void Setup()
+        {
+            CreateAvatarFolder();
         }
     }
 }
