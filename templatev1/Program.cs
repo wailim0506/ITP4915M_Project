@@ -3,7 +3,6 @@ using System.Threading;
 using System.Windows.Forms;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
-using JetBrains.Annotations;
 
 namespace templatev1
 {
@@ -22,7 +21,6 @@ namespace templatev1
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        [UsedImplicitly]
         static void Main()
         {
             try
@@ -44,7 +42,6 @@ namespace templatev1
         /// Starts a new thread for running the application.
         /// </summary>
         /// <param name="threadStart">The ThreadStart delegate to be invoked when the thread begins executing.</param>
-        [UsedImplicitly]
         private static void StartThread(ThreadStart threadStart)
         {
             int workerThreads = 100;
@@ -70,7 +67,6 @@ namespace templatev1
         /// Starts a new background thread for the application.
         /// </summary>
         /// <param name="threadStart">The ThreadStart delegate to be invoked when the thread begins executing.</param>
-        [UsedImplicitly]
         private static void StartBackgroundThread(ThreadStart threadStart)
         {
             var thread = new Thread(threadStart)
@@ -87,7 +83,6 @@ namespace templatev1
         /// Runs the application in the main thread.
         /// </summary>
         /// <param name="createForm">A function that creates the main form of the application.</param>
-        [UsedImplicitly]
         private static void RunApplication(Func<Form> createForm)
         {
             try
