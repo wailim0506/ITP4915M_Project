@@ -301,23 +301,42 @@ namespace templatev1
 
         private void btnDIC_Click(object sender, EventArgs e)
         {
-            Form o = new DIC(orderID, accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
+            if (lblStatus.Text == "Cancelled") 
+            {
+                MessageBox.Show(
+                    lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Form o = new DIC(orderID, accountController, UIController);
+                Hide();
+                o.StartPosition = FormStartPosition.Manual;
+                o.Location = Location;
+                o.ShowDialog();
+                Close();
+            }
+            
         }
 
         private void btnDID_Click(object sender, EventArgs e)
         {
-            Form o = new DID_List(orderID, accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-            return;
+            if (lblStatus.Text == "Cancelled")
+            {
+                MessageBox.Show(
+                    lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                Form o = new DID_List(orderID, accountController, UIController);
+                Hide();
+                o.StartPosition = FormStartPosition.Manual;
+                o.Location = Location;
+                o.ShowDialog();
+                Close();
+                return;
+            }
         }
 
         public void hideButton()
@@ -357,6 +376,34 @@ namespace templatev1
             o.ShowDialog();
             Close();
             return;
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (lblStatus.Text == "Cancelled" || lblStatus.Text == "Shipped")
+            {
+                MessageBox.Show(lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (lblStatus.Text != "Ready to Ship")
+                {
+                    Form o =
+                        new staffEditOrder(orderID, accountController, UIController);
+                    Hide();
+                    o.StartPosition = FormStartPosition.Manual;
+                    o.Location = Location;
+                    o.ShowDialog();
+                    Close();
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Order cannot be edited when it is ready to ship", "Error",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

@@ -30,10 +30,8 @@ namespace templatev1
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new editOrderController();
-            //UID = this.accountController.getUID();
+            UID = this.accountController.GetUid();
 
-            UID = "LMC00001"; //hard code for testing
-            //UID = "LMC00003"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
             lblLoc.Text += $" {orderID}";
             isLM = accountController.GetIsLm();

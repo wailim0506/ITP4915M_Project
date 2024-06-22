@@ -179,7 +179,7 @@ namespace controller
             sqlCmd =
                 $"SELECT x.isLM FROM customer_account x, order_ y WHERE x.customerAccountID = y.customerAccountID AND y.orderID = \'{id}\'";
             DataTable dt = _db.ExecuteDataTable(sqlCmd, null);
-            if (dt.Rows[0][0] == "Y")
+            if (dt.Rows[0][0].ToString() == "Y")
             {
                 return true;
             }

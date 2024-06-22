@@ -250,5 +250,15 @@ namespace controller
 
             return false;
         }
+
+        public bool checkIsDeliverman() {
+            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
+                "Deliverman")
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

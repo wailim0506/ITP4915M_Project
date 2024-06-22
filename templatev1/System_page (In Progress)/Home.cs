@@ -96,7 +96,10 @@ namespace templatev1
             switch (Function)
             {
                 case "Order Management":
-                    if (UID.StartsWith("LMC"))
+                    if (accountController.checkIsDeliverman()) 
+                    {
+                        next = new deliverman(accountController, UIController);
+                    }else if (UID.StartsWith("LMC"))
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
