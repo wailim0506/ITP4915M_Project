@@ -49,7 +49,7 @@ namespace templatev1
             //Get valuse from the database.
             cmbType.Items.AddRange(stockController.GetCategory().ToArray());
             cmbCountry.Items.AddRange(stockController.GetCountry().ToArray());
-            cmbSuppiler.Items.AddRange(stockController.GetSupplier().ToArray());
+            cmbSupplier.Items.AddRange(stockController.GetSupplier().ToArray());
 
             //Datagridview properties
             dgvReorder.DataSource = stockController.GetReorder();
@@ -63,22 +63,22 @@ namespace templatev1
             dgvReorder.ClearSelection();
 
             //For determine which button needs to be shown.
-            dynamic btnFun = UIController.showFun();
-            btnFunction1.Visible = btnFun.btn1show;
-            btnFunction1.Text = btnFun.btn1value;
-            btnFunction2.Visible = btnFun.btn2show;
-            btnFunction2.Text = btnFun.btn2value;
-            btnFunction3.Visible = btnFun.btn3show;
-            btnFunction3.Text = btnFun.btn3value;
-            btnFunction4.Visible = btnFun.btn4show;
-            btnFunction4.Text = btnFun.btn4value;
-            btnFunction5.Visible = btnFun.btn5show;
-            btnFunction5.Text = btnFun.btn5value;
+            btnFunction1.Visible = UIController.showFun().btn1show;
+            btnFunction1.Text = UIController.showFun().btn1value;
+            btnFunction2.Visible = UIController.showFun().btn2show;
+            btnFunction2.Text = UIController.showFun().btn2value;
+            btnFunction3.Visible = UIController.showFun().btn3show;
+            btnFunction3.Text = UIController.showFun().btn3value;
+            btnFunction4.Visible = UIController.showFun().btn4show;
+            btnFunction4.Text = UIController.showFun().btn4value;
+            btnFunction5.Visible = UIController.showFun().btn5show;
+            btnFunction5.Text = UIController.showFun().btn5value;
 
             //Swap the form between storeman and sale manager
             palStockRestock.Visible = UIController.store().group1;
             btnConfirmOrder.Visible = UIController.store().group2;
             btnShowReorder.Visible = UIController.store().group3;
+            btnModify.Visible = UIController.store().group4;
 
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
@@ -185,7 +185,7 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            controller.proFileController proFileController = new controller.proFileController(accountController);
+            proFileController proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
 
@@ -246,7 +246,7 @@ namespace templatev1
         private void btnClean_Click(object sender, EventArgs e)
         {
             tbPartName.Text = null;
-            cmbSuppiler.SelectedIndex = cmbType.SelectedIndex = cmbCountry.SelectedIndex = -1;
+            cmbSupplier.SelectedIndex = cmbType.SelectedIndex = cmbCountry.SelectedIndex = -1;
         }
 
         //Pass search values to the controller.
@@ -265,7 +265,7 @@ namespace templatev1
                 {
                     dynamic partValues = new ExpandoObject();
                     partValues.partName = string.IsNullOrEmpty(tbPartName.Text) ? null : tbPartName.Text;
-                    partValues.supplier = cmbSuppiler.SelectedIndex == -1 ? null : cmbSuppiler.SelectedItem.ToString();
+                    partValues.supplier = cmbSupplier.SelectedIndex == -1 ? null : cmbSupplier.SelectedItem.ToString();
                     partValues.category = cmbType.SelectedIndex == -1 ? null : cmbType.SelectedItem.ToString();
                     partValues.country = cmbCountry.SelectedIndex == -1 ? null : cmbCountry.SelectedItem.ToString();
 
@@ -285,14 +285,21 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            Form StockModify = new SMStockModify(accountController, UIController, stockController, selectedPartID);
-            Hide();
-            //Swap the current form to another.
-            StockModify.StartPosition = FormStartPosition.Manual;
-            StockModify.Location = Location;
-            StockModify.Size = Size;
-            StockModify.ShowDialog();
-            Close();
+            if (!string.IsNullOrEmpty(selectedPartID))      //Check whether a part number is selected.
+            {
+                stockController.SetModifyPartID(selectedPartID);     //Set the part number that to be modify.
+                Form StockModify = new SMStockModify(accountController, UIController, stockController);
+                Hide();
+                //Swap the current form to another.
+                StockModify.StartPosition = FormStartPosition.Manual;
+                StockModify.Location = Location;
+                StockModify.Size = Size;
+                StockModify.ShowDialog();
+                Close();
+            }
+            else
+                MessageBox.Show("Spare part has NOT selected.",
+                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAddSpare_Click(object sender, EventArgs e)
@@ -311,6 +318,7 @@ namespace templatev1
         private void dgvStock_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvStock.ClearSelection();
+            selectedPartID = null;
             lblPartID.Text = lblCat.Text = lblPName.Text = lblSuppID.Text = lblCountry.Text
                 = lblPhoneNo.Text = lblSName.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text
                     = lblQty.Text = lblCardPartNo.Text = "";
@@ -350,6 +358,7 @@ namespace templatev1
                 lblQty.Text = stockController.GetPartInfo(selectedPartID).quantity;
                 lblCardPartNo.Text = stockController.GetPartInfo(selectedPartID).partNumber;
                 lblStatus.Text = stockController.GetPartInfo(selectedPartID).status;
+                lblLastModified.Text = stockController.GetPartInfo(selectedPartID).lastModified;
             }
             else //There has not any record in the database.
                 MessageBox.Show("Spare part NOT found.",
@@ -411,10 +420,11 @@ namespace templatev1
                     //the requirement to print stock card.
                     if (stockController.CheckOutOfStock(selectedPartID))
                     {
-                        ReorderInputBox(); //Ask user to enter the values.
-                        stockController.CreateReorderRequest(selectedPartID, reorderQty, UID); //Create restock request.
-                        Print(this.palOutOfStock); //Pritn stock card.
-                        dgvReorder.DataSource = stockController.GetReorder(); //Reflesh the data grid view.
+                        if (!ReorderInputBox())     //Ask user to enter the values.
+                            return;
+                        stockController.CreateReorderRequest(selectedPartID, reorderQty);     //Create restock request.
+                        Print(this.palOutOfStock);       //Pritn stock card.
+                        dgvReorder.DataSource = stockController.GetReorder();       //Reflesh the data grid view.
                         DgvReorderIndicator();
                     }
                     else
@@ -425,8 +435,9 @@ namespace templatev1
                 }
                 else if (stockController.CheckReorderLevel(selectedPartID)) //Stock quantity < orderlevel.
                 {
-                    ReorderInputBox(); //Ask user to enter the values.
-                    stockController.CreateReorderRequest(selectedPartID, reorderQty, UID); //Create add stock request.
+                    if (!ReorderInputBox())     //Ask user to enter the values.
+                        return;
+                    stockController.CreateReorderRequest(selectedPartID, reorderQty);     //Create add stock request.
                     dgvReorder.DataSource = stockController.GetReorder();
                     DgvReorderIndicator();
                 }
@@ -456,16 +467,12 @@ namespace templatev1
         //Cancel the order.
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-            //Check if spart part no found or empty DB.
-            if (dgvReorder.Rows.Count > 0)
-            {
-                string selectedReorderID =
-                    dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //Get selected spare number.
+            string selectedReorderID = dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString();     //Get selected spare number.
 
-                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString()
-                    .Equals("processing")) //Only the order that the status
-                {
-                    //is "processing" can be cancelled.
+            if (!string.IsNullOrEmpty(selectedReorderID))
+            {
+                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString().Equals("processing"))    //Only the order that the status
+                {                                                                                    //is "processing" can be cancelled.
                     var result =
                         MessageBox.Show($"Are you sure to cancel the reorder request?" +
                                         $"\nReorderID: {selectedReorderID}", "System message", MessageBoxButtons.YesNo,
@@ -536,6 +543,7 @@ namespace templatev1
         private void btnShowReorder_Click(object sender, EventArgs e)
         {
             palOrder.Visible = true;
+            dgvReorder.ClearSelection();
             DgvReorderIndicator();
         }
 
@@ -557,7 +565,9 @@ namespace templatev1
                     var result = MessageBox.Show("Please enter a valid value, Min: 1 Max: 999. Re-enter the value?",
                         "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
-                        ReorderInputBox(); //Request for re-enter the value.
+                        ReorderInputBox();             //Request for re-enter the value.
+                    else
+                        return false;
                 }
                 else
                     reorderQty = int.Parse(reorderMsg); //Put into reorderQty if is valid.

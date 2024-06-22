@@ -254,6 +254,7 @@ namespace templatev1
                 {
                     MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
+                    getPage("User Management");
                 }
                 else //Something wrong from the controller.
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,

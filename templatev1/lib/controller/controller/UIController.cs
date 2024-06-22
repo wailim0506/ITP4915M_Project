@@ -191,20 +191,27 @@ namespace controller
 
             switch (permission)
             {
-                case "MP02": //Storeman
-                    store.group1 = store.group3 = true;
+                case "MP02":       //Storeman
+                    store.group4 = store.group1 = store.group3 = true;
                     store.group2 = false;
                     break;
                 case "MP05": //Goods Inward Staff
                     store.group2 = store.group3 = true;
-                    store.group1 = false;
+                    store.group1 = store.group4 = false;
                     break;
                 case "MP01": //Sales manager
                     store.group1 = store.group2 = store.group3 = false;
+                    store.group4 = true;
                     break;
             }
 
             return store;
+        }
+
+        //Change the information needs to show between storeman and sale manager.
+        public bool ModifyStore()
+        {
+            return permission.Equals("MP02");
         }
 
         //Change the information needs to show between storeman and sale manager.
