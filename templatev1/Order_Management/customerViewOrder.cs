@@ -146,7 +146,7 @@ namespace templatev1
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(38, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
-                    Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
+                    Size = new Size(93, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label
                 {

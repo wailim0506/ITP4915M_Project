@@ -22,7 +22,7 @@ namespace templatev1
             InitializeComponent();
             partNum = "D00004";
             controller = new viewSparePartController();
-            UID = "LMC00001"; //hard code for testing
+            
             lblUid.Text = $"Uid: {UID}";
         }
 
@@ -35,7 +35,6 @@ namespace templatev1
             controller = new viewSparePartController();
             this.partNum = partNum;
             UID = accountController.GetUid();
-            //UID = "LMC00001"; //hard code for testing
             lblUid.Text = $"Uid: {UID}";
             isLM = accountController.GetIsLm();
         }
@@ -54,13 +53,13 @@ namespace templatev1
             lblPartNum.Text = partNum;
             lblCategory.Text = dt.Rows[0][2].ToString();
             lblName.Text = dt.Rows[0][3].ToString();
-            lblItemNum.Text = dt.Rows[0][7].ToString();
-            lblOnSalesQty.Text = !isLM ? dt.Rows[0][10].ToString() : dt.Rows[0][11].ToString();
+            lblItemNum.Text = dt.Rows[0][8].ToString();
+            lblOnSalesQty.Text = !isLM ? dt.Rows[0][11].ToString() : dt.Rows[0][12].ToString();
 
-            lblDescription.Text = dt.Rows[0][12].ToString();
-            lblPrice.Text = dt.Rows[0][13].ToString();
-            lblSupplier.Text = dt.Rows[0][17].ToString();
-            lblCountry.Text = dt.Rows[0][20].ToString();
+            lblDescription.Text = dt.Rows[0][13].ToString();
+            lblPrice.Text = dt.Rows[0][14].ToString();
+            lblSupplier.Text = dt.Rows[0][19].ToString();
+            lblCountry.Text = dt.Rows[0][22].ToString();
             picSpare.Image = ImageString(partNum);
             lblLoc.Text += $" - {dt.Rows[0][3]}";
 
