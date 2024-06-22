@@ -35,9 +35,9 @@ namespace controller
         //Find the user in the database
         public bool FindUser(string UserID, string emailAdd, string phoneNo)
         {
-            if (validator.IsValidUsername(UserID) == false) return false;
-            if (validator.IsValidEmail(emailAdd) == false) return false;
-            if (validator.IsValidPhoneNumber(phoneNo) == false) return false;
+            // if (validator.IsValidUsername(UserID) == false) return false;
+            // if (validator.IsValidEmail(emailAdd) == false) return false;
+            // if (validator.IsValidPhoneNumber(phoneNo) == false) return false;
 
             UID = UserID;
             email = emailAdd;
