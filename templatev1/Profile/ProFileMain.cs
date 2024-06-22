@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using controller;
 using templatev1.Properties;
+using System.Text.RegularExpressions;
 
 namespace templatev1
 {
@@ -362,7 +363,7 @@ namespace templatev1
             //Check and update phone if have change.
             if (tbPhone.Text != placeholder.phone)
             {
-                if (tbPhone.Text.Length != 11)
+                if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success && !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
                 {
                     lblPhoneMsg.Text = "Please enter the correct phone format.";
                     tbPhone.Select();

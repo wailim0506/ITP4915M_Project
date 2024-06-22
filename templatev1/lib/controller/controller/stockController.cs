@@ -68,12 +68,21 @@ namespace controller
             return dt.Rows.Count == 1;
         }
 
-        public dynamic GetPartInfo(string PartID)
+        public bool CheckReorderLevel(string PartID)
         {
             dt = new DataTable();
 
-            sqlStr =
-                $"SELECT SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
+            sqlStr = $"SELECT * FROM spare_part WHERE quantity < reorderLevel AND partNumber = \'{PartID}\'";
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows.Count == 1;
+        }
+
+        public dynamic GetPartInfo(string PartID) 
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
                 $"S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.partNumber = \'{PartID}\' AND SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID";
 
@@ -91,32 +100,85 @@ namespace controller
             StockInfo.address = dt.Rows[0]["address"].ToString();
             StockInfo.country = dt.Rows[0]["country"].ToString();
             StockInfo.type = dt.Rows[0]["type"].ToString();
+            StockInfo.status = dt.Rows[0]["status"].ToString();
 
             return StockInfo;
         }
 
         public List<string> GetCategory()
         {
-            var query = "SELECT type FROM category";
-            DataTable dataTable = db.ExecuteDataTable(query);
+            var sqlStr = "SELECT type FROM category";
+            dt = db.ExecuteDataTable(sqlStr);
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetCategory was executed.");
-            return dataTable.AsEnumerable().Select(row => row["type"].ToString()).ToList();
+            return dt.AsEnumerable().Select(row => row["type"].ToString()).ToList();
         }
 
         public List<string> GetCountry()
         {
-            var query = "SELECT DISTINCT country FROM supplier";
-            DataTable dataTable = db.ExecuteDataTable(query);
+            var sqlStr = "SELECT DISTINCT country FROM supplier";
+            dt = db.ExecuteDataTable(sqlStr);
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetCountry was executed.");
-            return dataTable.AsEnumerable().Select(row => row["country"].ToString()).ToList();
+            return dt.AsEnumerable().Select(row => row["country"].ToString()).ToList();
         }
 
         public List<string> GetSupplier()
         {
-            var query = "SELECT name FROM supplier";
-            DataTable dataTable = db.ExecuteDataTable(query);
+            var sqlStr = "SELECT name FROM supplier";
+            dt = db.ExecuteDataTable(sqlStr);
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetSupplier was executed.");
-            return dataTable.AsEnumerable().Select(row => row["name"].ToString()).ToList();
+            return dt.AsEnumerable().Select(row => row["name"].ToString()).ToList();
+        }
+
+
+
+
+
+
+        public DataTable GetReorder()
+        {
+            sqlStr = "SELECT * FROM reorder_request ORDER BY reorderID DESC";
+            return ExecuteSqlQuery(sqlStr);
+        }
+
+        private string GetReorderID()
+        {
+            string reorderID = "RE";
+
+            sqlStr = "SELECT * FROM reorder_request";
+            dt = db.ExecuteDataTable(sqlStr);
+            reorderID += (dt.Rows.Count+1).ToString("D5");
+
+            return reorderID;
+        }
+
+        public void CreateReorderRequest(string PartID, int reorderQty, string UID)
+        {
+            var reorderParams = new Dictionary<string, object>
+            {
+                { "@ReorderID", GetReorderID()},
+                { "@UID", UID },
+                { "@PartID", PartID },
+                { "@Date",  DateTime.Now.ToString("yyyy/MM/dd")},
+                { "@Qty", reorderQty},
+                { "@Status", "processing" }
+            };
+
+            sqlStr = "INSERT INTO reorder_request VALUES(@ReorderID, @PartID, @UID, @Date, @Qty, @Status)";
+            _db.ExecuteNonQueryCommand(sqlStr, reorderParams);
+        }
+
+        public void CancelReorder(string reorderID)
+        {
+            sqlStr = $"UPDATE reorder_request SET status = 'cancelled' WHERE reorderID = \'{reorderID}\'";
+            _db.ExecuteNonQueryCommand(sqlStr, null);
+        }
+
+        public void AcceptReorderANDRestock(string PartID, string reorderQty, string reorderID)
+        {
+            sqlStr = $"UPDATE spare_part SET quantity = quantity + \'{reorderQty}\' WHERE partNumber = \'{PartID}\'";
+            _db.ExecuteNonQueryCommand(sqlStr, null);
+            sqlStr = $"UPDATE reorder_request SET status = 'finished' WHERE reorderID = \'{reorderID}\'";
+            _db.ExecuteNonQueryCommand(sqlStr, null);
         }
 
 
