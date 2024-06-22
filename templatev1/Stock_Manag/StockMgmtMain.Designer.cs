@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -85,6 +85,8 @@
             this.btnShowReorder = new System.Windows.Forms.Button();
             this.palStockRestock = new System.Windows.Forms.Panel();
             this.grpStockInfo = new System.Windows.Forms.GroupBox();
+            this.lblLastModified = new System.Windows.Forms.Label();
+            this.lblTLastModified = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -123,8 +125,8 @@
             this.lblOFSOrder = new System.Windows.Forms.Label();
             this.lblOFSTitle = new System.Windows.Forms.Label();
             this.lblOFSPartNo = new System.Windows.Forms.Label();
-            this.lblLastModified = new System.Windows.Forms.Label();
-            this.lblTLastModified = new System.Windows.Forms.Label();
+            this.btnViewSupp = new System.Windows.Forms.Button();
+            this.mySqlDataAdapter1 = new MySql.Data.MySqlClient.MySqlDataAdapter();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -591,7 +593,7 @@
             this.btnAddSpare.Name = "btnAddSpare";
             this.btnAddSpare.Size = new System.Drawing.Size(210, 32);
             this.btnAddSpare.TabIndex = 166;
-            this.btnAddSpare.Text = "Add Spare";
+            this.btnAddSpare.Text = "Add Spare Part";
             this.btnAddSpare.UseVisualStyleBackColor = false;
             this.btnAddSpare.Click += new System.EventHandler(this.btnAddSpare_Click);
             // 
@@ -682,14 +684,14 @@
             this.dgvReorder.AllowUserToResizeRows = false;
             this.dgvReorder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReorder.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvReorder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvReorder.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvReorder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReorder.EnableHeadersVisualStyles = false;
             this.dgvReorder.GridColor = System.Drawing.SystemColors.Control;
@@ -698,8 +700,8 @@
             this.dgvReorder.ReadOnly = true;
             this.dgvReorder.RowHeadersVisible = false;
             this.dgvReorder.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12.75F);
-            this.dgvReorder.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.dgvReorder.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvReorder.RowTemplate.Height = 23;
             this.dgvReorder.Size = new System.Drawing.Size(924, 186);
             this.dgvReorder.TabIndex = 190;
@@ -715,14 +717,14 @@
             this.dgvStock.AllowUserToResizeRows = false;
             this.dgvStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvStock.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStock.EnableHeadersVisualStyles = false;
             this.dgvStock.GridColor = System.Drawing.SystemColors.Control;
@@ -731,8 +733,8 @@
             this.dgvStock.ReadOnly = true;
             this.dgvStock.RowHeadersVisible = false;
             this.dgvStock.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvStock.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStock.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvStock.RowTemplate.Height = 23;
             this.dgvStock.Size = new System.Drawing.Size(924, 361);
             this.dgvStock.TabIndex = 185;
@@ -742,6 +744,7 @@
             // 
             // palStore
             // 
+            this.palStore.Controls.Add(this.btnViewSupp);
             this.palStore.Controls.Add(this.btnShowReorder);
             this.palStore.Controls.Add(this.palStockRestock);
             this.palStore.Controls.Add(this.grpStockInfo);
@@ -771,7 +774,7 @@
             this.palStockRestock.Controls.Add(this.btnAddSpare);
             this.palStockRestock.Location = new System.Drawing.Point(230, 390);
             this.palStockRestock.Name = "palStockRestock";
-            this.palStockRestock.Size = new System.Drawing.Size(676, 39);
+            this.palStockRestock.Size = new System.Drawing.Size(676, 46);
             this.palStockRestock.TabIndex = 187;
             // 
             // grpStockInfo
@@ -815,6 +818,24 @@
             this.grpStockInfo.TabIndex = 186;
             this.grpStockInfo.TabStop = false;
             this.grpStockInfo.Text = "Stock info";
+            // 
+            // lblLastModified
+            // 
+            this.lblLastModified.AutoSize = true;
+            this.lblLastModified.Location = new System.Drawing.Point(184, 130);
+            this.lblLastModified.Name = "lblLastModified";
+            this.lblLastModified.Size = new System.Drawing.Size(0, 22);
+            this.lblLastModified.TabIndex = 188;
+            // 
+            // lblTLastModified
+            // 
+            this.lblTLastModified.AutoSize = true;
+            this.lblTLastModified.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTLastModified.Location = new System.Drawing.Point(21, 129);
+            this.lblTLastModified.Name = "lblTLastModified";
+            this.lblTLastModified.Size = new System.Drawing.Size(157, 23);
+            this.lblTLastModified.TabIndex = 187;
+            this.lblTLastModified.Text = "Last modified by:";
             // 
             // lblStatus
             // 
@@ -1167,30 +1188,30 @@
             this.lblOFSPartNo.TabIndex = 1;
             this.lblOFSPartNo.Text = "Part No. ";
             // 
-            // lblLastModified
+            // btnViewSupp
             // 
-            this.lblLastModified.AutoSize = true;
-            this.lblLastModified.Location = new System.Drawing.Point(184, 130);
-            this.lblLastModified.Name = "lblLastModified";
-            this.lblLastModified.Size = new System.Drawing.Size(0, 22);
-            this.lblLastModified.TabIndex = 188;
+            this.btnViewSupp.BackColor = System.Drawing.Color.White;
+            this.btnViewSupp.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnViewSupp.Location = new System.Drawing.Point(570, 442);
+            this.btnViewSupp.Name = "btnViewSupp";
+            this.btnViewSupp.Size = new System.Drawing.Size(152, 32);
+            this.btnViewSupp.TabIndex = 169;
+            this.btnViewSupp.Text = "View Supplier";
+            this.btnViewSupp.UseVisualStyleBackColor = false;
+            this.btnViewSupp.Click += new System.EventHandler(this.btnViewSupp_Click);
             // 
-            // lblTLastModified
+            // mySqlDataAdapter1
             // 
-            this.lblTLastModified.AutoSize = true;
-            this.lblTLastModified.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTLastModified.Location = new System.Drawing.Point(21, 129);
-            this.lblTLastModified.Name = "lblTLastModified";
-            this.lblTLastModified.Size = new System.Drawing.Size(157, 23);
-            this.lblTLastModified.TabIndex = 187;
-            this.lblTLastModified.Text = "Last modified by:";
+            this.mySqlDataAdapter1.DeleteCommand = null;
+            this.mySqlDataAdapter1.InsertCommand = null;
+            this.mySqlDataAdapter1.SelectCommand = null;
+            this.mySqlDataAdapter1.UpdateCommand = null;
             // 
             // StockMgmt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.palOrder);
             this.Controls.Add(this.palStore);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.chkAdvancedSearch);
@@ -1201,6 +1222,7 @@
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Controls.Add(this.palOrder);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StockMgmt";
@@ -1327,6 +1349,8 @@
         private System.Windows.Forms.DataGridView dgvReorder;
         private System.Windows.Forms.Label lblLastModified;
         private System.Windows.Forms.Label lblTLastModified;
+        private System.Windows.Forms.Button btnViewSupp;
+        private MySql.Data.MySqlClient.MySqlDataAdapter mySqlDataAdapter1;
     }
 }
 

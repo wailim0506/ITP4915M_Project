@@ -585,6 +585,11 @@ namespace templatev1
             pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
         }
 
+        private void btnViewSupp_Click(object sender, EventArgs e)
+        {
+
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (MemoryImage != null)
