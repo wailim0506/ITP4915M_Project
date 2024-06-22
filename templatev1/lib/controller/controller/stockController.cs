@@ -13,7 +13,7 @@ namespace controller
     {
         AccountController accountController;
         private readonly Database db;
-        private string sqlStr;
+        private string sqlStr, ToModifySpareID;
         private DataTable dt;
         private Database _db;
 
@@ -24,25 +24,30 @@ namespace controller
             this.db = db ?? new Database();
         }
 
+        //Return all records to the data grid view from database.
         public DataTable GetPart()
         {
-            sqlStr = "SELECT * FROM spare_part WHERE quantity <= dangerLevel " +
-                     "UNION ALL SELECT * FROM spare_part WHERE quantity <= reorderLevel AND quantity > dangerLevel " + //Move the spare to the top which meets the danger level.
-                     "UNION ALL SELECT * FROM spare_part WHERE quantity > dangerLevel AND quantity > reorderLevel"; //Move the spare to the top which meets the reorder level.
+            sqlStr = "SELECT partNumber, supplierID, categoryID, name, reorderLevel, dangerLevel, quantity, status " +
+                     "FROM spare_part WHERE quantity <= dangerLevel " +
+                     "UNION ALL SELECT partNumber, supplierID, categoryID, name, reorderLevel, dangerLevel, quantity, status " +
+                     "FROM spare_part WHERE quantity <= reorderLevel AND quantity > dangerLevel " + //Move the spare to the top which meets the danger level.
+                     "UNION ALL SELECT partNumber, supplierID, categoryID, name, reorderLevel, dangerLevel, quantity, status " +
+                     "FROM spare_part WHERE quantity > dangerLevel AND quantity > reorderLevel"; //Move the spare to the top which meets the reorder level.
             return ExecuteSqlQuery(sqlStr);
         }
 
+        //Search function.
         public DataTable SearchPart(string PartID)
         {
             sqlStr = $"SELECT * FROM spare_part WHERE partNumber = \'{PartID}\'";
             return ExecuteSqlQuery(sqlStr);
         }
-
         public DataTable AdvancedSearch(dynamic partValues)
         {
             string condition;
             condition = "";
 
+            //Set the condition of advenced search.
             condition += string.IsNullOrEmpty(partValues.partName)
                 ? ""
                 : $" AND SP.name LIKE '%{partValues.partName}%' ";
@@ -57,6 +62,7 @@ namespace controller
                 $"{condition}";
             return ExecuteSqlQuery(sqlStr);
         }
+
 
         public bool CheckOutOfStock(string PartID)
         {
@@ -78,13 +84,13 @@ namespace controller
             return dt.Rows.Count == 1;
         }
 
-        public dynamic GetPartInfo(string PartID)
+        //Return the detail of the selected spare part.
+        public dynamic GetPartInfo(string PartID) 
         {
             dt = new DataTable();
 
-            sqlStr =
-                $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
-                $"S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
+            sqlStr = $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
+                $"SP.lastModified, S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.partNumber = \'{PartID}\' AND SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID";
 
             dt = _db.ExecuteDataTable(sqlStr);
@@ -102,9 +108,31 @@ namespace controller
             StockInfo.country = dt.Rows[0]["country"].ToString();
             StockInfo.type = dt.Rows[0]["type"].ToString();
             StockInfo.status = dt.Rows[0]["status"].ToString();
+            StockInfo.lastModified = dt.Rows[0]["lastModified"].ToString();
 
             return StockInfo;
         }
+
+        private dynamic GetOnSaleInfo(string PartID)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM product WHERE partNumber = \'{PartID}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            dynamic OnSaleInfo = new ExpandoObject();
+            OnSaleInfo.itemID = dt.Rows[0]["itemID"].ToString();
+            OnSaleInfo.onSaleQty = dt.Rows[0]["onSaleQty"].ToString();
+            OnSaleInfo.LM_onSaleQty = dt.Rows[0]["LM_onSaleQty"].ToString();
+            OnSaleInfo.description = dt.Rows[0]["description"].ToString();
+            OnSaleInfo.price = dt.Rows[0]["price"].ToString();
+            OnSaleInfo.status = dt.Rows[0]["status"].ToString();
+
+            return OnSaleInfo;
+        }
+
+
 
         public List<string> GetCategory()
         {
@@ -116,7 +144,7 @@ namespace controller
 
         public List<string> GetCountry()
         {
-            var sqlStr = "SELECT DISTINCT country FROM supplier";
+            var sqlStr = "SELECT country FROM countries";
             dt = db.ExecuteDataTable(sqlStr);
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetCountry was executed.");
             return dt.AsEnumerable().Select(row => row["country"].ToString()).ToList();
@@ -129,6 +157,11 @@ namespace controller
             Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetSupplier was executed.");
             return dt.AsEnumerable().Select(row => row["name"].ToString()).ToList();
         }
+
+
+
+
+
 
 
         public DataTable GetReorder()
@@ -148,12 +181,12 @@ namespace controller
             return reorderID;
         }
 
-        public void CreateReorderRequest(string PartID, int reorderQty, string UID)
+        public void CreateReorderRequest(string PartID, int reorderQty)
         {
             var reorderParams = new Dictionary<string, object>
             {
-                { "@ReorderID", GetReorderID() },
-                { "@UID", UID },
+                { "@ReorderID", GetReorderID()},
+                { "@UID", accountController.GetUid() },
                 { "@PartID", PartID },
                 { "@Date", DateTime.Now.ToString("yyyy/MM/dd") },
                 { "@Qty", reorderQty },
@@ -177,6 +210,76 @@ namespace controller
             sqlStr = $"UPDATE reorder_request SET status = 'finished' WHERE reorderID = \'{reorderID}\'";
             _db.ExecuteNonQueryCommand(sqlStr, null);
         }
+
+        public void SetModifyPartID(string PartID)
+        {
+            this.ToModifySpareID = PartID;
+        }
+
+        public dynamic GetModifyPartInfo()
+        {
+            return GetPartInfo(ToModifySpareID);
+        }
+
+        public bool ModifyStockInfo(dynamic StockInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@Name", StockInfo.SPname },
+                    { "@RLevel", StockInfo.reorderLevel },
+                    { "@DLevel", StockInfo.dangerLevel },
+                    { "@Supplier", GetSupplierID(StockInfo.Sname) },
+                    { "@Cat", GetCategoryID(StockInfo.category) },
+                    { "@Qty", StockInfo.quantity },
+                    { "@Status", StockInfo.status },
+                    { "@partNumber", ToModifySpareID },
+                    { "@UID", accountController.GetUid() }
+                };
+
+                    sqlStr =
+                        "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel, dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "stock controller", $"Error modifying stock info: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
+        private string GetSupplierID(string suppilerName) 
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT supplierID FROM supplier WHERE name = \'{suppilerName}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows[0]["supplierID"].ToString();
+        }
+
+        private string GetCategoryID(string Category)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT categoryID FROM category WHERE type = \'{Category}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows[0]["categoryID"].ToString();
+        }
+
+        public dynamic GetOnSalePartInfo()
+        {
+            return GetOnSaleInfo(ToModifySpareID);
+        }
+
+
 
 
         private DataTable ExecuteSqlQuery(string sqlQuery)

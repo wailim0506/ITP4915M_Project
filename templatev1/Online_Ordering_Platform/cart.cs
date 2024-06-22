@@ -80,7 +80,7 @@ namespace templatev1
                 };
                 Label lblPartName = new Label
                 {
-                    Text = $"{dt.Rows[i][16]}", Location = new Point(279, yPosition),
+                    Text = $"{dt.Rows[i][17]}", Location = new Point(279, yPosition),
                     Font = new Font("Microsoft Sans Serif", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -99,7 +99,7 @@ namespace templatev1
                 Label lblRowTotalPrice = new Label
                 {
                     Name = $"lbRowPrice{i}",
-                    Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString())}",
+                    Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][10].ToString())}",
                     Location = new Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
                     Size = new Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -121,7 +121,7 @@ namespace templatev1
                 pnlSP.Controls.Add(btnView);
 
                 yPosition += 50;
-                totalPrice += int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][8].ToString());
+                totalPrice += int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][10].ToString());
             }
 
             lblTotal.Text = $"¥{totalPrice}";
