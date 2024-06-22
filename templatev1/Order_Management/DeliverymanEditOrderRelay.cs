@@ -46,7 +46,6 @@ namespace templatev1
             List<string> ProvinceList = DeliveryController.GetProvinceList();
             cbxProvince.Items.AddRange(ProvinceList.ToArray());
             cbxProvince.SelectedIndex = 0;
-            
         }
 
         private void load_data()

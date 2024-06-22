@@ -1,15 +1,17 @@
 ﻿using System;
-using System.IO;
 using System.Drawing;
-using System.Windows.Forms;
 using System.Dynamic;
+using System.IO;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using controller;
 
 namespace templatev1
 {
     public partial class CreateCustomerAcc : Form
     {
-        controller.RecoveryController recoveryController;
+        RecoveryController recoveryController;
         Bitmap IMG;
         bool IMGUploaded;
         dynamic value;
@@ -19,7 +21,7 @@ namespace templatev1
             InitializeComponent();
         }
 
-        public CreateCustomerAcc(controller.RecoveryController recoveryController)
+        public CreateCustomerAcc(RecoveryController recoveryController)
         {
             InitializeComponent();
             this.recoveryController = recoveryController;
@@ -112,12 +114,7 @@ namespace templatev1
                     }
                     else
                     {
-                        IMG = new Bitmap(Image.FromFile(ofd.FileName));
-                        btnUploadIMG.Visible = false;
-                        picUserIMG.Image = IMG;
-                        IMGUploaded = true;
-
-                        //Upload to local drive.
+                        UploadImage(ofd);
                     }
                 }
             }
@@ -129,13 +126,35 @@ namespace templatev1
             }
         }
 
+
         //Set new value to the city listbox when the selected province has changed.
         private void cmbProvince_SelectedValueChanged(object sender, EventArgs e)
         {
-            cmbCity.SelectedIndex = -1; //clear the selected value when the province has change.
-            cmbCity.Items.Clear(); //clear the value when the selected province has change.
+            cmbCity.SelectedIndex = -1; //clear the selected value when the province has changed.
+            cmbCity.Items.Clear(); //clear the value when the selected province has changed.
             cmbCity.Items.AddRange(recoveryController.GetCity(cmbProvince.Text)
-                .ToArray()); //change city list base on current selected province.
+                .ToArray()); //change city list base on a current selected province.
+        }
+
+        private void UploadImage(OpenFileDialog ofd)
+        {
+            IMG = new Bitmap(Image.FromFile(ofd.FileName));
+            btnUploadIMG.Visible = false;
+            picUserIMG.Image = IMG;
+            IMGUploaded = true;
+
+            string path = Directory.GetCurrentDirectory() + "\\Upload\\";
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string fileName = Path.GetFileName(ofd.FileName);
+            string newFileName = $"usr_{recoveryController.getLMCID():D5}_{fileName}";
+            string newPath = Path.Combine(path, newFileName);
+
+            File.Move(ofd.FileName, newPath);
+            recoveryController.UploadUserAvatar(newPath);
         }
 
         //Check the inputted data.
@@ -152,7 +171,8 @@ namespace templatev1
                 tbFirstName.Select();
                 return false;
             }
-            else if (tbFirstName.Text.Length < 2 || tbFirstName.Text.Length > 20)
+
+            if (tbFirstName.Text.Length < 2 || tbFirstName.Text.Length > 20)
             {
                 lblfNameMsg.Text = "FirstName too short or too long, minimum 2 maximum 20.";
                 tbFirstName.Select();
@@ -166,7 +186,8 @@ namespace templatev1
                 tbLastName.Select();
                 return false;
             }
-            else if (tbLastName.Text.Length < 2 || tbLastName.Text.Length > 20)
+
+            if (tbLastName.Text.Length < 2 || tbLastName.Text.Length > 20)
             {
                 lblLNameMsg.Text = "LastName too short or too long, minimum 2 maximum 20.";
                 tbLastName.Select();
@@ -187,8 +208,9 @@ namespace templatev1
                 lblDateMsg.Text = "Please select the date or click NOT provided.";
                 return false;
             }
-            else if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
-                                                   dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
+
+            if (!chkNGDateOfBirth.Checked && (dtpDateOfBirth.Value.Date > DateTime.Now.Date ||
+                                              dtpDateOfBirth.Value.Date > new DateTime(2007, 1, 1)))
             {
                 lblDateMsg.Text = "Please select a valid date or click NOT provided.";
                 return false;
@@ -209,13 +231,16 @@ namespace templatev1
                 tbPhone.Select();
                 return false;
             }
-            else if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success && !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
+
+            if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success &&
+                !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
             {
                 lblPhoneMsg.Text = "Please enter the correct format.";
                 tbPhone.Select();
                 return false;
             }
-            else if (!recoveryController.CheckEmailPhone(tbPhone.Text))
+
+            if (!recoveryController.CheckEmailPhone(tbPhone.Text))
             {
                 lblPhoneMsg.Text = "The phone number has already registered an account.";
                 tbPhone.Select();
@@ -229,13 +254,15 @@ namespace templatev1
                 tbEmail.Select();
                 return false;
             }
-            else if (!IsValidEmail(tbEmail.Text) || tbEmail.Text.Length > 30)
+
+            if (!IsValidEmail(tbEmail.Text) || tbEmail.Text.Length > 30)
             {
                 lblEmailMsg.Text = "Please enter the correct format.";
                 tbEmail.Select();
                 return false;
             }
-            else if (!recoveryController.CheckEmailPhone(tbEmail.Text))
+
+            if (!recoveryController.CheckEmailPhone(tbEmail.Text))
             {
                 lblEmailMsg.Text = "The email address has already registered an account.";
                 tbEmail.Select();
@@ -249,7 +276,8 @@ namespace templatev1
                 tbCompanyName.Select();
                 return false;
             }
-            else if (tbCompanyName.Text.Length > 30)
+
+            if (tbCompanyName.Text.Length > 30)
             {
                 lblContactMsg.Text = "Company name too long, maximum 30.";
                 tbCompanyName.Select();
@@ -263,20 +291,23 @@ namespace templatev1
                 tbAddress1.Select();
                 return false;
             }
-            else if (tbAddress1.Text.Length > 50 || tbAddress2.Text.Length > 50 || tbAddress1.Text.Length < 5 ||
-                     tbAddress2.Text.Length < 5)
+
+            if (tbAddress1.Text.Length > 50 || tbAddress2.Text.Length > 50 || tbAddress1.Text.Length < 5 ||
+                tbAddress2.Text.Length < 5)
             {
                 lblContactMsg.Text = "Address too long or too short, minimum 5, maximum 50.";
                 tbAddress1.Select();
                 return false;
             }
-            else if (cmbProvince.SelectedItem == null)
+
+            if (cmbProvince.SelectedItem == null)
             {
                 lblContactMsg.Text = "Please select a province.";
                 cmbProvince.Select();
                 return false;
             }
-            else if (cmbCity.SelectedItem == null)
+
+            if (cmbCity.SelectedItem == null)
             {
                 lblContactMsg.Text = "Please select a city.";
                 cmbCity.Select();
@@ -290,13 +321,15 @@ namespace templatev1
                 tbPass.Select();
                 return false;
             }
-            else if (tbPass.Text.Length < 10 || tbPass.Text.Length > 50)
+
+            if (tbPass.Text.Length < 10 || tbPass.Text.Length > 50)
             {
                 lblPwdMsg.Text = "Password too short or too long, minimum 10 maximum 50.";
                 tbPass.Select();
                 return false;
             }
-            else if (!tbPass.Text.Equals(tbConfirmPass.Text))
+
+            if (!tbPass.Text.Equals(tbConfirmPass.Text))
             {
                 lblPwdMsg.Text = "Confirm password does NOT match.";
                 tbConfirmPass.Select();
@@ -318,7 +351,7 @@ namespace templatev1
 
             try
             {
-                var addr = new System.Net.Mail.MailAddress(email);
+                var addr = new MailAddress(email);
                 return addr.Address == trimmedEmail;
             }
             catch

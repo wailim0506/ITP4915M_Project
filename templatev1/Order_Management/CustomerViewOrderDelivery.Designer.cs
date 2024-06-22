@@ -438,6 +438,8 @@ namespace templatev1
             // 
             // DeliverayImage
             // 
+            this.DeliverayImage.BackColor = System.Drawing.Color.Transparent;
+            this.DeliverayImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DeliverayImage.Location = new System.Drawing.Point(218, 268);
             this.DeliverayImage.Name = "DeliverayImage";
             this.DeliverayImage.Size = new System.Drawing.Size(764, 548);

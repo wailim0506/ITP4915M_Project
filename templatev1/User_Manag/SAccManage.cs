@@ -335,7 +335,7 @@ namespace templatev1
         private void dgvUser_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvUser.ClearSelection();
-            lblDUname.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text 
+            lblDUname.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text
                 = lblUCorpAdd.Text = lblUAdd.Text = "";
         }
 

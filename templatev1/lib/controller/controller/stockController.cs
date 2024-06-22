@@ -78,11 +78,12 @@ namespace controller
             return dt.Rows.Count == 1;
         }
 
-        public dynamic GetPartInfo(string PartID) 
+        public dynamic GetPartInfo(string PartID)
         {
             dt = new DataTable();
 
-            sqlStr = $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
+            sqlStr =
+                $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
                 $"S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.partNumber = \'{PartID}\' AND SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID";
 
@@ -130,10 +131,6 @@ namespace controller
         }
 
 
-
-
-
-
         public DataTable GetReorder()
         {
             sqlStr = "SELECT * FROM reorder_request ORDER BY reorderID DESC";
@@ -146,7 +143,7 @@ namespace controller
 
             sqlStr = "SELECT * FROM reorder_request";
             dt = db.ExecuteDataTable(sqlStr);
-            reorderID += (dt.Rows.Count+1).ToString("D5");
+            reorderID += (dt.Rows.Count + 1).ToString("D5");
 
             return reorderID;
         }
@@ -155,11 +152,11 @@ namespace controller
         {
             var reorderParams = new Dictionary<string, object>
             {
-                { "@ReorderID", GetReorderID()},
+                { "@ReorderID", GetReorderID() },
                 { "@UID", UID },
                 { "@PartID", PartID },
-                { "@Date",  DateTime.Now.ToString("yyyy/MM/dd")},
-                { "@Qty", reorderQty},
+                { "@Date", DateTime.Now.ToString("yyyy/MM/dd") },
+                { "@Qty", reorderQty },
                 { "@Status", "processing" }
             };
 

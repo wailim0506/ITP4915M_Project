@@ -10,11 +10,13 @@ namespace controller.Utilities
     public class Database : IDisposable, IDatabase
     {
         private readonly MySqlConnection _connection;
+        private Log _logger;
 
         public Database(string connectionString = null)
         {
             _connection = new MySqlConnection(connectionString ?? GetConnectionString());
             _connection.Open();
+            _logger = new Log();
         }
 
         public string GetConnectionString()

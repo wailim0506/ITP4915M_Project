@@ -45,7 +45,7 @@ namespace templatev1
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             setIndicator(UIController.getIndicator("Stock Management"));
-            
+
             //Get valuse from the database.
             cmbType.Items.AddRange(stockController.GetCategory().ToArray());
             cmbCountry.Items.AddRange(stockController.GetCountry().ToArray());
@@ -54,9 +54,9 @@ namespace templatev1
             //Datagridview properties
             dgvReorder.DataSource = stockController.GetReorder();
             dgvStock.DataSource = stockController.GetPart();
-            dgvReorder.ColumnHeadersDefaultCellStyle.Font = dgvStock.ColumnHeadersDefaultCellStyle.Font 
+            dgvReorder.ColumnHeadersDefaultCellStyle.Font = dgvStock.ColumnHeadersDefaultCellStyle.Font
                 = new Font("Times New Roman", 13F, FontStyle.Bold);
-            DgvIndicator();            //If lower than danger level change color of the row to red. 
+            DgvIndicator(); //If lower than danger level change color of the row to red. 
 
             //Clean default selection.
             dgvStock.ClearSelection();
@@ -241,6 +241,7 @@ namespace templatev1
             if (!chkAdvancedSearch.Checked)
                 btnClean_Click(this, new EventArgs());
         }
+
         //Clean data in the advanced serch.
         private void btnClean_Click(object sender, EventArgs e)
         {
@@ -251,15 +252,16 @@ namespace templatev1
         //Pass search values to the controller.
         private void picSearch_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(tbPartName.Text) && !chkAdvancedSearch.Checked)        //Nither using advanced search
-            {                                                                               //nor normal search show all records.
+            if (string.IsNullOrEmpty(tbPartName.Text) && !chkAdvancedSearch.Checked) //Nither using advanced search
+            {
+                //nor normal search show all records.
                 dgvStock.DataSource = stockController.GetPart();
                 DgvIndicator();
             }
             else if (tbSearch.Text.StartsWith("A") || tbSearch.Text.StartsWith("B") || tbSearch.Text.StartsWith("C")
-                || tbSearch.Text.StartsWith("D") || chkAdvancedSearch.Checked)         //Check if is a valid part number.
+                     || tbSearch.Text.StartsWith("D") || chkAdvancedSearch.Checked) //Check if is a valid part number.
             {
-                if (chkAdvancedSearch.Checked)         //Using advanced serch.
+                if (chkAdvancedSearch.Checked) //Using advanced serch.
                 {
                     dynamic partValues = new ExpandoObject();
                     partValues.partName = string.IsNullOrEmpty(tbPartName.Text) ? null : tbPartName.Text;
@@ -270,13 +272,13 @@ namespace templatev1
                     dgvStock.DataSource = stockController.AdvancedSearch(partValues);
                     DgvIndicator();
                 }
-                else         //Normal search.
+                else //Normal search.
                 {
                     dgvStock.DataSource = stockController.SearchPart(tbSearch.Text);
                     DgvIndicator();
                 }
             }
-            else          //Not a valid part number.
+            else //Not a valid part number.
                 MessageBox.Show("Not a valid part number",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -313,6 +315,7 @@ namespace templatev1
                 = lblPhoneNo.Text = lblSName.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text
                     = lblQty.Text = lblCardPartNo.Text = "";
         }
+
         private void dgvReorder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvReorder.ClearSelection();
@@ -348,7 +351,7 @@ namespace templatev1
                 lblCardPartNo.Text = stockController.GetPartInfo(selectedPartID).partNumber;
                 lblStatus.Text = stockController.GetPartInfo(selectedPartID).status;
             }
-            else         //There has not any record in the database.
+            else //There has not any record in the database.
                 MessageBox.Show("Spare part NOT found.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -358,6 +361,7 @@ namespace templatev1
         {
             DgvIndicator();
         }
+
         private void dgvReorder_Sorted(object sender, EventArgs e)
         {
             DgvReorderIndicator();
@@ -370,25 +374,29 @@ namespace templatev1
             //If lower than danger level change color of the row to red. 
             for (int r = 0; r < dgvStock.RowCount; r++)
             {
-                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) >= int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString()))          //Normal.
+                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) >=
+                    int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString())) //Normal.
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#C6FEB8");
-                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <= int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString()))          //meets re-order level.
+                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <=
+                    int.Parse(dgvStock.Rows[r].Cells[4].Value.ToString())) //meets re-order level.
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FDFF6F");
-                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <= int.Parse(dgvStock.Rows[r].Cells[5].Value.ToString()))          //meets danger level.
+                if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <=
+                    int.Parse(dgvStock.Rows[r].Cells[5].Value.ToString())) //meets danger level.
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FEB8B8");
             }
         }
+
         private void DgvReorderIndicator()
         {
             dgvReorder.ClearSelection();
             //If lower than danger level change color of the row to red. 
             for (int r = 0; r < dgvReorder.RowCount; r++)
             {
-                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("cancelled"))              //The order status was cancelled.
+                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("cancelled")) //The order status was cancelled.
                     dgvReorder.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FEB8B8");
-                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("processing"))              //The order status is processing.
+                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("processing")) //The order status is processing.
                     dgvReorder.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FDFF6F");
-                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("finished"))              //The order status was finished.
+                if (dgvReorder.Rows[r].Cells[5].Value.ToString().Equals("finished")) //The order status was finished.
                     dgvReorder.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#C6FEB8");
             }
         }
@@ -396,27 +404,29 @@ namespace templatev1
         //Recorder finction.
         private void btnSendOrder_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedPartID))      //Check whether a part number is selected.
+            if (!string.IsNullOrEmpty(selectedPartID)) //Check whether a part number is selected.
             {
-                if (chkPrtStockCard.Checked)        //Determine whether meets 
-                {                                                                                        //the requirement to print stock card.
+                if (chkPrtStockCard.Checked) //Determine whether meets 
+                {
+                    //the requirement to print stock card.
                     if (stockController.CheckOutOfStock(selectedPartID))
                     {
-                        ReorderInputBox();     //Ask user to enter the values.
-                        stockController.CreateReorderRequest(selectedPartID, reorderQty, UID);     //Create restock request.
-                        Print(this.palOutOfStock);       //Pritn stock card.
-                        dgvReorder.DataSource = stockController.GetReorder();       //Reflesh the data grid view.
+                        ReorderInputBox(); //Ask user to enter the values.
+                        stockController.CreateReorderRequest(selectedPartID, reorderQty, UID); //Create restock request.
+                        Print(this.palOutOfStock); //Pritn stock card.
+                        dgvReorder.DataSource = stockController.GetReorder(); //Reflesh the data grid view.
                         DgvReorderIndicator();
                     }
                     else
                         MessageBox.Show("The selected item does NOT meets the requirement to print stock card.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    chkPrtStockCard.Checked = false;          //Set to default value.
+                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    chkPrtStockCard.Checked = false; //Set to default value.
                 }
-                else if(stockController.CheckReorderLevel(selectedPartID))       //Stock quantity < orderlevel.
+                else if (stockController.CheckReorderLevel(selectedPartID)) //Stock quantity < orderlevel.
                 {
-                    ReorderInputBox();     //Ask user to enter the values.
-                    stockController.CreateReorderRequest(selectedPartID, reorderQty, UID);     //Create add stock request.
+                    ReorderInputBox(); //Ask user to enter the values.
+                    stockController.CreateReorderRequest(selectedPartID, reorderQty, UID); //Create add stock request.
                     dgvReorder.DataSource = stockController.GetReorder();
                     DgvReorderIndicator();
                 }
@@ -426,7 +436,7 @@ namespace templatev1
             }
             else
                 MessageBox.Show("Spare part has NOT selected.",
-                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         //Select the whole row.
@@ -449,27 +459,31 @@ namespace templatev1
             //Check if spart part no found or empty DB.
             if (dgvReorder.Rows.Count > 0)
             {
-                string selectedReorderID = dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString();     //Get selected spare number.
+                string selectedReorderID =
+                    dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //Get selected spare number.
 
-                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString().Equals("processing"))    //Only the order that the status
-                {                                                                                    //is "processing" can be cancelled.
+                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString()
+                    .Equals("processing")) //Only the order that the status
+                {
+                    //is "processing" can be cancelled.
                     var result =
                         MessageBox.Show($"Are you sure to cancel the reorder request?" +
-                        $"\nReorderID: {selectedReorderID}", "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        $"\nReorderID: {selectedReorderID}", "System message", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
                     {
-                        stockController.CancelReorder(selectedReorderID);       //Cancel the order.
+                        stockController.CancelReorder(selectedReorderID); //Cancel the order.
 
                         MessageBox.Show($"The order {selectedReorderID} has cancelled.",
-                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        dgvReorder.DataSource = stockController.GetReorder();         //Refresh data grid view
+                        dgvReorder.DataSource = stockController.GetReorder(); //Refresh data grid view
                         DgvReorderIndicator();
                     }
                 }
                 else
                     MessageBox.Show($"The order {selectedReorderID} was finished or cancelled.",
-                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
                 MessageBox.Show("Part number NOT selected.",
@@ -482,23 +496,23 @@ namespace templatev1
             //Check if spart part no found or empty DB.
             if (dgvReorder.Rows.Count > 0)
             {
-                string ReorderSparePartID = dgvReorder.Rows[reorderIndex].Cells[1].Value.ToString();     //
-                string RestockOrderQty = dgvReorder.Rows[reorderIndex].Cells[4].Value.ToString();     //
-                string selectedReorderID = dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString();     //
+                string ReorderSparePartID = dgvReorder.Rows[reorderIndex].Cells[1].Value.ToString(); //
+                string RestockOrderQty = dgvReorder.Rows[reorderIndex].Cells[4].Value.ToString(); //
+                string selectedReorderID = dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //
 
-                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString().Equals("processing"))    //
+                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString().Equals("processing")) //
                 {
                     var result =
                         MessageBox.Show($"Are you sure to confirm reorder request AND restock?" +
-                        $"\nReorderID: {selectedReorderID}\nPart number: {ReorderSparePartID}" +
-                        $"\nRestock quantity: {RestockOrderQty}"
-                        , "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                                        $"\nReorderID: {selectedReorderID}\nPart number: {ReorderSparePartID}" +
+                                        $"\nRestock quantity: {RestockOrderQty}"
+                            , "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                     if (result == DialogResult.Yes)
                     {
                         stockController.AcceptReorderANDRestock(ReorderSparePartID, RestockOrderQty, selectedReorderID);
 
-                        dgvReorder.DataSource = stockController.GetReorder();         //Refresh data grid view
+                        dgvReorder.DataSource = stockController.GetReorder(); //Refresh data grid view
                         dgvStock.DataSource = stockController.GetPart();
                         DgvIndicator();
                         DgvReorderIndicator();
@@ -506,7 +520,7 @@ namespace templatev1
                 }
                 else
                     MessageBox.Show($"The order {selectedReorderID} was finished or cancelled.",
-                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
                 MessageBox.Show("Reorder ID NOT selected.",
@@ -518,6 +532,7 @@ namespace templatev1
         {
             palOrder.Visible = false;
         }
+
         private void btnShowReorder_Click(object sender, EventArgs e)
         {
             palOrder.Visible = true;
@@ -526,12 +541,13 @@ namespace templatev1
 
 
         //Show input box to enter the reorder value.
-        private bool ReorderInputBox() 
+        private bool ReorderInputBox()
         {
             var reorderMsg = "";
 
             reorderMsg = Interaction.InputBox($"Please enter the quantity of the reorder request." +
-                $"\n\nSpartNumber: {lblPartID.Text}\nName: {lblPName.Text}", "Reorder request");
+                                              $"\n\nSpartNumber: {lblPartID.Text}\nName: {lblPName.Text}",
+                "Reorder request");
             if (!((string)reorderMsg == ""))
             {
                 int Qty;
@@ -541,12 +557,14 @@ namespace templatev1
                     var result = MessageBox.Show("Please enter a valid value, Min: 1 Max: 999. Re-enter the value?",
                         "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
-                        ReorderInputBox();             //Request for re-enter the value.
+                        ReorderInputBox(); //Request for re-enter the value.
                 }
                 else
-                    reorderQty = int.Parse(reorderMsg);    //Put into reorderQty if is valid.
+                    reorderQty = int.Parse(reorderMsg); //Put into reorderQty if is valid.
+
                 return true;
             }
+
             return false;
         }
 
@@ -556,6 +574,7 @@ namespace templatev1
             MemoryImage = new Bitmap(pnl.Width, pnl.Height);
             pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
         }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             if (MemoryImage != null)
@@ -564,11 +583,14 @@ namespace templatev1
                 base.OnPaint(e);
             }
         }
+
         void printdoc1_PrintPage(object sender, PrintPageEventArgs e)
         {
             Rectangle pagearea = e.PageBounds;
-            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.palOutOfStock.Width / 2), this.palOutOfStock.Location.Y);
+            e.Graphics.DrawImage(MemoryImage, (pagearea.Width / 2) - (this.palOutOfStock.Width / 2),
+                this.palOutOfStock.Location.Y);
         }
+
         public void Print(Panel pnl)
         {
             Panel pannel = pnl;

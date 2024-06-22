@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using controller;
 using controller.Utilities;
+using Microsoft.Extensions.Logging;
 using templatev1.Properties;
 
 namespace templatev1
@@ -66,11 +67,22 @@ namespace templatev1
             lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
-            if (lblStatus.Text != "Processing")
+            // if the order is not in the process of being shipped, it will not be displayed
+            if (lblStatus.Text != "Pending" && lblStatus.Text != "Cancelled")
+            {
+                btnViewDelivery.Visible = true;
+                btnViewDelivery.Enabled = true;
+                btnViewDelivery.Controls.Clear();
+                Log.LogMessage(LogLevel.Information, "[View] CustomerViewOrder ",
+                    "load_data: Order is not in the process of being shipped");
+            }
+            else
             {
                 btnViewDelivery.Visible = false;
                 btnViewDelivery.Enabled = false;
                 btnViewDelivery.Controls.Clear();
+                Log.LogMessage(LogLevel.Information, "[View] CustomerViewOrder ",
+                    "load_data: Order is in the process of being shipped");
             }
 
             //delivery info

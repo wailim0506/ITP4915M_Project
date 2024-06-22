@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
 
-
 namespace controller
 {
     public class AccountController : abstractController
@@ -14,6 +13,7 @@ namespace controller
         private Boolean isLM;
         UIController UIController;
         private readonly Database db;
+        private readonly Validator validator = new Validator();
 
         public AccountController(Database db = null)
         {
@@ -26,6 +26,14 @@ namespace controller
         {
             try
             {
+                // avoid sql injection
+                if (validator.IsValidUsername(UID) == false || validator.IsValidPassword(Pass) == false)
+                {
+                    Log.LogMessage(LogLevel.Critical, "AccountController",
+                        $"Login method User id: {UID} Password : {Pass} is not valid.");
+                    return false;
+                }
+
                 var dt = ExecuteSqlQuery(GetAccountDataQuery(UID));
 
                 // Account not found
@@ -65,7 +73,7 @@ namespace controller
             bool isValid = BCrypt.Net.BCrypt.Verify(inputPassword, storedPassword);
             if (!isValid)
             {
-                Log.LogMessage(Microsoft.Extensions.Logging.LogLevel.Debug, "AccountController",
+                Log.LogMessage(LogLevel.Debug, "AccountController",
                     $"Login method User id: {UserID} Password : {inputPassword} not valid with stored password : {storedPassword}.");
             }
 
@@ -239,10 +247,8 @@ namespace controller
             {
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
     }
 }

@@ -11,7 +11,8 @@ namespace templatev1
         stockController stockController;
         UIController UIController;
 
-        public SMStockModify(AccountController accountController, UIController UIController, stockController stockController, string selectedPartID)
+        public SMStockModify(AccountController accountController, UIController UIController,
+            stockController stockController, string selectedPartID)
         {
             InitializeComponent();
             this.accountController = accountController;

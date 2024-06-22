@@ -296,7 +296,8 @@ namespace templatev1
                 tbPhone.Select();
                 return false;
             }
-            else if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success && !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
+            else if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success &&
+                     !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
             {
                 lblPhoneMsg.Text = "Please enter the correct format.";
                 tbPhone.Select();

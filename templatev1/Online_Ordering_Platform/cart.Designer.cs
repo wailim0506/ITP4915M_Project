@@ -166,7 +166,7 @@ namespace templatev1
             this.btnSearch.Size = new System.Drawing.Size(162, 39);
             this.btnSearch.TabIndex = 86;
             this.btnSearch.TabStop = false;
-            this.btnSearch.Text = "Search Sapre Part";
+            this.btnSearch.Text = "Search Spare Part";
             this.btnSearch.UseVisualStyleBackColor = false;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 

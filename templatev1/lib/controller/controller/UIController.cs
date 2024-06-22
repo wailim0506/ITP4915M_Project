@@ -191,18 +191,19 @@ namespace controller
 
             switch (permission)
             {
-                case "MP02":       //Storeman
+                case "MP02": //Storeman
                     store.group1 = store.group3 = true;
                     store.group2 = false;
                     break;
-                case "MP05":       //Goods Inward Staff
+                case "MP05": //Goods Inward Staff
                     store.group2 = store.group3 = true;
                     store.group1 = false;
                     break;
-                case "MP01":       //Sales manager
+                case "MP01": //Sales manager
                     store.group1 = store.group2 = store.group3 = false;
                     break;
-            }  
+            }
+
             return store;
         }
 

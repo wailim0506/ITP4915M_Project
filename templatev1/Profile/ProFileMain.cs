@@ -363,7 +363,8 @@ namespace templatev1
             //Check and update phone if have change.
             if (tbPhone.Text != placeholder.phone)
             {
-                if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success && !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
+                if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success &&
+                    !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
                 {
                     lblPhoneMsg.Text = "Please enter the correct phone format.";
                     tbPhone.Select();

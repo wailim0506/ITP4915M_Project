@@ -216,7 +216,6 @@ Microsoft.Extensions.Logging.Configuration version 8.0.0
 
 JetBrains.Annotations -Version 2023.3.0
 
-
 ### for testing
 
 NUnit version 4.1.0

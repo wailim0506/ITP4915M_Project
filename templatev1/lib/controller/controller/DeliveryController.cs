@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -14,13 +13,29 @@ namespace controller
     public class DeliveryController : abstractController
     {
         private readonly Database _database = new Database();
+        private readonly Validator _validator = new Validator();
 
         public string GetDeliveryMap(string orderId, Size imageSize)
         {
+            if (_validator.IsValidOrderId(orderId) == false)
+            {
+                return "Invalid orderId";
+            }
+
             var orderStatus = ExecuteScalar("SELECT status FROM order_ WHERE OrderID = @orderId",
                 new Dictionary<string, object> { { "@orderId", orderId } });
-            string location = orderStatus != "Processing" ? GetShippedAddress() : GetDeliveryRelay(orderId);
-            return string.IsNullOrEmpty(location) ? location : GenerateMapUrl(location, orderId, imageSize);
+            
+            switch (orderStatus)
+            {
+                case "Processing":
+                    return GetDeliveryRelay(orderId);
+                case "Shipped":
+                    return GetShippingAddress(orderId);
+                case "Ready to Ship":
+                    return GetReadyToShipAddress();
+                default:
+                    return "Invalid order status";
+            }
         }
 
         private string GetApiKey()
@@ -39,29 +54,30 @@ namespace controller
 
             return $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15" +
                    $"&size={width}x{height}" +
-                   $"&maptype=roadmap" +
+                   "&maptype=roadmap" +
                    $"&markers=color:red%7Clabel:{label}%7C{location}" +
                    $"&key={GetApiKey()}";
         }
-        private string GetShippedAddress()
-        {
-            return "22.390715003644328, 114.19828146266907";
-        }
+
+        // private string GetShippedAddress(string orderid)
+        // {
+        //     string customerAccountId = ExecuteScalar("SELECT customerAccountId FROM order_ WHERE OrderID = @orderId",
+        //         new Dictionary<string, object> { { "@orderId", orderid } });
+        //     string customerId = ExecuteScalar(
+        //         "SELECT customerId FROM customer_account WHERE customerAccountId = @customerAccountId",
+        //         new Dictionary<string, object> { { "@customerAccountId", customerAccountId } });
+        //     string sql =
+        //         "SELECT CONCAT(warehouseAddress, ',', province, ',', city) as FullAddress FROM customer WHERE customerId = @customerId";
+        //     string location = ExecuteScalar(sql, new Dictionary<string, object> { { "@customerId", customerId } });
+        //
+        //     location = location.Replace(" ", "+");
+        //     return location;
+        // }
 
         private string GetReadyToShipAddress()
         {
-            return GetShippedAddress();
+            return "22.390715003644328, 114.19828146266907";
         }
-
-        private string GetLocation(string orderId)
-        {
-            var orderStatus = GetOrderStatus(orderId);
-            return orderStatus != "Processing" ? "" : GetDeliveryRelay(orderId);
-        }
-
-        private string GetOrderStatus(string orderId) =>
-            ExecuteScalar("SELECT status FROM order_ WHERE OrderID = @orderId",
-                new Dictionary<string, object> { { "@orderId", orderId } });
 
         private string GetDeliveryRelay(string orderId)
         {
@@ -74,12 +90,6 @@ namespace controller
         {
             return ExecuteScalar("SELECT DeliveryRelayID FROM order_ WHERE OrderID = @orderId",
                 new Dictionary<string, object> { { "@orderId", orderId } });
-        }
-
-        private string GetLocationName(string relayId)
-        {
-            return ExecuteScalar("SELECT RelayName FROM deliveryrelay WHERE RelayID = @relayId",
-                new Dictionary<string, object> { { "@relayId", relayId } });
         }
 
         public int GetRelayId(string relayName)
@@ -123,7 +133,7 @@ namespace controller
 
             return $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15" +
                    $"&size={width}x{height}" +
-                   $"&maptype=roadmap" +
+                   "&maptype=roadmap" +
                    $"&markers=color:red%7Clabel:{relayName}%7C{location}" +
                    $"&key={GetApiKey()}";
         }
@@ -160,6 +170,15 @@ namespace controller
         public List<string> GetProvinceList()
         {
             return GetListFromDatabase("SELECT DISTINCT province FROM deliveryrelay", null);
+        }
+
+        public string GetShippingAddress(string orderId)
+        {
+            var dt = _database.ExecuteDataTable("SELECT shippingAddress FROM shipping_detail WHERE OrderID = @orderId",
+                new Dictionary<string, object> { { "@orderId", orderId } });
+            string shippingAddress = dt.Rows[0]["shippingAddress"].ToString();
+            string location = shippingAddress.Replace(" ", "+");
+            return location;
         }
     }
 }
