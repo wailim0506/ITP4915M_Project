@@ -322,7 +322,7 @@ namespace templatev1
             //Check and update phone if have change.
             if (tbPhone.Text != placeholder.phone)
             {
-                if (tbPhone.Text.Length != 11)
+                if (tbPhone.Text.Length != 11 || tbPhone.Text.Length != 8 || !int.TryParse(tbPhone.Text, out _))
                 {
                     lblPhoneMsg.Text = "Please enter the correct phone format.";
                     tbPhone.Select();

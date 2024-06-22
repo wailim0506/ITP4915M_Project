@@ -3,6 +3,7 @@ using System.IO;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Dynamic;
+using System.Text.RegularExpressions;
 
 namespace templatev1
 {
@@ -208,7 +209,7 @@ namespace templatev1
                 tbPhone.Select();
                 return false;
             }
-            else if (tbPhone.Text.Length != 11)
+            else if (!Regex.Match(tbPhone.Text, @"^([0-9]{11})$").Success && !Regex.Match(tbPhone.Text, @"^([0-9]{8})$").Success)
             {
                 lblPhoneMsg.Text = "Please enter the correct format.";
                 tbPhone.Select();

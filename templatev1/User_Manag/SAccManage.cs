@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using controller;
+using System.Drawing;
 
 namespace templatev1
 {
@@ -329,6 +330,13 @@ namespace templatev1
             {
                 picSearch_Click(this, new EventArgs());
             }
+        }
+
+        private void dgvUser_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            dgvUser.ClearSelection();
+            lblDUname.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text 
+                = lblUCorpAdd.Text = lblUAdd.Text = "";
         }
 
         private void dgvUser_MouseClick(object sender, MouseEventArgs e)

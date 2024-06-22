@@ -63,7 +63,7 @@ namespace templatev1
             }
         }
 
-
+        //Determine next page.
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             getPage(btnFunction1.Text);

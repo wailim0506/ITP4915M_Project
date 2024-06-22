@@ -188,8 +188,21 @@ namespace controller
         public dynamic store()
         {
             dynamic store = new ExpandoObject();
-            store.group1 = !permission.Equals("MP02");
-            store.group2 = permission.Equals("MP02");
+
+            switch (permission)
+            {
+                case "MP02":       //Storeman
+                    store.group1 = store.group3 = true;
+                    store.group2 = false;
+                    break;
+                case "MP05":       //Goods Inward Staff
+                    store.group2 = store.group3 = true;
+                    store.group1 = false;
+                    break;
+                case "MP01":       //Sales manager
+                    store.group1 = store.group2 = store.group3 = false;
+                    break;
+            }  
             return store;
         }
 

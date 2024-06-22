@@ -320,11 +320,11 @@
             // 
             this.lblClickToSelect.AutoSize = true;
             this.lblClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblClickToSelect.Location = new System.Drawing.Point(1045, 268);
+            this.lblClickToSelect.Location = new System.Drawing.Point(804, 275);
             this.lblClickToSelect.Name = "lblClickToSelect";
-            this.lblClickToSelect.Size = new System.Drawing.Size(101, 17);
+            this.lblClickToSelect.Size = new System.Drawing.Size(346, 17);
             this.lblClickToSelect.TabIndex = 166;
-            this.lblClickToSelect.Text = "[Click to select]";
+            this.lblClickToSelect.Text = "[CLICK to select. DOUBLE CLICK to cancel selection]";
             // 
             // rdoCustomer
             // 
@@ -750,6 +750,7 @@
             this.dgvUser.Size = new System.Drawing.Size(928, 365);
             this.dgvUser.TabIndex = 171;
             this.dgvUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvUser_MouseClick);
+            this.dgvUser.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvUser_MouseDoubleClick);
             // 
             // btnAct
             // 
