@@ -686,6 +686,7 @@
         <Content Include=".gitignore"/>
         <Content Include="Docker-compose.yml"/>
         <Content Include="READMDE.md"/>
+        <Content Include="setup.sql" />
         <Content Include="Trash\Trash.txt"/>
     </ItemGroup>
     <ItemGroup>
