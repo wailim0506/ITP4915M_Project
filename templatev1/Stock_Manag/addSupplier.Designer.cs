@@ -52,6 +52,25 @@ namespace templatev1
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
+            this.lblNameMsg = new System.Windows.Forms.Label();
+            this.chkStatus = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblPhoneMsg = new System.Windows.Forms.Label();
+            this.lblAddMsg = new System.Windows.Forms.Label();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lblTitSupplierID = new System.Windows.Forms.Label();
+            this.lblSupplierID = new System.Windows.Forms.Label();
+            this.lblTitName = new System.Windows.Forms.Label();
+            this.lblTitPhone = new System.Windows.Forms.Label();
+            this.lblTitAddress = new System.Windows.Forms.Label();
+            this.cmbCountry = new System.Windows.Forms.ComboBox();
+            this.lblCountryMsg = new System.Windows.Forms.Label();
+            this.lblSuppIDMsg = new System.Windows.Forms.Label();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -332,11 +351,209 @@ namespace templatev1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnCancel.Location = new System.Drawing.Point(672, 872);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(108, 47);
+            this.btnCancel.TabIndex = 132;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnModify
+            // 
+            this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnModify.Location = new System.Drawing.Point(512, 872);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(108, 47);
+            this.btnModify.TabIndex = 131;
+            this.btnModify.Text = "Add";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
+            // 
+            // lblNameMsg
+            // 
+            this.lblNameMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblNameMsg.Location = new System.Drawing.Point(746, 242);
+            this.lblNameMsg.Name = "lblNameMsg";
+            this.lblNameMsg.Size = new System.Drawing.Size(400, 19);
+            this.lblNameMsg.TabIndex = 150;
+            // 
+            // chkStatus
+            // 
+            this.chkStatus.AutoSize = true;
+            this.chkStatus.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.chkStatus.Location = new System.Drawing.Point(368, 301);
+            this.chkStatus.Name = "chkStatus";
+            this.chkStatus.Size = new System.Drawing.Size(84, 26);
+            this.chkStatus.TabIndex = 149;
+            this.chkStatus.Text = "Enable";
+            this.chkStatus.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(280, 302);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 22);
+            this.label2.TabIndex = 147;
+            this.label2.Text = "Status:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(280, 201);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 22);
+            this.label1.TabIndex = 146;
+            this.label1.Text = "Country:";
+            // 
+            // lblPhoneMsg
+            // 
+            this.lblPhoneMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPhoneMsg.Location = new System.Drawing.Point(527, 276);
+            this.lblPhoneMsg.Name = "lblPhoneMsg";
+            this.lblPhoneMsg.Size = new System.Drawing.Size(568, 19);
+            this.lblPhoneMsg.TabIndex = 145;
+            // 
+            // lblAddMsg
+            // 
+            this.lblAddMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblAddMsg.Location = new System.Drawing.Point(369, 366);
+            this.lblAddMsg.Name = "lblAddMsg";
+            this.lblAddMsg.Size = new System.Drawing.Size(749, 19);
+            this.lblAddMsg.TabIndex = 144;
+            // 
+            // tbAddress
+            // 
+            this.tbAddress.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbAddress.Location = new System.Drawing.Point(368, 333);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(575, 30);
+            this.tbAddress.TabIndex = 143;
+            // 
+            // tbPhone
+            // 
+            this.tbPhone.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbPhone.Location = new System.Drawing.Point(368, 265);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(153, 30);
+            this.tbPhone.TabIndex = 142;
+            // 
+            // tbName
+            // 
+            this.tbName.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbName.Location = new System.Drawing.Point(368, 231);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(372, 30);
+            this.tbName.TabIndex = 141;
+            // 
+            // lblTitSupplierID
+            // 
+            this.lblTitSupplierID.AutoSize = true;
+            this.lblTitSupplierID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitSupplierID.Location = new System.Drawing.Point(280, 147);
+            this.lblTitSupplierID.Name = "lblTitSupplierID";
+            this.lblTitSupplierID.Size = new System.Drawing.Size(104, 22);
+            this.lblTitSupplierID.TabIndex = 136;
+            this.lblTitSupplierID.Text = "SupplierID:";
+            // 
+            // lblSupplierID
+            // 
+            this.lblSupplierID.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblSupplierID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplierID.Location = new System.Drawing.Point(408, 145);
+            this.lblSupplierID.Name = "lblSupplierID";
+            this.lblSupplierID.Size = new System.Drawing.Size(153, 26);
+            this.lblSupplierID.TabIndex = 139;
+            this.lblSupplierID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTitName
+            // 
+            this.lblTitName.AutoSize = true;
+            this.lblTitName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitName.Location = new System.Drawing.Point(280, 234);
+            this.lblTitName.Name = "lblTitName";
+            this.lblTitName.Size = new System.Drawing.Size(62, 22);
+            this.lblTitName.TabIndex = 137;
+            this.lblTitName.Text = "Name:";
+            // 
+            // lblTitPhone
+            // 
+            this.lblTitPhone.AutoSize = true;
+            this.lblTitPhone.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitPhone.Location = new System.Drawing.Point(280, 268);
+            this.lblTitPhone.Name = "lblTitPhone";
+            this.lblTitPhone.Size = new System.Drawing.Size(64, 22);
+            this.lblTitPhone.TabIndex = 140;
+            this.lblTitPhone.Text = "Phone:";
+            // 
+            // lblTitAddress
+            // 
+            this.lblTitAddress.AutoSize = true;
+            this.lblTitAddress.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitAddress.Location = new System.Drawing.Point(280, 336);
+            this.lblTitAddress.Name = "lblTitAddress";
+            this.lblTitAddress.Size = new System.Drawing.Size(82, 22);
+            this.lblTitAddress.TabIndex = 138;
+            this.lblTitAddress.Text = "Address:";
+            // 
+            // cmbCountry
+            // 
+            this.cmbCountry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmbCountry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCountry.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.cmbCountry.FormattingEnabled = true;
+            this.cmbCountry.Location = new System.Drawing.Point(368, 198);
+            this.cmbCountry.Name = "cmbCountry";
+            this.cmbCountry.Size = new System.Drawing.Size(153, 30);
+            this.cmbCountry.TabIndex = 151;
+            this.cmbCountry.SelectedValueChanged += new System.EventHandler(this.cmbCountry_SelectedValueChanged);
+            // 
+            // lblCountryMsg
+            // 
+            this.lblCountryMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblCountryMsg.Location = new System.Drawing.Point(527, 206);
+            this.lblCountryMsg.Name = "lblCountryMsg";
+            this.lblCountryMsg.Size = new System.Drawing.Size(400, 19);
+            this.lblCountryMsg.TabIndex = 152;
+            // 
+            // lblSuppIDMsg
+            // 
+            this.lblSuppIDMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblSuppIDMsg.Location = new System.Drawing.Point(567, 152);
+            this.lblSuppIDMsg.Name = "lblSuppIDMsg";
+            this.lblSuppIDMsg.Size = new System.Drawing.Size(489, 19);
+            this.lblSuppIDMsg.TabIndex = 153;
+            // 
             // addSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.lblSuppIDMsg);
+            this.Controls.Add(this.lblCountryMsg);
+            this.Controls.Add(this.cmbCountry);
+            this.Controls.Add(this.lblNameMsg);
+            this.Controls.Add(this.chkStatus);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblPhoneMsg);
+            this.Controls.Add(this.lblAddMsg);
+            this.Controls.Add(this.tbAddress);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.lblTitSupplierID);
+            this.Controls.Add(this.lblSupplierID);
+            this.Controls.Add(this.lblTitName);
+            this.Controls.Add(this.lblTitPhone);
+            this.Controls.Add(this.lblTitAddress);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
@@ -353,6 +570,7 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -380,5 +598,24 @@ namespace templatev1
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnModify;
+        private System.Windows.Forms.Label lblNameMsg;
+        private System.Windows.Forms.CheckBox chkStatus;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblPhoneMsg;
+        private System.Windows.Forms.Label lblAddMsg;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.TextBox tbPhone;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label lblTitSupplierID;
+        private System.Windows.Forms.Label lblSupplierID;
+        private System.Windows.Forms.Label lblTitName;
+        private System.Windows.Forms.Label lblTitPhone;
+        private System.Windows.Forms.Label lblTitAddress;
+        private System.Windows.Forms.ComboBox cmbCountry;
+        private System.Windows.Forms.Label lblCountryMsg;
+        private System.Windows.Forms.Label lblSuppIDMsg;
     }
 }

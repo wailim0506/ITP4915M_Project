@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using controller;
-using System.Data;
-using System.Drawing;
 
 namespace templatev1
 {
@@ -11,7 +9,6 @@ namespace templatev1
         private string uName, UID;
         AccountController accountController;
         UIController UIController;
-        productListController controller;
 
 
         public OnSaleMain()
@@ -26,7 +23,6 @@ namespace templatev1
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             this.accountController = accountController;
             this.UIController = UIController;
-            controller = new productListController();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -34,17 +30,9 @@ namespace templatev1
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
-
-        private void OnSaleMain_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
-            cmbCategory.SelectedIndex = 0;
-            cmbKW.SelectedIndex = 0;
-            cmbSorting.SelectedIndex = 0;
-            cmbStatus.SelectedIndex = 0;
-
-
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
         }
 
         private void Initialization()
@@ -70,240 +58,6 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        public void load_data(string kwType, string kw, string category, string status, string sortBy)
-        {
-            pnlProduct.Controls.Clear();
-            DataTable dt = new DataTable();
-            switch (sortBy)
-            {
-                case "None":
-                    dt = controller.getProductList(kwType, kw, category, status, "");
-                    break;
-                case "Item No. (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "ItemNo");
-                    break;
-                case "Item No. (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "ItemNoDSEC");
-                    break;
-                case "Part No. (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "PartNo");
-                    break;
-                case "Part No. (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "PartNoDESC");
-                    break;
-                case "Non-LM Qty (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "NonLMQty");
-                    break;
-                case "Non-LM Qty (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "NonLMQtyDESC");
-                    break;
-                case "LM Qty (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "LMQty");
-                    break;
-                case "LM Qty (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "LMQtyDESC");
-                    break;
-                case "Stock Qty (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "StockQty");
-                    break;
-                case "Stock Qty (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "StockQtyDESC");
-                    break;
-                case "Price (Ascending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "Price");
-                    break;
-                case "Price (Descending)":
-                    dt = controller.getProductList(kwType, kw, category, status, "PriceDESC");
-                    break;
-            }
-
-            int yPosition = 8;
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                Label lblRowNum = new Label
-                {
-                    Text = $"{i + 1}",
-                    Location = new Point(3, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(47, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                Label lblCategory = new Label
-                {
-                    Text = $"{dt.Rows[i][1]}",
-                    Location = new Point(56, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(97, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                Label lblItemNum = new Label
-                {
-                    Name = $"lblItemNum{i}",
-                    Text = $"{dt.Rows[i][0]}",
-                    Location = new Point(159, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(97, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                Label lblPartNum = new Label
-                {
-                    Text = $"{dt.Rows[i][2]}",
-                    Location = new Point(262, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(111, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblName = new Label
-                {
-                    Text = $"{dt.Rows[i][11]}",
-                    Location = new Point(379, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(217, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblNonLMQty = new Label
-                {
-                    Text = $"{dt.Rows[i][3]}",
-                    Location = new Point(602, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(168, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblLMQty = new Label
-                {
-                    Text = $"{dt.Rows[i][4]}",
-                    Location = new Point(776, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(132, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblStockQty = new Label
-                {
-                    Text = $"{dt.Rows[i][10]}",
-                    Location = new Point(914, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(94, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblPrice = new Label
-                {
-                    Text = $"{dt.Rows[i][6]}",
-                    Location = new Point(1014, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(79, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-                Label lblStatus = new Label
-                {
-                    Text = $"{dt.Rows[i][9]}",
-                    Location = new Point(1099, yPosition),
-                    Font = new Font("Times New Roman", 13),
-                    Size = new Size(77, 21),
-                    TextAlign = ContentAlignment.MiddleCenter
-                };
-
-                Button btnView = new Button
-                {
-                    Name = $"btnView{i}",
-                    Text = "Modify",
-                    Location = new Point(1175, yPosition - 2),
-                    Font = new Font("Times New Roman", 11),
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    AutoSize = true,
-                    Cursor = Cursors.Hand
-                };
-                btnView.Click += btnView_Click;
-
-                yPosition += 50;
-
-                pnlProduct.Controls.Add(lblRowNum);
-                pnlProduct.Controls.Add(lblCategory);
-                pnlProduct.Controls.Add(lblItemNum);
-                pnlProduct.Controls.Add(lblPartNum);
-                pnlProduct.Controls.Add(lblName);
-                pnlProduct.Controls.Add(lblNonLMQty);
-                pnlProduct.Controls.Add(lblLMQty);
-                pnlProduct.Controls.Add(lblStockQty);
-                pnlProduct.Controls.Add(lblPrice);
-                pnlProduct.Controls.Add(lblStatus);
-                pnlProduct.Controls.Add(btnView);
-            }
-        }
-
-        public void btnView_Click(object sender, EventArgs e)
-        {
-            Button clickedButton = sender as Button;
-
-            if (clickedButton != null)
-            {
-                string buttonName = clickedButton.Name;
-                int index = getIndex(buttonName);
-                if (index != -1)
-                {
-                    int i = 0;
-
-                    foreach (Control control in pnlProduct.Controls)
-                    {
-                        if (control.Name == $"lblItemNum{index}")
-                        {
-                            //Form o =
-                            //    new staffViewOrder(control.Text, accountController, UIController);
-                            //Hide();
-                            //o.StartPosition = FormStartPosition.Manual;
-                            //o.Location = Location;
-                            //o.ShowDialog();
-                            //Close();
-                            //return;
-                        }
-
-                        ++i;
-                    }
-                }
-            }
-        }
-
-        private int getIndex(string btnName)
-        {
-            int i = 0;
-            while (true)
-            {
-                if (btnName == $"btnView{i}")
-                {
-                    return i;
-                }
-
-                i++;
-            }
-        }
-
-        private void cmbKW_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
-        }
-
-        private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
-        }
-
-        private void cmbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
-        }
-
-        private void cmbSorting_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
-        }
-
-        private void tbKw_TextChanged(object sender, EventArgs e)
-        {
-            load_data(cmbKW.Text, tbKw.Text, cmbCategory.Text, cmbStatus.Text, cmbSorting.Text);
-        }
-
 
         private void setIndicator(int btnNo)
         {
@@ -327,6 +81,17 @@ namespace templatev1
             }
         }
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            Form OnSaleModify = new OnSaleModify();
+            Hide();
+            //Swap the current form to another.
+            OnSaleModify.StartPosition = FormStartPosition.Manual;
+            OnSaleModify.Location = Location;
+            OnSaleModify.Size = Size;
+            OnSaleModify.ShowDialog();
+            Close();
+        }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
@@ -340,6 +105,17 @@ namespace templatev1
             Close();
         }
 
+        private void btnSetModifyDis_Click(object sender, EventArgs e)
+        {
+            Form OnSaleDis = new OnSaleDis();
+            Hide();
+            //Swap the current form to another.
+            OnSaleDis.StartPosition = FormStartPosition.Manual;
+            OnSaleDis.Location = Location;
+            OnSaleDis.Size = Size;
+            OnSaleDis.ShowDialog();
+            Close();
+        }
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
@@ -365,7 +141,6 @@ namespace templatev1
         {
             getPage(btnFunction5.Text);
         }
-
 
         private void getPage(string Function)
         {
@@ -412,6 +187,7 @@ namespace templatev1
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
+            next.Size = Size;
             next.ShowDialog();
             Close();
         }

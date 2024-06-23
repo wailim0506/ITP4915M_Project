@@ -230,16 +230,34 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
+            var result = DialogResult.Yes;
+
             if (checkInfo())
-                if (stockController.ModifyStockInfo(update))
+            {
+                if (update.status.Equals("Disable"))
                 {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    getPage("Stock Management");
+                    result =
+                        MessageBox.Show($"Are you sure to disable the spare part?" +
+                            $"\nThis operation will also disable on-sale products" +
+                            $" that are related to.", "System message", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
                 }
-                else //Something wrong from the controller.
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    if (stockController.ModifyStockInfo(update))
+                    {
+                        MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        getPage("Stock Management");
+                    }
+                    else //Something wrong from the controller.
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                }
+                else if (result == DialogResult.No)             //User cancel operation.
+                    return;
+            }
         }
 
         private void tbName_Enter(object sender, EventArgs e)
@@ -301,7 +319,7 @@ namespace templatev1
                 if (tbName.Text.Length < 2 || tbName.Text.Length > 50)
                 {
                     lblNameMsg.Text = "Name too short or too long, minimum 2 maximum 50.";
-                    lblNameMsg.Select();
+                    tbName.Select();
                     return false;
                 }
 
@@ -317,7 +335,7 @@ namespace templatev1
                 if (!int.TryParse(tbDLevel.Text.ToString(), out Qty) || Qty <= 0 || Qty > 99999)
                 {
                     lblDLevelMsg.Text = "minimum 1 maximum 99999.";
-                    lblDLevelMsg.Select();
+                    tbDLevel.Select();
                     return false;
                 }
 
@@ -334,7 +352,7 @@ namespace templatev1
                     Qty < int.Parse(tbDLevel.Text))
                 {
                     lblRLevelMsg.Text = "Can NOT lower than danger level AND minimum 1 maximum 99999.";
-                    lblRLevelMsg.Select();
+                    tbDLevel.Select();
                     return false;
                 }
 
@@ -359,7 +377,7 @@ namespace templatev1
                 if (!int.TryParse(tbQty.Text.ToString(), out Qty) || Qty <= 0 || Qty > 99999)
                 {
                     lblQtyMsg.Text = "minimum 1 maximum 99999.";
-                    lblQtyMsg.Select();
+                    tbQty.Select();
                     return false;
                 }
 

@@ -208,16 +208,22 @@ namespace controller
             return store;
         }
 
-        //Change the information needs to show between storeman and sale manager.
+        //Change the information needs to show between storeman and sale manager in stock modify.
         public bool ModifyStore()
         {
             return permission.Equals("MP02");
         }
 
-        //Change the information needs to show between storeman and sale manager.
+        //Change the information needs to show between storeman and sale manager in user management.
         public bool UserMgmt()
         {
             return permission.Equals("MP03");
+        }
+
+        //Show the modify and add panel if is storeman.
+        public bool ViewSupplier()
+        {
+            return permission.Equals("MP02");
         }
     }
 }

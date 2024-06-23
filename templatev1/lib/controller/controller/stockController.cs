@@ -12,7 +12,7 @@ namespace controller
     {
         AccountController accountController;
         private readonly Database db;
-        private string sqlStr, ToModifySpareID;
+        private string sqlStr, ToModifySpareID, ToModifySupplierID;
         private DataTable dt;
         private Database _db;
 
@@ -151,6 +151,14 @@ namespace controller
         }
 
         public List<string> GetSupplier()
+        {
+            var sqlStr = "SELECT name FROM supplier WHERE status = 'Enable'";
+            dt = db.ExecuteDataTable(sqlStr);
+            Log.LogMessage(LogLevel.Debug, "Stock Controller", $"GetSupplier was executed.");
+            return dt.AsEnumerable().Select(row => row["name"].ToString()).ToList();
+        }
+
+        public List<string> GetAllSupplier()
         {
             var sqlStr = "SELECT name FROM supplier";
             dt = db.ExecuteDataTable(sqlStr);
@@ -310,6 +318,7 @@ namespace controller
             return CategoryID + No.ToString("D5"); //Convert in to spare part ID format.
         }
 
+
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
             return db.ExecuteDataTable(sqlQuery);
@@ -345,5 +354,139 @@ namespace controller
                 return false; //Something went wrong.
             }
         }
+        public DataTable GetSupplierList()
+        {
+            sqlStr = "SELECT * FROM supplier";
+            return ExecuteSqlQuery(sqlStr);
+        }
+
+        //Return the detail of the selected Supplier.
+        public dynamic GetSupplierInfo(string SupplierID)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM supplier WHERE supplierID = \'{SupplierID}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            dynamic SupplierInfo = new ExpandoObject();
+            SupplierInfo.supplierID = dt.Rows[0]["supplierID"].ToString();
+            SupplierInfo.name = dt.Rows[0]["name"].ToString();
+            SupplierInfo.phone = dt.Rows[0]["phone"].ToString();
+            SupplierInfo.address = dt.Rows[0]["address"].ToString();
+            SupplierInfo.country = dt.Rows[0]["country"].ToString();
+            SupplierInfo.status = dt.Rows[0]["status"].ToString();
+
+            return SupplierInfo;
+        }
+
+        public void SetModifySupplierID(string SupplierID)
+        {
+            ToModifySupplierID = SupplierID;
+        }
+
+        public dynamic GetModifySupplierInfo()
+        {
+            return GetSupplierInfo(ToModifySupplierID);
+        }
+
+        public DataTable SearchSupplier(string SupplierID)
+        {
+            sqlStr = $"SELECT * FROM supplier WHERE supplierID = \'{SupplierID}\'";
+            return ExecuteSqlQuery(sqlStr);
+        }
+
+        public bool ModifySupplierInfo(dynamic SupplierInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@Name", SupplierInfo.name },
+                    { "@Phone", SupplierInfo.phone },
+                    { "@Address", SupplierInfo.address },
+                    { "@Status", SupplierInfo.status },
+                    { "@SupplierID", ToModifySupplierID }
+                };
+
+                sqlStr =
+                    "UPDATE supplier SET name = @Name, phone = @Phone, address = " +
+                        "@Address, status = @Status WHERE supplierID = @SupplierID";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                if (SupplierInfo.status.Equals("Disable"))  //Also update the status in the product
+                {                                           //and spare part table if status is disable.
+                    sqlStr =
+                        "UPDATE spare_part SP, product P SET SP.status = @Status, P.status = @Status WHERE SP.supplierID = @SupplierID AND SP.partNumber = P.partNumber";
+
+                    _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "stock controller", $"Error modifying stock info: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
+        private string GetCountryAbbreviation(string country)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT abbreviation FROM countries WHERE country = \'{country}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows[0]["abbreviation"].ToString();
+        }
+
+
+        public string GenSupplierNumber(string country)
+        {
+            string CountryAbbreviation = GetCountryAbbreviation(country);       //Convert category to categoryID.
+
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM supplier WHERE supplierID LIKE '%{CountryAbbreviation}%'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            int No = dt.Rows.Count + 1;       //Get the no. of part.
+
+            return "SID" + CountryAbbreviation + No.ToString("D5");    //Convert in to spare part ID format.
+        }
+
+        public bool CreateNewSupplier(dynamic newSupplierInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@SupplierID", newSupplierInfo.SID },
+                    { "@name", newSupplierInfo.Name },
+                    { "@phone", newSupplierInfo.Phone },
+                    { "@address", newSupplierInfo.Address },
+                    { "@country", newSupplierInfo.Country },
+                    { "@status", newSupplierInfo.Status }
+                };
+
+                sqlStr =
+                    "INSERT INTO supplier VALUES(@SupplierID, @name, @phone, @address, @country, @status)";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "stock controller", $"Error modifying stock info: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
     }
 }
