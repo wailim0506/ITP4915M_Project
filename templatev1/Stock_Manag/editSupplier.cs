@@ -38,7 +38,6 @@ namespace templatev1
             lblUid.Text = "UID: " + UID;
             setIndicator(UIController.getIndicator("Stock Management"));
 
-
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
@@ -256,25 +255,28 @@ namespace templatev1
                             MessageBoxIcon.Warning);
                 }
 
-                if (stockController.ModifySupplierInfo(update) && result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    if (stockController.ModifySupplierInfo(update))
+                    {
+                        MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
 
-                    Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
-                    Hide();
-                    //Swap the current form to another.
-                    viewSupplier.StartPosition = FormStartPosition.Manual;
-                    viewSupplier.Location = Location;
-                    viewSupplier.Size = Size;
-                    viewSupplier.ShowDialog();
-                    Close();
+                        Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
+                        Hide();
+                        //Swap the current form to another.
+                        viewSupplier.StartPosition = FormStartPosition.Manual;
+                        viewSupplier.Location = Location;
+                        viewSupplier.Size = Size;
+                        viewSupplier.ShowDialog();
+                        Close();
+                    }
+                    else //Something wrong from the controller.
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                 }
                 else if (result == DialogResult.No)             //User cancel operation.
                     return;
-                else //Something wrong from the controller.
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
             }
         }
 
@@ -328,9 +330,9 @@ namespace templatev1
             //Check and update phone if have change.
             if (tbAddress.Text != placeholder.phone)
             {
-                if (tbPhone.Text.Length < 2 || tbPhone.Text.Length > 20)
+                if (tbPhone.Text.Length < 5 || tbPhone.Text.Length > 20)
                 {
-                    lblPhoneMsg.Text = "Phone number too short or too long, minimum 2 maximum 20.";
+                    lblPhoneMsg.Text = "Phone number too short or too long, minimum 5 maximum 20.";
                     tbPhone.Select();
                     return false;
                 }

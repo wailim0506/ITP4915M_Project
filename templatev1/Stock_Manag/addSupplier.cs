@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using controller;
+using System.Dynamic;
 
 namespace templatev1
 {
     public partial class addSupplier : Form
     {
         private string uName, UID;
+        dynamic newSupplierInfo;
         AccountController accountController;
         stockController stockController;
         UIController UIController;
@@ -34,7 +36,9 @@ namespace templatev1
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             setIndicator(UIController.getIndicator("Stock Management"));
-
+            cmbCountry.Items.AddRange(stockController.GetCountry().ToArray());
+            lblSuppIDMsg.Text = "Select a country to generate the part number.";
+            chkStatus.Checked = true;
 
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
@@ -192,11 +196,97 @@ namespace templatev1
             Close();
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
+            Hide();
+            //Swap the current form to another.
+            viewSupplier.StartPosition = FormStartPosition.Manual;
+            viewSupplier.Location = Location;
+            viewSupplier.Size = Size;
+            viewSupplier.ShowDialog();
+            Close();
+        }
 
+        private void cmbCountry_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lblSuppIDMsg.Text = "";
+            lblSupplierID.Text
+                = stockController.GenSupplierNumber(cmbCountry.SelectedItem.ToString());
+        }
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            if (checkInfo()) //Pass to controller and create account
+            {
+                setValue(); //If passed set the value in to dynameic.
+                if (stockController.CreateNewSupplier(newSupplierInfo))
+                {
+                    MessageBox.Show(
+                        $"Create new supplier success! New supplierID is {lblSupplierID.Text}"
+                        , "System message", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    getPage("Stock Management");
+                }
+                else
+                {
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                    getPage("Stock Management");
+                }
+            }
+        }
 
+        //Check the inputted data.
+        private bool checkInfo()
+        {
+            //Clean previous error message.
+            lblAddMsg.Text = lblPhoneMsg.Text = lblNameMsg.Text = lblCountryMsg.Text = "";
 
+            //Check country.
+            if (cmbCountry.SelectedItem == null)
+            {
+                lblCountryMsg.Text = "Please select a country.";
+                cmbCountry.Select();
+                return false;
+            }
 
+            //Check supplier name.
+            if (tbName.Text.Length < 2 || tbName.Text.Length > 50)
+            {
+                lblNameMsg.Text = "Name too short or too long, minimum 2 maximum 50.";
+                tbName.Select();
+                return false;
+            }
+
+            //Check supplier address.
+            if (tbAddress.Text.Length < 2 || tbAddress.Text.Length > 70)
+            {
+                lblAddMsg.Text = "Address too short or too long, minimum 2 maximum 70.";
+                tbAddress.Select();
+                return false;
+            }
+
+            //Check supplier phone.
+            if (tbPhone.Text.Length < 5 || tbPhone.Text.Length > 20)
+            {
+                lblNameMsg.Text = "Phone number too short or too long, minimum 5 maximum 20.";
+                lblNameMsg.Select();
+                return false;
+            }
+            return true;
+        }
+
+        private void setValue()
+        {
+            newSupplierInfo = new ExpandoObject();
+            newSupplierInfo.SID = lblSupplierID.Text;
+            newSupplierInfo.Country = cmbCountry.SelectedItem.ToString();
+            newSupplierInfo.Name = tbName.Text;
+            newSupplierInfo.Phone = tbPhone.Text;
+            newSupplierInfo.Address = tbAddress.Text;
+            newSupplierInfo.Status = chkStatus.Checked ? "Enable" : "Disable";
+        }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {

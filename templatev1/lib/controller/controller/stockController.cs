@@ -318,6 +318,7 @@ namespace controller
             return CategoryID + No.ToString("D5");    //Convert in to spare part ID format.
         }
 
+
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
             return db.ExecuteDataTable(sqlQuery);
@@ -422,6 +423,61 @@ namespace controller
                     _db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 }
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "stock controller", $"Error modifying stock info: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
+        private string GetCountryAbbreviation(string country)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT abbreviation FROM countries WHERE country = \'{country}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows[0]["abbreviation"].ToString();
+        }
+
+
+        public string GenSupplierNumber(string country)
+        {
+            string CountryAbbreviation = GetCountryAbbreviation(country);       //Convert category to categoryID.
+
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM supplier WHERE supplierID LIKE '%{CountryAbbreviation}%'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            int No = dt.Rows.Count + 1;       //Get the no. of part.
+
+            return "SID" + CountryAbbreviation + No.ToString("D5");    //Convert in to spare part ID format.
+        }
+
+        public bool CreateNewSupplier(dynamic newSupplierInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@SupplierID", newSupplierInfo.SID },
+                    { "@name", newSupplierInfo.Name },
+                    { "@phone", newSupplierInfo.Phone },
+                    { "@address", newSupplierInfo.Address },
+                    { "@country", newSupplierInfo.Country },
+                    { "@status", newSupplierInfo.Status }
+                };
+
+                sqlStr =
+                    "INSERT INTO supplier VALUES(@SupplierID, @name, @phone, @address, @country, @status)";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 return true;
             }

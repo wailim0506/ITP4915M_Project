@@ -243,17 +243,20 @@ namespace templatev1
                             MessageBoxIcon.Warning);
                 }
 
-                if (stockController.ModifyStockInfo(update) && result == DialogResult.Yes)
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
-                    getPage("Stock Management");
+                    if (stockController.ModifyStockInfo(update))
+                    {
+                        MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                        getPage("Stock Management");
+                    }
+                    else //Something wrong from the controller.
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                 }
                 else if (result == DialogResult.No)             //User cancel operation.
                     return;
-                else //Something wrong from the controller.
-                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
             }
         }
 
