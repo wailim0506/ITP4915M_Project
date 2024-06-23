@@ -20,10 +20,9 @@ namespace controller.Utilities
 
         public string GetConnectionString()
         {
-            var connectionStrings = new List<string>
-            {
-                "server=localhost;port=3306;user id=root; password=;database=itp4915m_se1d_group4;charset=utf8;ConnectionTimeout=30",
-            };
+            var connectionStrings = new List<string>();
+            connectionStrings.Add(Configuration.DataBaseConnectionString);
+
             return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
         }
 

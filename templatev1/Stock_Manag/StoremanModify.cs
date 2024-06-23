@@ -238,8 +238,8 @@ namespace templatev1
                 {
                     result =
                         MessageBox.Show($"Are you sure to disable the spare part?" +
-                            $"\nThis operation will also disable on-sale products" +
-                            $" that are related to.", "System message", MessageBoxButtons.YesNo,
+                                        $"\nThis operation will also disable on-sale products" +
+                                        $" that are related to.", "System message", MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
                 }
 
@@ -252,10 +252,11 @@ namespace templatev1
                         getPage("Stock Management");
                     }
                     else //Something wrong from the controller.
-                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error",
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                 }
-                else if (result == DialogResult.No)             //User cancel operation.
+                else if (result == DialogResult.No) //User cancel operation.
                     return;
             }
         }

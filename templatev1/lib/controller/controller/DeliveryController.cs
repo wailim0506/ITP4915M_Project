@@ -40,7 +40,7 @@ namespace controller
 
         private string GetApiKey()
         {
-            return "AIzaSyCvDbMpDYOev7-eygdiIP0e9xG-gPV18H8"; //TODO: Change this to the API key from the config file
+            return Configuration.GoogleMapsApiKey;
         }
 
         public string GenerateMapUrl(string location, string orderId, Size imageSize)
@@ -58,21 +58,6 @@ namespace controller
                    $"&markers=color:red%7Clabel:{label}%7C{location}" +
                    $"&key={GetApiKey()}";
         }
-
-        // private string GetShippedAddress(string orderid)
-        // {
-        //     string customerAccountId = ExecuteScalar("SELECT customerAccountId FROM order_ WHERE OrderID = @orderId",
-        //         new Dictionary<string, object> { { "@orderId", orderid } });
-        //     string customerId = ExecuteScalar(
-        //         "SELECT customerId FROM customer_account WHERE customerAccountId = @customerAccountId",
-        //         new Dictionary<string, object> { { "@customerAccountId", customerAccountId } });
-        //     string sql =
-        //         "SELECT CONCAT(warehouseAddress, ',', province, ',', city) as FullAddress FROM customer WHERE customerId = @customerId";
-        //     string location = ExecuteScalar(sql, new Dictionary<string, object> { { "@customerId", customerId } });
-        //
-        //     location = location.Replace(" ", "+");
-        //     return location;
-        // }
 
         private string GetReadyToShipAddress()
         {

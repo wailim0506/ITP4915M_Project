@@ -16,6 +16,7 @@ namespace controller
     public /*<--add here*/ class testController : abstractController
     {
         private Database _db;
+
         public testController() //constructor, useless
         {
             _db = new Database();

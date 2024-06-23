@@ -1,46 +1,75 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
-using Microsoft.Extensions.Configuration;
+using MySql.Data.MySqlClient;
 
 namespace controller.Utilities
 {
     public class Configuration
     {
-        private readonly IConfiguration _configuration;
-
-        public Configuration(IConfiguration configuration)
+        public Configuration()
         {
-            _configuration = configuration;
-            Setup();
+            CreateAvatarFolder();
         }
 
-        private string GetApiKey()
+        private static string GetApiKey() => ConfigurationManager.AppSettings["GoogleMapsApiKey"];
+
+        private static List<string> GetDataBaseConnectionStringsList()
         {
-            return _configuration["GoogleMapsApiKey"];
+            return ConfigurationManager.AppSettings.AllKeys
+                .Where(key => key.StartsWith("ConnectionString"))
+                .Select(key => ConfigurationManager.AppSettings[key])
+                .Where(connectionString => !string.IsNullOrEmpty(connectionString))
+                .ToList();
         }
 
-        private List<string> GetDataBaseConnectionStringsList()
+        public static string DataBaseConnectionString => TestConnection(GetDataBaseConnectionStringsList()) ??
+                                                         throw new Exception("No valid connection string found.");
+
+        public static string TestConnection(List<string> connectionStrings)
         {
-            return _configuration.GetSection("connectionStrings").GetChildren().Select(x => x.Value).ToList();
+            return connectionStrings.FirstOrDefault(connectionString =>
+            {
+                try
+                {
+                    using (var connection =
+                           new MySqlConnection(new MySqlConnectionStringBuilder(connectionString).ConnectionString))
+                    {
+                        connection.Open();
+                        return true;
+                    }
+                }
+                catch
+                {
+                    return false;
+                }
+            }) ?? throw new Exception("No valid connection string found.");
         }
 
-        public string GoogleMapsApiKey => GetApiKey();
+        public static string GoogleMapsApiKey => GetApiKey();
 
-        public List<string> DataBaseConnectionStringsList => GetDataBaseConnectionStringsList();
-
-        public void CreateAvatarFolder()
+        public static bool IsDevMode()
+        {
+            try
+            {
+                return bool.Parse(ConfigurationManager.AppSettings["DevMode"]);
+            }
+            catch
+            {
+                // check if the key is not found in the app.config Default value is false
+                return false;
+            }
+        }
+        
+        private void CreateAvatarFolder()
         {
             string path = Directory.GetCurrentDirectory() + "\\Upload\\";
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-        }
-
-        private void Setup()
-        {
-            CreateAvatarFolder();
         }
     }
 }

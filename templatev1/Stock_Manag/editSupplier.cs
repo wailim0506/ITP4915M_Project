@@ -60,7 +60,6 @@ namespace templatev1
             chkStatus.Checked = placeholder.status.Equals("Enable") ? true : false;
 
 
-
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
             {
@@ -249,8 +248,9 @@ namespace templatev1
                 {
                     result =
                         MessageBox.Show($"Are you sure to disable the supplier?" +
-                            $"\nThis operation will also disable spare parts and on-sale " +
-                            $"products provided by the supplier.", "System message", MessageBoxButtons.YesNo,
+                                        $"\nThis operation will also disable spare parts and on-sale " +
+                                        $"products provided by the supplier.", "System message",
+                            MessageBoxButtons.YesNo,
                             MessageBoxIcon.Warning);
                 }
 
@@ -271,10 +271,11 @@ namespace templatev1
                         Close();
                     }
                     else //Something wrong from the controller.
-                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error",
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                 }
-                else if (result == DialogResult.No)             //User cancel operation.
+                else if (result == DialogResult.No) //User cancel operation.
                     return;
             }
         }

@@ -16,7 +16,6 @@ namespace templatev1
         UIController UIController;
 
 
-
         public viewSupplier(AccountController accountController, UIController UIController,
             stockController stockController)
         {
@@ -230,7 +229,7 @@ namespace templatev1
 
         private void dgvSupplier_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            lblSSuppID.Text = lblSName.Text = lblSPhone.Text = lblSAdd.Text 
+            lblSSuppID.Text = lblSName.Text = lblSPhone.Text = lblSAdd.Text
                 = lblSCountry.Text = lblSStatus.Text = "";
             selectedSupplierID = null;
             dgvSupplier.ClearSelection();
@@ -242,7 +241,6 @@ namespace templatev1
             DgvIndicator();
         }
 
-        
 
         //Color the data grid view.
         private void DgvIndicator()
@@ -319,6 +317,7 @@ namespace templatev1
             addSupplier.ShowDialog();
             Close();
         }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");

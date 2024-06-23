@@ -56,7 +56,7 @@ namespace controller
                         "Invalid period specified. Please use 'yearly', 'monthly', or 'daily'.");
             }
         }
-        
+
         public DataTable GenerateItemReport(string period, DateTime startDate, DateTime endDate)
         {
             var query =

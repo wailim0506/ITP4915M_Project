@@ -354,6 +354,7 @@ namespace controller
                 return false; //Something went wrong.
             }
         }
+
         public DataTable GetSupplierList()
         {
             sqlStr = "SELECT * FROM supplier";
@@ -411,17 +412,17 @@ namespace controller
 
                 sqlStr =
                     "UPDATE supplier SET name = @Name, phone = @Phone, address = " +
-                        "@Address, status = @Status WHERE supplierID = @SupplierID";
+                    "@Address, status = @Status WHERE supplierID = @SupplierID";
 
                 _db.ExecuteNonQueryCommand(sqlStr, parameters);
 
-                if (SupplierInfo.status.Equals("Disable"))  //Also update the status in the product
-                {                                           //and spare part table if status is disable.
+                if (SupplierInfo.status.Equals("Disable")) //Also update the status in the product
+                {
+                    //and spare part table if status is disable.
                     sqlStr =
                         "UPDATE spare_part SP, product P SET SP.status = @Status, P.status = @Status WHERE SP.supplierID = @SupplierID AND SP.partNumber = P.partNumber";
 
                     _db.ExecuteNonQueryCommand(sqlStr, parameters);
-
                 }
 
                 return true;
@@ -447,7 +448,7 @@ namespace controller
 
         public string GenSupplierNumber(string country)
         {
-            string CountryAbbreviation = GetCountryAbbreviation(country);       //Convert category to categoryID.
+            string CountryAbbreviation = GetCountryAbbreviation(country); //Convert category to categoryID.
 
             dt = new DataTable();
 
@@ -455,9 +456,9 @@ namespace controller
 
             dt = _db.ExecuteDataTable(sqlStr);
 
-            int No = dt.Rows.Count + 1;       //Get the no. of part.
+            int No = dt.Rows.Count + 1; //Get the no. of part.
 
-            return "SID" + CountryAbbreviation + No.ToString("D5");    //Convert in to spare part ID format.
+            return "SID" + CountryAbbreviation + No.ToString("D5"); //Convert in to spare part ID format.
         }
 
         public bool CreateNewSupplier(dynamic newSupplierInfo)
@@ -487,6 +488,5 @@ namespace controller
                 return false; //Something went wrong.
             }
         }
-
     }
 }

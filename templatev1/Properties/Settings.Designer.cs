@@ -178,5 +178,6 @@ namespace templatev1.Properties {
                 return ((string)(this["itp4915m_se1d_group4ConnectionString"]));
             }
         }
+        
     }
 }

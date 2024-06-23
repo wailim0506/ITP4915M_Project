@@ -75,7 +75,7 @@ namespace templatev1
         public void load_data()
         {
         }
-        
+
         private void GenerateReportAndRefresh(string period, DateTime startDate, DateTime endDate)
         {
             DataTable reportData = OrdereportController.GenerateReport(period, startDate, endDate);
@@ -124,20 +124,20 @@ namespace templatev1
                 dtpEndData.Visible = true;
             }
         }
-        
+
         private void btnReportApply_Click(object sender, EventArgs e)
         {
             startDate = dtpStartData.Value;
             endDate = dtpEndData.Value;
             DataTable reportData = OrdereportController.GenerateReport(period, startDate, endDate);
             DataTable reportData2 = OrdereportController.GenerateItemReport(period, startDate, endDate);
-                        rvReport.LocalReport.DataSources.Clear();
+            rvReport.LocalReport.DataSources.Clear();
             rvReport.LocalReport.ReportPath = "OrderAnalysisReport.rdlc"; // Set the path to your RDLC file here
             rvReport.LocalReport.DataSources.Add(new ReportDataSource("OrderSet", reportData));
             // rvReport.LocalReport.DataSources.Add(new ReportDataSource("OrderItemDataSet", reportData2));
             rvReport.RefreshReport();
         }
-        
+
         // get the current directory and create a new directory report
         // format: report-yyyy-MM-dd
         // path: currentDir/report/report-yyyy-MM-dd.fileFormat
@@ -172,6 +172,7 @@ namespace templatev1
                 out _, out _);
             File.WriteAllBytes(outputFile, bytes);
         }
+
         private void btnReturn_Click(object sender, EventArgs e)
         {
             if (comeFromInvoiceList)
@@ -270,7 +271,7 @@ namespace templatev1
             document.Close();
         }
 
-        
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
         }
@@ -289,7 +290,7 @@ namespace templatev1
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
         }
-        
+
         private void dtpStartData_ValueChanged(object sender, EventArgs e)
         {
         }
@@ -297,6 +298,7 @@ namespace templatev1
         private void dtpEndData_ValueChanged(object sender, EventArgs e)
         {
         }
+
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();

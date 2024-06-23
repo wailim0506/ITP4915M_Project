@@ -396,6 +396,7 @@ namespace templatev1
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = Color.White;
             }
         }
+
         private void DgvReorderIndicator()
         {
             dgvReorder.ClearSelection();

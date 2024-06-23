@@ -7,8 +7,8 @@ namespace controller.Utilities
 {
     public interface IDatabase
     {
-        string GetConnectionString();
-        string TestConnection(List<string> connectionStrings);
+        // string GetConnectionString();
+        // string TestConnection(List<string> connectionStrings);
         void Dispose();
         object ExecuteScalarCommand(string sqlQuery, Dictionary<string, object> queryParameters);
         void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters);

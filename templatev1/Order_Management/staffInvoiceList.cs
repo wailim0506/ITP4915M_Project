@@ -276,6 +276,7 @@ namespace templatev1
             return;
         }
 
+        //TODO:On-Sale Product Management
         private void btnFunction3_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();

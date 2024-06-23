@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2024 at 09:52 AM
+-- Generation Time: Jun 23, 2024 at 08:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -105,18 +105,15 @@ INSERT INTO `customer` (`customerID`, `firstName`, `lastName`, `sex`, `emailAddr
                         `province`, `city`, `companyAddress`, `warehouseAddress`, `joinDate`, `paymentMethod`,
                         `imageID`, `dateOfBirth`, `warehouseAddress2`)
 VALUES ('LMC00001', 'Peter', 'Zhang', 'F', 'peter.zhang@abc.com', 'AutoTech Solutions', '13012345678', 'Gansu',
-        'Jinchang', '23 South Avenue', 'No. 35, Square South Road, Lanzhou, Gansu', '2001-05-23', 'AmericanEx', NULL,
-        '2000-02-02', '456 West Street'),
+        'Jinchang', '23 South Avenue', '123 Main Street', '2001-05-23', 'AmericanEx', NULL, '2000-02-02',
+        '456 West Street'),
        ('LMC00002', 'Lily', 'Li', 'F', 'lily.li@example.com', 'Legend Motor Limited Company', '13098765432', 'Sichuan',
-        'Chengdu', '48/F, Office Tower 2, Chengdu IFS, No.1, Section 3',
-        'No. 2, Section 2, Renmin South Road, Wuhou Distric', '2023-08-10', 'MasterCard', NULL, '2024-05-23',
+        'Chengdu', '456 West Street', '789 Elm Avenue', '2023-08-10', 'MasterCard', NULL, '2024-05-23',
         '123 Main Street'),
        ('LMC00003', 'Michael', 'Wang', 'M', 'michael.wang@example.com', 'Global Auto Spares', '13087654321', 'Beijing',
-        'Beijing', '789 East District', 'No. 8, Yongdingmen East Street, Dongcheng District', '2021-11-15', 'Visa',
-        NULL, NULL, ''),
+        'Beijing', '789 East District', '456 Oak Lane', '2021-11-15', 'Visa', NULL, NULL, ''),
        ('LMC00004', 'Wendy', 'Chen', 'F', 'wendy.chen@example.com', 'Premier Motorsupply', '13021654987', 'Shanghai',
-        'Shanghai', '1 Pudong New Area', 'No. 301, Zhaojiabang Road, Shanghai', '2022-05-20', 'UnionPay', NULL, NULL,
-        '');
+        'Shanghai', '1 Pudong New Area', '789 Maple Court', '2022-05-20', 'UnionPay', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -145,12 +142,12 @@ INSERT INTO `customer_account` (`customerAccountID`, `customerID`, `isLM`, `Stat
                                 `pwdChangeDate`)
 VALUES ('CA00001', 'LMC00001', 'N', 'active', '$2a$11$NonK/Bctl9a47.zxgGwCseA8b9bD49bnW/Hm2BTXDcWKv1RjD8dY.',
         '2024-05-01', '2024-06-01'),
-       ('CA00002', 'LMC00002', 'Y', 'active', '$2a$11$OnjbuMS8T.vMAIlKRAKeieeM1Ta21II5OHtkoZ8xeHWuFCQ2ol92m',
-        '2024-05-01', '2024-05-01'),
-       ('CA00003', 'LMC00003', 'N', 'active', '$2a$11$xn5O4pbgRs.TSTmef24YFOIgTdfruzNyK9qSN2xMHuISYvG7Lufc6',
-        '2024-05-03', '2024-05-07'),
-       ('CA00004', 'LMC00004', 'N', 'active', '$2a$11$a1H76k2oFod3SayvEHROHuq9yDFnjKmwjbYaf/sYe/2Ec5T5IDlVe',
-        '2024-05-04', '2024-05-07');
+       ('CA00002', 'LMC00002', 'Y', 'active', '$2a$11$nNy96dFZUgB4YX2.F7ZAAO/Frf4kh.6jk6JeU1nj9wxv0IWGQXVwG',
+        '2024-05-01', '2024-06-23'),
+       ('CA00003', 'LMC00003', 'N', 'active', '$2a$11$j2.t/YWmftK6KPdh0JY.c.KOuALmGPw2Whei4jnCeJSDUMmLO/K3O',
+        '2024-05-03', '2024-06-23'),
+       ('CA00004', 'LMC00004', 'N', 'active', '$2a$11$sA3LoKJa3p4.E260aryU3OCvq1AqyhQK27If5Qgc1aqxX1V4.3tzW',
+        '2024-05-04', '2024-06-23');
 
 -- --------------------------------------------------------
 
@@ -310,81 +307,8 @@ VALUES ('CA00001', '2024-05-29 01:41:34'),
        ('CA00001', '2024-06-20 22:16:05'),
        ('CA00001', '2024-06-20 22:28:08'),
        ('CA00001', '2024-06-20 22:33:18'),
-       ('CA00001', '2024-06-20 23:21:34'),
-       ('CA00001', '2024-06-20 23:31:20'),
-       ('CA00001', '2024-06-20 23:31:42'),
-       ('CA00001', '2024-06-20 23:33:45'),
-       ('CA00001', '2024-06-20 23:34:46'),
-       ('CA00001', '2024-06-20 23:38:11'),
-       ('CA00001', '2024-06-20 23:39:49'),
-       ('CA00001', '2024-06-20 23:41:21'),
-       ('CA00001', '2024-06-20 23:49:38'),
-       ('CA00001', '2024-06-20 23:51:01'),
-       ('CA00001', '2024-06-20 23:52:10'),
-       ('CA00001', '2024-06-20 23:52:44'),
-       ('CA00001', '2024-06-20 23:53:51'),
-       ('CA00001', '2024-06-21 00:06:23'),
-       ('CA00001', '2024-06-21 00:10:00'),
-       ('CA00001', '2024-06-21 00:23:00'),
-       ('CA00001', '2024-06-21 00:30:18'),
-       ('CA00001', '2024-06-21 00:31:14'),
-       ('CA00001', '2024-06-21 00:34:50'),
-       ('CA00001', '2024-06-21 00:37:20'),
-       ('CA00001', '2024-06-21 00:39:09'),
-       ('CA00001', '2024-06-21 00:40:24'),
-       ('CA00001', '2024-06-21 00:43:34'),
-       ('CA00001', '2024-06-21 00:44:06'),
-       ('CA00001', '2024-06-21 00:44:54'),
-       ('CA00001', '2024-06-21 00:45:13'),
-       ('CA00001', '2024-06-21 00:45:38'),
-       ('CA00001', '2024-06-21 00:46:34'),
-       ('CA00001', '2024-06-21 00:47:59'),
-       ('CA00001', '2024-06-21 01:13:42'),
-       ('CA00001', '2024-06-21 01:17:10'),
-       ('CA00001', '2024-06-21 01:19:42'),
-       ('CA00001', '2024-06-21 01:21:45'),
-       ('CA00001', '2024-06-21 01:22:33'),
-       ('CA00001', '2024-06-21 01:24:09'),
-       ('CA00001', '2024-06-21 01:25:15'),
-       ('CA00001', '2024-06-21 01:28:22'),
-       ('CA00001', '2024-06-21 01:29:13'),
-       ('CA00001', '2024-06-21 01:30:19'),
-       ('CA00001', '2024-06-21 02:16:52'),
-       ('CA00001', '2024-06-21 02:16:58'),
-       ('CA00001', '2024-06-22 18:19:10'),
-       ('CA00001', '2024-06-22 18:23:36'),
-       ('CA00001', '2024-06-22 18:39:50'),
-       ('CA00001', '2024-06-22 18:41:36'),
-       ('CA00001', '2024-06-22 18:42:52'),
-       ('CA00001', '2024-06-22 18:46:51'),
-       ('CA00001', '2024-06-22 20:08:45'),
-       ('CA00001', '2024-06-22 20:14:11'),
-       ('CA00001', '2024-06-22 20:15:28'),
-       ('CA00001', '2024-06-22 20:48:06'),
-       ('CA00001', '2024-06-22 20:51:41'),
-       ('CA00001', '2024-06-23 01:19:45'),
-       ('CA00001', '2024-06-23 13:48:06'),
-       ('CA00001', '2024-06-23 14:33:53'),
-       ('CA00001', '2024-06-23 14:37:31'),
-       ('CA00001', '2024-06-23 14:38:22'),
-       ('CA00001', '2024-06-23 14:41:33'),
-       ('CA00001', '2024-06-23 14:44:12'),
-       ('CA00001', '2024-06-23 14:46:23'),
-       ('CA00001', '2024-06-23 14:46:30'),
-       ('CA00001', '2024-06-23 14:48:00'),
-       ('CA00001', '2024-06-23 14:50:04'),
-       ('CA00001', '2024-06-23 14:52:39'),
-       ('CA00001', '2024-06-23 14:53:40'),
-       ('CA00001', '2024-06-23 14:54:10'),
-       ('CA00001', '2024-06-23 14:56:17'),
-       ('CA00001', '2024-06-23 14:57:00'),
-       ('CA00001', '2024-06-23 14:58:11'),
-       ('CA00001', '2024-06-23 15:00:11'),
-       ('CA00001', '2024-06-23 15:00:55'),
-       ('CA00001', '2024-06-23 15:02:40'),
-       ('CA00001', '2024-06-23 15:04:09'),
-       ('CA00001', '2024-06-23 15:06:14'),
-       ('CA00001', '2024-06-23 15:13:28'),
+       ('CA00001', '2024-06-20 22:59:59'),
+       ('CA00002', '2024-06-23 14:04:42'),
        ('CA00003', '2024-05-29 02:00:48'),
        ('CA00003', '2024-05-29 02:03:19'),
        ('CA00003', '2024-05-29 02:11:23'),
@@ -483,7 +407,8 @@ VALUES ('LMD01', 'Sales Office'),
        ('LMD02', 'Purchasing Department'),
        ('LMD03', 'Spares Despatch Department'),
        ('LMD04', 'Goods Inward Department'),
-       ('LMD05', 'Store');
+       ('LMD05', 'Store'),
+       ('LMD06', 'Manager');
 
 -- --------------------------------------------------------
 
@@ -602,6 +527,34 @@ VALUES ('CA00001', 'OD24020001', 'IN00001', 'confirmed'),
        ('CA00001', 'OD24060003', 'IN00005', NULL),
        ('CA00001', 'OD24060004', 'IN00006', NULL),
        ('CA00001', 'OD24060005', 'IN00007', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobtitle`
+--
+
+CREATE TABLE `jobtitle`
+(
+    `jobTitle`     varchar(30) NOT NULL,
+    `department`   varchar(30) NOT NULL,
+    `permissionID` char(4)     NOT NULL
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_general_ci;
+
+--
+-- Dumping data for table `jobtitle`
+--
+
+INSERT INTO `jobtitle` (`jobTitle`, `department`, `permissionID`)
+VALUES ('Deliverman', 'Spares Despatch Department', 'MP04'),
+       ('Goods Inward Staff', 'Goods Inward Department', 'MP01'),
+       ('Manager', 'Manager', 'MP03'),
+       ('Order Processing Clerk', 'Sales Office', 'MP06'),
+       ('Purchasing Staff', 'Purchasing Department', 'MP05'),
+       ('Sales manager', 'Sales Office', 'MP06'),
+       ('Storeman', 'Store', 'MP02');
 
 -- --------------------------------------------------------
 
@@ -816,6 +769,21 @@ VALUES ('Anhui', 'Anqing'),
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `orderitemanalysis`
+-- (See below for the actual view)
+--
+CREATE TABLE `orderitemanalysis`
+(
+    `orderID`       char(10),
+    `partNumber`    char(6),
+    `orderDate`     date,
+    `ItemCount`     bigint(21),
+    `TotalQuantity` decimal(32, 0)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `order_`
 --
 
@@ -841,13 +809,13 @@ CREATE TABLE `order_`
 
 INSERT INTO `order_` (`orderID`, `customerAccountID`, `staffAccountID`, `orderSerialNumber`, `orderDate`, `discountID`,
                       `status`, `comment`, `feedbackID`, `DeliveryRelayID`)
-VALUES ('OD24020001', 'CA00001', 'SA00006', 'SN24020001', '2024-02-11', NULL, 'Shipped', NULL, NULL, 9),
-       ('OD24050002', 'CA00001', 'SA00006', 'SN24050002', '2024-05-15', NULL, 'Shipped', NULL, NULL, 9),
-       ('OD24060001', 'CA00001', 'SA00006', 'SN24060001', '2024-06-01', NULL, 'Ready to Ship', NULL, NULL, 9),
-       ('OD24060002', 'CA00001', 'SA00006', 'SN24060002', '2024-06-05', NULL, 'Ready to Ship', NULL, NULL, 9),
+VALUES ('OD24020001', 'CA00001', 'SA00006', 'SN24020001', '2024-02-11', NULL, 'Shipped', NULL, NULL, NULL),
+       ('OD24050002', 'CA00001', 'SA00006', 'SN24050002', '2024-05-15', NULL, 'Shipped', NULL, NULL, NULL),
+       ('OD24060001', 'CA00001', 'SA00006', 'SN24060001', '2024-06-01', NULL, 'Ready to Ship', NULL, NULL, NULL),
+       ('OD24060002', 'CA00001', 'SA00006', 'SN24060002', '2024-06-05', NULL, 'Ready to Ship', NULL, NULL, NULL),
        ('OD24060003', 'CA00001', 'SA00006', 'SN24060003', '2024-06-06', NULL, 'Processing', NULL, NULL, 8),
        ('OD24060004', 'CA00001', 'SA00006', 'SN24060004', '2024-06-12', NULL, 'Processing', NULL, NULL, 8),
-       ('OD24060005', 'CA00001', 'SA00006', 'SN24060005', '2024-06-12', NULL, 'Pending', NULL, NULL, 5);
+       ('OD24060005', 'CA00001', 'SA00006', 'SN24060005', '2024-06-12', NULL, 'Pending', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -900,7 +868,7 @@ VALUES ('A00001', 'OD24060004', 1, 500),
 CREATE TABLE `permission`
 (
     `permissionID` char(4)     NOT NULL,
-    `Name`         varchar(30) NOT NULL
+    `Name`         varchar(40) NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
@@ -910,12 +878,12 @@ CREATE TABLE `permission`
 --
 
 INSERT INTO `permission` (`permissionID`, `Name`)
-VALUES ('MP01', 'Sales manager'),
-       ('MP02', 'Storeman'),
-       ('MP03', 'Department manager'),
-       ('MP04', 'Delivery man'),
-       ('MP05', 'Purchasing Manager'),
-       ('MP06', 'Order Processing Clerk');
+VALUES ('MP01', 'Order, Invoice, OnSale, Stock, User'),
+       ('MP02', 'Order, Stock, User'),
+       ('MP03', 'User'),
+       ('MP04', 'Order, User'),
+       ('MP05', 'Stock, User'),
+       ('MP06', 'Order, Invoice, User');
 
 -- --------------------------------------------------------
 
@@ -933,7 +901,8 @@ CREATE TABLE `product`
     `description`  varchar(500) NOT NULL,
     `price`        int(11)      NOT NULL,
     `imageID`      char(8) DEFAULT NULL,
-    `multiMediaID` char(8) DEFAULT NULL
+    `multiMediaID` char(8) DEFAULT NULL,
+    `status`       varchar(7)   NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
@@ -943,67 +912,67 @@ CREATE TABLE `product`
 --
 
 INSERT INTO `product` (`itemID`, `category`, `partNumber`, `onSaleQty`, `LM_onSaleQty`, `description`, `price`,
-                       `imageID`, `multiMediaID`)
-VALUES ('LMP00001', 'A', 'A00001', 297, 500,
+                       `imageID`, `multiMediaID`, `status`)
+VALUES ('LMP00001', 'A', 'A00001', 299, 500,
         'Elevate the appearance of your car with our premium tinned plate cover. Crafted from high-quality metals, this cover adds a touch of elegance and a polished, reflective finish to your vehicle exterior. Designed for a seamless fit, it enhances the overall aesthetics while protecting your car surface from minor scratches and weathering.',
-        500, NULL, NULL),
-       ('LMP00002', 'A', 'A00002', 497, 700,
+        500, NULL, NULL, 'Enable'),
+       ('LMP00002', 'A', 'A00002', 499, 700,
         'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.',
-        800, NULL, NULL),
-       ('LMP00003', 'A', 'A00003', 197, 300,
+        800, NULL, NULL, 'Enable'),
+       ('LMP00003', 'A', 'A00003', 199, 300,
         'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.',
-        1000, NULL, NULL),
-       ('LMP00004', 'A', 'A00004', 299, 400,
+        1000, NULL, NULL, 'Enable'),
+       ('LMP00004', 'A', 'A00004', 300, 400,
         'Enhance your car look with our stylish and protective hood cover. Crafted from durable materials, it offers a custom fit to shield your vehicle hood from weather and minor damage, elevating your driving experience.',
-        360, NULL, NULL),
-       ('LMP00005', 'A', 'A00005', 249, 400,
+        360, NULL, NULL, 'Enable'),
+       ('LMP00005', 'A', 'A00005', 250, 400,
         'Our premium trunk lid adds a sleek, modern touch to your car. Crafted from high-quality materials, it seamlessly integrates with your vehicle design, offering a custom fit and enhanced protection for your trunk area. Elevate your car style with this versatile and functional accessory.',
-        214, NULL, NULL),
-       ('LMP00006', 'B', 'B00001', 849, 1000,
+        214, NULL, NULL, 'Enable'),
+       ('LMP00006', 'B', 'B00001', 850, 1000,
         'Optimize your car engine cooling with our advanced cooling system cover. Designed to improve airflow and heat dissipation, this cover ensures efficient engine operation, reducing the risk of overheating and prolonging the lifespan of your vehicle vital components.',
-        440, NULL, NULL),
-       ('LMP00007', 'B', 'B00002', 999, 1500,
+        440, NULL, NULL, 'Enable'),
+       ('LMP00007', 'B', 'B00002', 1000, 1500,
         'Unveil the power within your car with our engine disassembly cover. This transparent cover allows you to see the intricate workings of your engine, perfect for enthusiasts and mechanics. Crafted with durable materials, it provides a clear view while protecting the engine components during maintenance and repairs.',
-        700, NULL, NULL),
+        700, NULL, NULL, 'Enable'),
        ('LMP00008', 'B', 'B00003', 430, 600,
         'Enhance the performance of your car with our precision-engineered gear cover. Crafted from high-strength materials, this cover safeguards your gearbox components from wear, tear, and environmental factors, ensuring smooth and efficient power transmission. Elevate your driving experience with this functional and durable accessory.',
-        500, NULL, NULL),
+        500, NULL, NULL, 'Enable'),
        ('LMP00009', 'B', 'B00004', 430, 700,
         'Showcase the braking power of your car with our stylish brake caliper covers. Designed to fit over your vehicle brake calipers, these covers not only enhance the visual appeal but also help protect the calipers from the elements. Available in a range of colors, they add a personalized touch to your ride.',
-        560, NULL, NULL),
+        560, NULL, NULL, 'Enable'),
        ('LMP00010', 'B', 'B00005', 500, 900,
         'Protect the heart of your car air suspension system with our rugged compressor cover. Crafted from durable materials, this cover shields your air suspension compressor from dust, debris, and environmental factors, ensuring reliable performance and extended lifespan. Elevate your driving experience with this functional and discreet accessory.',
-        145, NULL, NULL),
+        145, NULL, NULL, 'Enable'),
        ('LMP00011', 'C', 'C00001', 320, 500,
         'Upgrade the lighting of your car with our premium silver halogen bulbs. Designed to provide a brighter, whiter beam of light, these bulbs offer enhanced visibility and a sleek, modern appearance. Crafted for easy installation, they are a simple yet impactful way to elevate the driving experience.',
-        340, NULL, NULL),
+        340, NULL, NULL, 'Enable'),
        ('LMP00012', 'C', 'C00002', 230, 800,
         'Enhance the style of your car with our sleek tail light covers. Crafted from high-quality materials, these covers seamlessly integrate with your vehicle existing tail lights, adding a touch of personalization and a modern aesthetic. Protect your tail lights from scratches and weathering while elevating your car overall appearance.',
-        650, NULL, NULL),
+        650, NULL, NULL, 'Enable'),
        ('LMP00013', 'C', 'C00003', 500, 400,
         'Elevate the front-end design of your car with our stylish headlight covers. Crafted from durable, scratch-resistant materials, these covers fit snugly over your existing headlights, providing a custom, integrated look. Protect your headlights from road debris and environmental factors while adding a modern, eye-catching accent to your vehicle.',
-        200, NULL, NULL),
-       ('LMP00014', 'C', 'C00004', 499, 600,
+        200, NULL, NULL, 'Enable'),
+       ('LMP00014', 'C', 'C00004', 500, 600,
         'Elevate the front-end design of your car with our stylish headlight covers. Crafted from durable, scratch-resistant materials, these covers fit snugly over your existing headlights, providing a custom, integrated look. Protect your headlights from road debris and environmental factors while adding a modern, eye-catching accent to your vehicle.',
-        300, NULL, NULL),
+        300, NULL, NULL, 'Enable'),
        ('LMP00015', 'C', 'C00005', 460, 500,
         'Upgrade the front-end style of your car with our sleek headlight covers. Crafted from durable, scratch-resistant materials, these covers seamlessly integrate with your existing headlights, providing a custom, integrated look. Protect your headlights from road debris and environmental factors while adding a modern, eye-catching accent to your vehicle.',
-        100, NULL, NULL),
-       ('LMP00016', 'D', 'D00001', 299, 400,
+        100, NULL, NULL, 'Enable'),
+       ('LMP00016', 'D', 'D00001', 300, 400,
         'Protect the integrity of your car tire pressure monitoring system with our specialized cover. Crafted from rugged materials, this cover shields the sensor from debris, weather, and damage, ensuring the accurate and reliable performance of your TPMS. Keep your tires at optimal pressure and enhance the safety of your driving experience.',
-        340, NULL, NULL),
-       ('LMP00017', 'D', 'D00002', 499, 800,
+        340, NULL, NULL, 'Enable'),
+       ('LMP00017', 'D', 'D00002', 500, 800,
         'Charge your devices on-the-go with our versatile USB car charger cover. Designed to seamlessly integrate with your vehicle power outlet, this cover protects the charger from dust and damage while providing multiple USB ports for simultaneous charging. Keep your devices powered up and your car interior looking sleek and organized.',
-        800, NULL, NULL),
-       ('LMP00018', 'D', 'D00003', 240, 400,
+        800, NULL, NULL, 'Enable'),
+       ('LMP00018', 'D', 'D00003', 240, 500,
         'Safeguard your car pristine condition with our premium car cover. Crafted from durable, weatherproof materials, this cover shields your vehicle from the elements, protecting it from dirt, debris, and UV damage. Designed for a custom fit, it ensures your car remains in showroom-ready condition, whether in storage or parked outdoors.',
-        455, NULL, NULL),
+        455, NULL, NULL, 'Enable'),
        ('LMP00019', 'D', 'D00004', 500, 600,
         'Charge your devices with ease using our car vent charger cover. This sleek and functional accessory seamlessly integrates with your vehicle air vents, providing a secure and convenient USB charging solution. Crafted from high-quality materials, it protects your charger from dust and damage, keeping your car interior organized and clutter-free.',
-        200, NULL, NULL),
+        200, NULL, NULL, 'Enable'),
        ('LMP00020', 'D', 'D00005', 600, 700,
         'With our adaptable car phone holder cover, you can keep your smartphone close at hand while driving. With its stylish design that blends in well with the dashboard or air vents in your car, this cover safely holds your device in place so you can use it hands-free and with ease. Because it is made of sturdy materials, it shields your phone from external influences and vibrations.',
-        500, NULL, NULL);
+        500, NULL, NULL, 'Enable');
 
 -- --------------------------------------------------------
 
@@ -1020,22 +989,6 @@ CREATE TABLE `product_in_cart`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
-
---
--- Dumping data for table `product_in_cart`
---
-
-INSERT INTO `product_in_cart` (`cartID`, `itemID`, `quantity`, `inCartDate`)
-VALUES ('LMSC0001', 'LMP00001', 2, '22/06/2024'),
-       ('LMSC0001', 'LMP00002', 2, '22/06/2024'),
-       ('LMSC0001', 'LMP00003', 2, '22/06/2024'),
-       ('LMSC0001', 'LMP00004', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00005', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00006', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00007', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00014', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00016', 1, '22/06/2024'),
-       ('LMSC0001', 'LMP00017', 1, '22/06/2024');
 
 -- --------------------------------------------------------
 
@@ -1093,13 +1046,13 @@ CREATE TABLE `shipping_detail`
 --
 
 INSERT INTO `shipping_detail` (`orderID`, `delivermanID`, `shippingDate`, `remark`, `expressNumber`, `shippingAddress`)
-VALUES ('OD24020001', 'LMD001', '2024-03-01', NULL, 'EN0001', 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24050002', 'LMD003', '2024-05-08', NULL, 'EN0013', 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24060001', 'LMD001', '2024-07-13', NULL, NULL, 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24060002', 'LMD001', '2024-07-15', NULL, NULL, 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24060003', 'LMD001', '2024-07-30', NULL, NULL, 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24060004', 'LMD001', '2024-07-31', NULL, NULL, 'No. 8, Yongdingmen East Street, Dongcheng District'),
-       ('OD24060005', 'LMD003', '2024-07-31', NULL, NULL, 'No. 8, Yongdingmen East Street, Dongcheng District');
+VALUES ('OD24020001', 'LMD001', '2024-03-01', NULL, 'EN0001', '123 Main Street, Gansu, Jinchang'),
+       ('OD24050002', 'LMD003', '2024-05-08', NULL, 'EN0013', '123 Main Street, Gansu, Jinchang'),
+       ('OD24060001', 'LMD001', '2024-07-13', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+       ('OD24060002', 'LMD001', '2024-07-15', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+       ('OD24060003', 'LMD001', '2024-07-30', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+       ('OD24060004', 'LMD001', '2024-07-31', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+       ('OD24060005', 'LMD003', '2024-07-31', NULL, NULL, '123 Main Street, Gansu, Jinchang');
 
 -- --------------------------------------------------------
 
@@ -1115,7 +1068,8 @@ CREATE TABLE `spare_part`
     `name`         varchar(50) NOT NULL,
     `reorderLevel` int(11)     NOT NULL,
     `dangerLevel`  int(11)     NOT NULL,
-    `quantity`     int(11)     NOT NULL
+    `quantity`     int(11)     NOT NULL,
+    `status`       varchar(7)  NOT NULL
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_general_ci;
@@ -1124,27 +1078,28 @@ CREATE TABLE `spare_part`
 -- Dumping data for table `spare_part`
 --
 
-INSERT INTO `spare_part` (`partNumber`, `supplierID`, `categoryID`, `name`, `reorderLevel`, `dangerLevel`, `quantity`)
-VALUES ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 799),
-       ('A00002', 'SIDJP00001', 'A', 'Car Door', 70, 30, 1199),
-       ('A00003', 'SIDUK00001', 'A', 'Premium Car Door', 200, 130, 499),
-       ('A00004', 'SIDUK00002', 'A', 'Hood Cover', 400, 200, 700),
-       ('A00005', 'SIDCN00001', 'A', 'Trunk Lid', 100, 50, 650),
-       ('B00001', 'SIDUK00002', 'B', 'Engine Cooling', 70, 30, 1850),
-       ('B00002', 'SIDKR00001', 'B', 'Car Engine Disassembled', 320, 210, 2500),
-       ('B00003', 'SIDJP00001', 'B', 'Gear', 250, 100, 1030),
-       ('B00004', 'SIDUS00002', 'B', 'Brake Calipers', 200, 100, 1130),
-       ('B00005', 'SIDUS00001', 'B', 'Air Suspension Compressor', 100, 30, 1400),
-       ('C00001', 'SIDKR00001', 'C', 'Silver Light Halogen Bulbs', 200, 50, 820),
-       ('C00002', 'SIDBR00001', 'C', 'Tail Light', 200, 130, 1030),
-       ('C00003', 'SIDCN00001', 'C', 'Headlight', 200, 130, 900),
-       ('C00004', 'SIDUS00001', 'C', 'Interior Dome Light', 400, 200, 1100),
-       ('C00005', 'SIDIN00001', 'C', 'Front Headlight', 100, 50, 960),
-       ('D00001', 'SIDJP00001', 'D', 'Tire Pressure Monitor', 70, 30, 700),
-       ('D00002', 'SIDCN00001', 'D', 'USB Car Charger', 200, 130, 1300),
-       ('D00003', 'SIDUK00003', 'D', 'Car Cover', 100, 50, 640),
-       ('D00004', 'SIDUK00003', 'D', 'Car Vent Charger', 100, 50, 1100),
-       ('D00005', 'SIDCN00001', 'D', 'Phone Holder', 400, 200, 1300);
+INSERT INTO `spare_part` (`partNumber`, `supplierID`, `categoryID`, `name`, `reorderLevel`, `dangerLevel`, `quantity`,
+                          `status`)
+VALUES ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 799, 'Enable'),
+       ('A00002', 'SIDJP00001', 'A', 'Car Door', 70, 30, 1199, 'Enable'),
+       ('A00003', 'SIDUK00001', 'A', 'Premium Car Door', 200, 130, 499, 'Enable'),
+       ('A00004', 'SIDUK00002', 'A', 'Hood Cover', 400, 200, 700, 'Enable'),
+       ('A00005', 'SIDCN00001', 'A', 'Trunk Lid', 100, 50, 650, 'Enable'),
+       ('B00001', 'SIDUK00002', 'B', 'Engine Cooling', 70, 30, 1850, 'Enable'),
+       ('B00002', 'SIDKR00001', 'B', 'Car Engine Disassembled', 320, 210, 2500, 'Enable'),
+       ('B00003', 'SIDJP00001', 'B', 'Gear', 250, 100, 1030, 'Enable'),
+       ('B00004', 'SIDUS00002', 'B', 'Brake Calipers', 200, 100, 1130, 'Enable'),
+       ('B00005', 'SIDUS00001', 'B', 'Air Suspension Compressor', 100, 30, 1400, 'Enable'),
+       ('C00001', 'SIDKR00001', 'C', 'Silver Light Halogen Bulbs', 200, 50, 820, 'Enable'),
+       ('C00002', 'SIDBR00001', 'C', 'Tail Light', 200, 130, 1030, 'Enable'),
+       ('C00003', 'SIDCN00001', 'C', 'Headlight', 200, 130, 900, 'Enable'),
+       ('C00004', 'SIDUS00001', 'C', 'Interior Dome Light', 400, 200, 1100, 'Enable'),
+       ('C00005', 'SIDIN00001', 'C', 'Front Headlight', 100, 50, 960, 'Enable'),
+       ('D00001', 'SIDJP00001', 'D', 'Tire Pressure Monitor', 70, 30, 700, 'Enable'),
+       ('D00002', 'SIDCN00001', 'D', 'USB Car Charger', 200, 130, 1300, 'Enable'),
+       ('D00003', 'SIDUK00003', 'D', 'Car Cover', 100, 50, 740, 'Enable'),
+       ('D00004', 'SIDUK00003', 'D', 'Car Vent Charger', 100, 50, 1100, 'Enable'),
+       ('D00005', 'SIDCN00001', 'D', 'Phone Holder', 400, 200, 1300, 'Enable');
 
 -- --------------------------------------------------------
 
@@ -1181,8 +1136,7 @@ VALUES ('LMS00001', 'LMD01', 'Siu', 'shuan', 'F', 'siu.leung@example.com', '1237
         'Order Processing Clerk', NULL, NULL),
        ('LMS00003', 'LMD02', 'Wai', 'Chan', 'M', 'wai.chan@example.com', '02468013579', '1978-02-28',
         'Purchasing Staff', NULL, NULL),
-       ('LMS00004', 'LMD04', 'Ling', 'Lam', 'F', 'ling.lam@example.com', '13579024680', '1990-11-05',
-        'Goods Inward Staff', NULL, NULL),
+       ('LMS00004', 'LMD04', 'Ling', 'Lam', 'F', '13579024680', '13579024680', '1990-11-05', 'Manager', NULL, NULL),
        ('LMS00005', 'LMD05', 'Kin', 'Yuen', 'M', 'kin.yuen@example.com', '08642013579', '1975-06-30', 'Storeman', NULL,
         NULL),
        ('LMS00006', 'LMD03', 'Lily', 'Li', 'F', 'lily.li@example.com', '09876543211', '1982-03-15',
@@ -1223,26 +1177,26 @@ CREATE TABLE `staff_account`
 INSERT INTO `staff_account` (`staffAccountID`, `staffID`, `status`, `password`, `createDate`, `pwdChangeDate`)
 VALUES ('SA00001', 'LMS00001', 'active', '$2a$11$Lm4yIPKczoUpgmGNOqwxdetvm3Ei9nxaHJpz/EZakHSC21BtkQd7y', '2024-05-01',
         '2024-06-03'),
-       ('SA00002', 'LMS00002', 'active', '$2a$11$ROw0TLKZTVkyjIo9no3UX.4xVlsyNy4B4aUiHCD76XVCcQhFchEkq', '2024-05-02',
-        '2024-05-13'),
+       ('SA00002', 'LMS00002', 'active', '$2a$11$jbK0PoP6fa86FVAdPcc./.vD7cn/M0IysaUblE8FPkN1k1ntr8v36', '2024-05-02',
+        '2024-06-23'),
        ('SA00003', 'LMS00003', 'active', '$2a$11$w2rx1YUxYjo9CvNoGABiJe04JVE55d3otrzOyZoB.BsG26cLukS2O', '2024-05-10',
         '2024-05-13'),
        ('SA00004', 'LMS00004', 'active', '$2a$11$cBnH8E/j7jLzc/6IlzrNZu3LoFK2sGnv1vdSkmbupH5i5dMzitpMG', '2024-05-11',
         '2024-05-02'),
-       ('SA00005', 'LMS00005', 'active', '$2a$11$YAwMphVbJYlIdllgZ3k1x.xRm7rkRhoNnJvqrnKenO.DAZesAtfrW', '2024-05-15',
-        '2024-05-10'),
+       ('SA00005', 'LMS00005', 'active', '$2a$11$0Fzkeitw7Fg7Q379IlwRmOi9l73.ofvQXYNMR5A4qhDWfH0pJ5U6a', '2024-05-15',
+        '2024-06-23'),
        ('SA00006', 'LMS00006', 'active', '$2a$11$7FgtPouKfa86CTPpaxg3vekIG9joziut1WBIl20MGpv1shzp.NOTa', '2024-06-04',
         '2024-06-16'),
-       ('SA00007', 'LMS00007', 'active', '$2a$11$jShG/jYvl1Bk3YXMjskzXONmRqFFpjM9OYzsRPpQpzB9ziLDrb6Q.', '2024-06-03',
-        '2024-06-17'),
-       ('SA00008', 'LMS00008', 'active', '$2a$11$o4InuCLpWHC4UqqDxqr3xuws2J7mhFkcLW076ZXzpOJkoB0P8sCQO', '2024-06-04',
-        '2024-06-04'),
-       ('SA00009', 'LMS00009', 'active', '$2a$11$ymoTOnGOpa4ecldl5b0DyeHmr7Gan2yS4YBeEwMWaEW3gkiI8JSii', '2024-06-01',
-        '2024-06-01'),
-       ('SA00010', 'LMS00010', 'active', '$2a$11$8rST.7FvIsNHVTvn1r1x0uIbwanvzGVGiDGGeG1dWxmTMXpRDWbty', '2024-06-03',
-        '2024-06-03'),
-       ('SA00011', 'LMS00011', 'active', '$2a$11$CKaxvDzZSq9bt46RL7sOJ.wYgy5PrcKRoH7CN91d1v.8OBUd7pOya', '2024-06-04',
-        '2024-06-04');
+       ('SA00007', 'LMS00007', 'active', '$2a$11$h3yz.ZXO1liwL1XH3SDT8uk0YQSImW/d/tij0LRdljL5U6oXRAX7O', '2024-06-03',
+        '2024-06-23'),
+       ('SA00008', 'LMS00008', 'active', '$2a$11$MINmzqRJn7blSsF5gLmAxeqPC03iXf5MFdOXbcUiXqFKm/i6j3Aha', '2024-06-04',
+        '2024-06-23'),
+       ('SA00009', 'LMS00009', 'active', '$2a$11$qKVHvNukCWkpgmkPRRqKMuA53kJv7f4eabJ/AFTL1LbHsyzYH40mi', '2024-06-01',
+        '2024-06-23'),
+       ('SA00010', 'LMS00010', 'active', '$2a$11$ejPZpZ5sByxc37sJzgOTv.CbvayDz4lJz9jKhFCQaUQIiE6dqhhHm', '2024-06-03',
+        '2024-06-23'),
+       ('SA00011', 'LMS00011', 'active', '$2a$11$kCJtkGlBNTMPHUE6PiwIt.c7fY3uVUw47Oo7Ado.gjJd3vCg5LOEm', '2024-06-04',
+        '2024-06-23');
 
 -- --------------------------------------------------------
 
@@ -1264,16 +1218,16 @@ CREATE TABLE `staff_account_permission`
 
 INSERT INTO `staff_account_permission` (`staffAccountID`, `permissionID`)
 VALUES ('SA00001', 'MP01'),
-       ('SA00002', 'MP01'),
+       ('SA00002', 'MP06'),
        ('SA00003', 'MP02'),
        ('SA00004', 'MP03'),
        ('SA00005', 'MP04'),
-       ('SA00006', 'MP04'),
-       ('SA00007', 'MP02'),
-       ('SA00008', 'MP05'),
-       ('SA00009', 'MP05'),
-       ('SA00010', 'MP02'),
-       ('SA00011', 'MP03');
+       ('SA00006', 'MP06'),
+       ('SA00007', 'MP06'),
+       ('SA00008', 'MP06'),
+       ('SA00009', 'MP04'),
+       ('SA00010', 'MP04'),
+       ('SA00011', 'MP04');
 
 -- --------------------------------------------------------
 
@@ -1434,8 +1388,8 @@ VALUES ('SA00001', '2024-05-28 23:48:36'),
        ('SA00001', '2024-06-20 00:31:33'),
        ('SA00001', '2024-06-20 00:32:55'),
        ('SA00001', '2024-06-20 00:33:41'),
-       ('SA00001', '2024-06-21 00:06:48'),
-       ('SA00001', '2024-06-22 18:35:21'),
+       ('SA00001', '2024-06-20 22:59:33'),
+       ('SA00001', '2024-06-20 23:04:31'),
        ('SA00002', '2024-05-28 23:51:33'),
        ('SA00002', '2024-05-29 00:27:56'),
        ('SA00002', '2024-05-29 00:31:28'),
@@ -1478,21 +1432,21 @@ VALUES ('SA00001', '2024-05-28 23:48:36'),
        ('SA00003', '2024-05-30 03:48:07'),
        ('SA00003', '2024-05-30 03:49:14'),
        ('SA00003', '2024-06-04 13:50:18'),
+       ('SA00003', '2024-06-21 11:00:52'),
+       ('SA00003', '2024-06-21 11:12:16'),
+       ('SA00003', '2024-06-21 11:13:29'),
+       ('SA00003', '2024-06-21 11:13:40'),
+       ('SA00003', '2024-06-21 11:14:50'),
        ('SA00004', '2024-05-29 01:07:13'),
        ('SA00004', '2024-05-30 01:50:38'),
        ('SA00004', '2024-05-30 13:20:52'),
        ('SA00004', '2024-06-03 21:36:10'),
        ('SA00004', '2024-06-03 21:36:12'),
        ('SA00004', '2024-06-04 13:56:58'),
-       ('SA00004', '2024-06-22 18:36:50'),
        ('SA00005', '2024-05-30 03:02:07'),
        ('SA00005', '2024-06-04 13:58:21'),
        ('SA00005', '2024-06-04 13:59:03'),
        ('SA00005', '2024-06-20 21:45:11'),
-       ('SA00005', '2024-06-21 01:34:41'),
-       ('SA00005', '2024-06-21 02:16:44'),
-       ('SA00005', '2024-06-21 22:36:54'),
-       ('SA00005', '2024-06-21 22:37:35'),
        ('SA00006', '2024-06-16 00:53:42'),
        ('SA00006', '2024-06-16 00:57:41'),
        ('SA00006', '2024-06-16 01:01:25'),
@@ -1514,7 +1468,13 @@ VALUES ('SA00001', '2024-05-28 23:48:36'),
        ('SA00006', '2024-06-17 01:00:32'),
        ('SA00007', '2024-06-17 00:56:35'),
        ('SA00007', '2024-06-17 00:56:55'),
-       ('SA00007', '2024-06-17 01:00:18');
+       ('SA00007', '2024-06-17 01:00:18'),
+       ('SA00009', '2024-06-23 13:51:41'),
+       ('SA00009', '2024-06-23 13:56:28'),
+       ('SA00010', '2024-06-23 13:56:58'),
+       ('SA00011', '2024-06-23 13:57:32'),
+       ('SA00011', '2024-06-23 13:58:08'),
+       ('SA00011', '2024-06-23 13:59:10');
 
 -- --------------------------------------------------------
 
@@ -1557,6 +1517,23 @@ VALUES ('SIDBR00001', 'Metalúrgica RIOSULENSE S.A.', '+55-4735211200',
        ('SIDUS00001', 'AutoZone, Inc.', '+1-9014956500', '123 South Front Street, Memphis, TN 38103', 'United States'),
        ('SIDUS00002', 'Reilly Auto Parts', '+14178623333', '233 S Patterson Ave, Springfield, MO 65802',
         'United States');
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `orderitemanalysis`
+--
+DROP TABLE IF EXISTS `orderitemanalysis`;
+
+CREATE ALGORITHM = UNDEFINED DEFINER =`root`@`localhost` SQL SECURITY DEFINER VIEW `orderitemanalysis` AS
+SELECT `order_line`.`orderID`       AS `orderID`,
+       `order_line`.`partNumber`    AS `partNumber`,
+       `order_`.`orderDate`         AS `orderDate`,
+       count(0)                     AS `ItemCount`,
+       sum(`order_line`.`quantity`) AS `TotalQuantity`
+FROM (`order_line` join `order_` on (`order_line`.`orderID` = `order_`.`orderID`))
+WHERE `order_`.`status` = 'Shipped'
+GROUP BY `order_line`.`orderID`, `order_line`.`partNumber`;
 
 -- --------------------------------------------------------
 
@@ -1680,6 +1657,13 @@ ALTER TABLE `instruction`
 ALTER TABLE `invoice`
     ADD PRIMARY KEY (`customerAccountID`, `orderID`),
     ADD KEY `invoice_fk2` (`orderID`);
+
+--
+-- Indexes for table `jobtitle`
+--
+ALTER TABLE `jobtitle`
+    ADD PRIMARY KEY (`jobTitle`),
+    ADD KEY `permissionID` (`permissionID`);
 
 --
 -- Indexes for table `location`
@@ -1851,6 +1835,12 @@ ALTER TABLE `instruction`
 ALTER TABLE `invoice`
     ADD CONSTRAINT `invoice_fk1` FOREIGN KEY (`customerAccountID`) REFERENCES `customer_account` (`customerAccountID`),
     ADD CONSTRAINT `invoice_fk2` FOREIGN KEY (`orderID`) REFERENCES `order_` (`orderID`);
+
+--
+-- Constraints for table `jobtitle`
+--
+ALTER TABLE `jobtitle`
+    ADD CONSTRAINT `permissionID` FOREIGN KEY (`permissionID`) REFERENCES `permission` (`permissionID`);
 
 --
 -- Constraints for table `order_`

@@ -17,11 +17,9 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters
 {
     public partial class itemTableTableAdapter
     {
-
     }
 
     public partial class OrderTableTableAdapter
     {
-
     }
 }

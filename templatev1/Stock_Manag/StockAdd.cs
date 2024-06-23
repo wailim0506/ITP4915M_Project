@@ -129,7 +129,7 @@ namespace templatev1
                     break;
                 case "On-Sale Product Management":
 
-                    
+
                     break;
                 case "Stock Management":
                     next = new StockMgmt(accountController, UIController);
@@ -236,7 +236,7 @@ namespace templatev1
 
         private void cmbCategory_SelectedValueChanged(object sender, EventArgs e)
         {
-            lblPartNumber.Text 
+            lblPartNumber.Text
                 = stockController.GenPartNumber(cmbCategory.SelectedItem.ToString());
         }
 
@@ -244,7 +244,7 @@ namespace templatev1
         private bool checkInfo()
         {
             //Clean previous error message.
-            lblSuppMsg.Text = lblNameMsg.Text = lblDLevelMsg.Text 
+            lblSuppMsg.Text = lblNameMsg.Text = lblDLevelMsg.Text
                 = lblRLevelMsg.Text = lblCatMsg.Text = lblQtyMsg.Text = "";
 
             //Check category.
@@ -297,6 +297,7 @@ namespace templatev1
                 lblQtyMsg.Select();
                 return false;
             }
+
             return true;
         }
 

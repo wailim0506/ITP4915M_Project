@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using controller;
+using controller.Utilities;
 
 namespace templatev1
 {
@@ -33,8 +34,8 @@ namespace templatev1
             IsLogin = false;
             timer1.Enabled = true;
             tbPassword.PasswordChar = '*';
-
             rememberMe();
+            grpDevTools.Visible = Configuration.IsDevMode();
         }
 
         //Login the system.
