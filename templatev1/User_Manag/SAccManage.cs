@@ -47,7 +47,7 @@ namespace templatev1
             radioButtons_CheckedChanged(this, new EventArgs());
             btnAddStaffAcc.Visible = palMgmt.Visible = UIController.UserMgmt();
             dgvUser.ColumnHeadersDefaultCellStyle.Font = new Font("Times New Roman", 13F, FontStyle.Bold);
-
+            DgvIndicator();
 
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
@@ -230,6 +230,7 @@ namespace templatev1
         private void cmbDept_SelectedValueChanged(object sender, EventArgs e)
         {
             dgvUser.DataSource = UserController.GetUserList("Staff", cmbDept.SelectedItem.ToString());
+            DgvIndicator();
         }
 
         private void btnBlock_Click(object sender, EventArgs e)
@@ -275,7 +276,7 @@ namespace templatev1
             {
                 var result =
                     MessageBox.Show(
-                        "Are you sure to ACTIVE user account " + selectedUid + "?\nClick Yes to continue.",
+                        $"Are you sure to ACTIVE user account {selectedUid}?\nClick Yes to continue.",
                         "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (result == DialogResult.Yes)
@@ -300,6 +301,7 @@ namespace templatev1
                     rdoCustomer.Checked = true;
 
                 dgvUser.DataSource = UserController.GetUser(tbSearch.Text);
+                DgvIndicator();
             }
             else
                 MessageBox.Show("Not a valid UserID",
@@ -320,7 +322,7 @@ namespace templatev1
                 Close();
             }
             else
-                MessageBox.Show("NOT user selected.",
+                MessageBox.Show("User NOT selected.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
@@ -335,8 +337,7 @@ namespace templatev1
         private void dgvUser_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvUser.ClearSelection();
-            lblDUname.Text = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text
-                = lblUCorpAdd.Text = lblUAdd.Text = "";
+            ClearLabel();
         }
 
         private void dgvUser_MouseClick(object sender, MouseEventArgs e)
@@ -361,17 +362,24 @@ namespace templatev1
                 lblUCorpName.Text = info.corp;
                 lblUCorpAdd.Text = info.caddress;
                 lblUAdd.Text = info.waddress;
+                lblUStatus.Text = info.status;
+                lblUDept.Text = info.dept;
+                lblUJob.Text = info.jobTitle;
+                lblULMAcc.Text = info.IsLM;
             }
             else
                 MessageBox.Show("User NOT found.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void dgvUser_Sorted(object sender, EventArgs e)
+        {
+            DgvIndicator();
+        }
 
         private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
-            lblDUname.Text = lblUGender.Text =
-                lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text = lblUAdd.Text = "";
+            ClearLabel();
             if (rdoStaff.Checked == true)
             {
                 lblTitTotalNoUser.Text = "No. of staff in the system: " + UserController.GetTotalUser("Staff");
@@ -379,6 +387,7 @@ namespace templatev1
                 btnBlock.Text = "Disable staff account";
                 btnAct.Text = "Active staff account";
                 dgvUser.DataSource = UserController.GetUserList("Staff");
+                DgvIndicator();
                 palCus.Visible = false;
             }
             else
@@ -388,7 +397,27 @@ namespace templatev1
                 btnBlock.Text = "Disable Customer Account";
                 btnAct.Text = "Active Customer account";
                 dgvUser.DataSource = UserController.GetUserList("Customer");
+                DgvIndicator();
                 palCus.Visible = true;
+            }
+        }
+
+        private void ClearLabel()
+        {
+            lblDUname.Text = lblUGender.Text = lblUStatus.Text = lblUJob.Text = lblUDept.Text = lblULMAcc.Text
+                    = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text = lblUAdd.Text = "";
+        }
+
+        private void DgvIndicator()
+        {
+            dgvUser.ClearSelection();
+            //If lower than danger level change color of the row to red. 
+            for (int r = 0; r < dgvUser.RowCount; r++)
+            {
+                if (dgvUser.Rows[r].Cells[4].Value.ToString().Equals("active")) //Normal.
+                    dgvUser.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#C6FEB8");
+                if (dgvUser.Rows[r].Cells[4].Value.ToString().Equals("disable")) //meets re-order level.
+                    dgvUser.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FEB8B8");
             }
         }
     }

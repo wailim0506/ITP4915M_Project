@@ -86,7 +86,7 @@ namespace controller
         private string GetUserListQuery(string type)
         {
             return type.Equals("Staff")
-                ? "SELECT S.staffID, firstName, lastName, createDate, status, jobTitle, name " +
+                ? "SELECT S.staffID, firstName, lastName, createDate, status, name AS Department, jobTitle " +
                   "FROM staff S, staff_account SA, department D WHERE S.staffID = SA.staffID AND S.deptID = D.deptID ORDER BY staffID"
                 : "SELECT C.customerID, firstName, lastName, createDate, status, isLM as LM_Account FROM customer C, customer_account CA WHERE C.customerID = CA.customerID ORDER BY customerID";
         }

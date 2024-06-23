@@ -30,6 +30,8 @@ namespace controller
             waddress2,
             corp,
             city,
+            IsLM,
+            status,
             province;
 
         private bool NGDateOfBirth;
@@ -81,14 +83,15 @@ namespace controller
             if (accountType.Equals("Staff")) //Staff info
             {
                 sqlStr =
-                    $"SELECT jobTitle, name, emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate " +
+                    $"SELECT jobTitle, name, emailAddress, firstName, lastName, status, sex, phoneNumber, dateOfBirth, createDate " +
                     $"FROM staff S, department D, staff_account SA WHERE S.deptID = D.deptID AND S.staffID = \'{UID}\' AND SA.staffID = \'{UID}\'";
             }
             else //Customer info
             {
                 GetDfAdd();
                 sqlStr =
-                    $"SELECT emailAddress, firstName, lastName, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
+                    $"SELECT emailAddress, firstName, lastName, isLM, status, sex, phoneNumber, dateOfBirth, createDate, paymentMethod, province, " +
+                    $"city, companyAddress, warehouseAddress, company, warehouseAddress2 " +
                     $"FROM customer_account CA, customer C WHERE CA.customerID = \'{UID}\' AND C.customerID = \'{UID}\'";
             }
 
@@ -107,7 +110,7 @@ namespace controller
                 waddress1 = dt.Rows[0]["warehouseAddress"].ToString();
                 waddress2 = dt.Rows[0]["warehouseAddress2"].ToString();
                 dfwaddress = dfadd == 1 ? waddress1 : waddress2;
-
+                IsLM = dt.Rows[0]["isLM"].ToString();
                 payment = dt.Rows[0]["paymentMethod"].ToString();
                 caddress = dt.Rows[0]["companyAddress"].ToString();
                 corp = dt.Rows[0]["company"].ToString();
@@ -121,6 +124,7 @@ namespace controller
             sex = dt.Rows[0]["sex"].ToString();
             phone = dt.Rows[0]["phoneNumber"].ToString();
             createDate = (DateTime)dt.Rows[0]["createDate"];
+            status = dt.Rows[0]["status"].ToString();
 
             //If the date of birth is not provided
             if (string.IsNullOrEmpty(dt.Rows[0]["dateOfBirth"].ToString()) && accountType.Equals("Customer"))
@@ -132,7 +136,7 @@ namespace controller
                 dateOfBirth = (DateTime)dt.Rows[0]["dateOfBirth"];
         }
 
-        //Return value to the profile.
+        //Return value to the profile or the info panel in user management.
         public dynamic getUserInfo()
         {
             dynamic UserInfo = new ExpandoObject();
@@ -151,6 +155,8 @@ namespace controller
             UserInfo.NGDateOfBirth = NGDateOfBirth;
             UserInfo.corp = corp;
             UserInfo.waddress = dfwaddress + ", " + city + ", " + province;
+            UserInfo.status = status;
+            UserInfo.IsLM = IsLM;
             return UserInfo;
         }
 

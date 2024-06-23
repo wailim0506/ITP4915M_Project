@@ -12,7 +12,7 @@ namespace templatev1
 {
     public partial class StockMgmt : Form
     {
-        private string uName, UID, selectedPartID;
+        private string uName, UID, selectedPartID, selectedReorderID;
         private int index, reorderQty, reorderIndex;
         AccountController accountController;
         stockController stockController;
@@ -45,6 +45,7 @@ namespace templatev1
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
             setIndicator(UIController.getIndicator("Stock Management"));
+            lblTitTotalStock.Text = "No. of spare parts in the system: " + stockController.GetTotalSpareQty();
 
             //Get valuse from the database.
             cmbType.Items.AddRange(stockController.GetCategory().ToArray());
@@ -327,6 +328,7 @@ namespace templatev1
         private void dgvReorder_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             dgvReorder.ClearSelection();
+            selectedReorderID = null;
         }
 
         //Select a spare part and set value to stockInfo.
@@ -458,6 +460,9 @@ namespace templatev1
                 dgvReorder.ClearSelection();
                 reorderIndex = dgvReorder.CurrentCell.RowIndex;
 
+                selectedReorderID =
+                    dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //Get selected spare number.
+
                 //Select the whole row.
                 for (int r = 0; r < dgvReorder.ColumnCount; r++)
                     dgvReorder[r, reorderIndex].Selected = true;
@@ -467,8 +472,6 @@ namespace templatev1
         //Cancel the order.
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-            string selectedReorderID =
-                dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //Get selected spare number.
 
             if (!string.IsNullOrEmpty(selectedReorderID))
             {
@@ -496,7 +499,7 @@ namespace templatev1
                         "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
-                MessageBox.Show("Part number NOT selected.",
+                MessageBox.Show("Order NOT selected.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 

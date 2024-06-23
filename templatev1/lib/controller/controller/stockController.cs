@@ -275,6 +275,16 @@ namespace controller
             return GetOnSaleInfo(ToModifySpareID);
         }
 
+        public int GetTotalSpareQty()
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM spare_part";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows.Count;
+        }
 
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
