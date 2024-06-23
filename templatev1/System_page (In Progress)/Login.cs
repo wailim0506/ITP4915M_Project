@@ -172,8 +172,14 @@ namespace templatev1
 
         private void btnTest6_Click_1(object sender, EventArgs e)
         {
-            tbUsername.Text = "LMS00005";
-            tbPassword.Text = "asdf1234!";
+            tbUsername.Text = "LMS00009";
+            tbPassword.Text = "1234567890";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tbUsername.Text = "LMC00002";
+            tbPassword.Text = "1234567890";
         }
 
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)
@@ -212,5 +218,7 @@ namespace templatev1
             // For example, you can remove the LoadingForm from the Form
             this.Controls.Remove(loadingForm);
         }
+
+        
     }
 }

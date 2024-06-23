@@ -91,6 +91,7 @@ namespace templatev1
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
+                dateHandler = new dateHandler();
                 lblShippingDate.Text = dateHandler.DayDifference(orderID) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
