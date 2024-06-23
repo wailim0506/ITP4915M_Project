@@ -305,7 +305,7 @@ namespace templatev1
 
         private void btnAddSpare_Click(object sender, EventArgs e)
         {
-            Form StockAdd = new StockAdd();
+            Form StockAdd = new StockAdd(accountController, UIController, stockController);
             Hide();
             //Swap the current form to another.
             StockAdd.StartPosition = FormStartPosition.Manual;
@@ -394,6 +394,8 @@ namespace templatev1
                 if (int.Parse(dgvStock.Rows[r].Cells[6].Value.ToString()) <=
                     int.Parse(dgvStock.Rows[r].Cells[5].Value.ToString())) //meets danger level.
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FEB8B8");
+                if (dgvStock.Rows[r].Cells[7].Value.ToString().Equals("Disable")) //The status is disable.
+                    dgvStock.Rows[r].DefaultCellStyle.BackColor = Color.White;
             }
         }
 

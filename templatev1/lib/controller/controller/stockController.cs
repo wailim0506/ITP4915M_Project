@@ -235,9 +235,18 @@ namespace controller
                 };
 
                 sqlStr =
-                    "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel, dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
+                    "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel" +
+                        ", dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
 
                 _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                if (StockInfo.status.Equals("Disable"))  //Also update the status in the product table if status is disable.
+                {
+                    sqlStr =
+                        "UPDATE product SET status = @Status WHERE partNumber = @partNumber";
+
+                    _db.ExecuteNonQueryCommand(sqlStr, parameters);
+                }
 
                 return true;
             }
@@ -286,9 +295,60 @@ namespace controller
             return dt.Rows.Count;
         }
 
+        public string GenPartNumber(string category)
+        {
+            string CategoryID = GetCategoryID(category);       //Convert category to categoryID.
+
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM spare_part WHERE categoryID = \'{CategoryID}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            int No = dt.Rows.Count + 1;       //Get the no. of part.
+
+            return CategoryID + No.ToString("D5");    //Convert in to spare part ID format.
+        }
+
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
             return db.ExecuteDataTable(sqlQuery);
+        }
+
+        public bool CreateNewParts(dynamic newPartsInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@SPNumber", newPartsInfo.SPNumber },
+                    { "@CategoryID", GetCategoryID(newPartsInfo.Category) },
+                    { "@SPname", newPartsInfo.SPname },
+                    { "@SuppID", GetSupplierID(newPartsInfo.Supp) },
+                    { "@RLevel", newPartsInfo.RLevel },
+                    { "@DLevel", newPartsInfo.DLevel },
+                    { "@Qty", newPartsInfo.Qty },
+                    { "@Status", newPartsInfo.Status },
+                    { "@UID", accountController.GetUid() }
+                };
+
+                sqlStr =
+                    "INSERT INTO spare_part VALUES(@SPNumber, @SuppID, @CategoryID, @SPname, @RLevel, @DLevel, @Qty, @Status, @UID)";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "stock controller", $"Error modifying stock info: {e.Message}");
+                return false; //Something went wrong.
+            }
+
+
+
+
+
         }
     }
 }

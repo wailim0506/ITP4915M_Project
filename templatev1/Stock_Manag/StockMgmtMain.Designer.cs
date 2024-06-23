@@ -845,7 +845,7 @@
             // lblLastModified
             // 
             this.lblLastModified.AutoSize = true;
-            this.lblLastModified.Location = new System.Drawing.Point(184, 130);
+            this.lblLastModified.Location = new System.Drawing.Point(140, 130);
             this.lblLastModified.Name = "lblLastModified";
             this.lblLastModified.Size = new System.Drawing.Size(0, 22);
             this.lblLastModified.TabIndex = 188;
@@ -856,9 +856,9 @@
             this.lblTLastModified.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTLastModified.Location = new System.Drawing.Point(21, 129);
             this.lblTLastModified.Name = "lblTLastModified";
-            this.lblTLastModified.Size = new System.Drawing.Size(157, 23);
+            this.lblTLastModified.Size = new System.Drawing.Size(123, 23);
             this.lblTLastModified.TabIndex = 187;
-            this.lblTLastModified.Text = "Last modified by:";
+            this.lblTLastModified.Text = "Last Mod by:";
             // 
             // lblStatus
             // 
@@ -872,7 +872,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(20, 166);
+            this.label2.Location = new System.Drawing.Point(20, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 185;
@@ -928,7 +928,7 @@
             // 
             // lblPName
             // 
-            this.lblPName.Location = new System.Drawing.Point(139, 167);
+            this.lblPName.Location = new System.Drawing.Point(139, 159);
             this.lblPName.Name = "lblPName";
             this.lblPName.Size = new System.Drawing.Size(191, 51);
             this.lblPName.TabIndex = 178;
@@ -1223,7 +1223,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.palOrder);
             this.Controls.Add(this.palStore);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.chkAdvancedSearch);
@@ -1234,6 +1233,7 @@
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Controls.Add(this.palOrder);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "StockMgmt";
