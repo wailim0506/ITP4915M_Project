@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using Microsoft.VisualBasic;
+using System.Drawing;
+using System.Dynamic;
+using System.Drawing.Printing;
 using System.Windows.Forms;
 using controller;
-
 namespace templatev1
 {
     public partial class OnSaleMain : Form
     {
-        private string uName, UID;
+        private string uName, UID, selectedProductID;
+        private int index;
         AccountController accountController;
         UIController UIController;
-
+        OnSaleProductController onSaleProductController;
 
         public OnSaleMain()
         {
@@ -23,6 +29,7 @@ namespace templatev1
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             this.accountController = accountController;
             this.UIController = UIController;
+            onSaleProductController = new OnSaleProductController(accountController);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -42,6 +49,12 @@ namespace templatev1
             UID = accountController.GetUid();
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
+            lblTitTotalNoItem.Text = "No. of Items in the system: " + onSaleProductController.GetTotalProductQty();
+
+            dgvProduct.DataSource = onSaleProductController.GetProduct();
+            DgvIndicator();
+            dgvProduct.ColumnHeadersDefaultCellStyle.Font 
+                = new Font("Times New Roman", 13F, FontStyle.Bold);
 
 
             //For determine which button needs to be shown.
@@ -190,6 +203,141 @@ namespace templatev1
             next.Size = Size;
             next.ShowDialog();
             Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.Size = Size;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form login = new Login();
+            Hide();
+            //Swap the current form to another.
+            login.StartPosition = FormStartPosition.Manual;
+            login.Location = Location;
+            login.Size = Size;
+            login.ShowDialog();
+            Close();
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.Size = Size;
+            home.ShowDialog();
+            Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
+        private void dgvProduct_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (dgvProduct.Rows.Count > 0)
+            {
+                dgvProduct.ClearSelection();
+                index = dgvProduct.CurrentCell.RowIndex;
+
+                //Select the whole row.
+                for (int r = 0; r < dgvProduct.ColumnCount; r++)
+                    dgvProduct[r, index].Selected = true;
+                selectedProductID =
+                    dgvProduct.Rows[index].Cells[0].Value.ToString(); //Get the spare part ID for the selected row.
+
+                //Set value to stockInfo.
+                lblItemID.Text = onSaleProductController.GetProductInfo(selectedProductID).itemID;
+                lblPName.Text = onSaleProductController.GetProductInfo(selectedProductID).name;
+                lblPPrice.Text = onSaleProductController.GetProductInfo(selectedProductID).price;
+                lblPStatus.Text = onSaleProductController.GetProductInfo(selectedProductID).status;
+                lblPLastMod.Text = onSaleProductController.GetProductInfo(selectedProductID).lastModified;
+                lblSuppID.Text = onSaleProductController.GetProductInfo(selectedProductID).supplierID;
+                lblPCat.Text = onSaleProductController.GetProductInfo(selectedProductID).type;
+                lblPSuppName.Text = onSaleProductController.GetProductInfo(selectedProductID).suppName;
+                lblPStock.Text = onSaleProductController.GetProductInfo(selectedProductID).quantity;
+                lblPOnSaleQty.Text = onSaleProductController.GetProductInfo(selectedProductID).onSaleQty;
+                lblLMOnSaleQty.Text = onSaleProductController.GetProductInfo(selectedProductID).LM_onSaleQty;
+                lblPOnShelve.Text = onSaleProductController.GetProductInfo(selectedProductID).onShelvesDate.ToString("yyyy/MM/dd");
+
+            }
+            else //There has not any record in the database.
+                MessageBox.Show("Spare part NOT found.",
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dgvProduct_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            //lblSSuppID.Text = lblSName.Text = lblSPhone.Text = lblSAdd.Text
+                //= lblSCountry.Text = lblSStatus.Text = "";
+            selectedProductID = null;
+            dgvProduct.ClearSelection();
+        }
+
+        private void grpProductInfo_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void picSearch_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(tbSearch.Text)) //Nither using advanced search
+            {
+                //nor normal search show all records.
+                dgvProduct.DataSource = onSaleProductController.GetProduct();
+                DgvIndicator();
+            }
+            else if (tbSearch.Text.StartsWith("LMP")) //Check if is a valid part number.
+            {
+                dgvProduct.DataSource = onSaleProductController.SearchProduct(tbSearch.Text);
+                DgvIndicator();
+            }
+            else //Not a valid part number.
+                MessageBox.Show("Not a valid ItemID",
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void dgvProduct_Sorted(object sender, EventArgs e)
+        {
+
+        }
+
+        //Color the data grid view.
+        private void DgvIndicator()
+        {
+            dgvProduct.ClearSelection();
+            //If status is enable color it to green otherwise red.
+            for (int r = 0; r < dgvProduct.RowCount; r++)
+            {
+                if (dgvProduct.Rows[r].Cells[5].Value.ToString().Equals("Enable")) //Enabel.
+                    dgvProduct.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#C6FEB8");
+                if (dgvProduct.Rows[r].Cells[5].Value.ToString().Equals("Disable")) //Disable.
+                    dgvProduct.Rows[r].DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#FEB8B8");
+            }
         }
     }
 }

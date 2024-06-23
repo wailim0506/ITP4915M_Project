@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -51,15 +53,11 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
-            this.lblDBPrecentage = new System.Windows.Forms.Label();
-            this.lblDBPostDate = new System.Windows.Forms.Label();
-            this.lstDataBase = new System.Windows.Forms.ListBox();
-            this.lblDBEndDate = new System.Windows.Forms.Label();
             this.lblTitCurrentOnSaleProduct = new System.Windows.Forms.Label();
-            this.lblDBRange = new System.Windows.Forms.Label();
-            this.lblDBDiscountID = new System.Windows.Forms.Label();
             this.lblClickToSelect = new System.Windows.Forms.Label();
             this.grpSetModifyDis = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblPostDate = new System.Windows.Forms.Label();
             this.lblTitPostDate = new System.Windows.Forms.Label();
             this.btnSetModify = new System.Windows.Forms.Button();
@@ -72,14 +70,14 @@
             this.lblTitDiscountID = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvStock = new System.Windows.Forms.DataGridView();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palDate.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpSetModifyDis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -341,45 +339,6 @@
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "On-Sale Product Management -> Set / Manage discount";
             // 
-            // lblDBPrecentage
-            // 
-            this.lblDBPrecentage.AutoSize = true;
-            this.lblDBPrecentage.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBPrecentage.Location = new System.Drawing.Point(564, 160);
-            this.lblDBPrecentage.Name = "lblDBPrecentage";
-            this.lblDBPrecentage.Size = new System.Drawing.Size(92, 19);
-            this.lblDBPrecentage.TabIndex = 65;
-            this.lblDBPrecentage.Text = "Percentage";
-            // 
-            // lblDBPostDate
-            // 
-            this.lblDBPostDate.AutoSize = true;
-            this.lblDBPostDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBPostDate.Location = new System.Drawing.Point(744, 160);
-            this.lblDBPostDate.Name = "lblDBPostDate";
-            this.lblDBPostDate.Size = new System.Drawing.Size(88, 19);
-            this.lblDBPostDate.TabIndex = 64;
-            this.lblDBPostDate.Text = "Post Datae";
-            // 
-            // lstDataBase
-            // 
-            this.lstDataBase.FormattingEnabled = true;
-            this.lstDataBase.ItemHeight = 15;
-            this.lstDataBase.Location = new System.Drawing.Point(236, 183);
-            this.lstDataBase.Name = "lstDataBase";
-            this.lstDataBase.Size = new System.Drawing.Size(898, 259);
-            this.lstDataBase.TabIndex = 57;
-            // 
-            // lblDBEndDate
-            // 
-            this.lblDBEndDate.AutoSize = true;
-            this.lblDBEndDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBEndDate.Location = new System.Drawing.Point(916, 160);
-            this.lblDBEndDate.Name = "lblDBEndDate";
-            this.lblDBEndDate.Size = new System.Drawing.Size(76, 19);
-            this.lblDBEndDate.TabIndex = 61;
-            this.lblDBEndDate.Text = "End Date";
-            // 
             // lblTitCurrentOnSaleProduct
             // 
             this.lblTitCurrentOnSaleProduct.AutoSize = true;
@@ -389,26 +348,6 @@
             this.lblTitCurrentOnSaleProduct.Size = new System.Drawing.Size(240, 26);
             this.lblTitCurrentOnSaleProduct.TabIndex = 56;
             this.lblTitCurrentOnSaleProduct.Text = "Current on-sale product:";
-            // 
-            // lblDBRange
-            // 
-            this.lblDBRange.AutoSize = true;
-            this.lblDBRange.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBRange.Location = new System.Drawing.Point(416, 160);
-            this.lblDBRange.Name = "lblDBRange";
-            this.lblDBRange.Size = new System.Drawing.Size(55, 19);
-            this.lblDBRange.TabIndex = 60;
-            this.lblDBRange.Text = "Range";
-            // 
-            // lblDBDiscountID
-            // 
-            this.lblDBDiscountID.AutoSize = true;
-            this.lblDBDiscountID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBDiscountID.Location = new System.Drawing.Point(232, 160);
-            this.lblDBDiscountID.Name = "lblDBDiscountID";
-            this.lblDBDiscountID.Size = new System.Drawing.Size(93, 19);
-            this.lblDBDiscountID.TabIndex = 59;
-            this.lblDBDiscountID.Text = "DiscountID";
             // 
             // lblClickToSelect
             // 
@@ -435,12 +374,31 @@
             this.grpSetModifyDis.Controls.Add(this.lblDiscountID);
             this.grpSetModifyDis.Controls.Add(this.lblTitDiscountID);
             this.grpSetModifyDis.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpSetModifyDis.Location = new System.Drawing.Point(236, 469);
+            this.grpSetModifyDis.Location = new System.Drawing.Point(227, 641);
             this.grpSetModifyDis.Name = "grpSetModifyDis";
-            this.grpSetModifyDis.Size = new System.Drawing.Size(681, 301);
+            this.grpSetModifyDis.Size = new System.Drawing.Size(681, 226);
             this.grpSetModifyDis.TabIndex = 66;
             this.grpSetModifyDis.TabStop = false;
             this.grpSetModifyDis.Text = "Set / Modify discount";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.textBox1.Location = new System.Drawing.Point(482, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(107, 27);
+            this.textBox1.TabIndex = 73;
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.label1.Location = new System.Drawing.Point(135, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 26);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "XXXXXXX";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblPostDate
             // 
@@ -467,7 +425,7 @@
             // 
             this.btnSetModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnSetModify.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetModify.Location = new System.Drawing.Point(482, 219);
+            this.btnSetModify.Location = new System.Drawing.Point(471, 120);
             this.btnSetModify.Name = "btnSetModify";
             this.btnSetModify.Size = new System.Drawing.Size(178, 64);
             this.btnSetModify.TabIndex = 69;
@@ -563,41 +521,47 @@
             this.btnFinish.Text = "Finish";
             this.btnFinish.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // dgvStock
             // 
-            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.label1.Location = new System.Drawing.Point(135, 101);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 26);
-            this.label1.TabIndex = 72;
-            this.label1.Text = "XXXXXXX";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.textBox1.Location = new System.Drawing.Point(482, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(107, 27);
-            this.textBox1.TabIndex = 73;
+            this.dgvStock.AllowUserToAddRows = false;
+            this.dgvStock.AllowUserToDeleteRows = false;
+            this.dgvStock.AllowUserToResizeColumns = false;
+            this.dgvStock.AllowUserToResizeRows = false;
+            this.dgvStock.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvStock.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStock.EnableHeadersVisualStyles = false;
+            this.dgvStock.GridColor = System.Drawing.SystemColors.Control;
+            this.dgvStock.Location = new System.Drawing.Point(210, 150);
+            this.dgvStock.Name = "dgvStock";
+            this.dgvStock.ReadOnly = true;
+            this.dgvStock.RowHeadersVisible = false;
+            this.dgvStock.RowHeadersWidth = 51;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvStock.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvStock.RowTemplate.Height = 23;
+            this.dgvStock.Size = new System.Drawing.Size(936, 279);
+            this.dgvStock.TabIndex = 187;
             // 
             // OnSaleDis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.dgvStock);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.grpSetModifyDis);
-            this.Controls.Add(this.lblDBPrecentage);
-            this.Controls.Add(this.lblDBPostDate);
-            this.Controls.Add(this.lstDataBase);
-            this.Controls.Add(this.lblDBEndDate);
             this.Controls.Add(this.lblTitCurrentOnSaleProduct);
-            this.Controls.Add(this.lblDBRange);
             this.Controls.Add(this.lblClickToSelect);
-            this.Controls.Add(this.lblDBDiscountID);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
@@ -615,6 +579,7 @@
             this.palLoc.PerformLayout();
             this.grpSetModifyDis.ResumeLayout(false);
             this.grpSetModifyDis.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,13 +604,7 @@
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.PictureBox picBWMode;
-        private System.Windows.Forms.Label lblDBPrecentage;
-        private System.Windows.Forms.Label lblDBPostDate;
-        private System.Windows.Forms.ListBox lstDataBase;
-        private System.Windows.Forms.Label lblDBEndDate;
         private System.Windows.Forms.Label lblTitCurrentOnSaleProduct;
-        private System.Windows.Forms.Label lblDBRange;
-        private System.Windows.Forms.Label lblDBDiscountID;
         private System.Windows.Forms.Label lblClickToSelect;
         private System.Windows.Forms.GroupBox grpSetModifyDis;
         private System.Windows.Forms.Button btnCancel;
@@ -667,6 +626,7 @@
         private System.Windows.Forms.Panel palSelect3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dgvStock;
     }
 }
 

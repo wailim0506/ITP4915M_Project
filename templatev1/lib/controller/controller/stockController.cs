@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Data;
-using System.Windows.Forms;
 using Microsoft.Extensions.Logging;
 using controller.Utilities;
 using System.Linq;
@@ -244,11 +243,12 @@ namespace controller
 
                 sqlStr =
                     "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel" +
-                        ", dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
+                    ", dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
 
                 _db.ExecuteNonQueryCommand(sqlStr, parameters);
 
-                if (StockInfo.status.Equals("Disable"))  //Also update the status in the product table if status is disable.
+                if (StockInfo.status
+                    .Equals("Disable")) //Also update the status in the product table if status is disable.
                 {
                     sqlStr =
                         "UPDATE product SET status = @Status WHERE partNumber = @partNumber";
@@ -303,9 +303,20 @@ namespace controller
             return dt.Rows.Count;
         }
 
+        public int GetTotalSupplierQty()
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM supplier";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows.Count;
+        }
+
         public string GenPartNumber(string category)
         {
-            string CategoryID = GetCategoryID(category);       //Convert category to categoryID.
+            string CategoryID = GetCategoryID(category); //Convert category to categoryID.
 
             dt = new DataTable();
 
@@ -313,9 +324,9 @@ namespace controller
 
             dt = _db.ExecuteDataTable(sqlStr);
 
-            int No = dt.Rows.Count + 1;       //Get the no. of part.
+            int No = dt.Rows.Count + 1; //Get the no. of part.
 
-            return CategoryID + No.ToString("D5");    //Convert in to spare part ID format.
+            return CategoryID + No.ToString("D5"); //Convert in to spare part ID format.
         }
 
 

@@ -10,7 +10,7 @@ namespace controller
 {
     public class proFileController : abstractController
     {
-        private Database _db;
+        private new Database _db;
 
         private string sqlStr;
         private string accountType, UID;
@@ -355,7 +355,7 @@ namespace controller
             try
             {
                 string path = Directory.GetCurrentDirectory() + "\\Upload\\";
-                
+
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -414,7 +414,9 @@ namespace controller
                 // Set IMGUploaded to false
                 return false;
             }
-            Log.LogMessage(LogLevel.Debug, "profile - Controller - Delete User Avatar", $"Delete User Avatar: UserID = {userID}");
+
+            Log.LogMessage(LogLevel.Debug, "profile - Controller - Delete User Avatar",
+                $"Delete User Avatar: UserID = {userID}");
             return true;
         }
 

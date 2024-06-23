@@ -25,7 +25,6 @@ namespace templatev1
                 // Initialize log and date handler
                 log = new Log();
                 handler = new dateHandler();
-
                 // Start a new thread to run the application
                 StartThread(() => RunApplication(() => new Login()));
             }

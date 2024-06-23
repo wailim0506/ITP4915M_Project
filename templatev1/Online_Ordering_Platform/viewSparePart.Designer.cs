@@ -595,7 +595,7 @@ namespace templatev1
             // btnMinusQty
             // 
             this.btnMinusQty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinusQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinusQty.Location = new System.Drawing.Point(783, 262);
             this.btnMinusQty.Name = "btnMinusQty";
             this.btnMinusQty.Size = new System.Drawing.Size(34, 39);
@@ -617,7 +617,7 @@ namespace templatev1
             // btnAddQty
             // 
             this.btnAddQty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddQty.Location = new System.Drawing.Point(932, 262);
             this.btnAddQty.Name = "btnAddQty";
             this.btnAddQty.Size = new System.Drawing.Size(34, 39);

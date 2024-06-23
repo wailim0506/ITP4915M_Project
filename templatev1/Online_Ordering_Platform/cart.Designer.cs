@@ -533,7 +533,7 @@ namespace templatev1
             // 
             this.chkAll.AutoSize = true;
             this.chkAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.chkAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkAll.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkAll.Location = new System.Drawing.Point(231, 206);
             this.chkAll.Name = "chkAll";
             this.chkAll.Size = new System.Drawing.Size(15, 14);
@@ -557,7 +557,7 @@ namespace templatev1
             // tbQauntity
             // 
             this.tbQauntity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbQauntity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQauntity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbQauntity.Location = new System.Drawing.Point(420, 613);
             this.tbQauntity.MaxLength = 4;
             this.tbQauntity.Name = "tbQauntity";
@@ -590,7 +590,7 @@ namespace templatev1
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dtpShippingDate);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(218, 681);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(899, 248);
@@ -612,7 +612,7 @@ namespace templatev1
             // 
             // tbCity
             // 
-            this.tbCity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCity.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCity.Location = new System.Drawing.Point(719, 156);
             this.tbCity.Name = "tbCity";
             this.tbCity.ReadOnly = true;
@@ -630,7 +630,7 @@ namespace templatev1
             // 
             // tbProvince
             // 
-            this.tbProvince.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbProvince.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbProvince.Location = new System.Drawing.Point(719, 85);
             this.tbProvince.Name = "tbProvince";
             this.tbProvince.ReadOnly = true;
@@ -648,7 +648,7 @@ namespace templatev1
             // 
             // tbAddress
             // 
-            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbAddress.Location = new System.Drawing.Point(270, 66);
             this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
@@ -683,7 +683,7 @@ namespace templatev1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(1036, 91);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(239, 24);

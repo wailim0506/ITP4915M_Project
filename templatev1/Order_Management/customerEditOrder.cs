@@ -325,37 +325,37 @@ namespace templatev1
                 Label lblRowNum = new Label
                 {
                     Name = $"lblRowNum{i}", Text = $"{i.ToString()}.",
-                    Location = new Point(3, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(3, rowPosition), Font = new Font("Times New Roman", 12),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(30, 20)
                 };
                 Label lblItemNum = new Label
                 {
                     Name = $"lblItemNum{i}", Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
-                    Location = new Point(35, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(35, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(83, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i - 1][0]}",
-                    Location = new Point(124, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(124, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(97, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label
                 {
                     Name = $"lblPartName{i}", Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
-                    Location = new Point(227, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(227, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblQuantity = new Label
                 {
                     Name = $"lblQuantity{i}", Text = $"{dt.Rows[i - 1][2]}",
-                    Location = new Point(533, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(533, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(106, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblUnitPrice = new Label
                 {
                     Name = $"lblUnitPrice{i}", Text = $"¥{dt.Rows[i - 1][3]}",
-                    Location = new Point(645, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(645, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(144, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblRowTotalPrice = new Label
@@ -363,7 +363,7 @@ namespace templatev1
                     Name = $"lblRowTotalPrice{i}",
                     Text =
                         $"¥{(int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString())).ToString()}",
-                    Location = new Point(795, rowPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(795, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(114, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 PictureBox picPencil = new PictureBox

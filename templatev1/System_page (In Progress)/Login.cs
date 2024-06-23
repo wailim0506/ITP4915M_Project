@@ -218,7 +218,5 @@ namespace templatev1
             // For example, you can remove the LoadingForm from the Form
             this.Controls.Remove(loadingForm);
         }
-
-        
     }
 }

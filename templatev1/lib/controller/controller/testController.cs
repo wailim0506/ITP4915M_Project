@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Security.Cryptography;
-using System.Windows.Forms; //must include in every controller file
+using System.Windows.Forms;
+using controller.Utilities; //must include in every controller file
 
 //must include in every controller file  
 //need to download 'MySqlConnector' in NuGet Package Manager first if can't run
@@ -14,8 +15,10 @@ namespace controller
 {
     public /*<--add here*/ class testController : abstractController
     {
+        private Database _db;
         public testController() //constructor, useless
         {
+            _db = new Database();
         }
 
         public bool UpdatePassword(Dictionary<string, string> usersToUpdate)

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Data;
 using controller.Utilities;
 
@@ -18,9 +14,10 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable getProductList(string kwType,string kw, string category, string status, string sortBy)
+        public DataTable getProductList(string kwType, string kw, string category, string status, string sortBy)
         {
-            string sqlCmd = $"SELECT x.*,y.quantity,y.name FROM product x, spare_part y WHERE x.partNumber = y.partNumber";
+            string sqlCmd =
+                $"SELECT x.*,y.quantity,y.name FROM product x, spare_part y WHERE x.partNumber = y.partNumber";
             var sortByOptions = new Dictionary<string, string>
             {
                 { "ItemNo", "x.itemID" },
@@ -34,7 +31,7 @@ namespace controller
                 { "StockQty", "y.quantity" },
                 { "StockQtyDESC", "y.quantity DESC" },
                 { "Price", "x.price" },
-                { "PriceDESC", "x.price DESC"}
+                { "PriceDESC", "x.price DESC" }
             };
 
             if (category != "All")
@@ -67,7 +64,6 @@ namespace controller
             if (!sortByOptions.ContainsKey(sortBy)) return _db.ExecuteDataTable(sqlCmd, null);
             sqlCmd += $" ORDER BY {sortByOptions[sortBy]}";
             return _db.ExecuteDataTable(sqlCmd, null);
-
         }
     }
 }

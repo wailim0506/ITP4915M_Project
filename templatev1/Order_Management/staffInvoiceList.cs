@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
 
@@ -112,7 +107,7 @@ namespace templatev1
                 {
                     Text = $"{(i + 1)}.",
                     Location = new Point(3, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(50, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -121,7 +116,7 @@ namespace templatev1
                 {
                     Text = $"{dt.Rows[i][1]}",
                     Location = new Point(54, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(141, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -131,7 +126,7 @@ namespace templatev1
                     Name = $"lblOrderID{i}",
                     Text = $"{dt.Rows[i][0]}",
                     Location = new Point(201, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(163, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -140,7 +135,7 @@ namespace templatev1
                 {
                     Text = $"{orderDate}",
                     Location = new Point(370, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(153, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -149,7 +144,7 @@ namespace templatev1
                 {
                     Text = $"{deliveryDate}",
                     Location = new Point(529, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(152, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -158,7 +153,7 @@ namespace templatev1
                 {
                     Text = Invoicestatus,
                     Location = new Point(687, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(151, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -168,7 +163,7 @@ namespace templatev1
                     Name = $"btnView{i}",
                     Text = "View",
                     Location = new Point(845, yPosition - 5),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true,
                     Cursor = Cursors.Hand

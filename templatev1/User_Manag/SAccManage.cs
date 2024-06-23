@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using controller;
-using System.Drawing;
 
 namespace templatev1
 {
@@ -409,7 +408,7 @@ namespace templatev1
         private void ClearLabel()
         {
             lblDUname.Text = lblUGender.Text = lblUStatus.Text = lblUJob.Text = lblUDept.Text = lblULMAcc.Text
-                    = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text = lblUAdd.Text = "";
+                = lblUEmail.Text = lblUPhone.Text = lblUCorpName.Text = lblUCorpAdd.Text = lblUAdd.Text = "";
         }
 
         private void DgvIndicator()

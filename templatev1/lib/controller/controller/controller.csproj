@@ -194,7 +194,7 @@
     <Compile Include="dicController.cs" />
     <Compile Include="didController.cs" />
     <Compile Include="didListController.cs" />
-    <Compile Include="productListController.cs" />
+    <Compile Include="OnSaleProductController.cs" />
     <Compile Include="staffEditOrderController.cs" />
     <Compile Include="staffInvoiceListController.cs" />
     <Compile Include="staffOrderListController.cs" />
@@ -209,7 +209,6 @@
     <Compile Include="spareListController.cs" />
     <Compile Include="stockController.cs" />
     <Compile Include="staffViewOrderController.cs" />
-    <Compile Include="supplierController.cs" />
     <Compile Include="UIController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testController.cs" />
@@ -228,6 +227,13 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entities\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
