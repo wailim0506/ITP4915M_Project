@@ -30,8 +30,8 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
@@ -406,14 +406,14 @@ namespace templatev1
             this.dgvSupplier.AllowUserToResizeRows = false;
             this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSupplier.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.EnableHeadersVisualStyles = false;
             this.dgvSupplier.GridColor = System.Drawing.SystemColors.Control;
@@ -422,8 +422,8 @@ namespace templatev1
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
             this.dgvSupplier.RowHeadersWidth = 30;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 13.5F);
-            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.5F);
+            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSupplier.RowTemplate.Height = 23;
             this.dgvSupplier.Size = new System.Drawing.Size(928, 418);
             this.dgvSupplier.TabIndex = 189;
@@ -468,9 +468,8 @@ namespace templatev1
             this.lblTitTotalNoSupplier.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitTotalNoSupplier.Location = new System.Drawing.Point(220, 154);
             this.lblTitTotalNoSupplier.Name = "lblTitTotalNoSupplier";
-            this.lblTitTotalNoSupplier.Size = new System.Drawing.Size(242, 22);
+            this.lblTitTotalNoSupplier.Size = new System.Drawing.Size(0, 22);
             this.lblTitTotalNoSupplier.TabIndex = 184;
-            this.lblTitTotalNoSupplier.Text = "No. of supplier in the system:";
             // 
             // grpContact
             // 
