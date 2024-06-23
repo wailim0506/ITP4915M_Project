@@ -437,9 +437,9 @@
             this.lblTitStatus.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.lblTitStatus.Location = new System.Drawing.Point(42, 1);
             this.lblTitStatus.Name = "lblTitStatus";
-            this.lblTitStatus.Size = new System.Drawing.Size(63, 22);
+            this.lblTitStatus.Size = new System.Drawing.Size(109, 22);
             this.lblTitStatus.TabIndex = 71;
-            this.lblTitStatus.Text = "Status:";
+            this.lblTitStatus.Text = "Stock status:";
             // 
             // lblTitQty
             // 

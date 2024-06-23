@@ -301,7 +301,7 @@ namespace templatev1
 
         private void btnDIC_Click(object sender, EventArgs e)
         {
-            if (lblStatus.Text == "Cancelled") 
+            if (lblStatus.Text == "Cancelled")
             {
                 MessageBox.Show(
                     lblStatus.Text == "Cancelled" ? "Order already cancelled." : "Order already finish.",
@@ -316,7 +316,6 @@ namespace templatev1
                 o.ShowDialog();
                 Close();
             }
-            
         }
 
         private void btnDID_Click(object sender, EventArgs e)

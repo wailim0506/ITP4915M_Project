@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
@@ -251,7 +253,8 @@ namespace controller
             return false;
         }
 
-        public bool checkIsDeliverman() {
+        public bool checkIsDeliverman()
+        {
             if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
                 "Deliverman")
             {

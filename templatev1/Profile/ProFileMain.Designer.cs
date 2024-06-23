@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             templatev1.Properties.Settings settings1 = new templatev1.Properties.Settings();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(proFileMain));
             this.palNav = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.palSelect = new System.Windows.Forms.Panel();
@@ -138,6 +139,7 @@
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 0;
+            this.palNav.UseWaitCursor = true;
             // 
             // picBWMode
             // 
@@ -148,6 +150,7 @@
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 21;
             this.picBWMode.TabStop = false;
+            this.picBWMode.UseWaitCursor = true;
             this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // palSelect
@@ -157,6 +160,7 @@
             this.palSelect.Name = "palSelect";
             this.palSelect.Size = new System.Drawing.Size(10, 34);
             this.palSelect.TabIndex = 3;
+            this.palSelect.UseWaitCursor = true;
             // 
             // btnLogOut
             // 
@@ -186,6 +190,7 @@
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.UseWaitCursor = true;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
@@ -198,6 +203,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.UseWaitCursor = true;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
@@ -210,6 +216,7 @@
             this.lblCorpName.Size = new System.Drawing.Size(163, 49);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
+            this.lblCorpName.UseWaitCursor = true;
             this.lblCorpName.Click += new System.EventHandler(this.lblCorpName_Click);
             // 
             // btnProFile
@@ -227,6 +234,7 @@
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.UseWaitCursor = true;
             this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // btnFunction5
@@ -244,6 +252,7 @@
             this.btnFunction5.TabIndex = 87;
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.UseWaitCursor = true;
             this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
@@ -261,6 +270,7 @@
             this.btnFunction4.TabIndex = 86;
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.UseWaitCursor = true;
             this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction2
@@ -278,6 +288,7 @@
             this.btnFunction2.TabIndex = 84;
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.UseWaitCursor = true;
             this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
@@ -295,6 +306,7 @@
             this.btnFunction1.TabIndex = 83;
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.UseWaitCursor = true;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // btnFunction3
@@ -312,6 +324,7 @@
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.UseWaitCursor = true;
             this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // palTime
@@ -327,6 +340,7 @@
             this.palTime.Name = "palTime";
             this.palTime.Size = new System.Drawing.Size(972, 40);
             this.palTime.TabIndex = 1;
+            this.palTime.UseWaitCursor = true;
             // 
             // lblUid
             // 
@@ -338,6 +352,7 @@
             this.lblUid.Size = new System.Drawing.Size(43, 22);
             this.lblUid.TabIndex = 1;
             this.lblUid.Text = "UID";
+            this.lblUid.UseWaitCursor = true;
             // 
             // lblTimeDate
             // 
@@ -349,6 +364,7 @@
             this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
             this.lblTimeDate.TabIndex = 0;
             this.lblTimeDate.Text = "TIME";
+            this.lblTimeDate.UseWaitCursor = true;
             // 
             // timer1
             // 
@@ -364,6 +380,7 @@
             this.palLoc.Name = "palLoc";
             this.palLoc.Size = new System.Drawing.Size(972, 38);
             this.palLoc.TabIndex = 2;
+            this.palLoc.UseWaitCursor = true;
             // 
             // lblLoc
             // 
@@ -374,6 +391,7 @@
             this.lblLoc.Size = new System.Drawing.Size(70, 22);
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "ProFile";
+            this.lblLoc.UseWaitCursor = true;
             // 
             // btnUploadIMG
             // 
@@ -387,6 +405,7 @@
             this.btnUploadIMG.TabIndex = 9;
             this.btnUploadIMG.Text = "Upload Image";
             this.btnUploadIMG.UseVisualStyleBackColor = false;
+            this.btnUploadIMG.UseWaitCursor = true;
             this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
             // 
             // lblFirstName
@@ -398,6 +417,7 @@
             this.lblFirstName.Size = new System.Drawing.Size(86, 19);
             this.lblFirstName.TabIndex = 20;
             this.lblFirstName.Text = "FirstName:";
+            this.lblFirstName.UseWaitCursor = true;
             // 
             // lblLastName
             // 
@@ -408,6 +428,7 @@
             this.lblLastName.Size = new System.Drawing.Size(83, 19);
             this.lblLastName.TabIndex = 21;
             this.lblLastName.Text = "LastName:";
+            this.lblLastName.UseWaitCursor = true;
             // 
             // lblTitGender
             // 
@@ -418,6 +439,7 @@
             this.lblTitGender.Size = new System.Drawing.Size(64, 19);
             this.lblTitGender.TabIndex = 22;
             this.lblTitGender.Text = "Gender:";
+            this.lblTitGender.UseWaitCursor = true;
             // 
             // lblTitPhone
             // 
@@ -428,6 +450,7 @@
             this.lblTitPhone.Size = new System.Drawing.Size(57, 19);
             this.lblTitPhone.TabIndex = 23;
             this.lblTitPhone.Text = "Phone:";
+            this.lblTitPhone.UseWaitCursor = true;
             // 
             // lblTitEmail
             // 
@@ -438,6 +461,7 @@
             this.lblTitEmail.Size = new System.Drawing.Size(112, 19);
             this.lblTitEmail.TabIndex = 24;
             this.lblTitEmail.Text = "Email Address:";
+            this.lblTitEmail.UseWaitCursor = true;
             // 
             // lblTitAccType
             // 
@@ -448,6 +472,7 @@
             this.lblTitAccType.Size = new System.Drawing.Size(107, 19);
             this.lblTitAccType.TabIndex = 25;
             this.lblTitAccType.Text = "Account Type:";
+            this.lblTitAccType.UseWaitCursor = true;
             // 
             // grpContact
             // 
@@ -465,6 +490,7 @@
             this.grpContact.TabIndex = 7;
             this.grpContact.TabStop = false;
             this.grpContact.Text = "Contact";
+            this.grpContact.UseWaitCursor = true;
             // 
             // lblPhoneMsg
             // 
@@ -474,6 +500,7 @@
             this.lblPhoneMsg.Name = "lblPhoneMsg";
             this.lblPhoneMsg.Size = new System.Drawing.Size(434, 19);
             this.lblPhoneMsg.TabIndex = 108;
+            this.lblPhoneMsg.UseWaitCursor = true;
             // 
             // tbPhone
             // 
@@ -486,6 +513,7 @@
             this.tbPhone.Name = "tbPhone";
             this.tbPhone.Size = new System.Drawing.Size(177, 27);
             this.tbPhone.TabIndex = 1;
+            this.tbPhone.UseWaitCursor = true;
             this.tbPhone.Enter += new System.EventHandler(this.tbPhone_Enter);
             this.tbPhone.Leave += new System.EventHandler(this.tbPhone_Leave);
             // 
@@ -499,6 +527,7 @@
             this.lblEmail.Size = new System.Drawing.Size(306, 26);
             this.lblEmail.TabIndex = 33;
             this.lblEmail.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEmail.UseWaitCursor = true;
             // 
             // lblTitCorpAdd
             // 
@@ -509,6 +538,7 @@
             this.lblTitCorpAdd.Size = new System.Drawing.Size(136, 19);
             this.lblTitCorpAdd.TabIndex = 36;
             this.lblTitCorpAdd.Text = "Company Address:";
+            this.lblTitCorpAdd.UseWaitCursor = true;
             // 
             // lblWareAddress
             // 
@@ -520,6 +550,7 @@
             this.lblWareAddress.Size = new System.Drawing.Size(450, 26);
             this.lblWareAddress.TabIndex = 35;
             this.lblWareAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblWareAddress.UseWaitCursor = true;
             // 
             // btnManagAddress
             // 
@@ -532,6 +563,7 @@
             this.btnManagAddress.TabIndex = 3;
             this.btnManagAddress.Text = "Manage Address";
             this.btnManagAddress.UseVisualStyleBackColor = false;
+            this.btnManagAddress.UseWaitCursor = true;
             this.btnManagAddress.Click += new System.EventHandler(this.btnManagAddress_Click);
             // 
             // btnModify
@@ -545,6 +577,7 @@
             this.btnModify.TabIndex = 11;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.UseWaitCursor = true;
             this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnCancel
@@ -558,6 +591,7 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.UseWaitCursor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lblAccType
@@ -570,6 +604,7 @@
             this.lblAccType.Size = new System.Drawing.Size(153, 26);
             this.lblAccType.TabIndex = 29;
             this.lblAccType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAccType.UseWaitCursor = true;
             // 
             // cmbGender
             // 
@@ -579,13 +614,12 @@
             this.cmbGender.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbGender.ForeColor = System.Drawing.Color.Black;
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
+            this.cmbGender.Items.AddRange(new object[] { "Male", "Female" });
             this.cmbGender.Location = new System.Drawing.Point(333, 310);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(121, 27);
             this.cmbGender.TabIndex = 3;
+            this.cmbGender.UseWaitCursor = true;
             // 
             // tbFirstName
             // 
@@ -598,6 +632,7 @@
             this.tbFirstName.Name = "tbFirstName";
             this.tbFirstName.Size = new System.Drawing.Size(177, 27);
             this.tbFirstName.TabIndex = 1;
+            this.tbFirstName.UseWaitCursor = true;
             this.tbFirstName.Enter += new System.EventHandler(this.tbFirstName_Enter);
             this.tbFirstName.Leave += new System.EventHandler(this.tbFirstName_Leave);
             // 
@@ -612,6 +647,7 @@
             this.tbLastName.Name = "tbLastName";
             this.tbLastName.Size = new System.Drawing.Size(177, 27);
             this.tbLastName.TabIndex = 2;
+            this.tbLastName.UseWaitCursor = true;
             this.tbLastName.Enter += new System.EventHandler(this.tbLastName_Enter);
             this.tbLastName.Leave += new System.EventHandler(this.tbLastName_Leave);
             // 
@@ -624,6 +660,7 @@
             this.lblTitDateOfBirth.Size = new System.Drawing.Size(104, 19);
             this.lblTitDateOfBirth.TabIndex = 33;
             this.lblTitDateOfBirth.Text = "Date of Birth:";
+            this.lblTitDateOfBirth.UseWaitCursor = true;
             // 
             // chkNGDateOfBirth
             // 
@@ -635,6 +672,7 @@
             this.chkNGDateOfBirth.TabIndex = 4;
             this.chkNGDateOfBirth.Text = "Not provided";
             this.chkNGDateOfBirth.UseVisualStyleBackColor = true;
+            this.chkNGDateOfBirth.UseWaitCursor = true;
             // 
             // lblTitCreateDate
             // 
@@ -645,6 +683,7 @@
             this.lblTitCreateDate.Size = new System.Drawing.Size(95, 19);
             this.lblTitCreateDate.TabIndex = 36;
             this.lblTitCreateDate.Text = "Create Date:";
+            this.lblTitCreateDate.UseWaitCursor = true;
             // 
             // lblTitUID
             // 
@@ -655,6 +694,7 @@
             this.lblTitUID.Size = new System.Drawing.Size(43, 19);
             this.lblTitUID.TabIndex = 37;
             this.lblTitUID.Text = "UID:";
+            this.lblTitUID.UseWaitCursor = true;
             // 
             // lblCreateDate
             // 
@@ -666,6 +706,7 @@
             this.lblCreateDate.Size = new System.Drawing.Size(153, 26);
             this.lblCreateDate.TabIndex = 38;
             this.lblCreateDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCreateDate.UseWaitCursor = true;
             // 
             // lblUserUID
             // 
@@ -677,6 +718,7 @@
             this.lblUserUID.Size = new System.Drawing.Size(153, 26);
             this.lblUserUID.TabIndex = 39;
             this.lblUserUID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblUserUID.UseWaitCursor = true;
             // 
             // btnDelete
             // 
@@ -689,6 +731,7 @@
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete Account";
             this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.UseWaitCursor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // lblTitPayment
@@ -700,6 +743,7 @@
             this.lblTitPayment.Size = new System.Drawing.Size(185, 19);
             this.lblTitPayment.TabIndex = 41;
             this.lblTitPayment.Text = "Default Payment Method:";
+            this.lblTitPayment.UseWaitCursor = true;
             // 
             // cmbPayment
             // 
@@ -709,15 +753,12 @@
             this.cmbPayment.Font = new System.Drawing.Font("Times New Roman", 12.75F);
             this.cmbPayment.ForeColor = System.Drawing.Color.Black;
             this.cmbPayment.FormattingEnabled = true;
-            this.cmbPayment.Items.AddRange(new object[] {
-            "AmericanExpress",
-            "MasterCard",
-            "UnionPay",
-            "Visa"});
+            this.cmbPayment.Items.AddRange(new object[] { "AmericanExpress", "MasterCard", "UnionPay", "Visa" });
             this.cmbPayment.Location = new System.Drawing.Point(202, 35);
             this.cmbPayment.Name = "cmbPayment";
             this.cmbPayment.Size = new System.Drawing.Size(169, 27);
             this.cmbPayment.TabIndex = 6;
+            this.cmbPayment.UseWaitCursor = true;
             // 
             // btnRemoveIMG
             // 
@@ -730,6 +771,7 @@
             this.btnRemoveIMG.TabIndex = 10;
             this.btnRemoveIMG.Text = "Remove Image";
             this.btnRemoveIMG.UseVisualStyleBackColor = false;
+            this.btnRemoveIMG.UseWaitCursor = true;
             this.btnRemoveIMG.Click += new System.EventHandler(this.btnRemoveIMG_Click);
             // 
             // grpPass
@@ -751,6 +793,7 @@
             this.grpPass.TabIndex = 8;
             this.grpPass.TabStop = false;
             this.grpPass.Text = "Change Password:";
+            this.grpPass.UseWaitCursor = true;
             // 
             // btnChangePwd
             // 
@@ -763,6 +806,7 @@
             this.btnChangePwd.TabIndex = 4;
             this.btnChangePwd.Text = "Change password";
             this.btnChangePwd.UseVisualStyleBackColor = false;
+            this.btnChangePwd.UseWaitCursor = true;
             this.btnChangePwd.Click += new System.EventHandler(this.btnChangePwd_Click);
             // 
             // lblPwdMsg
@@ -773,6 +817,7 @@
             this.lblPwdMsg.Name = "lblPwdMsg";
             this.lblPwdMsg.Size = new System.Drawing.Size(350, 19);
             this.lblPwdMsg.TabIndex = 108;
+            this.lblPwdMsg.UseWaitCursor = true;
             // 
             // tbOldPass
             // 
@@ -785,6 +830,7 @@
             this.tbOldPass.Name = "tbOldPass";
             this.tbOldPass.Size = new System.Drawing.Size(177, 27);
             this.tbOldPass.TabIndex = 1;
+            this.tbOldPass.UseWaitCursor = true;
             // 
             // lblTitOldPass
             // 
@@ -795,6 +841,7 @@
             this.lblTitOldPass.Size = new System.Drawing.Size(108, 19);
             this.lblTitOldPass.TabIndex = 104;
             this.lblTitOldPass.Text = "Old Password:";
+            this.lblTitOldPass.UseWaitCursor = true;
             // 
             // lblTitPass
             // 
@@ -805,6 +852,7 @@
             this.lblTitPass.Size = new System.Drawing.Size(79, 19);
             this.lblTitPass.TabIndex = 101;
             this.lblTitPass.Text = "Password:";
+            this.lblTitPass.UseWaitCursor = true;
             // 
             // tbConfirmPass
             // 
@@ -817,6 +865,7 @@
             this.tbConfirmPass.Name = "tbConfirmPass";
             this.tbConfirmPass.Size = new System.Drawing.Size(177, 27);
             this.tbConfirmPass.TabIndex = 3;
+            this.tbConfirmPass.UseWaitCursor = true;
             // 
             // lblTitConfirmPass
             // 
@@ -827,6 +876,7 @@
             this.lblTitConfirmPass.Size = new System.Drawing.Size(139, 19);
             this.lblTitConfirmPass.TabIndex = 100;
             this.lblTitConfirmPass.Text = "Confirm password:";
+            this.lblTitConfirmPass.UseWaitCursor = true;
             // 
             // tbPass
             // 
@@ -839,6 +889,7 @@
             this.tbPass.Name = "tbPass";
             this.tbPass.Size = new System.Drawing.Size(177, 27);
             this.tbPass.TabIndex = 2;
+            this.tbPass.UseWaitCursor = true;
             // 
             // picUserIMG
             // 
@@ -849,6 +900,7 @@
             this.picUserIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picUserIMG.TabIndex = 77;
             this.picUserIMG.TabStop = false;
+            this.picUserIMG.UseWaitCursor = true;
             // 
             // lblTitDept
             // 
@@ -859,6 +911,7 @@
             this.lblTitDept.Size = new System.Drawing.Size(94, 19);
             this.lblTitDept.TabIndex = 79;
             this.lblTitDept.Text = "Department:";
+            this.lblTitDept.UseWaitCursor = true;
             // 
             // lblTitJobTitle
             // 
@@ -869,6 +922,7 @@
             this.lblTitJobTitle.Size = new System.Drawing.Size(73, 19);
             this.lblTitJobTitle.TabIndex = 78;
             this.lblTitJobTitle.Text = "Job Title:";
+            this.lblTitJobTitle.UseWaitCursor = true;
             // 
             // dtpDateOfBirth
             // 
@@ -879,6 +933,7 @@
             this.dtpDateOfBirth.Name = "dtpDateOfBirth";
             this.dtpDateOfBirth.Size = new System.Drawing.Size(200, 21);
             this.dtpDateOfBirth.TabIndex = 4;
+            this.dtpDateOfBirth.UseWaitCursor = true;
             // 
             // lblJobTitle
             // 
@@ -890,6 +945,7 @@
             this.lblJobTitle.Size = new System.Drawing.Size(153, 26);
             this.lblJobTitle.TabIndex = 82;
             this.lblJobTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblJobTitle.UseWaitCursor = true;
             // 
             // lblDept
             // 
@@ -901,6 +957,7 @@
             this.lblDept.Size = new System.Drawing.Size(153, 26);
             this.lblDept.TabIndex = 83;
             this.lblDept.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDept.UseWaitCursor = true;
             // 
             // lblTitWareAdd
             // 
@@ -911,6 +968,7 @@
             this.lblTitWareAdd.Size = new System.Drawing.Size(148, 19);
             this.lblTitWareAdd.TabIndex = 84;
             this.lblTitWareAdd.Text = "Warehouse Address:";
+            this.lblTitWareAdd.UseWaitCursor = true;
             // 
             // lblCorpAddress
             // 
@@ -922,6 +980,7 @@
             this.lblCorpAddress.Size = new System.Drawing.Size(450, 26);
             this.lblCorpAddress.TabIndex = 85;
             this.lblCorpAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblCorpAddress.UseWaitCursor = true;
             // 
             // lblTItCCorpName
             // 
@@ -932,6 +991,7 @@
             this.lblTItCCorpName.Size = new System.Drawing.Size(122, 19);
             this.lblTItCCorpName.TabIndex = 86;
             this.lblTItCCorpName.Text = "Company Name:";
+            this.lblTItCCorpName.UseWaitCursor = true;
             // 
             // tbCorp
             // 
@@ -944,6 +1004,7 @@
             this.tbCorp.Name = "tbCorp";
             this.tbCorp.Size = new System.Drawing.Size(302, 27);
             this.tbCorp.TabIndex = 2;
+            this.tbCorp.UseWaitCursor = true;
             this.tbCorp.Enter += new System.EventHandler(this.tbCorp_Enter);
             this.tbCorp.Leave += new System.EventHandler(this.tbCorp_Leave);
             // 
@@ -954,6 +1015,7 @@
             this.lblfNameMsg.Name = "lblfNameMsg";
             this.lblfNameMsg.Size = new System.Drawing.Size(386, 19);
             this.lblfNameMsg.TabIndex = 102;
+            this.lblfNameMsg.UseWaitCursor = true;
             // 
             // lbllNameMsg
             // 
@@ -962,6 +1024,7 @@
             this.lbllNameMsg.Name = "lbllNameMsg";
             this.lbllNameMsg.Size = new System.Drawing.Size(406, 19);
             this.lbllNameMsg.TabIndex = 103;
+            this.lbllNameMsg.UseWaitCursor = true;
             // 
             // lblSexMsg
             // 
@@ -970,6 +1033,7 @@
             this.lblSexMsg.Name = "lblSexMsg";
             this.lblSexMsg.Size = new System.Drawing.Size(434, 19);
             this.lblSexMsg.TabIndex = 104;
+            this.lblSexMsg.UseWaitCursor = true;
             // 
             // lblDateMsg
             // 
@@ -978,6 +1042,7 @@
             this.lblDateMsg.Name = "lblDateMsg";
             this.lblDateMsg.Size = new System.Drawing.Size(434, 19);
             this.lblDateMsg.TabIndex = 105;
+            this.lblDateMsg.UseWaitCursor = true;
             // 
             // lblPayMsg
             // 
@@ -986,6 +1051,7 @@
             this.lblPayMsg.Name = "lblPayMsg";
             this.lblPayMsg.Size = new System.Drawing.Size(394, 19);
             this.lblPayMsg.TabIndex = 106;
+            this.lblPayMsg.UseWaitCursor = true;
             // 
             // lblContactMsg
             // 
@@ -994,6 +1060,7 @@
             this.lblContactMsg.Name = "lblContactMsg";
             this.lblContactMsg.Size = new System.Drawing.Size(434, 19);
             this.lblContactMsg.TabIndex = 107;
+            this.lblContactMsg.UseWaitCursor = true;
             // 
             // palSCMode
             // 
@@ -1012,6 +1079,7 @@
             this.palSCMode.Name = "palSCMode";
             this.palSCMode.Size = new System.Drawing.Size(783, 192);
             this.palSCMode.TabIndex = 6;
+            this.palSCMode.UseWaitCursor = true;
             // 
             // palSatffInfo
             // 
@@ -1023,6 +1091,7 @@
             this.palSatffInfo.Name = "palSatffInfo";
             this.palSatffInfo.Size = new System.Drawing.Size(287, 85);
             this.palSatffInfo.TabIndex = 109;
+            this.palSatffInfo.UseWaitCursor = true;
             // 
             // proFileMain
             // 
@@ -1066,9 +1135,11 @@
             this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", settings1, "bgColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "proFileMain";
             this.Text = "Legend Motor Company Integrated System";
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
@@ -1088,7 +1159,6 @@
             this.palSatffInfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

@@ -132,7 +132,7 @@ namespace templatev1
             }
             else
             {
-                Form o = new staffViewOrder(orderID,accountController, UIController);
+                Form o = new staffViewOrder(orderID, accountController, UIController);
                 Hide();
                 o.StartPosition = FormStartPosition.Manual;
                 o.Location = Location;

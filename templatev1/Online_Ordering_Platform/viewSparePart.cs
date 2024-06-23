@@ -22,7 +22,7 @@ namespace templatev1
             InitializeComponent();
             partNum = "D00004";
             controller = new viewSparePartController();
-            
+
             lblUid.Text = $"Uid: {UID}";
         }
 
