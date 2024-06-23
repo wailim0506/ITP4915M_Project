@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using controller;
 
 namespace templatev1
 {
-    public partial class addSupplier : Form
+    public partial class editSupplier : Form
     {
         private string uName, UID;
         AccountController accountController;
@@ -12,8 +13,7 @@ namespace templatev1
         UIController UIController;
 
 
-
-        public addSupplier(AccountController accountController, UIController UIController,
+        public editSupplier(AccountController accountController, UIController UIController,
             stockController stockController)
         {
             InitializeComponent();
@@ -21,7 +21,8 @@ namespace templatev1
             this.UIController = UIController;
             this.stockController = stockController;
         }
-        private void addSupplier_Load(object sender, EventArgs e)
+
+        private void editSupplier_Load(object sender, EventArgs e)
         {
             Initialization();
         }
@@ -168,7 +169,7 @@ namespace templatev1
             Close();
         }
 
-        private void picHome_Click(object sender, EventArgs e)
+        private void picHome_Click_1(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
             Hide();
@@ -191,8 +192,6 @@ namespace templatev1
             about.ShowDialog();
             Close();
         }
-
-
 
 
 

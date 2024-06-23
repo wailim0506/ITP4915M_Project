@@ -459,6 +459,7 @@
             // 
             // btnClean
             // 
+            this.btnClean.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClean.Location = new System.Drawing.Point(737, 60);
             this.btnClean.Name = "btnClean";
             this.btnClean.Size = new System.Drawing.Size(139, 33);
@@ -770,8 +771,8 @@
             // btnViewSupp
             // 
             this.btnViewSupp.BackColor = System.Drawing.Color.White;
-            this.btnViewSupp.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnViewSupp.Location = new System.Drawing.Point(570, 442);
+            this.btnViewSupp.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewSupp.Location = new System.Drawing.Point(12, 442);
             this.btnViewSupp.Name = "btnViewSupp";
             this.btnViewSupp.Size = new System.Drawing.Size(152, 32);
             this.btnViewSupp.TabIndex = 169;

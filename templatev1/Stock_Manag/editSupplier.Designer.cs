@@ -1,7 +1,7 @@
 ﻿
 namespace templatev1
 {
-    partial class viewSupplier
+    partial class editSupplier
     {
         /// <summary>
         /// Required designer variable.
@@ -30,9 +30,6 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -54,26 +51,13 @@ namespace templatev1
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.btnAct = new System.Windows.Forms.Button();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.btnModify = new System.Windows.Forms.Button();
-            this.dgvSupplier = new System.Windows.Forms.DataGridView();
-            this.UserID = new System.Windows.Forms.Label();
-            this.lblClickToSelect = new System.Windows.Forms.Label();
-            this.picSearch = new System.Windows.Forms.PictureBox();
-            this.lblTitTotalNoUser = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // palLoc
             // 
@@ -83,7 +67,7 @@ namespace templatev1
             this.palLoc.Location = new System.Drawing.Point(198, 40);
             this.palLoc.Name = "palLoc";
             this.palLoc.Size = new System.Drawing.Size(972, 38);
-            this.palLoc.TabIndex = 10;
+            this.palLoc.TabIndex = 13;
             // 
             // lblLoc
             // 
@@ -91,9 +75,9 @@ namespace templatev1
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoc.Location = new System.Drawing.Point(6, 9);
             this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(301, 22);
+            this.lblLoc.Size = new System.Drawing.Size(435, 22);
             this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Stock Management -> View Supplier";
+            this.lblLoc.Text = "Stock Management -> View Supplier -> Edit Supplier";
             // 
             // palTime
             // 
@@ -106,7 +90,7 @@ namespace templatev1
             this.palTime.Margin = new System.Windows.Forms.Padding(2);
             this.palTime.Name = "palTime";
             this.palTime.Size = new System.Drawing.Size(972, 40);
-            this.palTime.TabIndex = 9;
+            this.palTime.TabIndex = 12;
             // 
             // lblUid
             // 
@@ -153,7 +137,7 @@ namespace templatev1
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 941);
-            this.palNav.TabIndex = 8;
+            this.palNav.TabIndex = 11;
             // 
             // palSelect5
             // 
@@ -251,7 +235,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
-            this.picHome.Click += new System.EventHandler(this.picHome_Click);
+            this.picHome.Click += new System.EventHandler(this.picHome_Click_1);
             // 
             // lblCorpName
             // 
@@ -344,128 +328,23 @@ namespace templatev1
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
-            // btnAct
+            // timer1
             // 
-            this.btnAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnAct.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnAct.Location = new System.Drawing.Point(431, 795);
-            this.btnAct.Name = "btnAct";
-            this.btnAct.Size = new System.Drawing.Size(226, 32);
-            this.btnAct.TabIndex = 183;
-            this.btnAct.Text = "Active Customer Account";
-            this.btnAct.UseVisualStyleBackColor = false;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
-            // tbSearch
-            // 
-            this.tbSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.tbSearch.Location = new System.Drawing.Point(327, 136);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(172, 30);
-            this.tbSearch.TabIndex = 185;
-            // 
-            // btnModify
-            // 
-            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(221, 795);
-            this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(195, 32);
-            this.btnModify.TabIndex = 182;
-            this.btnModify.Text = "Modify";
-            this.btnModify.UseVisualStyleBackColor = false;
-            // 
-            // dgvSupplier
-            // 
-            this.dgvSupplier.AllowUserToAddRows = false;
-            this.dgvSupplier.AllowUserToDeleteRows = false;
-            this.dgvSupplier.AllowUserToResizeColumns = false;
-            this.dgvSupplier.AllowUserToResizeRows = false;
-            this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSupplier.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSupplier.EnableHeadersVisualStyles = false;
-            this.dgvSupplier.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvSupplier.Location = new System.Drawing.Point(221, 212);
-            this.dgvSupplier.Name = "dgvSupplier";
-            this.dgvSupplier.ReadOnly = true;
-            this.dgvSupplier.RowHeadersVisible = false;
-            this.dgvSupplier.RowHeadersWidth = 30;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.5F);
-            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvSupplier.RowTemplate.Height = 23;
-            this.dgvSupplier.Size = new System.Drawing.Size(928, 572);
-            this.dgvSupplier.TabIndex = 189;
-            // 
-            // UserID
-            // 
-            this.UserID.AutoSize = true;
-            this.UserID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserID.Location = new System.Drawing.Point(217, 139);
-            this.UserID.Name = "UserID";
-            this.UserID.Size = new System.Drawing.Size(104, 22);
-            this.UserID.TabIndex = 188;
-            this.UserID.Text = "SupplierID:";
-            // 
-            // lblClickToSelect
-            // 
-            this.lblClickToSelect.AutoSize = true;
-            this.lblClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblClickToSelect.Location = new System.Drawing.Point(807, 191);
-            this.lblClickToSelect.Name = "lblClickToSelect";
-            this.lblClickToSelect.Size = new System.Drawing.Size(346, 17);
-            this.lblClickToSelect.TabIndex = 187;
-            this.lblClickToSelect.Text = "[CLICK to select. DOUBLE CLICK to cancel selection]";
-            // 
-            // picSearch
-            // 
-            this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
-            this.picSearch.Location = new System.Drawing.Point(504, 140);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(31, 25);
-            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSearch.TabIndex = 186;
-            this.picSearch.TabStop = false;
-            // 
-            // lblTitTotalNoUser
-            // 
-            this.lblTitTotalNoUser.AutoSize = true;
-            this.lblTitTotalNoUser.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTotalNoUser.Location = new System.Drawing.Point(217, 180);
-            this.lblTitTotalNoUser.Name = "lblTitTotalNoUser";
-            this.lblTitTotalNoUser.Size = new System.Drawing.Size(242, 22);
-            this.lblTitTotalNoUser.TabIndex = 184;
-            this.lblTitTotalNoUser.Text = "No. of supplier in the system:";
-            // 
-            // viewSupplier
+            // editSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.btnAct);
             this.Controls.Add(this.palLoc);
-            this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.palTime);
-            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.palNav);
-            this.Controls.Add(this.dgvSupplier);
-            this.Controls.Add(this.lblClickToSelect);
-            this.Controls.Add(this.UserID);
-            this.Controls.Add(this.lblTitTotalNoUser);
-            this.Controls.Add(this.picSearch);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "viewSupplier";
-            this.Text = "Legend Motor Company Integrated System";
-            this.Load += new System.EventHandler(this.viewSupplier_Load);
+            this.Name = "editSupplier";
+            this.Text = "editSupplier";
+            this.Load += new System.EventHandler(this.editSupplier_Load);
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palTime.ResumeLayout(false);
@@ -473,15 +352,12 @@ namespace templatev1
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Timer timer1;
+
         private System.Windows.Forms.Panel palLoc;
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Panel palTime;
@@ -503,13 +379,6 @@ namespace templatev1
         private System.Windows.Forms.Button btnFunction3;
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Button btnAct;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Button btnModify;
-        private System.Windows.Forms.DataGridView dgvSupplier;
-        private System.Windows.Forms.Label UserID;
-        private System.Windows.Forms.Label lblClickToSelect;
-        private System.Windows.Forms.PictureBox picSearch;
-        private System.Windows.Forms.Label lblTitTotalNoUser;
+        private System.Windows.Forms.Timer timer1;
     }
 }

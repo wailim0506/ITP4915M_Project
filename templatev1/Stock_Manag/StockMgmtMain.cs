@@ -593,8 +593,17 @@ namespace templatev1
             pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
         }
 
+        //View, edit, add supplier.
         private void btnViewSupp_Click(object sender, EventArgs e)
         {
+            Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
+            Hide();
+            //Swap the current form to another.
+            viewSupplier.StartPosition = FormStartPosition.Manual;
+            viewSupplier.Location = Location;
+            viewSupplier.Size = Size;
+            viewSupplier.ShowDialog();
+            Close();
         }
 
         protected override void OnPaint(PaintEventArgs e)
