@@ -46,6 +46,10 @@ namespace templatev1
             List<string> ProvinceList = DeliveryController.GetProvinceList();
             cbxProvince.Items.AddRange(ProvinceList.ToArray());
             cbxProvince.SelectedIndex = 0;
+            palSelect1.Visible =
+               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            hideButton();
+            setIndicator(_uiController.getIndicator("Order Management"));
         }
 
         private void load_data()
@@ -123,6 +127,69 @@ namespace templatev1
             string location = DeliveryController.GetRelayLocation(cbxRelayName.SelectedItem.ToString());
             RelayPointImage.Load(DeliveryController.GenerateMapUrl(location, RelayPointImage.Size,
                 cbxRelayName.SelectedItem.ToString()));
+        }
+
+        public void hideButton()
+        {
+            dynamic btnFun = _uiController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(_accountController);
+
+            proFileController.setType(_accountController.GetAccountType());
+
+            Form proFile = new proFileMain(_accountController, _uiController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            Form proFile = new SAccManage(_accountController, _uiController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void setIndicator(int btnNo)
+        {
+            switch (btnNo)
+            {
+                case 1:
+                    palSelect1.Visible = true;
+                    break;
+                case 2:
+                    palSelect2.Visible = true;
+                    break;
+                case 3:
+                    palSelect3.Visible = true;
+                    break;
+                case 4:
+                    palSelect4.Visible = true;
+                    break;
+                case 5:
+                    palSelect5.Visible = true;
+                    break;
+            }
         }
     }
 }

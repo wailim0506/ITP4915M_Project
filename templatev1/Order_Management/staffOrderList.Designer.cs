@@ -64,6 +64,8 @@ namespace templatev1
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSorting = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblNumberOfOrderShown = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -138,6 +140,7 @@ namespace templatev1
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -192,6 +195,7 @@ namespace templatev1
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // btnLogOut
             // 
@@ -353,7 +357,13 @@ namespace templatev1
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStatus.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] { "All", "Shipped", "Ready to Ship", "Processing", "Pending", "Cancelled" });
+            this.cmbStatus.Items.AddRange(new object[] {
+            "All",
+            "Shipped",
+            "Ready to Ship",
+            "Processing",
+            "Pending",
+            "Cancelled"});
             this.cmbStatus.Location = new System.Drawing.Point(734, 106);
             this.cmbStatus.Name = "cmbStatus";
             this.cmbStatus.Size = new System.Drawing.Size(148, 26);
@@ -395,7 +405,7 @@ namespace templatev1
             this.grpOrder.Controls.Add(this.pnlOrder);
             this.grpOrder.Location = new System.Drawing.Point(208, 166);
             this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(950, 763);
+            this.grpOrder.Size = new System.Drawing.Size(950, 743);
             this.grpOrder.TabIndex = 90;
             this.grpOrder.TabStop = false;
             // 
@@ -404,7 +414,7 @@ namespace templatev1
             this.pnlOrder.AutoScroll = true;
             this.pnlOrder.Location = new System.Drawing.Point(6, 10);
             this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(938, 747);
+            this.pnlOrder.Size = new System.Drawing.Size(938, 727);
             this.pnlOrder.TabIndex = 0;
             // 
             // lblOrderDate
@@ -454,7 +464,15 @@ namespace templatev1
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] { "Order ID (Ascending)", "Order ID (Descending)", "Order Date (Nearest)", "Order Date (Furtherest)", "Delivery Date (Nearest)", "Delivery Date (Furtherest)", "Customer ID (Ascending)", "Customer ID (Descending)" });
+            this.cmbSorting.Items.AddRange(new object[] {
+            "Order ID (Ascending)",
+            "Order ID (Descending)",
+            "Order Date (Nearest)",
+            "Order Date (Furtherest)",
+            "Delivery Date (Nearest)",
+            "Delivery Date (Furtherest)",
+            "Customer ID (Ascending)",
+            "Customer ID (Descending)"});
             this.cmbSorting.Location = new System.Drawing.Point(962, 106);
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(196, 26);
@@ -465,11 +483,32 @@ namespace templatev1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(210, 912);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(144, 20);
+            this.label1.TabIndex = 98;
+            this.label1.Text = "Order(s) Shown: ";
+            // 
+            // lblNumberOfOrderShown
+            // 
+            this.lblNumberOfOrderShown.AutoSize = true;
+            this.lblNumberOfOrderShown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumberOfOrderShown.Location = new System.Drawing.Point(345, 913);
+            this.lblNumberOfOrderShown.Name = "lblNumberOfOrderShown";
+            this.lblNumberOfOrderShown.Size = new System.Drawing.Size(0, 20);
+            this.lblNumberOfOrderShown.TabIndex = 99;
+            // 
             // staffOrderList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.lblNumberOfOrderShown);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbSorting);
             this.Controls.Add(this.lblHeading);
@@ -497,6 +536,7 @@ namespace templatev1
             this.grpOrder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -535,5 +575,7 @@ namespace templatev1
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNumberOfOrderShown;
     }
 }

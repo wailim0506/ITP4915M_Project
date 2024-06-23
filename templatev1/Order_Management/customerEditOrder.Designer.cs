@@ -77,8 +77,8 @@ namespace templatev1
             this.lblUid = new System.Windows.Forms.Label();
             this.lblTimeDate = new System.Windows.Forms.Label();
             this.palNav = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.palSelect5 = new System.Windows.Forms.Panel();
+            this.btnFunction5 = new System.Windows.Forms.Button();
             this.palSelect4 = new System.Windows.Forms.Panel();
             this.palSelect2 = new System.Windows.Forms.Panel();
             this.palSelect1 = new System.Windows.Forms.Panel();
@@ -94,6 +94,7 @@ namespace templatev1
             this.btnFunction1 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.cmbSortOrder = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.grpSparePart.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picRefresh)).BeginInit();
@@ -509,7 +510,7 @@ namespace templatev1
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 40);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.Size = new System.Drawing.Size(980, 38);
             this.palLoc.TabIndex = 103;
             // 
             // palDate
@@ -520,9 +521,9 @@ namespace templatev1
             this.palDate.Dock = System.Windows.Forms.DockStyle.Top;
             this.palDate.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.palDate.Location = new System.Drawing.Point(198, 0);
-            this.palDate.Margin = new System.Windows.Forms.Padding(2);
+            this.palDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(972, 40);
+            this.palDate.Size = new System.Drawing.Size(980, 40);
             this.palDate.TabIndex = 102;
             // 
             // lblUid
@@ -548,8 +549,10 @@ namespace templatev1
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.palNav.Controls.Add(this.panel1);
-            this.palNav.Controls.Add(this.button1);
+            this.palNav.Controls.Add(this.label14);
+            this.palNav.Controls.Add(this.lblCorpName);
+            this.palNav.Controls.Add(this.palSelect5);
+            this.palNav.Controls.Add(this.btnFunction5);
             this.palNav.Controls.Add(this.palSelect4);
             this.palNav.Controls.Add(this.palSelect2);
             this.palNav.Controls.Add(this.palSelect1);
@@ -558,41 +561,40 @@ namespace templatev1
             this.palNav.Controls.Add(this.palSelect3);
             this.palNav.Controls.Add(this.btnLogOut);
             this.palNav.Controls.Add(this.picHome);
-            this.palNav.Controls.Add(this.lblCorpName);
             this.palNav.Controls.Add(this.btnFunction4);
             this.palNav.Controls.Add(this.btnFunction3);
             this.palNav.Controls.Add(this.btnFunction2);
             this.palNav.Controls.Add(this.btnFunction1);
             this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.palNav.Location = new System.Drawing.Point(0, 0);
-            this.palNav.Margin = new System.Windows.Forms.Padding(2);
+            this.palNav.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 911);
+            this.palNav.Size = new System.Drawing.Size(198, 899);
             this.palNav.TabIndex = 101;
             // 
-            // panel1
+            // palSelect5
             // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Location = new System.Drawing.Point(0, 369);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 55);
-            this.panel1.TabIndex = 27;
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 369);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.TabIndex = 27;
             // 
-            // button1
+            // btnFunction5
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(0, 369);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(198, 55);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "Give Feedback";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction5.Location = new System.Drawing.Point(0, 369);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction5.Name = "btnFunction5";
+            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.TabIndex = 26;
+            this.btnFunction5.Text = "Give Feedback";
+            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.button1_Click);
             // 
             // palSelect4
             // 
@@ -636,12 +638,13 @@ namespace templatev1
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProFile.Location = new System.Drawing.Point(0, 756);
-            this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
+            this.btnProFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // palSelect3
             // 
@@ -658,7 +661,7 @@ namespace templatev1
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(0, 798);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
             this.btnLogOut.TabIndex = 19;
@@ -671,7 +674,7 @@ namespace templatev1
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.picHome.Image = global::templatev1.Properties.Resources.home;
             this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picHome.Name = "picHome";
             this.picHome.Size = new System.Drawing.Size(57, 56);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -682,7 +685,7 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 854);
+            this.lblCorpName.Location = new System.Drawing.Point(4, 836);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
             this.lblCorpName.Size = new System.Drawing.Size(163, 56);
@@ -695,7 +698,7 @@ namespace templatev1
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction4.Location = new System.Drawing.Point(0, 296);
-            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFunction4.Name = "btnFunction4";
             this.btnFunction4.Size = new System.Drawing.Size(198, 55);
             this.btnFunction4.TabIndex = 18;
@@ -711,7 +714,7 @@ namespace templatev1
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction3.Location = new System.Drawing.Point(0, 223);
-            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFunction3.Name = "btnFunction3";
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 17;
@@ -727,7 +730,7 @@ namespace templatev1
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction2.Location = new System.Drawing.Point(0, 150);
-            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFunction2.Name = "btnFunction2";
             this.btnFunction2.Size = new System.Drawing.Size(198, 55);
             this.btnFunction2.TabIndex = 16;
@@ -743,7 +746,7 @@ namespace templatev1
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction1.Location = new System.Drawing.Point(0, 77);
-            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFunction1.Name = "btnFunction1";
             this.btnFunction1.Size = new System.Drawing.Size(198, 55);
             this.btnFunction1.TabIndex = 15;
@@ -769,19 +772,35 @@ namespace templatev1
             this.cmbSortOrder.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSortOrder.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSortOrder.FormattingEnabled = true;
-            this.cmbSortOrder.Items.AddRange(new object[] { "None", "Quantity(Ascending)", "Quantity(Descending)", "Total Price(Ascending)", "Total Price(Descending)" });
+            this.cmbSortOrder.Items.AddRange(new object[] {
+            "None",
+            "Quantity(Ascending)",
+            "Quantity(Descending)",
+            "Total Price(Ascending)",
+            "Total Price(Descending)"});
             this.cmbSortOrder.Location = new System.Drawing.Point(268, 473);
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(191, 26);
             this.cmbSortOrder.TabIndex = 104;
             this.cmbSortOrder.SelectedIndexChanged += new System.EventHandler(this.cmbSortOrder_SelectedIndexChanged);
             // 
+            // label14
+            // 
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(4, 836);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(163, 49);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Legend Motor Company";
+            // 
             // customerEditOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1170, 911);
+            this.ClientSize = new System.Drawing.Size(1178, 899);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.cmbSortOrder);
             this.Controls.Add(this.palLoc);
@@ -840,6 +859,7 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -902,9 +922,10 @@ namespace templatev1
         private System.Windows.Forms.Button btnFunction3;
         private System.Windows.Forms.Button btnFunction2;
         private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel palSelect5;
+        private System.Windows.Forms.Button btnFunction5;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cmbSortOrder;
+        private System.Windows.Forms.Label label14;
     }
 }

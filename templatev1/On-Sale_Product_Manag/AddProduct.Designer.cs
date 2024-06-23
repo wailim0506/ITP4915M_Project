@@ -58,13 +58,13 @@
             this.lblSuppilerID = new System.Windows.Forms.Label();
             this.lblTitPartNo = new System.Windows.Forms.Label();
             this.lblTitSuppiler = new System.Windows.Forms.Label();
+            this.lblProductType = new System.Windows.Forms.Label();
             this.lblSuppiler = new System.Windows.Forms.Label();
             this.lblTitNoOfStock = new System.Windows.Forms.Label();
             this.lblNoOfStock = new System.Windows.Forms.Label();
             this.lblTitSuppilerID = new System.Windows.Forms.Label();
             this.lblTitOnShelveDate = new System.Windows.Forms.Label();
             this.lblTitProductID = new System.Windows.Forms.Label();
-            this.lblProductName = new System.Windows.Forms.Label();
             this.lblProductID = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -78,12 +78,11 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.lblOnShelveDate = new System.Windows.Forms.Label();
             this.cmbPartNumber = new System.Windows.Forms.ComboBox();
-            this.tbProductName = new System.Windows.Forms.TextBox();
             this.lblPartNumber = new System.Windows.Forms.Label();
-            this.lblProductType = new System.Windows.Forms.Label();
             this.picProductIMG = new System.Windows.Forms.PictureBox();
             this.btnUploadIMG = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblProductName = new System.Windows.Forms.Label();
             this.pnlNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -436,6 +435,16 @@
             this.lblTitSuppiler.TabIndex = 56;
             this.lblTitSuppiler.Text = "Suppiler:";
             // 
+            // lblProductType
+            // 
+            this.lblProductType.AutoSize = true;
+            this.lblProductType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductType.Location = new System.Drawing.Point(25, 190);
+            this.lblProductType.Name = "lblProductType";
+            this.lblProductType.Size = new System.Drawing.Size(121, 22);
+            this.lblProductType.TabIndex = 91;
+            this.lblProductType.Text = "Product Type:";
+            // 
             // lblSuppiler
             // 
             this.lblSuppiler.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -497,16 +506,6 @@
             this.lblTitProductID.Size = new System.Drawing.Size(97, 22);
             this.lblTitProductID.TabIndex = 32;
             this.lblTitProductID.Text = "ProductID:";
-            // 
-            // lblProductName
-            // 
-            this.lblProductName.AutoSize = true;
-            this.lblProductName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductName.Location = new System.Drawing.Point(244, 413);
-            this.lblProductName.Name = "lblProductName";
-            this.lblProductName.Size = new System.Drawing.Size(128, 22);
-            this.lblProductName.TabIndex = 33;
-            this.lblProductName.Text = "Product Name:";
             // 
             // lblProductID
             // 
@@ -635,14 +634,6 @@
             this.cmbPartNumber.Size = new System.Drawing.Size(153, 27);
             this.cmbPartNumber.TabIndex = 86;
             // 
-            // tbProductName
-            // 
-            this.tbProductName.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbProductName.Location = new System.Drawing.Point(380, 413);
-            this.tbProductName.Name = "tbProductName";
-            this.tbProductName.Size = new System.Drawing.Size(431, 27);
-            this.tbProductName.TabIndex = 87;
-            // 
             // lblPartNumber
             // 
             this.lblPartNumber.AutoSize = true;
@@ -652,16 +643,6 @@
             this.lblPartNumber.Size = new System.Drawing.Size(111, 22);
             this.lblPartNumber.TabIndex = 90;
             this.lblPartNumber.Text = "PartNumber:";
-            // 
-            // lblProductType
-            // 
-            this.lblProductType.AutoSize = true;
-            this.lblProductType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProductType.Location = new System.Drawing.Point(25, 190);
-            this.lblProductType.Name = "lblProductType";
-            this.lblProductType.Size = new System.Drawing.Size(121, 22);
-            this.lblProductType.TabIndex = 91;
-            this.lblProductType.Text = "Product Type:";
             // 
             // picProductIMG
             // 
@@ -693,6 +674,16 @@
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // lblProductName
+            // 
+            this.lblProductName.AutoSize = true;
+            this.lblProductName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProductName.Location = new System.Drawing.Point(244, 413);
+            this.lblProductName.Name = "lblProductName";
+            this.lblProductName.Size = new System.Drawing.Size(128, 22);
+            this.lblProductName.TabIndex = 33;
+            this.lblProductName.Text = "Product Name:";
+            // 
             // OnSaleAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -702,7 +693,6 @@
             this.Controls.Add(this.btnUploadIMG);
             this.Controls.Add(this.picProductIMG);
             this.Controls.Add(this.lblPartNumber);
-            this.Controls.Add(this.tbProductName);
             this.Controls.Add(this.cmbPartNumber);
             this.Controls.Add(this.grpStockInfo);
             this.Controls.Add(this.lblOnShelveDate);
@@ -769,7 +759,6 @@
         private System.Windows.Forms.Label lblNoOfStock;
         private System.Windows.Forms.Label lblTitPartNo;
         private System.Windows.Forms.Label lblTitProductID;
-        private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblTitNoOfStock;
         private System.Windows.Forms.Label lblProductID;
         private System.Windows.Forms.Label lblTitSuppilerID;
@@ -788,7 +777,6 @@
         private System.Windows.Forms.ComboBox cmbPartNumber;
         private System.Windows.Forms.Label lblPartNo;
         private System.Windows.Forms.Label lblSuppilerID;
-        private System.Windows.Forms.TextBox tbProductName;
         private System.Windows.Forms.Label lblPartNumber;
         private System.Windows.Forms.Label lblCountry;
         private System.Windows.Forms.Label lblTitCountry;
@@ -800,6 +788,7 @@
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblProductName;
     }
 }
 

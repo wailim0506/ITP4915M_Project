@@ -37,7 +37,10 @@ namespace templatev1
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            palSelect1.Visible =
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
+            setIndicator(UIController.getIndicator("Order Management"));
             cmbUpcomingSorting.SelectedIndex = 0;
             cmbFinishedSorting.SelectedIndex = 0;
             load_data(cmbUpcomingSorting.Text.ToString(), cmbUpcomingSorting.Text.ToString());
@@ -229,8 +232,7 @@ namespace templatev1
                         if (control.Name == $"lblOrderID{index}")
                         {
                             Form delivermanViewOrder =
-                                new delivermanViewOrder(control.Text); //for testing
-                            // new delivermanViewOrder(control.Text, accountController, UIController);
+                                 new delivermanViewOrder(control.Text, accountController, UIController);
                             Hide();
                             delivermanViewOrder.StartPosition = FormStartPosition.Manual;
                             delivermanViewOrder.Location = Location;
@@ -262,8 +264,7 @@ namespace templatev1
                         if (control.Name == $"lblOrderID{index}")
                         {
                             Form delivermanViewOrder =
-                                new delivermanViewOrder(control.Text); //for testing
-                            // new delivermanViewOrder(control.Text, accountController, UIController);
+                                new delivermanViewOrder(control.Text, accountController, UIController);
                             Hide();
                             delivermanViewOrder.StartPosition = FormStartPosition.Manual;
                             delivermanViewOrder.Location = Location;
@@ -315,6 +316,64 @@ namespace templatev1
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o = new deliverman(accountController,UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            Form proFile = new SAccManage(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void setIndicator(int btnNo)
+        {
+            switch (btnNo)
+            {
+                case 1:
+                    palSelect1.Visible = true;
+                    break;
+                case 2:
+                    palSelect2.Visible = true;
+                    break;
+                case 3:
+                    palSelect3.Visible = true;
+                    break;
+                case 4:
+                    palSelect4.Visible = true;
+                    break;
+                case 5:
+                    palSelect5.Visible = true;
+                    break;
+            }
         }
     }
 }

@@ -45,6 +45,7 @@ namespace templatev1
                 = new Font("Times New Roman", 13F, FontStyle.Bold);
             palStock.Visible = UIController.ViewSupplier();
 
+            lblTitTotalNoSupplier.Text = "No. of suppliers in the system: " + stockController.GetTotalSupplierQty();
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
