@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
+using System.Dynamic;
 using controller;
 
 namespace templatev1
@@ -11,6 +12,7 @@ namespace templatev1
         AccountController accountController;
         stockController stockController;
         UIController UIController;
+        dynamic placeholder, update;
 
 
         public editSupplier(AccountController accountController, UIController UIController,
@@ -49,6 +51,16 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+
+            //For supplier info.
+            placeholder = stockController.GetModifySupplierInfo();
+            lblSupplierID.Text = placeholder.supplierID;
+            lblCountry.Text = placeholder.country;
+            tbName.Text = placeholder.name;
+            tbPhone.Text = placeholder.phone;
+            tbAddress.Text = placeholder.address;
+            chkStatus.Checked = placeholder.status.Equals("Enable") ? true : false;
+
 
 
             //For icon color
@@ -191,6 +203,135 @@ namespace templatev1
             about.Size = Size;
             about.ShowDialog();
             Close();
+        }
+
+        private void tbName_Enter(object sender, EventArgs e)
+        {
+            if (tbName.Text == placeholder.name)
+                tbName.Text = "";
+        }
+
+        private void tbName_Leave(object sender, EventArgs e)
+        {
+            if (tbName.Text == "")
+                tbName.Text = placeholder.name;
+        }
+
+        private void tbPhone_Enter(object sender, EventArgs e)
+        {
+            if (tbPhone.Text == placeholder.phone)
+                tbPhone.Text = "";
+        }
+
+        private void tbPhone_Leave(object sender, EventArgs e)
+        {
+            if (tbPhone.Text == "")
+                tbPhone.Text = placeholder.phone;
+        }
+
+        private void tbAddress_Enter(object sender, EventArgs e)
+        {
+            if (tbAddress.Text == placeholder.address)
+                tbAddress.Text = "";
+        }
+
+        private void tbAddress_Leave(object sender, EventArgs e)
+        {
+            if (tbAddress.Text == "")
+                tbAddress.Text = placeholder.address;
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            var result = DialogResult.Yes;
+
+            if (checkInfo())
+            {
+                if (update.status.Equals("Disable"))
+                {
+                    result =
+                        MessageBox.Show($"Are you sure to disable the supplier?" +
+                            $"\nThis operation will also disable spare parts and on-sale " +
+                            $"products provided by the supplier.", "System message", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Warning);
+                }
+
+                if (stockController.ModifySupplierInfo(update) && result == DialogResult.Yes)
+                {
+                    MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+
+                    Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
+                    Hide();
+                    //Swap the current form to another.
+                    viewSupplier.StartPosition = FormStartPosition.Manual;
+                    viewSupplier.Location = Location;
+                    viewSupplier.Size = Size;
+                    viewSupplier.ShowDialog();
+                    Close();
+                }
+                else if (result == DialogResult.No)             //User cancel operation.
+                    return;
+                else //Something wrong from the controller.
+                    MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool checkInfo()
+        {
+            lblNameMsg.Text = lblAddMsg.Text = lblPhoneMsg.Text = "";
+            update = new ExpandoObject();
+
+            //Check and update supplier name if have change.
+            if (tbName.Text != placeholder.name)
+            {
+                if (tbName.Text.Length < 2 || tbName.Text.Length > 50)
+                {
+                    lblNameMsg.Text = "Name too short or too long, minimum 2 maximum 50.";
+                    lblNameMsg.Select();
+                    return false;
+                }
+
+                update.name = tbName.Text;
+            }
+            else
+                update.name = placeholder.name;
+
+            //Check and update supplier address if have change.
+            if (tbAddress.Text != placeholder.address)
+            {
+                if (tbAddress.Text.Length < 2 || tbAddress.Text.Length > 70)
+                {
+                    lblAddMsg.Text = "Address too short or too long, minimum 2 maximum 70.";
+                    tbAddress.Select();
+                    return false;
+                }
+
+                update.address = tbAddress.Text;
+            }
+            else
+                update.address = placeholder.address;
+
+            //Check and update phone if have change.
+            if (tbAddress.Text != placeholder.phone)
+            {
+                if (tbPhone.Text.Length < 2 || tbPhone.Text.Length > 20)
+                {
+                    lblPhoneMsg.Text = "Phone number too short or too long, minimum 2 maximum 20.";
+                    tbPhone.Select();
+                    return false;
+                }
+
+                update.phone = tbPhone.Text;
+            }
+            else
+                update.phone = placeholder.phone;
+
+            //Check and update status
+            update.status = chkStatus.Checked == true ? "Enable" : "Disable";
+
+            return true;
         }
 
 

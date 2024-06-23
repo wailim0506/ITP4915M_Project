@@ -51,36 +51,35 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
-            this.tbKw = new System.Windows.Forms.TextBox();
+            this.lblDBItemQty = new System.Windows.Forms.Label();
+            this.lblDBStatus = new System.Windows.Forms.Label();
+            this.tbSearch = new System.Windows.Forms.TextBox();
+            this.lblDBOnShelvesDate = new System.Windows.Forms.Label();
+            this.lblDBName = new System.Windows.Forms.Label();
+            this.lblDBItemID = new System.Windows.Forms.Label();
+            this.lblTitClickToModify = new System.Windows.Forms.Label();
+            this.lstDataBaseProduct = new System.Windows.Forms.ListBox();
             this.lblTitCurrentOnSaleProduct = new System.Windows.Forms.Label();
+            this.btnRemoveFromShelves = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             this.btnAddProduct = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cmbSorting = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pnlProduct = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cmbKW = new System.Windows.Forms.ComboBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.grpDiscouuntSetting = new System.Windows.Forms.GroupBox();
+            this.lblDBEndDate = new System.Windows.Forms.Label();
+            this.lblDBPercentage = new System.Windows.Forms.Label();
+            this.lstDataBasePosted = new System.Windows.Forms.ListBox();
+            this.lblDBRange = new System.Windows.Forms.Label();
+            this.lblTitPostedDis = new System.Windows.Forms.Label();
+            this.lblDBPostedDate = new System.Windows.Forms.Label();
+            this.lblDBDiscountID = new System.Windows.Forms.Label();
+            this.btnSetModifyDis = new System.Windows.Forms.Button();
+            this.picSearch = new System.Windows.Forms.PictureBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTIME.SuspendLayout();
             this.palLoc.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.grpDiscouuntSetting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -347,30 +346,121 @@
             this.lblLoc.TabIndex = 0;
             this.lblLoc.Text = "On-Sale Product Management";
             // 
-            // tbKw
+            // lblDBItemQty
             // 
-            this.tbKw.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.tbKw.Location = new System.Drawing.Point(407, 124);
-            this.tbKw.Name = "tbKw";
-            this.tbKw.Size = new System.Drawing.Size(255, 26);
-            this.tbKw.TabIndex = 52;
-            this.tbKw.TextChanged += new System.EventHandler(this.tbKw_TextChanged);
+            this.lblDBItemQty.AutoSize = true;
+            this.lblDBItemQty.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBItemQty.Location = new System.Drawing.Point(569, 187);
+            this.lblDBItemQty.Name = "lblDBItemQty";
+            this.lblDBItemQty.Size = new System.Drawing.Size(74, 19);
+            this.lblDBItemQty.TabIndex = 55;
+            this.lblDBItemQty.Text = "Item Qty";
+            // 
+            // lblDBStatus
+            // 
+            this.lblDBStatus.AutoSize = true;
+            this.lblDBStatus.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBStatus.Location = new System.Drawing.Point(720, 189);
+            this.lblDBStatus.Name = "lblDBStatus";
+            this.lblDBStatus.Size = new System.Drawing.Size(54, 19);
+            this.lblDBStatus.TabIndex = 54;
+            this.lblDBStatus.Text = "Status";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.Font = new System.Drawing.Font("Times New Roman", 12F);
+            this.tbSearch.Location = new System.Drawing.Point(236, 154);
+            this.tbSearch.Name = "tbSearch";
+            this.tbSearch.Size = new System.Drawing.Size(331, 26);
+            this.tbSearch.TabIndex = 52;
+            // 
+            // lblDBOnShelvesDate
+            // 
+            this.lblDBOnShelvesDate.AutoSize = true;
+            this.lblDBOnShelvesDate.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBOnShelvesDate.Location = new System.Drawing.Point(833, 187);
+            this.lblDBOnShelvesDate.Name = "lblDBOnShelvesDate";
+            this.lblDBOnShelvesDate.Size = new System.Drawing.Size(123, 19);
+            this.lblDBOnShelvesDate.TabIndex = 51;
+            this.lblDBOnShelvesDate.Text = "On shelves date";
+            // 
+            // lblDBName
+            // 
+            this.lblDBName.AutoSize = true;
+            this.lblDBName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBName.Location = new System.Drawing.Point(346, 187);
+            this.lblDBName.Name = "lblDBName";
+            this.lblDBName.Size = new System.Drawing.Size(51, 19);
+            this.lblDBName.TabIndex = 50;
+            this.lblDBName.Text = "Name";
+            // 
+            // lblDBItemID
+            // 
+            this.lblDBItemID.AutoSize = true;
+            this.lblDBItemID.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBItemID.Location = new System.Drawing.Point(232, 187);
+            this.lblDBItemID.Name = "lblDBItemID";
+            this.lblDBItemID.Size = new System.Drawing.Size(61, 19);
+            this.lblDBItemID.TabIndex = 49;
+            this.lblDBItemID.Text = "ItemID";
+            // 
+            // lblTitClickToModify
+            // 
+            this.lblTitClickToModify.AutoSize = true;
+            this.lblTitClickToModify.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.lblTitClickToModify.Location = new System.Drawing.Point(477, 125);
+            this.lblTitClickToModify.Name = "lblTitClickToModify";
+            this.lblTitClickToModify.Size = new System.Drawing.Size(142, 17);
+            this.lblTitClickToModify.TabIndex = 48;
+            this.lblTitClickToModify.Text = "[Click to modify detial]";
+            // 
+            // lstDataBaseProduct
+            // 
+            this.lstDataBaseProduct.FormattingEnabled = true;
+            this.lstDataBaseProduct.ItemHeight = 15;
+            this.lstDataBaseProduct.Location = new System.Drawing.Point(236, 210);
+            this.lstDataBaseProduct.Name = "lstDataBaseProduct";
+            this.lstDataBaseProduct.Size = new System.Drawing.Size(898, 304);
+            this.lstDataBaseProduct.TabIndex = 47;
             // 
             // lblTitCurrentOnSaleProduct
             // 
             this.lblTitCurrentOnSaleProduct.AutoSize = true;
             this.lblTitCurrentOnSaleProduct.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.lblTitCurrentOnSaleProduct.Location = new System.Drawing.Point(205, 122);
+            this.lblTitCurrentOnSaleProduct.Location = new System.Drawing.Point(231, 118);
             this.lblTitCurrentOnSaleProduct.Name = "lblTitCurrentOnSaleProduct";
-            this.lblTitCurrentOnSaleProduct.Size = new System.Drawing.Size(202, 26);
+            this.lblTitCurrentOnSaleProduct.Size = new System.Drawing.Size(240, 26);
             this.lblTitCurrentOnSaleProduct.TabIndex = 46;
-            this.lblTitCurrentOnSaleProduct.Text = "Search by Keyword:";
+            this.lblTitCurrentOnSaleProduct.Text = "Current on-sale product:";
+            // 
+            // btnRemoveFromShelves
+            // 
+            this.btnRemoveFromShelves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnRemoveFromShelves.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveFromShelves.Location = new System.Drawing.Point(694, 534);
+            this.btnRemoveFromShelves.Name = "btnRemoveFromShelves";
+            this.btnRemoveFromShelves.Size = new System.Drawing.Size(182, 50);
+            this.btnRemoveFromShelves.TabIndex = 58;
+            this.btnRemoveFromShelves.Text = "Reomve from shelves";
+            this.btnRemoveFromShelves.UseVisualStyleBackColor = false;
+            // 
+            // btnModify
+            // 
+            this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnModify.Location = new System.Drawing.Point(236, 534);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(210, 50);
+            this.btnModify.TabIndex = 56;
+            this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // btnAddProduct
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAddProduct.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnAddProduct.Location = new System.Drawing.Point(923, 879);
+            this.btnAddProduct.Location = new System.Drawing.Point(464, 534);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(210, 50);
             this.btnAddProduct.TabIndex = 59;
@@ -378,277 +468,142 @@
             this.btnAddProduct.UseVisualStyleBackColor = false;
             this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
-            // label12
+            // grpDiscouuntSetting
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(892, 140);
-            this.label12.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(61, 18);
-            this.label12.TabIndex = 99;
-            this.label12.Text = "Sort By:";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.grpDiscouuntSetting.Controls.Add(this.lblDBEndDate);
+            this.grpDiscouuntSetting.Controls.Add(this.lblDBPercentage);
+            this.grpDiscouuntSetting.Controls.Add(this.lstDataBasePosted);
+            this.grpDiscouuntSetting.Controls.Add(this.lblDBRange);
+            this.grpDiscouuntSetting.Controls.Add(this.lblTitPostedDis);
+            this.grpDiscouuntSetting.Controls.Add(this.lblDBPostedDate);
+            this.grpDiscouuntSetting.Controls.Add(this.lblDBDiscountID);
+            this.grpDiscouuntSetting.Controls.Add(this.btnSetModifyDis);
+            this.grpDiscouuntSetting.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.grpDiscouuntSetting.Location = new System.Drawing.Point(236, 637);
+            this.grpDiscouuntSetting.Name = "grpDiscouuntSetting";
+            this.grpDiscouuntSetting.Size = new System.Drawing.Size(910, 280);
+            this.grpDiscouuntSetting.TabIndex = 60;
+            this.grpDiscouuntSetting.TabStop = false;
+            this.grpDiscouuntSetting.Text = "Discount setting";
             // 
-            // cmbSorting
+            // lblDBEndDate
             // 
-            this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] {
-            "None",
-            "Item No. (Ascending)",
-            "Item No. (Descending)",
-            "Part No. (Ascending)",
-            "Part No. (Descending)",
-            "Non-LM Qty (Ascending)",
-            "Non-LM Qty (Descending)",
-            "LM Qty (Ascending)",
-            "LM Qty (Descending)",
-            "Stock Qty (Ascending)",
-            "Stock Qty (Descending)",
-            "Price (Ascending)",
-            "Price (Descending)"});
-            this.cmbSorting.Location = new System.Drawing.Point(956, 136);
-            this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(196, 26);
-            this.cmbSorting.TabIndex = 98;
-            this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
+            this.lblDBEndDate.AutoSize = true;
+            this.lblDBEndDate.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBEndDate.Location = new System.Drawing.Point(739, 55);
+            this.lblDBEndDate.Name = "lblDBEndDate";
+            this.lblDBEndDate.Size = new System.Drawing.Size(69, 17);
+            this.lblDBEndDate.TabIndex = 65;
+            this.lblDBEndDate.Text = "End Date";
             // 
-            // label13
+            // lblDBPercentage
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(892, 108);
-            this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(54, 18);
-            this.label13.TabIndex = 101;
-            this.label13.Text = "Status:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDBPercentage.AutoSize = true;
+            this.lblDBPercentage.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBPercentage.Location = new System.Drawing.Point(485, 55);
+            this.lblDBPercentage.Name = "lblDBPercentage";
+            this.lblDBPercentage.Size = new System.Drawing.Size(82, 17);
+            this.lblDBPercentage.TabIndex = 64;
+            this.lblDBPercentage.Text = "Percentage";
             // 
-            // cmbStatus
+            // lstDataBasePosted
             // 
-            this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Items.AddRange(new object[] {
-            "All",
-            "Enable",
-            "Disable"});
-            this.cmbStatus.Location = new System.Drawing.Point(956, 104);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(196, 26);
-            this.cmbStatus.TabIndex = 100;
-            this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
+            this.lstDataBasePosted.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lstDataBasePosted.FormattingEnabled = true;
+            this.lstDataBasePosted.ItemHeight = 22;
+            this.lstDataBasePosted.Location = new System.Drawing.Point(256, 76);
+            this.lstDataBasePosted.Name = "lstDataBasePosted";
+            this.lstDataBasePosted.Size = new System.Drawing.Size(642, 180);
+            this.lstDataBasePosted.TabIndex = 3;
             // 
-            // panel1
+            // lblDBRange
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Location = new System.Drawing.Point(212, 168);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(946, 702);
-            this.panel1.TabIndex = 0;
+            this.lblDBRange.AutoSize = true;
+            this.lblDBRange.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBRange.Location = new System.Drawing.Point(376, 55);
+            this.lblDBRange.Name = "lblDBRange";
+            this.lblDBRange.Size = new System.Drawing.Size(50, 17);
+            this.lblDBRange.TabIndex = 63;
+            this.lblDBRange.Text = "Range";
             // 
-            // groupBox1
+            // lblTitPostedDis
             // 
-            this.groupBox1.Controls.Add(this.pnlProduct);
-            this.groupBox1.Location = new System.Drawing.Point(3, 30);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1277, 652);
-            this.groupBox1.TabIndex = 85;
-            this.groupBox1.TabStop = false;
+            this.lblTitPostedDis.AutoSize = true;
+            this.lblTitPostedDis.Font = new System.Drawing.Font("Times New Roman", 14F);
+            this.lblTitPostedDis.Location = new System.Drawing.Point(252, 26);
+            this.lblTitPostedDis.Name = "lblTitPostedDis";
+            this.lblTitPostedDis.Size = new System.Drawing.Size(138, 21);
+            this.lblTitPostedDis.TabIndex = 2;
+            this.lblTitPostedDis.Text = "Posted Discount:";
             // 
-            // pnlProduct
+            // lblDBPostedDate
             // 
-            this.pnlProduct.AutoScroll = true;
-            this.pnlProduct.Location = new System.Drawing.Point(3, 9);
-            this.pnlProduct.Name = "pnlProduct";
-            this.pnlProduct.Size = new System.Drawing.Size(1267, 640);
-            this.pnlProduct.TabIndex = 83;
+            this.lblDBPostedDate.AutoSize = true;
+            this.lblDBPostedDate.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBPostedDate.Location = new System.Drawing.Point(612, 55);
+            this.lblDBPostedDate.Name = "lblDBPostedDate";
+            this.lblDBPostedDate.Size = new System.Drawing.Size(88, 17);
+            this.lblDBPostedDate.TabIndex = 62;
+            this.lblDBPostedDate.Text = "Posted Date";
             // 
-            // label2
+            // lblDBDiscountID
             // 
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1020, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 21);
-            this.label2.TabIndex = 84;
-            this.label2.Text = "Price";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDBDiscountID.AutoSize = true;
+            this.lblDBDiscountID.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDBDiscountID.Location = new System.Drawing.Point(253, 55);
+            this.lblDBDiscountID.Name = "lblDBDiscountID";
+            this.lblDBDiscountID.Size = new System.Drawing.Size(83, 17);
+            this.lblDBDiscountID.TabIndex = 61;
+            this.lblDBDiscountID.Text = "DiscountID";
             // 
-            // label1
+            // btnSetModifyDis
             // 
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(62, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 21);
-            this.label1.TabIndex = 83;
-            this.label1.Text = "Category";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSetModifyDis.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnSetModifyDis.Location = new System.Drawing.Point(35, 76);
+            this.btnSetModifyDis.Name = "btnSetModifyDis";
+            this.btnSetModifyDis.Size = new System.Drawing.Size(200, 60);
+            this.btnSetModifyDis.TabIndex = 0;
+            this.btnSetModifyDis.Text = "Set / Manage discount";
+            this.btnSetModifyDis.UseVisualStyleBackColor = true;
+            this.btnSetModifyDis.Click += new System.EventHandler(this.btnSetModifyDis_Click);
             // 
-            // label4
+            // picSearch
             // 
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(920, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 21);
-            this.label4.TabIndex = 71;
-            this.label4.Text = "Stock Qty";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(782, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 21);
-            this.label5.TabIndex = 70;
-            this.label5.Text = "LM On-Sale Qty";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(268, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(111, 21);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Part No.";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(608, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(168, 21);
-            this.label7.TabIndex = 68;
-            this.label7.Text = "Non-LM On-Sale Qty";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1105, 9);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(77, 21);
-            this.label8.TabIndex = 67;
-            this.label8.Text = "Status";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(385, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(217, 21);
-            this.label9.TabIndex = 66;
-            this.label9.Text = "Name";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label10
-            // 
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(165, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(97, 21);
-            this.label10.TabIndex = 65;
-            this.label10.Text = "Item No.";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(679, 108);
-            this.label22.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(106, 18);
-            this.label22.TabIndex = 103;
-            this.label22.Text = "Keyword Type:";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbKW
-            // 
-            this.cmbKW.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbKW.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbKW.FormattingEnabled = true;
-            this.cmbKW.Items.AddRange(new object[] {
-            "Item No.",
-            "Part No.",
-            "Name"});
-            this.cmbKW.Location = new System.Drawing.Point(788, 105);
-            this.cmbKW.Name = "cmbKW";
-            this.cmbKW.Size = new System.Drawing.Size(85, 26);
-            this.cmbKW.TabIndex = 102;
-            this.cmbKW.SelectedIndexChanged += new System.EventHandler(this.cmbKW_SelectedIndexChanged);
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(713, 139);
-            this.label23.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(72, 18);
-            this.label23.TabIndex = 105;
-            this.label23.Text = "Category:";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmbCategory
-            // 
-            this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] {
-            "All",
-            "A",
-            "B",
-            "C",
-            "D"});
-            this.cmbCategory.Location = new System.Drawing.Point(788, 136);
-            this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(85, 26);
-            this.cmbCategory.TabIndex = 104;
-            this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
+            this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
+            this.picSearch.Location = new System.Drawing.Point(573, 154);
+            this.picSearch.Name = "picSearch";
+            this.picSearch.Size = new System.Drawing.Size(31, 25);
+            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSearch.TabIndex = 53;
+            this.picSearch.TabStop = false;
             // 
             // OnSaleMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.cmbCategory);
-            this.Controls.Add(this.label22);
-            this.Controls.Add(this.cmbKW);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.cmbStatus);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.cmbSorting);
+            this.Controls.Add(this.grpDiscouuntSetting);
             this.Controls.Add(this.btnAddProduct);
+            this.Controls.Add(this.btnRemoveFromShelves);
+            this.Controls.Add(this.btnModify);
+            this.Controls.Add(this.lblDBItemQty);
             this.Controls.Add(this.palLoc);
+            this.Controls.Add(this.lblDBStatus);
             this.Controls.Add(this.palTIME);
+            this.Controls.Add(this.picSearch);
             this.Controls.Add(this.palNav);
-            this.Controls.Add(this.tbKw);
+            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.lstDataBaseProduct);
+            this.Controls.Add(this.lblDBOnShelvesDate);
             this.Controls.Add(this.lblTitCurrentOnSaleProduct);
+            this.Controls.Add(this.lblDBName);
+            this.Controls.Add(this.lblTitClickToModify);
+            this.Controls.Add(this.lblDBItemID);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OnSaleMain";
             this.Text = "Legend Motor Company Integrated System";
-            this.Load += new System.EventHandler(this.OnSaleMain_Load);
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
@@ -656,8 +611,9 @@
             this.palTIME.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.grpDiscouuntSetting.ResumeLayout(false);
+            this.grpDiscouuntSetting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -682,34 +638,33 @@
         private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.PictureBox picBWMode;
-        private System.Windows.Forms.TextBox tbKw;
+        private System.Windows.Forms.Label lblDBItemQty;
+        private System.Windows.Forms.Label lblDBStatus;
+        private System.Windows.Forms.PictureBox picSearch;
+        private System.Windows.Forms.TextBox tbSearch;
+        private System.Windows.Forms.Label lblDBOnShelvesDate;
+        private System.Windows.Forms.Label lblDBName;
+        private System.Windows.Forms.Label lblDBItemID;
+        private System.Windows.Forms.Label lblTitClickToModify;
+        private System.Windows.Forms.ListBox lstDataBaseProduct;
         private System.Windows.Forms.Label lblTitCurrentOnSaleProduct;
+        private System.Windows.Forms.Button btnRemoveFromShelves;
+        private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnAddProduct;
+        private System.Windows.Forms.GroupBox grpDiscouuntSetting;
+        private System.Windows.Forms.Button btnSetModifyDis;
+        private System.Windows.Forms.ListBox lstDataBasePosted;
+        private System.Windows.Forms.Label lblTitPostedDis;
+        private System.Windows.Forms.Label lblDBDiscountID;
+        private System.Windows.Forms.Label lblDBPostedDate;
+        private System.Windows.Forms.Label lblDBRange;
+        private System.Windows.Forms.Label lblDBPercentage;
+        private System.Windows.Forms.Label lblDBEndDate;
         private System.Windows.Forms.Panel palSelect5;
         private System.Windows.Forms.Panel palSelect4;
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Panel palSelect3;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox cmbSorting;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.ComboBox cmbStatus;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Panel pnlProduct;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox cmbKW;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox cmbCategory;
     }
 }
 

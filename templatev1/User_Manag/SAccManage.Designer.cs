@@ -475,7 +475,7 @@
             this.grpContact.Controls.Add(this.lblDept);
             this.grpContact.Controls.Add(this.lblJob);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(218, 736);
+            this.grpContact.Location = new System.Drawing.Point(218, 732);
             this.grpContact.Name = "grpContact";
             this.grpContact.Size = new System.Drawing.Size(928, 183);
             this.grpContact.TabIndex = 167;

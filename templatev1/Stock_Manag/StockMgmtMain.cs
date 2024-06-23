@@ -50,7 +50,7 @@ namespace templatev1
             //Get valuse from the database.
             cmbType.Items.AddRange(stockController.GetCategory().ToArray());
             cmbCountry.Items.AddRange(stockController.GetCountry().ToArray());
-            cmbSupplier.Items.AddRange(stockController.GetSupplier().ToArray());
+            cmbSupplier.Items.AddRange(stockController.GetAllSupplier().ToArray());
 
             //Datagridview properties
             dgvReorder.DataSource = stockController.GetReorder();
@@ -398,7 +398,6 @@ namespace templatev1
                     dgvStock.Rows[r].DefaultCellStyle.BackColor = Color.White;
             }
         }
-
         private void DgvReorderIndicator()
         {
             dgvReorder.ClearSelection();

@@ -62,6 +62,24 @@ namespace templatev1
             this.lblClickToSelect = new System.Windows.Forms.Label();
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.lblTitTotalNoUser = new System.Windows.Forms.Label();
+            this.grpContact = new System.Windows.Forms.GroupBox();
+            this.lblSStatus = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblSPhone = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
+            this.lblSCountry = new System.Windows.Forms.Label();
+            this.lblSAdd = new System.Windows.Forms.Label();
+            this.lblSName = new System.Windows.Forms.Label();
+            this.lblSSuppID = new System.Windows.Forms.Label();
+            this.lblAdd = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblUSuppID = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblTitName = new System.Windows.Forms.Label();
+            this.lblTitDefaultAdd = new System.Windows.Forms.Label();
+            this.lblTitPhone = new System.Windows.Forms.Label();
+            this.lblTitEmail = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -69,6 +87,7 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
+            this.grpContact.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -348,31 +367,34 @@ namespace templatev1
             // 
             this.btnAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAct.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnAct.Location = new System.Drawing.Point(431, 795);
+            this.btnAct.Location = new System.Drawing.Point(432, 612);
             this.btnAct.Name = "btnAct";
-            this.btnAct.Size = new System.Drawing.Size(226, 32);
+            this.btnAct.Size = new System.Drawing.Size(195, 32);
             this.btnAct.TabIndex = 183;
-            this.btnAct.Text = "Active Customer Account";
+            this.btnAct.Text = "Add supplier";
             this.btnAct.UseVisualStyleBackColor = false;
+            this.btnAct.Click += new System.EventHandler(this.btnAct_Click);
             // 
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.tbSearch.Location = new System.Drawing.Point(327, 136);
+            this.tbSearch.Location = new System.Drawing.Point(327, 103);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(172, 30);
             this.tbSearch.TabIndex = 185;
+            this.tbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbSearch_KeyDown);
             // 
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(221, 795);
+            this.btnModify.Location = new System.Drawing.Point(221, 612);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(195, 32);
             this.btnModify.TabIndex = 182;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = false;
+            this.btnModify.Click += new System.EventHandler(this.btnModify_Click);
             // 
             // dgvSupplier
             // 
@@ -393,7 +415,7 @@ namespace templatev1
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.EnableHeadersVisualStyles = false;
             this.dgvSupplier.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvSupplier.Location = new System.Drawing.Point(221, 212);
+            this.dgvSupplier.Location = new System.Drawing.Point(221, 179);
             this.dgvSupplier.Name = "dgvSupplier";
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
@@ -401,14 +423,17 @@ namespace templatev1
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.5F);
             this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvSupplier.RowTemplate.Height = 23;
-            this.dgvSupplier.Size = new System.Drawing.Size(928, 572);
+            this.dgvSupplier.Size = new System.Drawing.Size(928, 418);
             this.dgvSupplier.TabIndex = 189;
+            this.dgvSupplier.Sorted += new System.EventHandler(this.dgvSupplier_Sorted);
+            this.dgvSupplier.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dgvSupplier_MouseClick);
+            this.dgvSupplier.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvSupplier_MouseDoubleClick);
             // 
             // UserID
             // 
             this.UserID.AutoSize = true;
             this.UserID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserID.Location = new System.Drawing.Point(217, 139);
+            this.UserID.Location = new System.Drawing.Point(217, 106);
             this.UserID.Name = "UserID";
             this.UserID.Size = new System.Drawing.Size(104, 22);
             this.UserID.TabIndex = 188;
@@ -418,7 +443,7 @@ namespace templatev1
             // 
             this.lblClickToSelect.AutoSize = true;
             this.lblClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblClickToSelect.Location = new System.Drawing.Point(807, 191);
+            this.lblClickToSelect.Location = new System.Drawing.Point(807, 158);
             this.lblClickToSelect.Name = "lblClickToSelect";
             this.lblClickToSelect.Size = new System.Drawing.Size(346, 17);
             this.lblClickToSelect.TabIndex = 187;
@@ -427,22 +452,211 @@ namespace templatev1
             // picSearch
             // 
             this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
-            this.picSearch.Location = new System.Drawing.Point(504, 140);
+            this.picSearch.Location = new System.Drawing.Point(504, 107);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(31, 25);
             this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picSearch.TabIndex = 186;
             this.picSearch.TabStop = false;
+            this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
             // 
             // lblTitTotalNoUser
             // 
             this.lblTitTotalNoUser.AutoSize = true;
             this.lblTitTotalNoUser.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTotalNoUser.Location = new System.Drawing.Point(217, 180);
+            this.lblTitTotalNoUser.Location = new System.Drawing.Point(217, 147);
             this.lblTitTotalNoUser.Name = "lblTitTotalNoUser";
             this.lblTitTotalNoUser.Size = new System.Drawing.Size(242, 22);
             this.lblTitTotalNoUser.TabIndex = 184;
             this.lblTitTotalNoUser.Text = "No. of supplier in the system:";
+            // 
+            // grpContact
+            // 
+            this.grpContact.Controls.Add(this.lblSStatus);
+            this.grpContact.Controls.Add(this.lblStatus);
+            this.grpContact.Controls.Add(this.lblSPhone);
+            this.grpContact.Controls.Add(this.lblPhone);
+            this.grpContact.Controls.Add(this.lblSCountry);
+            this.grpContact.Controls.Add(this.lblSAdd);
+            this.grpContact.Controls.Add(this.lblSName);
+            this.grpContact.Controls.Add(this.lblSSuppID);
+            this.grpContact.Controls.Add(this.lblAdd);
+            this.grpContact.Controls.Add(this.lblCountry);
+            this.grpContact.Controls.Add(this.lblUSuppID);
+            this.grpContact.Controls.Add(this.lblName);
+            this.grpContact.Controls.Add(this.lblTitName);
+            this.grpContact.Controls.Add(this.lblTitDefaultAdd);
+            this.grpContact.Controls.Add(this.lblTitPhone);
+            this.grpContact.Controls.Add(this.lblTitEmail);
+            this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpContact.Location = new System.Drawing.Point(221, 654);
+            this.grpContact.Name = "grpContact";
+            this.grpContact.Size = new System.Drawing.Size(928, 218);
+            this.grpContact.TabIndex = 190;
+            this.grpContact.TabStop = false;
+            this.grpContact.Text = "Supplier info";
+            // 
+            // lblSStatus
+            // 
+            this.lblSStatus.AutoSize = true;
+            this.lblSStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSStatus.Location = new System.Drawing.Point(138, 121);
+            this.lblSStatus.Name = "lblSStatus";
+            this.lblSStatus.Size = new System.Drawing.Size(0, 22);
+            this.lblSStatus.TabIndex = 193;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Location = new System.Drawing.Point(21, 120);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(75, 23);
+            this.lblStatus.TabIndex = 192;
+            this.lblStatus.Text = "Status: ";
+            // 
+            // lblSPhone
+            // 
+            this.lblSPhone.AutoSize = true;
+            this.lblSPhone.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSPhone.Location = new System.Drawing.Point(138, 90);
+            this.lblSPhone.Name = "lblSPhone";
+            this.lblSPhone.Size = new System.Drawing.Size(0, 22);
+            this.lblSPhone.TabIndex = 187;
+            // 
+            // lblPhone
+            // 
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.Location = new System.Drawing.Point(21, 89);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(103, 23);
+            this.lblPhone.TabIndex = 186;
+            this.lblPhone.Text = "Phone No.:";
+            // 
+            // lblSCountry
+            // 
+            this.lblSCountry.AutoSize = true;
+            this.lblSCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSCountry.Location = new System.Drawing.Point(138, 179);
+            this.lblSCountry.Name = "lblSCountry";
+            this.lblSCountry.Size = new System.Drawing.Size(0, 22);
+            this.lblSCountry.TabIndex = 172;
+            // 
+            // lblSAdd
+            // 
+            this.lblSAdd.AutoSize = true;
+            this.lblSAdd.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSAdd.Location = new System.Drawing.Point(138, 150);
+            this.lblSAdd.Name = "lblSAdd";
+            this.lblSAdd.Size = new System.Drawing.Size(0, 22);
+            this.lblSAdd.TabIndex = 171;
+            // 
+            // lblSName
+            // 
+            this.lblSName.AutoSize = true;
+            this.lblSName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSName.Location = new System.Drawing.Point(138, 60);
+            this.lblSName.Name = "lblSName";
+            this.lblSName.Size = new System.Drawing.Size(0, 22);
+            this.lblSName.TabIndex = 170;
+            // 
+            // lblSSuppID
+            // 
+            this.lblSSuppID.AutoSize = true;
+            this.lblSSuppID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSSuppID.Location = new System.Drawing.Point(138, 30);
+            this.lblSSuppID.Name = "lblSSuppID";
+            this.lblSSuppID.Size = new System.Drawing.Size(0, 22);
+            this.lblSSuppID.TabIndex = 169;
+            // 
+            // lblAdd
+            // 
+            this.lblAdd.AutoSize = true;
+            this.lblAdd.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdd.Location = new System.Drawing.Point(21, 149);
+            this.lblAdd.Name = "lblAdd";
+            this.lblAdd.Size = new System.Drawing.Size(85, 23);
+            this.lblAdd.TabIndex = 164;
+            this.lblAdd.Text = "Address:";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.Location = new System.Drawing.Point(21, 178);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(91, 23);
+            this.lblCountry.TabIndex = 163;
+            this.lblCountry.Text = "Country: ";
+            // 
+            // lblUSuppID
+            // 
+            this.lblUSuppID.AutoSize = true;
+            this.lblUSuppID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUSuppID.Location = new System.Drawing.Point(21, 29);
+            this.lblUSuppID.Name = "lblUSuppID";
+            this.lblUSuppID.Size = new System.Drawing.Size(107, 23);
+            this.lblUSuppID.TabIndex = 162;
+            this.lblUSuppID.Text = "SupplierID:";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(21, 59);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(66, 23);
+            this.lblName.TabIndex = 161;
+            this.lblName.Text = "Name:";
+            // 
+            // lblTitName
+            // 
+            this.lblTitName.AutoSize = true;
+            this.lblTitName.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitName.Location = new System.Drawing.Point(15, 33);
+            this.lblTitName.Name = "lblTitName";
+            this.lblTitName.Size = new System.Drawing.Size(0, 19);
+            this.lblTitName.TabIndex = 160;
+            // 
+            // lblTitDefaultAdd
+            // 
+            this.lblTitDefaultAdd.AutoSize = true;
+            this.lblTitDefaultAdd.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.lblTitDefaultAdd.Location = new System.Drawing.Point(15, 125);
+            this.lblTitDefaultAdd.Name = "lblTitDefaultAdd";
+            this.lblTitDefaultAdd.Size = new System.Drawing.Size(0, 19);
+            this.lblTitDefaultAdd.TabIndex = 25;
+            // 
+            // lblTitPhone
+            // 
+            this.lblTitPhone.AutoSize = true;
+            this.lblTitPhone.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitPhone.Location = new System.Drawing.Point(15, 64);
+            this.lblTitPhone.Name = "lblTitPhone";
+            this.lblTitPhone.Size = new System.Drawing.Size(0, 19);
+            this.lblTitPhone.TabIndex = 23;
+            // 
+            // lblTitEmail
+            // 
+            this.lblTitEmail.AutoSize = true;
+            this.lblTitEmail.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitEmail.Location = new System.Drawing.Point(15, 94);
+            this.lblTitEmail.Name = "lblTitEmail";
+            this.lblTitEmail.Size = new System.Drawing.Size(0, 19);
+            this.lblTitEmail.TabIndex = 24;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.White;
+            this.btnBack.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnBack.Location = new System.Drawing.Point(921, 885);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(229, 40);
+            this.btnBack.TabIndex = 191;
+            this.btnBack.Text = "Back to Stock Management";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // viewSupplier
             // 
@@ -450,6 +664,8 @@ namespace templatev1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.btnBack);
+            this.Controls.Add(this.grpContact);
             this.Controls.Add(this.btnAct);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.tbSearch);
@@ -475,6 +691,8 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
+            this.grpContact.ResumeLayout(false);
+            this.grpContact.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,5 +729,23 @@ namespace templatev1
         private System.Windows.Forms.Label lblClickToSelect;
         private System.Windows.Forms.PictureBox picSearch;
         private System.Windows.Forms.Label lblTitTotalNoUser;
+        private System.Windows.Forms.GroupBox grpContact;
+        private System.Windows.Forms.Label lblSStatus;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblSPhone;
+        private System.Windows.Forms.Label lblPhone;
+        private System.Windows.Forms.Label lblSCountry;
+        private System.Windows.Forms.Label lblSAdd;
+        private System.Windows.Forms.Label lblSName;
+        private System.Windows.Forms.Label lblSSuppID;
+        private System.Windows.Forms.Label lblAdd;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblUSuppID;
+        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblTitName;
+        private System.Windows.Forms.Label lblTitDefaultAdd;
+        private System.Windows.Forms.Label lblTitPhone;
+        private System.Windows.Forms.Label lblTitEmail;
+        private System.Windows.Forms.Button btnBack;
     }
 }
