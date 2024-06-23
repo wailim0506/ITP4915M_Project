@@ -7,6 +7,7 @@ using System.Dynamic;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using controller;
+
 namespace templatev1
 {
     public partial class OnSaleMain : Form
@@ -16,11 +17,6 @@ namespace templatev1
         AccountController accountController;
         UIController UIController;
         OnSaleProductController onSaleProductController;
-
-        public OnSaleMain()
-        {
-            InitializeComponent();
-        }
 
         public OnSaleMain(AccountController accountController, UIController UIController)
         {
@@ -96,14 +92,21 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            Form OnSaleModify = new OnSaleModify();
-            Hide();
-            //Swap the current form to another.
-            OnSaleModify.StartPosition = FormStartPosition.Manual;
-            OnSaleModify.Location = Location;
-            OnSaleModify.Size = Size;
-            OnSaleModify.ShowDialog();
-            Close();
+            if (!string.IsNullOrEmpty(selectedProductID)) //Check whether a item is selected.
+            {
+                onSaleProductController.SetToModityItemID(selectedProductID);
+                Form OnSaleModify = new OnSaleModify(accountController, UIController, onSaleProductController);
+                Hide();
+                //Swap the current form to another.
+                OnSaleModify.StartPosition = FormStartPosition.Manual;
+                OnSaleModify.Location = Location;
+                OnSaleModify.Size = Size;
+                OnSaleModify.ShowDialog();
+                Close();
+            }
+            else
+                MessageBox.Show("Item part has NOT selected.",
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAddProduct_Click(object sender, EventArgs e)
@@ -268,7 +271,7 @@ namespace templatev1
                 for (int r = 0; r < dgvProduct.ColumnCount; r++)
                     dgvProduct[r, index].Selected = true;
                 selectedProductID =
-                    dgvProduct.Rows[index].Cells[0].Value.ToString(); //Get the spare part ID for the selected row.
+                    dgvProduct.Rows[index].Cells[0].Value.ToString(); //Get the item ID for the selected row.
 
                 //Set value to stockInfo.
                 lblItemID.Text = onSaleProductController.GetProductInfo(selectedProductID).itemID;
@@ -292,16 +295,13 @@ namespace templatev1
 
         private void dgvProduct_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            //lblSSuppID.Text = lblSName.Text = lblSPhone.Text = lblSAdd.Text
-                //= lblSCountry.Text = lblSStatus.Text = "";
+            lblItemID.Text = lblPName.Text = lblPPrice.Text = lblPStatus.Text = lblPLastMod.Text
+                = lblSuppID.Text = lblPCat.Text = lblPSuppName.Text = lblPStock.Text = lblPOnSaleQty.Text
+                = lblLMOnSaleQty.Text = lblPOnShelve.Text = "";
             selectedProductID = null;
             dgvProduct.ClearSelection();
         }
 
-        private void grpProductInfo_Enter(object sender, EventArgs e)
-        {
-
-        }
 
         private void picSearch_Click(object sender, EventArgs e)
         {
@@ -321,9 +321,30 @@ namespace templatev1
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
+        private void btnRemoveFromShelves_Click(object sender, EventArgs e)
+        {
+            if (dgvProduct.Rows[index].Cells[5].Value.ToString().Equals("Disable"))
+                MessageBox.Show("The current status is DISABLE!",
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                var result =
+                    MessageBox.Show(
+                        $"Are you sure to DISABLE itemID {selectedProductID}?\nClick Yes to continue.",
+                        "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    onSaleProductController.RemoveFromShelve(selectedProductID);
+                    dgvProduct.DataSource = onSaleProductController.GetProduct();
+                    DgvIndicator();
+                }
+            }
+        }
+
         private void dgvProduct_Sorted(object sender, EventArgs e)
         {
-
+            DgvIndicator();
         }
 
         //Color the data grid view.

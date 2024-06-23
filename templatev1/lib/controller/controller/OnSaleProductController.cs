@@ -13,7 +13,7 @@ namespace controller
     {
         AccountController accountController;
         private readonly Database db;
-        private string sqlStr;
+        private string sqlStr, ToModifyItemID;
         private DataTable dt;
         private Database _db;
 
@@ -87,6 +87,53 @@ namespace controller
             return ExecuteSqlQuery(sqlStr);
         }
 
+        public void RemoveFromShelve(string ItemID)
+        {
+            sqlStr = $"UPDATE product SET status = 'Disable', lastModified = \'{accountController.GetUid()}\' WHERE itemID = \'{ItemID}\'";
+
+            _db.ExecuteNonQueryCommand(sqlStr, null);
+        }
+
+        public void SetToModityItemID(string ItemID)
+        {
+            ToModifyItemID = ItemID;
+        }
+
+        public dynamic GetModifyItemInfo()
+        {
+            return GetProductInfo(ToModifyItemID);
+        }
+
+        public bool ModifyItemInfo(dynamic ItemInfo) 
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@itemID", ToModifyItemID },
+                    { "@onSaleQty", ItemInfo.onSaleQty },
+                    { "@LM_onSaleQty", ItemInfo.LM_onSaleQty },
+                    { "@description", ItemInfo.description },
+                    { "@status", ItemInfo.status },
+                    { "@price", accountController.GetUid() }
+                };
+
+                sqlStr =
+                    "UPDATE product SET onSaleQty = @onSaleQty, LM_onSaleQty = @LM_onSaleQty" +
+                    ", description = @description, status = @status WHERE itemID = @itemID";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "OnSaleProduct Controller", $"Error modifying item info: {e.Message}");
+                return false; //Something went wrong.
+            }
+
+
+        }
 
     }
 }

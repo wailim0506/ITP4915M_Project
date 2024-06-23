@@ -343,7 +343,7 @@
             // 
             this.lblTitCurrentOnSaleProduct.AutoSize = true;
             this.lblTitCurrentOnSaleProduct.Font = new System.Drawing.Font("Times New Roman", 17F);
-            this.lblTitCurrentOnSaleProduct.Location = new System.Drawing.Point(231, 118);
+            this.lblTitCurrentOnSaleProduct.Location = new System.Drawing.Point(210, 119);
             this.lblTitCurrentOnSaleProduct.Name = "lblTitCurrentOnSaleProduct";
             this.lblTitCurrentOnSaleProduct.Size = new System.Drawing.Size(240, 26);
             this.lblTitCurrentOnSaleProduct.TabIndex = 56;
@@ -353,7 +353,7 @@
             // 
             this.lblClickToSelect.AutoSize = true;
             this.lblClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblClickToSelect.Location = new System.Drawing.Point(477, 125);
+            this.lblClickToSelect.Location = new System.Drawing.Point(970, 126);
             this.lblClickToSelect.Name = "lblClickToSelect";
             this.lblClickToSelect.Size = new System.Drawing.Size(181, 17);
             this.lblClickToSelect.TabIndex = 58;
@@ -374,9 +374,9 @@
             this.grpSetModifyDis.Controls.Add(this.lblDiscountID);
             this.grpSetModifyDis.Controls.Add(this.lblTitDiscountID);
             this.grpSetModifyDis.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.grpSetModifyDis.Location = new System.Drawing.Point(227, 641);
+            this.grpSetModifyDis.Location = new System.Drawing.Point(215, 483);
             this.grpSetModifyDis.Name = "grpSetModifyDis";
-            this.grpSetModifyDis.Size = new System.Drawing.Size(681, 226);
+            this.grpSetModifyDis.Size = new System.Drawing.Size(931, 226);
             this.grpSetModifyDis.TabIndex = 66;
             this.grpSetModifyDis.TabStop = false;
             this.grpSetModifyDis.Text = "Set / Modify discount";
@@ -504,7 +504,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnCancel.Location = new System.Drawing.Point(540, 873);
+            this.btnCancel.Location = new System.Drawing.Point(692, 880);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 47);
             this.btnCancel.TabIndex = 68;
@@ -514,7 +514,7 @@
             // btnFinish
             // 
             this.btnFinish.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnFinish.Location = new System.Drawing.Point(380, 873);
+            this.btnFinish.Location = new System.Drawing.Point(532, 880);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(108, 47);
             this.btnFinish.TabIndex = 67;
@@ -540,7 +540,7 @@
             this.dgvStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStock.EnableHeadersVisualStyles = false;
             this.dgvStock.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvStock.Location = new System.Drawing.Point(210, 150);
+            this.dgvStock.Location = new System.Drawing.Point(215, 148);
             this.dgvStock.Name = "dgvStock";
             this.dgvStock.ReadOnly = true;
             this.dgvStock.RowHeadersVisible = false;

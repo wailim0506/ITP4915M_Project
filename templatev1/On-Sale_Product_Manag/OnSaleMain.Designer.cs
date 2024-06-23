@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -62,17 +62,31 @@
             this.picSearch = new System.Windows.Forms.PictureBox();
             this.dgvProduct = new System.Windows.Forms.DataGridView();
             this.grpProductInfo = new System.Windows.Forms.GroupBox();
+            this.lblPOnSaleQty = new System.Windows.Forms.Label();
+            this.lblLMOnSaleQty = new System.Windows.Forms.Label();
+            this.lblPStock = new System.Windows.Forms.Label();
+            this.lblPSuppName = new System.Windows.Forms.Label();
+            this.lblPCat = new System.Windows.Forms.Label();
+            this.lblPOnShelve = new System.Windows.Forms.Label();
+            this.lblItemID = new System.Windows.Forms.Label();
+            this.lblPName = new System.Windows.Forms.Label();
+            this.lblPLastMod = new System.Windows.Forms.Label();
+            this.lblTCat = new System.Windows.Forms.Label();
+            this.lblTPName = new System.Windows.Forms.Label();
+            this.lblTlastMod = new System.Windows.Forms.Label();
+            this.lblTStatus = new System.Windows.Forms.Label();
+            this.lblTStockQty = new System.Windows.Forms.Label();
             this.lblTPrice = new System.Windows.Forms.Label();
             this.lblTOnshelvesDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.line1 = new System.Windows.Forms.Label();
             this.lblSuppID = new System.Windows.Forms.Label();
-            this.lblPLastMod = new System.Windows.Forms.Label();
             this.lblPStatus = new System.Windows.Forms.Label();
             this.lblPPrice = new System.Windows.Forms.Label();
             this.lblTSuppName = new System.Windows.Forms.Label();
             this.lblTOnSaleQty = new System.Windows.Forms.Label();
             this.lblTLMQty = new System.Windows.Forms.Label();
+            this.lblTItemID = new System.Windows.Forms.Label();
             this.lblTSuppID = new System.Windows.Forms.Label();
             this.lblTitName = new System.Windows.Forms.Label();
             this.lblTitDefaultAdd = new System.Windows.Forms.Label();
@@ -80,20 +94,6 @@
             this.lblTitEmail = new System.Windows.Forms.Label();
             this.lblTitTotalNoItem = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.Label();
-            this.lblTStockQty = new System.Windows.Forms.Label();
-            this.lblTStatus = new System.Windows.Forms.Label();
-            this.lblTlastMod = new System.Windows.Forms.Label();
-            this.lblTItemID = new System.Windows.Forms.Label();
-            this.lblTPName = new System.Windows.Forms.Label();
-            this.lblTCat = new System.Windows.Forms.Label();
-            this.lblPName = new System.Windows.Forms.Label();
-            this.lblItemID = new System.Windows.Forms.Label();
-            this.lblPOnShelve = new System.Windows.Forms.Label();
-            this.lblPCat = new System.Windows.Forms.Label();
-            this.lblPSuppName = new System.Windows.Forms.Label();
-            this.lblPStock = new System.Windows.Forms.Label();
-            this.lblLMOnSaleQty = new System.Windows.Forms.Label();
-            this.lblPOnSaleQty = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -375,7 +375,7 @@
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.tbSearch.Location = new System.Drawing.Point(286, 127);
+            this.tbSearch.Location = new System.Drawing.Point(288, 127);
             this.tbSearch.Name = "tbSearch";
             this.tbSearch.Size = new System.Drawing.Size(186, 30);
             this.tbSearch.TabIndex = 52;
@@ -384,7 +384,7 @@
             // 
             this.lblTitClickToModify.AutoSize = true;
             this.lblTitClickToModify.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblTitClickToModify.Location = new System.Drawing.Point(808, 168);
+            this.lblTitClickToModify.Location = new System.Drawing.Point(810, 168);
             this.lblTitClickToModify.Name = "lblTitClickToModify";
             this.lblTitClickToModify.Size = new System.Drawing.Size(346, 17);
             this.lblTitClickToModify.TabIndex = 48;
@@ -394,18 +394,19 @@
             // 
             this.btnRemoveFromShelves.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnRemoveFromShelves.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveFromShelves.Location = new System.Drawing.Point(672, 646);
+            this.btnRemoveFromShelves.Location = new System.Drawing.Point(674, 646);
             this.btnRemoveFromShelves.Name = "btnRemoveFromShelves";
             this.btnRemoveFromShelves.Size = new System.Drawing.Size(182, 38);
             this.btnRemoveFromShelves.TabIndex = 58;
             this.btnRemoveFromShelves.Text = "Reomve from shelves";
             this.btnRemoveFromShelves.UseVisualStyleBackColor = false;
+            this.btnRemoveFromShelves.Click += new System.EventHandler(this.btnRemoveFromShelves_Click);
             // 
             // btnModify
             // 
             this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(214, 646);
+            this.btnModify.Location = new System.Drawing.Point(216, 646);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(210, 38);
             this.btnModify.TabIndex = 56;
@@ -417,7 +418,7 @@
             // 
             this.btnAddProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAddProduct.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnAddProduct.Location = new System.Drawing.Point(442, 646);
+            this.btnAddProduct.Location = new System.Drawing.Point(444, 646);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(210, 38);
             this.btnAddProduct.TabIndex = 59;
@@ -428,7 +429,7 @@
             // btnSetModifyDis
             // 
             this.btnSetModifyDis.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetModifyDis.Location = new System.Drawing.Point(921, 98);
+            this.btnSetModifyDis.Location = new System.Drawing.Point(923, 98);
             this.btnSetModifyDis.Name = "btnSetModifyDis";
             this.btnSetModifyDis.Size = new System.Drawing.Size(225, 53);
             this.btnSetModifyDis.TabIndex = 0;
@@ -439,7 +440,7 @@
             // picSearch
             // 
             this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
-            this.picSearch.Location = new System.Drawing.Point(478, 130);
+            this.picSearch.Location = new System.Drawing.Point(480, 130);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(31, 25);
             this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -455,24 +456,24 @@
             this.dgvProduct.AllowUserToResizeRows = false;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.SystemColors.Control;
-            this.dgvProduct.Location = new System.Drawing.Point(214, 190);
+            this.dgvProduct.Location = new System.Drawing.Point(216, 190);
             this.dgvProduct.Name = "dgvProduct";
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProduct.RowTemplate.Height = 23;
             this.dgvProduct.Size = new System.Drawing.Size(936, 442);
             this.dgvProduct.TabIndex = 186;
@@ -513,13 +514,132 @@
             this.grpProductInfo.Controls.Add(this.lblTitPhone);
             this.grpProductInfo.Controls.Add(this.lblTitEmail);
             this.grpProductInfo.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpProductInfo.Location = new System.Drawing.Point(214, 700);
+            this.grpProductInfo.Location = new System.Drawing.Point(216, 700);
             this.grpProductInfo.Name = "grpProductInfo";
             this.grpProductInfo.Size = new System.Drawing.Size(932, 229);
             this.grpProductInfo.TabIndex = 187;
             this.grpProductInfo.TabStop = false;
             this.grpProductInfo.Text = "Product Info";
-            this.grpProductInfo.Enter += new System.EventHandler(this.grpProductInfo_Enter);
+            // 
+            // lblPOnSaleQty
+            // 
+            this.lblPOnSaleQty.AutoSize = true;
+            this.lblPOnSaleQty.Location = new System.Drawing.Point(810, 70);
+            this.lblPOnSaleQty.Name = "lblPOnSaleQty";
+            this.lblPOnSaleQty.Size = new System.Drawing.Size(0, 22);
+            this.lblPOnSaleQty.TabIndex = 203;
+            // 
+            // lblLMOnSaleQty
+            // 
+            this.lblLMOnSaleQty.AutoSize = true;
+            this.lblLMOnSaleQty.Location = new System.Drawing.Point(810, 101);
+            this.lblLMOnSaleQty.Name = "lblLMOnSaleQty";
+            this.lblLMOnSaleQty.Size = new System.Drawing.Size(0, 22);
+            this.lblLMOnSaleQty.TabIndex = 202;
+            // 
+            // lblPStock
+            // 
+            this.lblPStock.AutoSize = true;
+            this.lblPStock.Location = new System.Drawing.Point(810, 40);
+            this.lblPStock.Name = "lblPStock";
+            this.lblPStock.Size = new System.Drawing.Size(0, 22);
+            this.lblPStock.TabIndex = 201;
+            // 
+            // lblPSuppName
+            // 
+            this.lblPSuppName.Location = new System.Drawing.Point(454, 101);
+            this.lblPSuppName.Name = "lblPSuppName";
+            this.lblPSuppName.Size = new System.Drawing.Size(186, 111);
+            this.lblPSuppName.TabIndex = 200;
+            // 
+            // lblPCat
+            // 
+            this.lblPCat.AutoSize = true;
+            this.lblPCat.Location = new System.Drawing.Point(454, 70);
+            this.lblPCat.Name = "lblPCat";
+            this.lblPCat.Size = new System.Drawing.Size(0, 22);
+            this.lblPCat.TabIndex = 199;
+            // 
+            // lblPOnShelve
+            // 
+            this.lblPOnShelve.AutoSize = true;
+            this.lblPOnShelve.Location = new System.Drawing.Point(810, 130);
+            this.lblPOnShelve.Name = "lblPOnShelve";
+            this.lblPOnShelve.Size = new System.Drawing.Size(0, 22);
+            this.lblPOnShelve.TabIndex = 197;
+            // 
+            // lblItemID
+            // 
+            this.lblItemID.AutoSize = true;
+            this.lblItemID.Location = new System.Drawing.Point(119, 40);
+            this.lblItemID.Name = "lblItemID";
+            this.lblItemID.Size = new System.Drawing.Size(0, 22);
+            this.lblItemID.TabIndex = 196;
+            // 
+            // lblPName
+            // 
+            this.lblPName.Location = new System.Drawing.Point(119, 70);
+            this.lblPName.Name = "lblPName";
+            this.lblPName.Size = new System.Drawing.Size(206, 58);
+            this.lblPName.TabIndex = 195;
+            // 
+            // lblPLastMod
+            // 
+            this.lblPLastMod.AutoSize = true;
+            this.lblPLastMod.Location = new System.Drawing.Point(119, 190);
+            this.lblPLastMod.Name = "lblPLastMod";
+            this.lblPLastMod.Size = new System.Drawing.Size(0, 22);
+            this.lblPLastMod.TabIndex = 176;
+            // 
+            // lblTCat
+            // 
+            this.lblTCat.AutoSize = true;
+            this.lblTCat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTCat.Location = new System.Drawing.Point(345, 69);
+            this.lblTCat.Name = "lblTCat";
+            this.lblTCat.Size = new System.Drawing.Size(96, 23);
+            this.lblTCat.TabIndex = 194;
+            this.lblTCat.Text = "Category:";
+            // 
+            // lblTPName
+            // 
+            this.lblTPName.AutoSize = true;
+            this.lblTPName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTPName.Location = new System.Drawing.Point(21, 69);
+            this.lblTPName.Name = "lblTPName";
+            this.lblTPName.Size = new System.Drawing.Size(66, 23);
+            this.lblTPName.TabIndex = 193;
+            this.lblTPName.Text = "Name:";
+            // 
+            // lblTlastMod
+            // 
+            this.lblTlastMod.AutoSize = true;
+            this.lblTlastMod.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTlastMod.Location = new System.Drawing.Point(21, 189);
+            this.lblTlastMod.Name = "lblTlastMod";
+            this.lblTlastMod.Size = new System.Drawing.Size(108, 23);
+            this.lblTlastMod.TabIndex = 192;
+            this.lblTlastMod.Text = "Last Mod:  ";
+            // 
+            // lblTStatus
+            // 
+            this.lblTStatus.AutoSize = true;
+            this.lblTStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTStatus.Location = new System.Drawing.Point(21, 159);
+            this.lblTStatus.Name = "lblTStatus";
+            this.lblTStatus.Size = new System.Drawing.Size(75, 23);
+            this.lblTStatus.TabIndex = 191;
+            this.lblTStatus.Text = "Status: ";
+            // 
+            // lblTStockQty
+            // 
+            this.lblTStockQty.AutoSize = true;
+            this.lblTStockQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTStockQty.Location = new System.Drawing.Point(657, 39);
+            this.lblTStockQty.Name = "lblTStockQty";
+            this.lblTStockQty.Size = new System.Drawing.Size(108, 23);
+            this.lblTStockQty.TabIndex = 189;
+            this.lblTStockQty.Text = "Stock Qty: ";
             // 
             // lblTPrice
             // 
@@ -564,14 +684,6 @@
             this.lblSuppID.Name = "lblSuppID";
             this.lblSuppID.Size = new System.Drawing.Size(0, 22);
             this.lblSuppID.TabIndex = 177;
-            // 
-            // lblPLastMod
-            // 
-            this.lblPLastMod.AutoSize = true;
-            this.lblPLastMod.Location = new System.Drawing.Point(119, 190);
-            this.lblPLastMod.Name = "lblPLastMod";
-            this.lblPLastMod.Size = new System.Drawing.Size(0, 22);
-            this.lblPLastMod.TabIndex = 176;
             // 
             // lblPStatus
             // 
@@ -618,6 +730,16 @@
             this.lblTLMQty.Size = new System.Drawing.Size(160, 23);
             this.lblTLMQty.TabIndex = 163;
             this.lblTLMQty.Text = "LM_Onsale Qty: ";
+            // 
+            // lblTItemID
+            // 
+            this.lblTItemID.AutoSize = true;
+            this.lblTItemID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTItemID.Location = new System.Drawing.Point(21, 39);
+            this.lblTItemID.Name = "lblTItemID";
+            this.lblTItemID.Size = new System.Drawing.Size(77, 23);
+            this.lblTItemID.TabIndex = 162;
+            this.lblTItemID.Text = "ItemID:";
             // 
             // lblTSuppID
             // 
@@ -678,137 +800,11 @@
             // 
             this.UserID.AutoSize = true;
             this.UserID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserID.Location = new System.Drawing.Point(210, 130);
+            this.UserID.Location = new System.Drawing.Point(212, 130);
             this.UserID.Name = "UserID";
             this.UserID.Size = new System.Drawing.Size(70, 22);
             this.UserID.TabIndex = 189;
             this.UserID.Text = "ItemID:";
-            // 
-            // lblTStockQty
-            // 
-            this.lblTStockQty.AutoSize = true;
-            this.lblTStockQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTStockQty.Location = new System.Drawing.Point(657, 39);
-            this.lblTStockQty.Name = "lblTStockQty";
-            this.lblTStockQty.Size = new System.Drawing.Size(108, 23);
-            this.lblTStockQty.TabIndex = 189;
-            this.lblTStockQty.Text = "Stock Qty: ";
-            // 
-            // lblTStatus
-            // 
-            this.lblTStatus.AutoSize = true;
-            this.lblTStatus.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTStatus.Location = new System.Drawing.Point(21, 159);
-            this.lblTStatus.Name = "lblTStatus";
-            this.lblTStatus.Size = new System.Drawing.Size(75, 23);
-            this.lblTStatus.TabIndex = 191;
-            this.lblTStatus.Text = "Status: ";
-            // 
-            // lblTlastMod
-            // 
-            this.lblTlastMod.AutoSize = true;
-            this.lblTlastMod.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTlastMod.Location = new System.Drawing.Point(21, 189);
-            this.lblTlastMod.Name = "lblTlastMod";
-            this.lblTlastMod.Size = new System.Drawing.Size(108, 23);
-            this.lblTlastMod.TabIndex = 192;
-            this.lblTlastMod.Text = "Last Mod:  ";
-            // 
-            // lblTItemID
-            // 
-            this.lblTItemID.AutoSize = true;
-            this.lblTItemID.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTItemID.Location = new System.Drawing.Point(21, 39);
-            this.lblTItemID.Name = "lblTItemID";
-            this.lblTItemID.Size = new System.Drawing.Size(77, 23);
-            this.lblTItemID.TabIndex = 162;
-            this.lblTItemID.Text = "ItemID:";
-            // 
-            // lblTPName
-            // 
-            this.lblTPName.AutoSize = true;
-            this.lblTPName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTPName.Location = new System.Drawing.Point(21, 69);
-            this.lblTPName.Name = "lblTPName";
-            this.lblTPName.Size = new System.Drawing.Size(66, 23);
-            this.lblTPName.TabIndex = 193;
-            this.lblTPName.Text = "Name:";
-            // 
-            // lblTCat
-            // 
-            this.lblTCat.AutoSize = true;
-            this.lblTCat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTCat.Location = new System.Drawing.Point(345, 69);
-            this.lblTCat.Name = "lblTCat";
-            this.lblTCat.Size = new System.Drawing.Size(96, 23);
-            this.lblTCat.TabIndex = 194;
-            this.lblTCat.Text = "Category:";
-            // 
-            // lblPName
-            // 
-            this.lblPName.Location = new System.Drawing.Point(119, 70);
-            this.lblPName.Name = "lblPName";
-            this.lblPName.Size = new System.Drawing.Size(206, 58);
-            this.lblPName.TabIndex = 195;
-            // 
-            // lblItemID
-            // 
-            this.lblItemID.AutoSize = true;
-            this.lblItemID.Location = new System.Drawing.Point(119, 40);
-            this.lblItemID.Name = "lblItemID";
-            this.lblItemID.Size = new System.Drawing.Size(0, 22);
-            this.lblItemID.TabIndex = 196;
-            // 
-            // lblPOnShelve
-            // 
-            this.lblPOnShelve.AutoSize = true;
-            this.lblPOnShelve.Location = new System.Drawing.Point(810, 130);
-            this.lblPOnShelve.Name = "lblPOnShelve";
-            this.lblPOnShelve.Size = new System.Drawing.Size(31, 22);
-            this.lblPOnShelve.TabIndex = 197;
-            this.lblPOnShelve.Text = "---";
-            // 
-            // lblPCat
-            // 
-            this.lblPCat.AutoSize = true;
-            this.lblPCat.Location = new System.Drawing.Point(454, 70);
-            this.lblPCat.Name = "lblPCat";
-            this.lblPCat.Size = new System.Drawing.Size(0, 22);
-            this.lblPCat.TabIndex = 199;
-            // 
-            // lblPSuppName
-            // 
-            this.lblPSuppName.Location = new System.Drawing.Point(454, 101);
-            this.lblPSuppName.Name = "lblPSuppName";
-            this.lblPSuppName.Size = new System.Drawing.Size(186, 111);
-            this.lblPSuppName.TabIndex = 200;
-            // 
-            // lblPStock
-            // 
-            this.lblPStock.AutoSize = true;
-            this.lblPStock.Location = new System.Drawing.Point(810, 40);
-            this.lblPStock.Name = "lblPStock";
-            this.lblPStock.Size = new System.Drawing.Size(31, 22);
-            this.lblPStock.TabIndex = 201;
-            this.lblPStock.Text = "---";
-            // 
-            // lblLMOnSaleQty
-            // 
-            this.lblLMOnSaleQty.AutoSize = true;
-            this.lblLMOnSaleQty.Location = new System.Drawing.Point(810, 101);
-            this.lblLMOnSaleQty.Name = "lblLMOnSaleQty";
-            this.lblLMOnSaleQty.Size = new System.Drawing.Size(31, 22);
-            this.lblLMOnSaleQty.TabIndex = 202;
-            this.lblLMOnSaleQty.Text = "---";
-            // 
-            // lblPOnSaleQty
-            // 
-            this.lblPOnSaleQty.AutoSize = true;
-            this.lblPOnSaleQty.Location = new System.Drawing.Point(810, 70);
-            this.lblPOnSaleQty.Name = "lblPOnSaleQty";
-            this.lblPOnSaleQty.Size = new System.Drawing.Size(31, 22);
-            this.lblPOnSaleQty.TabIndex = 203;
-            this.lblPOnSaleQty.Text = "---";
             // 
             // OnSaleMain
             // 
