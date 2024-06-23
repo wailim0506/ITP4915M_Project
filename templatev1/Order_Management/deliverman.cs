@@ -37,9 +37,25 @@ namespace templatev1
         private void Form1_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            hideButton();
             cmbUpcomingSorting.SelectedIndex = 0;
             cmbFinishedSorting.SelectedIndex = 0;
             load_data(cmbUpcomingSorting.Text.ToString(), cmbUpcomingSorting.Text.ToString());
+        }
+
+        public void hideButton()
+        {
+            dynamic btnFun = UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
         }
 
         public void load_data(string sortBy1, string sortBy2)
@@ -284,6 +300,16 @@ namespace templatev1
         private void cmbFinishedSorting_SelectedIndexChanged(object sender, EventArgs e)
         {
             load_data(cmbUpcomingSorting.Text.ToString(), cmbFinishedSorting.Text.ToString());
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
         }
 
         private void timer1_Tick(object sender, EventArgs e)

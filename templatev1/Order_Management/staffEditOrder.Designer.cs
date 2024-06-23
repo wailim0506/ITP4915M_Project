@@ -28,11 +28,6 @@ namespace templatev1
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(staffEditOrder));
             this.palNav = new System.Windows.Forms.Panel();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.palSelect3 = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -103,11 +98,6 @@ namespace templatev1
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.palNav.Controls.Add(this.palSelect5);
-            this.palNav.Controls.Add(this.palSelect4);
-            this.palNav.Controls.Add(this.palSelect2);
-            this.palNav.Controls.Add(this.palSelect1);
-            this.palNav.Controls.Add(this.palSelect3);
             this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
             this.palNav.Controls.Add(this.btnLogOut);
@@ -120,50 +110,10 @@ namespace templatev1
             this.palNav.Controls.Add(this.btnFunction1);
             this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.palNav.Location = new System.Drawing.Point(0, 0);
-            this.palNav.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 924);
             this.palNav.TabIndex = 164;
-            // 
-            // palSelect5
-            // 
-            this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
-            this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
-            this.palSelect5.TabIndex = 29;
-            // 
-            // palSelect4
-            // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 30;
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 31;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 32;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 28;
             // 
             // picBWMode
             // 
@@ -182,7 +132,7 @@ namespace templatev1
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProFile.Location = new System.Drawing.Point(3, 757);
-            this.btnProFile.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
             this.btnProFile.TabIndex = 20;
@@ -196,7 +146,7 @@ namespace templatev1
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Location = new System.Drawing.Point(3, 799);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
             this.btnLogOut.TabIndex = 19;
@@ -209,7 +159,7 @@ namespace templatev1
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.picHome.Image = global::templatev1.Properties.Resources.home;
             this.picHome.Location = new System.Drawing.Point(13, 13);
-            this.picHome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";
             this.picHome.Size = new System.Drawing.Size(57, 56);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -234,7 +184,7 @@ namespace templatev1
             this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction5.Location = new System.Drawing.Point(0, 371);
-            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction5.Name = "btnFunction5";
             this.btnFunction5.Size = new System.Drawing.Size(198, 55);
             this.btnFunction5.TabIndex = 15;
@@ -249,7 +199,7 @@ namespace templatev1
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction4.Location = new System.Drawing.Point(0, 296);
-            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction4.Name = "btnFunction4";
             this.btnFunction4.Size = new System.Drawing.Size(198, 55);
             this.btnFunction4.TabIndex = 14;
@@ -264,7 +214,7 @@ namespace templatev1
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction3.Location = new System.Drawing.Point(0, 223);
-            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction3.Name = "btnFunction3";
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 13;
@@ -278,7 +228,7 @@ namespace templatev1
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction2.Location = new System.Drawing.Point(0, 150);
-            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction2.Name = "btnFunction2";
             this.btnFunction2.Size = new System.Drawing.Size(198, 55);
             this.btnFunction2.TabIndex = 12;
@@ -293,7 +243,7 @@ namespace templatev1
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFunction1.Location = new System.Drawing.Point(0, 77);
-            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction1.Name = "btnFunction1";
             this.btnFunction1.Size = new System.Drawing.Size(198, 55);
             this.btnFunction1.TabIndex = 11;
@@ -330,7 +280,7 @@ namespace templatev1
             this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
             this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.palTime.Location = new System.Drawing.Point(198, 0);
-            this.palTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.palTime.Margin = new System.Windows.Forms.Padding(2);
             this.palTime.Name = "palTime";
             this.palTime.Size = new System.Drawing.Size(981, 40);
             this.palTime.TabIndex = 167;
@@ -892,11 +842,6 @@ namespace templatev1
         #endregion
 
         private System.Windows.Forms.Panel palNav;
-        private System.Windows.Forms.Panel palSelect5;
-        private System.Windows.Forms.Panel palSelect4;
-        private System.Windows.Forms.Panel palSelect2;
-        private System.Windows.Forms.Panel palSelect1;
-        private System.Windows.Forms.Panel palSelect3;
         private System.Windows.Forms.PictureBox picBWMode;
         private System.Windows.Forms.Button btnProFile;
         private System.Windows.Forms.Button btnLogOut;

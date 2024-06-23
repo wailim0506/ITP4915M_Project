@@ -43,8 +43,24 @@ namespace templatev1
         private void staffEditOrder_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
+            hideButton();
             cmbSortOrder.SelectedIndex = 0;
             loadData(cmbSortOrder.Text);
+        }
+
+        public void hideButton()
+        {
+            dynamic btnFun = UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
         }
 
 

@@ -41,9 +41,25 @@ namespace templatev1
 
         private void delivermanViewOrder_Load(object sender, EventArgs e)
         {
+            hideButton();
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
             load_data();
+        }
+
+        public void hideButton()
+        {
+            dynamic btnFun = UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
         }
 
         public void load_data()
@@ -216,6 +232,16 @@ namespace templatev1
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
         }
 
         private void btnRelayEdit_Click_1(object sender, EventArgs e)
