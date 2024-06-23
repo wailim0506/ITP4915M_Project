@@ -30,8 +30,8 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
@@ -80,6 +80,7 @@ namespace templatev1
             this.lblTitPhone = new System.Windows.Forms.Label();
             this.lblTitEmail = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.palStock = new System.Windows.Forms.Panel();
             this.palLoc.SuspendLayout();
             this.palTime.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -88,6 +89,7 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.dgvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             this.grpContact.SuspendLayout();
+            this.palStock.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer1
@@ -367,7 +369,7 @@ namespace templatev1
             // 
             this.btnAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnAct.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnAct.Location = new System.Drawing.Point(432, 612);
+            this.btnAct.Location = new System.Drawing.Point(217, 9);
             this.btnAct.Name = "btnAct";
             this.btnAct.Size = new System.Drawing.Size(195, 32);
             this.btnAct.TabIndex = 183;
@@ -388,7 +390,7 @@ namespace templatev1
             // 
             this.btnModify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(221, 612);
+            this.btnModify.Location = new System.Drawing.Point(6, 9);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(195, 32);
             this.btnModify.TabIndex = 182;
@@ -404,14 +406,14 @@ namespace templatev1
             this.dgvSupplier.AllowUserToResizeRows = false;
             this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSupplier.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.EnableHeadersVisualStyles = false;
             this.dgvSupplier.GridColor = System.Drawing.SystemColors.Control;
@@ -420,8 +422,8 @@ namespace templatev1
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
             this.dgvSupplier.RowHeadersWidth = 30;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.5F);
-            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 13.5F);
+            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvSupplier.RowTemplate.Height = 23;
             this.dgvSupplier.Size = new System.Drawing.Size(928, 418);
             this.dgvSupplier.TabIndex = 189;
@@ -658,19 +660,28 @@ namespace templatev1
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // palStock
+            // 
+            this.palStock.Controls.Add(this.btnAct);
+            this.palStock.Controls.Add(this.btnModify);
+            this.palStock.Location = new System.Drawing.Point(215, 603);
+            this.palStock.Name = "palStock";
+            this.palStock.Size = new System.Drawing.Size(442, 51);
+            this.palStock.TabIndex = 192;
+            this.palStock.Visible = false;
+            // 
             // viewSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.palStock);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.grpContact);
-            this.Controls.Add(this.btnAct);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.palTime);
-            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.dgvSupplier);
             this.Controls.Add(this.lblClickToSelect);
@@ -693,6 +704,7 @@ namespace templatev1
             ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.grpContact.ResumeLayout(false);
             this.grpContact.PerformLayout();
+            this.palStock.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -747,5 +759,6 @@ namespace templatev1
         private System.Windows.Forms.Label lblTitPhone;
         private System.Windows.Forms.Label lblTitEmail;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Panel palStock;
     }
 }

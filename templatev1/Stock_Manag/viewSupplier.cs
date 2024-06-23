@@ -44,6 +44,7 @@ namespace templatev1
             DgvIndicator();
             dgvSupplier.ColumnHeadersDefaultCellStyle.Font
                 = new Font("Times New Roman", 13F, FontStyle.Bold);
+            palStock.Visible = UIController.ViewSupplier();
 
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
