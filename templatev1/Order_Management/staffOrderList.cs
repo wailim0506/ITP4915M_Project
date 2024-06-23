@@ -36,10 +36,10 @@ namespace templatev1
         private void staffOrderList_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-
+            palSelect1.Visible =
+                           palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
-
-
+            setIndicator(UIController.getIndicator("Order Management"));
             cmbStatus.SelectedIndex = 0;
             cmbSorting.SelectedIndex = 0;
             load_data(cmbStatus.Text, cmbSorting.Text, isManager);
@@ -79,6 +79,7 @@ namespace templatev1
             }
 
             int yPosition = 9;
+            lblNumberOfOrderShown.Text = $"{dt.Rows.Count}";
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 string orderDate = dt.Rows[i][1].ToString();
@@ -269,6 +270,54 @@ namespace templatev1
             o.Location = Location;
             o.ShowDialog();
             Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            Form proFile = new SAccManage(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void setIndicator(int btnNo)
+        {
+            switch (btnNo)
+            {
+                case 1:
+                    palSelect1.Visible = true;
+                    break;
+                case 2:
+                    palSelect2.Visible = true;
+                    break;
+                case 3:
+                    palSelect3.Visible = true;
+                    break;
+                case 4:
+                    palSelect4.Visible = true;
+                    break;
+                case 5:
+                    palSelect5.Visible = true;
+                    break;
+            }
         }
     }
 }

@@ -135,17 +135,19 @@ namespace templatev1
             Form next = new Home(accountController, UIController);
             switch (Function)
             {
-                //my version
                 case "Order Management":
                     if (UID.StartsWith("LMC"))
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
+                    else if (accountController.checkIsDeliverman())
+                    {
+                        next = new deliverman(accountController, UIController);
+                    }
                     else
                     {
-                        next = new templatev1.staffOrderList(accountController, UIController);
+                        next = new staffOrderList(accountController, UIController);
                     }
-
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);
@@ -159,7 +161,6 @@ namespace templatev1
                 case "Give Feedback":
                     next = new giveFeedback(accountController, UIController);
                     break;
-                //my version
 
                 case "On-Sale Product Management":
                     next = new OnSaleMain(accountController, UIController);
@@ -169,6 +170,9 @@ namespace templatev1
                     break;
                 case "User Management":
                     next = new SAccManage(accountController, UIController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(accountController, UIController);
                     break;
             }
 

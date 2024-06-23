@@ -160,6 +160,7 @@ namespace templatev1
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
+            this.btnProFile.Click += new System.EventHandler(this.btnProFile_Click);
             // 
             // btnLogOut
             // 
@@ -212,6 +213,7 @@ namespace templatev1
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // btnFunction4
             // 
@@ -409,7 +411,12 @@ namespace templatev1
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
-            this.cmbSorting.Items.AddRange(new object[] { "None", "Part Number (Ascending)", "Part Number (Descending)", "Quantity (Ascending)", "Quantity (Descending)" });
+            this.cmbSorting.Items.AddRange(new object[] {
+            "None",
+            "Part Number (Ascending)",
+            "Part Number (Descending)",
+            "Quantity (Ascending)",
+            "Quantity (Descending)"});
             this.cmbSorting.Location = new System.Drawing.Point(856, 150);
             this.cmbSorting.Name = "cmbSorting";
             this.cmbSorting.Size = new System.Drawing.Size(154, 26);
@@ -453,7 +460,12 @@ namespace templatev1
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Items.AddRange(new object[] { "All", "A", "B", "C", "D" });
+            this.cmbCategory.Items.AddRange(new object[] {
+            "All",
+            "A",
+            "B",
+            "C",
+            "D"});
             this.cmbCategory.Location = new System.Drawing.Point(734, 150);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(52, 26);
@@ -492,6 +504,7 @@ namespace templatev1
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

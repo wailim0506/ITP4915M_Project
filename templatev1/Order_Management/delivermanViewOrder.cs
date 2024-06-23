@@ -41,10 +41,14 @@ namespace templatev1
 
         private void delivermanViewOrder_Load(object sender, EventArgs e)
         {
-            hideButton();
+            
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
             load_data();
+            palSelect1.Visible =
+               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+            hideButton();
+            setIndicator(UIController.getIndicator("Order Management"));
         }
 
         public void hideButton()
@@ -195,8 +199,7 @@ namespace templatev1
         private void btnReturn_Click(object sender, EventArgs e)
         {
             Form deliverman =
-                new deliverman(); //for testing
-            // new deliverman(accountController, UIController);
+                new deliverman(accountController, UIController);
             Hide();
             deliverman.StartPosition = FormStartPosition.Manual;
             deliverman.Location = Location;
@@ -244,12 +247,70 @@ namespace templatev1
             Close();
         }
 
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o = new deliverman(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            Form proFile = new SAccManage(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
         private void btnRelayEdit_Click_1(object sender, EventArgs e)
         {
             Form d = new DeliverymanEditOrderRelay(orderID, accountController, UIController);
             d.StartPosition = FormStartPosition.Manual;
             d.Location = Location;
             d.ShowDialog();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void setIndicator(int btnNo)
+        {
+            switch (btnNo)
+            {
+                case 1:
+                    palSelect1.Visible = true;
+                    break;
+                case 2:
+                    palSelect2.Visible = true;
+                    break;
+                case 3:
+                    palSelect3.Visible = true;
+                    break;
+                case 4:
+                    palSelect4.Visible = true;
+                    break;
+                case 5:
+                    palSelect5.Visible = true;
+                    break;
+            }
         }
     }
 }
