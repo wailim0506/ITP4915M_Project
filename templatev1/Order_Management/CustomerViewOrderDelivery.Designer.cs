@@ -76,7 +76,7 @@ namespace templatev1
             // lblOrderIDLabel
             // 
             this.lblOrderIDLabel.AutoSize = true;
-            this.lblOrderIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderIDLabel.Location = new System.Drawing.Point(218, 94);
             this.lblOrderIDLabel.Name = "lblOrderIDLabel";
             this.lblOrderIDLabel.Size = new System.Drawing.Size(78, 20);
@@ -100,7 +100,7 @@ namespace templatev1
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(616, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(117, 20);
@@ -110,7 +110,7 @@ namespace templatev1
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(616, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(142, 20);
@@ -120,7 +120,7 @@ namespace templatev1
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(616, 167);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(152, 20);
@@ -130,7 +130,7 @@ namespace templatev1
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(218, 130);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(142, 20);
@@ -139,7 +139,7 @@ namespace templatev1
             // 
             // lblShippingAddress
             // 
-            this.lblShippingAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblShippingAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblShippingAddress.Location = new System.Drawing.Point(218, 167);
             this.lblShippingAddress.Name = "lblShippingAddress";
             this.lblShippingAddress.Size = new System.Drawing.Size(263, 67);
@@ -148,7 +148,7 @@ namespace templatev1
             // lblDelivermanID
             // 
             this.lblDelivermanID.AutoSize = true;
-            this.lblDelivermanID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDelivermanID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanID.Location = new System.Drawing.Point(795, 102);
             this.lblDelivermanID.Name = "lblDelivermanID";
             this.lblDelivermanID.Size = new System.Drawing.Size(0, 20);
@@ -157,7 +157,7 @@ namespace templatev1
             // lblDelivermanName
             // 
             this.lblDelivermanName.AutoSize = true;
-            this.lblDelivermanName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDelivermanName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanName.Location = new System.Drawing.Point(795, 122);
             this.lblDelivermanName.Name = "lblDelivermanName";
             this.lblDelivermanName.Size = new System.Drawing.Size(0, 20);
@@ -166,7 +166,7 @@ namespace templatev1
             // lblDelivermanContact
             // 
             this.lblDelivermanContact.AutoSize = true;
-            this.lblDelivermanContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDelivermanContact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanContact.Location = new System.Drawing.Point(795, 167);
             this.lblDelivermanContact.Name = "lblDelivermanContact";
             this.lblDelivermanContact.Size = new System.Drawing.Size(0, 20);
@@ -176,7 +176,7 @@ namespace templatev1
             // 
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(218, 830);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(94, 49);
@@ -449,7 +449,7 @@ namespace templatev1
             // lblOrderID
             // 
             this.lblOrderID.AutoSize = true;
-            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(312, 94);
             this.lblOrderID.Name = "lblOrderID";
             this.lblOrderID.Size = new System.Drawing.Size(0, 20);

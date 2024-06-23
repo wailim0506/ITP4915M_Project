@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using controller;
 
@@ -12,7 +10,6 @@ namespace templatev1
         AccountController accountController;
         stockController stockController;
         UIController UIController;
-
 
 
         public viewSupplier(AccountController accountController, UIController UIController,
@@ -36,22 +33,6 @@ namespace templatev1
             UID = accountController.GetUid();
             uName = accountController.GetName();
             lblUid.Text = "UID: " + UID;
-            setIndicator(UIController.getIndicator("Stock Management"));
-            dgvSupplier.DataSource = 
-
-            //For determine which button needs to be shown.
-            dynamic btnFun = UIController.showFun();
-            btnFunction1.Visible = btnFun.btn1show;
-            btnFunction1.Text = btnFun.btn1value;
-            btnFunction2.Visible = btnFun.btn2show;
-            btnFunction2.Text = btnFun.btn2value;
-            btnFunction3.Visible = btnFun.btn3show;
-            btnFunction3.Text = btnFun.btn3value;
-            btnFunction4.Visible = btnFun.btn4show;
-            btnFunction4.Text = btnFun.btn4value;
-            btnFunction5.Visible = btnFun.btn5show;
-            btnFunction5.Text = btnFun.btn5value;
-
 
             //For icon color
             if (Properties.Settings.Default.BWmode == true)
@@ -194,11 +175,6 @@ namespace templatev1
             about.ShowDialog();
             Close();
         }
-
-
-
-
-
 
 
         private void timer1_Tick(object sender, EventArgs e)

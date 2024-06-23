@@ -34,7 +34,6 @@ namespace templatev1
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
 
-        
 
         private void OnSaleMain_Load(object sender, EventArgs e)
         {
@@ -123,7 +122,7 @@ namespace templatev1
             {
                 Label lblRowNum = new Label
                 {
-                    Text = $"{i+1}",
+                    Text = $"{i + 1}",
                     Location = new Point(3, yPosition),
                     Font = new Font("Times New Roman", 13),
                     Size = new Size(47, 21),
@@ -306,7 +305,6 @@ namespace templatev1
         }
 
 
-
         private void setIndicator(int btnNo)
         {
             switch (btnNo)
@@ -329,7 +327,6 @@ namespace templatev1
             }
         }
 
-        
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
@@ -343,7 +340,6 @@ namespace templatev1
             Close();
         }
 
-        
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
@@ -370,7 +366,6 @@ namespace templatev1
             getPage(btnFunction5.Text);
         }
 
-      
 
         private void getPage(string Function)
         {

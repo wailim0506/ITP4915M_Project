@@ -293,7 +293,7 @@ namespace templatev1
                     Name = $"lblRowNum{i}",
                     Text = $"{i.ToString()}.",
                     Location = new Point(3, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(30, 20)
                 };
@@ -302,7 +302,7 @@ namespace templatev1
                     Name = $"lblItemNum{i}",
                     Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(35, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(83, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -311,7 +311,7 @@ namespace templatev1
                     Name = $"lblPartNum{i}",
                     Text = $"{dt.Rows[i - 1][0]}",
                     Location = new Point(124, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(97, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -320,7 +320,7 @@ namespace templatev1
                     Name = $"lblPartName{i}",
                     Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(227, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(300, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -329,7 +329,7 @@ namespace templatev1
                     Name = $"lblQuantity{i}",
                     Text = $"{dt.Rows[i - 1][2]}",
                     Location = new Point(533, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(106, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -338,7 +338,7 @@ namespace templatev1
                     Name = $"lblUnitPrice{i}",
                     Text = $"¥{dt.Rows[i - 1][3]}",
                     Location = new Point(645, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(144, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -348,7 +348,7 @@ namespace templatev1
                     Text =
                         $"¥{(int.Parse(dt.Rows[i - 1][2].ToString()) * int.Parse(dt.Rows[i - 1][3].ToString())).ToString()}",
                     Location = new Point(795, rowPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(114, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };

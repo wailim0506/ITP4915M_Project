@@ -64,7 +64,7 @@ namespace templatev1
                 {
                     Text = $"{(i + 1)}.",
                     Location = new Point(3, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(41, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -73,7 +73,7 @@ namespace templatev1
                 {
                     Text = $"{dt.Rows[i][3]}",
                     Location = new Point(42, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(86, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -83,7 +83,7 @@ namespace templatev1
                     Name = $"lblPartNum{i}",
                     Text = $"{dt.Rows[i][0]}",
                     Location = new Point(143, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(128, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -92,7 +92,7 @@ namespace templatev1
                 {
                     Text = $"{dt.Rows[i][1]}",
                     Location = new Point(285, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(242, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -101,7 +101,7 @@ namespace templatev1
                 {
                     Text = $"{dt.Rows[i][2]}",
                     Location = new Point(542, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(94, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -111,7 +111,7 @@ namespace templatev1
                     Name = $"btnView{i}",
                     Text = "View DID",
                     Location = new Point(647, yPosition - 2),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(116, 25),
                     Cursor = Cursors.Hand

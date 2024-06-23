@@ -335,7 +335,7 @@ namespace templatev1
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(937, 164);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
@@ -347,7 +347,7 @@ namespace templatev1
             // cmbSorting
             // 
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSorting.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
             this.cmbSorting.Items.AddRange(new object[] { "Category", "Price (Ascending)", "Price (Descending)" });
             this.cmbSorting.Location = new System.Drawing.Point(1002, 164);
@@ -358,7 +358,7 @@ namespace templatev1
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(431, 103);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label3.Name = "label3";
@@ -368,7 +368,7 @@ namespace templatev1
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(221, 102);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label2.Name = "label2";
@@ -379,7 +379,7 @@ namespace templatev1
             // cmbCategory
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCategory.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCategory.FormattingEnabled = true;
             this.cmbCategory.Items.AddRange(new object[] { "All", "A", "B", "C", "D" });
             this.cmbCategory.Location = new System.Drawing.Point(311, 102);
@@ -407,7 +407,7 @@ namespace templatev1
             // 
             // lblResultNum
             // 
-            this.lblResultNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultNum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResultNum.Location = new System.Drawing.Point(205, 158);
             this.lblResultNum.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.lblResultNum.Name = "lblResultNum";
@@ -419,7 +419,7 @@ namespace templatev1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(244, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(72, 24);
@@ -431,7 +431,7 @@ namespace templatev1
             this.tbKW.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.tbKW.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbKW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbKW.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbKW.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbKW.Location = new System.Drawing.Point(524, 101);
             this.tbKW.Name = "tbKW";
             this.tbKW.Size = new System.Drawing.Size(463, 29);

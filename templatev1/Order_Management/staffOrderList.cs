@@ -96,7 +96,7 @@ namespace templatev1
                     Name = $"lblOrderID{i}",
                     Text = $"{dt.Rows[i][0]}",
                     Location = new Point(10, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(128, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -105,7 +105,7 @@ namespace templatev1
                     Name = $"lblOrderDate{i}",
                     Text = $"{orderDate}",
                     Location = new Point(164, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(153, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -114,7 +114,7 @@ namespace templatev1
                     Name = $"lblCustomerId{i}",
                     Text = $"{dt.Rows[i][2]}",
                     Location = new Point(347, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(141, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -123,7 +123,7 @@ namespace templatev1
                     Name = $"lblDeliveryDate{i}",
                     Text = $"{deliveryDate}",
                     Location = new Point(516, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(152, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -132,7 +132,7 @@ namespace templatev1
                     Name = $"lblStatus{i}",
                     Text = $"{dt.Rows[i][4]}",
                     Location = new Point(697, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     Size = new Size(115, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -142,7 +142,7 @@ namespace templatev1
                     Name = $"btnView{i}",
                     Text = "View Order",
                     Location = new Point(835, yPosition - 5),
-                    Font = new Font("Microsoft Sans Serif", 12),
+                    Font = new Font("Times New Roman", 12),
                     TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true,
                     Cursor = Cursors.Hand

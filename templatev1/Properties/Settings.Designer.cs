@@ -166,5 +166,17 @@ namespace templatev1.Properties {
                 this["btnColor"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("\n                Dsn=localhost;charset=utf8;database=itp4915m_se1d_group4;db=itp4" +
+            "915m_se1d_group4;no_schema=1;password=report;port=3306;pwd=report;server=127.0.0" +
+            ".1;uid=report;user=report\n            ")]
+        public string itp4915m_se1d_group4ConnectionString {
+            get {
+                return ((string)(this["itp4915m_se1d_group4ConnectionString"]));
+            }
+        }
     }
 }

@@ -53,25 +53,25 @@ namespace templatev1
                 Label lblPartNum = new Label
                 {
                     Text = $"{t}", Location = new Point(4, rowPos),
-                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Times New Roman", 11), TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(164, 20)
                 };
                 Label lblPartName = new Label
                 {
                     Text = $"{controller.GetPartName(t)}", Location = new Point(174, rowPos),
-                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Times New Roman", 11), TextAlign = ContentAlignment.MiddleCenter,
                     Size = new Size(316, 20)
                 };
                 Label lblQtyOrdered = new Label
                 {
                     Text = $"{controller.GetQty(orderID, t)}",
-                    Location = new Point(496, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    Location = new Point(496, rowPos), Font = new Font("Times New Roman", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(123, 20)
                 };
                 Label lblQtyDelivered = new Label
                 {
                     Text = $"{controller.GetQty(orderID, t)}",
-                    Location = new Point(625, rowPos), Font = new Font("Microsoft Sans Serif", 11),
+                    Location = new Point(625, rowPos), Font = new Font("Times New Roman", 11),
                     TextAlign = ContentAlignment.MiddleCenter, Size = new Size(139, 20)
                 };
 

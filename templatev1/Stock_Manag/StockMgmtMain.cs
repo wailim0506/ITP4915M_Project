@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using Microsoft.VisualBasic;
 using System.Drawing;
 using System.Dynamic;
@@ -474,7 +472,6 @@ namespace templatev1
         //Cancel the order.
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-
             if (!string.IsNullOrEmpty(selectedReorderID))
             {
                 if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString()

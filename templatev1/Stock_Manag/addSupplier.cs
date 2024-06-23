@@ -12,7 +12,6 @@ namespace templatev1
         UIController UIController;
 
 
-
         public addSupplier(AccountController accountController, UIController UIController,
             stockController stockController)
         {
@@ -21,6 +20,7 @@ namespace templatev1
             this.UIController = UIController;
             this.stockController = stockController;
         }
+
         private void addSupplier_Load(object sender, EventArgs e)
         {
             Initialization();
@@ -193,16 +193,9 @@ namespace templatev1
         }
 
 
-
-
-
-
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
-
-
     }
 }

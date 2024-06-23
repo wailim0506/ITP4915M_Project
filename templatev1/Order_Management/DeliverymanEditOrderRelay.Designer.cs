@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeliverymanEditOrderRelay));
             this.palNav = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -500,6 +501,7 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeliverymanEditOrderRelay";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.delivermanViewOrder_Load);

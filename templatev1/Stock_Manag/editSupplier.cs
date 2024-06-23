@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Windows.Forms;
 using controller;
 
@@ -194,14 +193,9 @@ namespace templatev1
         }
 
 
-
-
-
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss");
         }
-
-
     }
 }

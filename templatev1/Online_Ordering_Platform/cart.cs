@@ -69,44 +69,44 @@ namespace templatev1
                 Label lblCategory = new Label
                 {
                     Text = $"{dt.Rows[i][5]}", Location = new Point(37, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(89, 23),
+                    Font = new Font("Times New Roman", 14), Size = new Size(89, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartNum = new Label
                 {
                     Name = $"lblPartNum{i}", Text = $"{dt.Rows[i][6]}",
-                    Location = new Point(132, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Location = new Point(132, yPosition), Font = new Font("Times New Roman", 14),
                     Size = new Size(141, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblPartName = new Label
                 {
                     Text = $"{dt.Rows[i][17]}", Location = new Point(279, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(253, 23),
+                    Font = new Font("Times New Roman", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblQty = new Label
                 {
                     Name = $"lblQty{i}", Text = $"{dt.Rows[i][2]}", Location = new Point(538, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(85, 23),
+                    Font = new Font("Times New Roman", 14), Size = new Size(85, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblUnitPrice = new Label
                 {
                     Text = $"¥{dt.Rows[i][10]}", Location = new Point(629, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 14), Size = new Size(95, 23),
+                    Font = new Font("Times New Roman", 14), Size = new Size(95, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblRowTotalPrice = new Label
                 {
                     Name = $"lbRowPrice{i}",
                     Text = $"¥{int.Parse(dt.Rows[i][2].ToString()) * int.Parse(dt.Rows[i][10].ToString())}",
-                    Location = new Point(730, yPosition), Font = new Font("Microsoft Sans Serif", 14),
+                    Location = new Point(730, yPosition), Font = new Font("Times New Roman", 14),
                     Size = new Size(88, 23), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Button btnView = new Button
                 {
                     Name = $"btnView{i}", Text = "View", Location = new Point(824, yPosition - 3),
-                    Font = new Font("Microsoft Sans Serif", 11), TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Times New Roman", 11), TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = false, Size = new Size(64, 28), Cursor = Cursors.Hand
                 };
                 btnView.Click += btnView_Click;

@@ -338,7 +338,7 @@ namespace templatev1
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(898, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label2.Name = "label2";
@@ -350,7 +350,7 @@ namespace templatev1
             // cmbSorting
             // 
             this.cmbSorting.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSorting.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSorting.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSorting.FormattingEnabled = true;
             this.cmbSorting.Items.AddRange(new object[] { "All", "Invoice Number (Ascending)", "Invoice Number (Descending)", "Order Date (Nearest)", "Order Date (Furtherest)", "Order ID (Ascending)", "Order ID (Descending)", "Delivery Date (Nearest)", "Delivery Date (Furtherest)" });
             this.cmbSorting.Location = new System.Drawing.Point(962, 106);
@@ -362,7 +362,7 @@ namespace templatev1
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(207, 95);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(410, 37);
@@ -372,7 +372,7 @@ namespace templatev1
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(676, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
@@ -384,7 +384,7 @@ namespace templatev1
             // cmbStatus
             // 
             this.cmbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbStatus.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbStatus.FormattingEnabled = true;
             this.cmbStatus.Items.AddRange(new object[] { "All", "Confirmed", "Not Confirmed" });
             this.cmbStatus.Location = new System.Drawing.Point(734, 106);
@@ -395,7 +395,7 @@ namespace templatev1
             // 
             // lblStatus
             // 
-            this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatus.Location = new System.Drawing.Point(901, 149);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(151, 20);
@@ -405,7 +405,7 @@ namespace templatev1
             // 
             // lblStaffContact
             // 
-            this.lblStaffContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffContact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffContact.Location = new System.Drawing.Point(743, 149);
             this.lblStaffContact.Name = "lblStaffContact";
             this.lblStaffContact.Size = new System.Drawing.Size(152, 20);
@@ -415,7 +415,7 @@ namespace templatev1
             // 
             // lblStaff
             // 
-            this.lblStaff.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaff.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaff.Location = new System.Drawing.Point(268, 149);
             this.lblStaff.Name = "lblStaff";
             this.lblStaff.Size = new System.Drawing.Size(141, 20);
@@ -442,7 +442,7 @@ namespace templatev1
             // 
             // lblOrderDate
             // 
-            this.lblOrderDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(584, 149);
             this.lblOrderDate.Name = "lblOrderDate";
             this.lblOrderDate.Size = new System.Drawing.Size(153, 20);
@@ -452,7 +452,7 @@ namespace templatev1
             // 
             // lblOrderID
             // 
-            this.lblOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(415, 149);
             this.lblOrderID.Name = "lblOrderID";
             this.lblOrderID.Size = new System.Drawing.Size(163, 20);

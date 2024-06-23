@@ -64,37 +64,37 @@ namespace templatev1
                 Label lblID = new Label
                 {
                     Name = $"lblID{i}", Text = $"{dtOrder.Rows[i - 1][0]}",
-                    Location = new Point(10, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(10, yPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(109, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblDate = new Label
                 {
                     Name = $"lblDate{i}", Text = $"{orderDate}", Location = new Point(125, yPosition),
-                    Font = new Font("Microsoft Sans Serif", 12), Size = new Size(112, 20),
+                    Font = new Font("Times New Roman", 12), Size = new Size(112, 20),
                     TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblStaff = new Label
                 {
                     Name = $"lblStaff{i}", Text = controller.GetStaffName(staffAccountID),
-                    Location = new Point(243, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(243, yPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(180, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblContact = new Label
                 {
                     Name = $"lblContact{i}", Text = controller.GetStaffContact(staffAccountID),
-                    Location = new Point(429, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(429, yPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(219, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Label lblStatus = new Label
                 {
                     Name = $"lblStatus{i}", Text = $"{dtOrder.Rows[i - 1][6]}",
-                    Location = new Point(654, yPosition), Font = new Font("Microsoft Sans Serif", 12),
+                    Location = new Point(654, yPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(115, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
                 Button btnView = new Button
                 {
                     Name = $"btnView{i}", Text = "View Order", Location = new Point(810, yPosition - 3),
-                    Font = new Font("Microsoft Sans Serif", 12), TextAlign = ContentAlignment.MiddleCenter,
+                    Font = new Font("Times New Roman", 12), TextAlign = ContentAlignment.MiddleCenter,
                     AutoSize = true
                 };
                 btnView.Click += btnView_Click;

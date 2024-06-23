@@ -100,47 +100,47 @@ namespace templatev1
                         Label lblCategoryLabel = new Label
                         {
                             Text = "Category :", AutoSize = true, Location = new Point(6, 207),
-                            Font = new Font("Microsoft Sans Serif", 12)
+                            Font = new Font("Times New Roman", 12)
                         };
                         Label lblPartNumLabel = new Label
                         {
                             Text = "Part Number :", AutoSize = true, Location = new Point(6, 237),
-                            Font = new Font("Microsoft Sans Serif", 12)
+                            Font = new Font("Times New Roman", 12)
                         };
                         Label lblNameLabel = new Label
                         {
                             Text = "Name :", AutoSize = true, Location = new Point(6, 267),
-                            Font = new Font("Microsoft Sans Serif", 12)
+                            Font = new Font("Times New Roman", 12)
                         };
                         Label lblPriceLabel = new Label
                         {
                             Text = "Price :¥", AutoSize = true, Location = new Point(6, 297),
-                            Font = new Font("Microsoft Sans Serif", 12)
+                            Font = new Font("Times New Roman", 12)
                         };
 
                         Label lblCategory = new Label
                         {
                             Text =
                                 $"{dt.Rows[currentGrpBox][2]} - {controller.getCategoryName(dt.Rows[currentGrpBox][2].ToString())}",
-                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                            AutoSize = false, Font = new Font("Times New Roman", 12),
                             Location = new Point(83, 208), Size = new Size(174, 20)
                         };
                         Label lblPartNum = new Label
                         {
                             Name = $"lblPartNum{currentGrpBox}", Text = $"{dt.Rows[currentGrpBox][0]}",
-                            AutoSize = false, Font = new Font("Microsoft Sans Serif", 12),
+                            AutoSize = false, Font = new Font("Times New Roman", 12),
                             Location = new Point(108, 238), Size = new Size(171, 20)
                         };
                         Label lblName = new Label
                         {
                             Text = $"{dt.Rows[currentGrpBox][3]}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(62, 268),
+                            Font = new Font("Times New Roman", 12), Location = new Point(62, 268),
                             Size = new Size(218, 20)
                         };
                         Label lblPrice = new Label
                         {
                             Text = $"{controller.getPrice(dt.Rows[currentGrpBox][0].ToString())}", AutoSize = false,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(64, 297),
+                            Font = new Font("Times New Roman", 12), Location = new Point(64, 297),
                             Size = new Size(213, 20)
                         };
                         Button btnView = new Button
@@ -158,7 +158,7 @@ namespace templatev1
                         TextBox tbQty = new TextBox
                         {
                             Text = "1", Name = $"tbQty{currentGrpBox}", BorderStyle = BorderStyle.FixedSingle,
-                            Font = new Font("Microsoft Sans Serif", 12), Location = new Point(214, 352),
+                            Font = new Font("Times New Roman", 12), Location = new Point(214, 352),
                             MaxLength = 4, Size = new Size(61, 26),
                             TextAlign = HorizontalAlignment.Center
                         };

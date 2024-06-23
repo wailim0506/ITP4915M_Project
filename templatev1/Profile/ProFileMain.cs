@@ -98,18 +98,19 @@ namespace templatev1
 
             if (proFileController.CheckUserAvatar(UID))
             {
-                            string avatarPath = proFileController.GetUserAvatar(UID);
-                            if (avatarPath != null)
-                            {
-                                picUserIMG.Image = new Bitmap(avatarPath);
-                                IMGUploaded = true;
-                            }
-                            else
-                            {
-                                IMGUploaded = false;
-                                //btnRemoveIMG.Visible = false;
-                            }
-            }else
+                string avatarPath = proFileController.GetUserAvatar(UID);
+                if (avatarPath != null)
+                {
+                    picUserIMG.Image = new Bitmap(avatarPath);
+                    IMGUploaded = true;
+                }
+                else
+                {
+                    IMGUploaded = false;
+                    //btnRemoveIMG.Visible = false;
+                }
+            }
+            else
             {
                 IMGUploaded = false;
                 btnRemoveIMG.Visible = false;
