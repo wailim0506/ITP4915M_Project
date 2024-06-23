@@ -309,7 +309,14 @@ namespace templatev1
 
         private void btnAct_Click(object sender, EventArgs e)
         {
-
+            Form addSupplier = new addSupplier(accountController, UIController, stockController);
+            Hide();
+            //Swap the current form to another.
+            addSupplier.StartPosition = FormStartPosition.Manual;
+            addSupplier.Location = Location;
+            addSupplier.Size = Size;
+            addSupplier.ShowDialog();
+            Close();
         }
         private void timer1_Tick(object sender, EventArgs e)
         {

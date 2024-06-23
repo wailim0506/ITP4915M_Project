@@ -278,6 +278,18 @@ namespace templatev1
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
+            Hide();
+            //Swap the current form to another.
+            viewSupplier.StartPosition = FormStartPosition.Manual;
+            viewSupplier.Location = Location;
+            viewSupplier.Size = Size;
+            viewSupplier.ShowDialog();
+            Close();
+        }
+
         private bool checkInfo()
         {
             lblNameMsg.Text = lblAddMsg.Text = lblPhoneMsg.Text = "";
