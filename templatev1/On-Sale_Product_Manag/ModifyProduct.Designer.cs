@@ -65,20 +65,12 @@
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblTitStatus = new System.Windows.Forms.Label();
             this.lblTitSuppilerID = new System.Windows.Forms.Label();
-            this.cmbStatus = new System.Windows.Forms.ComboBox();
             this.lblDescription = new System.Windows.Forms.Label();
             this.btnRemoveIMG = new System.Windows.Forms.Button();
-            this.lblEmbedMulti = new System.Windows.Forms.Label();
-            this.btnUploadFile = new System.Windows.Forms.Button();
-            this.chkEmbedMulti = new System.Windows.Forms.CheckBox();
             this.lblSuppilerID = new System.Windows.Forms.Label();
             this.lstDiscription = new System.Windows.Forms.ListBox();
-            this.btnAddQtyForSale = new System.Windows.Forms.Button();
-            this.btnMinusQtyForSale = new System.Windows.Forms.Button();
             this.tbQtyForSale = new System.Windows.Forms.TextBox();
             this.lblTitPrice = new System.Windows.Forms.Label();
-            this.lblAppToDiscount = new System.Windows.Forms.Label();
-            this.chkAppToDiscount = new System.Windows.Forms.CheckBox();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.grpProductInfo = new System.Windows.Forms.GroupBox();
             this.lblPType = new System.Windows.Forms.Label();
@@ -504,15 +496,6 @@
             this.lblTitSuppilerID.TabIndex = 45;
             this.lblTitSuppilerID.Text = "SuppilerID:";
             // 
-            // cmbStatus
-            // 
-            this.cmbStatus.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.cmbStatus.FormattingEnabled = true;
-            this.cmbStatus.Location = new System.Drawing.Point(333, 414);
-            this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(106, 27);
-            this.cmbStatus.TabIndex = 46;
-            // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
@@ -532,37 +515,6 @@
             this.btnRemoveIMG.TabIndex = 49;
             this.btnRemoveIMG.Text = "Remove Image";
             this.btnRemoveIMG.UseVisualStyleBackColor = true;
-            // 
-            // lblEmbedMulti
-            // 
-            this.lblEmbedMulti.AutoSize = true;
-            this.lblEmbedMulti.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmbedMulti.Location = new System.Drawing.Point(256, 453);
-            this.lblEmbedMulti.Name = "lblEmbedMulti";
-            this.lblEmbedMulti.Size = new System.Drawing.Size(156, 21);
-            this.lblEmbedMulti.TabIndex = 50;
-            this.lblEmbedMulti.Text = "Embed multimedia?";
-            // 
-            // btnUploadFile
-            // 
-            this.btnUploadFile.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.btnUploadFile.Location = new System.Drawing.Point(524, 450);
-            this.btnUploadFile.Name = "btnUploadFile";
-            this.btnUploadFile.Size = new System.Drawing.Size(108, 30);
-            this.btnUploadFile.TabIndex = 51;
-            this.btnUploadFile.Text = "Upload File";
-            this.btnUploadFile.UseVisualStyleBackColor = true;
-            // 
-            // chkEmbedMulti
-            // 
-            this.chkEmbedMulti.AutoSize = true;
-            this.chkEmbedMulti.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.chkEmbedMulti.Location = new System.Drawing.Point(451, 453);
-            this.chkEmbedMulti.Name = "chkEmbedMulti";
-            this.chkEmbedMulti.Size = new System.Drawing.Size(56, 25);
-            this.chkEmbedMulti.TabIndex = 52;
-            this.chkEmbedMulti.Text = "Yes";
-            this.chkEmbedMulti.UseVisualStyleBackColor = true;
             // 
             // lblSuppilerID
             // 
@@ -585,26 +537,6 @@
             this.lstDiscription.Size = new System.Drawing.Size(438, 172);
             this.lstDiscription.TabIndex = 54;
             // 
-            // btnAddQtyForSale
-            // 
-            this.btnAddQtyForSale.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddQtyForSale.Location = new System.Drawing.Point(392, 372);
-            this.btnAddQtyForSale.Name = "btnAddQtyForSale";
-            this.btnAddQtyForSale.Size = new System.Drawing.Size(33, 33);
-            this.btnAddQtyForSale.TabIndex = 55;
-            this.btnAddQtyForSale.Text = "+";
-            this.btnAddQtyForSale.UseVisualStyleBackColor = true;
-            // 
-            // btnMinusQtyForSale
-            // 
-            this.btnMinusQtyForSale.Font = new System.Drawing.Font("Times New Roman", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinusQtyForSale.Location = new System.Drawing.Point(484, 372);
-            this.btnMinusQtyForSale.Name = "btnMinusQtyForSale";
-            this.btnMinusQtyForSale.Size = new System.Drawing.Size(33, 33);
-            this.btnMinusQtyForSale.TabIndex = 56;
-            this.btnMinusQtyForSale.Text = "-";
-            this.btnMinusQtyForSale.UseVisualStyleBackColor = true;
-            // 
             // tbQtyForSale
             // 
             this.tbQtyForSale.Font = new System.Drawing.Font("Times New Roman", 13F);
@@ -622,27 +554,6 @@
             this.lblTitPrice.Size = new System.Drawing.Size(77, 21);
             this.lblTitPrice.TabIndex = 58;
             this.lblTitPrice.Text = "Price: ￥";
-            // 
-            // lblAppToDiscount
-            // 
-            this.lblAppToDiscount.AutoSize = true;
-            this.lblAppToDiscount.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAppToDiscount.Location = new System.Drawing.Point(256, 485);
-            this.lblAppToDiscount.Name = "lblAppToDiscount";
-            this.lblAppToDiscount.Size = new System.Drawing.Size(187, 21);
-            this.lblAppToDiscount.TabIndex = 59;
-            this.lblAppToDiscount.Text = "Applicable to discount?";
-            // 
-            // chkAppToDiscount
-            // 
-            this.chkAppToDiscount.AutoSize = true;
-            this.chkAppToDiscount.Font = new System.Drawing.Font("Times New Roman", 14F);
-            this.chkAppToDiscount.Location = new System.Drawing.Point(451, 484);
-            this.chkAppToDiscount.Name = "chkAppToDiscount";
-            this.chkAppToDiscount.Size = new System.Drawing.Size(56, 25);
-            this.chkAppToDiscount.TabIndex = 60;
-            this.chkAppToDiscount.Text = "Yes";
-            this.chkAppToDiscount.UseVisualStyleBackColor = true;
             // 
             // tbPrice
             // 
@@ -794,19 +705,11 @@
             this.Controls.Add(this.picProductIMG);
             this.Controls.Add(this.grpProductInfo);
             this.Controls.Add(this.tbPrice);
-            this.Controls.Add(this.chkAppToDiscount);
-            this.Controls.Add(this.lblAppToDiscount);
             this.Controls.Add(this.lblTitPrice);
             this.Controls.Add(this.tbQtyForSale);
-            this.Controls.Add(this.btnMinusQtyForSale);
-            this.Controls.Add(this.btnAddQtyForSale);
             this.Controls.Add(this.lstDiscription);
-            this.Controls.Add(this.chkEmbedMulti);
-            this.Controls.Add(this.btnUploadFile);
-            this.Controls.Add(this.lblEmbedMulti);
             this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.lblDescription);
-            this.Controls.Add(this.cmbStatus);
             this.Controls.Add(this.lblTitStatus);
             this.Controls.Add(this.lblTitQtyForSale);
             this.Controls.Add(this.btnDelete);
@@ -868,20 +771,12 @@
         private System.Windows.Forms.Label lblProductName;
         private System.Windows.Forms.Label lblTitStatus;
         private System.Windows.Forms.Label lblTitSuppilerID;
-        private System.Windows.Forms.ComboBox cmbStatus;
         private System.Windows.Forms.Label lblDescription;
         private System.Windows.Forms.Button btnRemoveIMG;
-        private System.Windows.Forms.Label lblEmbedMulti;
-        private System.Windows.Forms.Button btnUploadFile;
-        private System.Windows.Forms.CheckBox chkEmbedMulti;
         private System.Windows.Forms.Label lblSuppilerID;
         private System.Windows.Forms.ListBox lstDiscription;
-        private System.Windows.Forms.Button btnAddQtyForSale;
-        private System.Windows.Forms.Button btnMinusQtyForSale;
         private System.Windows.Forms.TextBox tbQtyForSale;
         private System.Windows.Forms.Label lblTitPrice;
-        private System.Windows.Forms.Label lblAppToDiscount;
-        private System.Windows.Forms.CheckBox chkAppToDiscount;
         private System.Windows.Forms.TextBox tbPrice;
         private System.Windows.Forms.GroupBox grpProductInfo;
         private System.Windows.Forms.Label lblOnShelveDate;
