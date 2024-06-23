@@ -71,6 +71,8 @@
             this.lblTitPrice = new System.Windows.Forms.Label();
             this.tbPrice = new System.Windows.Forms.TextBox();
             this.grpProductInfo = new System.Windows.Forms.GroupBox();
+            this.lblLastMod = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblPCat = new System.Windows.Forms.Label();
             this.lblTitPType = new System.Windows.Forms.Label();
             this.lblStockQty = new System.Windows.Forms.Label();
@@ -82,8 +84,6 @@
             this.picProductIMG = new System.Windows.Forms.PictureBox();
             this.btnUploadIMG = new System.Windows.Forms.Button();
             this.chkStatus = new System.Windows.Forms.CheckBox();
-            this.lblLastMod = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbQtyForLM = new System.Windows.Forms.TextBox();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -91,6 +91,8 @@
             this.lblSaleQtyMsg = new System.Windows.Forms.Label();
             this.lblSaleForLMMsg = new System.Windows.Forms.Label();
             this.lblDescMsg = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblTitCountry = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -567,8 +569,10 @@
             // 
             // grpProductInfo
             // 
+            this.grpProductInfo.Controls.Add(this.lblCountry);
             this.grpProductInfo.Controls.Add(this.lblLastMod);
             this.grpProductInfo.Controls.Add(this.label2);
+            this.grpProductInfo.Controls.Add(this.lblTitCountry);
             this.grpProductInfo.Controls.Add(this.lblPCat);
             this.grpProductInfo.Controls.Add(this.lblTitPType);
             this.grpProductInfo.Controls.Add(this.lblStockQty);
@@ -590,16 +594,36 @@
             this.grpProductInfo.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.grpProductInfo.Location = new System.Drawing.Point(208, 105);
             this.grpProductInfo.Name = "grpProductInfo";
-            this.grpProductInfo.Size = new System.Drawing.Size(751, 246);
+            this.grpProductInfo.Size = new System.Drawing.Size(751, 269);
             this.grpProductInfo.TabIndex = 63;
             this.grpProductInfo.TabStop = false;
             this.grpProductInfo.Text = "Product Info";
+            // 
+            // lblLastMod
+            // 
+            this.lblLastMod.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblLastMod.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastMod.Location = new System.Drawing.Point(153, 163);
+            this.lblLastMod.Name = "lblLastMod";
+            this.lblLastMod.Size = new System.Drawing.Size(153, 26);
+            this.lblLastMod.TabIndex = 95;
+            this.lblLastMod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 165);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 22);
+            this.label2.TabIndex = 94;
+            this.label2.Text = "Last Mod:";
             // 
             // lblPCat
             // 
             this.lblPCat.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblPCat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPCat.Location = new System.Drawing.Point(522, 163);
+            this.lblPCat.Location = new System.Drawing.Point(522, 196);
             this.lblPCat.Name = "lblPCat";
             this.lblPCat.Size = new System.Drawing.Size(209, 26);
             this.lblPCat.TabIndex = 93;
@@ -609,7 +633,7 @@
             // 
             this.lblTitPType.AutoSize = true;
             this.lblTitPType.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPType.Location = new System.Drawing.Point(405, 165);
+            this.lblTitPType.Location = new System.Drawing.Point(405, 198);
             this.lblTitPType.Name = "lblTitPType";
             this.lblTitPType.Size = new System.Drawing.Size(87, 22);
             this.lblTitPType.TabIndex = 92;
@@ -619,7 +643,7 @@
             // 
             this.lblStockQty.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblStockQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStockQty.Location = new System.Drawing.Point(522, 196);
+            this.lblStockQty.Location = new System.Drawing.Point(522, 229);
             this.lblStockQty.Name = "lblStockQty";
             this.lblStockQty.Size = new System.Drawing.Size(209, 26);
             this.lblStockQty.TabIndex = 59;
@@ -629,7 +653,7 @@
             // 
             this.lblTitStockQty.AutoSize = true;
             this.lblTitStockQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitStockQty.Location = new System.Drawing.Point(405, 198);
+            this.lblTitStockQty.Location = new System.Drawing.Point(405, 231);
             this.lblTitStockQty.Name = "lblTitStockQty";
             this.lblTitStockQty.Size = new System.Drawing.Size(93, 22);
             this.lblTitStockQty.TabIndex = 58;
@@ -639,7 +663,7 @@
             // 
             this.lblTitSuppiler.AutoSize = true;
             this.lblTitSuppiler.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitSuppiler.Location = new System.Drawing.Point(405, 99);
+            this.lblTitSuppiler.Location = new System.Drawing.Point(405, 132);
             this.lblTitSuppiler.Name = "lblTitSuppiler";
             this.lblTitSuppiler.Size = new System.Drawing.Size(84, 22);
             this.lblTitSuppiler.TabIndex = 56;
@@ -649,7 +673,7 @@
             // 
             this.lblSuppiler.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblSuppiler.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuppiler.Location = new System.Drawing.Point(522, 97);
+            this.lblSuppiler.Location = new System.Drawing.Point(522, 130);
             this.lblSuppiler.Name = "lblSuppiler";
             this.lblSuppiler.Size = new System.Drawing.Size(209, 59);
             this.lblSuppiler.TabIndex = 57;
@@ -705,26 +729,6 @@
             this.chkStatus.TabIndex = 102;
             this.chkStatus.Text = "Enable";
             this.chkStatus.UseVisualStyleBackColor = true;
-            // 
-            // lblLastMod
-            // 
-            this.lblLastMod.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.lblLastMod.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLastMod.Location = new System.Drawing.Point(153, 163);
-            this.lblLastMod.Name = "lblLastMod";
-            this.lblLastMod.Size = new System.Drawing.Size(153, 26);
-            this.lblLastMod.TabIndex = 95;
-            this.lblLastMod.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 165);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 22);
-            this.label2.TabIndex = 94;
-            this.label2.Text = "Last Mod:";
             // 
             // label3
             // 
@@ -786,6 +790,26 @@
             this.lblDescMsg.Name = "lblDescMsg";
             this.lblDescMsg.Size = new System.Drawing.Size(601, 19);
             this.lblDescMsg.TabIndex = 116;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.Location = new System.Drawing.Point(522, 98);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(209, 26);
+            this.lblCountry.TabIndex = 97;
+            this.lblCountry.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTitCountry
+            // 
+            this.lblTitCountry.AutoSize = true;
+            this.lblTitCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitCountry.Location = new System.Drawing.Point(405, 100);
+            this.lblTitCountry.Name = "lblTitCountry";
+            this.lblTitCountry.Size = new System.Drawing.Size(78, 22);
+            this.lblTitCountry.TabIndex = 96;
+            this.lblTitCountry.Text = "Country:";
             // 
             // OnSaleModify
             // 
@@ -899,6 +923,8 @@
         private System.Windows.Forms.Label lblSaleQtyMsg;
         private System.Windows.Forms.Label lblSaleForLMMsg;
         private System.Windows.Forms.Label lblDescMsg;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblTitCountry;
     }
 }
 

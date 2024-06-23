@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -94,6 +94,8 @@
             this.lblTitEmail = new System.Windows.Forms.Label();
             this.lblTitTotalNoItem = new System.Windows.Forms.Label();
             this.UserID = new System.Windows.Forms.Label();
+            this.lblCountry = new System.Windows.Forms.Label();
+            this.lblTitCountry = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -456,14 +458,14 @@
             this.dgvProduct.AllowUserToResizeRows = false;
             this.dgvProduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvProduct.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProduct.EnableHeadersVisualStyles = false;
             this.dgvProduct.GridColor = System.Drawing.SystemColors.Control;
@@ -472,8 +474,8 @@
             this.dgvProduct.ReadOnly = true;
             this.dgvProduct.RowHeadersVisible = false;
             this.dgvProduct.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvProduct.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvProduct.RowTemplate.Height = 23;
             this.dgvProduct.Size = new System.Drawing.Size(936, 442);
             this.dgvProduct.TabIndex = 186;
@@ -483,6 +485,8 @@
             // 
             // grpProductInfo
             // 
+            this.grpProductInfo.Controls.Add(this.lblCountry);
+            this.grpProductInfo.Controls.Add(this.lblTitCountry);
             this.grpProductInfo.Controls.Add(this.lblPOnSaleQty);
             this.grpProductInfo.Controls.Add(this.lblLMOnSaleQty);
             this.grpProductInfo.Controls.Add(this.lblPStock);
@@ -547,9 +551,9 @@
             // 
             // lblPSuppName
             // 
-            this.lblPSuppName.Location = new System.Drawing.Point(454, 101);
+            this.lblPSuppName.Location = new System.Drawing.Point(454, 130);
             this.lblPSuppName.Name = "lblPSuppName";
-            this.lblPSuppName.Size = new System.Drawing.Size(186, 111);
+            this.lblPSuppName.Size = new System.Drawing.Size(186, 82);
             this.lblPSuppName.TabIndex = 200;
             // 
             // lblPCat
@@ -578,9 +582,9 @@
             // 
             // lblPName
             // 
-            this.lblPName.Location = new System.Drawing.Point(119, 70);
+            this.lblPName.Location = new System.Drawing.Point(119, 69);
             this.lblPName.Name = "lblPName";
-            this.lblPName.Size = new System.Drawing.Size(206, 58);
+            this.lblPName.Size = new System.Drawing.Size(206, 59);
             this.lblPName.TabIndex = 195;
             // 
             // lblPLastMod
@@ -705,7 +709,7 @@
             // 
             this.lblTSuppName.AutoSize = true;
             this.lblTSuppName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTSuppName.Location = new System.Drawing.Point(345, 99);
+            this.lblTSuppName.Location = new System.Drawing.Point(345, 129);
             this.lblTSuppName.Name = "lblTSuppName";
             this.lblTSuppName.Size = new System.Drawing.Size(71, 23);
             this.lblTSuppName.TabIndex = 166;
@@ -805,6 +809,24 @@
             this.UserID.Size = new System.Drawing.Size(70, 22);
             this.UserID.TabIndex = 189;
             this.UserID.Text = "ItemID:";
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.AutoSize = true;
+            this.lblCountry.Location = new System.Drawing.Point(454, 100);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(0, 22);
+            this.lblCountry.TabIndex = 205;
+            // 
+            // lblTitCountry
+            // 
+            this.lblTitCountry.AutoSize = true;
+            this.lblTitCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitCountry.Location = new System.Drawing.Point(345, 99);
+            this.lblTitCountry.Name = "lblTitCountry";
+            this.lblTitCountry.Size = new System.Drawing.Size(86, 23);
+            this.lblTitCountry.TabIndex = 204;
+            this.lblTitCountry.Text = "Country:";
             // 
             // OnSaleMain
             // 
@@ -911,6 +933,8 @@
         private System.Windows.Forms.Label lblPOnShelve;
         private System.Windows.Forms.Label lblItemID;
         private System.Windows.Forms.Label lblPName;
+        private System.Windows.Forms.Label lblCountry;
+        private System.Windows.Forms.Label lblTitCountry;
     }
 }
 

@@ -53,7 +53,7 @@ namespace controller
         {
             dt = new DataTable();
 
-            sqlStr = $"SELECT P.itemID, P.partNumber, P.onSaleQty, P.LM_onSaleQty, P.price, P.description, " +
+            sqlStr = $"SELECT P.itemID, P.partNumber, P.onSaleQty, P.LM_onSaleQty, P.price, P.description, SUPP.country, " +
                 $"P.lastModified, P.status, P.onShelvesDate, C.type, SP.name, SP.quantity, SUPP.name AS suppName, SUPP.supplierID " +
                 $"FROM product P, category C, spare_part SP, supplier SUPP " +
                 $"WHERE P.category = C.categoryID AND P.partNumber = SP.partNumber " +
@@ -76,6 +76,7 @@ namespace controller
             ProductInfo.supplierID = dt.Rows[0]["supplierID"].ToString();
             ProductInfo.type = dt.Rows[0]["type"].ToString();
             ProductInfo.quantity = dt.Rows[0]["quantity"].ToString();
+            ProductInfo.country = dt.Rows[0]["country"].ToString();
 
             return ProductInfo;
         }

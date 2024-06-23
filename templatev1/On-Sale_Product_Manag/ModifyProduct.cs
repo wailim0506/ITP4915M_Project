@@ -57,6 +57,7 @@ namespace templatev1
             lblQty.Text = placeholder.quantity;
             lblPartNo.Text = placeholder.partNumber;
             lblSuppilerID.Text = placeholder.supplierID;
+            lblCountry.Text = placeholder.country;
             lblSuppiler.Text = placeholder.suppName;
             lblPCat.Text = placeholder.type;
             lblStockQty.Text = placeholder.quantity;

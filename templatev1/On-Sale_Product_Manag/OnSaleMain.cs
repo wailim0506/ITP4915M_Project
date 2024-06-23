@@ -281,6 +281,7 @@ namespace templatev1
                 lblPLastMod.Text = onSaleProductController.GetProductInfo(selectedProductID).lastModified;
                 lblSuppID.Text = onSaleProductController.GetProductInfo(selectedProductID).supplierID;
                 lblPCat.Text = onSaleProductController.GetProductInfo(selectedProductID).type;
+                lblCountry.Text = onSaleProductController.GetProductInfo(selectedProductID).country;
                 lblPSuppName.Text = onSaleProductController.GetProductInfo(selectedProductID).suppName;
                 lblPStock.Text = onSaleProductController.GetProductInfo(selectedProductID).quantity;
                 lblPOnSaleQty.Text = onSaleProductController.GetProductInfo(selectedProductID).onSaleQty;
