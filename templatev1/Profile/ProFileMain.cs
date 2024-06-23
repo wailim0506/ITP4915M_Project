@@ -95,6 +95,25 @@ namespace templatev1
                 picBWMode.Image = Resources.LBWhite;
                 picHome.Image = Resources.homeWhite;
             }
+
+            if (proFileController.CheckUserAvatar(UID))
+            {
+                            string avatarPath = proFileController.GetUserAvatar(UID);
+                            if (avatarPath != null)
+                            {
+                                picUserIMG.Image = new Bitmap(avatarPath);
+                                IMGUploaded = true;
+                            }
+                            else
+                            {
+                                IMGUploaded = false;
+                                //btnRemoveIMG.Visible = false;
+                            }
+            }else
+            {
+                IMGUploaded = false;
+                btnRemoveIMG.Visible = false;
+            }
         }
 
         //To determine and show the next page.
@@ -443,7 +462,9 @@ namespace templatev1
                 {
                     if (new FileInfo(ofd.FileName).Length > 1000000) //File can't larger than 1MB
                     {
-                        MessageBox.Show("File too large! Maximum 1MB.");
+                        MessageBox.Show("File too large! Maximum 1MB.", "System message", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        //MessageBox.Show("File too large! Maximum 1MB.");
                         IMGUploaded = false;
                     }
                     else
@@ -451,9 +472,7 @@ namespace templatev1
                         IMG = new Bitmap(Image.FromFile(ofd.FileName));
                         btnUploadIMG.Visible = false;
                         picUserIMG.Image = IMG;
-                        IMGUploaded = true;
-
-                        //Put file into local drive.
+                        IMGUploaded = proFileController.UploadUserAvatar(ofd.FileName, UID);
                     }
                 }
             }
@@ -470,6 +489,7 @@ namespace templatev1
             IMG = null;
             btnUploadIMG.Visible = true;
             picUserIMG.Image = IMG;
+            proFileController.DeleteUserAvatar(UID);
         }
 
         //For change password function.
@@ -520,7 +540,7 @@ namespace templatev1
         }
 
 
-        //Delete the account, only available for customer account.
+        //Delete the account, only available for the customer account.
         private void btnDelete_Click(object sender, EventArgs e)
         {
             var result =

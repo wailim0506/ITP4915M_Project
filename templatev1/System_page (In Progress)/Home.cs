@@ -99,10 +99,12 @@ namespace templatev1
                     if (UID.StartsWith("LMC"))
                     {
                         next = new customerOrderList(accountController, UIController);
-                    }else if (accountController.checkIsDeliverman()) 
+                    }
+                    else if (accountController.checkIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
-                    }else
+                    }
+                    else
                     {
                         next = new staffOrderList(accountController, UIController);
                     }

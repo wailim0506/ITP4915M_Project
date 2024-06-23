@@ -11,9 +11,6 @@ namespace templatev1
         // Log instance for logging application events
         public static Log log;
 
-        // Service provider instance for dependency injection
-        private static IServiceProvider serviceProvider;
-
         // Date handler instance for handling date related operations
         public static dateHandler handler;
 

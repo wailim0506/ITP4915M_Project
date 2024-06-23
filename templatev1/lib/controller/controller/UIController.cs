@@ -191,7 +191,7 @@ namespace controller
 
             switch (permission)
             {
-                case "MP02":       //Storeman
+                case "MP02": //Storeman
                     store.group4 = store.group1 = store.group3 = true;
                     store.group2 = false;
                     break;

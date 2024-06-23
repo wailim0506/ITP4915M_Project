@@ -174,10 +174,10 @@ namespace controller
         }
 
         //Values for listbox
-        public List<string> GetCity(string priovince)
+        public List<string> GetCity(string province)
         {
             DataTable dt = new DataTable();
-            sqlStr = $"SELECT city FROM location WHERE priovince = \'{priovince}\'";
+            sqlStr = $"SELECT city FROM location WHERE province = \'{province}\'";
             dt = _db.ExecuteDataTable(sqlStr, null);
             List<string> city = new List<string>();
 
@@ -343,17 +343,119 @@ namespace controller
             }
         }
 
-        private string GetUserImageDirectory(string userId)
+        // upload avatar
+        public bool UploadUserAvatar(string filename, string userID)
         {
-            string userImagesDirectory = Path.Combine("UserImages", userId);
-
-            // Create the directory if it doesn't exist
-            if (!Directory.Exists(userImagesDirectory))
+            try
             {
-                Directory.CreateDirectory(userImagesDirectory);
-            }
+                string path = Directory.GetCurrentDirectory() + "\\Upload\\";
+                
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
 
-            return userImagesDirectory;
+                string fileName = Path.GetFileName(filename);
+                string newfileName =
+                    "usr_" + userID + "_" + Guid.NewGuid().ToString("N") + "_" + fileName;
+                string newFilePath = path + newfileName;
+
+                if (!File.Exists(filename))
+                {
+                    throw new FileNotFoundException($"The source file {filename} does not exist.");
+                }
+
+                if (File.Exists(newFilePath))
+                {
+                    throw new IOException($"The destination file {newFilePath} already exists.");
+                }
+
+                File.Move(filename, newFilePath);
+
+                string sqlCmd = "SELECT id FROM resource WHERE id = (SELECT MAX(id) FROM resource)";
+                DataTable dt = _db.ExecuteDataTable(sqlCmd);
+                int imageID = int.Parse(dt.Rows[0]["id"].ToString()) + 1;
+
+                var parameters = new Dictionary<string, object> { { "@id", imageID } };
+                _db.ExecuteNonQueryCommand("INSERT INTO resource VALUES(@id, @name, @type, @path)", parameters);
+                _db.ExecuteNonQueryCommand("UPDATE customer SET imageID = @id WHERE customerID = @UID",
+                    new Dictionary<string, object> { { "@id", imageID.ToString() }, { "@UID", userID } });
+
+                Log.LogMessage(LogLevel.Debug, "profile Controller",
+                    $"UploadUserAvatar: New file path = {newFilePath}");
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogException(e, "profile Controller - Upload User Avatar");
+                return false;
+            }
+        }
+
+        public bool DeleteUserAvatar(string userID)
+        {
+            string checkAvatarSql = "SELECT imageId FROM customer WHERE customerID = @UID";
+            var checkAvatarParams = new Dictionary<string, object> { { "@UID", userID } };
+            DataTable dt = _db.ExecuteDataTable(checkAvatarSql, checkAvatarParams);
+
+            if (dt.Rows.Count > 0)
+            {
+                // Avatar exists, delete it
+                string deleteAvatarSql = "DELETE FROM resource WHERE id = @id";
+                var deleteAvatarParams = new Dictionary<string, object> { { "@id", dt.Rows[0]["imageID"].ToString() } };
+                _db.ExecuteNonQueryCommand(deleteAvatarSql, deleteAvatarParams);
+                // Set IMGUploaded to false
+                return false;
+            }
+            Log.LogMessage(LogLevel.Debug, "profile - Controller - Delete User Avatar", $"Delete User Avatar: UserID = {userID}");
+            return true;
+        }
+
+        public bool CheckUserAvatar(string userID)
+        {
+            try
+            {
+                string checkAvatarSql = "SELECT imageId FROM customer WHERE customerID = @UID";
+                var checkAvatarParams = new Dictionary<string, object> { { "@UID", userID } };
+                DataTable dt = _db.ExecuteDataTable(checkAvatarSql, checkAvatarParams);
+
+                // if it returns a value = null, it means the user has no avatar
+                return dt.Rows.Count != 0;
+            }
+            catch (Exception e)
+            {
+                Log.LogException(new Exception($"Error in CheckUserAvatar. {e.Message}"), "proFile Controller");
+
+                return false; //Something went wrong.
+            }
+        }
+
+        public string GetUserAvatar(string userID)
+        {
+            try
+            {
+                string checkAvatarSql = "SELECT imageId FROM customer WHERE customerID = @UID";
+                var checkAvatarParams = new Dictionary<string, object> { { "@UID", userID } };
+                DataTable dt = _db.ExecuteDataTable(checkAvatarSql, checkAvatarParams);
+                int imageID;
+                if (int.TryParse(dt.Rows[0]["imageID"].ToString(), out imageID))
+                {
+                    // Avatar exists, return the path
+                    string getAvatarSql = "SELECT path FROM resource WHERE id = @id";
+                    var getAvatarParams = new Dictionary<string, object> { { "@id", imageID } };
+                    DataTable dt2 = _db.ExecuteDataTable(getAvatarSql, getAvatarParams);
+                    return dt2.Rows[0]["path"].ToString();
+                }
+
+                return null;
+            }
+            catch (Exception e)
+            {
+                Log.LogException(new Exception($"Error in GetUserAvatar. {e.Message}"), "proFile Controller");
+
+                return null; //Something went wrong.
+            }
         }
     }
 }

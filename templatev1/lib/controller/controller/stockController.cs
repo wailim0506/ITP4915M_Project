@@ -42,6 +42,7 @@ namespace controller
             sqlStr = $"SELECT * FROM spare_part WHERE partNumber = \'{PartID}\'";
             return ExecuteSqlQuery(sqlStr);
         }
+
         public DataTable AdvancedSearch(dynamic partValues)
         {
             string condition;
@@ -85,11 +86,12 @@ namespace controller
         }
 
         //Return the detail of the selected spare part.
-        public dynamic GetPartInfo(string PartID) 
+        public dynamic GetPartInfo(string PartID)
         {
             dt = new DataTable();
 
-            sqlStr = $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
+            sqlStr =
+                $"SELECT SP.status, SP.partNumber, SP.supplierID, SP.name AS SPname, SP.reorderLevel, SP.dangerLevel, SP.quantity, " +
                 $"SP.lastModified, S.name AS Sname, S.phone, S.address, S.country, C.type FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.partNumber = \'{PartID}\' AND SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID";
 
@@ -133,7 +135,6 @@ namespace controller
         }
 
 
-
         public List<string> GetCategory()
         {
             var sqlStr = "SELECT type FROM category";
@@ -159,11 +160,6 @@ namespace controller
         }
 
 
-
-
-
-
-
         public DataTable GetReorder()
         {
             sqlStr = "SELECT * FROM reorder_request ORDER BY reorderID DESC";
@@ -185,7 +181,7 @@ namespace controller
         {
             var reorderParams = new Dictionary<string, object>
             {
-                { "@ReorderID", GetReorderID()},
+                { "@ReorderID", GetReorderID() },
                 { "@UID", accountController.GetUid() },
                 { "@PartID", PartID },
                 { "@Date", DateTime.Now.ToString("yyyy/MM/dd") },
@@ -238,8 +234,8 @@ namespace controller
                     { "@UID", accountController.GetUid() }
                 };
 
-                    sqlStr =
-                        "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel, dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
+                sqlStr =
+                    "UPDATE spare_part SET supplierID = @Supplier, categoryID = @Cat, name = @Name, reorderLevel = @RLevel, dangerLevel = @DLevel, quantity = @Qty, status = @Status, lastModified = @UID WHERE partNumber = @partNumber";
 
                 _db.ExecuteNonQueryCommand(sqlStr, parameters);
 
@@ -252,7 +248,7 @@ namespace controller
             }
         }
 
-        private string GetSupplierID(string suppilerName) 
+        private string GetSupplierID(string suppilerName)
         {
             dt = new DataTable();
 
@@ -278,8 +274,6 @@ namespace controller
         {
             return GetOnSaleInfo(ToModifySpareID);
         }
-
-
 
 
         private DataTable ExecuteSqlQuery(string sqlQuery)

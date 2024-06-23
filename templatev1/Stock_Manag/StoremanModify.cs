@@ -13,7 +13,8 @@ namespace templatev1
         UIController UIController;
         dynamic placeholder, update;
 
-        public SMStockModify(AccountController accountController, UIController UIController, stockController stockController)
+        public SMStockModify(AccountController accountController, UIController UIController,
+            stockController stockController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -214,13 +215,6 @@ namespace templatev1
         }
 
 
-
-
-
-
-
-
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Form stockMgmt = new StockMgmt(accountController, UIController);
@@ -296,7 +290,7 @@ namespace templatev1
                 tbQty.Text = placeholder.quantity;
         }
 
-        private bool checkInfo() 
+        private bool checkInfo()
         {
             lblNameMsg.Text = lblDLevelMsg.Text = lblRLevelMsg.Text = lblQtyMsg.Text = "";
             update = new ExpandoObject();
@@ -336,7 +330,8 @@ namespace templatev1
             if (tbRLevel.Text != placeholder.reorderLevel)
             {
                 int Qty;
-                if (!int.TryParse(tbRLevel.Text.ToString(), out Qty) || Qty <= 0 || Qty > 99999 || Qty < int.Parse(tbDLevel.Text))
+                if (!int.TryParse(tbRLevel.Text.ToString(), out Qty) || Qty <= 0 || Qty > 99999 ||
+                    Qty < int.Parse(tbDLevel.Text))
                 {
                     lblRLevelMsg.Text = "Can NOT lower than danger level AND minimum 1 maximum 99999.";
                     lblRLevelMsg.Select();

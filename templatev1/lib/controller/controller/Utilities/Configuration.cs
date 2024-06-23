@@ -38,7 +38,7 @@ namespace controller.Utilities
             }
         }
 
-        public void Setup()
+        private void Setup()
         {
             CreateAvatarFolder();
         }

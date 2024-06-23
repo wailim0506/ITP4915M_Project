@@ -285,9 +285,9 @@ namespace templatev1
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(selectedPartID))      //Check whether a part number is selected.
+            if (!string.IsNullOrEmpty(selectedPartID)) //Check whether a part number is selected.
             {
-                stockController.SetModifyPartID(selectedPartID);     //Set the part number that to be modify.
+                stockController.SetModifyPartID(selectedPartID); //Set the part number that to be modify.
                 Form StockModify = new SMStockModify(accountController, UIController, stockController);
                 Hide();
                 //Swap the current form to another.
@@ -299,7 +299,7 @@ namespace templatev1
             }
             else
                 MessageBox.Show("Spare part has NOT selected.",
-                            "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAddSpare_Click(object sender, EventArgs e)
@@ -420,11 +420,11 @@ namespace templatev1
                     //the requirement to print stock card.
                     if (stockController.CheckOutOfStock(selectedPartID))
                     {
-                        if (!ReorderInputBox())     //Ask user to enter the values.
+                        if (!ReorderInputBox()) //Ask user to enter the values.
                             return;
-                        stockController.CreateReorderRequest(selectedPartID, reorderQty);     //Create restock request.
-                        Print(this.palOutOfStock);       //Pritn stock card.
-                        dgvReorder.DataSource = stockController.GetReorder();       //Reflesh the data grid view.
+                        stockController.CreateReorderRequest(selectedPartID, reorderQty); //Create restock request.
+                        Print(this.palOutOfStock); //Pritn stock card.
+                        dgvReorder.DataSource = stockController.GetReorder(); //Reflesh the data grid view.
                         DgvReorderIndicator();
                     }
                     else
@@ -435,9 +435,9 @@ namespace templatev1
                 }
                 else if (stockController.CheckReorderLevel(selectedPartID)) //Stock quantity < orderlevel.
                 {
-                    if (!ReorderInputBox())     //Ask user to enter the values.
+                    if (!ReorderInputBox()) //Ask user to enter the values.
                         return;
-                    stockController.CreateReorderRequest(selectedPartID, reorderQty);     //Create add stock request.
+                    stockController.CreateReorderRequest(selectedPartID, reorderQty); //Create add stock request.
                     dgvReorder.DataSource = stockController.GetReorder();
                     DgvReorderIndicator();
                 }
@@ -467,12 +467,15 @@ namespace templatev1
         //Cancel the order.
         private void btnCancelOrder_Click(object sender, EventArgs e)
         {
-            string selectedReorderID = dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString();     //Get selected spare number.
+            string selectedReorderID =
+                dgvReorder.Rows[reorderIndex].Cells[0].Value.ToString(); //Get selected spare number.
 
             if (!string.IsNullOrEmpty(selectedReorderID))
             {
-                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString().Equals("processing"))    //Only the order that the status
-                {                                                                                    //is "processing" can be cancelled.
+                if (dgvReorder.Rows[reorderIndex].Cells[5].Value.ToString()
+                    .Equals("processing")) //Only the order that the status
+                {
+                    //is "processing" can be cancelled.
                     var result =
                         MessageBox.Show($"Are you sure to cancel the reorder request?" +
                                         $"\nReorderID: {selectedReorderID}", "System message", MessageBoxButtons.YesNo,
@@ -565,7 +568,7 @@ namespace templatev1
                     var result = MessageBox.Show("Please enter a valid value, Min: 1 Max: 999. Re-enter the value?",
                         "System message", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     if (result == DialogResult.Yes)
-                        ReorderInputBox();             //Request for re-enter the value.
+                        ReorderInputBox(); //Request for re-enter the value.
                     else
                         return false;
                 }
@@ -587,7 +590,6 @@ namespace templatev1
 
         private void btnViewSupp_Click(object sender, EventArgs e)
         {
-
         }
 
         protected override void OnPaint(PaintEventArgs e)

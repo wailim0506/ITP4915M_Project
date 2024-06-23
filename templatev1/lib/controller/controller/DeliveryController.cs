@@ -24,7 +24,7 @@ namespace controller
 
             var orderStatus = ExecuteScalar("SELECT status FROM order_ WHERE OrderID = @orderId",
                 new Dictionary<string, object> { { "@orderId", orderId } });
-            
+
             switch (orderStatus)
             {
                 case "Processing":

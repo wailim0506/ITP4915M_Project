@@ -118,7 +118,6 @@ namespace templatev1
                     MessageBoxIcon.Information);
                 hideEdit();
                 loadData(cmbSortOrder.Text);
-                
             }
             else if (dialogResult == DialogResult.Yes && controller.DeleteSparePart(orderID, partToDelete) == false)
             {
@@ -251,7 +250,6 @@ namespace templatev1
         {
             hideEdit();
             loadData(cmbSortOrder.Text);
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -259,7 +257,6 @@ namespace templatev1
             lblTimeDate.Text = handler.GetSystemDateTime();
         }
 
-        
 
         public void loadData(string sortBy)
         {
@@ -267,10 +264,10 @@ namespace templatev1
             //ordered spare part
             DataTable dt;
             dt = new DataTable();
-           
+
             dt = controller.GetOrderedSparePart(orderID, sortBy);
 
-            
+
             int row = dt.Rows.Count;
 
             if (row == 0) //all spare part is removed, the order can be delete
@@ -415,7 +412,6 @@ namespace templatev1
         {
         }
 
-        
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
