@@ -30,8 +30,8 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
@@ -61,7 +61,7 @@ namespace templatev1
             this.UserID = new System.Windows.Forms.Label();
             this.lblClickToSelect = new System.Windows.Forms.Label();
             this.picSearch = new System.Windows.Forms.PictureBox();
-            this.lblTitTotalNoUser = new System.Windows.Forms.Label();
+            this.lblTitTotalNoSupplier = new System.Windows.Forms.Label();
             this.grpContact = new System.Windows.Forms.GroupBox();
             this.lblSStatus = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
@@ -406,14 +406,14 @@ namespace templatev1
             this.dgvSupplier.AllowUserToResizeRows = false;
             this.dgvSupplier.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSupplier.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSupplier.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.EnableHeadersVisualStyles = false;
             this.dgvSupplier.GridColor = System.Drawing.SystemColors.Control;
@@ -422,8 +422,8 @@ namespace templatev1
             this.dgvSupplier.ReadOnly = true;
             this.dgvSupplier.RowHeadersVisible = false;
             this.dgvSupplier.RowHeadersWidth = 30;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 13.5F);
-            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 13.5F);
+            this.dgvSupplier.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvSupplier.RowTemplate.Height = 23;
             this.dgvSupplier.Size = new System.Drawing.Size(928, 418);
             this.dgvSupplier.TabIndex = 189;
@@ -462,15 +462,15 @@ namespace templatev1
             this.picSearch.TabStop = false;
             this.picSearch.Click += new System.EventHandler(this.picSearch_Click);
             // 
-            // lblTitTotalNoUser
+            // lblTitTotalNoSupplier
             // 
-            this.lblTitTotalNoUser.AutoSize = true;
-            this.lblTitTotalNoUser.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTotalNoUser.Location = new System.Drawing.Point(217, 147);
-            this.lblTitTotalNoUser.Name = "lblTitTotalNoUser";
-            this.lblTitTotalNoUser.Size = new System.Drawing.Size(242, 22);
-            this.lblTitTotalNoUser.TabIndex = 184;
-            this.lblTitTotalNoUser.Text = "No. of supplier in the system:";
+            this.lblTitTotalNoSupplier.AutoSize = true;
+            this.lblTitTotalNoSupplier.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitTotalNoSupplier.Location = new System.Drawing.Point(220, 154);
+            this.lblTitTotalNoSupplier.Name = "lblTitTotalNoSupplier";
+            this.lblTitTotalNoSupplier.Size = new System.Drawing.Size(242, 22);
+            this.lblTitTotalNoSupplier.TabIndex = 184;
+            this.lblTitTotalNoSupplier.Text = "No. of supplier in the system:";
             // 
             // grpContact
             // 
@@ -686,7 +686,7 @@ namespace templatev1
             this.Controls.Add(this.dgvSupplier);
             this.Controls.Add(this.lblClickToSelect);
             this.Controls.Add(this.UserID);
-            this.Controls.Add(this.lblTitTotalNoUser);
+            this.Controls.Add(this.lblTitTotalNoSupplier);
             this.Controls.Add(this.picSearch);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -740,7 +740,7 @@ namespace templatev1
         private System.Windows.Forms.Label UserID;
         private System.Windows.Forms.Label lblClickToSelect;
         private System.Windows.Forms.PictureBox picSearch;
-        private System.Windows.Forms.Label lblTitTotalNoUser;
+        private System.Windows.Forms.Label lblTitTotalNoSupplier;
         private System.Windows.Forms.GroupBox grpContact;
         private System.Windows.Forms.Label lblSStatus;
         private System.Windows.Forms.Label lblStatus;

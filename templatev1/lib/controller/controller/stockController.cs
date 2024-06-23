@@ -303,6 +303,17 @@ namespace controller
             return dt.Rows.Count;
         }
 
+        public int GetTotalSupplierQty()
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM supplier";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows.Count;
+        }
+
         public string GenPartNumber(string category)
         {
             string CategoryID = GetCategoryID(category); //Convert category to categoryID.
