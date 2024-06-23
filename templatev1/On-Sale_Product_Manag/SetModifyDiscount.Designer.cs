@@ -30,6 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.palNav = new System.Windows.Forms.Panel();
+            this.palSelect5 = new System.Windows.Forms.Panel();
+            this.palSelect4 = new System.Windows.Forms.Panel();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.palSelect1 = new System.Windows.Forms.Panel();
+            this.palSelect3 = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
@@ -59,11 +64,7 @@
             this.lblTitPostDate = new System.Windows.Forms.Label();
             this.btnSetModify = new System.Windows.Forms.Button();
             this.lblTitPerSymbol = new System.Windows.Forms.Label();
-            this.lblTitTo = new System.Windows.Forms.Label();
-            this.tbRangeAfter = new System.Windows.Forms.TextBox();
-            this.tbRangeBefore = new System.Windows.Forms.TextBox();
             this.tbPercentage = new System.Windows.Forms.TextBox();
-            this.calEndDate = new System.Windows.Forms.MonthCalendar();
             this.lblTitPercentage = new System.Windows.Forms.Label();
             this.lblTitRange = new System.Windows.Forms.Label();
             this.lblTitEndDate = new System.Windows.Forms.Label();
@@ -71,12 +72,8 @@
             this.lblTitDiscountID = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.palSelect3 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -109,6 +106,46 @@
             this.palNav.Name = "palNav";
             this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 0;
+            // 
+            // palSelect5
+            // 
+            this.palSelect5.BackColor = System.Drawing.Color.Red;
+            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Name = "palSelect5";
+            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.TabIndex = 24;
+            // 
+            // palSelect4
+            // 
+            this.palSelect4.BackColor = System.Drawing.Color.Red;
+            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Name = "palSelect4";
+            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.TabIndex = 25;
+            // 
+            // palSelect2
+            // 
+            this.palSelect2.BackColor = System.Drawing.Color.Red;
+            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Name = "palSelect2";
+            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.TabIndex = 26;
+            // 
+            // palSelect1
+            // 
+            this.palSelect1.BackColor = System.Drawing.Color.Red;
+            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Name = "palSelect1";
+            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.TabIndex = 27;
+            // 
+            // palSelect3
+            // 
+            this.palSelect3.BackColor = System.Drawing.Color.Red;
+            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Name = "palSelect3";
+            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.TabIndex = 23;
             // 
             // picBWMode
             // 
@@ -385,15 +422,13 @@
             // 
             // grpSetModifyDis
             // 
+            this.grpSetModifyDis.Controls.Add(this.textBox1);
+            this.grpSetModifyDis.Controls.Add(this.label1);
             this.grpSetModifyDis.Controls.Add(this.lblPostDate);
             this.grpSetModifyDis.Controls.Add(this.lblTitPostDate);
             this.grpSetModifyDis.Controls.Add(this.btnSetModify);
             this.grpSetModifyDis.Controls.Add(this.lblTitPerSymbol);
-            this.grpSetModifyDis.Controls.Add(this.lblTitTo);
-            this.grpSetModifyDis.Controls.Add(this.tbRangeAfter);
-            this.grpSetModifyDis.Controls.Add(this.tbRangeBefore);
             this.grpSetModifyDis.Controls.Add(this.tbPercentage);
-            this.grpSetModifyDis.Controls.Add(this.calEndDate);
             this.grpSetModifyDis.Controls.Add(this.lblTitPercentage);
             this.grpSetModifyDis.Controls.Add(this.lblTitRange);
             this.grpSetModifyDis.Controls.Add(this.lblTitEndDate);
@@ -449,32 +484,6 @@
             this.lblTitPerSymbol.TabIndex = 47;
             this.lblTitPerSymbol.Text = "%";
             // 
-            // lblTitTo
-            // 
-            this.lblTitTo.AutoSize = true;
-            this.lblTitTo.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTo.Location = new System.Drawing.Point(535, 36);
-            this.lblTitTo.Name = "lblTitTo";
-            this.lblTitTo.Size = new System.Drawing.Size(30, 19);
-            this.lblTitTo.TabIndex = 46;
-            this.lblTitTo.Text = "TO";
-            // 
-            // tbRangeAfter
-            // 
-            this.tbRangeAfter.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbRangeAfter.Location = new System.Drawing.Point(571, 32);
-            this.tbRangeAfter.Name = "tbRangeAfter";
-            this.tbRangeAfter.Size = new System.Drawing.Size(47, 27);
-            this.tbRangeAfter.TabIndex = 45;
-            // 
-            // tbRangeBefore
-            // 
-            this.tbRangeBefore.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.tbRangeBefore.Location = new System.Drawing.Point(482, 33);
-            this.tbRangeBefore.Name = "tbRangeBefore";
-            this.tbRangeBefore.Size = new System.Drawing.Size(47, 27);
-            this.tbRangeBefore.TabIndex = 44;
-            // 
             // tbPercentage
             // 
             this.tbPercentage.Font = new System.Drawing.Font("Times New Roman", 13F);
@@ -482,12 +491,6 @@
             this.tbPercentage.Name = "tbPercentage";
             this.tbPercentage.Size = new System.Drawing.Size(107, 27);
             this.tbPercentage.TabIndex = 43;
-            // 
-            // calEndDate
-            // 
-            this.calEndDate.Location = new System.Drawing.Point(134, 103);
-            this.calEndDate.Name = "calEndDate";
-            this.calEndDate.TabIndex = 42;
             // 
             // lblTitPercentage
             // 
@@ -560,65 +563,30 @@
             this.btnFinish.Text = "Finish";
             this.btnFinish.UseVisualStyleBackColor = true;
             // 
-            // lblStatus
+            // label1
             // 
-            this.lblStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.lblStatus.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 13F, System.Drawing.FontStyle.Bold);
-            this.lblStatus.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.lblStatus.Location = new System.Drawing.Point(236, 780);
-            this.lblStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(681, 52);
-            this.lblStatus.TabIndex = 69;
-            this.lblStatus.Text = "Status";
+            this.label1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.label1.Location = new System.Drawing.Point(135, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(153, 26);
+            this.label1.TabIndex = 72;
+            this.label1.Text = "XXXXXXX";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // palSelect5
+            // textBox1
             // 
-            this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
-            this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
-            this.palSelect5.TabIndex = 24;
-            // 
-            // palSelect4
-            // 
-            this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
-            this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
-            this.palSelect4.TabIndex = 25;
-            // 
-            // palSelect2
-            // 
-            this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
-            this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
-            this.palSelect2.TabIndex = 26;
-            // 
-            // palSelect1
-            // 
-            this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
-            this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
-            this.palSelect1.TabIndex = 27;
-            // 
-            // palSelect3
-            // 
-            this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
-            this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
-            this.palSelect3.TabIndex = 23;
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.textBox1.Location = new System.Drawing.Point(482, 36);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(107, 27);
+            this.textBox1.TabIndex = 73;
             // 
             // OnSaleDis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnFinish);
             this.Controls.Add(this.grpSetModifyDis);
@@ -685,16 +653,11 @@
         private System.Windows.Forms.Label lblTitDiscountID;
         private System.Windows.Forms.Button btnSetModify;
         private System.Windows.Forms.Label lblTitPerSymbol;
-        private System.Windows.Forms.Label lblTitTo;
-        private System.Windows.Forms.TextBox tbRangeAfter;
-        private System.Windows.Forms.TextBox tbRangeBefore;
         private System.Windows.Forms.TextBox tbPercentage;
-        private System.Windows.Forms.MonthCalendar calEndDate;
         private System.Windows.Forms.Label lblTitPercentage;
         private System.Windows.Forms.Label lblTitRange;
         private System.Windows.Forms.Label lblTitEndDate;
         private System.Windows.Forms.Label lblDiscountID;
-        private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblPostDate;
         private System.Windows.Forms.Label lblTitPostDate;
         private System.Windows.Forms.Panel palSelect5;
@@ -702,6 +665,8 @@
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Panel palSelect3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
