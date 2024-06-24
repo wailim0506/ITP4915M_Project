@@ -281,6 +281,17 @@ namespace templatev1
             tbKW.Text = "";
         }
 
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
         public void hideButton()
         {
             dynamic btnFun = UIController.showFun();

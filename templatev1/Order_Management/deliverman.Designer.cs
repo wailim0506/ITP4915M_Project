@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(deliverman));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -268,6 +269,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -407,7 +409,7 @@
             "Furthest Dates"});
             this.cmbUpcomingSorting.Location = new System.Drawing.Point(1027, 109);
             this.cmbUpcomingSorting.Name = "cmbUpcomingSorting";
-            this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbUpcomingSorting.Size = new System.Drawing.Size(127, 25);
             this.cmbUpcomingSorting.TabIndex = 116;
             this.cmbUpcomingSorting.SelectedIndexChanged += new System.EventHandler(this.cmbUpcomingSorting_SelectedIndexChanged);
             // 
@@ -503,7 +505,7 @@
             "Furthest Dates"});
             this.cmbFinishedSorting.Location = new System.Drawing.Point(1027, 558);
             this.cmbFinishedSorting.Name = "cmbFinishedSorting";
-            this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 26);
+            this.cmbFinishedSorting.Size = new System.Drawing.Size(127, 25);
             this.cmbFinishedSorting.TabIndex = 124;
             this.cmbFinishedSorting.SelectedIndexChanged += new System.EventHandler(this.cmbFinishedSorting_SelectedIndexChanged);
             // 
@@ -530,6 +532,7 @@
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "deliverman";
             this.Text = "Legend Motor Company Integrated System";

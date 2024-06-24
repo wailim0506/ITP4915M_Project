@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DIC));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
@@ -211,6 +212,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -368,7 +370,7 @@ namespace templatev1
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(141, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(398, 31);
+            this.label1.Size = new System.Drawing.Size(372, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "DESPATCH INSTRUCTIONS";
             // 
@@ -388,7 +390,7 @@ namespace templatev1
             this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(64, 61);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 21);
             this.lblOrderDate.TabIndex = 2;
             // 
             // label2
@@ -397,7 +399,7 @@ namespace templatev1
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(10, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 25);
+            this.label2.Size = new System.Drawing.Size(118, 24);
             this.label2.TabIndex = 1;
             this.label2.Text = "Order Date:";
             // 
@@ -417,7 +419,7 @@ namespace templatev1
             this.lblOrderSerialNum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderSerialNum.Location = new System.Drawing.Point(62, 61);
             this.lblOrderSerialNum.Name = "lblOrderSerialNum";
-            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 21);
             this.lblOrderSerialNum.TabIndex = 3;
             // 
             // label3
@@ -426,7 +428,7 @@ namespace templatev1
             this.label3.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 16);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(234, 25);
+            this.label3.Size = new System.Drawing.Size(203, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Order Serial Number:";
             // 
@@ -454,7 +456,7 @@ namespace templatev1
             this.label4.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(10, 16);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(187, 25);
+            this.label4.Size = new System.Drawing.Size(157, 24);
             this.label4.TabIndex = 2;
             this.label4.Text = "Invoice Address:";
             // 
@@ -482,7 +484,7 @@ namespace templatev1
             this.label5.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(15, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(198, 25);
+            this.label5.Size = new System.Drawing.Size(166, 24);
             this.label5.TabIndex = 2;
             this.label5.Text = "Delivery Address:";
             // 
@@ -502,7 +504,7 @@ namespace templatev1
             this.lblDeliveryDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeliveryDate.Location = new System.Drawing.Point(76, 60);
             this.lblDeliveryDate.Name = "lblDeliveryDate";
-            this.lblDeliveryDate.Size = new System.Drawing.Size(0, 24);
+            this.lblDeliveryDate.Size = new System.Drawing.Size(0, 21);
             this.lblDeliveryDate.TabIndex = 3;
             // 
             // label6
@@ -511,7 +513,7 @@ namespace templatev1
             this.label6.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 16);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 25);
+            this.label6.Size = new System.Drawing.Size(139, 24);
             this.label6.TabIndex = 2;
             this.label6.Text = "Delivery Date:";
             // 
@@ -531,7 +533,7 @@ namespace templatev1
             this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(64, 60);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderID.Size = new System.Drawing.Size(0, 21);
             this.lblOrderID.TabIndex = 3;
             // 
             // label7
@@ -540,7 +542,7 @@ namespace templatev1
             this.label7.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(10, 16);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(107, 25);
+            this.label7.Size = new System.Drawing.Size(97, 24);
             this.label7.TabIndex = 2;
             this.label7.Text = "Order ID:";
             // 
@@ -590,7 +592,7 @@ namespace templatev1
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(288, 101);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(370, 31);
+            this.lblHeading.Size = new System.Drawing.Size(338, 31);
             this.lblHeading.TabIndex = 198;
             this.lblHeading.Text = "Despatch Instruction Cover";
             // 
@@ -620,8 +622,9 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DIC";
-            this.Text = "DIC";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.DIC_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();

@@ -29,6 +29,7 @@ namespace templatev1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customerViewInvoice));
             this.lblLoc = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -136,7 +137,7 @@ namespace templatev1
             this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(618, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(138, 100);
+            this.label4.Size = new System.Drawing.Size(128, 95);
             this.label4.TabIndex = 3;
             this.label4.Text = "DELIVERY NOTE\r\nPart 6\r\n\t\t\r\nPlease receive the\r\nfollowing goods:\r\n";
             // 
@@ -146,7 +147,7 @@ namespace templatev1
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(59, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(359, 20);
+            this.label3.Size = new System.Drawing.Size(327, 19);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tel: 133 808 12345\t                    Grams: LegendMC";
             // 
@@ -156,7 +157,7 @@ namespace templatev1
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(59, 77);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(263, 20);
+            this.label2.Size = new System.Drawing.Size(229, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "SMLC District, Tienhou, Guangzhou";
             // 
@@ -166,7 +167,7 @@ namespace templatev1
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(21, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(301, 29);
+            this.label1.Size = new System.Drawing.Size(277, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Legend MOTOR Co. Ltd.";
             // 
@@ -195,7 +196,7 @@ namespace templatev1
             this.label11.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(21, 13);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(174, 25);
+            this.label11.Size = new System.Drawing.Size(144, 24);
             this.label11.TabIndex = 61;
             this.label11.Text = "Dealer Address";
             // 
@@ -225,7 +226,7 @@ namespace templatev1
             this.label12.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(15, 16);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(198, 25);
+            this.label12.Size = new System.Drawing.Size(164, 24);
             this.label12.TabIndex = 62;
             this.label12.Text = "Delivery  Address";
             // 
@@ -250,7 +251,7 @@ namespace templatev1
             this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(14, 46);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(0, 20);
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 19);
             this.lblOrderDate.TabIndex = 61;
             // 
             // label7
@@ -259,7 +260,7 @@ namespace templatev1
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 16);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 20);
+            this.label7.Size = new System.Drawing.Size(91, 19);
             this.label7.TabIndex = 60;
             this.label7.Text = "Order Date:";
             // 
@@ -316,7 +317,7 @@ namespace templatev1
             this.lblInvoiceNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInvoiceNum.Location = new System.Drawing.Point(14, 46);
             this.lblInvoiceNum.Name = "lblInvoiceNum";
-            this.lblInvoiceNum.Size = new System.Drawing.Size(0, 20);
+            this.lblInvoiceNum.Size = new System.Drawing.Size(0, 19);
             this.lblInvoiceNum.TabIndex = 62;
             // 
             // label8
@@ -325,7 +326,7 @@ namespace templatev1
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(6, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(138, 20);
+            this.label8.Size = new System.Drawing.Size(121, 19);
             this.label8.TabIndex = 61;
             this.label8.Text = "Invoice Number:";
             // 
@@ -346,7 +347,7 @@ namespace templatev1
             this.lblCustomerID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerID.Location = new System.Drawing.Point(14, 46);
             this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(0, 20);
+            this.lblCustomerID.Size = new System.Drawing.Size(0, 19);
             this.lblCustomerID.TabIndex = 64;
             // 
             // label10
@@ -355,7 +356,7 @@ namespace templatev1
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(6, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.Size = new System.Drawing.Size(78, 19);
             this.label10.TabIndex = 63;
             this.label10.Text = "DelaerID:";
             // 
@@ -377,7 +378,7 @@ namespace templatev1
             this.lblOrderNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderNum.Location = new System.Drawing.Point(14, 46);
             this.lblOrderNum.Name = "lblOrderNum";
-            this.lblOrderNum.Size = new System.Drawing.Size(0, 20);
+            this.lblOrderNum.Size = new System.Drawing.Size(0, 19);
             this.lblOrderNum.TabIndex = 63;
             // 
             // label9
@@ -386,7 +387,7 @@ namespace templatev1
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 16);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(126, 20);
+            this.label9.Size = new System.Drawing.Size(112, 19);
             this.label9.TabIndex = 62;
             this.label9.Text = "Order Number:";
             // 
@@ -477,7 +478,7 @@ namespace templatev1
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(304, 16);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 20);
+            this.label5.Size = new System.Drawing.Size(151, 19);
             this.label5.TabIndex = 2;
             this.label5.Text = "Received in good order";
             // 
@@ -685,6 +686,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -816,8 +818,9 @@ namespace templatev1
             this.Controls.Add(this.palNav);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnReturn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "customerViewInvoice";
-            this.Text = "customerViewInvoice";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.customerViewInvoice_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

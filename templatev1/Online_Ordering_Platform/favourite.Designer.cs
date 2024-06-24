@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(favourite));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.btnFunction5 = new System.Windows.Forms.Button();
@@ -203,6 +204,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -356,7 +358,7 @@ namespace templatev1
             "Price (Descending)"});
             this.cmbSorting.Location = new System.Drawing.Point(1002, 164);
             this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(151, 26);
+            this.cmbSorting.Size = new System.Drawing.Size(151, 25);
             this.cmbSorting.TabIndex = 92;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
@@ -393,7 +395,7 @@ namespace templatev1
             "D"});
             this.cmbCategory.Location = new System.Drawing.Point(311, 102);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(48, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(48, 27);
             this.cmbCategory.TabIndex = 89;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -431,7 +433,7 @@ namespace templatev1
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(244, 158);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.Size = new System.Drawing.Size(66, 21);
             this.label1.TabIndex = 86;
             this.label1.Text = "Result :";
             // 
@@ -469,6 +471,7 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palNav);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "favourite";
             this.Text = "Legend Motor Company Integrated System";

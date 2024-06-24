@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DID));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
@@ -226,6 +227,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -328,7 +330,7 @@ namespace templatev1
             this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(199, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(379, 31);
+            this.label1.Size = new System.Drawing.Size(357, 31);
             this.label1.TabIndex = 0;
             this.label1.Text = "DESPATCH INSTRUCTION";
             // 
@@ -348,7 +350,7 @@ namespace templatev1
             this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDate.Location = new System.Drawing.Point(54, 50);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderDate.Size = new System.Drawing.Size(0, 21);
             this.lblOrderDate.TabIndex = 3;
             // 
             // label3
@@ -394,7 +396,7 @@ namespace templatev1
             this.lblOrderSerialNum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderSerialNum.Location = new System.Drawing.Point(54, 54);
             this.lblOrderSerialNum.Name = "lblOrderSerialNum";
-            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderSerialNum.Size = new System.Drawing.Size(0, 21);
             this.lblOrderSerialNum.TabIndex = 3;
             // 
             // label4
@@ -422,7 +424,7 @@ namespace templatev1
             this.lblCustomerID.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerID.Location = new System.Drawing.Point(44, 54);
             this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.Size = new System.Drawing.Size(0, 24);
+            this.lblCustomerID.Size = new System.Drawing.Size(0, 21);
             this.lblCustomerID.TabIndex = 3;
             // 
             // label5
@@ -450,7 +452,7 @@ namespace templatev1
             this.lblPartNum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartNum.Location = new System.Drawing.Point(42, 54);
             this.lblPartNum.Name = "lblPartNum";
-            this.lblPartNum.Size = new System.Drawing.Size(0, 24);
+            this.lblPartNum.Size = new System.Drawing.Size(0, 21);
             this.lblPartNum.TabIndex = 3;
             // 
             // label6
@@ -478,7 +480,7 @@ namespace templatev1
             this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.Location = new System.Drawing.Point(54, 54);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(0, 24);
+            this.lblCategory.Size = new System.Drawing.Size(0, 21);
             this.lblCategory.TabIndex = 3;
             // 
             // label7
@@ -506,7 +508,7 @@ namespace templatev1
             this.lblPartName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartName.Location = new System.Drawing.Point(44, 54);
             this.lblPartName.Name = "lblPartName";
-            this.lblPartName.Size = new System.Drawing.Size(0, 24);
+            this.lblPartName.Size = new System.Drawing.Size(0, 21);
             this.lblPartName.TabIndex = 3;
             // 
             // label8
@@ -534,7 +536,7 @@ namespace templatev1
             this.lblOrderQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderQty.Location = new System.Drawing.Point(42, 54);
             this.lblOrderQty.Name = "lblOrderQty";
-            this.lblOrderQty.Size = new System.Drawing.Size(0, 24);
+            this.lblOrderQty.Size = new System.Drawing.Size(0, 21);
             this.lblOrderQty.TabIndex = 3;
             // 
             // label9
@@ -562,7 +564,7 @@ namespace templatev1
             this.lblDeliveryman.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDeliveryman.Location = new System.Drawing.Point(55, 54);
             this.lblDeliveryman.Name = "lblDeliveryman";
-            this.lblDeliveryman.Size = new System.Drawing.Size(0, 24);
+            this.lblDeliveryman.Size = new System.Drawing.Size(0, 21);
             this.lblDeliveryman.TabIndex = 3;
             // 
             // label11
@@ -590,7 +592,7 @@ namespace templatev1
             this.lblTotalToDespatch.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalToDespatch.Location = new System.Drawing.Point(54, 54);
             this.lblTotalToDespatch.Name = "lblTotalToDespatch";
-            this.lblTotalToDespatch.Size = new System.Drawing.Size(0, 24);
+            this.lblTotalToDespatch.Size = new System.Drawing.Size(0, 21);
             this.lblTotalToDespatch.TabIndex = 3;
             // 
             // label12
@@ -665,7 +667,7 @@ namespace templatev1
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(222, 117);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(394, 31);
+            this.lblHeading.Size = new System.Drawing.Size(360, 31);
             this.lblHeading.TabIndex = 204;
             this.lblHeading.Text = "Despatch Instruction Detail - ";
             // 
@@ -738,6 +740,7 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DID";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.DID_Load);

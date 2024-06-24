@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DID_List));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -187,6 +188,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -401,7 +403,7 @@ namespace templatev1
             this.label13.Location = new System.Drawing.Point(792, 155);
             this.label13.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(61, 18);
+            this.label13.Size = new System.Drawing.Size(56, 17);
             this.label13.TabIndex = 210;
             this.label13.Text = "Sort By:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -419,7 +421,7 @@ namespace templatev1
             "Quantity (Descending)"});
             this.cmbSorting.Location = new System.Drawing.Point(856, 150);
             this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(154, 26);
+            this.cmbSorting.Size = new System.Drawing.Size(154, 25);
             this.cmbSorting.TabIndex = 209;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
@@ -429,7 +431,7 @@ namespace templatev1
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(211, 101);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(482, 31);
+            this.lblHeading.Size = new System.Drawing.Size(443, 31);
             this.lblHeading.TabIndex = 211;
             this.lblHeading.Text = "List of Despatch Instruction Detail - ";
             // 
@@ -450,7 +452,7 @@ namespace templatev1
             this.label8.Location = new System.Drawing.Point(659, 153);
             this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 18);
+            this.label8.Size = new System.Drawing.Size(65, 17);
             this.label8.TabIndex = 214;
             this.label8.Text = "Category:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -468,7 +470,7 @@ namespace templatev1
             "D"});
             this.cmbCategory.Location = new System.Drawing.Point(734, 150);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(52, 26);
+            this.cmbCategory.Size = new System.Drawing.Size(52, 25);
             this.cmbCategory.TabIndex = 213;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -491,6 +493,7 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DID_List";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.DID_List_Load);

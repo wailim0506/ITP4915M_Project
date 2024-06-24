@@ -29,6 +29,7 @@ namespace templatev1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(staffInvoiceList));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -222,6 +223,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -346,7 +348,7 @@ namespace templatev1
             this.label2.Location = new System.Drawing.Point(898, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.Size = new System.Drawing.Size(56, 17);
             this.label2.TabIndex = 108;
             this.label2.Text = "Sort By:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -368,7 +370,7 @@ namespace templatev1
             "Delivery Date (Furtherest)"});
             this.cmbSorting.Location = new System.Drawing.Point(962, 106);
             this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(196, 26);
+            this.cmbSorting.Size = new System.Drawing.Size(196, 25);
             this.cmbSorting.TabIndex = 107;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
@@ -378,7 +380,7 @@ namespace templatev1
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.Location = new System.Drawing.Point(207, 95);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(410, 37);
+            this.lblHeading.Size = new System.Drawing.Size(375, 36);
             this.lblHeading.TabIndex = 106;
             this.lblHeading.Text = "Invoices of Shipped Order";
             // 
@@ -389,7 +391,7 @@ namespace templatev1
             this.label4.Location = new System.Drawing.Point(676, 110);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 18);
+            this.label4.Size = new System.Drawing.Size(47, 17);
             this.label4.TabIndex = 105;
             this.label4.Text = "Status:";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -405,7 +407,7 @@ namespace templatev1
             "Not Confirmed"});
             this.cmbStatus.Location = new System.Drawing.Point(734, 106);
             this.cmbStatus.Name = "cmbStatus";
-            this.cmbStatus.Size = new System.Drawing.Size(148, 26);
+            this.cmbStatus.Size = new System.Drawing.Size(148, 25);
             this.cmbStatus.TabIndex = 104;
             this.cmbStatus.SelectedIndexChanged += new System.EventHandler(this.cmbStatus_SelectedIndexChanged);
             // 
@@ -516,8 +518,9 @@ namespace templatev1
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "staffInvoiceList";
-            this.Text = "staffInvoiceList";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.staffInvoiceList_Load);
             this.palNav.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();

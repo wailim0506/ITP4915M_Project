@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(staffFeedbackList));
             this.lblHeading = new System.Windows.Forms.Label();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -240,6 +241,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -441,8 +443,9 @@ namespace templatev1
             this.Controls.Add(this.lblOrderDate);
             this.Controls.Add(this.lblOrderID);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "staffFeedbackList";
-            this.Text = "staffFeedbackList";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.staffFeedbackList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
             this.grpOrder.ResumeLayout(false);

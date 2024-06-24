@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(giveFeedback));
             this.btnBack = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.lblTitGiveFB = new System.Windows.Forms.Label();
@@ -280,6 +281,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -439,9 +441,10 @@ namespace templatev1
             this.Controls.Add(this.tbFB);
             this.Controls.Add(this.btnSend);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "giveFeedback";
-            this.Text = "Legend Motor Company Online Ordering Platform";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.giveFeedback_Load);
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();

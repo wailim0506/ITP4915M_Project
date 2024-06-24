@@ -702,6 +702,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // btnFunction4
             // 
@@ -859,8 +860,10 @@ namespace templatev1
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpSparePart);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(15, 15);
             this.Name = "customerEditOrder";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.customerEditOrder_Load);
             this.grpSparePart.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picTick)).EndInit();

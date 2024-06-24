@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnSaleMain));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -674,7 +675,7 @@
             this.lblTPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTPrice.Location = new System.Drawing.Point(21, 129);
             this.lblTPrice.Name = "lblTPrice";
-            this.lblTPrice.Size = new System.Drawing.Size(87, 23);
+            this.lblTPrice.Size = new System.Drawing.Size(85, 23);
             this.lblTPrice.TabIndex = 187;
             this.lblTPrice.Text = "Price ￥:";
             // 
@@ -853,6 +854,7 @@
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.lblTitClickToModify);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OnSaleMain";
             this.Text = "Legend Motor Company Integrated System";

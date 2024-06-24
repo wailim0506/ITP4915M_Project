@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(customerOrderList));
             this.lblLoc = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.grpOrder = new System.Windows.Forms.GroupBox();
@@ -333,6 +334,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -513,8 +515,9 @@ namespace templatev1
             this.Controls.Add(this.grpOrder);
             this.Controls.Add(this.lblOrderDate);
             this.Controls.Add(this.lblOrderID);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "customerOrderList";
-            this.Text = "orderList";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.customerOrderList_Load);
             this.grpOrder.ResumeLayout(false);
             this.palLoc.ResumeLayout(false);

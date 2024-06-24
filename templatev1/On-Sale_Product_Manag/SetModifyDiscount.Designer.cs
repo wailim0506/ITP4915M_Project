@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnSaleDis));
             this.palNav = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -55,34 +56,34 @@
             this.lblLoc = new System.Windows.Forms.Label();
             this.lblClickToSelect = new System.Windows.Forms.Label();
             this.grpSetModifyDis = new System.Windows.Forms.GroupBox();
+            this.lblPerMsg = new System.Windows.Forms.Label();
+            this.lblRangeMsg = new System.Windows.Forms.Label();
+            this.lblDateMsg = new System.Windows.Forms.Label();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.tbRange = new System.Windows.Forms.TextBox();
+            this.palCreateDis = new System.Windows.Forms.Panel();
+            this.dtpPostDate = new System.Windows.Forms.DateTimePicker();
             this.lblPostDate = new System.Windows.Forms.Label();
             this.lblTitPostDate = new System.Windows.Forms.Label();
             this.btnSetModify = new System.Windows.Forms.Button();
-            this.lblTitPerSymbol = new System.Windows.Forms.Label();
             this.tbPercentage = new System.Windows.Forms.TextBox();
             this.lblTitPercentage = new System.Windows.Forms.Label();
             this.lblTitRange = new System.Windows.Forms.Label();
             this.lblTitEndDate = new System.Windows.Forms.Label();
             this.lblDiscountID = new System.Windows.Forms.Label();
             this.lblTitDiscountID = new System.Windows.Forms.Label();
+            this.lblTitPerSymbol = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.dgvDiscount = new System.Windows.Forms.DataGridView();
             this.lblTitTotalNoItem = new System.Windows.Forms.Label();
-            this.palCreateDis = new System.Windows.Forms.Panel();
-            this.dtpPostDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.lblDateMsg = new System.Windows.Forms.Label();
-            this.lblRangeMsg = new System.Windows.Forms.Label();
-            this.lblPerMsg = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palDate.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpSetModifyDis.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).BeginInit();
             this.palCreateDis.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -394,6 +395,41 @@
             this.grpSetModifyDis.TabStop = false;
             this.grpSetModifyDis.Text = "Set / Modify discount";
             // 
+            // lblPerMsg
+            // 
+            this.lblPerMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblPerMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblPerMsg.Location = new System.Drawing.Point(637, 81);
+            this.lblPerMsg.Name = "lblPerMsg";
+            this.lblPerMsg.Size = new System.Drawing.Size(274, 19);
+            this.lblPerMsg.TabIndex = 193;
+            // 
+            // lblRangeMsg
+            // 
+            this.lblRangeMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblRangeMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblRangeMsg.Location = new System.Drawing.Point(611, 47);
+            this.lblRangeMsg.Name = "lblRangeMsg";
+            this.lblRangeMsg.Size = new System.Drawing.Size(300, 19);
+            this.lblRangeMsg.TabIndex = 192;
+            // 
+            // lblDateMsg
+            // 
+            this.lblDateMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblDateMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblDateMsg.Location = new System.Drawing.Point(171, 130);
+            this.lblDateMsg.Name = "lblDateMsg";
+            this.lblDateMsg.Size = new System.Drawing.Size(552, 19);
+            this.lblDateMsg.TabIndex = 191;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.dtpEndDate.Location = new System.Drawing.Point(171, 104);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpEndDate.TabIndex = 1;
+            // 
             // tbRange
             // 
             this.tbRange.Font = new System.Drawing.Font("Times New Roman", 15F);
@@ -401,6 +437,22 @@
             this.tbRange.Name = "tbRange";
             this.tbRange.Size = new System.Drawing.Size(107, 30);
             this.tbRange.TabIndex = 73;
+            // 
+            // palCreateDis
+            // 
+            this.palCreateDis.Controls.Add(this.dtpPostDate);
+            this.palCreateDis.Location = new System.Drawing.Point(168, 66);
+            this.palCreateDis.Name = "palCreateDis";
+            this.palCreateDis.Size = new System.Drawing.Size(215, 34);
+            this.palCreateDis.TabIndex = 190;
+            // 
+            // dtpPostDate
+            // 
+            this.dtpPostDate.Font = new System.Drawing.Font("Times New Roman", 10F);
+            this.dtpPostDate.Location = new System.Drawing.Point(3, 5);
+            this.dtpPostDate.Name = "dtpPostDate";
+            this.dtpPostDate.Size = new System.Drawing.Size(200, 23);
+            this.dtpPostDate.TabIndex = 0;
             // 
             // lblPostDate
             // 
@@ -433,16 +485,6 @@
             this.btnSetModify.Text = "Set / Modify";
             this.btnSetModify.UseVisualStyleBackColor = false;
             this.btnSetModify.Click += new System.EventHandler(this.btnSetModify_Click);
-            // 
-            // lblTitPerSymbol
-            // 
-            this.lblTitPerSymbol.AutoSize = true;
-            this.lblTitPerSymbol.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPerSymbol.Location = new System.Drawing.Point(604, 76);
-            this.lblTitPerSymbol.Name = "lblTitPerSymbol";
-            this.lblTitPerSymbol.Size = new System.Drawing.Size(27, 22);
-            this.lblTitPerSymbol.TabIndex = 47;
-            this.lblTitPerSymbol.Text = "%";
             // 
             // tbPercentage
             // 
@@ -502,6 +544,16 @@
             this.lblTitDiscountID.TabIndex = 0;
             this.lblTitDiscountID.Text = "DiscountID:";
             // 
+            // lblTitPerSymbol
+            // 
+            this.lblTitPerSymbol.AutoSize = true;
+            this.lblTitPerSymbol.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitPerSymbol.Location = new System.Drawing.Point(604, 76);
+            this.lblTitPerSymbol.Name = "lblTitPerSymbol";
+            this.lblTitPerSymbol.Size = new System.Drawing.Size(27, 22);
+            this.lblTitPerSymbol.TabIndex = 47;
+            this.lblTitPerSymbol.Text = "%";
+            // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
@@ -554,57 +606,6 @@
             this.lblTitTotalNoItem.Size = new System.Drawing.Size(0, 22);
             this.lblTitTotalNoItem.TabIndex = 189;
             // 
-            // palCreateDis
-            // 
-            this.palCreateDis.Controls.Add(this.dtpPostDate);
-            this.palCreateDis.Location = new System.Drawing.Point(168, 66);
-            this.palCreateDis.Name = "palCreateDis";
-            this.palCreateDis.Size = new System.Drawing.Size(215, 34);
-            this.palCreateDis.TabIndex = 190;
-            // 
-            // dtpPostDate
-            // 
-            this.dtpPostDate.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.dtpPostDate.Location = new System.Drawing.Point(3, 5);
-            this.dtpPostDate.Name = "dtpPostDate";
-            this.dtpPostDate.Size = new System.Drawing.Size(200, 23);
-            this.dtpPostDate.TabIndex = 0;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Font = new System.Drawing.Font("Times New Roman", 10F);
-            this.dtpEndDate.Location = new System.Drawing.Point(171, 104);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(200, 23);
-            this.dtpEndDate.TabIndex = 1;
-            // 
-            // lblDateMsg
-            // 
-            this.lblDateMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblDateMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblDateMsg.Location = new System.Drawing.Point(171, 130);
-            this.lblDateMsg.Name = "lblDateMsg";
-            this.lblDateMsg.Size = new System.Drawing.Size(552, 19);
-            this.lblDateMsg.TabIndex = 191;
-            // 
-            // lblRangeMsg
-            // 
-            this.lblRangeMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblRangeMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblRangeMsg.Location = new System.Drawing.Point(611, 47);
-            this.lblRangeMsg.Name = "lblRangeMsg";
-            this.lblRangeMsg.Size = new System.Drawing.Size(300, 19);
-            this.lblRangeMsg.TabIndex = 192;
-            // 
-            // lblPerMsg
-            // 
-            this.lblPerMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblPerMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblPerMsg.Location = new System.Drawing.Point(637, 81);
-            this.lblPerMsg.Name = "lblPerMsg";
-            this.lblPerMsg.Size = new System.Drawing.Size(274, 19);
-            this.lblPerMsg.TabIndex = 193;
-            // 
             // OnSaleDis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -619,6 +620,7 @@
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palNav);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OnSaleDis";
             this.Text = "Legend Motor Company Integrated System";
@@ -632,8 +634,8 @@
             this.palLoc.PerformLayout();
             this.grpSetModifyDis.ResumeLayout(false);
             this.grpSetModifyDis.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).EndInit();
             this.palCreateDis.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDiscount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

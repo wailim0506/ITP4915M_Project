@@ -30,6 +30,7 @@ namespace templatev1
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPartToExistingOrder));
             this.btnBackViewPart = new System.Windows.Forms.Button();
             this.palDate = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
@@ -291,6 +292,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -700,6 +702,7 @@ namespace templatev1
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palNav);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddPartToExistingOrder";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.AddPartToExistingOrder_Load);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OnSaleModify));
             this.panel1 = new System.Windows.Forms.Panel();
             this.palSelect5 = new System.Windows.Forms.Panel();
             this.palSelect4 = new System.Windows.Forms.Panel();
@@ -551,7 +552,7 @@
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.lblTitPrice.Location = new System.Drawing.Point(222, 389);
             this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(83, 22);
+            this.lblTitPrice.Size = new System.Drawing.Size(81, 22);
             this.lblTitPrice.TabIndex = 58;
             this.lblTitPrice.Text = "Price: ￥";
             // 
@@ -816,9 +817,10 @@
             this.Controls.Add(this.palTIME);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "OnSaleModify";
-            this.Text = "v";
+            this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();

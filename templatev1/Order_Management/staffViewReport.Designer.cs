@@ -188,6 +188,7 @@ namespace templatev1
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // lblCorpName
             // 
@@ -454,7 +455,7 @@ namespace templatev1
             this.lblEndData.Name = "lblEndData";
             this.lblEndData.Size = new System.Drawing.Size(52, 13);
             this.lblEndData.TabIndex = 211;
-            this.lblEndData.Text = "End Data";
+            this.lblEndData.Text = "End Date";
             // 
             // lblStartData
             // 
@@ -463,7 +464,7 @@ namespace templatev1
             this.lblStartData.Name = "lblStartData";
             this.lblStartData.Size = new System.Drawing.Size(55, 13);
             this.lblStartData.TabIndex = 210;
-            this.lblStartData.Text = "Start Data";
+            this.lblStartData.Text = "Start Date";
             // 
             // cbxFileFormat
             // 
