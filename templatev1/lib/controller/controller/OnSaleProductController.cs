@@ -201,5 +201,107 @@ namespace controller
             }
         }
 
+        public int GetTotalDiscountQty()
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM discount";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows.Count;
+        }
+
+        //Return all records to the data grid view from database.
+        public DataTable GetDiscount()
+        {
+            sqlStr = "SELECT discountID, percentage, discountRange, createDate AS postDate, endDate FROM discount";
+            return ExecuteSqlQuery(sqlStr);
+        }
+
+        public dynamic GetDiscountInfo(string discountID)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT * FROM discount WHERE discountID = \'{discountID}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            dynamic DiscountInfo = new ExpandoObject();
+            DiscountInfo.discountID = dt.Rows[0]["discountID"].ToString();
+            DiscountInfo.percentage = dt.Rows[0]["percentage"].ToString();
+            DiscountInfo.discountRange = dt.Rows[0]["discountRange"].ToString();
+            DiscountInfo.endDate = (DateTime)dt.Rows[0]["endDate"];
+            DiscountInfo.createDate = (DateTime)dt.Rows[0]["createDate"];
+
+            return DiscountInfo;
+        }
+
+        public string GetDiscountID()
+        {
+            string discountID = "DISC";
+
+            sqlStr = "SELECT * FROM discount";
+            dt = db.ExecuteDataTable(sqlStr);
+            discountID += (dt.Rows.Count + 1).ToString("D4");
+
+            return discountID;
+
+        }
+
+        public bool CreateDiscount(dynamic newDiscountInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@discountID", newDiscountInfo.discountID },
+                    { "@percentage", newDiscountInfo.percentage },
+                    { "@discountRange", newDiscountInfo.range },
+                    { "@endDate", newDiscountInfo.endDate },
+                    { "@createDate", newDiscountInfo.postDate }
+                };
+
+                sqlStr =
+                    "INSERT INTO discount VALUES(@discountID, @percentage, @discountRange, @endDate, @createDate)";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "OnSaleProduct controller", $"Error add new discount: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
+        public bool ModifyDiscount(dynamic modifyDiscountInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@discountID", modifyDiscountInfo.discountID },
+                    { "@percentage", modifyDiscountInfo.percentage },
+                    { "@discountRange", modifyDiscountInfo.range },
+                    { "@endDate", modifyDiscountInfo.endDate }
+                };
+
+                sqlStr =
+                    "UPDATE discount SET percentage = @percentage, discountRange = @discountRange, endDate = @endDate " +
+                    "WHERE discountID = @discountID";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "OnSaleProduct controller", $"Error modify discount: {e.Message}");
+                return false; //Something went wrong.
+            }
+        }
+
     }
 }

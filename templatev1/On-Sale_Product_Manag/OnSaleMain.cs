@@ -21,8 +21,6 @@ namespace templatev1
         public OnSaleMain(AccountController accountController, UIController UIController)
         {
             InitializeComponent();
-            palSelect1.Visible =
-                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             this.accountController = accountController;
             this.UIController = UIController;
             onSaleProductController = new OnSaleProductController(accountController);
@@ -123,7 +121,7 @@ namespace templatev1
 
         private void btnSetModifyDis_Click(object sender, EventArgs e)
         {
-            Form OnSaleDis = new OnSaleDis();
+            Form OnSaleDis = new OnSaleDis(accountController, UIController, onSaleProductController);
             Hide();
             //Swap the current form to another.
             OnSaleDis.StartPosition = FormStartPosition.Manual;

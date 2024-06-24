@@ -52,6 +52,7 @@
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.grpPartInfo = new System.Windows.Forms.GroupBox();
+            this.lblStoreInfoMsg = new System.Windows.Forms.Label();
             this.lblCat = new System.Windows.Forms.Label();
             this.lblTitStockQty = new System.Windows.Forms.Label();
             this.lblCountry = new System.Windows.Forms.Label();
@@ -87,7 +88,6 @@
             this.chkStatus = new System.Windows.Forms.CheckBox();
             this.lblPartName = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
-            this.lblStoreInfoMsg = new System.Windows.Forms.Label();
             this.lblPartNoMsg = new System.Windows.Forms.Label();
             this.lblPriceMsg = new System.Windows.Forms.Label();
             this.lblQtyForSaleMsg = new System.Windows.Forms.Label();
@@ -134,6 +134,7 @@
             this.palSelect5.Name = "palSelect5";
             this.palSelect5.Size = new System.Drawing.Size(10, 55);
             this.palSelect5.TabIndex = 4;
+            this.palSelect5.Visible = false;
             // 
             // palSelect4
             // 
@@ -142,6 +143,7 @@
             this.palSelect4.Name = "palSelect4";
             this.palSelect4.Size = new System.Drawing.Size(10, 55);
             this.palSelect4.TabIndex = 4;
+            this.palSelect4.Visible = false;
             // 
             // palSelect2
             // 
@@ -150,6 +152,7 @@
             this.palSelect2.Name = "palSelect2";
             this.palSelect2.Size = new System.Drawing.Size(10, 55);
             this.palSelect2.TabIndex = 4;
+            this.palSelect2.Visible = false;
             // 
             // palSelect1
             // 
@@ -158,6 +161,7 @@
             this.palSelect1.Name = "palSelect1";
             this.palSelect1.Size = new System.Drawing.Size(10, 55);
             this.palSelect1.TabIndex = 4;
+            this.palSelect1.Visible = false;
             // 
             // picBWMode
             // 
@@ -191,6 +195,7 @@
             this.palSelect3.Name = "palSelect3";
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 3;
+            this.palSelect3.Visible = false;
             // 
             // btnLogOut
             // 
@@ -392,6 +397,16 @@
             this.grpPartInfo.TabIndex = 85;
             this.grpPartInfo.TabStop = false;
             this.grpPartInfo.Text = "Spare part Info";
+            // 
+            // lblStoreInfoMsg
+            // 
+            this.lblStoreInfoMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
+            this.lblStoreInfoMsg.ForeColor = System.Drawing.Color.Red;
+            this.lblStoreInfoMsg.Location = new System.Drawing.Point(6, 251);
+            this.lblStoreInfoMsg.Name = "lblStoreInfoMsg";
+            this.lblStoreInfoMsg.Size = new System.Drawing.Size(341, 19);
+            this.lblStoreInfoMsg.TabIndex = 146;
+            this.lblStoreInfoMsg.Text = "Select a part number to display spare part Info.";
             // 
             // lblCat
             // 
@@ -740,16 +755,6 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(576, 227);
             this.tbDescription.TabIndex = 106;
-            // 
-            // lblStoreInfoMsg
-            // 
-            this.lblStoreInfoMsg.Font = new System.Drawing.Font("Times New Roman", 9F);
-            this.lblStoreInfoMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblStoreInfoMsg.Location = new System.Drawing.Point(6, 251);
-            this.lblStoreInfoMsg.Name = "lblStoreInfoMsg";
-            this.lblStoreInfoMsg.Size = new System.Drawing.Size(341, 19);
-            this.lblStoreInfoMsg.TabIndex = 146;
-            this.lblStoreInfoMsg.Text = "Select a part number to display spare part Info.";
             // 
             // lblPartNoMsg
             // 
