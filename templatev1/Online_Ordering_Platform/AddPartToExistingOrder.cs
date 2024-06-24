@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using controller;
 using templatev1.Properties;
+using controller.Utilities;
 
 namespace templatev1
 {
@@ -15,14 +16,14 @@ namespace templatev1
         AccountController accountController;
         UIController UIController;
         addPartToOrderController controller;
+        dateHandler dateHandler;
         private string partNum, qty;
+        private Boolean isLM;
 
         public AddPartToExistingOrder()
         {
             InitializeComponent();
-            //partNum = "D00004";
-            //controller = new controller.addPartToOrderController();
-            //lblUid.Text = $"Uid: {UID}";
+
         }
 
 
@@ -33,10 +34,12 @@ namespace templatev1
             this.accountController = accountController;
             this.UIController = UIController;
             controller = new addPartToOrderController();
+            dateHandler = new dateHandler();
             this.partNum = partNum;
             this.qty = qty;
             UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
+            isLM = accountController.GetIsLm();
         }
 
         private void AddPartToExistingOrder_Load(object sender, EventArgs e)
@@ -58,7 +61,7 @@ namespace templatev1
             lblSupplier.Text = dt.Rows[0][4].ToString();
             lblCountry.Text = dt.Rows[0][5].ToString();
             lblPrice.Text = dt.Rows[0][6].ToString();
-            lblOnSaleQty.Text = dt.Rows[0][7].ToString();
+            lblOnSaleQty.Text = isLM ? dt.Rows[0][8].ToString() : dt.Rows[0][7].ToString();
             picSpare.Image = imageString(partNum);
 
             dt = controller.GetEditableOrderId(UID);
@@ -78,108 +81,23 @@ namespace templatev1
             string[] shippingDate = shippingDateTime.Split(' ');
             lblShippingDate.Text = shippingDate[0];
             lblOrderStatus.Text = controller.GetOrderStatus(orderID);
-            lblDayUntilDelivery.Text = $"{dayDifference(orderID)} day(s) until shipping.";
+            lblDayUntilDelivery.Text = $"{dateHandler.DayDifference(orderID)} day(s) until shipping.";
             lblLoc.Text = $"Add {lblPartName.Text} to Order {orderID}";
         }
 
-        private int dayDifference(string orderID) //calculate day difference
-        {
-            string
-                systemFormat = SystemDateFormat(); //the date format got from db depend on the operation system setting
-            string[] splitSystemFormat = systemFormat.Split('/');
-
-            Boolean monthFirst;
-
-            if (splitSystemFormat[0] == "M" || splitSystemFormat[0] == "MM")
-            {
-                monthFirst = true;
-            }
-            else
-            {
-                monthFirst = false;
-            }
-
-
-            DataTable dt;
-            dt = controller.GetShippingDetail(orderID);
-            string shippingDate = dt.Rows[0][2].ToString();
-            string[]
-                d = shippingDate
-                    .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
-            shippingDate = d[0];
-            string shipDate = shippingDate; //   d/M/yyyy
-
-
-            string sysYear = DateTime.Now.ToString("yyyy"); //today year 
-            string sysMonth = DateTime.Now.ToString("MM"); //today month
-            string sysDay = DateTime.Now.ToString("dd"); //today month
-
-            string[] splitShipDate = shipDate.Split('/');
-
-            string shipMonth, shipDay, shipYear;
-            if (monthFirst)
-            {
-                shipMonth = splitShipDate[0];
-                shipDay = splitShipDate[1];
-                shipYear = splitShipDate[2];
-            }
-            else
-            {
-                shipMonth = splitShipDate[1];
-                shipDay = splitShipDate[0];
-                shipYear = splitShipDate[2];
-            }
-
-            if (int.Parse(shipMonth) < 10)
-            {
-                shipMonth = shipMonth.PadLeft(2, '0');
-            }
-
-            if (int.Parse(shipDay) < 10)
-            {
-                shipDay = shipDay.PadLeft(2, '0');
-            }
-
-
-            string formatedShippingDate = $"{shipDay}/{shipMonth}/{shipYear}";
-            string formatedSysDate = $"{sysDay}/{sysMonth}/{sysYear}";
-
-            DateTime parsedFormatedShippingDate;
-            DateTime parsedFormatedSysDate;
-
-            try
-            {
-                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                parsedFormatedShippingDate = DateTime.ParseExact(formatedShippingDate, "MM/dd/yyyy", null);
-            }
-            //MessageBox.Show(parsedFormatedShippingDate.ToString());
-
-            try
-            {
-                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "dd/MM/yyyy", null);
-            }
-            catch (Exception e)
-            {
-                parsedFormatedSysDate = DateTime.ParseExact(formatedSysDate, "MM/dd/yyyy", null);
-            }
-
-
-            TimeSpan difference = parsedFormatedShippingDate - parsedFormatedSysDate;
-
-            string[] f = difference.ToString().Split('.');
-            return int.Parse(f[0]);
-        }
+        
 
         private void btnAddQty_Click(object sender, EventArgs e)
         {
+            
             if (tbQty.Text != "") //check have quantity input
             {
-                int qty = int.Parse(tbQty.Text);
-                qty++;
-                tbQty.Text = qty.ToString();
+                if (int.Parse(tbQty.Text) < int.Parse(lblOnSaleQty.Text))
+                {
+                    int qty = int.Parse(tbQty.Text);
+                    qty++;
+                    tbQty.Text = qty.ToString();
+                }
             }
             else
             {
@@ -187,6 +105,7 @@ namespace templatev1
                 qty++;
                 tbQty.Text = qty.ToString();
             }
+            
         }
 
         private void btnMinusQty_Click(object sender, EventArgs e)
@@ -247,6 +166,95 @@ namespace templatev1
             proFile.StartPosition = FormStartPosition.Manual;
             proFile.Location = Location;
             proFile.ShowDialog();
+            Close();
+        }
+
+        private void lblAddToOrder_Click(object sender, EventArgs e)
+        {
+            if (tbQty.Text != "")
+            {
+                if (int.Parse(tbQty.Text) <= 0)
+                {
+                    MessageBox.Show("Quantity is invalid.", "Add to Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    if (int.Parse(tbQty.Text) > int.Parse(lblOnSaleQty.Text))
+                    {
+                        //check quantity input is larger than on sales quantity
+                        MessageBox.Show(
+                            $"Quantity input cannot exceed On Sales Quantity ({lblOnSaleQty.Text})",
+                            "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    int qty = int.Parse(tbQty.Text);
+                    if (controller.addToOrder(cmbOrderSelection.Text,lblPartNum.Text,int.Parse(tbQty.Text),int.Parse(lblPrice.Text),isLM))
+                    {
+                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {cmbOrderSelection.Text}.", "Add Cart");
+                        tbQty.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please input the quantity.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o = new customerOrderList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form o = new cart(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            Form o = new favourite(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            Form o = new giveFeedback(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
             Close();
         }
 

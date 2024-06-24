@@ -12,11 +12,11 @@ namespace controller
 
         private DataTable ExecuteQuery(string sqlCmd) => db.ExecuteDataTable(sqlCmd);
 
-        public DataTable getAllPart() => ExecuteQuery("SELECT * FROM spare_part");
+        public DataTable getAllPart() => ExecuteQuery("SELECT * FROM spare_part WHERE status = 'Enable'");
 
         public DataTable getSpareWhenTextChange(string category, string kw, string sorting)
         {
-            string sqlCmd = "SELECT * FROM spare_part x, product y WHERE x.partNumber = y.partNumber";
+            string sqlCmd = "SELECT * FROM spare_part x, product y WHERE x.partNumber = y.partNumber AND x.status = 'Enable'";
             if (category != "All") sqlCmd += $" AND x.categoryID = '{category}'";
             if (kw != "") sqlCmd += $" AND x.name LIKE '%{kw}%'";
             switch (sorting)

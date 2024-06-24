@@ -471,6 +471,16 @@ namespace templatev1
             Close();
         }
 
+        private void btnAddNew_Click(object sender, EventArgs e)
+        {
+            Form o = new sparePartList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
         private void BWMode()
         {
             dynamic value = UIController.getMode();

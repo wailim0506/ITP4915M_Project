@@ -100,9 +100,11 @@ namespace templatev1
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                int qty = int.Parse(tbQty.Text);
-                qty++;
-                tbQty.Text = qty.ToString();
+                if (int.Parse(tbQty.Text) < int.Parse(lblOnSalesQty.Text)) {
+                    int qty = int.Parse(tbQty.Text);
+                    qty++;
+                    tbQty.Text = qty.ToString();
+                }
             }
             else
             {

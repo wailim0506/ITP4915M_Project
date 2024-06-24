@@ -81,6 +81,7 @@ namespace templatev1
             this.label6 = new System.Windows.Forms.Label();
             this.lblDayUntilDelivery = new System.Windows.Forms.Label();
             this.lblAddToOrder = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.palDate.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palNav.SuspendLayout();
@@ -205,6 +206,7 @@ namespace templatev1
             this.btnFunction5.Text = "Give Feedback";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // palSelect4
             // 
@@ -314,6 +316,7 @@ namespace templatev1
             this.btnFunction4.Text = "Favourite";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
+            this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
             // 
             // btnFunction3
             // 
@@ -329,6 +332,7 @@ namespace templatev1
             this.btnFunction3.Text = "Cart";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -344,6 +348,7 @@ namespace templatev1
             this.btnFunction2.Text = "Spare Part";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
             // 
@@ -359,6 +364,7 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // picSpare
             // 
@@ -373,9 +379,9 @@ namespace templatev1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(222, 522);
+            this.label1.Location = new System.Drawing.Point(222, 519);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 24);
+            this.label1.Size = new System.Drawing.Size(130, 21);
             this.label1.TabIndex = 91;
             this.label1.Text = "Select an Order:";
             // 
@@ -385,7 +391,7 @@ namespace templatev1
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(222, 237);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 24);
+            this.label2.Size = new System.Drawing.Size(92, 21);
             this.label2.TabIndex = 92;
             this.label2.Text = "Part Name:";
             // 
@@ -395,7 +401,7 @@ namespace templatev1
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(222, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 24);
+            this.label3.Size = new System.Drawing.Size(109, 21);
             this.label3.TabIndex = 93;
             this.label3.Text = "Part Number:";
             // 
@@ -403,9 +409,9 @@ namespace templatev1
             // 
             this.lblTitPrice.AutoSize = true;
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPrice.Location = new System.Drawing.Point(222, 414);
+            this.lblTitPrice.Location = new System.Drawing.Point(222, 426);
             this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(73, 24);
+            this.lblTitPrice.Size = new System.Drawing.Size(67, 21);
             this.lblTitPrice.TabIndex = 96;
             this.lblTitPrice.Text = "Price: ¥";
             // 
@@ -415,7 +421,7 @@ namespace templatev1
             this.lblTitManu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitManu.Location = new System.Drawing.Point(222, 336);
             this.lblTitManu.Name = "lblTitManu";
-            this.lblTitManu.Size = new System.Drawing.Size(85, 24);
+            this.lblTitManu.Size = new System.Drawing.Size(76, 21);
             this.lblTitManu.TabIndex = 95;
             this.lblTitManu.Text = "Supplier:";
             // 
@@ -425,7 +431,7 @@ namespace templatev1
             this.lblTitCat.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitCat.Location = new System.Drawing.Point(222, 287);
             this.lblTitCat.Name = "lblTitCat";
-            this.lblTitCat.Size = new System.Drawing.Size(90, 24);
+            this.lblTitCat.Size = new System.Drawing.Size(82, 21);
             this.lblTitCat.TabIndex = 94;
             this.lblTitCat.Text = "Category:";
             // 
@@ -433,9 +439,9 @@ namespace templatev1
             // 
             this.cmbOrderSelection.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbOrderSelection.FormattingEnabled = true;
-            this.cmbOrderSelection.Location = new System.Drawing.Point(375, 519);
+            this.cmbOrderSelection.Location = new System.Drawing.Point(358, 516);
             this.cmbOrderSelection.Name = "cmbOrderSelection";
-            this.cmbOrderSelection.Size = new System.Drawing.Size(175, 32);
+            this.cmbOrderSelection.Size = new System.Drawing.Size(175, 29);
             this.cmbOrderSelection.TabIndex = 97;
             this.cmbOrderSelection.SelectedIndexChanged += new System.EventHandler(this.cmbOrderSelection_SelectedIndexChanged);
             // 
@@ -443,9 +449,9 @@ namespace templatev1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(222, 637);
+            this.label9.Location = new System.Drawing.Point(222, 628);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(133, 24);
+            this.label9.Size = new System.Drawing.Size(119, 21);
             this.label9.TabIndex = 98;
             this.label9.Text = "Shipping Date:";
             // 
@@ -453,9 +459,9 @@ namespace templatev1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(222, 714);
+            this.label4.Location = new System.Drawing.Point(222, 723);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 24);
+            this.label4.Size = new System.Drawing.Size(109, 21);
             this.label4.TabIndex = 99;
             this.label4.Text = "Order Status:";
             // 
@@ -463,9 +469,9 @@ namespace templatev1
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(222, 579);
+            this.label5.Location = new System.Drawing.Point(222, 574);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 24);
+            this.label5.Size = new System.Drawing.Size(134, 21);
             this.label5.TabIndex = 100;
             this.label5.Text = "Quantity to Add:";
             // 
@@ -473,77 +479,70 @@ namespace templatev1
             // 
             this.lblPartNum.AutoSize = true;
             this.lblPartNum.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartNum.Location = new System.Drawing.Point(349, 181);
+            this.lblPartNum.Location = new System.Drawing.Point(337, 181);
             this.lblPartNum.Name = "lblPartNum";
-            this.lblPartNum.Size = new System.Drawing.Size(121, 24);
+            this.lblPartNum.Size = new System.Drawing.Size(0, 21);
             this.lblPartNum.TabIndex = 101;
-            this.lblPartNum.Text = "Part Number:";
             // 
             // lblPartName
             // 
             this.lblPartName.AutoSize = true;
             this.lblPartName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartName.Location = new System.Drawing.Point(331, 237);
+            this.lblPartName.Location = new System.Drawing.Point(320, 237);
             this.lblPartName.Name = "lblPartName";
-            this.lblPartName.Size = new System.Drawing.Size(121, 24);
+            this.lblPartName.Size = new System.Drawing.Size(0, 21);
             this.lblPartName.TabIndex = 102;
-            this.lblPartName.Text = "Part Number:";
             // 
             // lblCategory
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(318, 287);
+            this.lblCategory.Location = new System.Drawing.Point(313, 287);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(121, 24);
+            this.lblCategory.Size = new System.Drawing.Size(0, 21);
             this.lblCategory.TabIndex = 103;
-            this.lblCategory.Text = "Part Number:";
             // 
             // lblSupplier
             // 
             this.lblSupplier.AutoSize = true;
             this.lblSupplier.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplier.Location = new System.Drawing.Point(313, 336);
+            this.lblSupplier.Location = new System.Drawing.Point(301, 336);
             this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(121, 24);
+            this.lblSupplier.Size = new System.Drawing.Size(0, 21);
             this.lblSupplier.TabIndex = 104;
-            this.lblSupplier.Text = "Part Number:";
             // 
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(301, 414);
+            this.lblPrice.Location = new System.Drawing.Point(292, 426);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(121, 24);
+            this.lblPrice.Size = new System.Drawing.Size(0, 21);
             this.lblPrice.TabIndex = 105;
-            this.lblPrice.Text = "Part Number:";
             // 
             // lblShippingDate
             // 
             this.lblShippingDate.AutoSize = true;
             this.lblShippingDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShippingDate.Location = new System.Drawing.Point(361, 637);
+            this.lblShippingDate.Location = new System.Drawing.Point(358, 628);
             this.lblShippingDate.Name = "lblShippingDate";
-            this.lblShippingDate.Size = new System.Drawing.Size(38, 24);
+            this.lblShippingDate.Size = new System.Drawing.Size(0, 21);
             this.lblShippingDate.TabIndex = 106;
-            this.lblShippingDate.Text = "test";
             // 
             // lblOrderStatus
             // 
             this.lblOrderStatus.AutoSize = true;
             this.lblOrderStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderStatus.Location = new System.Drawing.Point(349, 714);
+            this.lblOrderStatus.Location = new System.Drawing.Point(348, 723);
             this.lblOrderStatus.Name = "lblOrderStatus";
-            this.lblOrderStatus.Size = new System.Drawing.Size(38, 24);
+            this.lblOrderStatus.Size = new System.Drawing.Size(0, 21);
             this.lblOrderStatus.TabIndex = 107;
-            this.lblOrderStatus.Text = "test";
             // 
             // tbQty
             // 
             this.tbQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQty.Location = new System.Drawing.Point(412, 579);
+            this.tbQty.Location = new System.Drawing.Point(402, 571);
             this.tbQty.MaxLength = 4;
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(103, 30);
@@ -555,7 +554,7 @@ namespace templatev1
             // 
             this.btnMinusQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinusQty.Location = new System.Drawing.Point(372, 574);
+            this.btnMinusQty.Location = new System.Drawing.Point(362, 566);
             this.btnMinusQty.Name = "btnMinusQty";
             this.btnMinusQty.Size = new System.Drawing.Size(34, 39);
             this.btnMinusQty.TabIndex = 110;
@@ -567,7 +566,7 @@ namespace templatev1
             // 
             this.btnAddQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddQty.Location = new System.Drawing.Point(521, 574);
+            this.btnAddQty.Location = new System.Drawing.Point(511, 566);
             this.btnAddQty.Name = "btnAddQty";
             this.btnAddQty.Size = new System.Drawing.Size(34, 39);
             this.btnAddQty.TabIndex = 109;
@@ -583,19 +582,18 @@ namespace templatev1
             // 
             this.lblOnSaleQty.AutoSize = true;
             this.lblOnSaleQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOnSaleQty.Location = new System.Drawing.Point(349, 470);
+            this.lblOnSaleQty.Location = new System.Drawing.Point(334, 470);
             this.lblOnSaleQty.Name = "lblOnSaleQty";
-            this.lblOnSaleQty.Size = new System.Drawing.Size(121, 24);
+            this.lblOnSaleQty.Size = new System.Drawing.Size(0, 21);
             this.lblOnSaleQty.TabIndex = 112;
-            this.lblOnSaleQty.Text = "Part Number:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(227, 470);
+            this.label7.Location = new System.Drawing.Point(222, 470);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(116, 24);
+            this.label7.Size = new System.Drawing.Size(106, 21);
             this.label7.TabIndex = 111;
             this.label7.Text = "On Sale Qty:";
             // 
@@ -605,9 +603,8 @@ namespace templatev1
             this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCountry.Location = new System.Drawing.Point(384, 383);
             this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(121, 24);
+            this.lblCountry.Size = new System.Drawing.Size(0, 21);
             this.lblCountry.TabIndex = 114;
-            this.lblCountry.Text = "Part Number:";
             // 
             // label10
             // 
@@ -615,7 +612,7 @@ namespace templatev1
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(222, 383);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 24);
+            this.label10.Size = new System.Drawing.Size(147, 21);
             this.label10.TabIndex = 113;
             this.label10.Text = "Country of Origin:";
             // 
@@ -623,9 +620,9 @@ namespace templatev1
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(227, 674);
+            this.label6.Location = new System.Drawing.Point(222, 674);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(177, 24);
+            this.label6.Size = new System.Drawing.Size(163, 21);
             this.label6.TabIndex = 115;
             this.label6.Text = "Days Until Shipping:";
             // 
@@ -633,11 +630,10 @@ namespace templatev1
             // 
             this.lblDayUntilDelivery.AutoSize = true;
             this.lblDayUntilDelivery.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDayUntilDelivery.Location = new System.Drawing.Point(408, 674);
+            this.lblDayUntilDelivery.Location = new System.Drawing.Point(393, 674);
             this.lblDayUntilDelivery.Name = "lblDayUntilDelivery";
-            this.lblDayUntilDelivery.Size = new System.Drawing.Size(38, 24);
+            this.lblDayUntilDelivery.Size = new System.Drawing.Size(0, 21);
             this.lblDayUntilDelivery.TabIndex = 116;
-            this.lblDayUntilDelivery.Text = "test";
             // 
             // lblAddToOrder
             // 
@@ -651,12 +647,25 @@ namespace templatev1
             this.lblAddToOrder.TabIndex = 117;
             this.lblAddToOrder.Text = "Add to Order";
             this.lblAddToOrder.UseVisualStyleBackColor = false;
+            this.lblAddToOrder.Click += new System.EventHandler(this.lblAddToOrder_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(223, 772);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(368, 16);
+            this.label8.TabIndex = 118;
+            this.label8.Text = "*only pending or processing order can add new spare part(s)";
             // 
             // AddPartToExistingOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 794);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.lblAddToOrder);
             this.Controls.Add(this.lblDayUntilDelivery);
             this.Controls.Add(this.label6);
@@ -758,5 +767,6 @@ namespace templatev1
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblDayUntilDelivery;
         private System.Windows.Forms.Button lblAddToOrder;
+        private System.Windows.Forms.Label label8;
     }
 }
