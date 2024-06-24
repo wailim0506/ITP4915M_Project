@@ -172,7 +172,7 @@ namespace templatev1
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            Form home = new Home(accountController, UIController);
+            Form home = new Home(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
