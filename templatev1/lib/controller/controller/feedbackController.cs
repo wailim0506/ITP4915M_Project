@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using controller.Utilities;
 
-//must include in every controller file
-
-//must include in every controller file 
 
 namespace controller
 {
@@ -99,6 +97,29 @@ namespace controller
             }
 
             return orderID;
+        }
+
+        public DataTable getAllFeedback(bool isManager, string staffID)
+        {
+            string sqlCmd =
+                $"SELECT x.feedBackID, x.customerID, x.orderID, x.content, x.feedbackDate FROM feedback x, " +
+                $"staff_account y , order_ z WHERE x.orderID = z.orderID AND " +
+                $"y.staffAccountID = z.staffAccountID";
+
+
+
+            if (!isManager)
+            {
+                sqlCmd += $" AND y.staffID = \'{staffID}\'";
+            }
+            return _db.ExecuteDataTable(sqlCmd);
+        }
+
+        public DataTable getFeedbackDetail(string feedbackID)
+        {
+            string sqlCmd =
+                $"SELECT feedBackID, customerID, orderID, content, feedbackDate FROM feedback WHERE feedBackID = \'{feedbackID}\'";
+            return _db.ExecuteDataTable(sqlCmd);
         }
     }
 }

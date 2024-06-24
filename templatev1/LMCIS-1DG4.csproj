@@ -251,6 +251,12 @@
     <Compile Include="Online_Ordering_Platform\sparePartList.Designer.cs">
       <DependentUpon>sparePartList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Online_Ordering_Platform\staffViewFeedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Online_Ordering_Platform\staffViewFeedback.Designer.cs">
+      <DependentUpon>staffViewFeedback.cs</DependentUpon>
+    </Compile>
     <Compile Include="Online_Ordering_Platform\viewSparePart.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,12 @@
     </Compile>
     <Compile Include="Order_Management\DID_List.Designer.cs">
       <DependentUpon>DID_List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order_Management\staffFeedbackList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\staffFeedbackList.Designer.cs">
+      <DependentUpon>staffFeedbackList.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\staffInvoiceList.cs">
       <SubType>Form</SubType>
@@ -537,6 +549,9 @@
     <EmbeddedResource Include="Online_Ordering_Platform\sparePartList.resx">
       <DependentUpon>sparePartList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Online_Ordering_Platform\staffViewFeedback.resx">
+      <DependentUpon>staffViewFeedback.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderAnalysisReport.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -557,6 +572,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\DID_List.resx">
       <DependentUpon>DID_List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\staffFeedbackList.resx">
+      <DependentUpon>staffFeedbackList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\staffInvoiceList.resx">
       <DependentUpon>staffInvoiceList.cs</DependentUpon>

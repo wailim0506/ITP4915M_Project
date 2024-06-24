@@ -257,6 +257,11 @@ namespace templatev1
             Close();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");

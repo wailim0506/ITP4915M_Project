@@ -334,7 +334,7 @@
             this.lblTitLastLogin.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
             this.lblTitLastLogin.Location = new System.Drawing.Point(590, 844);
             this.lblTitLastLogin.Name = "lblTitLastLogin";
-            this.lblTitLastLogin.Size = new System.Drawing.Size(180, 20);
+            this.lblTitLastLogin.Size = new System.Drawing.Size(170, 20);
             this.lblTitLastLogin.TabIndex = 4;
             this.lblTitLastLogin.Text = "Last Login DateTime：";
             // 
@@ -346,7 +346,7 @@
             this.lblTitLastPassChange.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
             this.lblTitLastPassChange.Location = new System.Drawing.Point(590, 885);
             this.lblTitLastPassChange.Name = "lblTitLastPassChange";
-            this.lblTitLastPassChange.Size = new System.Drawing.Size(221, 20);
+            this.lblTitLastPassChange.Size = new System.Drawing.Size(211, 20);
             this.lblTitLastPassChange.TabIndex = 5;
             this.lblTitLastPassChange.Text = "Last password change date：";
             // 
