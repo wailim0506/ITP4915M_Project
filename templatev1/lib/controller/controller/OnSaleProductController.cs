@@ -28,6 +28,27 @@ namespace controller
             return db.ExecuteDataTable(sqlQuery);
         }
 
+        public string GetItemID()
+        {
+            string itemID = "LMP";
+
+            sqlStr = "SELECT * FROM product";
+            dt = db.ExecuteDataTable(sqlStr);
+            itemID += (dt.Rows.Count + 1).ToString("D5");
+
+            return itemID;
+
+        }
+
+        public List<string> GetSparePart()
+        {
+            var sqlStr = "SELECT partNumber FROM spare_part";
+            dt = db.ExecuteDataTable(sqlStr);
+            Log.LogMessage(LogLevel.Debug, "OnSaleProduct Controller", $"GetSparePart was executed.");
+            return dt.AsEnumerable().Select(row => row["partNumber"].ToString()).ToList();
+        }
+
+
         //Return all records to the data grid view from database.
         public DataTable GetProduct()
         {
@@ -134,6 +155,50 @@ namespace controller
             }
 
 
+        }
+
+        private string GetCategoryID(string Category)
+        {
+            dt = new DataTable();
+
+            sqlStr = $"SELECT categoryID FROM category WHERE type = \'{Category}\'";
+
+            dt = _db.ExecuteDataTable(sqlStr);
+
+            return dt.Rows[0]["categoryID"].ToString();
+        }
+
+        public bool CreateNewItem(dynamic newItemInfo)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@itemID", newItemInfo.itemID },
+                    { "@categoryID", GetCategoryID(newItemInfo.category) },
+                    { "@partNumber", newItemInfo.partNumber },
+                    { "@onSaleQty", newItemInfo.OnSaleQty },
+                    { "@LM_onSaleQty", newItemInfo.LM_OnSaleQty },
+                    { "@description", newItemInfo.description },
+                    { "@price", newItemInfo.price },
+                    { "@lastModified", accountController.GetUid() },
+                    { "@status", newItemInfo.Status },
+                    { "@onShelvesDate", DateTime.Now.ToString("yyyy-MM-dd") },
+                };
+
+                sqlStr =
+                    "INSERT INTO product VALUES(@itemID, @categoryID, @partNumber, @onSaleQty, " +
+                    "@LM_onSaleQty, @description, @price, NULL, @lastModified, @status, @onShelvesDate)";
+
+                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                Log.LogMessage(LogLevel.Error, "OnSaleProduct controller", $"Error add new item: {e.Message}");
+                return false; //Something went wrong.
+            }
         }
 
     }

@@ -423,7 +423,7 @@ namespace templatev1
             // lblAddMsg
             // 
             this.lblAddMsg.ForeColor = System.Drawing.Color.Red;
-            this.lblAddMsg.Location = new System.Drawing.Point(369, 366);
+            this.lblAddMsg.Location = new System.Drawing.Point(365, 475);
             this.lblAddMsg.Name = "lblAddMsg";
             this.lblAddMsg.Size = new System.Drawing.Size(749, 19);
             this.lblAddMsg.TabIndex = 144;
@@ -432,8 +432,9 @@ namespace templatev1
             // 
             this.tbAddress.Font = new System.Drawing.Font("Times New Roman", 15F);
             this.tbAddress.Location = new System.Drawing.Point(368, 333);
+            this.tbAddress.Multiline = true;
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(575, 30);
+            this.tbAddress.Size = new System.Drawing.Size(575, 130);
             this.tbAddress.TabIndex = 143;
             // 
             // tbPhone

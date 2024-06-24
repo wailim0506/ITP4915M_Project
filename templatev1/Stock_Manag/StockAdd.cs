@@ -259,7 +259,7 @@ namespace templatev1
             if (tbName.Text.Length < 2 || tbName.Text.Length > 50)
             {
                 lblNameMsg.Text = "Name too short or too long, minimum 2 maximum 50.";
-                lblNameMsg.Select();
+                tbName.Select();
                 return false;
             }
 
@@ -276,7 +276,7 @@ namespace templatev1
             if (!int.TryParse(tbRLevel.Text.ToString(), out RQty) || RQty <= 0 || RQty > 99999)
             {
                 lblRLevelMsg.Text = "minimum 1 maximum 99999.";
-                lblRLevelMsg.Select();
+                tbRLevel.Select();
                 return false;
             }
 
@@ -285,7 +285,7 @@ namespace templatev1
             if (!int.TryParse(tbDLevel.Text.ToString(), out DQty) || DQty <= 0 || DQty > 99999)
             {
                 lblDLevelMsg.Text = "minimum 1 maximum 99999.";
-                lblDLevelMsg.Select();
+                tbDLevel.Select();
                 return false;
             }
 
@@ -294,7 +294,7 @@ namespace templatev1
             if (!int.TryParse(tbQty.Text.ToString(), out Qty) || Qty <= 0 || Qty > 99999)
             {
                 lblQtyMsg.Text = "minimum 1 maximum 99999.";
-                lblQtyMsg.Select();
+                tbQty.Select();
                 return false;
             }
 
