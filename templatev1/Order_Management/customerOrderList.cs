@@ -44,15 +44,15 @@ namespace templatev1
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
             timer1.Enabled = true;
-            load_data("All");
             cmbSortOrder.SelectedIndex = 0;
+            load_data(cmbSortOrder.Text);
         }
 
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();
-            int numOfOrder = controller.CountOrder(UID, sortBy);
-            dtOrder = controller.GetOrder(UID, sortBy);
+            int numOfOrder = controller.CountOrder(UID, sortBy,tbKW.Text);
+            dtOrder = controller.GetOrder(UID, sortBy, tbKW.Text);
 
             //create label
             int yPosition = 6;
@@ -100,7 +100,7 @@ namespace templatev1
                 {
                     Name = $"btnView{i}", Text = "View Order", Location = new Point(810, yPosition - 3),
                     Font = new Font("Times New Roman", 12), TextAlign = ContentAlignment.MiddleCenter,
-                    AutoSize = true
+                    AutoSize = true, Cursor = Cursors.Hand
                 };
                 btnView.Click += btnView_Click;
 
@@ -269,6 +269,16 @@ namespace templatev1
             proFile.Location = Location;
             proFile.ShowDialog();
             Close();
+        }
+
+        private void tbKW_TextChanged(object sender, EventArgs e)
+        {
+            load_data(cmbSortOrder.Text);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbKW.Text = "";
         }
 
         public void hideButton()

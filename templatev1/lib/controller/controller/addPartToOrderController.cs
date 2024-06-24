@@ -179,5 +179,12 @@ namespace controller
                 return false;
             }
         }
-}
+
+        public DataTable getSparePartList()
+        {
+            string sqlCmd =
+                $"SELECT * from spare_part WHERE status = \'Enable\'";
+            return _db.ExecuteDataTable(sqlCmd);
+        }
+    }
 }

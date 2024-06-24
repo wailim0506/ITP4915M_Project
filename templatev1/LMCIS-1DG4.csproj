@@ -264,6 +264,12 @@
     <Compile Include="Order_Management\DeliverymanEditOrderRelay.Designer.cs">
       <DependentUpon>DeliverymanEditOrderRelay.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order_Management\staffAddPartToExistingOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order_Management\staffAddPartToExistingOrder.Designer.cs">
+      <DependentUpon>staffAddPartToExistingOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Order_Management\staffEditOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -542,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\DeliverymanEditOrderRelay.resx">
       <DependentUpon>DeliverymanEditOrderRelay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order_Management\staffAddPartToExistingOrder.resx">
+      <DependentUpon>staffAddPartToExistingOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\staffEditOrder.resx">
       <DependentUpon>staffEditOrder.cs</DependentUpon>

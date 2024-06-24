@@ -278,6 +278,7 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -549,6 +550,7 @@ namespace templatev1
             this.tbQty.TabIndex = 108;
             this.tbQty.Text = "1";
             this.tbQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQty_KeyPress);
             // 
             // btnMinusQty
             // 

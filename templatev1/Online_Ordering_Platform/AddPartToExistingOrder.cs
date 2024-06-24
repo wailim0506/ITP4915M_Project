@@ -184,26 +184,28 @@ namespace templatev1
                         //check quantity input is larger than on sales quantity
                         MessageBox.Show(
                             $"Quantity input cannot exceed On Sales Quantity ({lblOnSaleQty.Text})",
-                            "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            "Add to Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        load_data();
                         return;
                     }
 
                     int qty = int.Parse(tbQty.Text);
                     if (controller.addToOrder(cmbOrderSelection.Text,lblPartNum.Text,int.Parse(tbQty.Text),int.Parse(lblPrice.Text),isLM))
                     {
-                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {cmbOrderSelection.Text}.", "Add Cart");
+                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {cmbOrderSelection.Text}.", "Add to Order");
+                        load_data();
                         tbQty.Text = "";
                     }
                     else
                     {
-                        MessageBox.Show("Please try again.", "Add Cart", MessageBoxButtons.OK,
+                        MessageBox.Show("Please try again.", "Add to Order", MessageBoxButtons.OK,
                             MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Please input the quantity.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please input the quantity.", "Add to Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -251,6 +253,24 @@ namespace templatev1
         private void btnFunction5_Click(object sender, EventArgs e)
         {
             Form o = new giveFeedback(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void tbQty_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;

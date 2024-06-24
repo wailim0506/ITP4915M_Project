@@ -801,7 +801,7 @@ namespace templatev1
             this.btnAddNew.AutoSize = true;
             this.btnAddNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddNew.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddNew.Location = new System.Drawing.Point(1068, 843);
+            this.btnAddNew.Location = new System.Drawing.Point(1053, 843);
             this.btnAddNew.Name = "btnAddNew";
             this.btnAddNew.Size = new System.Drawing.Size(109, 49);
             this.btnAddNew.TabIndex = 106;

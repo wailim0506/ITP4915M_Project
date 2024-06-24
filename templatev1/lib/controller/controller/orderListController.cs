@@ -23,21 +23,24 @@ namespace controller
                 .Rows[0][0].ToString();
         }
 
-        public int CountOrder(string id, string sortBy)
+        public int CountOrder(string id, string sortBy,string kw)
         {
             string sqlCmd = sortBy == "All"
                 ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
                 : $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
+            sqlCmd += $" AND orderID LIKE \'%{kw}%\'";
+
             return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
         }
 
-        public DataTable GetOrder(string id, string sortBy)
+        public DataTable GetOrder(string id, string sortBy,string kw)
         {
             string sqlCmd = sortBy == "All"
                 ? $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
                 : $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}' AND status = '{sortBy}'";
 
+            sqlCmd += $" AND orderID LIKE \'%{kw}%\'";
             return _db.ExecuteDataTable(sqlCmd);
         }
 

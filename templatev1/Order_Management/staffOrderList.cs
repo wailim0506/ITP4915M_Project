@@ -53,28 +53,28 @@ namespace templatev1
             switch (sortBy)
             {
                 case "Order ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "Id", isManager);
+                    dt = controller.getOrder(UID, status, "Id", isManager,tbKW.Text);
                     break;
                 case "Order ID (Descending)":
-                    dt = controller.getOrder(UID, status, "IdDESC", isManager);
+                    dt = controller.getOrder(UID, status, "IdDESC", isManager, tbKW.Text);
                     break;
                 case "Order Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "Date", isManager);
+                    dt = controller.getOrder(UID, status, "Date", isManager, tbKW.Text);
                     break;
                 case "Order Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DateDESC", isManager);
+                    dt = controller.getOrder(UID, status, "DateDESC", isManager, tbKW.Text);
                     break;
                 case "Delivery Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "DDate", isManager);
+                    dt = controller.getOrder(UID, status, "DDate", isManager, tbKW.Text);
                     break;
                 case "Delivery Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DDateDESC", isManager);
+                    dt = controller.getOrder(UID, status, "DDateDESC", isManager, tbKW.Text);
                     break;
                 case "Customer ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "cId", isManager);
+                    dt = controller.getOrder(UID, status, "cId", isManager, tbKW.Text);
                     break;
                 case "Customer ID (Descending)":
-                    dt = controller.getOrder(UID, status, "cIdDESC", isManager);
+                    dt = controller.getOrder(UID, status, "cIdDESC", isManager, tbKW.Text);
                     break;
             }
 
@@ -296,6 +296,16 @@ namespace templatev1
             proFile.Location = Location;
             proFile.ShowDialog();
             Close();
+        }
+
+        private void tbKW_TextChanged(object sender, EventArgs e)
+        {
+            load_data(cmbStatus.Text, cmbSorting.Text, isManager);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbKW.Text = "";
         }
 
         private void setIndicator(int btnNo)

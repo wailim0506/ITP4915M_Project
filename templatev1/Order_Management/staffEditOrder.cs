@@ -477,6 +477,23 @@ namespace templatev1
             Close();
         }
 
+        private void palTime_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnAddPart_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffAddPartToExistingOrder(orderID,accountController,UIController,isLMOrder);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
         private void setIndicator(int btnNo)
         {
             switch (btnNo)

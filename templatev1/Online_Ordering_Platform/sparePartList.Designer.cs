@@ -352,11 +352,11 @@ namespace templatev1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 164);
+            this.label1.Location = new System.Drawing.Point(245, 166);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 24);
+            this.label1.Size = new System.Drawing.Size(86, 21);
             this.label1.TabIndex = 77;
-            this.label1.Text = "Result :";
+            this.label1.Text = "Result(s) :";
             // 
             // lblResultNum
             // 
@@ -366,7 +366,6 @@ namespace templatev1
             this.lblResultNum.Name = "lblResultNum";
             this.lblResultNum.Size = new System.Drawing.Size(43, 24);
             this.lblResultNum.TabIndex = 78;
-            this.lblResultNum.Text = "20";
             this.lblResultNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // groupBox1
@@ -399,7 +398,7 @@ namespace templatev1
             "D"});
             this.cmbCategory.Location = new System.Drawing.Point(311, 108);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(48, 28);
+            this.cmbCategory.Size = new System.Drawing.Size(48, 27);
             this.cmbCategory.TabIndex = 80;
             this.cmbCategory.SelectedIndexChanged += new System.EventHandler(this.cmbCategory_SelectedIndexChanged);
             // 
@@ -435,7 +434,7 @@ namespace templatev1
             "Price (Descending)"});
             this.cmbSorting.Location = new System.Drawing.Point(1002, 170);
             this.cmbSorting.Name = "cmbSorting";
-            this.cmbSorting.Size = new System.Drawing.Size(151, 26);
+            this.cmbSorting.Size = new System.Drawing.Size(151, 25);
             this.cmbSorting.TabIndex = 83;
             this.cmbSorting.SelectedIndexChanged += new System.EventHandler(this.cmbSorting_SelectedIndexChanged);
             // 
