@@ -111,7 +111,7 @@ namespace templatev1
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            Form OnSaleAdd = new OnSaleAdd();
+            Form OnSaleAdd = new OnSaleAdd(accountController, UIController, onSaleProductController);
             Hide();
             //Swap the current form to another.
             OnSaleAdd.StartPosition = FormStartPosition.Manual;

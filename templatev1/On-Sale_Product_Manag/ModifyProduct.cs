@@ -60,7 +60,6 @@ namespace templatev1
             lblCountry.Text = placeholder.country;
             lblSuppiler.Text = placeholder.suppName;
             lblPCat.Text = placeholder.type;
-            lblStockQty.Text = placeholder.quantity;
             tbPrice.Text = placeholder.price;
             tbQtyForSale.Text = placeholder.onSaleQty;
             tbQtyForLM.Text = placeholder.LM_onSaleQty;
@@ -352,7 +351,7 @@ namespace templatev1
             {
                 if (tbDescription.Text.Length < 2 || tbDescription.Text.Length > 500)
                 {
-                    lblDescMsg.Text = "Name too short or too long, minimum 2 maximum 500.";
+                    lblDescMsg.Text = "Description too short or too long, minimum 2 maximum 500.";
                     tbDescription.Select();
                     return false;
                 }
