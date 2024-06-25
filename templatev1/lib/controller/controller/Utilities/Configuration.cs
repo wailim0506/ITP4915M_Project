@@ -14,7 +14,7 @@ namespace controller.Utilities
             CreateAvatarFolder();
         }
 
-        private static string GetApiKey() => ConfigurationManager.AppSettings["GoogleMapsApiKey"];
+        private static string GetApiKey() => ConfigurationManager.AppSettings["GoogleMapsApiKey"] ?? throw new Exception("No valid Google Maps Api Key found.");
 
         private static List<string> GetDataBaseConnectionStringsList()
         {

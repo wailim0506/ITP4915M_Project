@@ -1,27 +1,27 @@
-﻿services:
-  db:
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_USER: 'root'
-      POSTGRES_PASSWORD: 'password'
-      POSTGRES_DB: itp4915m_se1d_group4
-    ports:
-      - "5432:5432"
-    networks:
-      - pg_network
+﻿version: '3.9'
 
-  phppgadmin:
-    image: dockage/phppgadmin
-    restart: always
+services:
+  mariadb:
+    image: mariadb:10.5
     environment:
-      PHP_PG_ADMIN_SERVER_HOSTS: db
-      PHP_PG_ADMIN_SERVER_PORTS: 5432
+      MYSQL_User: root
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: itp4915m_se1d_group4
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./sql-scripts:/docker-entrypoint-initdb.d
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
     ports:
       - "8080:80"
-    networks:
-      - pg_network
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: rootpassword
+    depends_on:
+      - mariadb
 
 networks:
-  pg_network:
-    driver: bridge
+  default:
+    name: itp4915m_se1d_group4_network

@@ -7,7 +7,6 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using controller;
-using controller.Utilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Reporting.WinForms;
 using PdfSharp.Drawing;
@@ -18,15 +17,15 @@ namespace templatev1
 {
     public partial class staffViewReport : Form
     {
-        AccountController accountController;
-        UIController UIController;
-        viewInvoiceController controller;
+        readonly AccountController _accountController;
+        readonly UIController _uiController;
         private string uName, UID;
         string orderID;
         string shipDate;
         bool isManager;
-        private bool comeFromInvoiceList;
-        OrderAnalysisReportController OrdereportController;
+        viewInvoiceController controller;
+        private bool _comeFromInvoiceList;
+        readonly OrderAnalysisReportController _ordereportController;
         private string period;
         private DateTime startDate;
         private DateTime endDate;
@@ -35,7 +34,7 @@ namespace templatev1
         {
             InitializeComponent();
             controller = new viewInvoiceController();
-            OrdereportController = new OrderAnalysisReportController();
+            _ordereportController = new OrderAnalysisReportController();
         }
 
 
@@ -43,13 +42,15 @@ namespace templatev1
             UIController UIController)
         {
             InitializeComponent();
-            this.accountController = accountController;
-            this.UIController = UIController;
+            _accountController = accountController;
+            _uiController = UIController;
             controller = new viewInvoiceController();
             shipDate = "";
-            UID = this.accountController.GetUid();
+            UID = _accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
+            _ordereportController = new OrderAnalysisReportController();
+            
         }
 
 
@@ -78,8 +79,13 @@ namespace templatev1
 
         private void GenerateReportAndRefresh(string period, DateTime startDate, DateTime endDate)
         {
-            DataTable reportData = OrdereportController.GenerateReport(period, startDate, endDate);
-            DataTable reportData2 = OrdereportController.GenerateItemReport(period, startDate, endDate);
+            if (period == null)
+            {
+                throw new ArgumentNullException(nameof(period));
+            }
+
+            DataTable reportData = _ordereportController.GenerateReport(period, startDate, endDate);
+            DataTable reportData2 = _ordereportController.GenerateItemReport(period, startDate, endDate);
             var reportDataSource = new ReportDataSource
             {
                 Name = "OrderSet",
@@ -123,14 +129,34 @@ namespace templatev1
                 dtpStartData.Visible = true;
                 dtpEndData.Visible = true;
             }
+            else if (period == "None")
+            {
+                dtpEndData.Visible = false;
+                dtpStartData.Visible = false;
+                btnReportApply.Visible = false;
+                lblEndData.Visible = false;
+                lblStartData.Visible = false;
+                btnReportApply.Visible = false;
+                rvReport.Visible = false;
+                btnSaveAsFile.Visible = false;
+                dtpStartData.Visible = false;
+                dtpEndData.Visible = false;
+                btnPrint.Visible = false;
+                lblFormat.Visible = false;
+                cbxFileFormat.Visible = false;
+                
+            }else
+            {
+                throw new ArgumentOutOfRangeException(nameof(period));
+            }
         }
 
         private void btnReportApply_Click(object sender, EventArgs e)
         {
             startDate = dtpStartData.Value;
             endDate = dtpEndData.Value;
-            DataTable reportData = OrdereportController.GenerateReport(period, startDate, endDate);
-            DataTable reportData2 = OrdereportController.GenerateItemReport(period, startDate, endDate);
+            DataTable reportData = _ordereportController.GenerateReport(period, startDate, endDate);
+            DataTable reportData2 = _ordereportController.GenerateItemReport(period, startDate, endDate);
             rvReport.LocalReport.DataSources.Clear();
             rvReport.LocalReport.ReportPath = "OrderAnalysisReport.rdlc"; // Set the path to your RDLC file here
             rvReport.LocalReport.DataSources.Add(new ReportDataSource("OrderSet", reportData));
@@ -153,7 +179,7 @@ namespace templatev1
         private void GenerateReportDocument(DataTable reportData, string reportFormat, string outputPath)
         {
             Directory.CreateDirectory(outputPath);
-            Log.LogMessage(LogLevel.Information, "OrderAnalysisReportController",
+            LogMessage(LogLevel.Information, "OrderAnalysisReportController",
                 $"Output path created at {outputPath}");
 
             string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
@@ -165,7 +191,7 @@ namespace templatev1
             ReportViewer viewer = new ReportViewer();
             viewer.LocalReport.ReportPath = reportPath;
 
-            var formatDetails = OrdereportController.GetFormatDetails(reportFormat.ToLower());
+            var formatDetails = _ordereportController.GetFormatDetails(reportFormat.ToLower());
 
             string outputFile = $"{outputPath}\\OrderReport-{currentDate}{formatDetails.Extension}";
             byte[] bytes = viewer.LocalReport.Render(formatDetails.Encoding, null, out string mimeTypeOut, out _, out _,
@@ -175,26 +201,14 @@ namespace templatev1
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            if (comeFromInvoiceList)
-            {
-                Form o = new staffInvoiceList(accountController, UIController);
-                Hide();
-                o.StartPosition = FormStartPosition.Manual;
-                o.Location = Location;
-                o.ShowDialog();
-                Close();
-                return;
-            }
-            else
-            {
-                Form o = new staffViewOrder(orderID, accountController, UIController);
-                Hide();
-                o.StartPosition = FormStartPosition.Manual;
-                o.Location = Location;
-                o.ShowDialog();
-                Close();
-                return;
-            }
+            Form home = new Home(_accountController, _uiController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.Size = Size;
+            home.ShowDialog();
+            Close();
         }
 
 
@@ -231,7 +245,7 @@ namespace templatev1
                 Directory.CreateDirectory(outputPath);
             }
 
-            GenerateReportDocument(OrdereportController.GenerateReport(period, startDate, endDate), fileFormat,
+            GenerateReportDocument(_ordereportController.GenerateReport(period, startDate, endDate), fileFormat,
                 outputPath);
             // SaveInvoiceToPdf(pnlInvoice, filePath);
         }
@@ -278,7 +292,7 @@ namespace templatev1
 
         public void hideButton()
         {
-            dynamic btnFun = UIController.showFun();
+            dynamic btnFun = _uiController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -312,18 +326,17 @@ namespace templatev1
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             Form o =
-                new staffOrderList(accountController, UIController);
+                new staffOrderList(_accountController, _uiController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
             o.ShowDialog();
             Close();
-            return;
         }
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            Form home = new Home(accountController, UIController);
+            Form home = new Home(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -334,7 +347,7 @@ namespace templatev1
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form home = new OnSaleMain(accountController, UIController);
+            Form home = new OnSaleMain(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -345,7 +358,7 @@ namespace templatev1
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form home = new StockMgmt(accountController, UIController);
+            Form home = new StockMgmt(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -357,13 +370,12 @@ namespace templatev1
         private void btnFunction2_Click(object sender, EventArgs e)
         {
             Form o =
-                new staffInvoiceList(accountController, UIController);
+                new staffInvoiceList(_accountController, _uiController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
             o.ShowDialog();
             Close();
-            return;
         }
     }
 }

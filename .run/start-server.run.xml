@@ -3,12 +3,6 @@
     <deployment type="docker-compose.yml">
       <settings>
         <option name="envFilePath" value="" />
-        <option name="services">
-          <list>
-            <option value="db" />
-            <option value="phppgadmin" />
-          </list>
-        </option>
         <option name="sourceFilePath" value="templatev1/Docker-compose.yml" />
         <option name="upDetach" value="false" />
       </settings>

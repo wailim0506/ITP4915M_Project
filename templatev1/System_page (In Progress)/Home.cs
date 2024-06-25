@@ -266,5 +266,17 @@ namespace templatev1
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
+
+        private void btnReport_Click(object sender, EventArgs e)
+        {
+            Form report = new staffViewReport(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            report.StartPosition = FormStartPosition.Manual;
+            report.Location = Location;
+            report.Size = Size;
+            report.ShowDialog();
+            Close();
+        }
     }
 }
