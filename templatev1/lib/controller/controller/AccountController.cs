@@ -9,7 +9,7 @@ namespace controller
     public class AccountController : abstractController
     {
         public bool IsLogin;
-        private string accountID, firstName, lastName, UserID, AccountType;
+        private string accountID, firstName, lastName, UserID, AccountType, sqlStr;
         private Boolean isLM;
         UIController UIController;
         private readonly Database db;
@@ -261,6 +261,55 @@ namespace controller
 
             return false;
         }
+
+        public string GetMessage()
+        {
+            string Message = "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
+                "\nSpare part number: [SP]" +
+                "\nCurrent quantity: [Qty]";
+            string horizontialLine = "\n----------------------------------------------------------------------------------------------------------------------------\n";
+
+
+
+
+            DataTable dt = new DataTable();
+
+            sqlStr = "SELECT partNumber, quantity FROM spare_part WHERE quantity < dangerLevel";
+
+
+            dt = db.ExecuteDataTable(sqlStr);
+
+
+            int index = dt.Rows.Count - 1;
+
+            for (int i = 0; i <= index; i++)
+            { 
+            Message = Message.Replace("[SP]", dt.Rows[i]["partNumber"].ToString()).Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
+
+            Message += horizontialLine;
+
+            if(!(i+1 > index))
+                    Message += "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
+                "\nSpare part number: [SP]" +
+                "\nCurrent quantity: [Qty]";
+
+
+
+
+            }
+
+            return Message;
+            
+
+
+
+        }
+
+
+
+
+
+
 
         public bool checkIsStoreman()
         {
