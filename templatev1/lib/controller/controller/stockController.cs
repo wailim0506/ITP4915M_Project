@@ -56,7 +56,7 @@ namespace controller
             condition += string.IsNullOrEmpty(partValues.country) ? "" : $" AND S.country = \'{partValues.country}\' ";
 
             sqlStr =
-                $"SELECT SP.partNumber, SP.supplierID, SP.categoryID, SP.name, SP.reorderLevel, SP.dangerLevel, SP.quantity " +
+                $"SELECT SP.partNumber, SP.supplierID, SP.categoryID, SP.name, SP.reorderLevel, SP.dangerLevel, SP.quantity, SP.status " +
                 $"FROM spare_part SP, supplier S, category C " +
                 $"WHERE SP.supplierID = S.supplierID AND SP.categoryID = C.categoryID " +
                 $"{condition}";

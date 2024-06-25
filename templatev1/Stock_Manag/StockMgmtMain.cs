@@ -318,8 +318,8 @@ namespace templatev1
         {
             dgvStock.ClearSelection();
             selectedPartID = null;
-            lblPartID.Text = lblCat.Text = lblPName.Text = lblSuppID.Text = lblCountry.Text
-                = lblPhoneNo.Text = lblSName.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text
+            lblPartID.Text = lblCat.Text = lblLastModified.Text = lblPName.Text = lblSuppID.Text = lblCountry.Text
+                = lblPhoneNo.Text = lblSName.Text = lblStatus.Text = lblAdd.Text = lblRLevel.Text = lblDLevel.Text
                     = lblQty.Text = lblCardPartNo.Text = "";
         }
 
