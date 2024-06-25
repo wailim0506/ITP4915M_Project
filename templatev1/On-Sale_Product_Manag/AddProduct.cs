@@ -125,21 +125,37 @@ namespace templatev1
             switch (Function)
             {
                 case "Order Management":
-
+                    if (UID.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(accountController, UIController);
+                    }
+                    else
+                    {
+                        next = new templatev1.staffOrderList(accountController, UIController);
+                    }
 
                     break;
-                case "Invoice Management":
-
-
+                case "Spare Part":
+                    next = new sparePartList(accountController, UIController);
                     break;
+                case "Cart":
+                    next = new cart(accountController, UIController);
+                    break;
+                case "Favourite":
+                    next = new favourite(accountController, UIController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(accountController, UIController);
+                    break;
+                //my version
+
                 case "On-Sale Product Management":
-
-
+                    next = new OnSaleMain(accountController, UIController);
                     break;
                 case "Stock Management":
                     next = new StockMgmt(accountController, UIController);
                     break;
-                case "User Managemnet":
+                case "User Management":
                     next = new SAccManage(accountController, UIController);
                     break;
             }
