@@ -70,7 +70,8 @@ namespace templatev1
             shippingDate = d[0];
             shipDate = shippingDate;
             string[] delivermanDetail = ViewController.GetDelivermanDetail(orderID);
-            lblShippingAddress.Text = DeliveryController.GetShippingAddress(orderID);
+            lblShippingAddress.Text =
+                DeliveryController.GetShippingAddress(orderID).Replace("+", " ").Replace(" , ", ",");
 
 
             if (ViewController.GetStatus(orderID) == "Cancelled")
