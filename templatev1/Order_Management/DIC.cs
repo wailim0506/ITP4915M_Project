@@ -207,6 +207,28 @@ namespace templatev1
             Close();
         }
 
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form home = new OnSaleMain(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            Form home = new StockMgmt(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
         private void setIndicator(int btnNo)
         {
             switch (btnNo)

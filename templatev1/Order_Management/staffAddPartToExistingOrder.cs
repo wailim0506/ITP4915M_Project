@@ -273,14 +273,13 @@ namespace templatev1
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form o =
-                new OnSaleMain(accountController, UIController);
+            Form home = new OnSaleMain(accountController, UIController);
             Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
             Close();
-            return;
         }
 
         private void palTime_Paint(object sender, PaintEventArgs e)
@@ -301,7 +300,13 @@ namespace templatev1
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            
+            Form home = new StockMgmt(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
         }
 
         private void picHome_Click(object sender, EventArgs e)
