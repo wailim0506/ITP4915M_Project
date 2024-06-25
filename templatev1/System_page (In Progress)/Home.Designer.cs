@@ -53,20 +53,13 @@
             this.lblLastPassChange = new System.Windows.Forms.Label();
             this.lblLastLogin = new System.Windows.Forms.Label();
             this.lblTitMsg = new System.Windows.Forms.Label();
-            this.lstDataBase = new System.Windows.Forms.ListBox();
-            this.lblTitClickToSelect = new System.Windows.Forms.Label();
-            this.lblTitIndex = new System.Windows.Forms.Label();
-            this.lblTitSender = new System.Windows.Forms.Label();
-            this.lblTitDateTime = new System.Windows.Forms.Label();
             this.btnViewFullRec = new System.Windows.Forms.Button();
-            this.tbSearch = new System.Windows.Forms.TextBox();
-            this.picSearch = new System.Windows.Forms.PictureBox();
+            this.tbMessage = new System.Windows.Forms.TextBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // palNav
@@ -383,70 +376,11 @@
             this.lblTitMsg.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblTitMsg.Font = new System.Drawing.Font("Times New Roman", 17F);
             this.lblTitMsg.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
-            this.lblTitMsg.Location = new System.Drawing.Point(231, 118);
+            this.lblTitMsg.Location = new System.Drawing.Point(229, 138);
             this.lblTitMsg.Name = "lblTitMsg";
-            this.lblTitMsg.Size = new System.Drawing.Size(96, 26);
+            this.lblTitMsg.Size = new System.Drawing.Size(168, 26);
             this.lblTitMsg.TabIndex = 32;
-            this.lblTitMsg.Text = "Message:";
-            // 
-            // lstDataBase
-            // 
-            this.lstDataBase.BackColor = global::templatev1.Properties.Settings.Default.btnColor;
-            this.lstDataBase.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "btnColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lstDataBase.FormattingEnabled = true;
-            this.lstDataBase.ItemHeight = 15;
-            this.lstDataBase.Location = new System.Drawing.Point(236, 210);
-            this.lstDataBase.Name = "lstDataBase";
-            this.lstDataBase.Size = new System.Drawing.Size(898, 259);
-            this.lstDataBase.TabIndex = 33;
-            // 
-            // lblTitClickToSelect
-            // 
-            this.lblTitClickToSelect.AutoSize = true;
-            this.lblTitClickToSelect.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTitClickToSelect.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblTitClickToSelect.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
-            this.lblTitClickToSelect.Location = new System.Drawing.Point(333, 125);
-            this.lblTitClickToSelect.Name = "lblTitClickToSelect";
-            this.lblTitClickToSelect.Size = new System.Drawing.Size(204, 17);
-            this.lblTitClickToSelect.TabIndex = 34;
-            this.lblTitClickToSelect.Text = "[Click to select AND view detial]";
-            // 
-            // lblTitIndex
-            // 
-            this.lblTitIndex.AutoSize = true;
-            this.lblTitIndex.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTitIndex.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitIndex.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
-            this.lblTitIndex.Location = new System.Drawing.Point(232, 187);
-            this.lblTitIndex.Name = "lblTitIndex";
-            this.lblTitIndex.Size = new System.Drawing.Size(49, 19);
-            this.lblTitIndex.TabIndex = 35;
-            this.lblTitIndex.Text = "Index";
-            // 
-            // lblTitSender
-            // 
-            this.lblTitSender.AutoSize = true;
-            this.lblTitSender.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTitSender.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitSender.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
-            this.lblTitSender.Location = new System.Drawing.Point(423, 187);
-            this.lblTitSender.Name = "lblTitSender";
-            this.lblTitSender.Size = new System.Drawing.Size(60, 19);
-            this.lblTitSender.TabIndex = 36;
-            this.lblTitSender.Text = "Sender";
-            // 
-            // lblTitDateTime
-            // 
-            this.lblTitDateTime.AutoSize = true;
-            this.lblTitDateTime.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.lblTitDateTime.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitDateTime.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
-            this.lblTitDateTime.Location = new System.Drawing.Point(606, 187);
-            this.lblTitDateTime.Name = "lblTitDateTime";
-            this.lblTitDateTime.Size = new System.Drawing.Size(81, 19);
-            this.lblTitDateTime.TabIndex = 37;
-            this.lblTitDateTime.Text = "DateTime";
+            this.lblTitMsg.Text = "System message:";
             // 
             // btnViewFullRec
             // 
@@ -463,26 +397,15 @@
             this.btnViewFullRec.UseVisualStyleBackColor = false;
             this.btnViewFullRec.Click += new System.EventHandler(this.btnViewFullRec_Click);
             // 
-            // tbSearch
+            // tbMessage
             // 
-            this.tbSearch.BackColor = global::templatev1.Properties.Settings.Default.btnColor;
-            this.tbSearch.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "btnColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.tbSearch.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.tbSearch.Location = new System.Drawing.Point(236, 154);
-            this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(331, 26);
-            this.tbSearch.TabIndex = 42;
-            // 
-            // picSearch
-            // 
-            this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
-            this.picSearch.InitialImage = global::templatev1.Properties.Resources.Daco_367903;
-            this.picSearch.Location = new System.Drawing.Point(573, 154);
-            this.picSearch.Name = "picSearch";
-            this.picSearch.Size = new System.Drawing.Size(31, 25);
-            this.picSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSearch.TabIndex = 43;
-            this.picSearch.TabStop = false;
+            this.tbMessage.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.tbMessage.Location = new System.Drawing.Point(234, 167);
+            this.tbMessage.Multiline = true;
+            this.tbMessage.Name = "tbMessage";
+            this.tbMessage.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.tbMessage.Size = new System.Drawing.Size(902, 365);
+            this.tbMessage.TabIndex = 44;
             // 
             // Home
             // 
@@ -490,14 +413,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::templatev1.Properties.Settings.Default.bgColor;
             this.ClientSize = new System.Drawing.Size(1170, 941);
-            this.Controls.Add(this.picSearch);
-            this.Controls.Add(this.tbSearch);
+            this.Controls.Add(this.tbMessage);
             this.Controls.Add(this.btnViewFullRec);
-            this.Controls.Add(this.lblTitDateTime);
-            this.Controls.Add(this.lblTitSender);
-            this.Controls.Add(this.lblTitIndex);
-            this.Controls.Add(this.lblTitClickToSelect);
-            this.Controls.Add(this.lstDataBase);
             this.Controls.Add(this.lblTitMsg);
             this.Controls.Add(this.lblLastLogin);
             this.Controls.Add(this.lblLastPassChange);
@@ -523,7 +440,6 @@
             this.palTime.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -554,14 +470,8 @@
         private System.Windows.Forms.Label lblLastPassChange;
         private System.Windows.Forms.Label lblLastLogin;
         private System.Windows.Forms.Label lblTitMsg;
-        private System.Windows.Forms.ListBox lstDataBase;
-        private System.Windows.Forms.Label lblTitClickToSelect;
-        private System.Windows.Forms.Label lblTitIndex;
-        private System.Windows.Forms.Label lblTitSender;
-        private System.Windows.Forms.Label lblTitDateTime;
         private System.Windows.Forms.Button btnViewFullRec;
-        private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.PictureBox picSearch;
+        private System.Windows.Forms.TextBox tbMessage;
     }
 }
 
