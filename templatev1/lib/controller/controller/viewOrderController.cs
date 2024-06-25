@@ -351,7 +351,5 @@ namespace controller
                 new Dictionary<string, object> { { "@id", orderId } });
             return dt.Rows[0][0].ToString();
         }
-
-        
     }
 }

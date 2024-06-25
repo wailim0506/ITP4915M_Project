@@ -19,6 +19,7 @@ namespace templatev1
         UIController UIController;
         feedbackController controller;
         string feedbackID;
+
         public staffViewFeedback()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace templatev1
             timer1.Enabled = true;
             load_data();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
         }
@@ -217,7 +218,5 @@ namespace templatev1
                     break;
             }
         }
-
-
     }
 }

@@ -13,7 +13,8 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable getOrder(string id, string status, string sortBy, bool isManager, string kw, bool isStoreman) //id = staff id
+        public DataTable getOrder(string id, string status, string sortBy, bool isManager, string kw,
+            bool isStoreman) //id = staff id
         {
             string sqlCmd = "";
             var sortByOptions = new Dictionary<string, string>
@@ -36,12 +37,13 @@ namespace controller
             {
                 if (!isStoreman)
                 {
-                    sqlCmd += $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'";
+                    sqlCmd +=
+                        $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'";
                 }
                 else
                 {
-                    sqlCmd += $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND x.status = \'Processing\'";
-
+                    sqlCmd +=
+                        $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND x.status = \'Processing\'";
                 }
             }
             else
@@ -53,7 +55,6 @@ namespace controller
             //    ? $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'"
             //    : " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
 
-            
 
             if (status != "All")
             {

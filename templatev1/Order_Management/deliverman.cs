@@ -232,7 +232,7 @@ namespace templatev1
                         if (control.Name == $"lblOrderID{index}")
                         {
                             Form delivermanViewOrder =
-                                 new delivermanViewOrder(control.Text, accountController, UIController);
+                                new delivermanViewOrder(control.Text, accountController, UIController);
                             Hide();
                             delivermanViewOrder.StartPosition = FormStartPosition.Manual;
                             delivermanViewOrder.Location = Location;
@@ -320,7 +320,7 @@ namespace templatev1
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new deliverman(accountController,UIController);
+            Form o = new deliverman(accountController, UIController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -367,7 +367,6 @@ namespace templatev1
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            
             Form home = new OnSaleMain(accountController, UIController);
             Hide();
             //Swap the current form to another.

@@ -44,7 +44,7 @@ namespace templatev1
             timer1.Enabled = true;
             load_part();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Spare Part"));
         }
@@ -129,8 +129,6 @@ namespace templatev1
                 qty--;
                 tbQty.Text = qty.ToString();
             }
-
-
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)

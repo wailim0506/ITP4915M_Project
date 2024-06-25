@@ -204,7 +204,6 @@ namespace templatev1
             Close();
         }
 
-        
 
         private void cmbPartNumber_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -251,7 +250,7 @@ namespace templatev1
         private bool checkInfo()
         {
             //Clean previous error message.
-            lblDescMsg.Text = lblPartNoMsg.Text = lblPriceMsg.Text 
+            lblDescMsg.Text = lblPartNoMsg.Text = lblPriceMsg.Text
                 = lblQtyForLMMsg.Text = lblQtyForSaleMsg.Text = "";
 
             //Check part number.
@@ -274,8 +273,9 @@ namespace templatev1
 
             //Check quantity for sale.
             int SQty;
-            if (!int.TryParse(tbQtyForSale.Text.ToString(), out SQty) || SQty <= 0 
-                || SQty > 99999 || SQty > int.Parse(sparePartInfo.quantity))
+            if (!int.TryParse(tbQtyForSale.Text.ToString(), out SQty) || SQty <= 0
+                                                                      || SQty > 99999 ||
+                                                                      SQty > int.Parse(sparePartInfo.quantity))
             {
                 lblQtyForSaleMsg.Text = "Can NOT larger than stock quantity AND minimum 1 maximum 99999.";
                 tbQtyForSale.Select();
@@ -284,8 +284,9 @@ namespace templatev1
 
             //Check quantity for LM.
             int LMty;
-            if (!int.TryParse(tbQtyForLM.Text.ToString(), out LMty) || LMty <= 0 
-                || LMty > 99999 || LMty > int.Parse(sparePartInfo.quantity))
+            if (!int.TryParse(tbQtyForLM.Text.ToString(), out LMty) || LMty <= 0
+                                                                    || LMty > 99999 ||
+                                                                    LMty > int.Parse(sparePartInfo.quantity))
             {
                 lblQtyForLMMsg.Text = "Can NOT larger than stock quantity AND minimum 1 maximum 99999.";
                 tbQtyForLM.Select();
@@ -323,7 +324,5 @@ namespace templatev1
             newItemInfo.price = tbPrice.Text;
             newItemInfo.Status = chkStatus.Checked ? "Enable" : "Disable";
         }
-
-
     }
 }

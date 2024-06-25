@@ -24,12 +24,14 @@ namespace templatev1
         private string uName, UID;
         string orderID;
         private Boolean isLMOrder;
+
         public staffAddPartToExistingOrder()
         {
             InitializeComponent();
         }
 
-        public staffAddPartToExistingOrder(string orderID, AccountController accountController, UIController UIController, bool isLMOrder)
+        public staffAddPartToExistingOrder(string orderID, AccountController accountController,
+            UIController UIController, bool isLMOrder)
         {
             InitializeComponent();
             this.orderID = orderID;
@@ -46,14 +48,13 @@ namespace templatev1
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = handler.GetSystemDateTime();
-
         }
 
         private void staffAddPartToExistingOrder_Load(object sender, EventArgs e)
         {
             timer1.Enabled = true;
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
             lblOrderID.Text = orderID;
@@ -141,7 +142,6 @@ namespace templatev1
 
         private void btnMinusQty_Click(object sender, EventArgs e)
         {
-
             if (tbQty.Text == "") return; //check have quantity input
             if (int.Parse(tbQty.Text) ==
                 1) //check quantity input equal 0, do not perform anything if equal to 0
@@ -195,14 +195,16 @@ namespace templatev1
                         MessageBox.Show(
                             $"Quantity input cannot exceed On Sales Quantity ({lblOnSaleQty.Text})",
                             "Add to Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        
+
                         return;
                     }
 
                     int qty = int.Parse(tbQty.Text);
-                    if (controller.addToOrder(orderID, cmbSparePartSelection.Text, int.Parse(tbQty.Text), int.Parse(lblPrice.Text), isLMOrder))
+                    if (controller.addToOrder(orderID, cmbSparePartSelection.Text, int.Parse(tbQty.Text),
+                            int.Parse(lblPrice.Text), isLMOrder))
                     {
-                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {lblOrderID.Text}.", "Add to Order");
+                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {lblOrderID.Text}.",
+                            "Add to Order");
                         Form c = new staffAddPartToExistingOrder(orderID, accountController, UIController, isLMOrder);
                         Hide();
                         c.StartPosition = FormStartPosition.Manual;
@@ -221,7 +223,6 @@ namespace templatev1
             else
             {
                 MessageBox.Show("Please input the quantity.", "Add Cart", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
             }
         }
 
@@ -284,7 +285,6 @@ namespace templatev1
 
         private void palTime_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void btnFunction5_Click(object sender, EventArgs e)

@@ -56,7 +56,8 @@ namespace controller
 
         public int getNumberOfPartAlreadyInOrder(string orderId, string partNum)
         {
-            string sqlCmd = $"SELECT quantity FROM order_line WHERE partNumber = \'{partNum}\' AND orderID = \'{orderId}\'";
+            string sqlCmd =
+                $"SELECT quantity FROM order_line WHERE partNumber = \'{partNum}\' AND orderID = \'{orderId}\'";
             try
             {
                 return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
@@ -65,18 +66,18 @@ namespace controller
             {
                 return 0;
             }
-            
         }
 
         public bool addToOrder(string orderId, string partNum, int qty, int price, bool isLM)
         {
             int qtyAlreadyInOrder = getNumberOfPartAlreadyInOrder(orderId, partNum);
-            if (qtyAlreadyInOrder != 0)//already in order
+            if (qtyAlreadyInOrder != 0) //already in order
             {
                 int newQty = qtyAlreadyInOrder + qty;
                 try
                 {
-                    string sqlCmd = $"UPDATE order_line SET quantity = @qty WHERE partNumber = \'{partNum}\' AND orderID = \'{orderId}\'";
+                    string sqlCmd =
+                        $"UPDATE order_line SET quantity = @qty WHERE partNumber = \'{partNum}\' AND orderID = \'{orderId}\'";
                     Dictionary<string, object> parameters = new Dictionary<string, object>
                     {
                         { "@qty", newQty }
@@ -104,8 +105,8 @@ namespace controller
                     string sqlCmd = $"INSERT INTO order_line VALUES (@partNum, @orderID, @qty, @orderUnitPrice)";
                     Dictionary<string, object> parameters = new Dictionary<string, object>
                     {
-                        { "partNum", partNum},
-                        { "orderID", orderId},
+                        { "partNum", partNum },
+                        { "orderID", orderId },
                         { "@qty", qty },
                         { "orderUnitPrice", price }
                     };
@@ -133,7 +134,6 @@ namespace controller
             if (!isLM)
             {
                 sqlCmd = $"SELECT onSaleQty FROM product WHERE partNumber = \'{partNum}\'";
-
             }
             else
             {
@@ -149,6 +149,7 @@ namespace controller
                 return 0;
             }
         }
+
         public bool deductOnSalesQty(string partNum, int qty, bool isLM)
         {
             int onSaleQty = getOnSaleQty(partNum, isLM);
@@ -166,10 +167,11 @@ namespace controller
                 {
                     sqlCmd = $"UPDATE product SET LM_onSaleQty = @qty WHERE partNumber = \'{partNum}\'";
                 }
+
                 Dictionary<string, object> parameters = new Dictionary<string, object>
-                    {
-                        { "@qty", newOnSaleQty }
-                    };
+                {
+                    { "@qty", newOnSaleQty }
+                };
                 _db.ExecuteNonQueryCommand(sqlCmd, parameters);
                 return true;
             }

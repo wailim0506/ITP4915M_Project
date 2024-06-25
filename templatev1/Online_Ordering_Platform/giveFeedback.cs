@@ -26,7 +26,7 @@ namespace templatev1
             UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Give Feedback"));
         }

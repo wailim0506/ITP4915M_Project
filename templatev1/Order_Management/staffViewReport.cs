@@ -50,22 +50,13 @@ namespace templatev1
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
             _ordereportController = new OrderAnalysisReportController();
-            
         }
 
 
         private void staffViewInvoice_Load(object sender, EventArgs e)
         {
-            dtpEndData.Visible = false;
-            dtpStartData.Visible = false;
-            btnReportApply.Visible = false;
-            lblEndData.Visible = false;
-            lblStartData.Visible = false;
-            btnReportApply.Visible = false;
             rvReport.Visible = false;
             btnSaveAsFile.Visible = false;
-            dtpStartData.Visible = false;
-            dtpEndData.Visible = false;
             btnPrint.Visible = false;
             lblFormat.Visible = false;
             cbxFileFormat.Visible = false;
@@ -121,48 +112,20 @@ namespace templatev1
             {
                 GenerateReportAndRefresh(period, DateTime.Now.AddDays(-1), DateTime.Now);
             }
-            else if (period == "specific period")
-            {
-                dtpEndData.Visible = true;
-                dtpStartData.Visible = true;
-                btnReportApply.Visible = true;
-                dtpStartData.Visible = true;
-                dtpEndData.Visible = true;
-            }
             else if (period == "None")
             {
-                dtpEndData.Visible = false;
-                dtpStartData.Visible = false;
-                btnReportApply.Visible = false;
-                lblEndData.Visible = false;
-                lblStartData.Visible = false;
-                btnReportApply.Visible = false;
                 rvReport.Visible = false;
                 btnSaveAsFile.Visible = false;
-                dtpStartData.Visible = false;
-                dtpEndData.Visible = false;
                 btnPrint.Visible = false;
                 lblFormat.Visible = false;
                 cbxFileFormat.Visible = false;
-                
-            }else
+            }
+            else
             {
                 throw new ArgumentOutOfRangeException(nameof(period));
             }
         }
 
-        private void btnReportApply_Click(object sender, EventArgs e)
-        {
-            startDate = dtpStartData.Value;
-            endDate = dtpEndData.Value;
-            DataTable reportData = _ordereportController.GenerateReport(period, startDate, endDate);
-            DataTable reportData2 = _ordereportController.GenerateItemReport(period, startDate, endDate);
-            rvReport.LocalReport.DataSources.Clear();
-            rvReport.LocalReport.ReportPath = "OrderAnalysisReport.rdlc"; // Set the path to your RDLC file here
-            rvReport.LocalReport.DataSources.Add(new ReportDataSource("OrderSet", reportData));
-            // rvReport.LocalReport.DataSources.Add(new ReportDataSource("OrderItemDataSet", reportData2));
-            rvReport.RefreshReport();
-        }
 
         // get the current directory and create a new directory report
         // format: report-yyyy-MM-dd
@@ -305,13 +268,6 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        private void dtpStartData_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void dtpEndData_ValueChanged(object sender, EventArgs e)
-        {
-        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {

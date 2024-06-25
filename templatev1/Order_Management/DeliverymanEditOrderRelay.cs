@@ -47,7 +47,7 @@ namespace templatev1
             cbxProvince.Items.AddRange(ProvinceList.ToArray());
             cbxProvince.SelectedIndex = 0;
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(_uiController.getIndicator("Order Management"));
         }

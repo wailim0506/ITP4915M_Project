@@ -20,7 +20,8 @@ namespace templatev1
         OnSaleProductController onSaleProductController;
 
 
-        public OnSaleModify(AccountController accountController, UIController UIController, OnSaleProductController onSaleProductController)
+        public OnSaleModify(AccountController accountController, UIController UIController,
+            OnSaleProductController onSaleProductController)
         {
             InitializeComponent();
             palSelect1.Visible =
@@ -306,7 +307,8 @@ namespace templatev1
             if (tbQtyForSale.Text != placeholder.onSaleQty)
             {
                 int Qty;
-                if (!int.TryParse(tbQtyForSale.Text.ToString(), out Qty) || Qty <= 0 || Qty > int.Parse(placeholder.quantity))
+                if (!int.TryParse(tbQtyForSale.Text.ToString(), out Qty) || Qty <= 0 ||
+                    Qty > int.Parse(placeholder.quantity))
                 {
                     lblSaleQtyMsg.Text = "Can NOT larger than stock quantity AND minimum 1 maximum 99999.";
                     tbQtyForSale.Select();
@@ -322,7 +324,8 @@ namespace templatev1
             if (tbQtyForLM.Text != placeholder.LM_onSaleQty)
             {
                 int Qty;
-                if (!int.TryParse(tbQtyForLM.Text.ToString(), out Qty) || Qty <= 0 || Qty > int.Parse(placeholder.quantity))
+                if (!int.TryParse(tbQtyForLM.Text.ToString(), out Qty) || Qty <= 0 ||
+                    Qty > int.Parse(placeholder.quantity))
                 {
                     lblSaleForLMMsg.Text = "Can NOT lower than danger level AND minimum 1 maximum 99999.";
                     tbQtyForLM.Select();
@@ -337,7 +340,7 @@ namespace templatev1
             //The sun of quantity for sale and quantity for LM cannot larger than the quantity of stock.
             if (int.Parse(tbQtyForLM.Text) + int.Parse(tbQtyForSale.Text) > int.Parse(placeholder.quantity))
             {
-                lblSaleForLMMsg.Text = lblSaleQtyMsg.Text 
+                lblSaleForLMMsg.Text = lblSaleQtyMsg.Text
                     = "The sun of quantity for sale AND quantity for LM CANNOT larger than quantity of the stock.";
                 return false;
             }
@@ -368,9 +371,5 @@ namespace templatev1
         {
             getPage("On-Sale Product Management");
         }
-
-        
-
-        
     }
 }

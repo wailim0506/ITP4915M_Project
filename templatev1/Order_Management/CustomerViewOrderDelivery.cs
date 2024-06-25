@@ -84,11 +84,11 @@ namespace templatev1
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                if (DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size) != "Cancelled")
+                if (DeliveryController.GetDeliveryMap(orderID, new Size(944, 548)) != "Cancelled")
                 {
-                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size));
                     Log.LogMessage(LogLevel.Information, "Delivery Controller",
-                        DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size));
+                        DeliveryController.GetDeliveryMap(orderID, new Size(944, 548)));
+                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID, new Size(944, 548)));
                 }
                 else
                 {

@@ -79,7 +79,7 @@ namespace templatev1
             this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderIDLabel.Location = new System.Drawing.Point(218, 94);
             this.lblOrderIDLabel.Name = "lblOrderIDLabel";
-            this.lblOrderIDLabel.Size = new System.Drawing.Size(78, 20);
+            this.lblOrderIDLabel.Size = new System.Drawing.Size(73, 19);
             this.lblOrderIDLabel.TabIndex = 37;
             this.lblOrderIDLabel.Text = "Order ID :";
             // 
@@ -103,7 +103,7 @@ namespace templatev1
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(616, 102);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(117, 20);
+            this.label7.Size = new System.Drawing.Size(104, 19);
             this.label7.TabIndex = 55;
             this.label7.Text = "Deliverman ID :";
             // 
@@ -113,7 +113,7 @@ namespace templatev1
             this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(616, 130);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(142, 20);
+            this.label8.Size = new System.Drawing.Size(125, 19);
             this.label8.TabIndex = 56;
             this.label8.Text = "Deliverman Name :";
             // 
@@ -123,7 +123,7 @@ namespace templatev1
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(616, 167);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(152, 20);
+            this.label10.Size = new System.Drawing.Size(132, 19);
             this.label10.TabIndex = 58;
             this.label10.Text = "Deliverman Contact:";
             // 
@@ -133,7 +133,7 @@ namespace templatev1
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(218, 130);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(142, 20);
+            this.label12.Size = new System.Drawing.Size(122, 19);
             this.label12.TabIndex = 60;
             this.label12.Text = "Shipping Address :";
             // 
@@ -151,7 +151,7 @@ namespace templatev1
             this.lblDelivermanID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanID.Location = new System.Drawing.Point(795, 102);
             this.lblDelivermanID.Name = "lblDelivermanID";
-            this.lblDelivermanID.Size = new System.Drawing.Size(0, 20);
+            this.lblDelivermanID.Size = new System.Drawing.Size(0, 19);
             this.lblDelivermanID.TabIndex = 62;
             // 
             // lblDelivermanName
@@ -160,7 +160,7 @@ namespace templatev1
             this.lblDelivermanName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanName.Location = new System.Drawing.Point(795, 122);
             this.lblDelivermanName.Name = "lblDelivermanName";
-            this.lblDelivermanName.Size = new System.Drawing.Size(0, 20);
+            this.lblDelivermanName.Size = new System.Drawing.Size(0, 19);
             this.lblDelivermanName.TabIndex = 63;
             // 
             // lblDelivermanContact
@@ -169,7 +169,7 @@ namespace templatev1
             this.lblDelivermanContact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDelivermanContact.Location = new System.Drawing.Point(795, 167);
             this.lblDelivermanContact.Name = "lblDelivermanContact";
-            this.lblDelivermanContact.Size = new System.Drawing.Size(0, 20);
+            this.lblDelivermanContact.Size = new System.Drawing.Size(0, 19);
             this.lblDelivermanContact.TabIndex = 64;
             // 
             // btnReturn
@@ -442,7 +442,7 @@ namespace templatev1
             this.DeliverayImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.DeliverayImage.Location = new System.Drawing.Point(218, 268);
             this.DeliverayImage.Name = "DeliverayImage";
-            this.DeliverayImage.Size = new System.Drawing.Size(764, 548);
+            this.DeliverayImage.Size = new System.Drawing.Size(944, 548);
             this.DeliverayImage.TabIndex = 91;
             this.DeliverayImage.TabStop = false;
             // 
@@ -452,7 +452,7 @@ namespace templatev1
             this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderID.Location = new System.Drawing.Point(312, 94);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(0, 20);
+            this.lblOrderID.Size = new System.Drawing.Size(0, 19);
             this.lblOrderID.TabIndex = 92;
             // 
             // CustomerViewOrderDelivery

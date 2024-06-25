@@ -51,7 +51,7 @@ namespace templatev1
             lblLoc.Text += $" {orderID}";
             load_data(cmbSortOrder.Text);
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
 
@@ -488,12 +488,12 @@ namespace templatev1
             if (controller.ReadyToShipANDDeductQty(orderID))
             {
                 MessageBox.Show("The status has now changed to Ready to ship.", "System error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                        MessageBoxIcon.Warning);
+                    MessageBoxIcon.Warning);
             }
         }
 
@@ -501,7 +501,8 @@ namespace templatev1
         {
             if (lblStatus.Text == "Pending")
             {
-                DialogResult dialogResult = MessageBox.Show("Are you sure confirming this order?", "Confirm Order", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Are you sure confirming this order?", "Confirm Order",
+                    MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     if (controller.confirmOrder(orderID))
@@ -516,17 +517,18 @@ namespace templatev1
                     }
                     else
                     {
-                        MessageBox.Show("Please try again", "Confirm Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please try again", "Confirm Order", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
                 else if (dialogResult == DialogResult.No)
-                {}
+                {
+                }
             }
             else
             {
                 MessageBox.Show("Order already confirm", "Confirm Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
         }
 
         private void setIndicator(int btnNo)

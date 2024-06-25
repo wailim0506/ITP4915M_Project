@@ -23,7 +23,7 @@ namespace controller
                 .Rows[0][0].ToString();
         }
 
-        public int CountOrder(string id, string sortBy,string kw)
+        public int CountOrder(string id, string sortBy, string kw)
         {
             string sqlCmd = sortBy == "All"
                 ? $"SELECT COUNT(*) FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"
@@ -34,7 +34,7 @@ namespace controller
             return int.Parse(_db.ExecuteDataTable(sqlCmd).Rows[0][0].ToString());
         }
 
-        public DataTable GetOrder(string id, string sortBy,string kw)
+        public DataTable GetOrder(string id, string sortBy, string kw)
         {
             string sqlCmd = sortBy == "All"
                 ? $"SELECT * FROM order_ WHERE customerAccountID = '{GetCustomerAccountId(id)}'"

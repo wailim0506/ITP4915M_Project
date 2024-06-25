@@ -44,7 +44,7 @@ namespace templatev1
             lblLoc.Text += $" {orderID}";
             load_data();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
         }
@@ -210,7 +210,7 @@ namespace templatev1
             if (dateHandler.DayDifference(orderID) <= 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialogResult == DialogResult.Yes) //confirmed shipped
                 {
                     if (controller.DelivermanJobFinished(orderID))
@@ -226,13 +226,15 @@ namespace templatev1
                     }
                     else
                     {
-                        MessageBox.Show("Please try again.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Please try again.", "Job Finished", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Today is not shipping date.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Today is not shipping date.", "Job Finished", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 

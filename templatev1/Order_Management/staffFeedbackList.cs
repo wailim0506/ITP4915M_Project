@@ -19,12 +19,12 @@ namespace templatev1
         UIController UIController;
         feedbackController controller;
         bool isManager;
+
         public staffFeedbackList()
         {
             InitializeComponent();
         }
 
-        
 
         public staffFeedbackList(AccountController accountController, UIController UIController)
         {
@@ -42,16 +42,15 @@ namespace templatev1
             timer1.Enabled = true;
             load_data();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
-
         }
 
         public void load_data()
         {
             pnlFeedback.Controls.Clear();
-            DataTable dt = controller.getAllFeedback(isManager,UID);
+            DataTable dt = controller.getAllFeedback(isManager, UID);
 
             int yPosition = 9;
             lblNumberOfFeedbackShown.Text = dt.Rows.Count.ToString();
@@ -64,7 +63,7 @@ namespace templatev1
                 feedbackDate = d[0];
 
                 string orderID = "N/A";
-              
+
                 if (dt.Rows[i][2].ToString() == "")
                 {
                     orderID = "N/A";
@@ -76,7 +75,7 @@ namespace templatev1
 
                 Label lblRowNum = new Label
                 {
-                    Text = $"{i+1}.",
+                    Text = $"{i + 1}.",
                     Location = new Point(0, yPosition),
                     Font = new Font("Times New Roman", 12),
                     Size = new Size(43, 20),
@@ -102,7 +101,7 @@ namespace templatev1
                     TextAlign = ContentAlignment.MiddleCenter
                 };
 
-                
+
                 Label lblfeedBackDate = new Label
                 {
                     Text = $"{feedbackDate}",
@@ -142,6 +141,7 @@ namespace templatev1
                 pnlFeedback.Controls.Add(btnView);
             }
         }
+
         public void btnView_Click(object sender, EventArgs e)
         {
             Button clickedButton = sender as Button;

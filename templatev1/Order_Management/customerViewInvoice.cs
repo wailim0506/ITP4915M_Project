@@ -288,7 +288,7 @@ namespace templatev1
                 picHome.Image = Resources.home;
             }
         }
-        
+
         public void hideButton()
         {
             dynamic btnFun = UIController.showFun();

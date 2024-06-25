@@ -42,7 +42,7 @@ namespace templatev1
         private void DIC_Load(object sender, EventArgs e)
         {
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
             timer1.Enabled = true;

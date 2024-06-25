@@ -45,7 +45,7 @@ namespace templatev1
             cmbSorting.SelectedIndex = 0;
             List<string> partName = controller.getAllPartName();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Spare Part"));
         }

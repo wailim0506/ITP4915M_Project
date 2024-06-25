@@ -28,7 +28,7 @@ namespace templatev1
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
-            if(accountController.GetAccountType() == "Customer")
+            if (accountController.GetAccountType() == "Customer")
             {
                 btnReport.Visible = false;
             }
@@ -58,6 +58,8 @@ namespace templatev1
             btnFunction4.Text = btnFun.btn4value;
             btnFunction5.Visible = btnFun.btn5show;
             btnFunction5.Text = btnFun.btn5value;
+            btnReport.Visible = UIController.CheckIsCustomer();
+
 
             //For icon color
             if (Settings.Default.BWmode)
@@ -112,6 +114,7 @@ namespace templatev1
                     {
                         next = new staffOrderList(accountController, UIController);
                     }
+
                     break;
                 case "Spare Part":
                     next = new sparePartList(accountController, UIController);
@@ -263,7 +266,6 @@ namespace templatev1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void timer1_Tick(object sender, EventArgs e)

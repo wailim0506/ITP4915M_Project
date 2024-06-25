@@ -21,8 +21,8 @@ namespace templatev1
         OnSaleProductController onSaleProductController;
 
 
-
-        public OnSaleDis(AccountController accountController, UIController UIController, OnSaleProductController onSaleProductController)
+        public OnSaleDis(AccountController accountController, UIController UIController,
+            OnSaleProductController onSaleProductController)
         {
             InitializeComponent();
             this.accountController = accountController;
@@ -216,7 +216,6 @@ namespace templatev1
         }
 
 
-
         private void lblCorpName_Click(object sender, EventArgs e)
         {
             Form about = new About(accountController, UIController);
@@ -233,7 +232,7 @@ namespace templatev1
         {
             lblDateMsg.Text = lblPerMsg.Text = lblRangeMsg.Text = "";
 
-            if (create)     //Create a new discount.
+            if (create) //Create a new discount.
             {
                 if (CheckCreate())
                 {
@@ -249,11 +248,12 @@ namespace templatev1
                         dgvDiscount.ClearSelection();
                     }
                     else
-                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error",
+                            MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                 }
             }
-            else            //Modify current discount.
+            else //Modify current discount.
             {
                 if (CheckModify())
                 {
@@ -266,11 +266,11 @@ namespace templatev1
                         dgvDiscount.ClearSelection();
                     }
                     else
-                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
+                        MessageBox.Show("System Error! Please Contact The Help Desk.", "System error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
                 }
             }
-
         }
 
         private void dgvDiscount_MouseClick(object sender, MouseEventArgs e)
@@ -291,11 +291,14 @@ namespace templatev1
 
                 //Set value to stockInfo.
                 lblDiscountID.Text = onSaleProductController.GetDiscountInfo(selectedDiscountID).discountID;
-                lblPostDate.Text = onSaleProductController.GetDiscountInfo(selectedDiscountID).createDate.ToString("yyyy/MM/dd");
-                dtpEndDate.Value = DateTime.ParseExact(onSaleProductController.GetDiscountInfo(selectedDiscountID).endDate.ToString("dd/MM/yyyy"), "dd/MM/yyyy", null);
+                lblPostDate.Text = onSaleProductController.GetDiscountInfo(selectedDiscountID).createDate
+                    .ToString("yyyy/MM/dd");
+                dtpEndDate.Value =
+                    DateTime.ParseExact(
+                        onSaleProductController.GetDiscountInfo(selectedDiscountID).endDate.ToString("dd/MM/yyyy"),
+                        "dd/MM/yyyy", null);
                 tbPercentage.Text = onSaleProductController.GetDiscountInfo(selectedDiscountID).percentage;
                 tbRange.Text = onSaleProductController.GetDiscountInfo(selectedDiscountID).discountRange;
-
             }
             else //There has not any record in the database.
                 MessageBox.Show("Discount NOT found.",
@@ -402,7 +405,5 @@ namespace templatev1
             discountValue.range = tbRange.Text;
             discountValue.percentage = tbPercentage.Text;
         }
-
-
     }
 }

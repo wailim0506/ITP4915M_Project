@@ -107,11 +107,11 @@ namespace controller
                 $"y.staffAccountID = z.staffAccountID";
 
 
-
             if (!isManager)
             {
                 sqlCmd += $" AND y.staffID = \'{staffID}\'";
             }
+
             return _db.ExecuteDataTable(sqlCmd);
         }
 

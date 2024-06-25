@@ -48,7 +48,7 @@ namespace templatev1
         private void staffViewInvoice_Load(object sender, EventArgs e)
         {
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Invoice Management"));
             load_data();
@@ -272,7 +272,6 @@ namespace templatev1
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnFunction5_Click(object sender, EventArgs e)

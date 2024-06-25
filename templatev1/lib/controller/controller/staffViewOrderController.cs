@@ -221,28 +221,28 @@ namespace controller
             {
                 if (CheckStatus(orderID))
                 {
-                    _db.ExecuteNonQueryCommand($"UPDATE order_line OL, spare_part SP SET SP.quantity = SP.quantity - OL.quantity " +
+                    _db.ExecuteNonQueryCommand(
+                        $"UPDATE order_line OL, spare_part SP SET SP.quantity = SP.quantity - OL.quantity " +
                         $"WHERE OL.partNumber = SP.partNumber AND OL.orderID = \'{orderID}\'", null);
 
-                    _db.ExecuteNonQueryCommand($"UPDATE order_ SET status = 'Ready to Ship' WHERE orderID = \'{orderID}\'", null);
+                    _db.ExecuteNonQueryCommand(
+                        $"UPDATE order_ SET status = 'Ready to Ship' WHERE orderID = \'{orderID}\'", null);
 
                     return true;
                 }
                 else
                     MessageBox.Show("Can only operate when status is Processing.", "System error", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
+
                 return false;
             }
             catch (Exception ex)
             {
-                Log.LogMessage(LogLevel.Error, "staff view order controller", $"Error changing order status: {ex.Message}");
+                Log.LogMessage(LogLevel.Error, "staff view order controller",
+                    $"Error changing order status: {ex.Message}");
                 return false;
             }
-            
-
-
         }
-
 
 
         public bool confirmOrder(string orderID)

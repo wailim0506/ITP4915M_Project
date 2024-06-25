@@ -23,7 +23,6 @@ namespace templatev1
         public AddPartToExistingOrder()
         {
             InitializeComponent();
-
         }
 
 
@@ -47,7 +46,7 @@ namespace templatev1
             timer1.Enabled = true;
             load_data();
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Spare Part"));
         }
@@ -85,11 +84,9 @@ namespace templatev1
             lblLoc.Text = $"Add {lblPartName.Text} to Order {orderID}";
         }
 
-        
 
         private void btnAddQty_Click(object sender, EventArgs e)
         {
-            
             if (tbQty.Text != "") //check have quantity input
             {
                 if (int.Parse(tbQty.Text) < int.Parse(lblOnSaleQty.Text))
@@ -105,7 +102,6 @@ namespace templatev1
                 qty++;
                 tbQty.Text = qty.ToString();
             }
-            
         }
 
         private void btnMinusQty_Click(object sender, EventArgs e)
@@ -190,9 +186,11 @@ namespace templatev1
                     }
 
                     int qty = int.Parse(tbQty.Text);
-                    if (controller.addToOrder(cmbOrderSelection.Text,lblPartNum.Text,int.Parse(tbQty.Text),int.Parse(lblPrice.Text),isLM))
+                    if (controller.addToOrder(cmbOrderSelection.Text, lblPartNum.Text, int.Parse(tbQty.Text),
+                            int.Parse(lblPrice.Text), isLM))
                     {
-                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {cmbOrderSelection.Text}.", "Add to Order");
+                        MessageBox.Show($"{qty} {lblPartName.Text} has been added to order {cmbOrderSelection.Text}.",
+                            "Add to Order");
                         load_data();
                         tbQty.Text = "";
                     }
@@ -205,8 +203,8 @@ namespace templatev1
             }
             else
             {
-                MessageBox.Show("Please input the quantity.", "Add to Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("Please input the quantity.", "Add to Order", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 

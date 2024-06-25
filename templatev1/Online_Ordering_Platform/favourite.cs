@@ -41,7 +41,7 @@ namespace templatev1
             cmbSorting.SelectedIndex = 0;
             cmbCategory.SelectedIndex = 0;
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Favourite"));
         }

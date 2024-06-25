@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -22,18 +23,28 @@ namespace controller
                 return "Invalid orderId";
             }
 
+            if (imageSize.Width <= 0 || imageSize.Height <= 0)
+            {
+                return "Invalid image size";
+            }
+
             var orderStatus = ExecuteScalar("SELECT status FROM order_ WHERE OrderID = @orderId",
                 new Dictionary<string, object> { { "@orderId", orderId } });
 
             switch (orderStatus)
             {
                 // TODO: change "Processing" to "Shipping"
-                case "Processing":
-                    return GetDeliveryRelay(orderId);
+                case "Shipping":
+                    string location = GetDeliveryRelay(orderId);
+                    return GenerateMapUrl(location, imageSize, orderId);
                 case "Shipped":
-                    return GetShippingAddress(orderId);
+                    string shippingAddress = GetShippingAddress(orderId);
+                    return GenerateMapUrl(shippingAddress, imageSize, orderId);
                 case "Ready to Ship":
-                    return GetReadyToShipAddress();
+                case "Pending":
+                case "Processing":
+                    string readyToShipAddress = GetReadyToShipAddress();
+                    return GenerateMapUrl(readyToShipAddress, imageSize, orderId);
                 default:
                     return "Invalid order status";
             }
@@ -41,7 +52,7 @@ namespace controller
 
         private string GetApiKey()
         {
-            return Configuration.GoogleMapsApiKey;
+            return Configuration.GoogleMapsApiKey ?? throw new Exception("Google Maps API key is not set");
         }
 
         public string GenerateMapUrl(string location, string orderId, Size imageSize)
@@ -160,11 +171,24 @@ namespace controller
 
         public string GetShippingAddress(string orderId)
         {
-            var dt = _database.ExecuteDataTable("SELECT shippingAddress FROM shipping_detail WHERE OrderID = @orderId",
-                new Dictionary<string, object> { { "@orderId", orderId } });
-            string shippingAddress = dt.Rows[0]["shippingAddress"].ToString();
-            string location = shippingAddress.Replace(" ", "+");
+            string customerId = GetCustomerId(orderId);
+            var parameters = new Dictionary<string, object> { { "@customerId", customerId } };
+            var dt = _database.ExecuteDataTable(
+                "SELECT CONCAT( CASE WHEN cdf.dfadd = 1 THEN c.warehouseAddress ELSE c.warehouseAddress2 END, ',', c.city, ',', c.province ) as warehouse_address FROM customer c JOIN customer_dfadd cdf ON c.customerID = cdf.customerID WHERE c.customerID = @customerId",
+                parameters);
+            string location = dt.Rows[0][0].ToString().Replace(" ", "+");
             return location;
+        }
+
+        private string GetCustomerId(string orderId)
+        {
+            string customerAccountID =
+                ExecuteScalar("SELECT customerAccountID FROM order_ WHERE OrderID = @orderId",
+                    new Dictionary<string, object> { { "@orderId", orderId } });
+            string customerID = ExecuteScalar(
+                "SELECT customerID FROM customer_account WHERE customerAccountID = @customerAccountID",
+                new Dictionary<string, object> { { "@customerAccountID", customerAccountID } });
+            return customerID;
         }
     }
 }

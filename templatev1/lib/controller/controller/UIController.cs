@@ -226,6 +226,9 @@ namespace controller
             return permission.Equals("MP02");
         }
 
-
+        public bool CheckIsCustomer()
+        {
+            return !permission.Equals("C");
+        }
     }
 }

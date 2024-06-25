@@ -39,7 +39,7 @@ namespace templatev1
         {
             timer1.Enabled = true;
             palSelect1.Visible =
-                           palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
             cmbStatus.SelectedIndex = 0;
@@ -55,7 +55,7 @@ namespace templatev1
             switch (sortBy)
             {
                 case "Order ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "Id", isManager,tbKW.Text,isStoreman);
+                    dt = controller.getOrder(UID, status, "Id", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Order ID (Descending)":
                     dt = controller.getOrder(UID, status, "IdDESC", isManager, tbKW.Text, isStoreman);
@@ -334,7 +334,6 @@ namespace templatev1
 
         private void palNav_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)

@@ -264,12 +264,12 @@ namespace controller
 
         public string GetMessage()
         {
-            string Message = "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
+            string Message =
+                "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
                 "\nSpare part number: [SP]" +
                 "\nCurrent quantity: [Qty]";
-            string horizontialLine = "\n----------------------------------------------------------------------------------------------------------------------------\n";
-
-
+            string horizontialLine =
+                "\n----------------------------------------------------------------------------------------------------------------------------\n";
 
 
             DataTable dt = new DataTable();
@@ -283,32 +283,21 @@ namespace controller
             int index = dt.Rows.Count - 1;
 
             for (int i = 0; i <= index; i++)
-            { 
-            Message = Message.Replace("[SP]", dt.Rows[i]["partNumber"].ToString()).Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
+            {
+                Message = Message.Replace("[SP]", dt.Rows[i]["partNumber"].ToString())
+                    .Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
 
-            Message += horizontialLine;
+                Message += horizontialLine;
 
-            if(!(i+1 > index))
-                    Message += "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
-                "\nSpare part number: [SP]" +
-                "\nCurrent quantity: [Qty]";
-
-
-
-
+                if (!(i + 1 > index))
+                    Message +=
+                        "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
+                        "\nSpare part number: [SP]" +
+                        "\nCurrent quantity: [Qty]";
             }
 
             return Message;
-            
-
-
-
         }
-
-
-
-
-
 
 
         public bool checkIsStoreman()

@@ -47,7 +47,7 @@ namespace templatev1
 
             dgvProduct.DataSource = onSaleProductController.GetProduct();
             DgvIndicator();
-            dgvProduct.ColumnHeadersDefaultCellStyle.Font 
+            dgvProduct.ColumnHeadersDefaultCellStyle.Font
                 = new Font("Times New Roman", 13F, FontStyle.Bold);
 
 
@@ -284,8 +284,8 @@ namespace templatev1
                 lblPStock.Text = onSaleProductController.GetProductInfo(selectedProductID).quantity;
                 lblPOnSaleQty.Text = onSaleProductController.GetProductInfo(selectedProductID).onSaleQty;
                 lblLMOnSaleQty.Text = onSaleProductController.GetProductInfo(selectedProductID).LM_onSaleQty;
-                lblPOnShelve.Text = onSaleProductController.GetProductInfo(selectedProductID).onShelvesDate.ToString("yyyy/MM/dd");
-
+                lblPOnShelve.Text = onSaleProductController.GetProductInfo(selectedProductID).onShelvesDate
+                    .ToString("yyyy/MM/dd");
             }
             else //There has not any record in the database.
                 MessageBox.Show("Spare part NOT found.",
@@ -296,7 +296,7 @@ namespace templatev1
         {
             lblItemID.Text = lblPName.Text = lblPPrice.Text = lblPStatus.Text = lblPLastMod.Text
                 = lblSuppID.Text = lblPCat.Text = lblPSuppName.Text = lblPStock.Text = lblPOnSaleQty.Text
-                = lblLMOnSaleQty.Text = lblPOnShelve.Text = "";
+                    = lblLMOnSaleQty.Text = lblPOnShelve.Text = "";
             selectedProductID = null;
             dgvProduct.ClearSelection();
         }

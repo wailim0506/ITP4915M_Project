@@ -56,13 +56,8 @@ namespace templatev1
             this.btnPrint = new System.Windows.Forms.Button();
             this.rvReport = new Microsoft.Reporting.WinForms.ReportViewer();
             this.cbxperiod = new System.Windows.Forms.ComboBox();
-            this.dtpStartData = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndData = new System.Windows.Forms.DateTimePicker();
-            this.btnReportApply = new System.Windows.Forms.Button();
             this.lbPeriod = new System.Windows.Forms.Label();
             this.gbxGenReport = new System.Windows.Forms.GroupBox();
-            this.lblEndData = new System.Windows.Forms.Label();
-            this.lblStartData = new System.Windows.Forms.Label();
             this.cbxFileFormat = new System.Windows.Forms.ComboBox();
             this.lblFormat = new System.Windows.Forms.Label();
             this.palNav.SuspendLayout();
@@ -383,66 +378,29 @@ namespace templatev1
             // cbxperiod
             // 
             this.cbxperiod.FormattingEnabled = true;
-            this.cbxperiod.Items.AddRange(new object[] {
-            "None",
-            "yearly",
-            "monthly",
-            "daily",
-            "specific period"});
-            this.cbxperiod.Location = new System.Drawing.Point(66, 23);
+            this.cbxperiod.Items.AddRange(new object[] { "None", "yearly", "monthly", "daily" });
+            this.cbxperiod.Location = new System.Drawing.Point(77, 26);
             this.cbxperiod.Name = "cbxperiod";
-            this.cbxperiod.Size = new System.Drawing.Size(88, 21);
+            this.cbxperiod.Size = new System.Drawing.Size(88, 31);
             this.cbxperiod.TabIndex = 205;
             this.cbxperiod.Text = "None";
             this.cbxperiod.SelectedIndexChanged += new System.EventHandler(this.cbxperiod_SelectedIndexChanged);
             // 
-            // dtpStartData
-            // 
-            this.dtpStartData.Location = new System.Drawing.Point(248, 24);
-            this.dtpStartData.Name = "dtpStartData";
-            this.dtpStartData.Size = new System.Drawing.Size(200, 20);
-            this.dtpStartData.TabIndex = 206;
-            this.dtpStartData.ValueChanged += new System.EventHandler(this.dtpStartData_ValueChanged);
-            // 
-            // dtpEndData
-            // 
-            this.dtpEndData.Location = new System.Drawing.Point(530, 26);
-            this.dtpEndData.Name = "dtpEndData";
-            this.dtpEndData.Size = new System.Drawing.Size(200, 20);
-            this.dtpEndData.TabIndex = 207;
-            this.dtpEndData.ValueChanged += new System.EventHandler(this.dtpEndData_ValueChanged);
-            // 
-            // btnReportApply
-            // 
-            this.btnReportApply.AutoSize = true;
-            this.btnReportApply.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportApply.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportApply.Location = new System.Drawing.Point(754, 22);
-            this.btnReportApply.Name = "btnReportApply";
-            this.btnReportApply.Size = new System.Drawing.Size(112, 40);
-            this.btnReportApply.TabIndex = 208;
-            this.btnReportApply.Text = "Apply";
-            this.btnReportApply.UseVisualStyleBackColor = true;
-            this.btnReportApply.Click += new System.EventHandler(this.btnReportApply_Click);
-            // 
             // lbPeriod
             // 
             this.lbPeriod.AutoSize = true;
+            this.lbPeriod.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbPeriod.Location = new System.Drawing.Point(6, 26);
             this.lbPeriod.Name = "lbPeriod";
-            this.lbPeriod.Size = new System.Drawing.Size(37, 13);
+            this.lbPeriod.Size = new System.Drawing.Size(65, 23);
             this.lbPeriod.TabIndex = 209;
             this.lbPeriod.Text = "Period";
             // 
             // gbxGenReport
             // 
-            this.gbxGenReport.Controls.Add(this.lblEndData);
-            this.gbxGenReport.Controls.Add(this.lblStartData);
             this.gbxGenReport.Controls.Add(this.lbPeriod);
-            this.gbxGenReport.Controls.Add(this.btnReportApply);
             this.gbxGenReport.Controls.Add(this.cbxperiod);
-            this.gbxGenReport.Controls.Add(this.dtpEndData);
-            this.gbxGenReport.Controls.Add(this.dtpStartData);
+            this.gbxGenReport.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxGenReport.Location = new System.Drawing.Point(229, 135);
             this.gbxGenReport.Name = "gbxGenReport";
             this.gbxGenReport.Size = new System.Drawing.Size(891, 102);
@@ -450,32 +408,10 @@ namespace templatev1
             this.gbxGenReport.TabStop = false;
             this.gbxGenReport.Text = "Generate Report";
             // 
-            // lblEndData
-            // 
-            this.lblEndData.AutoSize = true;
-            this.lblEndData.Location = new System.Drawing.Point(469, 30);
-            this.lblEndData.Name = "lblEndData";
-            this.lblEndData.Size = new System.Drawing.Size(52, 13);
-            this.lblEndData.TabIndex = 211;
-            this.lblEndData.Text = "End Date";
-            // 
-            // lblStartData
-            // 
-            this.lblStartData.AutoSize = true;
-            this.lblStartData.Location = new System.Drawing.Point(187, 26);
-            this.lblStartData.Name = "lblStartData";
-            this.lblStartData.Size = new System.Drawing.Size(55, 13);
-            this.lblStartData.TabIndex = 210;
-            this.lblStartData.Text = "Start Date";
-            // 
             // cbxFileFormat
             // 
             this.cbxFileFormat.FormattingEnabled = true;
-            this.cbxFileFormat.Items.AddRange(new object[] {
-            "None",
-            "pdf",
-            "excel",
-            "word"});
+            this.cbxFileFormat.Items.AddRange(new object[] { "None", "pdf", "excel", "word" });
             this.cbxFileFormat.Location = new System.Drawing.Point(797, 855);
             this.cbxFileFormat.Name = "cbxFileFormat";
             this.cbxFileFormat.Size = new System.Drawing.Size(88, 21);
@@ -522,7 +458,6 @@ namespace templatev1
             this.gbxGenReport.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
@@ -553,13 +488,8 @@ namespace templatev1
         private System.Windows.Forms.Button btnPrint;
         private Microsoft.Reporting.WinForms.ReportViewer rvReport;
         private System.Windows.Forms.ComboBox cbxperiod;
-        private System.Windows.Forms.DateTimePicker dtpStartData;
-        private System.Windows.Forms.DateTimePicker dtpEndData;
-        private System.Windows.Forms.Button btnReportApply;
         private System.Windows.Forms.Label lbPeriod;
         private System.Windows.Forms.GroupBox gbxGenReport;
-        private System.Windows.Forms.Label lblStartData;
-        private System.Windows.Forms.Label lblEndData;
         private System.Windows.Forms.ComboBox cbxFileFormat;
         private System.Windows.Forms.Label lblFormat;
     }

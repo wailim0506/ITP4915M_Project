@@ -51,7 +51,7 @@ namespace templatev1
         public void load_data(string sortBy)
         {
             pnlOrder.Controls.Clear();
-            int numOfOrder = controller.CountOrder(UID, sortBy,tbKW.Text);
+            int numOfOrder = controller.CountOrder(UID, sortBy, tbKW.Text);
             dtOrder = controller.GetOrder(UID, sortBy, tbKW.Text);
 
             //create label

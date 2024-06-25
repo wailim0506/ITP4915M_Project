@@ -1,15 +1,16 @@
-﻿version: '3.9'
+﻿services:
+  nginx:
+    image: nginx:1.21.6
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/:/etc/nginx/
+      - ./:/var/www/html
+    depends_on:
+      - mkdocs
+    networks:
+      - itp4915m
 
-services:
-  #  nginx:  # comment this out if you don't want to use nginx
-  #    image: nginx:1.21.6
-  #    ports:
-  #      - "80:80"
-  #    volumes:
-  #      - ./resources/docker/nginx/:/etc/nginx/
-  #      - ./:/var/www/html
-  #    depends_on:
-  #      - mkdocs
   mkdocs:
     image: squidfunk/mkdocs-material
     ports:
@@ -17,6 +18,9 @@ services:
     volumes:
       - ./:/docs
     command: serve -a 0.0.0.0:8000
+    networks:
+      - itp4915m
+
   mariadb:
     image: mariadb:10.5
     environment:
@@ -27,6 +31,9 @@ services:
       - "3306:3306"
     volumes:
       - ./sql-scripts:/docker-entrypoint-initdb.d
+    networks:
+      - itp4915m
+
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     ports:
@@ -37,7 +44,9 @@ services:
       PMA_PASSWORD: rootpassword
     depends_on:
       - mariadb
+    networks:
+      - itp4915m
 
 networks:
-  default:
-    name: itp4915m_se1d_group4_network
+  itp4915m:
+    name: itp4915m_1D_group4

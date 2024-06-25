@@ -44,7 +44,7 @@ namespace templatev1
         {
             timer1.Enabled = true;
             palSelect1.Visible =
-               palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
+                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
             cmbSortOrder.SelectedIndex = 0;
@@ -485,13 +485,12 @@ namespace templatev1
 
         private void palTime_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void btnAddPart_Click(object sender, EventArgs e)
         {
             Form o =
-                new staffAddPartToExistingOrder(orderID,accountController,UIController,isLMOrder);
+                new staffAddPartToExistingOrder(orderID, accountController, UIController, isLMOrder);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;

@@ -23,6 +23,7 @@ namespace controller
             this.accountController = accountController;
             this.db = db ?? new Database();
         }
+
         private DataTable ExecuteSqlQuery(string sqlQuery)
         {
             return db.ExecuteDataTable(sqlQuery);
@@ -37,7 +38,6 @@ namespace controller
             itemID += (dt.Rows.Count + 1).ToString("D5");
 
             return itemID;
-
         }
 
         public List<string> GetSparePart()
@@ -53,7 +53,7 @@ namespace controller
         public DataTable GetProduct()
         {
             sqlStr = "SELECT itemID, type, onSaleQty, LM_onSaleQty, price, status, onShelvesDate " +
-                "FROM product P, category C WHERE P.category = C.categoryID";
+                     "FROM product P, category C WHERE P.category = C.categoryID";
             return ExecuteSqlQuery(sqlStr);
         }
 
@@ -74,7 +74,8 @@ namespace controller
         {
             dt = new DataTable();
 
-            sqlStr = $"SELECT P.itemID, P.partNumber, P.onSaleQty, P.LM_onSaleQty, P.price, P.description, SUPP.country, " +
+            sqlStr =
+                $"SELECT P.itemID, P.partNumber, P.onSaleQty, P.LM_onSaleQty, P.price, P.description, SUPP.country, " +
                 $"P.lastModified, P.status, P.onShelvesDate, C.type, SP.name, SP.quantity, SUPP.name AS suppName, SUPP.supplierID " +
                 $"FROM product P, category C, spare_part SP, supplier SUPP " +
                 $"WHERE P.category = C.categoryID AND P.partNumber = SP.partNumber " +
@@ -105,13 +106,14 @@ namespace controller
         public DataTable SearchProduct(string ItemID)
         {
             sqlStr = $"SELECT itemID, type, onSaleQty, LM_onSaleQty, price, status, onShelvesDate " +
-                $"FROM product P, category C WHERE P.category = C.categoryID AND itemID = \'{ItemID}\'";
+                     $"FROM product P, category C WHERE P.category = C.categoryID AND itemID = \'{ItemID}\'";
             return ExecuteSqlQuery(sqlStr);
         }
 
         public void RemoveFromShelve(string ItemID)
         {
-            sqlStr = $"UPDATE product SET status = 'Disable', lastModified = \'{accountController.GetUid()}\' WHERE itemID = \'{ItemID}\'";
+            sqlStr =
+                $"UPDATE product SET status = 'Disable', lastModified = \'{accountController.GetUid()}\' WHERE itemID = \'{ItemID}\'";
 
             _db.ExecuteNonQueryCommand(sqlStr, null);
         }
@@ -126,7 +128,7 @@ namespace controller
             return GetProductInfo(ToModifyItemID);
         }
 
-        public bool ModifyItemInfo(dynamic ItemInfo) 
+        public bool ModifyItemInfo(dynamic ItemInfo)
         {
             try
             {
@@ -153,8 +155,6 @@ namespace controller
                 Log.LogMessage(LogLevel.Error, "OnSaleProduct Controller", $"Error modifying item info: {e.Message}");
                 return false; //Something went wrong.
             }
-
-
         }
 
         private string GetCategoryID(string Category)
@@ -246,7 +246,6 @@ namespace controller
             discountID += (dt.Rows.Count + 1).ToString("D4");
 
             return discountID;
-
         }
 
         public bool CreateDiscount(dynamic newDiscountInfo)
@@ -302,6 +301,5 @@ namespace controller
                 return false; //Something went wrong.
             }
         }
-
     }
 }
