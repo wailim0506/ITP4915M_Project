@@ -183,7 +183,7 @@ namespace templatev1
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form home = new StockMgmt(accountController, UIController);
+            Form home = new StockMgmt(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
