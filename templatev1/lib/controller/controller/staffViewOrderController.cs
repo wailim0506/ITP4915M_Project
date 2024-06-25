@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
+using System.Windows.Forms;
 
 namespace controller
 {
@@ -202,5 +203,46 @@ namespace controller
             DataTable dt = _db.ExecuteDataTable(s, null);
             return dt.Rows[0][0].ToString();
         }
+
+        //Chenge order line status whether is 
+        private bool CheckStatus(string orderID)
+        {
+            //get deliverman name and contact from staff table
+            DataTable dt = _db.ExecuteDataTable(
+                $"SELECT status FROM order_ WHERE orderID = \'{orderID}\'", null);
+
+            return dt.Rows[0]["status"].ToString().Equals("Processing");
+        }
+
+        //Storeman change order status to ready to ship.
+        public bool ReadyToShipANDDeductQty(string orderID)
+        {
+            try
+            {
+                if (CheckStatus(orderID))
+                {
+                    _db.ExecuteNonQueryCommand($"UPDATE order_line OL, spare_part SP SET SP.quantity = SP.quantity - OL.quantity " +
+                        $"WHERE OL.partNumber = SP.partNumber AND OL.orderID = \'{orderID}\'", null);
+
+                    _db.ExecuteNonQueryCommand($"UPDATE order_ SET status = 'Ready to Ship' WHERE orderID = \'{orderID}\'", null);
+
+                    return true;
+                }
+                else
+                    MessageBox.Show("Can only operate when status is Processing.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Log.LogMessage(LogLevel.Error, "staff view order controller", $"Error changing order status: {ex.Message}");
+                return false;
+            }
+            
+
+
+        }
+
+
     }
 }
