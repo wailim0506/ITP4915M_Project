@@ -424,14 +424,13 @@ namespace templatev1
             this.lblResultNum.Name = "lblResultNum";
             this.lblResultNum.Size = new System.Drawing.Size(43, 24);
             this.lblResultNum.TabIndex = 87;
-            this.lblResultNum.Text = "20";
             this.lblResultNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(244, 158);
+            this.label1.Location = new System.Drawing.Point(245, 160);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 21);
             this.label1.TabIndex = 86;

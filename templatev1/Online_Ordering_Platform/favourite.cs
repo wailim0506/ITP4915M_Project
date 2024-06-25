@@ -119,7 +119,7 @@ namespace templatev1
 
                     Label lblCategory = new Label
                     {
-                        Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox][19]}",
+                        Text = $"{dt.Rows[currentGrpBox][3]} - {dt.Rows[currentGrpBox]["type"]}",
                         AutoSize = false, Font = new Font("Times New Roman", 12),
                         Location = new Point(83, 208), Size = new Size(174, 20)
                     };
@@ -131,7 +131,7 @@ namespace templatev1
                     };
                     Label lblName = new Label
                     {
-                        Text = $"{dt.Rows[currentGrpBox][14]}", AutoSize = false,
+                        Text = $"{dt.Rows[currentGrpBox]["name"]}", AutoSize = false,
                         Font = new Font("Times New Roman", 12), Location = new Point(62, 268),
                         Size = new Size(218, 20)
                     };
