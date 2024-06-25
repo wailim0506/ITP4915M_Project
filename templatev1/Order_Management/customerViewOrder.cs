@@ -12,35 +12,35 @@ namespace templatev1
 {
     public partial class customerViewOrder : Form
     {
-        dateHandler dateHandler;
-        AccountController accountController;
-        UIController UIController;
-        viewOrderController controller;
-        private string uName, UID;
-        string orderID;
-        string shipDate;
-        private Boolean isLM;
+        dateHandler _dateHandler;
+        AccountController _accountController;
+        UIController _uiController;
+        viewOrderController _controller;
+        private string _uName, _uid;
+        string _orderId;
+        string _shipDate;
+        private Boolean _isLm;
 
-        public customerViewOrder(string orderID)
+        public customerViewOrder(string orderId)
         {
             InitializeComponent();
-            controller = new viewOrderController();
-            this.orderID = orderID;
+            _controller = new viewOrderController();
+            this._orderId = orderId;
         }
 
-        public customerViewOrder(string orderID, AccountController accountController,
-            UIController UIController)
+        public customerViewOrder(string orderId, AccountController accountController,
+            UIController uiController)
         {
             InitializeComponent();
-            this.orderID = orderID;
-            this.accountController = accountController;
-            this.UIController = UIController;
-            dateHandler = new dateHandler();
-            controller = new viewOrderController();
-            shipDate = "";
-            UID = this.accountController.GetUid();
-            isLM = accountController.GetIsLm();
-            lblUid.Text = $"Uid: {UID}";
+            this._orderId = orderId;
+            this._accountController = accountController;
+            this._uiController = uiController;
+            _dateHandler = new dateHandler();
+            _controller = new viewOrderController();
+            _shipDate = "";
+            _uid = this._accountController.GetUid();
+            _isLm = accountController.GetIsLm();
+            lblUid.Text = $"Uid: {_uid}";
         }
 
 
@@ -48,17 +48,17 @@ namespace templatev1
         {
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
-            lblLoc.Text += $" {orderID}";
+            lblLoc.Text += $" {_orderId}";
             load_data(cmbSortOrder.Text);
             palSelect1.Visible =
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
-            hideButton();
-            setIndicator(UIController.getIndicator("Order Management"));
+            HideButton();
+            SetIndicator(_uiController.getIndicator("Order Management"));
         }
 
-        public void hideButton()
+        public void HideButton()
         {
-            dynamic btnFun = UIController.showFun();
+            dynamic btnFun = _uiController.showFun();
             btnFunction1.Visible = btnFun.btn1show;
             btnFunction1.Text = btnFun.btn1value;
             btnFunction2.Visible = btnFun.btn2show;
@@ -71,7 +71,7 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        private void setIndicator(int btnNo)
+        private void SetIndicator(int btnNo)
         {
             switch (btnNo)
             {
@@ -96,16 +96,16 @@ namespace templatev1
         public void load_data(string sortBy)
         {
             pnlSP.Controls.Clear();
-            DataTable dt = controller.GetOrder(orderID);
+            DataTable dt = _controller.GetOrder(_orderId);
             string[] f = dt.Rows[0][4].ToString().Split(' ');
 
             //order info
-            lblOrderID.Text = orderID;
+            lblOrderID.Text = _orderId;
             lblOrderSerialNum.Text = $"{dt.Rows[0][3]}";
             lblOrderDate.Text = f[0];
-            lblStaffIncharge.Text = $"{controller.GetStaffName(dt.Rows[0][2].ToString())}";
+            lblStaffIncharge.Text = $"{_controller.GetStaffName(dt.Rows[0][2].ToString())}";
             lblStaffID.Text = $"{viewOrderController.GetStafftId(dt.Rows[0][2].ToString())}";
-            lblStaffContact.Text = $"{controller.getStaffContact(dt.Rows[0][2].ToString())}";
+            lblStaffContact.Text = $"{_controller.getStaffContact(dt.Rows[0][2].ToString())}";
             lblStatus.Text = $"{dt.Rows[0][6]}";
 
             // if the order is not in the process of being shipped, it will not be displayed
@@ -122,20 +122,18 @@ namespace templatev1
                 btnViewDelivery.Visible = false;
                 btnViewDelivery.Enabled = false;
                 btnViewDelivery.Controls.Clear();
-                Log.LogMessage(LogLevel.Information, "[View] CustomerViewOrder ",
-                    "load_data: Order is in the process of being shipped");
             }
 
             //delivery info
             dt = new DataTable();
-            dt = controller.GetShippingDetail(orderID);
+            dt = _controller.GetShippingDetail(_orderId);
             string shippingDate = dt.Rows[0][2].ToString();
             string[]
                 d = shippingDate
                     .Split(' '); //since the database also store the time follwing the date, split it so that only date will be display
             shippingDate = d[0];
-            shipDate = shippingDate;
-            string[] delivermanDetail = controller.GetDelivermanDetail(orderID);
+            _shipDate = shippingDate;
+            string[] delivermanDetail = _controller.GetDelivermanDetail(_orderId);
             if (lblStatus.Text == "Cancelled")
             {
                 lblDelivermanID.Text = "N/A";
@@ -150,7 +148,7 @@ namespace templatev1
                 lblDelivermanID.Text = dt.Rows[0][1].ToString();
                 lblDelivermanName.Text = $"{delivermanDetail[0]} {delivermanDetail[1]}";
                 lblDelivermanContact.Text = delivermanDetail[2];
-                lblShippingDate.Text = dateHandler.DayDifference(orderID) >= 0
+                lblShippingDate.Text = _dateHandler.DayDifference(_orderId) >= 0
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
 
@@ -160,7 +158,7 @@ namespace templatev1
             lblShippingAddress.Text = dt.Rows[0][5].ToString();
             if (lblStatus.Text == "Pending" || lblStatus.Text == "Processing" || lblStatus.Text == "Ready to Ship")
             {
-                lblDayUntil.Text = $"{dateHandler.DayDifference(orderID)} day(s) until shipping";
+                lblDayUntil.Text = $"{_dateHandler.DayDifference(_orderId)} day(s) until shipping";
             }
             else
             {
@@ -169,7 +167,7 @@ namespace templatev1
 
             //ordered spare part
             dt = new DataTable();
-            dt = controller.getOrderedSparePart(orderID, sortBy);
+            dt = _controller.getOrderedSparePart(_orderId, sortBy);
             int row = dt.Rows.Count;
 
 
@@ -185,7 +183,7 @@ namespace templatev1
                 };
                 Label lblItemNum = new Label
                 {
-                    Name = $"lblItemNum{i}", Text = $"{controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
+                    Name = $"lblItemNum{i}", Text = $"{_controller.GetItemNum(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(38, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(93, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -197,7 +195,7 @@ namespace templatev1
                 };
                 Label lblPartName = new Label
                 {
-                    Name = $"lblPartName{i}", Text = $"{controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
+                    Name = $"lblPartName{i}", Text = $"{_controller.GetPartName(dt.Rows[i - 1][0].ToString())}",
                     Location = new Point(230, rowPosition), Font = new Font("Times New Roman", 12),
                     Size = new Size(300, 20), TextAlign = ContentAlignment.MiddleCenter
                 };
@@ -251,7 +249,7 @@ namespace templatev1
             {
                 if (lblStatus.Text != "Ready to Ship")
                 {
-                    Form customerEditOrder = new customerEditOrder(orderID, accountController, UIController);
+                    Form customerEditOrder = new customerEditOrder(_orderId, _accountController, _uiController);
                     Hide();
                     customerEditOrder.StartPosition = FormStartPosition.Manual;
                     customerEditOrder.Location = Location;
@@ -280,11 +278,11 @@ namespace templatev1
                 {
                     DialogResult dialogResult =
                         MessageBox.Show(
-                            $"Are you sure you want to cancel order {orderID} ?\nYour action cannot be revoked after confirming it.",
+                            $"Are you sure you want to cancel order {_orderId} ?\nYour action cannot be revoked after confirming it.",
                             "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                     //add qty back to db
                     //get part num and it's qty in the order
-                    Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
+                    Dictionary<string, int> partNumQty = _controller.GetPartNumWithQty(_orderId);
                     //add back now;
 
                     //no need to add back now as the qty will not be deducted when create order
@@ -293,20 +291,20 @@ namespace templatev1
                     //    controller.addQtyback(q.Key, q.Value, UID);
                     //}
 
-                    if (dialogResult == DialogResult.Yes && controller.DeleteOrder(orderID))
+                    if (dialogResult == DialogResult.Yes && _controller.DeleteOrder(_orderId))
                     {
                         MessageBox.Show("Cancel successful.", " Cancel Successful", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
 
                         Form customerOrderList =
-                            new customerOrderList(accountController, UIController);
+                            new customerOrderList(_accountController, _uiController);
                         Hide();
                         customerOrderList.StartPosition = FormStartPosition.Manual;
                         customerOrderList.Location = Location;
                         customerOrderList.ShowDialog();
                         Close();
                     }
-                    else if (dialogResult == DialogResult.Yes && !controller.DeleteOrder(orderID))
+                    else if (dialogResult == DialogResult.Yes && !_controller.DeleteOrder(_orderId))
                     {
                         MessageBox.Show("Something went wrong.\nPlease contact our staff for help", "Error",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -322,7 +320,7 @@ namespace templatev1
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            Form customerOrderList = new customerOrderList(accountController, UIController);
+            Form customerOrderList = new customerOrderList(_accountController, _uiController);
             Hide();
             customerOrderList.StartPosition = FormStartPosition.Manual;
             customerOrderList.Location = Location;
@@ -338,14 +336,14 @@ namespace templatev1
             }
             else
             {
-                if (dateHandler.DayDifference(orderID) >= 0)
+                if (_dateHandler.DayDifference(_orderId) >= 0)
                 {
                     MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
                 {
-                    Form customerViewInvoice = new customerViewInvoice(orderID, accountController, UIController);
+                    Form customerViewInvoice = new customerViewInvoice(_orderId, _accountController, _uiController);
                     Hide();
                     customerViewInvoice.StartPosition = FormStartPosition.Manual;
                     customerViewInvoice.Location = Location;
@@ -358,7 +356,7 @@ namespace templatev1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form feedback = new giveFeedback(accountController, UIController);
+            Form feedback = new giveFeedback(_accountController, _uiController);
             Hide();
             feedback.StartPosition = FormStartPosition.Manual;
             feedback.Location = Location;
@@ -368,7 +366,7 @@ namespace templatev1
 
         private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form fav = new favourite(accountController, UIController);
+            Form fav = new favourite(_accountController, _uiController);
             Hide();
             fav.StartPosition = FormStartPosition.Manual;
             fav.Location = Location;
@@ -378,7 +376,7 @@ namespace templatev1
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form cart = new cart(accountController, UIController);
+            Form cart = new cart(_accountController, _uiController);
             Hide();
             cart.StartPosition = FormStartPosition.Manual;
             cart.Location = Location;
@@ -388,7 +386,7 @@ namespace templatev1
 
         private void btnFunction2_Click(object sender, EventArgs e)
         {
-            Form spare = new sparePartList(accountController, UIController);
+            Form spare = new sparePartList(_accountController, _uiController);
             Hide();
             spare.StartPosition = FormStartPosition.Manual;
             spare.Location = Location;
@@ -398,7 +396,7 @@ namespace templatev1
 
         private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o = new customerOrderList(accountController, UIController);
+            Form o = new customerOrderList(_accountController, _uiController);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;
@@ -408,11 +406,11 @@ namespace templatev1
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
-            proFileController proFileController = new proFileController(accountController);
+            proFileController proFileController = new proFileController(_accountController);
 
-            proFileController.setType(accountController.GetAccountType());
+            proFileController.setType(_accountController.GetAccountType());
 
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Form proFile = new proFileMain(_accountController, _uiController, proFileController);
             Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
@@ -433,22 +431,22 @@ namespace templatev1
 
         private void picBWMode_Click(object sender, EventArgs e)
         {
-            BWMode();
+            BwMode();
         }
 
 
         private void btnReorder_Click(object sender, EventArgs e)
         {
             //get all part num and qty in the order first
-            Dictionary<string, int> partNumQty = controller.GetPartNumWithQty(orderID);
+            Dictionary<string, int> partNumQty = _controller.GetPartNumWithQty(_orderId);
             //add to cart
             try
             {
                 foreach (var k in partNumQty)
                 {
-                    if (k.Value <= controller.checkOnSaleQty(k.Key))
+                    if (k.Value <= _controller.checkOnSaleQty(k.Key))
                     {
-                        controller.reOrder(UID, k.Key, k.Value, isLM);
+                        _controller.reOrder(_uid, k.Key, k.Value, _isLm);
                     }
                     else
                     {
@@ -464,14 +462,14 @@ namespace templatev1
                             MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         if (dialogResult3 == DialogResult.Yes)
                         {
-                            List<string> allPartNum = controller.GetAllPartNumInCart(UID);
-                            List<int> allItemQty = controller.GetAllItemQtyInCart(UID);
+                            List<string> allPartNum = _controller.GetAllPartNumInCart(_uid);
+                            List<int> allItemQty = _controller.GetAllItemQtyInCart(_uid);
                             for (int i = 0; i < allPartNum.Count; i++)
                             {
-                                controller.AddQtyBack(allPartNum[i], allItemQty[i], 0, isLM); //add qty back to db
+                                _controller.AddQtyBack(allPartNum[i], allItemQty[i], 0, _isLm); //add qty back to db
                             }
 
-                            if (controller.RemoveAll(UID)) //remove from cart
+                            if (_controller.RemoveAll(_uid)) //remove from cart
                             {
                                 MessageBox.Show("All items removed from cart", "Remove All", MessageBoxButtons.OK);
                             }
@@ -488,7 +486,7 @@ namespace templatev1
                         "Re-order", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
-                    Form cart = new cart(accountController, UIController);
+                    Form cart = new cart(_accountController, _uiController);
                     Hide();
                     cart.StartPosition = FormStartPosition.Manual;
                     cart.Location = Location;
@@ -507,9 +505,9 @@ namespace templatev1
             load_data(cmbSortOrder.Text);
         }
 
-        private void BWMode()
+        private void BwMode()
         {
-            dynamic value = UIController.getMode();
+            dynamic value = _uiController.getMode();
             Settings.Default.textColor = ColorTranslator.FromHtml(value.textColor);
             Settings.Default.bgColor = ColorTranslator.FromHtml(value.bgColor);
             Settings.Default.navBarColor = ColorTranslator.FromHtml(value.navBarColor);
@@ -534,7 +532,7 @@ namespace templatev1
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            Form home = new Home(accountController, UIController);
+            Form home = new Home(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;
@@ -545,7 +543,7 @@ namespace templatev1
 
         private void btnViewDelivery_Click(object sender, EventArgs e)
         {
-            Form o = new CustomerViewOrderDelivery(orderID, accountController, UIController, controller);
+            Form o = new CustomerViewOrderDelivery(_orderId, _accountController, _uiController, _controller);
             Hide();
             o.StartPosition = FormStartPosition.Manual;
             o.Location = Location;

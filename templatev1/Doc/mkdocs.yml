@@ -1,0 +1,23 @@
+﻿site_name: Documentation of Legend Motor Company Integrated System
+theme:
+  name: material
+  palette:
+    primary: red
+    accent: red
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: assets/logo.png
+  favicon: assets/favicon.png
+repo_name: Legend Motor Company Integrated System
+repo_url: https://github.com/wailim0506/ITP4915M_Project
+edit_uri: ""
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+nav:
+  - Home: index.md
+  - User Guide: userGuid.md
