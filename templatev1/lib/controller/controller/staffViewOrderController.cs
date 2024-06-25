@@ -202,5 +202,21 @@ namespace controller
             DataTable dt = _db.ExecuteDataTable(s, null);
             return dt.Rows[0][0].ToString();
         }
+
+        public bool confirmOrder(string orderID)
+        {
+            try
+            {
+                _db.ExecuteNonQueryCommand(
+                    "UPDATE order_ SET status = @status WHERE orderID = @id",
+                    new Dictionary<string, object> { { "@status", "Processing" }, { "@id", orderID } });
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

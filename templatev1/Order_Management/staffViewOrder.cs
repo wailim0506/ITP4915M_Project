@@ -58,7 +58,7 @@ namespace templatev1
             if (!isStoreman)
             {
                 btnReadyToShip.Visible = false;
-                btnDelete.Location = new Point(590, 833);
+                btnDelete.Location = new Point(484, 832);
             }
         }
 
@@ -481,6 +481,41 @@ namespace templatev1
             home.Location = Location;
             home.ShowDialog();
             Close();
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            if (lblStatus.Text == "Pending")
+            {
+                DialogResult dialogResult = MessageBox.Show("Are you sure confirming this order?", "Confirm Order", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    if (controller.confirmOrder(orderID))
+                    {
+                        MessageBox.Show("Order confirmed", "Confirm Order", MessageBoxButtons.OK);
+                        Form home = new staffViewOrder(orderID, accountController, UIController);
+                        Hide();
+                        //Swap the current form to another.
+                        home.StartPosition = FormStartPosition.Manual;
+                        home.Location = Location;
+                        home.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again", "Confirm Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+            }
+            else
+            {
+                MessageBox.Show("Order already confirm", "Confirm Order", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void setIndicator(int btnNo)

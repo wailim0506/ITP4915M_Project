@@ -100,6 +100,7 @@ namespace templatev1
             this.btnDIC = new System.Windows.Forms.Button();
             this.btnDID = new System.Windows.Forms.Button();
             this.btnReadyToShip = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -492,7 +493,7 @@ namespace templatev1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(472, 833);
+            this.btnDelete.Location = new System.Drawing.Point(366, 832);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 49);
             this.btnDelete.TabIndex = 198;
@@ -505,7 +506,7 @@ namespace templatev1
             this.btnEdit.AutoSize = true;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(1042, 834);
+            this.btnEdit.Location = new System.Drawing.Point(936, 833);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(94, 49);
             this.btnEdit.TabIndex = 197;
@@ -518,7 +519,7 @@ namespace templatev1
             this.btnViewInvoice.AutoSize = true;
             this.btnViewInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewInvoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewInvoice.Location = new System.Drawing.Point(929, 834);
+            this.btnViewInvoice.Location = new System.Drawing.Point(823, 833);
             this.btnViewInvoice.Name = "btnViewInvoice";
             this.btnViewInvoice.Size = new System.Drawing.Size(107, 49);
             this.btnViewInvoice.TabIndex = 196;
@@ -824,7 +825,7 @@ namespace templatev1
             this.btnDIC.AutoSize = true;
             this.btnDIC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDIC.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDIC.Location = new System.Drawing.Point(703, 833);
+            this.btnDIC.Location = new System.Drawing.Point(597, 832);
             this.btnDIC.Name = "btnDIC";
             this.btnDIC.Size = new System.Drawing.Size(107, 49);
             this.btnDIC.TabIndex = 211;
@@ -837,7 +838,7 @@ namespace templatev1
             this.btnDID.AutoSize = true;
             this.btnDID.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDID.Location = new System.Drawing.Point(816, 834);
+            this.btnDID.Location = new System.Drawing.Point(710, 833);
             this.btnDID.Name = "btnDID";
             this.btnDID.Size = new System.Drawing.Size(107, 49);
             this.btnDID.TabIndex = 212;
@@ -850,18 +851,32 @@ namespace templatev1
             this.btnReadyToShip.AutoSize = true;
             this.btnReadyToShip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReadyToShip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadyToShip.Location = new System.Drawing.Point(590, 833);
+            this.btnReadyToShip.Location = new System.Drawing.Point(484, 832);
             this.btnReadyToShip.Name = "btnReadyToShip";
             this.btnReadyToShip.Size = new System.Drawing.Size(107, 49);
             this.btnReadyToShip.TabIndex = 213;
             this.btnReadyToShip.Text = "Ready to Ship";
             this.btnReadyToShip.UseVisualStyleBackColor = true;
             // 
+            // btnConfirm
+            // 
+            this.btnConfirm.AutoSize = true;
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirm.Location = new System.Drawing.Point(1037, 833);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(109, 49);
+            this.btnConfirm.TabIndex = 214;
+            this.btnConfirm.Text = "Confirm Order";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
             // staffViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 896);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnReadyToShip);
             this.Controls.Add(this.btnDID);
             this.Controls.Add(this.btnDIC);
@@ -999,5 +1014,6 @@ namespace templatev1
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
         private System.Windows.Forms.Button btnReadyToShip;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }
