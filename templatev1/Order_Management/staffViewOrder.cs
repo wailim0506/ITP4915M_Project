@@ -19,6 +19,7 @@ namespace templatev1
         string shipDate;
         bool isLMOrder;
         bool isManager;
+        bool isStoreman;
 
         public staffViewOrder(string orderID)
         {
@@ -40,6 +41,7 @@ namespace templatev1
             UID = this.accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
+            isStoreman = accountController.checkIsStoreman();
         }
 
         private void clerkViewOrder_Load(object sender, EventArgs e)
@@ -52,6 +54,12 @@ namespace templatev1
                palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
+
+            if (!isStoreman)
+            {
+                btnReadyToShip.Visible = false;
+                btnDelete.Location = new Point(590, 833);
+            }
         }
 
         public void load_data(string sortBy)

@@ -99,6 +99,7 @@ namespace templatev1
             this.lblOrderDateLabel = new System.Windows.Forms.Label();
             this.btnDIC = new System.Windows.Forms.Button();
             this.btnDID = new System.Windows.Forms.Button();
+            this.btnReadyToShip = new System.Windows.Forms.Button();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -489,7 +490,7 @@ namespace templatev1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(585, 834);
+            this.btnDelete.Location = new System.Drawing.Point(472, 833);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(112, 49);
             this.btnDelete.TabIndex = 198;
@@ -842,11 +843,24 @@ namespace templatev1
             this.btnDID.UseVisualStyleBackColor = true;
             this.btnDID.Click += new System.EventHandler(this.btnDID_Click);
             // 
+            // btnReadyToShip
+            // 
+            this.btnReadyToShip.AutoSize = true;
+            this.btnReadyToShip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReadyToShip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReadyToShip.Location = new System.Drawing.Point(590, 833);
+            this.btnReadyToShip.Name = "btnReadyToShip";
+            this.btnReadyToShip.Size = new System.Drawing.Size(107, 49);
+            this.btnReadyToShip.TabIndex = 213;
+            this.btnReadyToShip.Text = "Ready to Ship";
+            this.btnReadyToShip.UseVisualStyleBackColor = true;
+            // 
             // staffViewOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1163, 896);
+            this.Controls.Add(this.btnReadyToShip);
             this.Controls.Add(this.btnDID);
             this.Controls.Add(this.btnDIC);
             this.Controls.Add(this.lblDayUntil);
@@ -982,5 +996,6 @@ namespace templatev1
         private System.Windows.Forms.Panel palSelect3;
         private System.Windows.Forms.Panel palSelect2;
         private System.Windows.Forms.Panel palSelect1;
+        private System.Windows.Forms.Button btnReadyToShip;
     }
 }
