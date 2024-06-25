@@ -1,6 +1,22 @@
 ﻿version: '3.9'
 
 services:
+  #  nginx:  # comment this out if you don't want to use nginx
+  #    image: nginx:1.21.6
+  #    ports:
+  #      - "80:80"
+  #    volumes:
+  #      - ./resources/docker/nginx/:/etc/nginx/
+  #      - ./:/var/www/html
+  #    depends_on:
+  #      - mkdocs
+  mkdocs:
+    image: squidfunk/mkdocs-material
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/docs
+    command: serve -a 0.0.0.0:8000
   mariadb:
     image: mariadb:10.5
     environment:
