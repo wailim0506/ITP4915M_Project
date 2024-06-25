@@ -264,6 +264,7 @@
             <DependentUpon>viewSparePart.cs</DependentUpon>
         </Compile>
         <Compile Include="Order_Management\CustomerViewOrderDelivery.Designer.cs"/>
+        <DependentUpon>CustomerViewOrderDelivery.cs</DependentUpon>
         <Compile Include="Order_Management\DeliverymanEditOrderRelay.cs">
             <SubType>Form</SubType>
         </Compile>
