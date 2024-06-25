@@ -372,7 +372,7 @@ namespace templatev1
             // picRefresh
             // 
             this.picRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picRefresh.Location = new System.Drawing.Point(1112, 95);
+            this.picRefresh.Location = new System.Drawing.Point(1112, 93);
             this.picRefresh.Name = "picRefresh";
             this.picRefresh.Size = new System.Drawing.Size(25, 22);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

@@ -73,6 +73,14 @@ namespace templatev1
             string feedback = tbFB.Text;
             int wordCount = CountWords(feedback);
             lblWordCount.Text = $"Word Count: {wordCount}";
+            if (wordCount > 100)
+            {
+                lblWordCount.ForeColor = System.Drawing.Color.Red;
+            }
+            else
+            {
+                lblWordCount.ForeColor = System.Drawing.Color.Black;
+            }
         }
 
         public static int CountWords(string text)

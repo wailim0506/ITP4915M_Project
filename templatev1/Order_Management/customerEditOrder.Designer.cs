@@ -496,7 +496,7 @@ namespace templatev1
             // 
             this.picRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picRefresh.Image = global::templatev1.Properties.Resources.refreshbtn;
-            this.picRefresh.Location = new System.Drawing.Point(1115, 104);
+            this.picRefresh.Location = new System.Drawing.Point(1115, 102);
             this.picRefresh.Name = "picRefresh";
             this.picRefresh.Size = new System.Drawing.Size(25, 22);
             this.picRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

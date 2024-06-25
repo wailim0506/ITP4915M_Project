@@ -121,7 +121,7 @@ namespace templatev1
                 };
                 Label lblPartName = new Label
                 {
-                    Text = $"{dt.Rows[i][17]}", Location = new Point(279, yPosition),
+                    Text = $"{dt.Rows[i]["name"]}", Location = new Point(279, yPosition),
                     Font = new Font("Times New Roman", 14), Size = new Size(253, 23),
                     TextAlign = ContentAlignment.MiddleCenter
                 };

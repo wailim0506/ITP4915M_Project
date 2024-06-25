@@ -626,9 +626,8 @@ namespace templatev1
             this.lblPartName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartName.Location = new System.Drawing.Point(407, 426);
             this.lblPartName.Name = "lblPartName";
-            this.lblPartName.Size = new System.Drawing.Size(37, 21);
+            this.lblPartName.Size = new System.Drawing.Size(0, 21);
             this.lblPartName.TabIndex = 197;
-            this.lblPartName.Text = "xxx";
             // 
             // label11
             // 

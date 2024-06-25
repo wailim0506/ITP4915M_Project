@@ -58,7 +58,7 @@ namespace templatev1
             if (!isStoreman)
             {
                 btnReadyToShip.Visible = false;
-                btnDelete.Location = new Point(484, 832);
+                btnDelete.Location = new Point(488, 840);
             }
         }
 
@@ -509,7 +509,6 @@ namespace templatev1
                         MessageBox.Show("Order confirmed", "Confirm Order", MessageBoxButtons.OK);
                         Form home = new staffViewOrder(orderID, accountController, UIController);
                         Hide();
-                        //Swap the current form to another.
                         home.StartPosition = FormStartPosition.Manual;
                         home.Location = Location;
                         home.ShowDialog();
@@ -521,9 +520,7 @@ namespace templatev1
                     }
                 }
                 else if (dialogResult == DialogResult.No)
-                {
-                    //do something else
-                }
+                {}
             }
             else
             {

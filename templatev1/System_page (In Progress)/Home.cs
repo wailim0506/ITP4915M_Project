@@ -28,6 +28,10 @@ namespace templatev1
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
+            if(accountController.GetAccountType() == "Customer")
+            {
+                btnReport.Visible = false;
+            }
         }
 
         private void Initialization()

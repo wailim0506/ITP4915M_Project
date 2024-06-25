@@ -58,12 +58,12 @@ namespace templatev1
             lblCategory.Text = dt.Rows[0][2].ToString();
             lblName.Text = dt.Rows[0][3].ToString();
             lblItemNum.Text = dt.Rows[0][8].ToString();
-            lblOnSalesQty.Text = !isLM ? dt.Rows[0][11].ToString() : dt.Rows[0][12].ToString();
+            lblOnSalesQty.Text = !isLM ? dt.Rows[0][12].ToString() : dt.Rows[0][13].ToString();
 
-            lblDescription.Text = dt.Rows[0][13].ToString();
-            lblPrice.Text = dt.Rows[0][14].ToString();
-            lblSupplier.Text = dt.Rows[0][19].ToString();
-            lblCountry.Text = dt.Rows[0][22].ToString();
+            lblDescription.Text = dt.Rows[0]["description"].ToString();
+            lblPrice.Text = dt.Rows[0]["price"].ToString();
+            lblSupplier.Text = dt.Rows[0][21].ToString();
+            lblCountry.Text = dt.Rows[0][24].ToString();
             picSpare.Image = ImageString(partNum);
             lblLoc.Text += $" - {dt.Rows[0][3]}";
 
@@ -100,7 +100,8 @@ namespace templatev1
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                if (int.Parse(tbQty.Text) < int.Parse(lblOnSalesQty.Text)) {
+                if (int.Parse(tbQty.Text) < int.Parse(lblOnSalesQty.Text))
+                {
                     int qty = int.Parse(tbQty.Text);
                     qty++;
                     tbQty.Text = qty.ToString();
@@ -128,6 +129,8 @@ namespace templatev1
                 qty--;
                 tbQty.Text = qty.ToString();
             }
+
+
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)

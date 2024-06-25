@@ -62,6 +62,7 @@ namespace templatev1
             this.label5 = new System.Windows.Forms.Label();
             this.lblNumberOfFeedbackShown = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnReturn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             this.grpOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -429,11 +430,25 @@ namespace templatev1
             this.label7.TabIndex = 113;
             this.label7.Text = "Feedback(s) Shown: ";
             // 
+            // btnReturn
+            // 
+            this.btnReturn.AutoSize = true;
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Location = new System.Drawing.Point(904, 917);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(94, 29);
+            this.btnReturn.TabIndex = 178;
+            this.btnReturn.Text = "Return";
+            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
+            // 
             // staffFeedbackList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 949);
+            this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblNumberOfFeedbackShown);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
@@ -495,5 +510,6 @@ namespace templatev1
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblNumberOfFeedbackShown;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnReturn;
     }
 }
