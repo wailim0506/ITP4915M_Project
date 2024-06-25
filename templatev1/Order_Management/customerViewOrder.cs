@@ -336,9 +336,9 @@ namespace templatev1
             }
             else
             {
-                if (_dateHandler.DayDifference(_orderId) >= 0)
+                if (lblStatus.Text != "Shipped")
                 {
-                    MessageBox.Show("Invoice can only be view after 1 day of delivery", "View Invoice",
+                    MessageBox.Show("Invoice can only be view after delivery", "View Invoice",
                         MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
                 else
