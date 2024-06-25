@@ -216,8 +216,7 @@ namespace templatev1
                 {
                     MessageBox.Show("Order status changed.", "Job Finished");
                     Form d =
-                        new delivermanViewOrder(orderID); //for testing
-                    // new delivermanViewOrder(orderID,accountController, UIController);
+                        new delivermanViewOrder(orderID,accountController, UIController);
                     Hide();
                     d.StartPosition = FormStartPosition.Manual;
                     d.Location = Location;

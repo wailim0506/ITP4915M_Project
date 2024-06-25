@@ -195,6 +195,7 @@
     <Compile Include="didController.cs" />
     <Compile Include="didListController.cs" />
     <Compile Include="OnSaleProductController.cs" />
+    <Compile Include="productListController.cs" />
     <Compile Include="staffEditOrderController.cs" />
     <Compile Include="staffInvoiceListController.cs" />
     <Compile Include="staffOrderListController.cs" />

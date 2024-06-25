@@ -27,6 +27,7 @@ namespace controller
 
             switch (orderStatus)
             {
+                // TODO: change "Processing" to "Shipping"
                 case "Processing":
                     return GetDeliveryRelay(orderId);
                 case "Shipped":

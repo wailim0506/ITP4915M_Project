@@ -483,6 +483,20 @@ namespace templatev1
             Close();
         }
 
+        private void btnReadyToShip_Click(object sender, EventArgs e)
+        {
+            if (controller.ReadyToShipANDDeductQty(orderID))
+            {
+                MessageBox.Show("The status has now changed to Ready to ship.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning);
+            }
+        }
+
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             if (lblStatus.Text == "Pending")

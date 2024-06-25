@@ -779,11 +779,15 @@
     <None Include="Resources\D00005.png" />
     <Content Include=".gitignore" />
     <Content Include="Docker-compose.yml" />
+    <Content Include="Doc\docker-compose.yml" />
+    <Content Include="Doc\mkdocs.yml" />
+    <Content Include="Doc\userGuid.md" />
     <Content Include="READMDE.md" />
-    <Content Include="setup.sql" />
+    <Content Include="sql-scripts\setup.sql" />
     <Content Include="Trash\Trash.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Doc\assets\" />
     <Folder Include="lib\controller\" />
     <Folder Include="Resources\UserIcon\" />
   </ItemGroup>
