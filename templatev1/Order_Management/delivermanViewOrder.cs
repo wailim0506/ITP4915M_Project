@@ -208,25 +208,32 @@ namespace templatev1
 
         private void btnJobFinished_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialogResult == DialogResult.Yes) //confirmed shipped
+            if (dateHandler.DayDifference(orderID) != 0)
             {
-                if (controller.DelivermanJobFinished(orderID))
+                DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes) //confirmed shipped
                 {
-                    MessageBox.Show("Order status changed.", "Job Finished");
-                    Form d =
-                        new delivermanViewOrder(orderID,accountController, UIController);
-                    Hide();
-                    d.StartPosition = FormStartPosition.Manual;
-                    d.Location = Location;
-                    d.ShowDialog();
-                    Close();
+                    if (controller.DelivermanJobFinished(orderID))
+                    {
+                        MessageBox.Show("Order status changed.", "Job Finished");
+                        Form d =
+                            new delivermanViewOrder(orderID, accountController, UIController);
+                        Hide();
+                        d.StartPosition = FormStartPosition.Manual;
+                        d.Location = Location;
+                        d.ShowDialog();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please try again.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Please try again.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Today is not shipping date.", "Job Finished", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
