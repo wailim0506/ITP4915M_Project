@@ -778,7 +778,6 @@
         <None Include="Resources\D00004.png"/>
         <None Include="Resources\D00005.png"/>
         <Content Include=".gitignore"/>
-        <Content Include="Doc\docker-compose.yml"/>
         <Content Include="READMDE.md"/>
         <Content Include="Trash\Trash.txt"/>
     </ItemGroup>
