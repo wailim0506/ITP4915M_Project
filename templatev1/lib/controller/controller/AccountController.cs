@@ -261,5 +261,16 @@ namespace controller
 
             return false;
         }
+
+        public bool checkIsStoreman()
+        {
+            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
+                "Storeman")
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

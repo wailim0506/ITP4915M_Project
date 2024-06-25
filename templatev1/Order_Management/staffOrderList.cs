@@ -13,6 +13,7 @@ namespace templatev1
         UIController UIController;
         staffOrderListController controller;
         Boolean isManager;
+        Boolean isStoreman;
 
         public staffOrderList()
         {
@@ -31,6 +32,7 @@ namespace templatev1
             UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
+            isStoreman = accountController.checkIsStoreman();
         }
 
         private void staffOrderList_Load(object sender, EventArgs e)
@@ -53,28 +55,28 @@ namespace templatev1
             switch (sortBy)
             {
                 case "Order ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "Id", isManager,tbKW.Text);
+                    dt = controller.getOrder(UID, status, "Id", isManager,tbKW.Text,isStoreman);
                     break;
                 case "Order ID (Descending)":
-                    dt = controller.getOrder(UID, status, "IdDESC", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "IdDESC", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Order Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "Date", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "Date", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Order Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DateDESC", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "DateDESC", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Delivery Date (Nearest)":
-                    dt = controller.getOrder(UID, status, "DDate", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "DDate", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Delivery Date (Furtherest)":
-                    dt = controller.getOrder(UID, status, "DDateDESC", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "DDateDESC", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Customer ID (Ascending)":
-                    dt = controller.getOrder(UID, status, "cId", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "cId", isManager, tbKW.Text, isStoreman);
                     break;
                 case "Customer ID (Descending)":
-                    dt = controller.getOrder(UID, status, "cIdDESC", isManager, tbKW.Text);
+                    dt = controller.getOrder(UID, status, "cIdDESC", isManager, tbKW.Text, isStoreman);
                     break;
             }
 

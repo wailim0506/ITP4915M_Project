@@ -13,7 +13,7 @@ namespace controller
             _db = database ?? new Database();
         }
 
-        public DataTable getOrder(string id, string status, string sortBy, bool isManager, string kw) //id = staff id
+        public DataTable getOrder(string id, string status, string sortBy, bool isManager, string kw, bool isStoreman) //id = staff id
         {
             string sqlCmd = "";
             var sortByOptions = new Dictionary<string, string>
@@ -31,9 +31,29 @@ namespace controller
             if (!sortByOptions.ContainsKey(sortBy)) return _db.ExecuteDataTable(sqlCmd, null);
             sqlCmd = $"SELECT x.orderID, x.orderDate, y.customerID, z.shippingDate, x.status FROM order_ x, " +
                      $"customer_account y, shipping_detail z";
-            sqlCmd += !isManager
-                ? $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'"
-                : " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
+
+            if (!isManager)
+            {
+                if (!isStoreman)
+                {
+                    sqlCmd += $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'";
+                }
+                else
+                {
+                    sqlCmd += $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND x.status = \'Processing\'";
+
+                }
+            }
+            else
+            {
+                sqlCmd += " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
+            }
+
+            //sqlCmd += !isManager
+            //    ? $", staff_account aa WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID AND x.staffAccountID = aa.staffAccountID AND aa.staffID = \'{id}\'"
+            //    : " WHERE x.orderID = z.orderID AND y.customerAccountID = x.customerAccountID";
+
+            
 
             if (status != "All")
             {
