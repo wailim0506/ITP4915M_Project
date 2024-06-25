@@ -50,6 +50,7 @@ namespace templatev1
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
             _ordereportController = new OrderAnalysisReportController();
+            timer1.Enabled = true;
         }
 
 
@@ -321,6 +322,11 @@ namespace templatev1
             home.Location = Location;
             home.ShowDialog();
             Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
         private void btnFunction2_Click(object sender, EventArgs e)

@@ -37,6 +37,7 @@ namespace templatev1
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();
             setIndicator(UIController.getIndicator("Order Management"));
+            timer1.Enabled = true;
         }
 
         private void customerViewInvoice_Load(object sender, EventArgs e)
@@ -328,6 +329,11 @@ namespace templatev1
             home.Location = Location;
             home.ShowDialog();
             Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
         private void setIndicator(int btnNo)

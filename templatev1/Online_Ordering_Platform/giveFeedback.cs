@@ -101,7 +101,7 @@ namespace templatev1
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblTimeDate.Text = DateTime.Now.ToString("dd-MM-yy HH:mm:ss"); //timer
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss"); //timer
         }
 
         private void button5_Click(object sender, EventArgs e)

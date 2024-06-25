@@ -42,6 +42,7 @@ namespace templatev1
             UID = this.accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
+            timer1.Enabled = true;
         }
 
 
@@ -316,6 +317,11 @@ namespace templatev1
             home.Location = Location;
             home.ShowDialog();
             Close();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
         private void setIndicator(int btnNo)
