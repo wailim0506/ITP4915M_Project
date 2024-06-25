@@ -40,7 +40,6 @@ namespace templatev1
 
         private void delivermanViewOrder_Load(object sender, EventArgs e)
         {
-            
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
             load_data();
@@ -208,7 +207,7 @@ namespace templatev1
 
         private void btnJobFinished_Click(object sender, EventArgs e)
         {
-            if (dateHandler.DayDifference(orderID) != 0)
+            if (dateHandler.DayDifference(orderID) <= 0)
             {
                 DialogResult dialogResult = MessageBox.Show("Are you sure this order is delivered?", "Job Finished",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
