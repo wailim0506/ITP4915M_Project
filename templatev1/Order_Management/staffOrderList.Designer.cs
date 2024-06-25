@@ -548,6 +548,7 @@ namespace templatev1
             // button1
             // 
             this.button1.AutoSize = true;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(1001, 908);
             this.button1.Name = "button1";

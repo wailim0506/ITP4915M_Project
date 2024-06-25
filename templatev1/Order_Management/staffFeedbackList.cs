@@ -313,6 +313,17 @@ namespace templatev1
             Close();
         }
 
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+            Form home = new staffOrderList(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form o = new Login();
