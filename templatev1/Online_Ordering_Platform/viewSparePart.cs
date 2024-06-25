@@ -100,35 +100,6 @@ namespace templatev1
         {
             if (tbQty.Text != "") //check have quantity input
             {
-                int qty = int.Parse(tbQty.Text);
-                qty++;
-                tbQty.Text = qty.ToString();
-            }
-            else
-            {
-                int qty = 0;
-                qty++;
-                tbQty.Text = qty.ToString();
-            }
-        }
-
-        private void btnMinusQty_Click(object sender, EventArgs e)
-        {
-            //if (tbQty.Text != "") //check have quantity input
-            //{
-            //    if (int.Parse(tbQty.Text) ==
-            //        1) //check quantity input equal 0, do not perform anything if equal to 0
-            //    {
-            //        return;
-            //    }
-
-            //    int qty = int.Parse(tbQty.Text);
-            //    qty--;
-            //    tbQty.Text = qty.ToString();
-            //}
-
-            if (tbQty.Text != "") //check have quantity input
-            {
                 if (int.Parse(tbQty.Text) < int.Parse(lblOnSalesQty.Text))
                 {
                     int qty = int.Parse(tbQty.Text);
@@ -142,6 +113,24 @@ namespace templatev1
                 qty++;
                 tbQty.Text = qty.ToString();
             }
+        }
+
+        private void btnMinusQty_Click(object sender, EventArgs e)
+        {
+            if (tbQty.Text != "") //check have quantity input
+            {
+                if (int.Parse(tbQty.Text) ==
+                    1) //check quantity input equal 0, do not perform anything if equal to 0
+                {
+                    return;
+                }
+
+                int qty = int.Parse(tbQty.Text);
+                qty--;
+                tbQty.Text = qty.ToString();
+            }
+
+
         }
 
         private void btnAddCart_Click(object sender, EventArgs e)
