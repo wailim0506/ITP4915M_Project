@@ -1,9 +1,9 @@
 ﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="start-server" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+  <configuration default="false" name="Unnamed" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
     <deployment type="docker-compose.yml">
       <settings>
         <option name="envFilePath" value="" />
-        <option name="sourceFilePath" value="templatev1/Docker-compose.yml" />
+        <option name="sourceFilePath" value="docker/Docker-compose.yml" />
         <option name="upDetach" value="false" />
       </settings>
     </deployment>

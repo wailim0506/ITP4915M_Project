@@ -408,3 +408,5 @@ fabric.properties
 *.msp
 *.sln.iml
 .idea/discord.xml
+*.tlog
+.vshistory/
