@@ -316,70 +316,6 @@ namespace templatev1
                 cmbSorting.Text));
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form o = new giveFeedback(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            Form o = new favourite(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction3_Click(object sender, EventArgs e)
-        {
-            Form o = new cart(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction2_Click(object sender, EventArgs e)
-        {
-            Form o = new sparePartList(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction1_Click(object sender, EventArgs e)
-        {
-            Form o = new customerOrderList(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form o = new Login();
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void picBWMode_Click(object sender, EventArgs e)
-        {
-            BWMode();
-        }
 
         private void cmbCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -427,32 +363,8 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController proFileController = new proFileController(accountController);
-
-            proFileController.setType(accountController.GetAccountType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = Location;
-            proFile.ShowDialog();
-            Close();
-        }
-
-        private void picHome_Click(object sender, EventArgs e)
-        {
-            Form home = new Home(accountController, UIController);
-            Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
-            Close();
-        }
-
+        
+        
         private void setIndicator(int btnNo)
         {
             switch (btnNo)
@@ -474,5 +386,136 @@ namespace templatev1
                     break;
             }
         }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
+        private void getPage(string Function)
+        {
+            Form next = new Home(accountController, UIController);
+            switch (Function)
+            {
+                case "Order Management":
+                    if (UID.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(accountController, UIController);
+                    }
+                    else if (accountController.checkIsDeliverman())
+                    {
+                        next = new deliverman(accountController, UIController);
+                    }
+                    else
+                    {
+                        next = new staffOrderList(accountController, UIController);
+                    }
+
+                    break;
+                case "Spare Part":
+                    next = new sparePartList(accountController, UIController);
+                    break;
+                case "Cart":
+                    next = new cart(accountController, UIController);
+                    break;
+                case "Favourite":
+                    next = new favourite(accountController, UIController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(accountController, UIController);
+                    break;
+
+                case "On-Sale Product Management":
+                    next = new OnSaleMain(accountController, UIController);
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(accountController, UIController);
+                    break;
+                case "User Management":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(accountController, UIController);
+                    break;
+            }
+
+            Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = Location;
+            next.Size = Size;
+            next.ShowDialog();
+            Close();
+        }
+
+
+
     }
 }

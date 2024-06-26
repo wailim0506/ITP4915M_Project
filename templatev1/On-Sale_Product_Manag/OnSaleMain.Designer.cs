@@ -286,6 +286,7 @@
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
+            this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
             this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
@@ -675,7 +676,7 @@
             this.lblTPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTPrice.Location = new System.Drawing.Point(21, 129);
             this.lblTPrice.Name = "lblTPrice";
-            this.lblTPrice.Size = new System.Drawing.Size(85, 23);
+            this.lblTPrice.Size = new System.Drawing.Size(87, 23);
             this.lblTPrice.TabIndex = 187;
             this.lblTPrice.Text = "Price ￥:";
             // 
