@@ -135,7 +135,7 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 827);
+            this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 163;
             // 
             // palSelect5
@@ -328,7 +328,7 @@ namespace templatev1
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 37);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(980, 35);
+            this.palLoc.Size = new System.Drawing.Size(972, 35);
             this.palLoc.TabIndex = 166;
             // 
             // lblLoc
@@ -351,7 +351,7 @@ namespace templatev1
             this.palTime.Location = new System.Drawing.Point(198, 0);
             this.palTime.Margin = new System.Windows.Forms.Padding(2);
             this.palTime.Name = "palTime";
-            this.palTime.Size = new System.Drawing.Size(980, 37);
+            this.palTime.Size = new System.Drawing.Size(972, 37);
             this.palTime.TabIndex = 165;
             // 
             // lblUid
@@ -877,7 +877,7 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1178, 827);
+            this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.btnReadyToShip);
             this.Controls.Add(this.btnDID);

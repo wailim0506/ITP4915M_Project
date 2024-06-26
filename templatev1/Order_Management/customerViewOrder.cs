@@ -354,87 +354,6 @@ namespace templatev1
         }
 
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form feedback = new giveFeedback(_accountController, _uiController);
-            Hide();
-            feedback.StartPosition = FormStartPosition.Manual;
-            feedback.Location = Location;
-            feedback.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            Form fav = new favourite(_accountController, _uiController);
-            Hide();
-            fav.StartPosition = FormStartPosition.Manual;
-            fav.Location = Location;
-            fav.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction3_Click(object sender, EventArgs e)
-        {
-            Form cart = new cart(_accountController, _uiController);
-            Hide();
-            cart.StartPosition = FormStartPosition.Manual;
-            cart.Location = Location;
-            cart.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction2_Click(object sender, EventArgs e)
-        {
-            Form spare = new sparePartList(_accountController, _uiController);
-            Hide();
-            spare.StartPosition = FormStartPosition.Manual;
-            spare.Location = Location;
-            spare.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction1_Click(object sender, EventArgs e)
-        {
-            Form o = new customerOrderList(_accountController, _uiController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController proFileController = new proFileController(_accountController);
-
-            proFileController.setType(_accountController.GetAccountType());
-
-            Form proFile = new proFileMain(_accountController, _uiController, proFileController);
-            Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = Location;
-            proFile.ShowDialog();
-            Close();
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form o = new Login();
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void picBWMode_Click(object sender, EventArgs e)
-        {
-            BwMode();
-        }
-
-
         private void btnReorder_Click(object sender, EventArgs e)
         {
             //get all part num and qty in the order first
@@ -530,6 +449,116 @@ namespace templatev1
             }
         }
 
+        private void getPage(string Function)
+        {
+            Form next = new Home(_accountController, _uiController);
+            switch (Function)
+            {
+                case "Order Management":
+                    if (_uid.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(_accountController, _uiController);
+                    }
+                    else if (_accountController.CheckIsDeliverman())
+                    {
+                        next = new deliverman(_accountController, _uiController);
+                    }
+                    else
+                    {
+                        next = new staffOrderList(_accountController, _uiController);
+                    }
+
+                    break;
+                case "Spare Part":
+                    next = new sparePartList(_accountController, _uiController);
+                    break;
+                case "Cart":
+                    next = new cart(_accountController, _uiController);
+                    break;
+                case "Favourite":
+                    next = new favourite(_accountController, _uiController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(_accountController, _uiController);
+                    break;
+
+                case "On-Sale Product Management":
+                    next = new OnSaleMain(_accountController, _uiController);
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(_accountController, _uiController);
+                    break;
+                case "User Management":
+                    next = new SAccManage(_accountController, _uiController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(_accountController, _uiController);
+                    break;
+            }
+
+            Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = Location;
+            next.Size = Size;
+            next.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(_accountController);
+
+            proFileController.setType(_accountController.GetAccountType());
+
+            Form proFile = new proFileMain(_accountController, _uiController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(_accountController, _uiController);
@@ -540,6 +569,19 @@ namespace templatev1
             home.ShowDialog();
             Close();
         }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(_accountController, _uiController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
 
         private void btnViewDelivery_Click(object sender, EventArgs e)
         {

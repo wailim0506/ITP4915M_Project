@@ -97,7 +97,7 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 869);
+            this.palNav.Size = new System.Drawing.Size(198, 941);
             this.palNav.TabIndex = 2;
             // 
             // palSelect5
@@ -508,7 +508,7 @@ namespace templatev1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 869);
+            this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.lblNumberOfInvoiceShown);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
