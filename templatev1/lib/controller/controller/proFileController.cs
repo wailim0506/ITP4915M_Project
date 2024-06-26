@@ -288,13 +288,19 @@ namespace controller
                     { "@phone", info.phone },
                     { "@Email", info.email },
                     { "@DFB", info.DFB },
-                    { "@UID", UID }
+                    { "@UID", UID },
+                    { "@IsLM", info.IsLM }
                 };
 
                 if (accountType.Equals("Customer"))
                 {
+                    sqlCmd = "UPDATE customer_account SET isLM = @IsLM WHERE customerID = @UID";
+
+                    _db.ExecuteNonQueryCommand(sqlCmd, parameters);
+
                     sqlCmd =
-                        "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex, phoneNumber = @phone, emailAddress = @email, dateOfBirth = @DFB WHERE customerID = @UID";
+                        "UPDATE customer SET firstName = @fName, lastName = @lName, sex = @sex" +
+                        ", phoneNumber = @phone, emailAddress = @email, dateOfBirth = @DFB WHERE customerID = @UID";
                 }
                 else
                 {

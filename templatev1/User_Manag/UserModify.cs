@@ -48,7 +48,8 @@ namespace templatev1
             lblUid.Text = "UID: " + UID;
             type = modifyUserUID.StartsWith("LMS") ? "Staff" : "Customer";
             palstaff.Visible = type.Equals("Staff") ? true : false;
-            chkNGDateOfBirth.Visible = type.Equals("Customer") ? true : false;
+            lblIsLM.Visible = chkIsLM.Visible = chkNGDateOfBirth.Visible 
+                = type.Equals("Customer") ? true : false;
             lblAccType.Text = type;
             lblFormUID.Text = modifyUserUID;
 
@@ -78,6 +79,7 @@ namespace templatev1
             chkNGDateOfBirth.Checked = info.NGDateOfBirth;
             dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null);
             lblCreateDate.Text = (info.createDate).ToString("yyyy/MM/dd");
+            chkIsLM.Checked = info.IsLM.Equals("Y") ? true : false;
 
             placeholder = UserInfo.getUserInfo();
         }
@@ -367,6 +369,9 @@ namespace templatev1
             }
             else
                 update.email = placeholder.phone;
+
+            //Check and update isLM account.
+            update.IsLM = chkIsLM.Checked == true ? "Y" : "N";
 
 
             return true;

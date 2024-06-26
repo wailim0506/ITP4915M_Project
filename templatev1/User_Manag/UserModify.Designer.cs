@@ -87,6 +87,8 @@
             this.lbllNameMsg = new System.Windows.Forms.Label();
             this.lblfNameMsg = new System.Windows.Forms.Label();
             this.lblDateMsg = new System.Windows.Forms.Label();
+            this.lblIsLM = new System.Windows.Forms.Label();
+            this.chkIsLM = new System.Windows.Forms.CheckBox();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -528,7 +530,7 @@
             this.grpContact.Controls.Add(this.lblTitPhone);
             this.grpContact.Controls.Add(this.lblTitEmail);
             this.grpContact.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpContact.Location = new System.Drawing.Point(249, 421);
+            this.grpContact.Location = new System.Drawing.Point(249, 459);
             this.grpContact.Name = "grpContact";
             this.grpContact.Size = new System.Drawing.Size(533, 154);
             this.grpContact.TabIndex = 82;
@@ -650,7 +652,7 @@
             this.palstaff.Controls.Add(this.lblTitJobTitle);
             this.palstaff.Location = new System.Drawing.Point(516, 104);
             this.palstaff.Name = "palstaff";
-            this.palstaff.Size = new System.Drawing.Size(419, 113);
+            this.palstaff.Size = new System.Drawing.Size(419, 101);
             this.palstaff.TabIndex = 150;
             // 
             // lblDept
@@ -716,11 +718,34 @@
             this.lblDateMsg.Size = new System.Drawing.Size(434, 19);
             this.lblDateMsg.TabIndex = 155;
             // 
+            // lblIsLM
+            // 
+            this.lblIsLM.AutoSize = true;
+            this.lblIsLM.Font = new System.Drawing.Font("Times New Roman", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIsLM.Location = new System.Drawing.Point(245, 429);
+            this.lblIsLM.Name = "lblIsLM";
+            this.lblIsLM.Size = new System.Drawing.Size(99, 19);
+            this.lblIsLM.TabIndex = 156;
+            this.lblIsLM.Text = "LM Account:";
+            // 
+            // chkIsLM
+            // 
+            this.chkIsLM.AutoSize = true;
+            this.chkIsLM.Font = new System.Drawing.Font("Times New Roman", 12.75F);
+            this.chkIsLM.Location = new System.Drawing.Point(361, 428);
+            this.chkIsLM.Name = "chkIsLM";
+            this.chkIsLM.Size = new System.Drawing.Size(52, 23);
+            this.chkIsLM.TabIndex = 157;
+            this.chkIsLM.Text = "Yes";
+            this.chkIsLM.UseVisualStyleBackColor = true;
+            // 
             // UserModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.chkIsLM);
+            this.Controls.Add(this.lblIsLM);
             this.Controls.Add(this.lblDateMsg);
             this.Controls.Add(this.lblSexMsg);
             this.Controls.Add(this.lbllNameMsg);
@@ -832,6 +857,8 @@
         private System.Windows.Forms.Label lblfNameMsg;
         private System.Windows.Forms.Label lblDateMsg;
         private System.Windows.Forms.Label lblPhoneMsg;
+        private System.Windows.Forms.Label lblIsLM;
+        private System.Windows.Forms.CheckBox chkIsLM;
     }
 }
 
