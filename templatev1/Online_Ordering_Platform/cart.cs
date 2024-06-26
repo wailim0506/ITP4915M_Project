@@ -655,6 +655,25 @@ namespace templatev1
             Close();
         }
 
+        //Check or uncheck all checkbox in cart.
+        private void chkAll_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (chkAll.Checked == true)
+                foreach (Control c in pnlSP.Controls)
+                {
+                    if ((c is CheckBox))
+                        ((CheckBox)c).Checked = true;
+                }
+            else
+            {
+                foreach (Control c in pnlSP.Controls)
+                {
+                    if ((c is CheckBox))
+                        ((CheckBox)c).Checked = false;
+                }
+            }
+        }
+
         private void BWMode()
         {
             dynamic value = UIController.getMode();

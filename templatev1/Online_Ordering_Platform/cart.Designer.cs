@@ -542,6 +542,7 @@ namespace templatev1
             this.chkAll.TabIndex = 94;
             this.chkAll.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkAll.UseVisualStyleBackColor = true;
+            this.chkAll.CheckStateChanged += new System.EventHandler(this.chkAll_CheckStateChanged);
             // 
             // picTick
             // 
