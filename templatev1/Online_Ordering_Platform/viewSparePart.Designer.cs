@@ -31,27 +31,6 @@ namespace templatev1
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewSparePart));
-            this.palNav = new System.Windows.Forms.Panel();
-            this.palSelect5 = new System.Windows.Forms.Panel();
-            this.btnFunction5 = new System.Windows.Forms.Button();
-            this.palSelect4 = new System.Windows.Forms.Panel();
-            this.palSelect2 = new System.Windows.Forms.Panel();
-            this.palSelect1 = new System.Windows.Forms.Panel();
-            this.picBWMode = new System.Windows.Forms.PictureBox();
-            this.btnProFile = new System.Windows.Forms.Button();
-            this.palSelect3 = new System.Windows.Forms.Panel();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.picHome = new System.Windows.Forms.PictureBox();
-            this.lblCorpName = new System.Windows.Forms.Label();
-            this.btnFunction4 = new System.Windows.Forms.Button();
-            this.btnFunction3 = new System.Windows.Forms.Button();
-            this.btnFunction2 = new System.Windows.Forms.Button();
-            this.btnFunction1 = new System.Windows.Forms.Button();
-            this.palDate = new System.Windows.Forms.Panel();
-            this.lblLoc = new System.Windows.Forms.Label();
-            this.lblUid = new System.Windows.Forms.Label();
-            this.lblTimeDate = new System.Windows.Forms.Label();
-            this.palLoc = new System.Windows.Forms.Panel();
             this.btnAddFavourit = new System.Windows.Forms.Button();
             this.grpSparePartInfo = new System.Windows.Forms.GroupBox();
             this.lblDescription = new System.Windows.Forms.Label();
@@ -81,21 +60,396 @@ namespace templatev1
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnAddToExistingOrder = new System.Windows.Forms.Button();
             this.picSpare = new System.Windows.Forms.PictureBox();
+            this.palLoc = new System.Windows.Forms.Panel();
+            this.lblLoc = new System.Windows.Forms.Label();
+            this.palDate = new System.Windows.Forms.Panel();
+            this.lblTimeDate = new System.Windows.Forms.Label();
+            this.lblUid = new System.Windows.Forms.Label();
+            this.palNav = new System.Windows.Forms.Panel();
+            this.palSelect5 = new System.Windows.Forms.Panel();
+            this.palSelect4 = new System.Windows.Forms.Panel();
+            this.btnFunction5 = new System.Windows.Forms.Button();
+            this.palSelect2 = new System.Windows.Forms.Panel();
+            this.palSelect1 = new System.Windows.Forms.Panel();
+            this.picBWMode = new System.Windows.Forms.PictureBox();
+            this.btnProFile = new System.Windows.Forms.Button();
+            this.palSelect3 = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblCorpName = new System.Windows.Forms.Label();
+            this.btnFunction4 = new System.Windows.Forms.Button();
+            this.btnFunction3 = new System.Windows.Forms.Button();
+            this.btnFunction2 = new System.Windows.Forms.Button();
+            this.btnFunction1 = new System.Windows.Forms.Button();
+            this.grpSparePartInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picSpare)).BeginInit();
+            this.palLoc.SuspendLayout();
+            this.palDate.SuspendLayout();
             this.palNav.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            this.palDate.SuspendLayout();
-            this.palLoc.SuspendLayout();
-            this.grpSparePartInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picSpare)).BeginInit();
             this.SuspendLayout();
+            // 
+            // btnAddFavourit
+            // 
+            this.btnAddFavourit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddFavourit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFavourit.Location = new System.Drawing.Point(985, 92);
+            this.btnAddFavourit.Name = "btnAddFavourit";
+            this.btnAddFavourit.Size = new System.Drawing.Size(168, 33);
+            this.btnAddFavourit.TabIndex = 86;
+            this.btnAddFavourit.Text = "Add to Favourite";
+            this.btnAddFavourit.UseVisualStyleBackColor = true;
+            // 
+            // grpSparePartInfo
+            // 
+            this.grpSparePartInfo.Controls.Add(this.lblDescription);
+            this.grpSparePartInfo.Controls.Add(this.label3);
+            this.grpSparePartInfo.Controls.Add(this.lblOnSalesQty);
+            this.grpSparePartInfo.Controls.Add(this.label4);
+            this.grpSparePartInfo.Controls.Add(this.lblPrice);
+            this.grpSparePartInfo.Controls.Add(this.lblCountry);
+            this.grpSparePartInfo.Controls.Add(this.lblSupplier);
+            this.grpSparePartInfo.Controls.Add(this.lblName);
+            this.grpSparePartInfo.Controls.Add(this.lblCategory);
+            this.grpSparePartInfo.Controls.Add(this.lblPartNum);
+            this.grpSparePartInfo.Controls.Add(this.lblItemNum);
+            this.grpSparePartInfo.Controls.Add(this.label2);
+            this.grpSparePartInfo.Controls.Add(this.label1);
+            this.grpSparePartInfo.Controls.Add(this.lblTitCountry);
+            this.grpSparePartInfo.Controls.Add(this.lblTitPrice);
+            this.grpSparePartInfo.Controls.Add(this.lblTitManu);
+            this.grpSparePartInfo.Controls.Add(this.lblTitName);
+            this.grpSparePartInfo.Controls.Add(this.lblTitCat);
+            this.grpSparePartInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
+            this.grpSparePartInfo.Location = new System.Drawing.Point(270, 424);
+            this.grpSparePartInfo.Name = "grpSparePartInfo";
+            this.grpSparePartInfo.Size = new System.Drawing.Size(830, 305);
+            this.grpSparePartInfo.TabIndex = 84;
+            this.grpSparePartInfo.TabStop = false;
+            this.grpSparePartInfo.Text = "Spare Part Info";
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescription.Location = new System.Drawing.Point(143, 167);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(647, 114);
+            this.lblDescription.TabIndex = 45;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(109, 22);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "Description:";
+            // 
+            // lblOnSalesQty
+            // 
+            this.lblOnSalesQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOnSalesQty.Location = new System.Drawing.Point(562, 138);
+            this.lblOnSalesQty.Name = "lblOnSalesQty";
+            this.lblOnSalesQty.Size = new System.Drawing.Size(163, 20);
+            this.lblOnSalesQty.TabIndex = 43;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(436, 138);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 22);
+            this.label4.TabIndex = 42;
+            this.label4.Text = "On Sales Qty:";
+            // 
+            // lblPrice
+            // 
+            this.lblPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrice.Location = new System.Drawing.Point(104, 138);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(326, 20);
+            this.lblPrice.TabIndex = 41;
+            // 
+            // lblCountry
+            // 
+            this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCountry.Location = new System.Drawing.Point(587, 108);
+            this.lblCountry.Name = "lblCountry";
+            this.lblCountry.Size = new System.Drawing.Size(163, 20);
+            this.lblCountry.TabIndex = 40;
+            // 
+            // lblSupplier
+            // 
+            this.lblSupplier.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupplier.Location = new System.Drawing.Point(118, 108);
+            this.lblSupplier.Name = "lblSupplier";
+            this.lblSupplier.Size = new System.Drawing.Size(312, 20);
+            this.lblSupplier.TabIndex = 39;
+            // 
+            // lblName
+            // 
+            this.lblName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(499, 75);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(181, 20);
+            this.lblName.TabIndex = 38;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(118, 75);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(312, 20);
+            this.lblCategory.TabIndex = 37;
+            // 
+            // lblPartNum
+            // 
+            this.lblPartNum.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPartNum.Location = new System.Drawing.Point(553, 42);
+            this.lblPartNum.Name = "lblPartNum";
+            this.lblPartNum.Size = new System.Drawing.Size(189, 20);
+            this.lblPartNum.TabIndex = 36;
+            // 
+            // lblItemNum
+            // 
+            this.lblItemNum.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblItemNum.Location = new System.Drawing.Point(150, 42);
+            this.lblItemNum.Name = "lblItemNum";
+            this.lblItemNum.Size = new System.Drawing.Size(280, 20);
+            this.lblItemNum.TabIndex = 35;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(25, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(123, 22);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Item Number: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(436, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 22);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Part Number:";
+            // 
+            // lblTitCountry
+            // 
+            this.lblTitCountry.AutoSize = true;
+            this.lblTitCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitCountry.Location = new System.Drawing.Point(436, 108);
+            this.lblTitCountry.Name = "lblTitCountry";
+            this.lblTitCountry.Size = new System.Drawing.Size(155, 22);
+            this.lblTitCountry.TabIndex = 19;
+            this.lblTitCountry.Text = "Country of Origin:";
+            // 
+            // lblTitPrice
+            // 
+            this.lblTitPrice.AutoSize = true;
+            this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitPrice.Location = new System.Drawing.Point(28, 138);
+            this.lblTitPrice.Name = "lblTitPrice";
+            this.lblTitPrice.Size = new System.Drawing.Size(73, 22);
+            this.lblTitPrice.TabIndex = 18;
+            this.lblTitPrice.Text = "Price: ¥";
+            // 
+            // lblTitManu
+            // 
+            this.lblTitManu.AutoSize = true;
+            this.lblTitManu.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitManu.Location = new System.Drawing.Point(28, 108);
+            this.lblTitManu.Name = "lblTitManu";
+            this.lblTitManu.Size = new System.Drawing.Size(84, 22);
+            this.lblTitManu.TabIndex = 17;
+            this.lblTitManu.Text = "Supplier:";
+            // 
+            // lblTitName
+            // 
+            this.lblTitName.AutoSize = true;
+            this.lblTitName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitName.Location = new System.Drawing.Point(436, 75);
+            this.lblTitName.Name = "lblTitName";
+            this.lblTitName.Size = new System.Drawing.Size(62, 22);
+            this.lblTitName.TabIndex = 16;
+            this.lblTitName.Text = "Name:";
+            // 
+            // lblTitCat
+            // 
+            this.lblTitCat.AutoSize = true;
+            this.lblTitCat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitCat.Location = new System.Drawing.Point(25, 75);
+            this.lblTitCat.Name = "lblTitCat";
+            this.lblTitCat.Size = new System.Drawing.Size(87, 22);
+            this.lblTitCat.TabIndex = 15;
+            this.lblTitCat.Text = "Category:";
+            // 
+            // btnBackSearch
+            // 
+            this.btnBackSearch.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackSearch.Location = new System.Drawing.Point(216, 90);
+            this.btnBackSearch.Name = "btnBackSearch";
+            this.btnBackSearch.Size = new System.Drawing.Size(150, 35);
+            this.btnBackSearch.TabIndex = 85;
+            this.btnBackSearch.Text = "Back to Search";
+            this.btnBackSearch.UseVisualStyleBackColor = false;
+            this.btnBackSearch.Click += new System.EventHandler(this.btnBackSearch_Click);
+            // 
+            // btnAddCart
+            // 
+            this.btnAddCart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddCart.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddCart.Location = new System.Drawing.Point(783, 282);
+            this.btnAddCart.Name = "btnAddCart";
+            this.btnAddCart.Size = new System.Drawing.Size(185, 39);
+            this.btnAddCart.TabIndex = 78;
+            this.btnAddCart.Text = "Add to Cart";
+            this.btnAddCart.UseVisualStyleBackColor = true;
+            this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
+            // 
+            // tbQty
+            // 
+            this.tbQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbQty.Location = new System.Drawing.Point(823, 246);
+            this.tbQty.MaxLength = 4;
+            this.tbQty.Name = "tbQty";
+            this.tbQty.Size = new System.Drawing.Size(103, 30);
+            this.tbQty.TabIndex = 79;
+            this.tbQty.Text = "1";
+            this.tbQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQty_KeyPress);
+            // 
+            // btnMinusQty
+            // 
+            this.btnMinusQty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinusQty.Location = new System.Drawing.Point(783, 242);
+            this.btnMinusQty.Name = "btnMinusQty";
+            this.btnMinusQty.Size = new System.Drawing.Size(34, 36);
+            this.btnMinusQty.TabIndex = 82;
+            this.btnMinusQty.Text = "-";
+            this.btnMinusQty.UseVisualStyleBackColor = true;
+            this.btnMinusQty.Click += new System.EventHandler(this.btnMinusQty_Click);
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQty.Location = new System.Drawing.Point(779, 216);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(82, 22);
+            this.lblQty.TabIndex = 80;
+            this.lblQty.Text = "Quantity:";
+            // 
+            // btnAddQty
+            // 
+            this.btnAddQty.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddQty.Location = new System.Drawing.Point(932, 242);
+            this.btnAddQty.Name = "btnAddQty";
+            this.btnAddQty.Size = new System.Drawing.Size(34, 36);
+            this.btnAddQty.TabIndex = 81;
+            this.btnAddQty.Text = "+";
+            this.btnAddQty.UseVisualStyleBackColor = true;
+            this.btnAddQty.Click += new System.EventHandler(this.btnAddQty_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnAddToExistingOrder
+            // 
+            this.btnAddToExistingOrder.AutoSize = true;
+            this.btnAddToExistingOrder.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddToExistingOrder.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddToExistingOrder.Location = new System.Drawing.Point(780, 327);
+            this.btnAddToExistingOrder.Name = "btnAddToExistingOrder";
+            this.btnAddToExistingOrder.Size = new System.Drawing.Size(195, 33);
+            this.btnAddToExistingOrder.TabIndex = 87;
+            this.btnAddToExistingOrder.Text = "Add to Existing Order";
+            this.btnAddToExistingOrder.UseVisualStyleBackColor = true;
+            this.btnAddToExistingOrder.Click += new System.EventHandler(this.btnAddToExistingOrder_Click);
+            // 
+            // picSpare
+            // 
+            this.picSpare.Location = new System.Drawing.Point(345, 150);
+            this.picSpare.Name = "picSpare";
+            this.picSpare.Size = new System.Drawing.Size(360, 249);
+            this.picSpare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picSpare.TabIndex = 83;
+            this.picSpare.TabStop = false;
+            // 
+            // palLoc
+            // 
+            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.palLoc.Controls.Add(this.lblLoc);
+            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Name = "palLoc";
+            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.TabIndex = 205;
+            // 
+            // lblLoc
+            // 
+            this.lblLoc.AutoSize = true;
+            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Name = "lblLoc";
+            this.lblLoc.Size = new System.Drawing.Size(93, 22);
+            this.lblLoc.TabIndex = 0;
+            this.lblLoc.Text = "Spare Part";
+            // 
+            // palDate
+            // 
+            this.palDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.palDate.Controls.Add(this.lblTimeDate);
+            this.palDate.Controls.Add(this.lblUid);
+            this.palDate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.palDate.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palDate.Location = new System.Drawing.Point(198, 0);
+            this.palDate.Margin = new System.Windows.Forms.Padding(2);
+            this.palDate.Name = "palDate";
+            this.palDate.Size = new System.Drawing.Size(972, 40);
+            this.palDate.TabIndex = 204;
+            // 
+            // lblTimeDate
+            // 
+            this.lblTimeDate.AutoSize = true;
+            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTimeDate.Name = "lblTimeDate";
+            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
+            this.lblTimeDate.TabIndex = 0;
+            this.lblTimeDate.Text = "TIME";
+            // 
+            // lblUid
+            // 
+            this.lblUid.AutoSize = true;
+            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUid.Location = new System.Drawing.Point(814, 9);
+            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblUid.Name = "lblUid";
+            this.lblUid.Size = new System.Drawing.Size(134, 22);
+            this.lblUid.TabIndex = 1;
+            this.lblUid.Text = "Uid: LMXXXX";
             // 
             // palNav
             // 
             this.palNav.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.palNav.Controls.Add(this.palSelect5);
-            this.palNav.Controls.Add(this.btnFunction5);
             this.palNav.Controls.Add(this.palSelect4);
+            this.palNav.Controls.Add(this.btnFunction5);
             this.palNav.Controls.Add(this.palSelect2);
             this.palNav.Controls.Add(this.palSelect1);
             this.palNav.Controls.Add(this.picBWMode);
@@ -112,32 +466,16 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 811);
-            this.palNav.TabIndex = 73;
+            this.palNav.Size = new System.Drawing.Size(198, 941);
+            this.palNav.TabIndex = 203;
             // 
             // palSelect5
             // 
             this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 369);
+            this.palSelect5.Location = new System.Drawing.Point(0, 371);
             this.palSelect5.Name = "palSelect5";
             this.palSelect5.Size = new System.Drawing.Size(10, 55);
             this.palSelect5.TabIndex = 26;
-            // 
-            // btnFunction5
-            // 
-            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
-            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction5.Location = new System.Drawing.Point(0, 369);
-            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFunction5.Name = "btnFunction5";
-            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
-            this.btnFunction5.TabIndex = 25;
-            this.btnFunction5.Text = "Give Feedback";
-            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFunction5.UseVisualStyleBackColor = false;
-            this.btnFunction5.Click += new System.EventHandler(this.button1_Click);
             // 
             // palSelect4
             // 
@@ -146,6 +484,22 @@ namespace templatev1
             this.palSelect4.Name = "palSelect4";
             this.palSelect4.Size = new System.Drawing.Size(10, 55);
             this.palSelect4.TabIndex = 4;
+            // 
+            // btnFunction5
+            // 
+            this.btnFunction5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
+            this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
+            this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFunction5.Name = "btnFunction5";
+            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.TabIndex = 25;
+            this.btnFunction5.Text = "Give Feedback";
+            this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFunction5.UseVisualStyleBackColor = false;
+            this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
             // 
             // palSelect2
             // 
@@ -168,11 +522,10 @@ namespace templatev1
             this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
             this.picBWMode.Location = new System.Drawing.Point(143, 24);
             this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.Size = new System.Drawing.Size(49, 42);
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
-            this.picBWMode.Click += new System.EventHandler(this.picBWMode_Click);
             // 
             // btnProFile
             // 
@@ -180,7 +533,7 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(3, 642);
+            this.btnProFile.Location = new System.Drawing.Point(0, 794);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
             this.btnProFile.Size = new System.Drawing.Size(198, 34);
@@ -203,7 +556,7 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(3, 684);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(198, 34);
@@ -219,7 +572,7 @@ namespace templatev1
             this.picHome.Location = new System.Drawing.Point(13, 13);
             this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.Size = new System.Drawing.Size(57, 52);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
@@ -229,12 +582,13 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(4, 740);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 892);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
-            this.lblCorpName.Size = new System.Drawing.Size(163, 50);
+            this.lblCorpName.Size = new System.Drawing.Size(163, 52);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
+            this.lblCorpName.Click += new System.EventHandler(this.lblCorpName_Click);
             // 
             // btnFunction4
             // 
@@ -300,365 +654,14 @@ namespace templatev1
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
-            // palDate
-            // 
-            this.palDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.palDate.Controls.Add(this.lblLoc);
-            this.palDate.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palDate.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palDate.Location = new System.Drawing.Point(198, 38);
-            this.palDate.Margin = new System.Windows.Forms.Padding(2);
-            this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(972, 40);
-            this.palDate.TabIndex = 76;
-            // 
-            // lblLoc
-            // 
-            this.lblLoc.AutoSize = true;
-            this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(3, 8);
-            this.lblLoc.Name = "lblLoc";
-            this.lblLoc.Size = new System.Drawing.Size(93, 22);
-            this.lblLoc.TabIndex = 0;
-            this.lblLoc.Text = "Spare Part";
-            // 
-            // lblUid
-            // 
-            this.lblUid.AutoSize = true;
-            this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(810, 10);
-            this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblUid.Name = "lblUid";
-            this.lblUid.Size = new System.Drawing.Size(134, 22);
-            this.lblUid.TabIndex = 1;
-            this.lblUid.Text = "Uid: LMXXXX";
-            // 
-            // lblTimeDate
-            // 
-            this.lblTimeDate.AutoSize = true;
-            this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 10);
-            this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTimeDate.Name = "lblTimeDate";
-            this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
-            this.lblTimeDate.TabIndex = 0;
-            this.lblTimeDate.Text = "TIME";
-            // 
-            // palLoc
-            // 
-            this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.palLoc.Controls.Add(this.lblTimeDate);
-            this.palLoc.Controls.Add(this.lblUid);
-            this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 0);
-            this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
-            this.palLoc.TabIndex = 77;
-            // 
-            // btnAddFavourit
-            // 
-            this.btnAddFavourit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddFavourit.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFavourit.Location = new System.Drawing.Point(985, 100);
-            this.btnAddFavourit.Name = "btnAddFavourit";
-            this.btnAddFavourit.Size = new System.Drawing.Size(168, 36);
-            this.btnAddFavourit.TabIndex = 86;
-            this.btnAddFavourit.Text = "Add to Favourite";
-            this.btnAddFavourit.UseVisualStyleBackColor = true;
-            // 
-            // grpSparePartInfo
-            // 
-            this.grpSparePartInfo.Controls.Add(this.lblDescription);
-            this.grpSparePartInfo.Controls.Add(this.label3);
-            this.grpSparePartInfo.Controls.Add(this.lblOnSalesQty);
-            this.grpSparePartInfo.Controls.Add(this.label4);
-            this.grpSparePartInfo.Controls.Add(this.lblPrice);
-            this.grpSparePartInfo.Controls.Add(this.lblCountry);
-            this.grpSparePartInfo.Controls.Add(this.lblSupplier);
-            this.grpSparePartInfo.Controls.Add(this.lblName);
-            this.grpSparePartInfo.Controls.Add(this.lblCategory);
-            this.grpSparePartInfo.Controls.Add(this.lblPartNum);
-            this.grpSparePartInfo.Controls.Add(this.lblItemNum);
-            this.grpSparePartInfo.Controls.Add(this.label2);
-            this.grpSparePartInfo.Controls.Add(this.label1);
-            this.grpSparePartInfo.Controls.Add(this.lblTitCountry);
-            this.grpSparePartInfo.Controls.Add(this.lblTitPrice);
-            this.grpSparePartInfo.Controls.Add(this.lblTitManu);
-            this.grpSparePartInfo.Controls.Add(this.lblTitName);
-            this.grpSparePartInfo.Controls.Add(this.lblTitCat);
-            this.grpSparePartInfo.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold);
-            this.grpSparePartInfo.Location = new System.Drawing.Point(270, 459);
-            this.grpSparePartInfo.Name = "grpSparePartInfo";
-            this.grpSparePartInfo.Size = new System.Drawing.Size(830, 330);
-            this.grpSparePartInfo.TabIndex = 84;
-            this.grpSparePartInfo.TabStop = false;
-            this.grpSparePartInfo.Text = "Spare Part Info";
-            // 
-            // lblDescription
-            // 
-            this.lblDescription.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(143, 181);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(647, 124);
-            this.lblDescription.TabIndex = 45;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 181);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 22);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "Description:";
-            // 
-            // lblOnSalesQty
-            // 
-            this.lblOnSalesQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOnSalesQty.Location = new System.Drawing.Point(562, 150);
-            this.lblOnSalesQty.Name = "lblOnSalesQty";
-            this.lblOnSalesQty.Size = new System.Drawing.Size(163, 22);
-            this.lblOnSalesQty.TabIndex = 43;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(436, 150);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(120, 22);
-            this.label4.TabIndex = 42;
-            this.label4.Text = "On Sales Qty:";
-            // 
-            // lblPrice
-            // 
-            this.lblPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(104, 150);
-            this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(326, 22);
-            this.lblPrice.TabIndex = 41;
-            // 
-            // lblCountry
-            // 
-            this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.Location = new System.Drawing.Point(587, 117);
-            this.lblCountry.Name = "lblCountry";
-            this.lblCountry.Size = new System.Drawing.Size(163, 22);
-            this.lblCountry.TabIndex = 40;
-            // 
-            // lblSupplier
-            // 
-            this.lblSupplier.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplier.Location = new System.Drawing.Point(118, 117);
-            this.lblSupplier.Name = "lblSupplier";
-            this.lblSupplier.Size = new System.Drawing.Size(312, 22);
-            this.lblSupplier.TabIndex = 39;
-            // 
-            // lblName
-            // 
-            this.lblName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(499, 81);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(181, 22);
-            this.lblName.TabIndex = 38;
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(118, 81);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(312, 22);
-            this.lblCategory.TabIndex = 37;
-            // 
-            // lblPartNum
-            // 
-            this.lblPartNum.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartNum.Location = new System.Drawing.Point(553, 46);
-            this.lblPartNum.Name = "lblPartNum";
-            this.lblPartNum.Size = new System.Drawing.Size(189, 22);
-            this.lblPartNum.TabIndex = 36;
-            // 
-            // lblItemNum
-            // 
-            this.lblItemNum.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblItemNum.Location = new System.Drawing.Point(150, 46);
-            this.lblItemNum.Name = "lblItemNum";
-            this.lblItemNum.Size = new System.Drawing.Size(280, 22);
-            this.lblItemNum.TabIndex = 35;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(123, 22);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Item Number: ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(436, 46);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(116, 22);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Part Number:";
-            // 
-            // lblTitCountry
-            // 
-            this.lblTitCountry.AutoSize = true;
-            this.lblTitCountry.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCountry.Location = new System.Drawing.Point(436, 117);
-            this.lblTitCountry.Name = "lblTitCountry";
-            this.lblTitCountry.Size = new System.Drawing.Size(155, 22);
-            this.lblTitCountry.TabIndex = 19;
-            this.lblTitCountry.Text = "Country of Origin:";
-            // 
-            // lblTitPrice
-            // 
-            this.lblTitPrice.AutoSize = true;
-            this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPrice.Location = new System.Drawing.Point(28, 150);
-            this.lblTitPrice.Name = "lblTitPrice";
-            this.lblTitPrice.Size = new System.Drawing.Size(73, 22);
-            this.lblTitPrice.TabIndex = 18;
-            this.lblTitPrice.Text = "Price: ¥";
-            // 
-            // lblTitManu
-            // 
-            this.lblTitManu.AutoSize = true;
-            this.lblTitManu.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitManu.Location = new System.Drawing.Point(28, 117);
-            this.lblTitManu.Name = "lblTitManu";
-            this.lblTitManu.Size = new System.Drawing.Size(84, 22);
-            this.lblTitManu.TabIndex = 17;
-            this.lblTitManu.Text = "Supplier:";
-            // 
-            // lblTitName
-            // 
-            this.lblTitName.AutoSize = true;
-            this.lblTitName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitName.Location = new System.Drawing.Point(436, 81);
-            this.lblTitName.Name = "lblTitName";
-            this.lblTitName.Size = new System.Drawing.Size(62, 22);
-            this.lblTitName.TabIndex = 16;
-            this.lblTitName.Text = "Name:";
-            // 
-            // lblTitCat
-            // 
-            this.lblTitCat.AutoSize = true;
-            this.lblTitCat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCat.Location = new System.Drawing.Point(25, 81);
-            this.lblTitCat.Name = "lblTitCat";
-            this.lblTitCat.Size = new System.Drawing.Size(87, 22);
-            this.lblTitCat.TabIndex = 15;
-            this.lblTitCat.Text = "Category:";
-            // 
-            // btnBackSearch
-            // 
-            this.btnBackSearch.BackColor = System.Drawing.Color.Transparent;
-            this.btnBackSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackSearch.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackSearch.Location = new System.Drawing.Point(216, 98);
-            this.btnBackSearch.Name = "btnBackSearch";
-            this.btnBackSearch.Size = new System.Drawing.Size(150, 38);
-            this.btnBackSearch.TabIndex = 85;
-            this.btnBackSearch.Text = "Back to Search";
-            this.btnBackSearch.UseVisualStyleBackColor = false;
-            this.btnBackSearch.Click += new System.EventHandler(this.btnBackSearch_Click);
-            // 
-            // btnAddCart
-            // 
-            this.btnAddCart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddCart.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCart.Location = new System.Drawing.Point(783, 306);
-            this.btnAddCart.Name = "btnAddCart";
-            this.btnAddCart.Size = new System.Drawing.Size(185, 42);
-            this.btnAddCart.TabIndex = 78;
-            this.btnAddCart.Text = "Add to Cart";
-            this.btnAddCart.UseVisualStyleBackColor = true;
-            this.btnAddCart.Click += new System.EventHandler(this.btnAddCart_Click);
-            // 
-            // tbQty
-            // 
-            this.tbQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQty.Location = new System.Drawing.Point(823, 267);
-            this.tbQty.MaxLength = 4;
-            this.tbQty.Name = "tbQty";
-            this.tbQty.Size = new System.Drawing.Size(103, 30);
-            this.tbQty.TabIndex = 79;
-            this.tbQty.Text = "1";
-            this.tbQty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbQty.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbQty_KeyPress);
-            // 
-            // btnMinusQty
-            // 
-            this.btnMinusQty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinusQty.Location = new System.Drawing.Point(783, 262);
-            this.btnMinusQty.Name = "btnMinusQty";
-            this.btnMinusQty.Size = new System.Drawing.Size(34, 39);
-            this.btnMinusQty.TabIndex = 82;
-            this.btnMinusQty.Text = "-";
-            this.btnMinusQty.UseVisualStyleBackColor = true;
-            this.btnMinusQty.Click += new System.EventHandler(this.btnMinusQty_Click);
-            // 
-            // lblQty
-            // 
-            this.lblQty.AutoSize = true;
-            this.lblQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblQty.Location = new System.Drawing.Point(779, 234);
-            this.lblQty.Name = "lblQty";
-            this.lblQty.Size = new System.Drawing.Size(82, 22);
-            this.lblQty.TabIndex = 80;
-            this.lblQty.Text = "Quantity:";
-            // 
-            // btnAddQty
-            // 
-            this.btnAddQty.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddQty.Location = new System.Drawing.Point(932, 262);
-            this.btnAddQty.Name = "btnAddQty";
-            this.btnAddQty.Size = new System.Drawing.Size(34, 39);
-            this.btnAddQty.TabIndex = 81;
-            this.btnAddQty.Text = "+";
-            this.btnAddQty.UseVisualStyleBackColor = true;
-            this.btnAddQty.Click += new System.EventHandler(this.btnAddQty_Click);
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnAddToExistingOrder
-            // 
-            this.btnAddToExistingOrder.AutoSize = true;
-            this.btnAddToExistingOrder.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAddToExistingOrder.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddToExistingOrder.Location = new System.Drawing.Point(780, 354);
-            this.btnAddToExistingOrder.Name = "btnAddToExistingOrder";
-            this.btnAddToExistingOrder.Size = new System.Drawing.Size(195, 36);
-            this.btnAddToExistingOrder.TabIndex = 87;
-            this.btnAddToExistingOrder.Text = "Add to Existing Order";
-            this.btnAddToExistingOrder.UseVisualStyleBackColor = true;
-            this.btnAddToExistingOrder.Click += new System.EventHandler(this.btnAddToExistingOrder_Click);
-            // 
-            // picSpare
-            // 
-            this.picSpare.Location = new System.Drawing.Point(345, 163);
-            this.picSpare.Name = "picSpare";
-            this.picSpare.Size = new System.Drawing.Size(360, 270);
-            this.picSpare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picSpare.TabIndex = 83;
-            this.picSpare.TabStop = false;
-            // 
             // viewSparePart
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 811);
+            this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.palLoc);
+            this.Controls.Add(this.palDate);
+            this.Controls.Add(this.palNav);
             this.Controls.Add(this.btnAddToExistingOrder);
             this.Controls.Add(this.picSpare);
             this.Controls.Add(this.btnAddFavourit);
@@ -669,49 +672,26 @@ namespace templatev1
             this.Controls.Add(this.btnMinusQty);
             this.Controls.Add(this.lblQty);
             this.Controls.Add(this.btnAddQty);
-            this.Controls.Add(this.palDate);
-            this.Controls.Add(this.palLoc);
-            this.Controls.Add(this.palNav);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "viewSparePart";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.viewSparePart_Load);
-            this.palNav.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.palDate.ResumeLayout(false);
-            this.palDate.PerformLayout();
-            this.palLoc.ResumeLayout(false);
-            this.palLoc.PerformLayout();
             this.grpSparePartInfo.ResumeLayout(false);
             this.grpSparePartInfo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picSpare)).EndInit();
+            this.palLoc.ResumeLayout(false);
+            this.palLoc.PerformLayout();
+            this.palDate.ResumeLayout(false);
+            this.palDate.PerformLayout();
+            this.palNav.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBWMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel palNav;
-        private System.Windows.Forms.Panel palSelect4;
-        private System.Windows.Forms.Panel palSelect2;
-        private System.Windows.Forms.Panel palSelect1;
-        private System.Windows.Forms.PictureBox picBWMode;
-        private System.Windows.Forms.Button btnProFile;
-        private System.Windows.Forms.Panel palSelect3;
-        private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.PictureBox picHome;
-        private System.Windows.Forms.Label lblCorpName;
-        private System.Windows.Forms.Button btnFunction4;
-        private System.Windows.Forms.Button btnFunction3;
-        private System.Windows.Forms.Button btnFunction2;
-        private System.Windows.Forms.Button btnFunction1;
-        private System.Windows.Forms.Panel palDate;
-        private System.Windows.Forms.Label lblUid;
-        private System.Windows.Forms.Label lblTimeDate;
-        private System.Windows.Forms.Panel palLoc;
-        private System.Windows.Forms.Label lblLoc;
         private System.Windows.Forms.PictureBox picSpare;
         private System.Windows.Forms.Button btnAddFavourit;
         private System.Windows.Forms.GroupBox grpSparePartInfo;
@@ -741,7 +721,26 @@ namespace templatev1
         private System.Windows.Forms.Button btnAddQty;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnAddToExistingOrder;
+        private System.Windows.Forms.Panel palLoc;
+        private System.Windows.Forms.Label lblLoc;
+        private System.Windows.Forms.Panel palDate;
+        private System.Windows.Forms.Label lblTimeDate;
+        private System.Windows.Forms.Label lblUid;
+        private System.Windows.Forms.Panel palNav;
         private System.Windows.Forms.Panel palSelect5;
+        private System.Windows.Forms.Panel palSelect4;
         private System.Windows.Forms.Button btnFunction5;
+        private System.Windows.Forms.Panel palSelect2;
+        private System.Windows.Forms.Panel palSelect1;
+        private System.Windows.Forms.PictureBox picBWMode;
+        private System.Windows.Forms.Button btnProFile;
+        private System.Windows.Forms.Panel palSelect3;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.PictureBox picHome;
+        private System.Windows.Forms.Label lblCorpName;
+        private System.Windows.Forms.Button btnFunction4;
+        private System.Windows.Forms.Button btnFunction3;
+        private System.Windows.Forms.Button btnFunction2;
+        private System.Windows.Forms.Button btnFunction1;
     }
 }
