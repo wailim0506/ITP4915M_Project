@@ -212,7 +212,7 @@
         <Compile Include="staffViewOrderController.cs"/>
         <Compile Include="UIController.cs"/>
         <Compile Include="Properties\AssemblyInfo.cs"/>
-        <Compile Include="testController.cs"/>
+        <Compile Include="DevTools.cs" />
         <Compile Include="UserController.cs"/>
         <Compile Include="Utilities\Configuration.cs"/>
         <Compile Include="Utilities\Database.cs"/>

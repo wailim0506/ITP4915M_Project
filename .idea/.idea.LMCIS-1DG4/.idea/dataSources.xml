@@ -12,7 +12,7 @@
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:8088/itp4915m_se1d_group4</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/itp4915m_se1d_group4</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
     <data-source source="LOCAL" name="itp4915m_se1d_group4@hkg1.clusters.zeabur.com" uuid="26743f02-9885-47ec-8efb-072c89364c77">

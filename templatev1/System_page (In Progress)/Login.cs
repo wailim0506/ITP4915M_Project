@@ -205,7 +205,7 @@ namespace templatev1
         private void btnText7_Click(object sender, EventArgs e)
         {
             //Redirect to test tools
-            Form testDatabaseAndController = new test_Database_and_Controller();
+            Form testDatabaseAndController = new DevTool();
             //Swap the current form to another.
             testDatabaseAndController.StartPosition = FormStartPosition.Manual;
             testDatabaseAndController.Location = new Point(100, 100);

@@ -13,11 +13,11 @@ using controller.Utilities; //must include in every controller file
 
 namespace controller
 {
-    public /*<--add here*/ class testController : abstractController
+    public /*<--add here*/ class DevTools : abstractController
     {
         private Database _db;
 
-        public testController() //constructor, useless
+        public DevTools() //constructor, useless
         {
             _db = new Database();
         }

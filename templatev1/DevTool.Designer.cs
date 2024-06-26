@@ -1,7 +1,7 @@
 ﻿
 namespace templatev1
 {
-    partial class test_Database_and_Controller
+    partial class DevTool
     {
         /// <summary>
         /// Required designer variable.

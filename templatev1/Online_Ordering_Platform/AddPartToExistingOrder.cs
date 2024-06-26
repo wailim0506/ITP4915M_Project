@@ -204,7 +204,6 @@ namespace templatev1
         }
 
 
-
         public void hideButton()
         {
             dynamic btnFun = UIController.showFun();
@@ -282,7 +281,6 @@ namespace templatev1
             getPage(btnFunction4.Text);
         }
 
-        
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
@@ -328,7 +326,7 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else if (accountController.checkIsDeliverman())
+                    else if (accountController.CheckIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
                     }
@@ -372,8 +370,5 @@ namespace templatev1
             next.ShowDialog();
             Close();
         }
-
-
-
     }
 }

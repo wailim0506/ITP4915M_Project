@@ -80,10 +80,7 @@ namespace controller
             return isValid;
         }
 
-        private bool IsAccountActive(string status)
-        {
-            return status.Equals("active");
-        }
+        private bool IsAccountActive(string status) => status.Equals("active");
 
         private void SetLoginStatus(string UID, UIController UI)
         {
@@ -109,11 +106,7 @@ namespace controller
             UIController.SetPermission(UserID);
         }
 
-        private string GetIsLmDataQuery(string UID)
-        {
-            return $"SELECT isLM from customer_account WHERE customerID = \'{UID}\'";
-        }
-
+        private string GetIsLmDataQuery(string UID) => $"SELECT isLM from customer_account WHERE customerID = '{UID}'";
 
         private void UserInfo()
         {
@@ -125,12 +118,9 @@ namespace controller
             AccountType = GetAccountType(UserID);
         }
 
-        private string GetUserInfoDataQuery(string UID)
-        {
-            return UID.StartsWith("LMC")
-                ? $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = '{UID}' AND C.customerID = '{UID}'"
-                : $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = '{UID}' AND S.staffID = '{UID}'";
-        }
+        private string GetUserInfoDataQuery(string UID) => UID.StartsWith("LMC")
+            ? $"SELECT customerAccountID AS accountID, firstName, lastName FROM customer C, customer_account CA WHERE CA.customerID = '{UID}' AND C.customerID = '{UID}'"
+            : $"SELECT staffAccountID AS accountID, firstName, lastName FROM staff S, staff_account SA WHERE SA.staffID = '{UID}' AND S.staffID = '{UID}'";
 
         //update the login record into the database.
         public void SetLog(string Date)
@@ -201,66 +191,32 @@ namespace controller
         }
 
         //use in viewOrderController   //id = customerID
-        public DataTable GetCustomerDetail(string id)
-        {
-            return ExecuteSqlQuery($"SELECT * FROM customer WHERE customerID = '{id}'");
-        }
-
+        public DataTable GetCustomerDetail(string id) =>
+            ExecuteSqlQuery($"SELECT * FROM customer WHERE customerID = '{id}'");
 
         //User's information for UI
-        public string GetName()
-        {
-            return lastName + " " + firstName;
-        }
+        public string GetName() => lastName + " " + firstName;
+        public string GetUid() => UserID;
+        public string GetAccountType() => AccountType;
 
-        public string GetUid()
-        {
-            return UserID;
-        }
+        public string GetAccountType(string UID) => UID.StartsWith("LMC")
+            ? "Customer"
+            : "Staff";
 
-        public string GetAccountType()
-        {
-            return AccountType;
-        }
+        public bool GetIsLm() => isLM;
+        private DataTable ExecuteSqlQuery(string sqlQuery) => db.ExecuteDataTable(sqlQuery);
 
-        public string GetAccountType(string UID)
-        {
-            return UID.StartsWith("LMC")
-                ? "Customer"
-                : "Staff";
-        }
+        public bool CheckIsManager() =>
+            ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = '{UserID}'").Rows[0][0].ToString() ==
+            "Sales Manager";
 
-        public bool GetIsLm()
-        {
-            return isLM;
-        }
+        public bool CheckIsDeliverman() =>
+            ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = '{UserID}'").Rows[0][0].ToString() ==
+            "Deliverman";
 
-        private DataTable ExecuteSqlQuery(string sqlQuery)
-        {
-            return db.ExecuteDataTable(sqlQuery);
-        }
-
-        public bool CheckIsManager()
-        {
-            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
-                "Sales Manager")
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-        public bool checkIsDeliverman()
-        {
-            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
-                "Deliverman")
-            {
-                return true;
-            }
-
-            return false;
-        }
+        public bool CheckIsStoreman() =>
+            ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = '{UserID}'").Rows[0][0].ToString() ==
+            "Storeman";
 
         public string GetMessage()
         {
@@ -297,18 +253,6 @@ namespace controller
             }
 
             return Message;
-        }
-
-
-        public bool checkIsStoreman()
-        {
-            if (ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UserID}\'").Rows[0][0].ToString() ==
-                "Storeman")
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 }

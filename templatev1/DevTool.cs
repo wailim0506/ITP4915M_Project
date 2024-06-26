@@ -5,34 +5,30 @@ using controller;
 
 namespace templatev1
 {
-    public partial class test_Database_and_Controller : Form
+    public partial class DevTool : Form
     {
-        public test_Database_and_Controller()
+        public DevTool()
         {
             InitializeComponent();
         }
 
         private void test_Database_and_Controller_Load(object sender, EventArgs e)
         {
-            testController
-                dt = new testController(); //testController is the name of the controller, different function have different controller
-            //dataGridView1.DataSource = dt.login();     //test1() is the method inside the controller file
-            // dataGridView2.DataSource = dt.test2();
-            //dataGridView3.DataSource = dt.test3();
+            DevTools dt = new DevTools(); 
         }
 
         // hash password and copy to clipboard
         private void btnTest1_Click_1(object sender, EventArgs e)
         {
             string password = tbHashPassword.Text;
-            string hashedPassword = testController.HashPassword(password);
+            string hashedPassword = DevTools.HashPassword(password);
             Clipboard.SetText(hashedPassword);
             MessageBox.Show("Password hashed successfully and Copied to clipboard.");
         }
 
         private void UpdateUsersPassword()
         {
-            testController testController = new testController();
+            DevTools devTools = new DevTools();
             var usersToUpdate = new Dictionary<string, string>
             {
                 // Staff
@@ -55,7 +51,7 @@ namespace templatev1
             };
 
             // update password
-            MessageBox.Show(testController.UpdatePassword(usersToUpdate)
+            MessageBox.Show(devTools.UpdatePassword(usersToUpdate)
                 ? "Password updated successfully."
                 : $"not updated at {string.Join(", ", usersToUpdate.Keys)}");
         }
@@ -63,19 +59,19 @@ namespace templatev1
         private void button1_Click(object sender, EventArgs e)
         {
             //UpdateUsersPassword();
-            testController testController = new testController();
-            testController.UpdateDeveloperAccount();
+            DevTools devTools = new DevTools();
+            devTools.UpdateDeveloperAccount();
             MessageBox.Show("Password updated successfully.");
         }
 
 
         private void button2_Click(object sender, EventArgs e)
         {
-            testController testController = new testController();
+            DevTools devTools = new DevTools();
             string userid = textBox3.Text;
             string newPassword = textBox1.Text;
 
-            MessageBox.Show(testController.DeveloperToolForgetPassword(userid, newPassword)
+            MessageBox.Show(devTools.DeveloperToolForgetPassword(userid, newPassword)
                 ? "Password updated successfully."
                 : "Password not updated.");
         }

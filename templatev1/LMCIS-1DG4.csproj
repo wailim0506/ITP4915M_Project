@@ -425,11 +425,11 @@
         <Compile Include="Profile\AddressMgmt.Designer.cs">
             <DependentUpon>AddressMgmt.cs</DependentUpon>
         </Compile>
-        <Compile Include="test_Database_and_Controller.cs">
+        <Compile Include="DevTool.cs">
             <SubType>Form</SubType>
         </Compile>
-        <Compile Include="test_Database_and_Controller.Designer.cs">
-            <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
+        <Compile Include="DevTool.Designer.cs">
+            <DependentUpon>DevTool.cs</DependentUpon>
         </Compile>
         <Compile Include="Stock_Manag\StockAdd.cs">
             <SubType>Form</SubType>
@@ -464,7 +464,7 @@
         <Compile Include="UserMangeS.cs">
             <SubType>Form</SubType>
         </Compile>
-        <Compile Include="UserMangeS.Designer.cs"/>
+        <Compile Include="UserMangeS.Designer.cs" />
         <Compile Include="User_Manag\UserModify.cs">
             <SubType>Form</SubType>
         </Compile>
@@ -537,8 +537,8 @@
         <Compile Include="Profile\ProFileMain.Designer.cs">
             <DependentUpon>ProFileMain.cs</DependentUpon>
         </Compile>
-        <Compile Include="Program.cs"/>
-        <Compile Include="Properties\AssemblyInfo.cs"/>
+        <Compile Include="Program.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="Online_Ordering_Platform\AddPartToExistingOrder.resx">
             <DependentUpon>AddPartToExistingOrder.cs</DependentUpon>
         </EmbeddedResource>
@@ -639,8 +639,8 @@
         <EmbeddedResource Include="Profile\AddressMgmt.resx">
             <DependentUpon>AddressMgmt.cs</DependentUpon>
         </EmbeddedResource>
-        <EmbeddedResource Include="test_Database_and_Controller.resx">
-            <DependentUpon>test_Database_and_Controller.cs</DependentUpon>
+        <EmbeddedResource Include="DevTool.resx">
+            <DependentUpon>DevTool.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="Stock_Manag\StockAdd.resx">
             <DependentUpon>StockAdd.cs</DependentUpon>

@@ -326,7 +326,7 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else if (accountController.checkIsDeliverman())
+                    else if (accountController.CheckIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
                     }

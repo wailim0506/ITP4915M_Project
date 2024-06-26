@@ -41,7 +41,7 @@ namespace templatev1
             UID = this.accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
-            isStoreman = accountController.checkIsStoreman();
+            isStoreman = accountController.CheckIsStoreman();
         }
 
         private void clerkViewOrder_Load(object sender, EventArgs e)

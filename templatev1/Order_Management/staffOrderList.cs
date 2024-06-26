@@ -32,7 +32,7 @@ namespace templatev1
             UID = accountController.GetUid();
             lblUid.Text = $"Uid: {UID}";
             isManager = accountController.CheckIsManager();
-            isStoreman = accountController.checkIsStoreman();
+            isStoreman = accountController.CheckIsStoreman();
         }
 
         private void staffOrderList_Load(object sender, EventArgs e)
@@ -290,7 +290,7 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else if (accountController.checkIsDeliverman())
+                    else if (accountController.CheckIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
                     }

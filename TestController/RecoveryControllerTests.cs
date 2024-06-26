@@ -9,7 +9,7 @@ namespace TestController
         public void FindUser_ValidUser_ReturnsTrue()
         {
             var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser("LMC12345", "test@example.com", "1234567890");
+            var result = recoveryController.FindUser("LMC00001", "peter.zhang@abc.com", "13012345678");
 
             Assert.True(result);
         }
@@ -18,7 +18,7 @@ namespace TestController
         public void FindUser_InvalidUser_ReturnsFalse()
         {
             var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser("LMC12345", "wrongemail@example.com", "1234567890");
+            var result = recoveryController.FindUser("LMC10001", "peter.zha123ng@abc.com", "13112345678");
 
             Assert.False(result);
         }
@@ -27,7 +27,7 @@ namespace TestController
         public void CheckEmailPhone_UniqueEmailPhone_ReturnsTrue()
         {
             var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("uniqueemail@example.com");
+            var result = recoveryController.CheckEmailPhone("peter.zha123ng@abc.com");
 
             Assert.True(result);
         }

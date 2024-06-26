@@ -127,7 +127,7 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else if (accountController.checkIsDeliverman())
+                    else if (accountController.CheckIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
                     }
@@ -135,6 +135,7 @@ namespace templatev1
                     {
                         next = new staffOrderList(accountController, UIController);
                     }
+
                     break;
                 case "Invoice Management":
                     next = new staffInvoiceList(accountController, UIController);

@@ -18,7 +18,7 @@ namespace controller.Utilities
             _logger = new Log();
         }
 
-        public string GetConnectionString()
+        private string GetConnectionString()
         {
             var connectionStrings = new List<string>();
             connectionStrings.Add(Configuration.DataBaseConnectionString);
@@ -26,7 +26,7 @@ namespace controller.Utilities
             return TestConnection(connectionStrings) ?? throw new Exception("No valid connection string found.");
         }
 
-        public string TestConnection(List<string> connectionStrings)
+        private string TestConnection(List<string> connectionStrings)
         {
             foreach (var connectionString in connectionStrings)
             {
@@ -95,7 +95,8 @@ namespace controller.Utilities
                 catch (Exception ex)
                 {
                     Log.LogException(ex, "Database");
-                    throw new InvalidOperationException("Database operation failed", ex);
+                    throw new InvalidOperationException("Database operation failed When executing command: " + sqlQuery,
+                        ex);
                 }
             }
         }

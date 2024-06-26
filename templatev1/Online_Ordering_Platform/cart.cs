@@ -512,7 +512,6 @@ namespace templatev1
         }
 
 
-
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -523,7 +522,7 @@ namespace templatev1
                     {
                         next = new customerOrderList(accountController, UIController);
                     }
-                    else if (accountController.checkIsDeliverman())
+                    else if (accountController.CheckIsDeliverman())
                     {
                         next = new deliverman(accountController, UIController);
                     }
