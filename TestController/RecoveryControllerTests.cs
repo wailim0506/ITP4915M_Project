@@ -27,7 +27,7 @@ namespace TestController
         public void CheckEmailPhone_UniqueEmailPhone_ReturnsTrue()
         {
             var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("peter.zha123ng@abc.com");
+            var result = recoveryController.CheckEmailPhone("peter.zhang213@abc.com");
 
             Assert.True(result);
         }
@@ -36,7 +36,7 @@ namespace TestController
         public void CheckEmailPhone_NonUniqueEmailPhone_ReturnsFalse()
         {
             var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("existingemail@example.com");
+            var result = recoveryController.CheckEmailPhone("peter.zhang@abc.com");
 
             Assert.False(result);
         }

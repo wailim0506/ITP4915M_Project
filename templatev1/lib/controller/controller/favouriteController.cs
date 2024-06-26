@@ -114,7 +114,7 @@ namespace controller
             }
             catch (Exception e)
             {
-                Log.LogException(e, "favouriteController");
+                Log.LogException(e, "Favourite Controller");
                 return false;
             }
 

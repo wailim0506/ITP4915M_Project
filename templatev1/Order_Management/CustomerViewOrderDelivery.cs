@@ -89,7 +89,7 @@ namespace templatev1
                 {
                     Log.LogMessage(LogLevel.Information, "Delivery Controller",
                         DeliveryController.GetDeliveryMap(orderID, new Size(944, 548)));
-                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID, new Size(944, 548)));
+                    DeliverayImage.Load(DeliveryController.GetDeliveryMap(orderID, DeliverayImage.Size));
                 }
                 else
                 {

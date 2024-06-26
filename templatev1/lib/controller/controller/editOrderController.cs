@@ -19,61 +19,34 @@ namespace controller
         }
 
         // getter
-        public DataTable GetOrderedSparePart(string orderID, string sortBy)
-        {
-            return c.getOrderedSparePart(orderID, sortBy);
-        }
-
-        public string GetItemNum(string id) //part Number
-        {
-            return c.GetItemNum(id);
-        }
-
-        public string GetPartName(string id) //part Number
-        {
-            return c.GetPartName(id);
-        }
-
-        public DataTable GetShippingDetail(string id) //orderID
-        {
-            return c.GetShippingDetail(id);
-        }
-
-        public string[] GetDelivermanDetail(string id) //orderID
-        {
-            return c.GetDelivermanDetail(id);
-        }
-
-        public DataTable GetOrder(string id) //orderID
-        {
-            return c.GetOrder(id);
-        }
-
-        public string GetStaffName(string id) //staff account id
-        {
-            return c.GetStaffName(id);
-        }
-
-        public string GetStafftId(string id) //staff account id
-        {
-            return viewOrderController.GetStafftId(id);
-        }
-
-        public string GetStaffContact(string id)
-        {
-            return c.getStaffContact(id);
-        }
-
+        public DataTable GetOrderedSparePart(string orderID, string sortBy) => c.getOrderedSparePart(orderID, sortBy);
+        
+        //part Number
+        public string GetItemNum(string id) => c.GetItemNum(id);
+        
+        //part Number
+        public string GetPartName(string id) => c.GetPartName(id);
+        
+        public DataTable GetOrder(string id) => c.GetOrder(id);
+        
+        public string GetStaffName(string id) => c.GetStaffName(id);
+        
+        public string GetStafftId(string id) => viewOrderController.GetStafftId(id);
+        
+        public string GetStaffContact(string id) => c.getStaffContact(id);        // Database operation
+        //orderID
+        public DataTable GetShippingDetail(string id) => c.GetShippingDetail(id);
+        
+        //orderID
+        public string[] GetDelivermanDetail(string id)=> c.GetDelivermanDetail(id);
+        
         // Database operation
         //part num //order id
-        public int GetPartQtyInOrder(string num, string id) //part num //order id
-        {
-            return int.Parse(
-                _db.ExecuteDataTable(
-                        $"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'")
-                    .Rows[0][0].ToString());
-        }
-
+        public int GetPartQtyInOrder(string num, string id) => int.Parse(
+            _db.ExecuteDataTable(
+                    $"SELECT quantity FROM order_line WHERE partNumber = '{num}' and orderID = '{id}'")
+                .Rows[0][0].ToString());
+        
         public Boolean AddQtyBack(string num, int currentOrderQty, int desiredQty,
             Boolean isLM)
         {

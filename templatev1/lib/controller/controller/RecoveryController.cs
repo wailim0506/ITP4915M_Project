@@ -176,14 +176,40 @@ namespace controller
         //Check whether the email or phone has registered an account.
         public bool CheckEmailPhone(string data)
         {
-            DataTable dt = new DataTable();
-            sqlStr =
-                $"SELECT emailAddress, phoneNumber FROM customer C, customer_account CA WHERE Status = 'active' AND c.customerID = CA.customerID AND (phoneNumber = \'{data}\' OR emailAddress = \'{data}\') " +
-                $"UNION ALL SELECT emailAddress, phoneNumber FROM staff S, staff_account SA WHERE status = 'active' AND s.staffID = sa.staffID AND(phoneNumber = \'{data}\' OR emailAddress = \'{data}\');";
-            dt = db.ExecuteDataTable(sqlStr);
-            Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckEmailPhone: Email or phone = {data}");
-            return dt.Rows.Count < 1;
+            return CheckEmail(data) && CheckPhone(data);
         }
+        
+        // Check Email is unique or not
+        private bool CheckEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email)) return false;
+
+            string sqlStr = "SELECT emailAddress FROM customer C, customer_account CA WHERE CA.Status = 'active' AND C.customerID = CA.customerID AND C.emailAddress = @Email";
+            DataTable dt = db.ExecuteDataTable(sqlStr, new Dictionary<string, object> { { "@Email", email } });
+            Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckEmail: Email = {email}");
+
+            string sqlStr2 = "SELECT emailAddress FROM staff S, staff_account SA WHERE SA.status = 'active' AND S.staffID = SA.staffID AND S.emailAddress = @Email";
+            DataTable dt2 = db.ExecuteDataTable(sqlStr2, new Dictionary<string, object> { { "@Email", email } });
+            Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckEmail: Email = {email}");
+
+            return dt.Rows.Count < 1 && dt2.Rows.Count < 1;
+        }
+
+        private bool CheckPhone(string phone)
+        {
+            if (phone == null) return false;
+
+            string sqlStr = "SELECT phoneNumber FROM customer C, customer_account CA WHERE CA.Status = 'active' AND C.customerID = CA.customerID AND C.phoneNumber = @Phone";
+            DataTable dt = db.ExecuteDataTable(sqlStr, new Dictionary<string, object> { { "@Phone", phone } });
+            Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckPhone: Phone = {phone} at customer table");
+
+            string sqlStr2 = "SELECT phoneNumber FROM staff S, staff_account SA WHERE SA.status = 'active' AND S.staffID = SA.staffID AND S.phoneNumber = @Phone";
+            DataTable dt2 = db.ExecuteDataTable(sqlStr2, new Dictionary<string, object> { { "@Phone", phone } });
+            Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckPhone: Phone = {phone} at staff table");
+
+            return dt.Rows.Count < 1 && dt2.Rows.Count < 1;
+        }
+
 
         public void UploadUserAvatar(string newFileName)
         {

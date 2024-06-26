@@ -64,7 +64,7 @@ namespace controller.Utilities
             }
         }
 
-        private void CreateAvatarFolder()
+        public static void CreateAvatarFolder()
         {
             string path = Directory.GetCurrentDirectory() + "\\Upload\\";
             if (!Directory.Exists(path))

@@ -19,16 +19,12 @@ namespace controller
 
         public OnSaleProductController(AccountController accountController, Database db = null)
         {
-            _db = db ?? new Database();
             this.accountController = accountController;
             this.db = db ?? new Database();
         }
 
-        private DataTable ExecuteSqlQuery(string sqlQuery)
-        {
-            return db.ExecuteDataTable(sqlQuery);
-        }
-
+        private DataTable ExecuteSqlQuery(string sqlQuery) => db.ExecuteDataTable(sqlQuery);
+        
         public string GetItemID()
         {
             string itemID = "LMP";

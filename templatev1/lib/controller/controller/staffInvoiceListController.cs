@@ -60,17 +60,3 @@ namespace controller
         }
     }
 }
-
-//All
-//Confirmed
-//Not Confirmed
-
-
-//Invoice Number(Ascending)
-//Invoice Number(Descending)
-//Order Date(Nearest)
-//Order Date(Furtherest)
-//Order ID(Ascending)
-//Order ID(Descending)
-//Delivery Date(Nearest)
-//Delivery Date(Furtherest)
