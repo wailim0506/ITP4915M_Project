@@ -33,7 +33,6 @@ namespace controller
 
             switch (orderStatus)
             {
-                // TODO: change "Processing" to "Shipping"
                 case "Shipping":
                     string location = GetDeliveryRelay(orderId);
                     return GenerateMapUrl(location, imageSize, orderId);
@@ -53,22 +52,6 @@ namespace controller
         private string GetApiKey()
         {
             return Configuration.GoogleMapsApiKey ?? throw new Exception("Google Maps API key is not set");
-        }
-
-        public string GenerateMapUrl(string location, string orderId, Size imageSize)
-        {
-            string width = $"{imageSize.Width}";
-            string height = $"{imageSize.Height}";
-            string relayId = ExecuteScalar("SELECT DeliveryRelayID FROM order_ WHERE OrderID = @orderId",
-                new Dictionary<string, object> { { "@orderId", orderId } });
-            string label = ExecuteScalar("SELECT RelayName FROM deliveryrelay WHERE RelayID = @relayId",
-                new Dictionary<string, object> { { "@relayId", relayId } });
-
-            return $"https://maps.googleapis.com/maps/api/staticmap?center={location}&zoom=15" +
-                   $"&size={width}x{height}" +
-                   "&maptype=roadmap" +
-                   $"&markers=color:red%7Clabel:{label}%7C{location}" +
-                   $"&key={GetApiKey()}";
         }
 
         private string GetReadyToShipAddress()

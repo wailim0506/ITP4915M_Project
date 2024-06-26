@@ -11,31 +11,38 @@ namespace controller
     public class RecoveryController : abstractController
     {
         private Database db;
-        private Validator validator;
 
         private string UID, email, phone;
         private string sqlStr;
 
         AccountController _accountController;
+        private Validator _validator;
 
         public RecoveryController()
         {
             db = new Database();
-            validator = new Validator();
+            _validator = new Validator();
         }
 
         public RecoveryController(AccountController accountController, Database db = null)
         {
             _accountController = accountController;
             UID = accountController.GetUid();
+            _validator = new Validator();
             this.db = db ?? new Database();
             Log.LogMessage(LogLevel.Debug, "Recovery Controller", "Recovery Controller created.");
         }
 
-        //Find the user in the database
-        public bool FindUser(string UserID, string emailAdd, string phoneNo)
+        public bool ValidateUserDetails(string userId, string emailAdd, string phoneNo)
         {
-            UID = UserID;
+            return _validator.IsValidUsername(userId) && _validator.IsValidEmail(emailAdd) && _validator.IsValidPhoneNumber(phoneNo);
+        }
+
+        //Find the user in the database
+        public bool FindUser(string userId, string emailAdd, string phoneNo)
+        {
+            if (!ValidateUserDetails(userId, emailAdd, phoneNo)) return false;
+            UID = userId;
             email = emailAdd;
             phone = phoneNo;
 
@@ -158,7 +165,7 @@ namespace controller
                     accountParams);
                 db.ExecuteNonQueryCommand("INSERT INTO customer_dfadd VALUES(@id, '1')", dfaddParams);
                 Log.LogMessage(LogLevel.Debug, "Recovery Controller",
-                    $"create: UserID = {lmcid}, email = {Userinfo.email}, phone = {Userinfo.phone}");
+                    $"Create: UserID = {lmcid}, email = {Userinfo.email}, phone = {Userinfo.phone}");
                 return true;
             }
             catch (Exception ex)
@@ -168,7 +175,7 @@ namespace controller
                 db.ExecuteNonQueryCommand("DELETE FROM customer_dfadd WHERE customerID = @id", accountParams);
 
                 Log.LogException(new Exception($"Error in create customer account. {ex.Message}"),
-                    "Recovery Controller");
+                    "Recovery Controller - Create Account");
                 return false;
             }
         }
@@ -182,8 +189,6 @@ namespace controller
         // Check Email is unique or not
         private bool CheckEmail(string email)
         {
-            if (string.IsNullOrEmpty(email)) return false;
-
             string sqlStr = "SELECT emailAddress FROM customer C, customer_account CA WHERE CA.Status = 'active' AND C.customerID = CA.customerID AND C.emailAddress = @Email";
             DataTable dt = db.ExecuteDataTable(sqlStr, new Dictionary<string, object> { { "@Email", email } });
             Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckEmail: Email = {email}");

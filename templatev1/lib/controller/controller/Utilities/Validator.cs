@@ -48,12 +48,7 @@ namespace controller.Utilities
         {
             return Regex.IsMatch(name, @"^[a-zA-Z]+$");
         }
-
-        public bool IsValidPhoneNumber(string phoneNumber)
-        {
-            return Regex.IsMatch(phoneNumber, @"^[0-9]{10}$") || Regex.IsMatch(phoneNumber, @"^[0-9]{8}$");
-        }
-
+        
         public bool IsValidPassword(string inputPassword)
         {
             // return Regex.IsMatch(inputPassword, PasswordRegex) && !IsPotentialSqlInjection(inputPassword);
@@ -78,7 +73,14 @@ namespace controller.Utilities
 
         public bool IsValidUsername(string username)
         {
+            if (string.IsNullOrEmpty(username)) return false;
             return Regex.IsMatch(username, UsernameRegex) && !IsPotentialSqlInjection(username);
+        }
+
+        public bool IsValidPhoneNumber(string phone)
+        {
+            if (string.IsNullOrEmpty(phone)) return false;
+            return Regex.IsMatch(phone, PhoneNumberRegex) || Regex.IsMatch(phone, PhoneNumberRegex2) && !IsPotentialSqlInjection(phone);
         }
     }
 }
