@@ -240,7 +240,7 @@ namespace templatev1
                 return false;
             }
 
-            if (!recoveryController.CheckEmailPhone(tbPhone.Text))
+            if (!recoveryController.CheckPhone(tbPhone.Text))
             {
                 lblPhoneMsg.Text = "The phone number has already registered an account.";
                 tbPhone.Select();
@@ -262,7 +262,7 @@ namespace templatev1
                 return false;
             }
 
-            if (!recoveryController.CheckEmailPhone(tbEmail.Text))
+            if (!recoveryController.CheckEmail(tbEmail.Text))
             {
                 lblEmailMsg.Text = "The email address has already registered an account.";
                 tbEmail.Select();

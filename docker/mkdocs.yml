@@ -1,23 +1,156 @@
-﻿site_name: Documentation of Legend Motor Company Integrated System
+﻿site_name: Documentation of SMCIS
+site_author: wailim0506, mythic3011, Hwhstudent
+site_description: >-
+  Documentation of Legend Motor Company Integrated System (SMCIS)
+
+repo_name: Integrated System
+repo_url: https://github.com/wailim0506/ITP4915M_Project
+dev_addr: 0.0.0.0:8000
+
+copyright: Copyright &copy; 2024 Legend Motor Company
 theme:
   name: material
+  favicon: ./assets/logo.png
+  custom_dir: ./overrides
   palette:
-    primary: red
-    accent: red
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/link
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to system preference
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - toc.integrate
+    - search.suggest
+    - navigation.footer
+    - navigation.indexes
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
   font:
-    text: Roboto
+    text: Time New Roman
     code: Roboto Mono
-  logo: assets/logo.png
-  favicon: assets/favicon.png
-repo_name: Legend Motor Company Integrated System
-repo_url: https://github.com/wailim0506/ITP4915M_Project
+
 edit_uri: ""
-markdown_extensions:
-  - admonition
-  - codehilite:
-      guess_lang: false
-  - toc:
-      permalink: true
+
 nav:
   - Home: index.md
-  - User Guide: userGuid.md
+  - Installation:
+      - Installation/index.md
+      - Installation/prerequisites.md
+      - Installation/setup.md
+      - Installation/obtaining-api-key.md
+      - Installation/database-setup.md
+      - Installation/configuring-application.md
+      - Installation/running-application.md
+      - Installation/accessing-services.md
+      - Installation/database-cluster-setup.md
+      - Installation/stopping-application.md
+      - Installation/troubleshooting.md
+  - User Guide:
+      - User Guide/index.md
+      - User Guide/user-management.md
+      - User Guide/stock-management.md
+      - User Guide/on-sale-product-management.md
+      - User Guide/invoice-management.md
+      - User Guide/order-management.md
+  - Developer Guide:
+      - Developer Guide/index.md
+
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - tags
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+      cache_safe: true
+  - offline
+
+extra:
+  status:
+    new: Recently added
+    deprecated: Deprecated
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wailim0506/
+    - icon: fontawesome/brands/github
+      link: https://github.com/Hwhstudent/
+    - icon: fontawesome/brands/github
+      link: https://github.com/mythic3011/
+  generator: false
+  # consent:
+  #   title:
+  #   description: >-
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      combine_header_slug: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true

@@ -187,8 +187,9 @@ namespace controller
         }
         
         // Check Email is unique or not
-        private bool CheckEmail(string email)
+        public bool CheckEmail(string email)
         {
+            if (email == null) return false;
             string sqlStr = "SELECT emailAddress FROM customer C, customer_account CA WHERE CA.Status = 'active' AND C.customerID = CA.customerID AND C.emailAddress = @Email";
             DataTable dt = db.ExecuteDataTable(sqlStr, new Dictionary<string, object> { { "@Email", email } });
             Log.LogMessage(LogLevel.Debug, "Recovery Controller", $"CheckEmail: Email = {email}");
@@ -200,7 +201,7 @@ namespace controller
             return dt.Rows.Count < 1 && dt2.Rows.Count < 1;
         }
 
-        private bool CheckPhone(string phone)
+        public bool CheckPhone(string phone)
         {
             if (phone == null) return false;
 
