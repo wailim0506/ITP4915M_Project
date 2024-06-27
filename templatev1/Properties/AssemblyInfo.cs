@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("templatev1")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("LMCIS")]
+[assembly: AssemblyDescription("This Application is used for the purpose of integrating the system. It will be used by the customers to access the system. Also it will be used by the staff to access the system.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("templatev1")]
+[assembly: AssemblyCompany("Legend Motor Limited Company")]
+[assembly: AssemblyProduct("LMCIS")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

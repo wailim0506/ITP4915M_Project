@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("controller")]
-[assembly: AssemblyDescription("This is class library for controller. it will be used by LMCI System for the purpose of data access. ")]
+[assembly: AssemblyDescription("This is class library for controller. it will be used by LMCI System for the purpose of data access and manipulation.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Legend Motor Limited Company")]
 [assembly: AssemblyProduct("System controller class library")]
