@@ -76,12 +76,17 @@ namespace templatev1
 
         public void hideButton()
         {
-            palSelect3.Visible = false;
-            btnFunction3.Visible = false;
-            palSelect4.Visible = false;
-            btnFunction4.Visible = false;
-            btnFunction5.Location = new Point(0, 223);
-            btnFunction5.Controls.Add(palSelect5);
+            dynamic btnFun = UIController.showFun();
+            btnFunction1.Visible = btnFun.btn1show;
+            btnFunction1.Text = btnFun.btn1value;
+            btnFunction2.Visible = btnFun.btn2show;
+            btnFunction2.Text = btnFun.btn2value;
+            btnFunction3.Visible = btnFun.btn3show;
+            btnFunction3.Text = btnFun.btn3value;
+            btnFunction4.Visible = btnFun.btn4show;
+            btnFunction4.Text = btnFun.btn4value;
+            btnFunction5.Visible = btnFun.btn5show;
+            btnFunction5.Text = btnFun.btn5value;
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
