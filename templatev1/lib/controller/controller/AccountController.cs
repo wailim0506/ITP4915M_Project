@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;
 using controller.Utilities;
@@ -15,6 +16,7 @@ namespace controller
         private readonly Database db;
         private readonly Validator validator = new Validator();
 
+        
         public AccountController(Database db = null)
         {
             IsLogin = false;
@@ -128,7 +130,7 @@ namespace controller
             var query = UserID.StartsWith("LMC")
                 ? $"INSERT INTO customer_login_history VALUES('{accountID}', '{Date}')"
                 : $"INSERT INTO staff_login_history VALUES('{accountID}', '{Date}')";
-
+            
             db.ExecuteNonQueryCommand(query, null);
         }
 
@@ -138,7 +140,6 @@ namespace controller
             var dt = ExecuteSqlQuery(
                 $"SELECT loginDate FROM customer_login_history WHERE customerAccountID = '{accountID}' " +
                 $"UNION ALL SELECT loginDate FROM staff_login_history WHERE staffAccountID = '{accountID}' ORDER BY loginDATE DESC");
-
             return dt.Rows[0]["loginDate"].ToString();
         }
 
@@ -156,7 +157,7 @@ namespace controller
             var dt = ExecuteSqlQuery(
                 $"SELECT pwdChangeDate FROM customer_account WHERE customerAccountID = '{accountID}' " +
                 $"UNION ALL SELECT pwdChangeDate FROM staff_account WHERE staffAccountID = '{accountID}'");
-
+            
             return (DateTime)dt.Rows[0]["pwdChangeDate"];
         }
 
@@ -196,7 +197,7 @@ namespace controller
 
         //User's information for UI
         public string GetName() => lastName + " " + firstName;
-        public string GetUid() => UserID;
+        public virtual string GetUid() => UserID;
         public string GetAccountType() => AccountType;
 
         public string GetAccountType(string UID) => UID.StartsWith("LMC")

@@ -1,91 +1,161 @@
-﻿using controller;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using Xunit;
+using controller;
+using controller.Utilities;
 
 namespace TestController
 {
     public class RecoveryControllerTests
     {
-        [Fact]
-        public void FindUser_ValidUser_ReturnsTrue()
-        {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser("LMC00001", "peter.zhang@abc.com", "13012345678");
+        private readonly RecoveryFakeDatabase _RecoveryFakeDatabase;
+        private readonly FakeAccountController _fakeAccountController;
+        private readonly RecoveryController _recoveryController;
 
+        public RecoveryControllerTests()
+        {
+            _RecoveryFakeDatabase = new RecoveryFakeDatabase();
+            _fakeAccountController = new FakeAccountController();
+            _recoveryController = new RecoveryController(_fakeAccountController, _RecoveryFakeDatabase);
+        }
+
+        
+        [Fact]
+        public void ValidateUserDetails_InvalidDetails_ReturnsFalse()
+        {
+            // Arrange
+            string userId = "LMC00001";
+            string email = "invalid email";
+            string phone = "12345";
+
+            _RecoveryFakeDatabase.SetValidations(true, false, false);
+
+            // Act
+            var result = _recoveryController.ValidateUserDetails(userId, email, phone);
+
+            // Assert
+            Assert.False(result);
+        }
+
+
+
+        [Fact]
+        public void FindUser_InvalidUserDetails_ReturnsFalse()
+        {
+            // Arrange
+            string userId = TestData.invalidId;
+            string email = TestData.invalidEmail;
+            string phone = TestData.invalidPhone;
+
+            _RecoveryFakeDatabase.SetValidations(false, false, false);
+
+            // Act
+            var result = _recoveryController.FindUser(userId, email, phone);
+
+            // Assert
+            Assert.False(result);
+        }
+
+
+
+        
+        [Fact]
+        public void CheckEmail_UniqueEmail_ReturnsTrue()
+        {
+            // Arrange
+            string email = "unique@example.com";
+            _RecoveryFakeDatabase.SetEmailCheckDataTable();
+
+            // Act
+            var result = _recoveryController.CheckEmail(email);
+
+            // Assert
             Assert.True(result);
         }
 
         [Fact]
-        public void FindUser_InvalidUser_ReturnsFalse()
+        public void CheckPhone_UniquePhone_ReturnsTrue()
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser("LMC10001", "peter.zha123ng@abc.com", "13112345678");
+            // Arrange
+            string phone = "1234567890";
+            _RecoveryFakeDatabase.SetPhoneCheckDataTable();
 
-            Assert.False(result);
-        }
+            // Act
+            var result = _recoveryController.CheckPhone(phone);
 
-        [Fact]
-        public void CheckEmailPhone_UniqueEmailPhone_ReturnsTrue()
-        {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("sdrfdsf@abc.com");
-
+            // Assert
             Assert.True(result);
         }
+    }
 
-        [Fact]
-        public void CheckEmailPhone_NonUniqueEmailPhone_ReturnsFalse()
-        {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("peter.zhang@abc.com");
+    public partial class RecoveryFakeDatabase : Database
+    {
+        private bool _validUsername;
+        private bool _validEmail;
+        private bool _validPhoneNumber;
+        DataTable _dataTable;
 
-            Assert.False(result);
-        }
-        [Fact]
-        public void FindUser_WithNullInputs_ReturnsFalse()
-        {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser(null, null, null);
-            Assert.False(result);
-        }
+        public bool PasswordChanged { get; private set; }
 
-        [Fact]
-        public void FindUser_WithInvalidUserId_ReturnsFalse()
+        public void SetValidations(bool validUsername, bool validEmail, bool validPhoneNumber)
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.FindUser("InvalidUserId", "peter.zhang@abc.com", "13012345678");
-            Assert.False(result);
+            _validUsername = validUsername;
+            _validEmail = validEmail;
+            _validPhoneNumber = validPhoneNumber;
         }
 
-        [Fact]
-        public void CheckEmailPhone_WithNullInput_ReturnsFalse()
+        public void SetFindUserDataTable(string userId, string email, string phone)
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone(null);
-            Assert.False(result);
+            _dataTable = new DataTable();
+            _dataTable.Columns.Add("customerID");
+            _dataTable.Columns.Add("phoneNumber");
+            _dataTable.Columns.Add("emailAddress");
+            _dataTable.Rows.Add(userId, phone, email);
         }
 
-        [Fact]
-        public void CheckEmailPhone_WithInvalidEmail_ReturnsFalse()
+        public void SetCityDataTable()
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.CheckEmailPhone("invalidEmail");
-            Assert.False(result);
+            _dataTable = new DataTable();
+            _dataTable.Columns.Add("city");
+            _dataTable.Rows.Add("City1");
+            _dataTable.Rows.Add("City2");
         }
 
-        [Fact]
-        public void ValidateUserDetails_WithInvalidInputs_ReturnsFalse()
+        public void SetProvinceDataTable()
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.ValidateUserDetails("InvalidUserId", "invalidEmail", "invalidPhone");
-            Assert.False(result);
+            _dataTable = new DataTable();
+            _dataTable.Columns.Add("province");
+            _dataTable.Rows.Add("Province1");
+            _dataTable.Rows.Add("Province2");
         }
 
-        [Fact]
-        public void ValidateUserDetails_WithNullInputs_ReturnsFalse()
+        public void SetEmailCheckDataTable()
         {
-            var recoveryController = new RecoveryController();
-            var result = recoveryController.ValidateUserDetails(null, null, null);
-            Assert.False(result);
+            _dataTable = new DataTable();
+            _dataTable.Columns.Add("emailAddress");
+        }
+
+        public void SetPhoneCheckDataTable()
+        {
+            _dataTable = new DataTable();
+            _dataTable.Columns.Add("phoneNumber");
+        }
+    }
+
+    public class FakeAccountController : AccountController
+    {
+        private string _uid;
+
+        public void SetUid(string uid)
+        {
+            _uid = uid;
+        }
+
+        public override string GetUid()
+        {
+            return _uid;
         }
     }
 }

@@ -23,7 +23,7 @@ namespace controller
         }
 
         //Set user permission and determine which function button to be shown.
-        public void SetPermission(string UserID)
+        public virtual void SetPermission(string UserID)
         {
             AccountType = UserID.StartsWith("LMC") ? "Customer" : "Staff";
             string permissionIDQuery =

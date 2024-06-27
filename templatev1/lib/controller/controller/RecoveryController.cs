@@ -13,7 +13,8 @@ namespace controller
     {
         private Database db;
 
-        private string UID, email, phone;
+        public string UID;
+        private string email, phone;
         private string sqlStr;
 
         AccountController _accountController;
@@ -180,12 +181,6 @@ namespace controller
                     "Recovery Controller - Create Account");
                 return false;
             }
-        }
-
-        //Check whether the email or phone has registered an account.
-        public bool CheckEmailPhone(string data)
-        {
-            return CheckEmail(data) && CheckPhone(data);
         }
         
         // Check Email is unique or not

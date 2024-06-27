@@ -60,7 +60,7 @@ namespace controller.Utilities
         }
 
         // Execute a non-query command and return the number of affected rows
-        public void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
+        public virtual void ExecuteNonQueryCommand(string sqlQuery, Dictionary<string, object> queryParameters)
         {
             Log.LogMessage(LogLevel.Debug, "Database",
                 $"ExecuteNonQueryCommand : {sqlQuery + queryParameters}");
@@ -119,7 +119,7 @@ namespace controller.Utilities
             command.ExecuteNonQuery();
         }
 
-        public DataTable ExecuteDataTable(string sqlQuery, Dictionary<string, object> queryParameters)
+        public virtual DataTable ExecuteDataTable(string sqlQuery, Dictionary<string, object> queryParameters)
         {
             var reader = (MySqlDataReader)ExecuteCommand(sqlQuery, queryParameters, command => command.ExecuteReader());
             var dt = new DataTable();

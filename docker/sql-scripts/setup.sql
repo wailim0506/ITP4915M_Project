@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2024 at 08:20 PM
+-- Generation Time: Jun 27, 2024 at 12:39 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,10 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `itp4915m_se1d_group4`
 --
-
 CREATE DATABASE IF NOT EXISTS `itp4915m_se1d_group4` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `itp4915m_se1d_group4`;
-
 
 -- --------------------------------------------------------
 
@@ -169,7 +167,6 @@ INSERT INTO `countries` (`country`, `abbreviation`) VALUES
                                                         ('Suriname', 'SR'),
                                                         ('Sweden', 'SE'),
                                                         ('Switzerland', 'CH'),
-                                                        ('Taiwan', 'TW'),
                                                         ('Thailand', 'TH'),
                                                         ('Turkey', 'TR'),
                                                         ('Turks and Caicos Islands', 'TC'),
@@ -212,10 +209,10 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customerID`, `firstName`, `lastName`, `sex`, `emailAddress`, `company`, `phoneNumber`, `province`, `city`, `companyAddress`, `warehouseAddress`, `joinDate`, `paymentMethod`, `imageID`, `dateOfBirth`, `warehouseAddress2`) VALUES
-                                                                                                                                                                                                                                                          ('LMC00001', 'Peter', 'Zhang', 'F', 'peter.zhang@abc.com', 'AutoTech Solutions', '13012345678', 'Gansu', 'Jinchang', '23 South Avenue', '123 Main Street', '2001-05-23', 'AmericanEx', NULL, '2000-02-02', '456 West Street'),
-                                                                                                                                                                                                                                                          ('LMC00002', 'Lily', 'Li', 'F', 'lily.li@example.com', 'Legend Motor Limited Company', '13098765432', 'Sichuan', 'Chengdu', '456 West Street', '789 Elm Avenue', '2023-08-10', 'MasterCard', NULL, '2024-05-23', '123 Main Street'),
-                                                                                                                                                                                                                                                          ('LMC00003', 'Michael', 'Wang', 'M', 'michael.wang@example.com', 'Global Auto Spares', '13087654321', 'Beijing', 'Beijing', '789 East District', '456 Oak Lane', '2021-11-15', 'Visa', NULL, NULL, ''),
-                                                                                                                                                                                                                                                          ('LMC00004', 'Wendy', 'Chen', 'F', 'wendy.chen@example.com', 'Premier Motorsupply', '13021654987', 'Shanghai', 'Shanghai', '1 Pudong New Area', '789 Maple Court', '2022-05-20', 'UnionPay', NULL, NULL, '');
+                                                                                                                                                                                                                                                          ('LMC00001', 'Peter', 'Zhang', 'F', 'janedoe@gmail.com', 'AutoTech Solutions', '13012345678', 'Gansu', 'Jinchang', '23 South Avenue', '123 Main Street', '2001-05-23', 'AmericanEx', NULL, '2000-02-02', '456 West Street'),
+                                                                                                                                                                                                                                                          ('LMC00002', 'Lily', 'Li', 'F', 'johndoe@yahoo.com', 'Legend Motor Limited Company', '13098765432', 'Sichuan', 'Chengdu', '456 West Street', '789 Elm Avenue', '2023-08-10', 'MasterCard', NULL, NULL, '123 Main Street'),
+                                                                                                                                                                                                                                                          ('LMC00003', 'Michael', 'Wang', 'M', 'alicesmith@hotmail.com', 'Global Auto Spares', '13087654321', 'Beijing', 'Beijing', '789 East District', '456 Oak Lane', '2021-11-15', 'Visa', NULL, NULL, ''),
+                                                                                                                                                                                                                                                          ('LMC00004', 'Wendy', 'Chen', 'F', 'bobwilson@outlook.com', 'Premier Motorsupply', '13021654987', 'Shanghai', 'Shanghai', '1 Pudong New Area', '789 Maple Court', '2022-05-20', 'UnionPay', NULL, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -238,10 +235,10 @@ CREATE TABLE `customer_account` (
 --
 
 INSERT INTO `customer_account` (`customerAccountID`, `customerID`, `isLM`, `Status`, `Password`, `createDate`, `pwdChangeDate`) VALUES
-                                                                                                                                    ('CA00001', 'LMC00001', 'N', 'active', '$2a$11$NonK/Bctl9a47.zxgGwCseA8b9bD49bnW/Hm2BTXDcWKv1RjD8dY.', '2024-05-01', '2024-06-01'),
-                                                                                                                                    ('CA00002', 'LMC00002', 'Y', 'active', '$2a$11$OnjbuMS8T.vMAIlKRAKeieeM1Ta21II5OHtkoZ8xeHWuFCQ2ol92m', '2024-05-01', '2024-05-01'),
-                                                                                                                                    ('CA00003', 'LMC00003', 'N', 'active', '$2a$11$xn5O4pbgRs.TSTmef24YFOIgTdfruzNyK9qSN2xMHuISYvG7Lufc6', '2024-05-03', '2024-05-07'),
-                                                                                                                                    ('CA00004', 'LMC00004', 'N', 'active', '$2a$11$a1H76k2oFod3SayvEHROHuq9yDFnjKmwjbYaf/sYe/2Ec5T5IDlVe', '2024-05-04', '2024-05-07');
+                                                                                                                                    ('CA00001', 'LMC00001', 'N', 'active', '$2a$11$ntH7F5UptMukz5t1jMCG8.aq5LrS3Lqrt1ql9f.uTPEzxgnMmtkfy', '2024-05-01', '2024-06-27'),
+                                                                                                                                    ('CA00002', 'LMC00002', 'Y', 'active', '$2a$11$uGLRn8LdlYWpfW8Jf5S.Y..GeuRcWtWv7CMvKugYBAC7URmrthF8W', '2024-05-01', '2024-06-27'),
+                                                                                                                                    ('CA00003', 'LMC00003', 'N', 'active', '$2a$11$gk0nSdNFAzvcDtGEf1EkkeySbWCWqdg94r7Or1brY6pZSGU9UrY1K', '2024-05-03', '2024-06-27'),
+                                                                                                                                    ('CA00004', 'LMC00004', 'N', 'active', '$2a$11$yqC1BdW7BCEHv/thc4z2E.B2A7TQ9ShycG9vEEudT4FvhlrIxyXB6', '2024-05-04', '2024-06-27');
 
 -- --------------------------------------------------------
 
@@ -396,7 +393,59 @@ INSERT INTO `customer_login_history` (`customerAccountID`, `loginDate`) VALUES
                                                                             ('CA00001', '2024-06-20 22:28:08'),
                                                                             ('CA00001', '2024-06-20 22:33:18'),
                                                                             ('CA00001', '2024-06-20 22:59:59'),
+                                                                            ('CA00001', '2024-06-25 11:10:30'),
+                                                                            ('CA00001', '2024-06-25 11:29:13'),
+                                                                            ('CA00001', '2024-06-25 11:30:58'),
+                                                                            ('CA00001', '2024-06-25 11:31:36'),
+                                                                            ('CA00001', '2024-06-25 11:32:24'),
+                                                                            ('CA00001', '2024-06-25 11:35:12'),
+                                                                            ('CA00001', '2024-06-25 14:27:58'),
+                                                                            ('CA00001', '2024-06-25 14:28:55'),
+                                                                            ('CA00001', '2024-06-25 21:09:33'),
+                                                                            ('CA00001', '2024-06-25 21:09:39'),
+                                                                            ('CA00001', '2024-06-25 21:20:17'),
+                                                                            ('CA00001', '2024-06-25 21:21:03'),
+                                                                            ('CA00001', '2024-06-25 21:29:59'),
+                                                                            ('CA00001', '2024-06-25 21:56:05'),
+                                                                            ('CA00001', '2024-06-25 22:30:07'),
+                                                                            ('CA00001', '2024-06-25 22:32:28'),
+                                                                            ('CA00001', '2024-06-25 22:34:48'),
+                                                                            ('CA00001', '2024-06-25 22:36:52'),
+                                                                            ('CA00001', '2024-06-25 22:43:00'),
+                                                                            ('CA00001', '2024-06-25 22:45:53'),
+                                                                            ('CA00001', '2024-06-25 22:50:23'),
+                                                                            ('CA00001', '2024-06-25 22:50:42'),
+                                                                            ('CA00001', '2024-06-25 22:50:48'),
+                                                                            ('CA00001', '2024-06-25 22:59:52'),
+                                                                            ('CA00001', '2024-06-25 23:02:15'),
+                                                                            ('CA00001', '2024-06-25 23:10:01'),
+                                                                            ('CA00001', '2024-06-27 01:26:36'),
+                                                                            ('CA00001', '2024-06-27 01:26:59'),
+                                                                            ('CA00001', '2024-06-27 01:28:46'),
+                                                                            ('CA00001', '2024-06-27 01:29:22'),
+                                                                            ('CA00001', '2024-06-27 01:35:35'),
+                                                                            ('CA00001', '2024-06-27 01:42:44'),
+                                                                            ('CA00001', '2024-06-27 01:43:00'),
+                                                                            ('CA00001', '2024-06-27 02:12:35'),
+                                                                            ('CA00001', '2024-06-27 02:14:03'),
+                                                                            ('CA00001', '2024-06-27 02:25:39'),
+                                                                            ('CA00001', '2024-06-27 02:28:38'),
+                                                                            ('CA00001', '2024-06-27 02:38:40'),
+                                                                            ('CA00001', '2024-06-27 02:45:35'),
+                                                                            ('CA00001', '2024-06-27 02:46:06'),
+                                                                            ('CA00001', '2024-06-27 02:47:28'),
+                                                                            ('CA00001', '2024-06-27 03:46:06'),
+                                                                            ('CA00001', '2024-06-27 03:47:25'),
+                                                                            ('CA00001', '2024-06-27 03:47:57'),
+                                                                            ('CA00001', '2024-06-27 03:49:48'),
+                                                                            ('CA00001', '2024-06-27 03:50:37'),
+                                                                            ('CA00001', '2024-06-27 17:45:57'),
+                                                                            ('CA00001', '2024-06-27 17:47:34'),
+                                                                            ('CA00001', '2024-06-27 18:29:11'),
+                                                                            ('CA00001', '2024-06-27 18:36:25'),
+                                                                            ('CA00001', '2024-06-27 18:37:57'),
                                                                             ('CA00002', '2024-06-23 14:04:42'),
+                                                                            ('CA00002', '2024-06-27 17:47:39'),
                                                                             ('CA00003', '2024-05-29 02:00:48'),
                                                                             ('CA00003', '2024-05-29 02:03:19'),
                                                                             ('CA00003', '2024-05-29 02:11:23'),
@@ -590,7 +639,9 @@ INSERT INTO `invoice` (`customerAccountID`, `orderID`, `invoiceNumber`, `status`
                                                                                       ('CA00001', 'OD24060002', 'IN00004', NULL),
                                                                                       ('CA00001', 'OD24060003', 'IN00005', NULL),
                                                                                       ('CA00001', 'OD24060004', 'IN00006', NULL),
-                                                                                      ('CA00001', 'OD24060005', 'IN00007', NULL);
+                                                                                      ('CA00001', 'OD24060005', 'IN00007', NULL),
+                                                                                      ('CA00001', 'OD24060006', 'IN00008', NULL),
+                                                                                      ('CA00001', 'OD24060007', 'IN00009', NULL);
 
 -- --------------------------------------------------------
 
@@ -826,16 +877,40 @@ INSERT INTO `location` (`province`, `city`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `orderitemanalysis`
--- (See below for the actual view)
+-- Table structure for table `message`
 --
+
+CREATE TABLE `message` (
+                           `msgID` varchar(5) NOT NULL,
+                           `content` varchar(300) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`msgID`, `content`) VALUES
+                                               ('MSG01', 'There is a spare part that achieves the danger level. Please handle it as soon as possible.[NL]Spare part number: [SP][NL]Current quantity: [Qty]'),
+                                               ('MSG02', 'The order status has been updated. Please click Order Management to check the details.[NL]OrderID: [OID][NL]Current status: [S]'),
+                                               ('MSG03', 'New orders, please process as soon as possible.[NL]OrderID: [OID][NL]Order date: [OD]'),
+                                               ('MSG04', 'New re-order request, please process as soon as possible.[NL]Re-orderID: [OID][NL]PartNumber: [PN][NL]Qty: [Qty]'),
+                                               ('MSG05', 'Current system status:[NL]Number of Staff: [NS][NL]Number of Customer:[NC]'),
+                                               ('MSG06', 'New shipping orders, please process as soon as possible.[NL]OrderID: [OID][NL]Shipping Address: [SA]'),
+                                               ('MSG07', 'There is an on-sale item out of stock, please process it as soon as possible.[NL]ItemID: [IID]');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderitemanalysis`
+--
+
 CREATE TABLE `orderitemanalysis` (
-                                     `orderID` char(10)
-    ,`partNumber` char(6)
-    ,`orderDate` date
-    ,`ItemCount` bigint(21)
-    ,`TotalQuantity` decimal(32,0)
-);
+                                     `orderID` char(10) DEFAULT NULL,
+                                     `partNumber` char(6) DEFAULT NULL,
+                                     `orderDate` date DEFAULT NULL,
+                                     `ItemCount` bigint(21) DEFAULT NULL,
+                                     `TotalQuantity` decimal(32,0) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -864,10 +939,12 @@ INSERT INTO `order_` (`orderID`, `customerAccountID`, `staffAccountID`, `orderSe
                                                                                                                                                                                   ('OD24020001', 'CA00001', 'SA00006', 'SN24020001', '2024-02-11', NULL, 'Shipped', NULL, NULL, NULL),
                                                                                                                                                                                   ('OD24050002', 'CA00001', 'SA00006', 'SN24050002', '2024-05-15', NULL, 'Shipped', NULL, NULL, NULL),
                                                                                                                                                                                   ('OD24060001', 'CA00001', 'SA00006', 'SN24060001', '2024-06-01', NULL, 'Ready to Ship', NULL, NULL, NULL),
-                                                                                                                                                                                  ('OD24060002', 'CA00001', 'SA00006', 'SN24060002', '2024-06-05', NULL, 'Ready to Ship', NULL, NULL, NULL),
-                                                                                                                                                                                  ('OD24060003', 'CA00001', 'SA00006', 'SN24060003', '2024-06-06', NULL, 'Processing', NULL, NULL, 8),
+                                                                                                                                                                                  ('OD24060002', 'CA00001', 'SA00006', 'SN24060002', '2024-06-05', NULL, 'Shipped', NULL, NULL, NULL),
+                                                                                                                                                                                  ('OD24060003', 'CA00001', 'SA00006', 'SN24060003', '2024-06-06', NULL, 'Ready to Ship', NULL, NULL, 8),
                                                                                                                                                                                   ('OD24060004', 'CA00001', 'SA00006', 'SN24060004', '2024-06-12', NULL, 'Processing', NULL, NULL, 8),
-                                                                                                                                                                                  ('OD24060005', 'CA00001', 'SA00006', 'SN24060005', '2024-06-12', NULL, 'Pending', NULL, NULL, NULL);
+                                                                                                                                                                                  ('OD24060005', 'CA00001', 'SA00006', 'SN24060005', '2024-06-12', NULL, 'Pending', NULL, NULL, NULL),
+                                                                                                                                                                                  ('OD24060006', 'CA00001', 'SA00006', 'SN24060006', '2024-06-25', NULL, 'Shipped', NULL, NULL, NULL),
+                                                                                                                                                                                  ('OD24060007', 'CA00001', 'SA00008', 'SN24060007', '2024-06-25', NULL, 'Shipped', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -888,8 +965,10 @@ CREATE TABLE `order_line` (
 
 INSERT INTO `order_line` (`partNumber`, `orderID`, `quantity`, `orderUnitPrice`) VALUES
                                                                                      ('A00001', 'OD24060004', 1, 500),
+                                                                                     ('A00001', 'OD24060006', 1, 500),
                                                                                      ('A00002', 'OD24060003', 20, 500),
                                                                                      ('A00002', 'OD24060004', 1, 800),
+                                                                                     ('A00002', 'OD24060007', 1, 800),
                                                                                      ('A00003', 'OD24020001', 5, 950),
                                                                                      ('A00003', 'OD24050002', 5, 400),
                                                                                      ('A00003', 'OD24060004', 1, 1000),
@@ -900,7 +979,7 @@ INSERT INTO `order_line` (`partNumber`, `orderID`, `quantity`, `orderUnitPrice`)
                                                                                      ('B00001', 'OD24060002', 10, 500),
                                                                                      ('B00002', 'OD24060002', 3, 1000),
                                                                                      ('B00003', 'OD24060002', 24, 260),
-                                                                                     ('C00002', 'OD24020001', 50, 0),
+                                                                                     ('C00002', 'OD24020001', 50, 200),
                                                                                      ('C00003', 'OD24060002', 30, 460),
                                                                                      ('C00004', 'OD24060002', 6, 500),
                                                                                      ('C00004', 'OD24060005', 1, 300),
@@ -956,9 +1035,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`itemID`, `category`, `partNumber`, `onSaleQty`, `LM_onSaleQty`, `description`, `price`, `imageID`, `lastModified`, `status`, `onShelvesDate`) VALUES
-                                                                                                                                                                          ('LMP00001', 'A', 'A00001', 30, 46, 'Elevate the appearance of your car with our premium tinned plate cover. Crafted from high-quality metals, this cover adds a touch of elegance and a polished, reflective finish to your vehicle exterior. Designed for a seamless fit, it enhances the overall aesthetics while protecting your car surface from minor scratches and weathering.', 500, NULL, 'LMS00001', 'Enable', '2023-10-19'),
-                                                                                                                                                                          ('LMP00002', 'A', 'A00002', 499, 700, 'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.', 800, NULL, 'LMS00001', 'Enable', '2024-02-13'),
-                                                                                                                                                                          ('LMP00003', 'A', 'A00003', 199, 300, 'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.', 1000, NULL, 'LMS00001', 'Enable', '2024-03-20'),
+                                                                                                                                                                          ('LMP00001', 'A', 'A00001', 27, 46, 'Elevate the appearance of your car with our premium tinned plate cover. Crafted from high-quality metals, this cover adds a touch of elegance and a polished, reflective finish to your vehicle exterior. Designed for a seamless fit, it enhances the overall aesthetics while protecting your car surface from minor scratches and weathering.', 500, NULL, 'LMS00001', 'Enable', '2023-10-19'),
+                                                                                                                                                                          ('LMP00002', 'A', 'A00002', 497, 700, 'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.', 800, NULL, 'LMS00001', 'Enable', '2024-02-13'),
+                                                                                                                                                                          ('LMP00003', 'A', 'A00003', 198, 300, 'Enhance the style and protection of your car doors with our custom door covers. Crafted from durable materials, these covers seamlessly integrate with your vehicle design, offering a sleek and modern appearance. Safeguard your doors from scratches, dings, and environmental elements, while adding a personalized touch to your car exterior.', 1000, NULL, 'LMS00001', 'Enable', '2024-03-20'),
                                                                                                                                                                           ('LMP00004', 'A', 'A00004', 300, 400, 'Enhance your car look with our stylish and protective hood cover. Crafted from durable materials, it offers a custom fit to shield your vehicle hood from weather and minor damage, elevating your driving experience.', 360, NULL, 'LMS00001', 'Enable', '2023-06-13'),
                                                                                                                                                                           ('LMP00005', 'A', 'A00005', 250, 400, 'Our premium trunk lid adds a sleek, modern touch to your car. Crafted from high-quality materials, it seamlessly integrates with your vehicle design, offering a custom fit and enhanced protection for your trunk area. Elevate your car style with this versatile and functional accessory.', 214, NULL, 'LMS00001', 'Enable', '2024-04-01'),
                                                                                                                                                                           ('LMP00006', 'B', 'B00001', 850, 1000, 'Optimize your car engine cooling with our advanced cooling system cover. Designed to improve airflow and heat dissipation, this cover ensures efficient engine operation, reducing the risk of overheating and prolonging the lifespan of your vehicle vital components.', 440, NULL, 'LMS00001', 'Enable', '2023-02-15'),
@@ -990,18 +1069,15 @@ CREATE TABLE `product_in_cart` (
                                    `inCartDate` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `resource`
+-- Dumping data for table `product_in_cart`
 --
 
-CREATE TABLE `resource` (
-                            `id` int(11) NOT NULL,
-                            `name` varchar(255) DEFAULT NULL,
-                            `type` varchar(255) DEFAULT NULL,
-                            `path` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `product_in_cart` (`cartID`, `itemID`, `quantity`, `inCartDate`) VALUES
+                                                                                 ('LMSC0001', 'LMP00001', 2, '25/06/2024'),
+                                                                                 ('LMSC0001', 'LMP00002', 1, '27/06/2024'),
+                                                                                 ('LMSC0001', 'LMP00003', 1, '25/06/2024');
+
 -- --------------------------------------------------------
 
 --
@@ -1022,22 +1098,24 @@ CREATE TABLE `reorder_request` (
 --
 
 INSERT INTO `reorder_request` (`reorderID`, `partNumber`, `senderID`, `date`, `quantity`, `status`) VALUES
-                                                                                                        ('RE00001', 'B00005', 'LMS00003', '2024-06-10', 10, 'cancelled'),
-                                                                                                        ('RE00002', 'A00003', 'LMS00003', '2024-06-01', 70, 'cancelled'),
-                                                                                                        ('RE00003', 'D00003', 'LMS00003', '2024-05-09', 50, 'finished'),
-                                                                                                        ('RE00004', 'A00001', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00005', 'A00001', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00006', 'A00001', 'LMS00003', '2024-06-22', 99, 'cancelled'),
-                                                                                                        ('RE00007', 'A00001', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00008', 'A00001', 'LMS00003', '2024-06-22', 111, 'processing'),
-                                                                                                        ('RE00009', 'A00001', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00010', 'A00001', 'LMS00003', '2024-06-22', 23, 'cancelled'),
-                                                                                                        ('RE00011', 'A00001', 'LMS00003', '2024-06-22', 111, 'processing'),
-                                                                                                        ('RE00012', 'A00001', 'LMS00003', '2024-06-22', 11, 'processing'),
-                                                                                                        ('RE00013', 'A00001', 'LMS00003', '2024-06-22', 11, 'processing'),
-                                                                                                        ('RE00014', 'A00005', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00015', 'A00005', 'LMS00003', '2024-06-22', 11, 'cancelled'),
-                                                                                                        ('RE00019', 'A00001', 'LMS00003', '2024-06-22', 11, 'finished');
+                                                                                                        ('RE00001', 'A00002', 'LMS00003', '2024-06-25', 100, 'finished'),
+                                                                                                        ('RE00002', 'C00002', 'LMS00003', '2024-06-25', 500, 'finished'),
+                                                                                                        ('RE00003', 'C00004', 'LMS00003', '2024-06-25', 500, 'finished'),
+                                                                                                        ('RE00004', 'D00004', 'LMS00003', '2024-06-25', 500, 'finished'),
+                                                                                                        ('RE00005', 'A00002', 'LMS00003', '2024-06-27', 11, 'processing');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `resource`
+--
+
+CREATE TABLE `resource` (
+                            `id` int(11) NOT NULL,
+                            `name` varchar(255) DEFAULT NULL,
+                            `type` varchar(255) DEFAULT NULL,
+                            `path` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -1081,7 +1159,9 @@ INSERT INTO `shipping_detail` (`orderID`, `delivermanID`, `shippingDate`, `remar
                                                                                                                             ('OD24060002', 'LMD001', '2024-07-15', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
                                                                                                                             ('OD24060003', 'LMD001', '2024-07-30', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
                                                                                                                             ('OD24060004', 'LMD001', '2024-07-31', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
-                                                                                                                            ('OD24060005', 'LMD003', '2024-07-31', NULL, NULL, '123 Main Street, Gansu, Jinchang');
+                                                                                                                            ('OD24060005', 'LMD003', '2024-07-31', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+                                                                                                                            ('OD24060006', 'LMD001', '2024-06-30', NULL, NULL, '123 Main Street, Gansu, Jinchang'),
+                                                                                                                            ('OD24060007', 'LMD001', '2024-06-30', NULL, NULL, '123 Main Street, Gansu, Jinchang');
 
 -- --------------------------------------------------------
 
@@ -1106,25 +1186,25 @@ CREATE TABLE `spare_part` (
 --
 
 INSERT INTO `spare_part` (`partNumber`, `supplierID`, `categoryID`, `name`, `reorderLevel`, `dangerLevel`, `quantity`, `status`, `lastModified`) VALUES
-                                                                                                                                                     ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 10, 'Enable', 'LMS00003'),
-                                                                                                                                                     ('A00002', 'SIDJP00001', 'A', 'Car Door', 70, 30, 10, 'Enable', 'LMS00003'),
-                                                                                                                                                     ('A00003', 'SIDUK00001', 'A', 'Premium Car Door', 200, 130, 499, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 100, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('A00002', 'SIDJP00001', 'A', 'Car Door', 70, 30, 69, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('A00003', 'SIDUK00001', 'A', 'Premium Car Door', 200, 130, 494, 'Enable', 'LMS00003'),
                                                                                                                                                      ('A00004', 'SIDUK00002', 'A', 'Hood Cover', 400, 200, 700, 'Enable', 'LMS00003'),
                                                                                                                                                      ('A00005', 'SIDCN00001', 'A', 'Trunk Lid', 100, 50, 700, 'Enable', 'LMS00003'),
-                                                                                                                                                     ('B00001', 'SIDUK00002', 'B', 'Engine Cooling', 70, 30, 1900, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('B00001', 'SIDUK00002', 'B', 'Engine Cooling', 70, 30, 1850, 'Enable', 'LMS00003'),
                                                                                                                                                      ('B00002', 'SIDKR00001', 'B', 'Car Engine Disassembled', 320, 210, 300, 'Enable', 'LMS00003'),
                                                                                                                                                      ('B00003', 'SIDJP00001', 'B', 'Gear', 250, 100, 1030, 'Enable', 'LMS00003'),
                                                                                                                                                      ('B00004', 'SIDUS00002', 'B', 'Brake Calipers', 200, 100, 1130, 'Enable', 'LMS00003'),
                                                                                                                                                      ('B00005', 'SIDUS00001', 'B', 'Air Suspension Compressor', 100, 30, 1400, 'Enable', 'LMS00003'),
                                                                                                                                                      ('C00001', 'SIDKR00001', 'C', 'Silver Light Halogen Bulbs', 210, 50, 810, 'Enable', 'LMS00001'),
-                                                                                                                                                     ('C00002', 'SIDBR00001', 'C', 'Tail Light', 200, 130, 40, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('C00002', 'SIDBR00001', 'C', 'Tail Light', 200, 130, 490, 'Enable', 'LMS00003'),
                                                                                                                                                      ('C00003', 'SIDCN00001', 'C', 'Headlight', 200, 130, 900, 'Enable', 'LMS00003'),
-                                                                                                                                                     ('C00004', 'SIDUS00001', 'C', 'Interior Dome Light', 400, 200, 40, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('C00004', 'SIDUS00001', 'C', 'Interior Dome Light', 400, 200, 540, 'Enable', 'LMS00003'),
                                                                                                                                                      ('C00005', 'SIDIN00001', 'C', 'Front Headlight', 100, 50, 960, 'Enable', 'LMS00003'),
                                                                                                                                                      ('D00001', 'SIDJP00001', 'D', 'Tire Pressure Monitor', 70, 30, 700, 'Enable', 'LMS00003'),
                                                                                                                                                      ('D00002', 'SIDCN00001', 'D', 'USB Car Charger', 200, 130, 1300, 'Enable', 'LMS00003'),
                                                                                                                                                      ('D00003', 'SIDUK00003', 'D', 'Car Cover', 100, 50, 640, 'Enable', 'LMS00003'),
-                                                                                                                                                     ('D00004', 'SIDUK00003', 'D', 'Car Vent Charger', 100, 50, 10, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('D00004', 'SIDUK00003', 'D', 'Car Vent Charger', 100, 50, 510, 'Enable', 'LMS00003'),
                                                                                                                                                      ('D00005', 'SIDCN00001', 'D', 'Phone Holder', 400, 200, 1300, 'Enable', 'LMS00003');
 
 -- --------------------------------------------------------
@@ -1152,17 +1232,17 @@ CREATE TABLE `staff` (
 --
 
 INSERT INTO `staff` (`staffID`, `deptID`, `firstName`, `lastName`, `sex`, `emailAddress`, `phoneNumber`, `dateOfBirth`, `jobTitle`, `delivermanID`, `imageID`) VALUES
-                                                                                                                                                                   ('LMS00001', 'LMD01', 'Siu', 'shuan', 'F', 'siu.leung@example.com', '12376543210', '1980-05-15', 'Sales Manager', NULL, NULL),
-                                                                                                                                                                   ('LMS00002', 'LMD03', 'Mei', 'Chan', 'F', '09876543210', '09876543210', '1985-09-20', 'Order Processing Clerk', NULL, NULL),
-                                                                                                                                                                   ('LMS00003', 'LMD05', 'Wai', 'Chan', 'F', 'wai.chan@example.com', '11111111111', '1978-02-28', 'Storeman', NULL, NULL),
-                                                                                                                                                                   ('LMS00004', 'LMD04', 'Ling', 'Lam', 'F', '13579024680', '13579024680', '1990-11-05', 'Manager', NULL, NULL),
-                                                                                                                                                                   ('LMS00005', 'LMD05', 'Kin', 'Yuen', 'M', 'kin.yuen@example.com', '08642013579', '1975-06-30', 'Storeman', NULL, NULL),
-                                                                                                                                                                   ('LMS00006', 'LMD03', 'Lily', 'Li', 'F', 'lily.li@example.com', '09876543211', '1982-03-15', 'Order Processing Clerk', NULL, NULL),
-                                                                                                                                                                   ('LMS00007', 'LMD03', 'Fiona', 'Chen', 'F', '09876543212', '09876543212', '1990-07-28', 'Order Processing Clerk', NULL, NULL),
-                                                                                                                                                                   ('LMS00008', 'LMD03', 'Michael', 'Wu', 'M', 'michael.wu@example.com', '09876543213', '1988-11-02', 'Order Processing Clerk', NULL, NULL),
-                                                                                                                                                                   ('LMS00009', 'LMD03', 'Liang', 'Chen', 'M', 'LC@example.com', '13812345678', '1998-12-04', 'Deliverman', 'LMD001', NULL),
-                                                                                                                                                                   ('LMS00010', 'LMD03', 'Mei', 'Wang', 'F', 'MW@example.com', '15987654321', '1993-07-24', 'Deliverman', 'LMD002', NULL),
-                                                                                                                                                                   ('LMS00011', 'LMD03', 'Feng', 'Zhang', 'M', 'FZ@example.com', '1861234567', '1992-10-16', 'Deliverman', 'LMD003', NULL),
+                                                                                                                                                                   ('LMS00001', 'LMD01', 'Siu', 'shuan', 'F', 'sarahjones@protonmail.com', '12376543210', '1980-05-15', 'Sales Manager', NULL, NULL),
+                                                                                                                                                                   ('LMS00002', 'LMD03', 'Mei', 'Chan', 'F', 'michaelbrown@icloud.com', '09876543210', '1985-09-20', 'Order Processing Clerk', NULL, NULL),
+                                                                                                                                                                   ('LMS00003', 'LMD05', 'Wai', 'Chan', 'F', 'emilywilliams@aol.com', '11111111111', '1978-02-28', 'Storeman', NULL, NULL),
+                                                                                                                                                                   ('LMS00004', 'LMD04', 'Ling', 'Lam', 'F', 'davidgarcia@zoho.com', '13579024680', '1990-11-05', 'Manager', NULL, NULL),
+                                                                                                                                                                   ('LMS00005', 'LMD05', 'Kin', 'Yuen', 'M', 'oliviaroberts@tutanota.com', '08642013579', '1975-06-30', 'Storeman', NULL, NULL),
+                                                                                                                                                                   ('LMS00006', 'LMD03', 'Lily', 'Li', 'F', 'alexandermartinez@yandex.com', '09876543211', '1982-03-15', 'Order Processing Clerk', NULL, NULL),
+                                                                                                                                                                   ('LMS00007', 'LMD03', 'Fiona', 'Chen', 'F', 'luisvelázquez@zohomail.com', '09876543212', '1990-07-28', 'Order Processing Clerk', NULL, NULL),
+                                                                                                                                                                   ('LMS00008', 'LMD03', 'Michael', 'Wu', 'M', 'anthonygonzalez@aim.com', '09876543213', '1988-11-02', 'Order Processing Clerk', NULL, NULL),
+                                                                                                                                                                   ('LMS00009', 'LMD03', 'Liang', 'Chen', 'M', 'jacobramirez@rocketmail.com', '13812345678', '1998-12-04', 'Deliverman', 'LMD001', NULL),
+                                                                                                                                                                   ('LMS00010', 'LMD03', 'Mei', 'Wang', 'F', 'matthewhernandez@live.com', '15987654321', '1993-07-24', 'Deliverman', 'LMD002', NULL),
+                                                                                                                                                                   ('LMS00011', 'LMD03', 'Feng', 'Zhang', 'M', 'sophiaherrera@fastmail.com', '1861234567', '1992-10-16', 'Deliverman', 'LMD003', NULL),
                                                                                                                                                                    ('LMS00012', 'LMD04', 'dai', 'shui', 'F', '12345678910@gmail.com', '12345678910', '1990-06-13', 'Goods Inward Staff', NULL, NULL),
                                                                                                                                                                    ('LMS00013', 'LMD06', 'I hate programming', 'I hate PHP', 'M', 'Ihateprogramming@gmail.com', '85466780722', '1988-12-28', 'Manager', NULL, NULL);
 
@@ -1186,19 +1266,19 @@ CREATE TABLE `staff_account` (
 --
 
 INSERT INTO `staff_account` (`staffAccountID`, `staffID`, `status`, `password`, `createDate`, `pwdChangeDate`) VALUES
-                                                                                                                   ('SA00001', 'LMS00001', 'active', '$2a$11$Lm4yIPKczoUpgmGNOqwxdetvm3Ei9nxaHJpz/EZakHSC21BtkQd7y', '2024-05-01', '2024-06-03'),
-                                                                                                                   ('SA00002', 'LMS00002', 'active', '$2a$11$jbK0PoP6fa86FVAdPcc./.vD7cn/M0IysaUblE8FPkN1k1ntr8v36', '2024-05-02', '2024-06-23'),
-                                                                                                                   ('SA00003', 'LMS00003', 'active', '$2a$11$w2rx1YUxYjo9CvNoGABiJe04JVE55d3otrzOyZoB.BsG26cLukS2O', '2024-05-10', '2024-05-13'),
-                                                                                                                   ('SA00004', 'LMS00004', 'active', '$2a$11$cBnH8E/j7jLzc/6IlzrNZu3LoFK2sGnv1vdSkmbupH5i5dMzitpMG', '2024-05-11', '2024-05-02'),
-                                                                                                                   ('SA00005', 'LMS00005', 'active', '$2a$11$0Fzkeitw7Fg7Q379IlwRmOi9l73.ofvQXYNMR5A4qhDWfH0pJ5U6a', '2024-05-15', '2024-06-23'),
-                                                                                                                   ('SA00006', 'LMS00006', 'active', '$2a$11$7FgtPouKfa86CTPpaxg3vekIG9joziut1WBIl20MGpv1shzp.NOTa', '2024-06-04', '2024-06-16'),
-                                                                                                                   ('SA00007', 'LMS00007', 'active', '$2a$11$h3yz.ZXO1liwL1XH3SDT8uk0YQSImW/d/tij0LRdljL5U6oXRAX7O', '2024-06-03', '2024-06-23'),
-                                                                                                                   ('SA00008', 'LMS00008', 'active', '$2a$11$MINmzqRJn7blSsF5gLmAxeqPC03iXf5MFdOXbcUiXqFKm/i6j3Aha', '2024-06-04', '2024-06-23'),
-                                                                                                                   ('SA00009', 'LMS00009', 'active', '$2a$11$qKVHvNukCWkpgmkPRRqKMuA53kJv7f4eabJ/AFTL1LbHsyzYH40mi', '2024-06-01', '2024-06-23'),
-                                                                                                                   ('SA00010', 'LMS00010', 'active', '$2a$11$ejPZpZ5sByxc37sJzgOTv.CbvayDz4lJz9jKhFCQaUQIiE6dqhhHm', '2024-06-03', '2024-06-23'),
-                                                                                                                   ('SA00011', 'LMS00011', 'active', '$2a$11$kCJtkGlBNTMPHUE6PiwIt.c7fY3uVUw47Oo7Ado.gjJd3vCg5LOEm', '2024-06-04', '2024-06-23'),
-                                                                                                                   ('SA00012', 'LMS00012', 'active', '$2a$11$8XvuXL5lxfD1vQ5WyAsvieyZnW2usv8BIVZmtlBHfC2IHi45CsIcW', '2024-06-22', '2024-06-22'),
-                                                                                                                   ('SA00013', 'LMS00013', 'active', '$2a$11$Bnc7WYgsPMJk0t4NNi5f7.S2kgyJiGOBiLAqaVXJ1mOTvcSNe0GEG', '2024-06-23', '2024-06-23');
+                                                                                                                   ('SA00001', 'LMS00001', 'active', '$2a$11$TRtydagzf.ZcbbytbP.iROrq/msAgyg4ANLPxXsVNyfztQJ2J.ndG', '2024-05-01', '2024-06-27'),
+                                                                                                                   ('SA00002', 'LMS00002', 'active', '$2a$11$wBiUTEWY2ifIuk0r6yCi8Oe2i2v/AZL408HuukIcjJ78uo1zkiByS', '2024-05-02', '2024-06-27'),
+                                                                                                                   ('SA00003', 'LMS00003', 'active', '$2a$11$ufsA5JZKdf5Hq1Cl0gQ.b.5Ha2PhDQGOUZV1/YQs6xjbdrJmYrRTG', '2024-05-10', '2024-06-27'),
+                                                                                                                   ('SA00004', 'LMS00004', 'active', '$2a$11$a6KMKiwOsXWfpxr4z.EKH.ZPDJVQd72orufY8Fu0NnDPVeCi4Lwkq', '2024-05-11', '2024-06-27'),
+                                                                                                                   ('SA00005', 'LMS00005', 'active', '$2a$11$nYdP58DDidIBZprsuUKQEOCP8PrOeVCp1qy8OJfWUnRr6gxszi0UC', '2024-05-15', '2024-06-27'),
+                                                                                                                   ('SA00006', 'LMS00006', 'active', '$2a$11$qdPTc9l3PUY1FdAbtfLXf.a6FU08lkb5qH9nFC8Gg2mWs2AVvPWUq', '2024-06-04', '2024-06-27'),
+                                                                                                                   ('SA00007', 'LMS00007', 'active', '$2a$11$xv4aAoO6W.ashzIVrGaaUujMdEWvngq3UdtYwnZ5SqAOA8g6XW7na', '2024-06-03', '2024-06-27'),
+                                                                                                                   ('SA00008', 'LMS00008', 'active', '$2a$11$3n9lfXhPYlMm/fjT5kl9fubBkVzsMzPZUiCE0xTnX8GcB0CO3njJ6', '2024-06-04', '2024-06-27'),
+                                                                                                                   ('SA00009', 'LMS00009', 'active', '$2a$11$KN3MXpO9jW2HlvrMKTUzPuLWiRtfA7pksXgm1RXCCUwnEHtYWRuAm', '2024-06-01', '2024-06-27'),
+                                                                                                                   ('SA00010', 'LMS00010', 'active', '$2a$11$/sCoupT1sBeG5mR2.ZOnEu1HbIpjTm2Dumor3WlRXfWqwh/1suj36', '2024-06-03', '2024-06-27'),
+                                                                                                                   ('SA00011', 'LMS00011', 'active', '$2a$11$Oiq11scOIGfiIMFHYsmQmO4/75zQfoGOHbbBvNQ1IAghbDwMy3z6y', '2024-06-04', '2024-06-27'),
+                                                                                                                   ('SA00012', 'LMS00012', 'active', '$2a$11$TCR38KQ8LbEvXulVwzF.O.YMdsdqJrYrAq3qHMQnTe3BYcpx1TvCO', '2024-06-22', '2024-06-27'),
+                                                                                                                   ('SA00013', 'LMS00013', 'active', '$2a$11$XlI7Ie7ao8lVK5Q.3in4AuNc05eK0leN9216cXmfGxpE8EbopUgk6', '2024-06-23', '2024-06-27');
 
 -- --------------------------------------------------------
 
@@ -1224,7 +1304,7 @@ INSERT INTO `staff_account_permission` (`staffAccountID`, `permissionID`) VALUES
                                                                               ('SA00006', 'MP06'),
                                                                               ('SA00007', 'MP06'),
                                                                               ('SA00008', 'MP06'),
-                                                                              ('SA00009', 'MP05'),
+                                                                              ('SA00009', 'MP04'),
                                                                               ('SA00010', 'MP02'),
                                                                               ('SA00011', 'MP03'),
                                                                               ('SA00012', 'MP05'),
@@ -1388,6 +1468,17 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00001', '2024-06-20 00:33:41'),
                                                                       ('SA00001', '2024-06-20 22:59:33'),
                                                                       ('SA00001', '2024-06-20 23:04:31'),
+                                                                      ('SA00001', '2024-06-25 09:01:44'),
+                                                                      ('SA00001', '2024-06-25 09:13:34'),
+                                                                      ('SA00001', '2024-06-25 09:14:46'),
+                                                                      ('SA00001', '2024-06-25 11:10:51'),
+                                                                      ('SA00001', '2024-06-25 11:29:39'),
+                                                                      ('SA00001', '2024-06-25 21:45:30'),
+                                                                      ('SA00001', '2024-06-27 16:24:22'),
+                                                                      ('SA00001', '2024-06-27 16:30:26'),
+                                                                      ('SA00001', '2024-06-27 16:55:56'),
+                                                                      ('SA00001', '2024-06-27 17:47:42'),
+                                                                      ('SA00001', '2024-06-27 18:20:56'),
                                                                       ('SA00002', '2024-05-28 23:51:33'),
                                                                       ('SA00002', '2024-05-29 00:27:56'),
                                                                       ('SA00002', '2024-05-29 00:31:28'),
@@ -1403,6 +1494,8 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00002', '2024-06-03 20:52:45'),
                                                                       ('SA00002', '2024-06-04 13:46:06'),
                                                                       ('SA00002', '2024-06-04 13:56:49'),
+                                                                      ('SA00002', '2024-06-27 16:31:38'),
+                                                                      ('SA00002', '2024-06-27 16:56:02'),
                                                                       ('SA00003', '2024-05-28 23:24:23'),
                                                                       ('SA00003', '2024-05-28 23:24:28'),
                                                                       ('SA00003', '2024-05-28 23:24:34'),
@@ -1435,16 +1528,82 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00003', '2024-06-21 11:13:29'),
                                                                       ('SA00003', '2024-06-21 11:13:40'),
                                                                       ('SA00003', '2024-06-21 11:14:50'),
+                                                                      ('SA00003', '2024-06-25 09:01:25'),
+                                                                      ('SA00003', '2024-06-25 09:10:08'),
+                                                                      ('SA00003', '2024-06-25 09:12:28'),
+                                                                      ('SA00003', '2024-06-25 09:14:06'),
+                                                                      ('SA00003', '2024-06-25 09:51:30'),
+                                                                      ('SA00003', '2024-06-25 11:00:25'),
+                                                                      ('SA00003', '2024-06-25 11:03:18'),
+                                                                      ('SA00003', '2024-06-25 11:04:02'),
+                                                                      ('SA00003', '2024-06-25 11:04:51'),
+                                                                      ('SA00003', '2024-06-25 11:06:19'),
+                                                                      ('SA00003', '2024-06-25 11:06:58'),
+                                                                      ('SA00003', '2024-06-25 11:10:22'),
+                                                                      ('SA00003', '2024-06-25 11:12:45'),
+                                                                      ('SA00003', '2024-06-25 11:14:43'),
+                                                                      ('SA00003', '2024-06-25 11:15:37'),
+                                                                      ('SA00003', '2024-06-25 11:30:03'),
+                                                                      ('SA00003', '2024-06-25 11:32:14'),
+                                                                      ('SA00003', '2024-06-25 11:32:42'),
+                                                                      ('SA00003', '2024-06-25 11:33:56'),
+                                                                      ('SA00003', '2024-06-25 14:22:08'),
+                                                                      ('SA00003', '2024-06-25 14:26:07'),
+                                                                      ('SA00003', '2024-06-25 14:27:28'),
+                                                                      ('SA00003', '2024-06-25 14:38:30'),
+                                                                      ('SA00003', '2024-06-25 15:19:13'),
+                                                                      ('SA00003', '2024-06-25 15:19:51'),
+                                                                      ('SA00003', '2024-06-25 15:21:04'),
+                                                                      ('SA00003', '2024-06-25 15:21:34'),
+                                                                      ('SA00003', '2024-06-25 15:22:28'),
+                                                                      ('SA00003', '2024-06-25 15:24:08'),
+                                                                      ('SA00003', '2024-06-25 15:24:33'),
+                                                                      ('SA00003', '2024-06-25 15:25:53'),
+                                                                      ('SA00003', '2024-06-25 15:26:40'),
+                                                                      ('SA00003', '2024-06-25 15:27:39'),
+                                                                      ('SA00003', '2024-06-25 15:28:11'),
+                                                                      ('SA00003', '2024-06-25 15:28:51'),
+                                                                      ('SA00003', '2024-06-25 15:30:32'),
+                                                                      ('SA00003', '2024-06-25 15:31:03'),
+                                                                      ('SA00003', '2024-06-25 21:38:50'),
+                                                                      ('SA00003', '2024-06-25 21:45:35'),
+                                                                      ('SA00003', '2024-06-25 21:46:39'),
+                                                                      ('SA00003', '2024-06-25 21:47:51'),
+                                                                      ('SA00003', '2024-06-25 21:50:23'),
+                                                                      ('SA00003', '2024-06-25 21:54:32'),
+                                                                      ('SA00003', '2024-06-27 02:11:42'),
+                                                                      ('SA00003', '2024-06-27 03:52:24'),
+                                                                      ('SA00003', '2024-06-27 16:56:10'),
+                                                                      ('SA00003', '2024-06-27 17:14:06'),
+                                                                      ('SA00003', '2024-06-27 17:44:28'),
+                                                                      ('SA00003', '2024-06-27 17:46:31'),
+                                                                      ('SA00003', '2024-06-27 17:47:53'),
+                                                                      ('SA00003', '2024-06-27 17:50:34'),
+                                                                      ('SA00003', '2024-06-27 17:51:07'),
+                                                                      ('SA00003', '2024-06-27 17:51:30'),
+                                                                      ('SA00003', '2024-06-27 17:53:00'),
+                                                                      ('SA00003', '2024-06-27 17:59:30'),
+                                                                      ('SA00003', '2024-06-27 18:22:20'),
+                                                                      ('SA00003', '2024-06-27 18:37:44'),
                                                                       ('SA00004', '2024-05-29 01:07:13'),
                                                                       ('SA00004', '2024-05-30 01:50:38'),
                                                                       ('SA00004', '2024-05-30 13:20:52'),
                                                                       ('SA00004', '2024-06-03 21:36:10'),
                                                                       ('SA00004', '2024-06-03 21:36:12'),
                                                                       ('SA00004', '2024-06-04 13:56:58'),
+                                                                      ('SA00004', '2024-06-27 01:41:29'),
+                                                                      ('SA00004', '2024-06-27 01:48:55'),
+                                                                      ('SA00004', '2024-06-27 01:51:56'),
+                                                                      ('SA00004', '2024-06-27 01:52:58'),
+                                                                      ('SA00004', '2024-06-27 01:54:44'),
+                                                                      ('SA00004', '2024-06-27 16:56:14'),
+                                                                      ('SA00004', '2024-06-27 17:47:59'),
+                                                                      ('SA00004', '2024-06-27 18:05:54'),
                                                                       ('SA00005', '2024-05-30 03:02:07'),
                                                                       ('SA00005', '2024-06-04 13:58:21'),
                                                                       ('SA00005', '2024-06-04 13:59:03'),
                                                                       ('SA00005', '2024-06-20 21:45:11'),
+                                                                      ('SA00005', '2024-06-27 16:56:19'),
                                                                       ('SA00006', '2024-06-16 00:53:42'),
                                                                       ('SA00006', '2024-06-16 00:57:41'),
                                                                       ('SA00006', '2024-06-16 01:01:25'),
@@ -1464,15 +1623,37 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00006', '2024-06-17 00:55:07'),
                                                                       ('SA00006', '2024-06-17 00:57:05'),
                                                                       ('SA00006', '2024-06-17 01:00:32'),
+                                                                      ('SA00006', '2024-06-25 11:11:18'),
+                                                                      ('SA00006', '2024-06-25 11:29:28'),
+                                                                      ('SA00006', '2024-06-27 16:56:24'),
+                                                                      ('SA00006', '2024-06-27 17:47:46'),
+                                                                      ('SA00006', '2024-06-27 18:09:38'),
+                                                                      ('SA00006', '2024-06-27 18:09:53'),
+                                                                      ('SA00006', '2024-06-27 18:12:08'),
+                                                                      ('SA00006', '2024-06-27 18:37:49'),
                                                                       ('SA00007', '2024-06-17 00:56:35'),
                                                                       ('SA00007', '2024-06-17 00:56:55'),
                                                                       ('SA00007', '2024-06-17 01:00:18'),
+                                                                      ('SA00007', '2024-06-27 16:56:30'),
+                                                                      ('SA00008', '2024-06-27 16:56:35'),
                                                                       ('SA00009', '2024-06-23 13:51:41'),
                                                                       ('SA00009', '2024-06-23 13:56:28'),
+                                                                      ('SA00009', '2024-06-25 11:08:49'),
+                                                                      ('SA00009', '2024-06-25 11:10:05'),
+                                                                      ('SA00009', '2024-06-25 11:15:50'),
+                                                                      ('SA00009', '2024-06-25 11:18:42'),
+                                                                      ('SA00009', '2024-06-25 11:30:44'),
+                                                                      ('SA00009', '2024-06-27 03:51:45'),
+                                                                      ('SA00009', '2024-06-27 17:47:56'),
+                                                                      ('SA00009', '2024-06-27 18:17:50'),
                                                                       ('SA00010', '2024-06-23 13:56:58'),
                                                                       ('SA00011', '2024-06-23 13:57:32'),
                                                                       ('SA00011', '2024-06-23 13:58:08'),
-                                                                      ('SA00011', '2024-06-23 13:59:10');
+                                                                      ('SA00011', '2024-06-23 13:59:10'),
+                                                                      ('SA00012', '2024-06-25 09:12:58'),
+                                                                      ('SA00012', '2024-06-25 11:34:30'),
+                                                                      ('SA00012', '2024-06-27 18:24:32'),
+                                                                      ('SA00012', '2024-06-27 18:24:50');
 
 -- --------------------------------------------------------
 
@@ -1632,6 +1813,12 @@ ALTER TABLE `location`
     ADD PRIMARY KEY (`province`,`city`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+    ADD PRIMARY KEY (`msgID`);
+
+--
 -- Indexes for table `order_`
 --
 ALTER TABLE `order_`
@@ -1670,17 +1857,18 @@ ALTER TABLE `product_in_cart`
     ADD KEY `product_in_cart_fk2` (`itemID`);
 
 --
--- Indexes for table `resource`
---
-ALTER TABLE `resource`
-    ADD PRIMARY KEY (`id`);
---
 -- Indexes for table `reorder_request`
 --
 ALTER TABLE `reorder_request`
     ADD PRIMARY KEY (`reorderID`),
     ADD KEY `partNumber_fk` (`partNumber`),
     ADD KEY `staffID_fk` (`senderID`);
+
+--
+-- Indexes for table `resource`
+--
+ALTER TABLE `resource`
+    ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `shipping_detail`
@@ -1733,6 +1921,7 @@ ALTER TABLE `staff_login_history`
 ALTER TABLE `supplier`
     ADD PRIMARY KEY (`supplierID`),
     ADD KEY `country_fk` (`country`);
+
 --
 -- AUTO_INCREMENT for dumped tables
 --
