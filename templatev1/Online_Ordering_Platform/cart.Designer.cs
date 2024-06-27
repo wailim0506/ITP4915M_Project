@@ -49,13 +49,13 @@ namespace templatev1
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.palSelect3 = new System.Windows.Forms.Panel();
-            this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction4 = new System.Windows.Forms.Button();
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.btnCreateOrder = new System.Windows.Forms.Button();
             this.btnEditQty = new System.Windows.Forms.Button();
             this.btnRemoveAll = new System.Windows.Forms.Button();
@@ -97,7 +97,7 @@ namespace templatev1
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(367, 153);
+            this.label1.Location = new System.Drawing.Point(367, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 21);
             this.label1.TabIndex = 91;
@@ -107,7 +107,7 @@ namespace templatev1
             // lblDBQty
             // 
             this.lblDBQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBQty.Location = new System.Drawing.Point(773, 153);
+            this.lblDBQty.Location = new System.Drawing.Point(773, 158);
             this.lblDBQty.Name = "lblDBQty";
             this.lblDBQty.Size = new System.Drawing.Size(85, 21);
             this.lblDBQty.TabIndex = 76;
@@ -117,7 +117,7 @@ namespace templatev1
             // lblDBSpartPartName
             // 
             this.lblDBSpartPartName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBSpartPartName.Location = new System.Drawing.Point(514, 153);
+            this.lblDBSpartPartName.Location = new System.Drawing.Point(514, 158);
             this.lblDBSpartPartName.Name = "lblDBSpartPartName";
             this.lblDBSpartPartName.Size = new System.Drawing.Size(253, 21);
             this.lblDBSpartPartName.TabIndex = 75;
@@ -127,7 +127,7 @@ namespace templatev1
             // lblDBCat
             // 
             this.lblDBCat.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBCat.Location = new System.Drawing.Point(272, 153);
+            this.lblDBCat.Location = new System.Drawing.Point(272, 158);
             this.lblDBCat.Name = "lblDBCat";
             this.lblDBCat.Size = new System.Drawing.Size(89, 21);
             this.lblDBCat.TabIndex = 77;
@@ -141,7 +141,7 @@ namespace templatev1
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pnlSP);
-            this.groupBox1.Location = new System.Drawing.Point(233, 173);
+            this.groupBox1.Location = new System.Drawing.Point(233, 178);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(899, 331);
             this.groupBox1.TabIndex = 90;
@@ -161,7 +161,7 @@ namespace templatev1
             this.btnSearch.BackColor = System.Drawing.Color.Transparent;
             this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 15F);
-            this.btnSearch.Location = new System.Drawing.Point(233, 105);
+            this.btnSearch.Location = new System.Drawing.Point(217, 95);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(162, 36);
             this.btnSearch.TabIndex = 86;
@@ -173,7 +173,7 @@ namespace templatev1
             // lblDBUnitPrice
             // 
             this.lblDBUnitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBUnitPrice.Location = new System.Drawing.Point(864, 153);
+            this.lblDBUnitPrice.Location = new System.Drawing.Point(864, 158);
             this.lblDBUnitPrice.Name = "lblDBUnitPrice";
             this.lblDBUnitPrice.Size = new System.Drawing.Size(95, 21);
             this.lblDBUnitPrice.TabIndex = 78;
@@ -287,21 +287,6 @@ namespace templatev1
             this.palSelect3.Size = new System.Drawing.Size(10, 55);
             this.palSelect3.TabIndex = 3;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
-            this.btnLogOut.TabIndex = 19;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
             // picHome
             // 
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -391,14 +376,29 @@ namespace templatev1
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
+            this.btnLogOut.TabIndex = 19;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
             // btnCreateOrder
             // 
             this.btnCreateOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnCreateOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateOrder.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateOrder.Location = new System.Drawing.Point(986, 556);
+            this.btnCreateOrder.Location = new System.Drawing.Point(986, 560);
             this.btnCreateOrder.Name = "btnCreateOrder";
-            this.btnCreateOrder.Size = new System.Drawing.Size(146, 60);
+            this.btnCreateOrder.Size = new System.Drawing.Size(146, 48);
             this.btnCreateOrder.TabIndex = 85;
             this.btnCreateOrder.TabStop = false;
             this.btnCreateOrder.Text = "Create Order";
@@ -410,9 +410,9 @@ namespace templatev1
             this.btnEditQty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnEditQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditQty.Location = new System.Drawing.Point(570, 558);
+            this.btnEditQty.Location = new System.Drawing.Point(570, 562);
             this.btnEditQty.Name = "btnEditQty";
-            this.btnEditQty.Size = new System.Drawing.Size(146, 60);
+            this.btnEditQty.Size = new System.Drawing.Size(146, 48);
             this.btnEditQty.TabIndex = 84;
             this.btnEditQty.TabStop = false;
             this.btnEditQty.Text = "Edit Quantity";
@@ -424,9 +424,9 @@ namespace templatev1
             this.btnRemoveAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnRemoveAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveAll.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveAll.Location = new System.Drawing.Point(402, 556);
+            this.btnRemoveAll.Location = new System.Drawing.Point(402, 560);
             this.btnRemoveAll.Name = "btnRemoveAll";
-            this.btnRemoveAll.Size = new System.Drawing.Size(146, 60);
+            this.btnRemoveAll.Size = new System.Drawing.Size(146, 48);
             this.btnRemoveAll.TabIndex = 83;
             this.btnRemoveAll.TabStop = false;
             this.btnRemoveAll.Text = "Remove All";
@@ -438,9 +438,9 @@ namespace templatev1
             this.btnRemoveItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnRemoveItem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRemoveItem.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Location = new System.Drawing.Point(237, 556);
+            this.btnRemoveItem.Location = new System.Drawing.Point(237, 560);
             this.btnRemoveItem.Name = "btnRemoveItem";
-            this.btnRemoveItem.Size = new System.Drawing.Size(146, 62);
+            this.btnRemoveItem.Size = new System.Drawing.Size(146, 50);
             this.btnRemoveItem.TabIndex = 82;
             this.btnRemoveItem.TabStop = false;
             this.btnRemoveItem.Text = "Remove Item(s)";
@@ -451,7 +451,7 @@ namespace templatev1
             // 
             this.lblTitTotal.AutoSize = true;
             this.lblTitTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitTotal.Location = new System.Drawing.Point(875, 514);
+            this.lblTitTotal.Location = new System.Drawing.Point(875, 519);
             this.lblTitTotal.Name = "lblTitTotal";
             this.lblTitTotal.Size = new System.Drawing.Size(84, 31);
             this.lblTitTotal.TabIndex = 81;
@@ -460,7 +460,7 @@ namespace templatev1
             // lblDBTotal
             // 
             this.lblDBTotal.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDBTotal.Location = new System.Drawing.Point(965, 153);
+            this.lblDBTotal.Location = new System.Drawing.Point(965, 158);
             this.lblDBTotal.Name = "lblDBTotal";
             this.lblDBTotal.Size = new System.Drawing.Size(88, 21);
             this.lblDBTotal.TabIndex = 79;
@@ -471,7 +471,7 @@ namespace templatev1
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(965, 514);
+            this.lblTotal.Location = new System.Drawing.Point(965, 519);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(0, 31);
             this.lblTotal.TabIndex = 80;
@@ -536,7 +536,7 @@ namespace templatev1
             this.chkAll.AutoSize = true;
             this.chkAll.Cursor = System.Windows.Forms.Cursors.Hand;
             this.chkAll.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkAll.Location = new System.Drawing.Point(246, 157);
+            this.chkAll.Location = new System.Drawing.Point(246, 162);
             this.chkAll.Name = "chkAll";
             this.chkAll.Size = new System.Drawing.Size(15, 14);
             this.chkAll.TabIndex = 94;
@@ -548,7 +548,7 @@ namespace templatev1
             // 
             this.picTick.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picTick.Image = ((System.Drawing.Image)(resources.GetObject("picTick.Image")));
-            this.picTick.Location = new System.Drawing.Point(516, 510);
+            this.picTick.Location = new System.Drawing.Point(516, 515);
             this.picTick.Name = "picTick";
             this.picTick.Size = new System.Drawing.Size(43, 27);
             this.picTick.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -561,7 +561,7 @@ namespace templatev1
             // 
             this.tbQauntity.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbQauntity.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQauntity.Location = new System.Drawing.Point(437, 510);
+            this.tbQauntity.Location = new System.Drawing.Point(437, 515);
             this.tbQauntity.MaxLength = 4;
             this.tbQauntity.Name = "tbQauntity";
             this.tbQauntity.Size = new System.Drawing.Size(87, 26);
@@ -574,7 +574,7 @@ namespace templatev1
             // 
             this.lblEditQty.Cursor = System.Windows.Forms.Cursors.No;
             this.lblEditQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditQty.Location = new System.Drawing.Point(233, 513);
+            this.lblEditQty.Location = new System.Drawing.Point(233, 518);
             this.lblEditQty.Name = "lblEditQty";
             this.lblEditQty.Size = new System.Drawing.Size(203, 21);
             this.lblEditQty.TabIndex = 102;
@@ -586,7 +586,7 @@ namespace templatev1
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(938, 84);
+            this.label6.Location = new System.Drawing.Point(947, 84);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(220, 21);
             this.label6.TabIndex = 105;
@@ -687,7 +687,7 @@ namespace templatev1
             this.groupBox2.Controls.Add(this.dtpShippingDate);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(237, 623);
+            this.groupBox2.Location = new System.Drawing.Point(237, 659);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(899, 256);
             this.groupBox2.TabIndex = 103;
