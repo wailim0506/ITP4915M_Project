@@ -32,6 +32,7 @@ namespace LMCIS.Stock_Manag
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(viewSupplier));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
@@ -689,6 +690,7 @@ namespace LMCIS.Stock_Manag
             this.Controls.Add(this.lblTitTotalNoSupplier);
             this.Controls.Add(this.picSearch);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "viewSupplier";
             this.Text = "Legend Motor Company Integrated System";

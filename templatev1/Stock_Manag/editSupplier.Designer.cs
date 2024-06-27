@@ -30,6 +30,7 @@ namespace LMCIS.Stock_Manag
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editSupplier));
             this.palLoc = new System.Windows.Forms.Panel();
             this.lblLoc = new System.Windows.Forms.Label();
             this.palTime = new System.Windows.Forms.Panel();
@@ -543,6 +544,7 @@ namespace LMCIS.Stock_Manag
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "editSupplier";
             this.Text = "editSupplier";

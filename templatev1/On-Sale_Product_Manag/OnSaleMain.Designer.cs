@@ -407,7 +407,7 @@
             this.btnRemoveFromShelves.Name = "btnRemoveFromShelves";
             this.btnRemoveFromShelves.Size = new System.Drawing.Size(182, 38);
             this.btnRemoveFromShelves.TabIndex = 58;
-            this.btnRemoveFromShelves.Text = "Reomve from shelves";
+            this.btnRemoveFromShelves.Text = "Remove from shelves";
             this.btnRemoveFromShelves.UseVisualStyleBackColor = false;
             this.btnRemoveFromShelves.Click += new System.EventHandler(this.btnRemoveFromShelves_Click);
             // 

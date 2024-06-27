@@ -265,6 +265,7 @@ namespace LMCIS.Stock_Manag
 
         private void cmbCategory_SelectedValueChanged(object sender, EventArgs e)
         {
+            lblPartIDMsg.Text = "";
             lblPartNumber.Text
                 = stockController.GenPartNumber(cmbCategory.SelectedItem.ToString());
         }
