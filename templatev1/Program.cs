@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using controller.Utilities;
 using LMCIS.System_page;
 using Microsoft.Extensions.Logging;
-using templatev1;
 
 namespace LMCIS
 {
