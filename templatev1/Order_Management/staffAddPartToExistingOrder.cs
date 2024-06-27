@@ -248,64 +248,113 @@ namespace templatev1
             }
         }
 
-        private void btnFunction1_Click(object sender, EventArgs e)
+        private void getPage(string Function)
         {
-            Form o =
-                new staffOrderList(accountController, UIController);
+            Form next = new Home(accountController, UIController);
+            switch (Function)
+            {
+                case "Order Management":
+                    if (UID.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(accountController, UIController);
+                    }
+                    else if (accountController.CheckIsDeliverman())
+                    {
+                        next = new deliverman(accountController, UIController);
+                    }
+                    else
+                    {
+                        next = new staffOrderList(accountController, UIController);
+                    }
+
+                    break;
+                case "Spare Part":
+                    next = new sparePartList(accountController, UIController);
+                    break;
+                case "Cart":
+                    next = new cart(accountController, UIController);
+                    break;
+                case "Favourite":
+                    next = new favourite(accountController, UIController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(accountController, UIController);
+                    break;
+
+                case "On-Sale Product Management":
+                    next = new OnSaleMain(accountController, UIController);
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(accountController, UIController);
+                    break;
+                case "User Management":
+                    next = new SAccManage(accountController, UIController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(accountController, UIController);
+                    break;
+            }
+
             Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = Location;
+            next.Size = Size;
+            next.ShowDialog();
             Close();
-            return;
         }
 
-        private void btnFunction2_Click(object sender, EventArgs e)
+        private void btnFunction1_Click(object sender, EventArgs e)
         {
-            Form o =
-                new staffInvoiceList(accountController, UIController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-            return;
+            getPage(btnFunction1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
         }
 
         private void btnFunction3_Click(object sender, EventArgs e)
         {
-            Form home = new OnSaleMain(accountController, UIController);
-            Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
-            Close();
+            getPage(btnFunction3.Text);
         }
 
-        private void palTime_Paint(object sender, PaintEventArgs e)
+        private void btnFunction2_Click(object sender, EventArgs e)
         {
+            getPage(btnFunction2.Text);
         }
 
         private void btnFunction5_Click(object sender, EventArgs e)
         {
-            Form proFile = new SAccManage(accountController, UIController);
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnProFile_Click_1(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
             Hide();
             //Swap the current form to another.
             proFile.StartPosition = FormStartPosition.Manual;
             proFile.Location = Location;
             proFile.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            Form home = new StockMgmt(accountController, UIController);
-            Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
             Close();
         }
 
@@ -319,6 +368,19 @@ namespace templatev1
             home.ShowDialog();
             Close();
         }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
 
         private static Image imageString(string imageName)
         {
