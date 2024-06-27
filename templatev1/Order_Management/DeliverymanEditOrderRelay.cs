@@ -192,6 +192,51 @@ namespace templatev1
             Close();
         }
 
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffOrderList(_accountController, _uiController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffInvoiceList(_accountController, _uiController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            Form home = new OnSaleMain(_accountController, _uiController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
         private void setIndicator(int btnNo)
         {
             switch (btnNo)

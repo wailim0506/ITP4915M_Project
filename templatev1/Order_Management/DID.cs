@@ -229,6 +229,28 @@ namespace templatev1
             Close();
         }
 
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            Form o =
+                new staffOrderList(accountController, UIController);
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+            return;
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
         private void setIndicator(int btnNo)
         {
             switch (btnNo)

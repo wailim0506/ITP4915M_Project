@@ -120,7 +120,7 @@ namespace templatev1
             this.btnFunction5.Name = "btnFunction5";
             this.btnFunction5.Size = new System.Drawing.Size(198, 55);
             this.btnFunction5.TabIndex = 25;
-            this.btnFunction5.Text = "Give Feedback";
+            this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction5.UseVisualStyleBackColor = false;
             this.btnFunction5.Click += new System.EventHandler(this.btnFunction5_Click);
@@ -195,6 +195,7 @@ namespace templatev1
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // picHome
             // 
@@ -231,7 +232,7 @@ namespace templatev1
             this.btnFunction4.Name = "btnFunction4";
             this.btnFunction4.Size = new System.Drawing.Size(198, 55);
             this.btnFunction4.TabIndex = 18;
-            this.btnFunction4.Text = "Favourite";
+            this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction4.UseVisualStyleBackColor = false;
             this.btnFunction4.Click += new System.EventHandler(this.btnFunction4_Click);
@@ -247,9 +248,10 @@ namespace templatev1
             this.btnFunction3.Name = "btnFunction3";
             this.btnFunction3.Size = new System.Drawing.Size(198, 55);
             this.btnFunction3.TabIndex = 17;
-            this.btnFunction3.Text = "Cart";
+            this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction3.UseVisualStyleBackColor = false;
+            this.btnFunction3.Click += new System.EventHandler(this.btnFunction3_Click);
             // 
             // btnFunction2
             // 
@@ -262,9 +264,10 @@ namespace templatev1
             this.btnFunction2.Name = "btnFunction2";
             this.btnFunction2.Size = new System.Drawing.Size(198, 55);
             this.btnFunction2.TabIndex = 16;
-            this.btnFunction2.Text = "Spare Part";
+            this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction2.UseVisualStyleBackColor = false;
+            this.btnFunction2.Click += new System.EventHandler(this.btnFunction2_Click);
             // 
             // btnFunction1
             // 
@@ -280,6 +283,7 @@ namespace templatev1
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
+            this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
             // 
             // palLoc
             // 

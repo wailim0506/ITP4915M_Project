@@ -280,6 +280,7 @@ namespace templatev1
             d.StartPosition = FormStartPosition.Manual;
             d.Location = Location;
             d.ShowDialog();
+            Close();
         }
 
         private void btnProFile_Click(object sender, EventArgs e)
