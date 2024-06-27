@@ -380,10 +380,10 @@
     <Compile Include="Stock_Manag\addSupplier.Designer.cs">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page (In Progress)\LoadingForm.cs">
+    <Compile Include="System_page\LoadingForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="System_page (In Progress)\LoadingForm.Designer.cs">
+    <Compile Include="System_page\LoadingForm.Designer.cs">
       <DependentUpon>LoadingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Stock_Manag\editSupplier.cs">
@@ -398,10 +398,10 @@
     <Compile Include="Stock_Manag\viewSupplier.Designer.cs">
       <DependentUpon>viewSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\About.cs">
+    <Compile Include="System_page\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\About.Designer.cs">
+    <Compile Include="System_page\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Order_Management\deliverman.cs">
@@ -416,10 +416,10 @@
     <Compile Include="Online_Ordering_Platform\giveFeedback.Designer.cs">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\PasswordRecovery.cs">
+    <Compile Include="System_page\PasswordRecovery.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\PasswordRecovery.Designer.cs">
+    <Compile Include="System_page\PasswordRecovery.Designer.cs">
       <DependentUpon>PasswordRecovery.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\AddressMgmt.cs">
@@ -452,22 +452,6 @@
     <Compile Include="Stock_Manag\StoremanModify.Designer.cs">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </Compile>
-    <Compile Include="Trash\SalesManagModify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\SalesManagModify.Designer.cs">
-      <DependentUpon>SalesManagModify.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Trash\SalesManagStockMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\SalesManagStockMain.Designer.cs">
-      <DependentUpon>SalesManagStockMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Trash\UserMangeS.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Trash\UserMangeS.Designer.cs" />
     <Compile Include="User_Manag\UserModify.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -486,10 +470,10 @@
     <Compile Include="User_Manag\ScreateAccount.Designer.cs">
       <DependentUpon>ScreateAccount.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\CreateCustomerAcc.cs">
+    <Compile Include="System_page\CreateCustomerAcc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\CreateCustomerAcc.Designer.cs">
+    <Compile Include="System_page\CreateCustomerAcc.Designer.cs">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </Compile>
     <Compile Include="On-Sale_Product_Manag\SetModifyDiscount.cs">
@@ -516,22 +500,22 @@
     <Compile Include="On-Sale_Product_Manag\OnSaleMain.Designer.cs">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\Home.cs">
+    <Compile Include="System_page\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\Home.Designer.cs">
+    <Compile Include="System_page\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\Login.cs">
+    <Compile Include="System_page\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\Login.Designer.cs">
+    <Compile Include="System_page\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\LoginHistory.cs">
+    <Compile Include="System_page\LoginHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="System_page %28In Progress%29\LoginHistory.Designer.cs">
+    <Compile Include="System_page\LoginHistory.Designer.cs">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </Compile>
     <Compile Include="Profile\ProFileMain.cs">
@@ -627,7 +611,7 @@
     <EmbeddedResource Include="Stock_Manag\viewSupplier.resx">
       <DependentUpon>viewSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\About.resx">
+    <EmbeddedResource Include="System_page\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Order_Management\deliverman.resx">
@@ -636,7 +620,7 @@
     <EmbeddedResource Include="Online_Ordering_Platform\giveFeedback.resx">
       <DependentUpon>giveFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\PasswordRecovery.resx">
+    <EmbeddedResource Include="System_page\PasswordRecovery.resx">
       <DependentUpon>PasswordRecovery.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\AddressMgmt.resx">
@@ -654,12 +638,6 @@
     <EmbeddedResource Include="Stock_Manag\StoremanModify.resx">
       <DependentUpon>StoremanModify.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Trash\SalesManagModify.resx">
-      <DependentUpon>SalesManagModify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Trash\SalesManagStockMain.resx">
-      <DependentUpon>SalesManagStockMain.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UserMangeS.resx" />
     <EmbeddedResource Include="User_Manag\UserModify.resx">
       <DependentUpon>UserModify.cs</DependentUpon>
@@ -670,7 +648,7 @@
     <EmbeddedResource Include="User_Manag\ScreateAccount.resx">
       <DependentUpon>ScreateAccount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\CreateCustomerAcc.resx">
+    <EmbeddedResource Include="System_page\CreateCustomerAcc.resx">
       <DependentUpon>CreateCustomerAcc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="On-Sale_Product_Manag\SetModifyDiscount.resx">
@@ -685,13 +663,13 @@
     <EmbeddedResource Include="On-Sale_Product_Manag\OnSaleMain.resx">
       <DependentUpon>OnSaleMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\Home.resx">
+    <EmbeddedResource Include="System_page\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\Login.resx">
+    <EmbeddedResource Include="System_page\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="System_page %28In Progress%29\LoginHistory.resx">
+    <EmbeddedResource Include="System_page\LoginHistory.resx">
       <DependentUpon>LoginHistory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Profile\ProFileMain.resx">
@@ -784,7 +762,6 @@
     <None Include="Resources\D00005.png" />
     <Content Include=".gitignore" />
     <Content Include="READMDE.md" />
-    <Content Include="Trash\Trash.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\controller\" />
