@@ -115,17 +115,30 @@ namespace templatev1
                     }
 
                     break;
-                case "Invoice Management":
-                    next = new staffInvoiceList(accountController, UIController);
+                case "Spare Part":
+                    next = new sparePartList(accountController, UIController);
                     break;
+                case "Cart":
+                    next = new cart(accountController, UIController);
+                    break;
+                case "Favourite":
+                    next = new favourite(accountController, UIController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(accountController, UIController);
+                    break;
+
                 case "On-Sale Product Management":
                     next = new OnSaleMain(accountController, UIController);
                     break;
                 case "Stock Management":
                     next = new StockMgmt(accountController, UIController);
                     break;
-                case "User Managemnet":
+                case "User Management":
                     next = new SAccManage(accountController, UIController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(accountController, UIController);
                     break;
             }
 
