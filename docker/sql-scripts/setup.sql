@@ -3,13 +3,13 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2024 at 12:39 PM
+-- Generation Time: Jun 27, 2024 at 05:25 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
-SET time_zone = "+00:00";
+SET time_zone = "+08:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -211,7 +211,7 @@ CREATE TABLE `customer` (
 INSERT INTO `customer` (`customerID`, `firstName`, `lastName`, `sex`, `emailAddress`, `company`, `phoneNumber`, `province`, `city`, `companyAddress`, `warehouseAddress`, `joinDate`, `paymentMethod`, `imageID`, `dateOfBirth`, `warehouseAddress2`) VALUES
                                                                                                                                                                                                                                                           ('LMC00001', 'Peter', 'Zhang', 'F', 'janedoe@gmail.com', 'AutoTech Solutions', '13012345678', 'Gansu', 'Jinchang', '23 South Avenue', '123 Main Street', '2001-05-23', 'AmericanEx', NULL, '2000-02-02', '456 West Street'),
                                                                                                                                                                                                                                                           ('LMC00002', 'Lily', 'Li', 'F', 'johndoe@yahoo.com', 'Legend Motor Limited Company', '13098765432', 'Sichuan', 'Chengdu', '456 West Street', '789 Elm Avenue', '2023-08-10', 'MasterCard', NULL, NULL, '123 Main Street'),
-                                                                                                                                                                                                                                                          ('LMC00003', 'Michael', 'Wang', 'M', 'alicesmith@hotmail.com', 'Global Auto Spares', '13087654321', 'Beijing', 'Beijing', '789 East District', '456 Oak Lane', '2021-11-15', 'Visa', NULL, NULL, ''),
+                                                                                                                                                                                                                                                          ('LMC00003', 'Michael', 'Wang', 'M', '13087654321', 'Global Auto Spares', '13087654321', 'Beijing', 'Beijing', '789 East District', '456 Oak Lane', '2021-11-15', 'Visa', NULL, NULL, ''),
                                                                                                                                                                                                                                                           ('LMC00004', 'Wendy', 'Chen', 'F', 'bobwilson@outlook.com', 'Premier Motorsupply', '13021654987', 'Shanghai', 'Shanghai', '1 Pudong New Area', '789 Maple Court', '2022-05-20', 'UnionPay', NULL, NULL, '');
 
 -- --------------------------------------------------------
@@ -444,8 +444,20 @@ INSERT INTO `customer_login_history` (`customerAccountID`, `loginDate`) VALUES
                                                                             ('CA00001', '2024-06-27 18:29:11'),
                                                                             ('CA00001', '2024-06-27 18:36:25'),
                                                                             ('CA00001', '2024-06-27 18:37:57'),
+                                                                            ('CA00001', '2024-06-27 18:41:27'),
+                                                                            ('CA00001', '2024-06-27 20:31:25'),
+                                                                            ('CA00001', '2024-06-27 20:32:21'),
+                                                                            ('CA00001', '2024-06-27 21:15:20'),
+                                                                            ('CA00001', '2024-06-27 21:24:33'),
+                                                                            ('CA00001', '2024-06-27 21:50:56'),
+                                                                            ('CA00001', '2024-06-27 22:13:53'),
+                                                                            ('CA00001', '2024-06-27 22:36:11'),
+                                                                            ('CA00001', '2024-06-27 22:49:24'),
+                                                                            ('CA00001', '2024-06-27 23:21:00'),
                                                                             ('CA00002', '2024-06-23 14:04:42'),
                                                                             ('CA00002', '2024-06-27 17:47:39'),
+                                                                            ('CA00002', '2024-06-27 22:13:50'),
+                                                                            ('CA00002', '2024-06-27 23:19:34'),
                                                                             ('CA00003', '2024-05-29 02:00:48'),
                                                                             ('CA00003', '2024-05-29 02:03:19'),
                                                                             ('CA00003', '2024-05-29 02:11:23'),
@@ -901,20 +913,6 @@ INSERT INTO `message` (`msgID`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderitemanalysis`
---
-
-CREATE TABLE `orderitemanalysis` (
-                                     `orderID` char(10) DEFAULT NULL,
-                                     `partNumber` char(6) DEFAULT NULL,
-                                     `orderDate` date DEFAULT NULL,
-                                     `ItemCount` bigint(21) DEFAULT NULL,
-                                     `TotalQuantity` decimal(32,0) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `order_`
 --
 
@@ -1186,7 +1184,7 @@ CREATE TABLE `spare_part` (
 --
 
 INSERT INTO `spare_part` (`partNumber`, `supplierID`, `categoryID`, `name`, `reorderLevel`, `dangerLevel`, `quantity`, `status`, `lastModified`) VALUES
-                                                                                                                                                     ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 100, 'Enable', 'LMS00003'),
+                                                                                                                                                     ('A00001', 'SIDIN00001', 'A', 'Tinned Plate', 100, 50, 10, 'Enable', 'LMS00003'),
                                                                                                                                                      ('A00002', 'SIDJP00001', 'A', 'Car Door', 70, 30, 69, 'Enable', 'LMS00003'),
                                                                                                                                                      ('A00003', 'SIDUK00001', 'A', 'Premium Car Door', 200, 130, 494, 'Enable', 'LMS00003'),
                                                                                                                                                      ('A00004', 'SIDUK00002', 'A', 'Hood Cover', 400, 200, 700, 'Enable', 'LMS00003'),
@@ -1266,7 +1264,7 @@ CREATE TABLE `staff_account` (
 --
 
 INSERT INTO `staff_account` (`staffAccountID`, `staffID`, `status`, `password`, `createDate`, `pwdChangeDate`) VALUES
-                                                                                                                   ('SA00001', 'LMS00001', 'active', '$2a$11$TRtydagzf.ZcbbytbP.iROrq/msAgyg4ANLPxXsVNyfztQJ2J.ndG', '2024-05-01', '2024-06-27'),
+                                                                                                                   ('SA00001', 'LMS00001', 'active', '$2a$11$eXU8mf3io7BaF3r1L74o7e2Bq0PfpxCZ..CxOrUH61Yz5wX08iMRu', '2024-05-01', '2024-06-27'),
                                                                                                                    ('SA00002', 'LMS00002', 'active', '$2a$11$wBiUTEWY2ifIuk0r6yCi8Oe2i2v/AZL408HuukIcjJ78uo1zkiByS', '2024-05-02', '2024-06-27'),
                                                                                                                    ('SA00003', 'LMS00003', 'active', '$2a$11$ufsA5JZKdf5Hq1Cl0gQ.b.5Ha2PhDQGOUZV1/YQs6xjbdrJmYrRTG', '2024-05-10', '2024-06-27'),
                                                                                                                    ('SA00004', 'LMS00004', 'active', '$2a$11$a6KMKiwOsXWfpxr4z.EKH.ZPDJVQd72orufY8Fu0NnDPVeCi4Lwkq', '2024-05-11', '2024-06-27'),
@@ -1479,6 +1477,18 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00001', '2024-06-27 16:55:56'),
                                                                       ('SA00001', '2024-06-27 17:47:42'),
                                                                       ('SA00001', '2024-06-27 18:20:56'),
+                                                                      ('SA00001', '2024-06-27 20:20:38'),
+                                                                      ('SA00001', '2024-06-27 21:25:59'),
+                                                                      ('SA00001', '2024-06-27 21:26:14'),
+                                                                      ('SA00001', '2024-06-27 21:31:30'),
+                                                                      ('SA00001', '2024-06-27 21:38:21'),
+                                                                      ('SA00001', '2024-06-27 21:38:31'),
+                                                                      ('SA00001', '2024-06-27 21:40:59'),
+                                                                      ('SA00001', '2024-06-27 21:41:32'),
+                                                                      ('SA00001', '2024-06-27 21:42:28'),
+                                                                      ('SA00001', '2024-06-27 21:45:13'),
+                                                                      ('SA00001', '2024-06-27 22:36:20'),
+                                                                      ('SA00001', '2024-06-27 22:40:45'),
                                                                       ('SA00002', '2024-05-28 23:51:33'),
                                                                       ('SA00002', '2024-05-29 00:27:56'),
                                                                       ('SA00002', '2024-05-29 00:31:28'),
@@ -1585,6 +1595,10 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00003', '2024-06-27 17:59:30'),
                                                                       ('SA00003', '2024-06-27 18:22:20'),
                                                                       ('SA00003', '2024-06-27 18:37:44'),
+                                                                      ('SA00003', '2024-06-27 21:38:27'),
+                                                                      ('SA00003', '2024-06-27 21:43:39'),
+                                                                      ('SA00003', '2024-06-27 21:49:51'),
+                                                                      ('SA00003', '2024-06-27 23:19:37'),
                                                                       ('SA00004', '2024-05-29 01:07:13'),
                                                                       ('SA00004', '2024-05-30 01:50:38'),
                                                                       ('SA00004', '2024-05-30 13:20:52'),
@@ -1599,6 +1613,12 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00004', '2024-06-27 16:56:14'),
                                                                       ('SA00004', '2024-06-27 17:47:59'),
                                                                       ('SA00004', '2024-06-27 18:05:54'),
+                                                                      ('SA00004', '2024-06-27 18:42:18'),
+                                                                      ('SA00004', '2024-06-27 18:42:56'),
+                                                                      ('SA00004', '2024-06-27 18:46:01'),
+                                                                      ('SA00004', '2024-06-27 22:14:14'),
+                                                                      ('SA00004', '2024-06-27 23:20:18'),
+                                                                      ('SA00004', '2024-06-27 23:20:38'),
                                                                       ('SA00005', '2024-05-30 03:02:07'),
                                                                       ('SA00005', '2024-06-04 13:58:21'),
                                                                       ('SA00005', '2024-06-04 13:59:03'),
@@ -1631,11 +1651,14 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00006', '2024-06-27 18:09:53'),
                                                                       ('SA00006', '2024-06-27 18:12:08'),
                                                                       ('SA00006', '2024-06-27 18:37:49'),
+                                                                      ('SA00006', '2024-06-27 22:13:44'),
+                                                                      ('SA00006', '2024-06-27 22:59:13'),
                                                                       ('SA00007', '2024-06-17 00:56:35'),
                                                                       ('SA00007', '2024-06-17 00:56:55'),
                                                                       ('SA00007', '2024-06-17 01:00:18'),
                                                                       ('SA00007', '2024-06-27 16:56:30'),
                                                                       ('SA00008', '2024-06-27 16:56:35'),
+                                                                      ('SA00008', '2024-06-27 23:20:48'),
                                                                       ('SA00009', '2024-06-23 13:51:41'),
                                                                       ('SA00009', '2024-06-23 13:56:28'),
                                                                       ('SA00009', '2024-06-25 11:08:49'),
@@ -1646,6 +1669,12 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00009', '2024-06-27 03:51:45'),
                                                                       ('SA00009', '2024-06-27 17:47:56'),
                                                                       ('SA00009', '2024-06-27 18:17:50'),
+                                                                      ('SA00009', '2024-06-27 18:41:32'),
+                                                                      ('SA00009', '2024-06-27 20:37:35'),
+                                                                      ('SA00009', '2024-06-27 20:38:52'),
+                                                                      ('SA00009', '2024-06-27 20:39:39'),
+                                                                      ('SA00009', '2024-06-27 23:18:06'),
+                                                                      ('SA00009', '2024-06-27 23:20:53'),
                                                                       ('SA00010', '2024-06-23 13:56:58'),
                                                                       ('SA00011', '2024-06-23 13:57:32'),
                                                                       ('SA00011', '2024-06-23 13:58:08'),
@@ -1653,7 +1682,10 @@ INSERT INTO `staff_login_history` (`staffAccountID`, `loginDate`) VALUES
                                                                       ('SA00012', '2024-06-25 09:12:58'),
                                                                       ('SA00012', '2024-06-25 11:34:30'),
                                                                       ('SA00012', '2024-06-27 18:24:32'),
-                                                                      ('SA00012', '2024-06-27 18:24:50');
+                                                                      ('SA00012', '2024-06-27 18:24:50'),
+                                                                      ('SA00012', '2024-06-27 21:32:00'),
+                                                                      ('SA00012', '2024-06-27 22:13:59'),
+                                                                      ('SA00013', '2024-06-27 23:19:12');
 
 -- --------------------------------------------------------
 
