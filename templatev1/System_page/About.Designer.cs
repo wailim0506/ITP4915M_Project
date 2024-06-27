@@ -66,7 +66,7 @@
             // 
             // palNav
             // 
-            this.palNav.BackColor = global::templatev1.Properties.Settings.Default.navColor;
+            this.palNav.BackColor = global::LMCIS.Properties.Settings.Default.navColor;
             this.palNav.Controls.Add(this.picBWMode);
             this.palNav.Controls.Add(this.btnProFile);
             this.palNav.Controls.Add(this.btnLogOut);
@@ -77,7 +77,7 @@
             this.palNav.Controls.Add(this.btnFunction3);
             this.palNav.Controls.Add(this.btnFunction2);
             this.palNav.Controls.Add(this.btnFunction1);
-            this.palNav.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.palNav.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.palNav.Dock = System.Windows.Forms.DockStyle.Left;
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
@@ -98,14 +98,14 @@
             // 
             // btnProFile
             // 
-            this.btnProFile.BackColor = global::templatev1.Properties.Settings.Default.profileColor;
-            this.btnProFile.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "profileColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.btnProFile.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnProFile.BackColor = global::LMCIS.Properties.Settings.Default.profileColor;
+            this.btnProFile.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "profileColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnProFile.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::LMCIS.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatAppearance.BorderSize = 0;
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
+            this.btnProFile.ForeColor = global::LMCIS.Properties.Settings.Default.textColor;
             this.btnProFile.Location = new System.Drawing.Point(0, 794);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
@@ -117,8 +117,8 @@
             // 
             // btnLogOut
             // 
-            this.btnLogOut.BackColor = global::templatev1.Properties.Settings.Default.logoutColor;
-            this.btnLogOut.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "logoutColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnLogOut.BackColor = global::LMCIS.Properties.Settings.Default.logoutColor;
+            this.btnLogOut.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "logoutColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatAppearance.BorderSize = 0;
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -158,8 +158,8 @@
             // 
             // btnFunction5
             // 
-            this.btnFunction5.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction5.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction5.BackColor = global::LMCIS.Properties.Settings.Default.navBarColor;
+            this.btnFunction5.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction5.FlatAppearance.BorderSize = 0;
             this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -175,8 +175,8 @@
             // 
             // btnFunction4
             // 
-            this.btnFunction4.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction4.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction4.BackColor = global::LMCIS.Properties.Settings.Default.navBarColor;
+            this.btnFunction4.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction4.FlatAppearance.BorderSize = 0;
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -192,8 +192,8 @@
             // 
             // btnFunction3
             // 
-            this.btnFunction3.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction3.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction3.BackColor = global::LMCIS.Properties.Settings.Default.navBarColor;
+            this.btnFunction3.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction3.FlatAppearance.BorderSize = 0;
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -209,8 +209,8 @@
             // 
             // btnFunction2
             // 
-            this.btnFunction2.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction2.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction2.BackColor = global::LMCIS.Properties.Settings.Default.navBarColor;
+            this.btnFunction2.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction2.FlatAppearance.BorderSize = 0;
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -226,8 +226,8 @@
             // 
             // btnFunction1
             // 
-            this.btnFunction1.BackColor = global::templatev1.Properties.Settings.Default.navBarColor;
-            this.btnFunction1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.btnFunction1.BackColor = global::LMCIS.Properties.Settings.Default.navBarColor;
+            this.btnFunction1.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "navBarColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction1.FlatAppearance.BorderSize = 0;
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -243,10 +243,10 @@
             // 
             // palTime
             // 
-            this.palTime.BackColor = global::templatev1.Properties.Settings.Default.timeColor;
+            this.palTime.BackColor = global::LMCIS.Properties.Settings.Default.timeColor;
             this.palTime.Controls.Add(this.lblUid);
             this.palTime.Controls.Add(this.lblTimeDate);
-            this.palTime.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "timeColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.palTime.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "timeColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.palTime.Dock = System.Windows.Forms.DockStyle.Top;
             this.palTime.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.palTime.Location = new System.Drawing.Point(198, 0);
@@ -283,9 +283,9 @@
             // 
             // palLoc
             // 
-            this.palLoc.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
+            this.palLoc.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
             this.palLoc.Controls.Add(this.lblLoc);
-            this.palLoc.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.palLoc.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
             this.palLoc.Location = new System.Drawing.Point(198, 40);
             this.palLoc.Name = "palLoc";
@@ -344,8 +344,8 @@
             // 
             // lblInsDate
             // 
-            this.lblInsDate.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
-            this.lblInsDate.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblInsDate.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
+            this.lblInsDate.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblInsDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInsDate.Location = new System.Drawing.Point(434, 170);
             this.lblInsDate.Name = "lblInsDate";
@@ -355,8 +355,8 @@
             // 
             // lblTotalOpTime
             // 
-            this.lblTotalOpTime.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
-            this.lblTotalOpTime.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblTotalOpTime.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
+            this.lblTotalOpTime.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblTotalOpTime.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalOpTime.Location = new System.Drawing.Point(434, 201);
             this.lblTotalOpTime.Name = "lblTotalOpTime";
@@ -376,8 +376,8 @@
             // 
             // lblPlatform
             // 
-            this.lblPlatform.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
-            this.lblPlatform.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblPlatform.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
+            this.lblPlatform.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblPlatform.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPlatform.Location = new System.Drawing.Point(434, 232);
             this.lblPlatform.Name = "lblPlatform";
@@ -387,8 +387,8 @@
             // 
             // lblSysName
             // 
-            this.lblSysName.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
-            this.lblSysName.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblSysName.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
+            this.lblSysName.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblSysName.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSysName.Location = new System.Drawing.Point(434, 108);
             this.lblSysName.Name = "lblSysName";
@@ -399,8 +399,8 @@
             // 
             // lblVer
             // 
-            this.lblVer.BackColor = global::templatev1.Properties.Settings.Default.locTbColor;
-            this.lblVer.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.lblVer.BackColor = global::LMCIS.Properties.Settings.Default.locTbColor;
+            this.lblVer.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "locTbColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.lblVer.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblVer.Location = new System.Drawing.Point(434, 139);
             this.lblVer.Name = "lblVer";
@@ -413,7 +413,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = global::templatev1.Properties.Settings.Default.bgColor;
+            this.BackColor = global::LMCIS.Properties.Settings.Default.bgColor;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.lblPlatform);
             this.Controls.Add(this.lblTitPlatform);
@@ -428,10 +428,10 @@
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palTime);
             this.Controls.Add(this.palNav);
-            this.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::templatev1.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::templatev1.Properties.Settings.Default, "bgColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::LMCIS.Properties.Settings.Default, "textColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::LMCIS.Properties.Settings.Default, "bgColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForeColor = global::templatev1.Properties.Settings.Default.textColor;
+            this.ForeColor = global::LMCIS.Properties.Settings.Default.textColor;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "About";

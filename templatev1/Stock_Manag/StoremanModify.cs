@@ -80,7 +80,7 @@ namespace LMCIS.Stock_Manag
             tbName.ReadOnly = UIController.ModifyStore() == true ? false : true;
 
             //For icon color
-            if (templatev1.Properties.Settings.Default.BWmode == true)
+            if (LMCIS.Properties.Settings.Default.BWmode == true)
             {
                 picBWMode.Image = Resources.LBWhite;
                 picHome.Image = Resources.homeWhite;

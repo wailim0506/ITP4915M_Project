@@ -90,20 +90,20 @@ namespace LMCIS.System_page
             {
                 if (chkRememberMe.Checked == true) //Store to local
                 {
-                    templatev1.Properties.Settings.Default.Usesrname = tbUsername.Text;
-                    templatev1.Properties.Settings.Default.Password = tbPassword.Text;
-                    templatev1.Properties.Settings.Default.Save();
+                    LMCIS.Properties.Settings.Default.Usesrname = tbUsername.Text;
+                    LMCIS.Properties.Settings.Default.Password = tbPassword.Text;
+                    LMCIS.Properties.Settings.Default.Save();
                 }
                 else
-                    templatev1.Properties.Settings.Default.Reset(); //Clean local data
+                    LMCIS.Properties.Settings.Default.Reset(); //Clean local data
             }
             else //Read from local
             {
-                if (!string.IsNullOrEmpty(templatev1.Properties.Settings.Default.Usesrname))
+                if (!string.IsNullOrEmpty(LMCIS.Properties.Settings.Default.Usesrname))
                 {
                     chkRememberMe.CheckState = CheckState.Checked;
-                    tbUsername.Text = templatev1.Properties.Settings.Default.Usesrname;
-                    tbPassword.Text = templatev1.Properties.Settings.Default.Password;
+                    tbUsername.Text = LMCIS.Properties.Settings.Default.Usesrname;
+                    tbPassword.Text = LMCIS.Properties.Settings.Default.Password;
                     btnLogin.Select();
                 }
             }

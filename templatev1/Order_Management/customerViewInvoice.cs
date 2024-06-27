@@ -14,7 +14,7 @@ using LMCIS.System_page;
 using LMCIS.User_Manag;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-using templatev1.Properties;
+using LMCIS.Properties;
 
 namespace LMCIS.Order_Management
 {

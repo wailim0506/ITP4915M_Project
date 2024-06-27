@@ -1381,7 +1381,7 @@ namespace LMCIS.Entities
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::templatev1.Properties.Settings.Default.itp4915m_se1d_group4ConnectionString;
+            this._connection.ConnectionString = global::LMCIS.Properties.Settings.Default.itp4915m_se1d_group4ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1552,7 +1552,7 @@ namespace LMCIS.Entities
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.Odbc.OdbcConnection();
-            this._connection.ConnectionString = global::templatev1.Properties.Settings.Default.itp4915m_se1d_group4ConnectionString;
+            this._connection.ConnectionString = global::LMCIS.Properties.Settings.Default.itp4915m_se1d_group4ConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

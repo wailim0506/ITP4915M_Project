@@ -65,7 +65,7 @@ namespace LMCIS.Stock_Manag
             btnFunction5.Text = btnFun.btn5value;
 
             //For icon color
-            if (templatev1.Properties.Settings.Default.BWmode == true)
+            if (LMCIS.Properties.Settings.Default.BWmode == true)
             {
                 picBWMode.Image = Resources.LBWhite;
                 picHome.Image = Resources.homeWhite;

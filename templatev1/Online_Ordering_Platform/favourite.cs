@@ -12,7 +12,7 @@ using LMCIS.Properties;
 using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
-using templatev1.Properties;
+using LMCIS.Properties;
 
 namespace LMCIS.Online_Ordering_Platform
 {

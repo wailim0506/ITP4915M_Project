@@ -693,7 +693,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\controller.OrderAnalysisReportController.datasource" />
-    <None Include="Properties\DataSources\templatev1.itp4915m_se1d_group4DataSetTableAdapters.shippedordertotalsTableAdapter.datasource" />
+    <None Include="Properties\DataSources\LMCIS.itp4915m_se1d_group4DataSetTableAdapters.shippedordertotalsTableAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

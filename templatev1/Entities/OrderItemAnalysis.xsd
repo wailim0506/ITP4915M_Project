@@ -14,7 +14,7 @@
                                 AppSettingsPropertyName="itp4915m_se1d_group4ConnectionString" ConnectionStringObject=""
                                 IsAppSettingsProperty="true" Modifier="Assembly"
                                 Name="itp4915m_se1d_group4ConnectionString (Settings)"
-                                PropertyReference="ApplicationSettings.templatev1.Properties.Settings.GlobalReference.Default.itp4915m_se1d_group4ConnectionString"
+                                PropertyReference="ApplicationSettings.LMCIS.Properties.Settings.GlobalReference.Default.itp4915m_se1d_group4ConnectionString"
                                 Provider="System.Data.Odbc"/>
                 </Connections>
                 <Tables>

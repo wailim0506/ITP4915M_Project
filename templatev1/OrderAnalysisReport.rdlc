@@ -48,7 +48,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>OrderItemAnalysis</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\a1667\RiderProjects\ITP4915M_Project\templatev1\Entities\OrderItemAnalysis.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\a1667\RiderProjects\ITP4915M_Project\LMCIS\Entities\OrderItemAnalysis.xsd</rd:SchemaPath>
         <rd:TableName>OrderTable</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

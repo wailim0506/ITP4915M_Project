@@ -6,5 +6,5 @@
     cause the file to be unrecognizable by the program.
 -->
 <GenericObjectDataSource DisplayName="shippedordertotalsTableAdapter" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-   <TypeInfo>templatev1.itp4915m_se1d_group4DataSetTableAdapters.shippedordertotalsTableAdapter, itp4915m_se1d_group4DataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>LMCIS.itp4915m_se1d_group4DataSetTableAdapters.shippedordertotalsTableAdapter, itp4915m_se1d_group4DataSet.Designer.cs.dll, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

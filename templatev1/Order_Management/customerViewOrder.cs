@@ -13,7 +13,7 @@ using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
 using Microsoft.Extensions.Logging;
-using templatev1.Properties;
+using LMCIS.Properties;
 
 namespace LMCIS.Order_Management
 {

@@ -9,7 +9,7 @@ using LMCIS.Profile;
 using LMCIS.Properties;
 using LMCIS.Stock_Manag;
 using LMCIS.User_Manag;
-using templatev1.Properties;
+using LMCIS.Properties;
 
 namespace LMCIS.System_page
 {

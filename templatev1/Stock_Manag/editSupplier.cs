@@ -68,7 +68,7 @@ namespace LMCIS.Stock_Manag
 
 
             //For icon color
-            if (templatev1.Properties.Settings.Default.BWmode == true)
+            if (LMCIS.Properties.Settings.Default.BWmode == true)
             {
                 picBWMode.Image = Resources.LBWhite;
                 picHome.Image = Resources.homeWhite;

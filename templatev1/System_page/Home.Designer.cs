@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            templatev1.Properties.Settings settings1 = new templatev1.Properties.Settings();
+            LMCIS.Properties.Settings settings1 = new LMCIS.Properties.Settings();
             this.palNav = new System.Windows.Forms.Panel();
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();

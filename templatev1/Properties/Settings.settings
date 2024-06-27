@@ -1,6 +1,6 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="templatev1.Properties" GeneratedClassName="Settings">
+              GeneratedClassNamespace="LMCIS.Properties" GeneratedClassName="Settings">
     <Profiles/>
     <Settings>
         <Setting Name="Usesrname" Type="System.String" Scope="User">
