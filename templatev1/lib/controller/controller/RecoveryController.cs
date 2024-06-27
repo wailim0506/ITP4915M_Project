@@ -5,6 +5,7 @@ using System.Data;
 using System.IO;
 using controller.Utilities;
 using Microsoft.Extensions.Logging;
+using System.Windows.Forms;
 
 namespace controller
 {
@@ -41,7 +42,7 @@ namespace controller
         //Find the user in the database
         public bool FindUser(string userId, string emailAdd, string phoneNo)
         {
-            if (!ValidateUserDetails(userId, emailAdd, phoneNo)) return false;
+            //if (!ValidateUserDetails(userId, emailAdd, phoneNo)) return false;
             UID = userId;
             email = emailAdd;
             phone = phoneNo;
@@ -54,6 +55,7 @@ namespace controller
 
                 sqlStr =
                     $"SELECT * FROM {table} WHERE {(table == "customer" ? "customerID" : "staffID")} = '{UID}' AND (phoneNumber = '{phone}' OR emailAddress = '{email}')";
+                
                 Dictionary<string, object> queryParameters = new Dictionary<string, object> { { "@id", UID } };
                 dt = db.ExecuteDataTable(sqlStr, queryParameters);
                 Log.LogMessage(LogLevel.Debug, "Recovery Controller",

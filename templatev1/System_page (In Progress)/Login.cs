@@ -156,31 +156,31 @@ namespace templatev1
         private void btnTest3_Click(object sender, EventArgs e)
         {
             tbUsername.Text = "LMS00006";
-            tbPassword.Text = "1234567890";
+            tbPassword.Text = "password123";
         }
 
         private void btnTest4_Click_1(object sender, EventArgs e)
         {
             tbUsername.Text = "LMS00003";
-            tbPassword.Text = "xyz789!@#";
+            tbPassword.Text = "password123";
         }
 
         private void btnTest5_Click_1(object sender, EventArgs e)
         {
             tbUsername.Text = "LMS00004";
-            tbPassword.Text = "qwer5678";
+            tbPassword.Text = "password123";
         }
 
         private void btnTest6_Click_1(object sender, EventArgs e)
         {
             tbUsername.Text = "LMS00009";
-            tbPassword.Text = "1234567890";
+            tbPassword.Text = "password123";
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             tbUsername.Text = "LMC00002";
-            tbPassword.Text = "1234567890";
+            tbPassword.Text = "password123";
         }
 
         private void tbPassword_KeyDown(object sender, KeyEventArgs e)

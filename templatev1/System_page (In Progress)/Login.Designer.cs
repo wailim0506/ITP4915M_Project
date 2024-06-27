@@ -56,6 +56,7 @@
             this.btnTest3 = new System.Windows.Forms.Button();
             this.btnTest2 = new System.Windows.Forms.Button();
             this.btnTest1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpDevTools.SuspendLayout();
@@ -231,6 +232,7 @@
             // grpDevTools
             // 
             this.grpDevTools.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grpDevTools.Controls.Add(this.button2);
             this.grpDevTools.Controls.Add(this.button1);
             this.grpDevTools.Controls.Add(this.btnText7);
             this.grpDevTools.Controls.Add(this.btnTest6);
@@ -240,9 +242,9 @@
             this.grpDevTools.Controls.Add(this.btnTest2);
             this.grpDevTools.Controls.Add(this.btnTest1);
             this.grpDevTools.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpDevTools.Location = new System.Drawing.Point(849, 99);
+            this.grpDevTools.Location = new System.Drawing.Point(828, 99);
             this.grpDevTools.Name = "grpDevTools";
-            this.grpDevTools.Size = new System.Drawing.Size(299, 447);
+            this.grpDevTools.Size = new System.Drawing.Size(320, 528);
             this.grpDevTools.TabIndex = 25;
             this.grpDevTools.TabStop = false;
             this.grpDevTools.Text = "Development Tools";
@@ -250,7 +252,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(26, 84);
+            this.button1.Location = new System.Drawing.Point(42, 96);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(242, 34);
             this.button1.TabIndex = 14;
@@ -261,7 +263,7 @@
             // btnText7
             // 
             this.btnText7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnText7.Location = new System.Drawing.Point(26, 390);
+            this.btnText7.Location = new System.Drawing.Point(42, 460);
             this.btnText7.Name = "btnText7";
             this.btnText7.Size = new System.Drawing.Size(242, 34);
             this.btnText7.TabIndex = 13;
@@ -272,7 +274,7 @@
             // btnTest6
             // 
             this.btnTest6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest6.Location = new System.Drawing.Point(26, 335);
+            this.btnTest6.Location = new System.Drawing.Point(42, 356);
             this.btnTest6.Name = "btnTest6";
             this.btnTest6.Size = new System.Drawing.Size(242, 34);
             this.btnTest6.TabIndex = 12;
@@ -283,7 +285,7 @@
             // btnTest5
             // 
             this.btnTest5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest5.Location = new System.Drawing.Point(26, 285);
+            this.btnTest5.Location = new System.Drawing.Point(42, 408);
             this.btnTest5.Name = "btnTest5";
             this.btnTest5.Size = new System.Drawing.Size(242, 34);
             this.btnTest5.TabIndex = 11;
@@ -294,7 +296,7 @@
             // btnTest4
             // 
             this.btnTest4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest4.Location = new System.Drawing.Point(26, 235);
+            this.btnTest4.Location = new System.Drawing.Point(42, 304);
             this.btnTest4.Name = "btnTest4";
             this.btnTest4.Size = new System.Drawing.Size(242, 34);
             this.btnTest4.TabIndex = 10;
@@ -305,7 +307,7 @@
             // btnTest3
             // 
             this.btnTest3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest3.Location = new System.Drawing.Point(26, 185);
+            this.btnTest3.Location = new System.Drawing.Point(42, 200);
             this.btnTest3.Name = "btnTest3";
             this.btnTest3.Size = new System.Drawing.Size(242, 34);
             this.btnTest3.TabIndex = 9;
@@ -316,7 +318,7 @@
             // btnTest2
             // 
             this.btnTest2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest2.Location = new System.Drawing.Point(26, 135);
+            this.btnTest2.Location = new System.Drawing.Point(42, 148);
             this.btnTest2.Name = "btnTest2";
             this.btnTest2.Size = new System.Drawing.Size(242, 34);
             this.btnTest2.TabIndex = 8;
@@ -327,13 +329,23 @@
             // btnTest1
             // 
             this.btnTest1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest1.Location = new System.Drawing.Point(26, 37);
+            this.btnTest1.Location = new System.Drawing.Point(42, 44);
             this.btnTest1.Name = "btnTest1";
             this.btnTest1.Size = new System.Drawing.Size(242, 34);
             this.btnTest1.TabIndex = 7;
             this.btnTest1.Text = "Login as non-LM customer";
             this.btnTest1.UseVisualStyleBackColor = true;
             this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(42, 252);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(242, 34);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Login as Goods Inward Staff";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Login
             // 
@@ -401,6 +413,7 @@
         private System.Windows.Forms.Button btnTest3;
         private System.Windows.Forms.Button btnTest6;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
