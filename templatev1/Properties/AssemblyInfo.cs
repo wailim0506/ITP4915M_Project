@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Legend Motor Limited Company")]
 [assembly: AssemblyProduct("LMCIS")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Copyright © 2024 Legend Motor Limited Company")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

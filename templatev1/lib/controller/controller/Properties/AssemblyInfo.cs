@@ -8,8 +8,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("This is class library for controller. it will be used by LMCI System for the purpose of data access and manipulation.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Legend Motor Limited Company")]
-[assembly: AssemblyProduct("System controller class library")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyProduct("LMCI System controller class library")]
+[assembly: AssemblyCopyright("Copyright © 2024 Legend Motor Limited Company")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
