@@ -255,67 +255,6 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        private void btnFunction1_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction1.Text);
-        }
-
-        private void btnFunction2_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction2.Text);
-        }
-
-        private void btnFunction3_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction3.Text);
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form o = new Login();
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController proFileController = new proFileController(accountController);
-
-            proFileController.setType(accountController.GetAccountType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
-            Hide();
-            //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = Location;
-            proFile.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction5_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction5.Text);
-        }
-
-        private void picHome_Click(object sender, EventArgs e)
-        {
-            Form home = new Home(accountController, UIController);
-            Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
-            Close();
-        }
-
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction4.Text);
-        }
-
         private void getPage(string Function)
         {
             Form next = new Home(accountController, UIController);
@@ -370,6 +309,86 @@ namespace templatev1
             next.ShowDialog();
             Close();
         }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Hide();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
+            Close();
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            Form home = new Home(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
+            Close();
+        }
+
+        private void lblCorpName_Click(object sender, EventArgs e)
+        {
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
+        }
+
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {

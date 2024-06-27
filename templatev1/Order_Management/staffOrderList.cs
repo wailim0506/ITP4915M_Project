@@ -240,44 +240,31 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
-        private void btnFunction1_Click(object sender, EventArgs e)
+
+
+        private void tbKW_TextChanged(object sender, EventArgs e)
         {
-            getPage(btnFunction1.Text);
+            load_data(cmbStatus.Text, cmbSorting.Text, isManager);
         }
 
-        private void btnFunction2_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            getPage(btnFunction2.Text);
+            tbKW.Text = "";
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Form o = new Login();
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
-
-        private void btnProFile_Click(object sender, EventArgs e)
-        {
-            proFileController proFileController = new proFileController(accountController);
-
-            proFileController.setType(accountController.GetAccountType());
-
-            Form proFile = new proFileMain(accountController, UIController, proFileController);
+            Form home = new staffFeedbackList(accountController, UIController);
             Hide();
             //Swap the current form to another.
-            proFile.StartPosition = FormStartPosition.Manual;
-            proFile.Location = Location;
-            proFile.ShowDialog();
+            home.StartPosition = FormStartPosition.Manual;
+            home.Location = Location;
+            home.ShowDialog();
             Close();
         }
 
-        private void btnFunction5_Click(object sender, EventArgs e)
+        private void palNav_Paint(object sender, PaintEventArgs e)
         {
-            getPage(btnFunction5.Text);
         }
 
         private void getPage(string Function)
@@ -335,24 +322,58 @@ namespace templatev1
             Close();
         }
 
-        private void tbKW_TextChanged(object sender, EventArgs e)
+        private void btnFunction1_Click(object sender, EventArgs e)
         {
-            load_data(cmbStatus.Text, cmbSorting.Text, isManager);
+            getPage(btnFunction1.Text);
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            tbKW.Text = "";
+            getPage(btnFunction5.Text);
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnFunction4_Click(object sender, EventArgs e)
         {
-            Form home = new staffFeedbackList(accountController, UIController);
+            getPage(btnFunction4.Text);
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            Form o = new Login();
+            Hide();
+            o.StartPosition = FormStartPosition.Manual;
+            o.Location = Location;
+            o.ShowDialog();
+            Close();
+        }
+
+        private void btnProFile_Click(object sender, EventArgs e)
+        {
+            proFileController proFileController = new proFileController(accountController);
+
+            proFileController.setType(accountController.GetAccountType());
+
+            Form proFile = new proFileMain(accountController, UIController, proFileController);
             Hide();
             //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
             Close();
         }
 
@@ -367,18 +388,16 @@ namespace templatev1
             Close();
         }
 
-        private void palNav_Paint(object sender, PaintEventArgs e)
+        private void lblCorpName_Click(object sender, EventArgs e)
         {
-        }
-
-        private void btnFunction3_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction3.Text);
-        }
-
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            getPage(btnFunction4.Text);
+            Form about = new About(accountController, UIController);
+            Hide();
+            //Swap the current form to another.
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
+            Close();
         }
 
         private void setIndicator(int btnNo)

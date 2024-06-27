@@ -390,7 +390,7 @@ namespace templatev1
             this.btnBackViewPart.BackColor = System.Drawing.Color.Transparent;
             this.btnBackViewPart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBackViewPart.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackViewPart.Location = new System.Drawing.Point(265, 92);
+            this.btnBackViewPart.Location = new System.Drawing.Point(208, 88);
             this.btnBackViewPart.Name = "btnBackViewPart";
             this.btnBackViewPart.Size = new System.Drawing.Size(187, 32);
             this.btnBackViewPart.TabIndex = 200;

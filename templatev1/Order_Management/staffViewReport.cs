@@ -269,6 +269,90 @@ namespace templatev1
             btnFunction5.Text = btnFun.btn5value;
         }
 
+        private void getPage(string Function)
+        {
+            Form next = new Home(_accountController, _uiController);
+            switch (Function)
+            {
+                case "Order Management":
+                    if (UID.StartsWith("LMC"))
+                    {
+                        next = new customerOrderList(_accountController, _uiController);
+                    }
+                    else if (_accountController.CheckIsDeliverman())
+                    {
+                        next = new deliverman(_accountController, _uiController);
+                    }
+                    else
+                    {
+                        next = new staffOrderList(_accountController, _uiController);
+                    }
+
+                    break;
+                case "Spare Part":
+                    next = new sparePartList(_accountController, _uiController);
+                    break;
+                case "Cart":
+                    next = new cart(_accountController, _uiController);
+                    break;
+                case "Favourite":
+                    next = new favourite(_accountController, _uiController);
+                    break;
+                case "Give Feedback":
+                    next = new giveFeedback(_accountController, _uiController);
+                    break;
+
+                case "On-Sale Product Management":
+                    next = new OnSaleMain(_accountController, _uiController);
+                    break;
+                case "Stock Management":
+                    next = new StockMgmt(_accountController, _uiController);
+                    break;
+                case "User Management":
+                    next = new SAccManage(_accountController, _uiController);
+                    break;
+                case "Invoice Management":
+                    next = new staffInvoiceList(_accountController, _uiController);
+                    break;
+            }
+
+            Hide();
+            next.StartPosition = FormStartPosition.Manual;
+            next.Location = Location;
+            next.Size = Size;
+            next.ShowDialog();
+            Close();
+        }
+
+        private void btnFunction1_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction1.Text);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
+
+        private void btnFunction4_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction4.Text);
+        }
+
+        private void btnFunction3_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction3.Text);
+        }
+
+        private void btnFunction2_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction2.Text);
+        }
+
+        private void btnFunction5_Click(object sender, EventArgs e)
+        {
+            getPage(btnFunction5.Text);
+        }
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
@@ -280,14 +364,18 @@ namespace templatev1
             Close();
         }
 
-        private void btnFunction1_Click(object sender, EventArgs e)
+        private void btnProFile_Click(object sender, EventArgs e)
         {
-            Form o =
-                new staffOrderList(_accountController, _uiController);
+            proFileController proFileController = new proFileController(_accountController);
+
+            proFileController.setType(_accountController.GetAccountType());
+
+            Form proFile = new proFileMain(_accountController, _uiController, proFileController);
             Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
+            //Swap the current form to another.
+            proFile.StartPosition = FormStartPosition.Manual;
+            proFile.Location = Location;
+            proFile.ShowDialog();
             Close();
         }
 
@@ -302,42 +390,23 @@ namespace templatev1
             Close();
         }
 
-        private void btnFunction3_Click(object sender, EventArgs e)
+        private void lblCorpName_Click(object sender, EventArgs e)
         {
-            Form home = new OnSaleMain(_accountController, _uiController);
+            Form about = new About(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
+            about.StartPosition = FormStartPosition.Manual;
+            about.Location = Location;
+            about.Size = Size;
+            about.ShowDialog();
             Close();
         }
 
-        private void btnFunction4_Click(object sender, EventArgs e)
-        {
-            Form home = new StockMgmt(_accountController, _uiController);
-            Hide();
-            //Swap the current form to another.
-            home.StartPosition = FormStartPosition.Manual;
-            home.Location = Location;
-            home.ShowDialog();
-            Close();
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblTimeDate.Text = DateTime.Now.ToString("yyyy/MM/dd   HH:mm:ss");
         }
 
-        private void btnFunction2_Click(object sender, EventArgs e)
-        {
-            Form o =
-                new staffInvoiceList(_accountController, _uiController);
-            Hide();
-            o.StartPosition = FormStartPosition.Manual;
-            o.Location = Location;
-            o.ShowDialog();
-            Close();
-        }
     }
 }
