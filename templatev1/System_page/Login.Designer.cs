@@ -47,16 +47,16 @@
             this.lblSystemTitle2 = new System.Windows.Forms.Label();
             this.lblUsernameMsg = new System.Windows.Forms.Label();
             this.lblPasswordMsg = new System.Windows.Forms.Label();
-            this.grpDevTools = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnText7 = new System.Windows.Forms.Button();
-            this.btnTest6 = new System.Windows.Forms.Button();
-            this.btnTest5 = new System.Windows.Forms.Button();
-            this.btnTest4 = new System.Windows.Forms.Button();
-            this.btnTest3 = new System.Windows.Forms.Button();
-            this.btnTest2 = new System.Windows.Forms.Button();
             this.btnTest1 = new System.Windows.Forms.Button();
+            this.btnTest2 = new System.Windows.Forms.Button();
+            this.btnTest3 = new System.Windows.Forms.Button();
+            this.btnTest4 = new System.Windows.Forms.Button();
+            this.btnTest5 = new System.Windows.Forms.Button();
+            this.btnTest6 = new System.Windows.Forms.Button();
+            this.btnText7 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.grpDevTools = new System.Windows.Forms.GroupBox();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpDevTools.SuspendLayout();
@@ -229,6 +229,105 @@
             this.lblPasswordMsg.Size = new System.Drawing.Size(221, 15);
             this.lblPasswordMsg.TabIndex = 24;
             // 
+            // btnTest1
+            // 
+            this.btnTest1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest1.Location = new System.Drawing.Point(42, 44);
+            this.btnTest1.Name = "btnTest1";
+            this.btnTest1.Size = new System.Drawing.Size(242, 34);
+            this.btnTest1.TabIndex = 7;
+            this.btnTest1.Text = "Login as non-LM customer";
+            this.btnTest1.UseVisualStyleBackColor = true;
+            this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
+            // 
+            // btnTest2
+            // 
+            this.btnTest2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest2.Location = new System.Drawing.Point(42, 148);
+            this.btnTest2.Name = "btnTest2";
+            this.btnTest2.Size = new System.Drawing.Size(242, 34);
+            this.btnTest2.TabIndex = 8;
+            this.btnTest2.Text = "Login as Sale Manager";
+            this.btnTest2.UseVisualStyleBackColor = true;
+            this.btnTest2.Click += new System.EventHandler(this.btnTest2_Click);
+            // 
+            // btnTest3
+            // 
+            this.btnTest3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest3.Location = new System.Drawing.Point(42, 200);
+            this.btnTest3.Name = "btnTest3";
+            this.btnTest3.Size = new System.Drawing.Size(242, 34);
+            this.btnTest3.TabIndex = 9;
+            this.btnTest3.Text = "Login as order processing clerk";
+            this.btnTest3.UseVisualStyleBackColor = true;
+            this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
+            // 
+            // btnTest4
+            // 
+            this.btnTest4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest4.Location = new System.Drawing.Point(42, 304);
+            this.btnTest4.Name = "btnTest4";
+            this.btnTest4.Size = new System.Drawing.Size(242, 34);
+            this.btnTest4.TabIndex = 10;
+            this.btnTest4.Text = "Login as storeman";
+            this.btnTest4.UseVisualStyleBackColor = true;
+            this.btnTest4.Click += new System.EventHandler(this.btnTest4_Click_1);
+            // 
+            // btnTest5
+            // 
+            this.btnTest5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest5.Location = new System.Drawing.Point(42, 408);
+            this.btnTest5.Name = "btnTest5";
+            this.btnTest5.Size = new System.Drawing.Size(242, 34);
+            this.btnTest5.TabIndex = 11;
+            this.btnTest5.Text = "Login as department manager";
+            this.btnTest5.UseVisualStyleBackColor = true;
+            this.btnTest5.Click += new System.EventHandler(this.btnTest5_Click_1);
+            // 
+            // btnTest6
+            // 
+            this.btnTest6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTest6.Location = new System.Drawing.Point(42, 356);
+            this.btnTest6.Name = "btnTest6";
+            this.btnTest6.Size = new System.Drawing.Size(242, 34);
+            this.btnTest6.TabIndex = 12;
+            this.btnTest6.Text = "Login as delivery man";
+            this.btnTest6.UseVisualStyleBackColor = true;
+            this.btnTest6.Click += new System.EventHandler(this.btnTest6_Click_1);
+            // 
+            // btnText7
+            // 
+            this.btnText7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnText7.Location = new System.Drawing.Point(42, 460);
+            this.btnText7.Name = "btnText7";
+            this.btnText7.Size = new System.Drawing.Size(242, 34);
+            this.btnText7.TabIndex = 13;
+            this.btnText7.Text = "Redirect to Test Tools";
+            this.btnText7.UseVisualStyleBackColor = true;
+            this.btnText7.Click += new System.EventHandler(this.btnText7_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(42, 96);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(242, 34);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Login as LM customer";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(42, 252);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(242, 34);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Login as Goods Inward Staff";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // grpDevTools
             // 
             this.grpDevTools.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -248,105 +347,6 @@
             this.grpDevTools.TabIndex = 25;
             this.grpDevTools.TabStop = false;
             this.grpDevTools.Text = "Development Tools";
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(42, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(242, 34);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Login as Goods Inward Staff";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(42, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(242, 34);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Login as LM customer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnText7
-            // 
-            this.btnText7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnText7.Location = new System.Drawing.Point(42, 460);
-            this.btnText7.Name = "btnText7";
-            this.btnText7.Size = new System.Drawing.Size(242, 34);
-            this.btnText7.TabIndex = 13;
-            this.btnText7.Text = "Redirect to Test Tools";
-            this.btnText7.UseVisualStyleBackColor = true;
-            this.btnText7.Click += new System.EventHandler(this.btnText7_Click);
-            // 
-            // btnTest6
-            // 
-            this.btnTest6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest6.Location = new System.Drawing.Point(42, 356);
-            this.btnTest6.Name = "btnTest6";
-            this.btnTest6.Size = new System.Drawing.Size(242, 34);
-            this.btnTest6.TabIndex = 12;
-            this.btnTest6.Text = "Login as delivery man";
-            this.btnTest6.UseVisualStyleBackColor = true;
-            this.btnTest6.Click += new System.EventHandler(this.btnTest6_Click_1);
-            // 
-            // btnTest5
-            // 
-            this.btnTest5.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest5.Location = new System.Drawing.Point(42, 408);
-            this.btnTest5.Name = "btnTest5";
-            this.btnTest5.Size = new System.Drawing.Size(242, 34);
-            this.btnTest5.TabIndex = 11;
-            this.btnTest5.Text = "Login as department manager";
-            this.btnTest5.UseVisualStyleBackColor = true;
-            this.btnTest5.Click += new System.EventHandler(this.btnTest5_Click_1);
-            // 
-            // btnTest4
-            // 
-            this.btnTest4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest4.Location = new System.Drawing.Point(42, 304);
-            this.btnTest4.Name = "btnTest4";
-            this.btnTest4.Size = new System.Drawing.Size(242, 34);
-            this.btnTest4.TabIndex = 10;
-            this.btnTest4.Text = "Login as storeman";
-            this.btnTest4.UseVisualStyleBackColor = true;
-            this.btnTest4.Click += new System.EventHandler(this.btnTest4_Click_1);
-            // 
-            // btnTest3
-            // 
-            this.btnTest3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest3.Location = new System.Drawing.Point(42, 200);
-            this.btnTest3.Name = "btnTest3";
-            this.btnTest3.Size = new System.Drawing.Size(242, 34);
-            this.btnTest3.TabIndex = 9;
-            this.btnTest3.Text = "Login as order processing clerk";
-            this.btnTest3.UseVisualStyleBackColor = true;
-            this.btnTest3.Click += new System.EventHandler(this.btnTest3_Click);
-            // 
-            // btnTest2
-            // 
-            this.btnTest2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest2.Location = new System.Drawing.Point(42, 148);
-            this.btnTest2.Name = "btnTest2";
-            this.btnTest2.Size = new System.Drawing.Size(242, 34);
-            this.btnTest2.TabIndex = 8;
-            this.btnTest2.Text = "Login as Sale Manager";
-            this.btnTest2.UseVisualStyleBackColor = true;
-            this.btnTest2.Click += new System.EventHandler(this.btnTest2_Click);
-            // 
-            // btnTest1
-            // 
-            this.btnTest1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTest1.Location = new System.Drawing.Point(42, 44);
-            this.btnTest1.Name = "btnTest1";
-            this.btnTest1.Size = new System.Drawing.Size(242, 34);
-            this.btnTest1.TabIndex = 7;
-            this.btnTest1.Text = "Login as non-LM customer";
-            this.btnTest1.UseVisualStyleBackColor = true;
-            this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
             // 
             // Login
             // 
@@ -386,8 +386,6 @@
 
         }
 
-        private System.Windows.Forms.Button btnText7;
-
         #endregion
         private System.Windows.Forms.Panel palTime;
         private System.Windows.Forms.Label lblTimeDate;
@@ -406,15 +404,16 @@
         private System.Windows.Forms.Label lblSystemTitle2;
         private System.Windows.Forms.Label lblUsernameMsg;
         private System.Windows.Forms.Label lblPasswordMsg;
-        private System.Windows.Forms.GroupBox grpDevTools;
-        private System.Windows.Forms.Button btnTest2;
         private System.Windows.Forms.Button btnTest1;
-        private System.Windows.Forms.Button btnTest5;
-        private System.Windows.Forms.Button btnTest4;
+        private System.Windows.Forms.Button btnTest2;
         private System.Windows.Forms.Button btnTest3;
+        private System.Windows.Forms.Button btnTest4;
+        private System.Windows.Forms.Button btnTest5;
         private System.Windows.Forms.Button btnTest6;
+        private System.Windows.Forms.Button btnText7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox grpDevTools;
     }
 }
 
