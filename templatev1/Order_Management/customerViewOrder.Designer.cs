@@ -89,7 +89,6 @@ namespace templatev1
             this.picBWMode = new System.Windows.Forms.PictureBox();
             this.btnProFile = new System.Windows.Forms.Button();
             this.palSelect3 = new System.Windows.Forms.Panel();
-            this.btnLogOut = new System.Windows.Forms.Button();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblCorpName = new System.Windows.Forms.Label();
             this.btnFunction5 = new System.Windows.Forms.Button();
@@ -97,6 +96,7 @@ namespace templatev1
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
             this.grpSparePart.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
@@ -375,9 +375,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(215, 812);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 67;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -388,9 +388,9 @@ namespace templatev1
             this.btnViewInvoice.AutoSize = true;
             this.btnViewInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewInvoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewInvoice.Location = new System.Drawing.Point(936, 813);
+            this.btnViewInvoice.Location = new System.Drawing.Point(954, 895);
             this.btnViewInvoice.Name = "btnViewInvoice";
-            this.btnViewInvoice.Size = new System.Drawing.Size(107, 45);
+            this.btnViewInvoice.Size = new System.Drawing.Size(107, 37);
             this.btnViewInvoice.TabIndex = 68;
             this.btnViewInvoice.Text = "View Invoice";
             this.btnViewInvoice.UseVisualStyleBackColor = true;
@@ -401,9 +401,9 @@ namespace templatev1
             this.btnEdit.AutoSize = true;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(1049, 813);
+            this.btnEdit.Location = new System.Drawing.Point(1067, 895);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 45);
+            this.btnEdit.Size = new System.Drawing.Size(94, 37);
             this.btnEdit.TabIndex = 69;
             this.btnEdit.Text = "Edit Order";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -415,9 +415,9 @@ namespace templatev1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(818, 813);
+            this.btnDelete.Location = new System.Drawing.Point(837, 895);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 45);
+            this.btnDelete.Size = new System.Drawing.Size(112, 37);
             this.btnDelete.TabIndex = 70;
             this.btnDelete.Text = "Cancel Order";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -491,9 +491,9 @@ namespace templatev1
             this.btnReorder.AutoSize = true;
             this.btnReorder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReorder.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReorder.Location = new System.Drawing.Point(718, 813);
+            this.btnReorder.Location = new System.Drawing.Point(737, 895);
             this.btnReorder.Name = "btnReorder";
-            this.btnReorder.Size = new System.Drawing.Size(94, 45);
+            this.btnReorder.Size = new System.Drawing.Size(94, 37);
             this.btnReorder.TabIndex = 81;
             this.btnReorder.Text = "Re-order";
             this.btnReorder.UseVisualStyleBackColor = true;
@@ -552,9 +552,9 @@ namespace templatev1
             this.btnViewDelivery.AutoSize = true;
             this.btnViewDelivery.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewDelivery.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewDelivery.Location = new System.Drawing.Point(600, 812);
+            this.btnViewDelivery.Location = new System.Drawing.Point(618, 895);
             this.btnViewDelivery.Name = "btnViewDelivery";
-            this.btnViewDelivery.Size = new System.Drawing.Size(112, 45);
+            this.btnViewDelivery.Size = new System.Drawing.Size(112, 37);
             this.btnViewDelivery.TabIndex = 91;
             this.btnViewDelivery.Text = "View Delivery";
             this.btnViewDelivery.UseVisualStyleBackColor = true;
@@ -710,21 +710,6 @@ namespace templatev1
             this.palSelect3.TabIndex = 3;
             this.palSelect3.Visible = false;
             // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
-            this.btnLogOut.TabIndex = 19;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
             // picHome
             // 
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -829,6 +814,21 @@ namespace templatev1
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFunction1.UseVisualStyleBackColor = false;
             this.btnFunction1.Click += new System.EventHandler(this.btnFunction1_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
+            this.btnLogOut.TabIndex = 19;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // customerViewOrder
             // 

@@ -280,7 +280,7 @@ namespace templatev1
             this.button1.AutoSize = true;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(998, 836);
+            this.button1.Location = new System.Drawing.Point(1001, 899);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 30);
             this.button1.TabIndex = 108;

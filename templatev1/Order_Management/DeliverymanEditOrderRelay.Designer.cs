@@ -79,10 +79,10 @@ namespace templatev1
             // lblOrderID
             // 
             this.lblOrderID.AutoSize = true;
-            this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(333, 104);
+            this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lblOrderID.Location = new System.Drawing.Point(392, 110);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(0, 19);
+            this.lblOrderID.Size = new System.Drawing.Size(0, 22);
             this.lblOrderID.TabIndex = 123;
             // 
             // btnReturn
@@ -90,9 +90,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(248, 812);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 119;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -101,29 +101,29 @@ namespace templatev1
             // lblDelivermanID
             // 
             this.lblDelivermanID.AutoSize = true;
-            this.lblDelivermanID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDelivermanID.Location = new System.Drawing.Point(822, 104);
+            this.lblDelivermanID.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lblDelivermanID.Location = new System.Drawing.Point(392, 142);
             this.lblDelivermanID.Name = "lblDelivermanID";
-            this.lblDelivermanID.Size = new System.Drawing.Size(0, 19);
+            this.lblDelivermanID.Size = new System.Drawing.Size(0, 22);
             this.lblDelivermanID.TabIndex = 114;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(699, 104);
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.label7.Location = new System.Drawing.Point(254, 142);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 19);
+            this.label7.Size = new System.Drawing.Size(139, 22);
             this.label7.TabIndex = 107;
             this.label7.Text = "Deliverman ID :";
             // 
             // lblOrderIDLabel
             // 
             this.lblOrderIDLabel.AutoSize = true;
-            this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderIDLabel.Location = new System.Drawing.Point(249, 104);
+            this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lblOrderIDLabel.Location = new System.Drawing.Point(254, 110);
             this.lblOrderIDLabel.Name = "lblOrderIDLabel";
-            this.lblOrderIDLabel.Size = new System.Drawing.Size(73, 19);
+            this.lblOrderIDLabel.Size = new System.Drawing.Size(93, 22);
             this.lblOrderIDLabel.TabIndex = 91;
             this.lblOrderIDLabel.Text = "Order ID :";
             // 
@@ -136,9 +136,9 @@ namespace templatev1
             this.btnRelayEdit.AutoSize = true;
             this.btnRelayEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRelayEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelayEdit.Location = new System.Drawing.Point(372, 63);
+            this.btnRelayEdit.Location = new System.Drawing.Point(387, 91);
             this.btnRelayEdit.Name = "btnRelayEdit";
-            this.btnRelayEdit.Size = new System.Drawing.Size(141, 45);
+            this.btnRelayEdit.Size = new System.Drawing.Size(151, 61);
             this.btnRelayEdit.TabIndex = 135;
             this.btnRelayEdit.Text = "Apply Relay point";
             this.btnRelayEdit.UseVisualStyleBackColor = true;
@@ -148,7 +148,7 @@ namespace templatev1
             // 
             this.cbxRelayName.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.cbxRelayName.FormattingEnabled = true;
-            this.cbxRelayName.Location = new System.Drawing.Point(112, 117);
+            this.cbxRelayName.Location = new System.Drawing.Point(94, 117);
             this.cbxRelayName.Name = "cbxRelayName";
             this.cbxRelayName.Size = new System.Drawing.Size(159, 27);
             this.cbxRelayName.TabIndex = 136;
@@ -158,7 +158,7 @@ namespace templatev1
             // 
             this.cbxProvince.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.cbxProvince.FormattingEnabled = true;
-            this.cbxProvince.Location = new System.Drawing.Point(112, 32);
+            this.cbxProvince.Location = new System.Drawing.Point(94, 32);
             this.cbxProvince.Name = "cbxProvince";
             this.cbxProvince.Size = new System.Drawing.Size(159, 27);
             this.cbxProvince.TabIndex = 137;
@@ -168,7 +168,7 @@ namespace templatev1
             // 
             this.cbxCity.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.cbxCity.FormattingEnabled = true;
-            this.cbxCity.Location = new System.Drawing.Point(112, 74);
+            this.cbxCity.Location = new System.Drawing.Point(94, 74);
             this.cbxCity.Name = "cbxCity";
             this.cbxCity.Size = new System.Drawing.Size(159, 27);
             this.cbxCity.TabIndex = 138;
@@ -177,17 +177,17 @@ namespace templatev1
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.cbxCity);
+            this.groupBox1.Controls.Add(this.cbxProvince);
+            this.groupBox1.Controls.Add(this.cbxRelayName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnRelayEdit);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cbxCity);
-            this.groupBox1.Controls.Add(this.cbxProvince);
-            this.groupBox1.Controls.Add(this.cbxRelayName);
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(248, 151);
+            this.groupBox1.Location = new System.Drawing.Point(248, 223);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(555, 151);
+            this.groupBox1.Size = new System.Drawing.Size(600, 166);
             this.groupBox1.TabIndex = 139;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit Relay";
@@ -198,7 +198,7 @@ namespace templatev1
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.label3.Location = new System.Drawing.Point(6, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 21);
+            this.label3.Size = new System.Drawing.Size(93, 21);
             this.label3.TabIndex = 141;
             this.label3.Text = "City";
             // 
@@ -208,7 +208,7 @@ namespace templatev1
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F);
             this.label2.Location = new System.Drawing.Point(6, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.Size = new System.Drawing.Size(93, 21);
             this.label2.TabIndex = 140;
             this.label2.Text = "Province";
             // 
@@ -216,17 +216,17 @@ namespace templatev1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 12F);
-            this.label1.Location = new System.Drawing.Point(6, 120);
+            this.label1.Location = new System.Drawing.Point(6, 119);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 21);
+            this.label1.Size = new System.Drawing.Size(93, 21);
             this.label1.TabIndex = 139;
             this.label1.Text = "Relay Name";
             // 
             // RelayPointImage
             // 
-            this.RelayPointImage.Location = new System.Drawing.Point(248, 342);
+            this.RelayPointImage.Location = new System.Drawing.Point(248, 430);
             this.RelayPointImage.Name = "RelayPointImage";
-            this.RelayPointImage.Size = new System.Drawing.Size(600, 277);
+            this.RelayPointImage.Size = new System.Drawing.Size(883, 418);
             this.RelayPointImage.TabIndex = 140;
             this.RelayPointImage.TabStop = false;
             // 

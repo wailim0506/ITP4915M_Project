@@ -406,9 +406,9 @@ namespace templatev1
             this.btnPDF.AutoSize = true;
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPDF.Location = new System.Drawing.Point(860, 696);
+            this.btnPDF.Location = new System.Drawing.Point(946, 895);
             this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(112, 45);
+            this.btnPDF.Size = new System.Drawing.Size(112, 37);
             this.btnPDF.TabIndex = 202;
             this.btnPDF.Text = "Save as PDF";
             this.btnPDF.UseVisualStyleBackColor = true;
@@ -419,9 +419,9 @@ namespace templatev1
             this.btnPrint.AutoSize = true;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(978, 696);
+            this.btnPrint.Location = new System.Drawing.Point(1064, 895);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(94, 45);
+            this.btnPrint.Size = new System.Drawing.Size(94, 37);
             this.btnPrint.TabIndex = 201;
             this.btnPrint.Text = "Print DID";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -432,9 +432,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(304, 696);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 200;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -453,7 +453,7 @@ namespace templatev1
             this.pnlDID.Controls.Add(this.groupBox9);
             this.pnlDID.Controls.Add(this.groupBox7);
             this.pnlDID.Controls.Add(this.groupBox8);
-            this.pnlDID.Location = new System.Drawing.Point(297, 222);
+            this.pnlDID.Location = new System.Drawing.Point(301, 182);
             this.pnlDID.Name = "pnlDID";
             this.pnlDID.Size = new System.Drawing.Size(775, 448);
             this.pnlDID.TabIndex = 203;
@@ -462,7 +462,7 @@ namespace templatev1
             // 
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.Location = new System.Drawing.Point(298, 176);
+            this.lblHeading.Location = new System.Drawing.Point(251, 113);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(360, 31);
             this.lblHeading.TabIndex = 204;

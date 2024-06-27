@@ -129,9 +129,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(213, 815);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 40);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 201;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;

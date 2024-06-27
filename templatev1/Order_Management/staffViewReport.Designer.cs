@@ -37,7 +37,6 @@ namespace templatev1
             this.rvReport = new Microsoft.Reporting.WinForms.ReportViewer();
             this.cbxperiod = new System.Windows.Forms.ComboBox();
             this.lbPeriod = new System.Windows.Forms.Label();
-            this.gbxGenReport = new System.Windows.Forms.GroupBox();
             this.cbxFileFormat = new System.Windows.Forms.ComboBox();
             this.lblFormat = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -62,7 +61,6 @@ namespace templatev1
             this.btnFunction3 = new System.Windows.Forms.Button();
             this.btnFunction2 = new System.Windows.Forms.Button();
             this.btnFunction1 = new System.Windows.Forms.Button();
-            this.gbxGenReport.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.palDate.SuspendLayout();
             this.pnlNav.SuspendLayout();
@@ -74,7 +72,7 @@ namespace templatev1
             // 
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(229, 821);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 178;
@@ -87,7 +85,7 @@ namespace templatev1
             this.btnSaveAsFile.AutoSize = true;
             this.btnSaveAsFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveAsFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAsFile.Location = new System.Drawing.Point(886, 821);
+            this.btnSaveAsFile.Location = new System.Drawing.Point(932, 895);
             this.btnSaveAsFile.Name = "btnSaveAsFile";
             this.btnSaveAsFile.Size = new System.Drawing.Size(112, 37);
             this.btnSaveAsFile.TabIndex = 201;
@@ -100,7 +98,7 @@ namespace templatev1
             this.btnPrint.AutoSize = true;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(1010, 821);
+            this.btnPrint.Location = new System.Drawing.Point(1056, 895);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(105, 37);
             this.btnPrint.TabIndex = 200;
@@ -110,23 +108,24 @@ namespace templatev1
             // 
             // rvReport
             // 
-            this.rvReport.Location = new System.Drawing.Point(229, 255);
+            this.rvReport.Location = new System.Drawing.Point(226, 161);
             this.rvReport.Name = "rvReport";
             this.rvReport.ServerReport.BearerToken = null;
-            this.rvReport.Size = new System.Drawing.Size(880, 560);
+            this.rvReport.Size = new System.Drawing.Size(917, 654);
             this.rvReport.TabIndex = 202;
             // 
             // cbxperiod
             // 
+            this.cbxperiod.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxperiod.FormattingEnabled = true;
             this.cbxperiod.Items.AddRange(new object[] {
             "None",
             "yearly",
             "monthly",
             "daily"});
-            this.cbxperiod.Location = new System.Drawing.Point(77, 24);
+            this.cbxperiod.Location = new System.Drawing.Point(305, 125);
             this.cbxperiod.Name = "cbxperiod";
-            this.cbxperiod.Size = new System.Drawing.Size(88, 31);
+            this.cbxperiod.Size = new System.Drawing.Size(232, 30);
             this.cbxperiod.TabIndex = 205;
             this.cbxperiod.Text = "None";
             this.cbxperiod.SelectedIndexChanged += new System.EventHandler(this.cbxperiod_SelectedIndexChanged);
@@ -134,36 +133,25 @@ namespace templatev1
             // lbPeriod
             // 
             this.lbPeriod.AutoSize = true;
-            this.lbPeriod.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPeriod.Location = new System.Drawing.Point(6, 24);
+            this.lbPeriod.Font = new System.Drawing.Font("Times New Roman", 15F);
+            this.lbPeriod.Location = new System.Drawing.Point(225, 128);
             this.lbPeriod.Name = "lbPeriod";
-            this.lbPeriod.Size = new System.Drawing.Size(65, 23);
+            this.lbPeriod.Size = new System.Drawing.Size(74, 22);
             this.lbPeriod.TabIndex = 209;
-            this.lbPeriod.Text = "Period";
-            // 
-            // gbxGenReport
-            // 
-            this.gbxGenReport.Controls.Add(this.lbPeriod);
-            this.gbxGenReport.Controls.Add(this.cbxperiod);
-            this.gbxGenReport.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxGenReport.Location = new System.Drawing.Point(229, 125);
-            this.gbxGenReport.Name = "gbxGenReport";
-            this.gbxGenReport.Size = new System.Drawing.Size(891, 94);
-            this.gbxGenReport.TabIndex = 210;
-            this.gbxGenReport.TabStop = false;
-            this.gbxGenReport.Text = "Generate Report";
+            this.lbPeriod.Text = "Period :";
             // 
             // cbxFileFormat
             // 
+            this.cbxFileFormat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxFileFormat.FormattingEnabled = true;
             this.cbxFileFormat.Items.AddRange(new object[] {
             "None",
             "pdf",
             "excel",
             "word"});
-            this.cbxFileFormat.Location = new System.Drawing.Point(792, 832);
+            this.cbxFileFormat.Location = new System.Drawing.Point(1057, 827);
             this.cbxFileFormat.Name = "cbxFileFormat";
-            this.cbxFileFormat.Size = new System.Drawing.Size(88, 20);
+            this.cbxFileFormat.Size = new System.Drawing.Size(88, 30);
             this.cbxFileFormat.TabIndex = 211;
             this.cbxFileFormat.Text = "None";
             this.cbxFileFormat.SelectedIndexChanged += new System.EventHandler(this.cbxFileFormat_SelectedIndexChanged);
@@ -171,11 +159,12 @@ namespace templatev1
             // lblFormat
             // 
             this.lblFormat.AutoSize = true;
-            this.lblFormat.Location = new System.Drawing.Point(712, 834);
+            this.lblFormat.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFormat.Location = new System.Drawing.Point(915, 830);
             this.lblFormat.Name = "lblFormat";
-            this.lblFormat.Size = new System.Drawing.Size(83, 12);
+            this.lblFormat.Size = new System.Drawing.Size(136, 22);
             this.lblFormat.TabIndex = 212;
-            this.lblFormat.Text = "Report Format";
+            this.lblFormat.Text = "Report Format :";
             // 
             // timer1
             // 
@@ -456,12 +445,13 @@ namespace templatev1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.Controls.Add(this.cbxperiod);
+            this.Controls.Add(this.lbPeriod);
             this.Controls.Add(this.palLoc);
             this.Controls.Add(this.palDate);
             this.Controls.Add(this.pnlNav);
             this.Controls.Add(this.lblFormat);
             this.Controls.Add(this.cbxFileFormat);
-            this.Controls.Add(this.gbxGenReport);
             this.Controls.Add(this.rvReport);
             this.Controls.Add(this.btnSaveAsFile);
             this.Controls.Add(this.btnPrint);
@@ -470,8 +460,6 @@ namespace templatev1
             this.Name = "staffViewReport";
             this.Text = "Legend Motor Company Integrated System";
             this.Load += new System.EventHandler(this.staffViewInvoice_Load);
-            this.gbxGenReport.ResumeLayout(false);
-            this.gbxGenReport.PerformLayout();
             this.palLoc.ResumeLayout(false);
             this.palLoc.PerformLayout();
             this.palDate.ResumeLayout(false);
@@ -491,7 +479,6 @@ namespace templatev1
         private Microsoft.Reporting.WinForms.ReportViewer rvReport;
         private System.Windows.Forms.ComboBox cbxperiod;
         private System.Windows.Forms.Label lbPeriod;
-        private System.Windows.Forms.GroupBox gbxGenReport;
         private System.Windows.Forms.ComboBox cbxFileFormat;
         private System.Windows.Forms.Label lblFormat;
         private System.Windows.Forms.Timer timer1;

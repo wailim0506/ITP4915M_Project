@@ -124,7 +124,7 @@ namespace templatev1
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(722, 291);
+            this.label14.Location = new System.Drawing.Point(725, 291);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(150, 19);
             this.label14.TabIndex = 209;
@@ -228,9 +228,9 @@ namespace templatev1
             this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDelete.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(370, 815);
+            this.btnDelete.Location = new System.Drawing.Point(381, 895);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(112, 45);
+            this.btnDelete.Size = new System.Drawing.Size(112, 37);
             this.btnDelete.TabIndex = 198;
             this.btnDelete.Text = "Cancel Order";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -241,9 +241,9 @@ namespace templatev1
             this.btnEdit.AutoSize = true;
             this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(940, 815);
+            this.btnEdit.Location = new System.Drawing.Point(951, 895);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(94, 45);
+            this.btnEdit.Size = new System.Drawing.Size(94, 37);
             this.btnEdit.TabIndex = 197;
             this.btnEdit.Text = "Edit Order";
             this.btnEdit.UseVisualStyleBackColor = true;
@@ -254,9 +254,9 @@ namespace templatev1
             this.btnViewInvoice.AutoSize = true;
             this.btnViewInvoice.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnViewInvoice.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewInvoice.Location = new System.Drawing.Point(827, 815);
+            this.btnViewInvoice.Location = new System.Drawing.Point(838, 895);
             this.btnViewInvoice.Name = "btnViewInvoice";
-            this.btnViewInvoice.Size = new System.Drawing.Size(107, 45);
+            this.btnViewInvoice.Size = new System.Drawing.Size(107, 37);
             this.btnViewInvoice.TabIndex = 196;
             this.btnViewInvoice.Text = "View Invoice";
             this.btnViewInvoice.UseVisualStyleBackColor = true;
@@ -267,9 +267,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(212, 815);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 195;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -323,7 +323,7 @@ namespace templatev1
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(735, 331);
+            this.label12.Location = new System.Drawing.Point(742, 331);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(133, 19);
             this.label12.TabIndex = 188;
@@ -333,17 +333,17 @@ namespace templatev1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(725, 204);
+            this.label10.Location = new System.Drawing.Point(723, 204);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(148, 19);
+            this.label10.Size = new System.Drawing.Size(152, 19);
             this.label10.TabIndex = 186;
-            this.label10.Text = "Deliverman Contact:";
+            this.label10.Text = "Deliverman Contact :";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(759, 246);
+            this.label9.Location = new System.Drawing.Point(763, 246);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(112, 19);
             this.label9.TabIndex = 185;
@@ -363,7 +363,7 @@ namespace templatev1
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(760, 118);
+            this.label7.Location = new System.Drawing.Point(753, 118);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(118, 19);
             this.label7.TabIndex = 183;
@@ -463,7 +463,7 @@ namespace templatev1
             // 
             this.lblStaffIDLabel.AutoSize = true;
             this.lblStaffIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffIDLabel.Location = new System.Drawing.Point(296, 291);
+            this.lblStaffIDLabel.Location = new System.Drawing.Point(293, 291);
             this.lblStaffIDLabel.Name = "lblStaffIDLabel";
             this.lblStaffIDLabel.Size = new System.Drawing.Size(68, 19);
             this.lblStaffIDLabel.TabIndex = 173;
@@ -483,7 +483,7 @@ namespace templatev1
             // 
             this.lblStaffContactLabel.AutoSize = true;
             this.lblStaffContactLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffContactLabel.Location = new System.Drawing.Point(253, 334);
+            this.lblStaffContactLabel.Location = new System.Drawing.Point(255, 334);
             this.lblStaffContactLabel.Name = "lblStaffContactLabel";
             this.lblStaffContactLabel.Size = new System.Drawing.Size(106, 19);
             this.lblStaffContactLabel.TabIndex = 171;
@@ -493,7 +493,7 @@ namespace templatev1
             // 
             this.lblStaffLabel.AutoSize = true;
             this.lblStaffLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffLabel.Location = new System.Drawing.Point(246, 247);
+            this.lblStaffLabel.Location = new System.Drawing.Point(250, 247);
             this.lblStaffLabel.Name = "lblStaffLabel";
             this.lblStaffLabel.Size = new System.Drawing.Size(113, 19);
             this.lblStaffLabel.TabIndex = 169;
@@ -520,7 +520,7 @@ namespace templatev1
             // 
             this.lblOrderIDLabel.AutoSize = true;
             this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderIDLabel.Location = new System.Drawing.Point(287, 118);
+            this.lblOrderIDLabel.Location = new System.Drawing.Point(284, 118);
             this.lblOrderIDLabel.Name = "lblOrderIDLabel";
             this.lblOrderIDLabel.Size = new System.Drawing.Size(80, 19);
             this.lblOrderIDLabel.TabIndex = 167;
@@ -530,7 +530,7 @@ namespace templatev1
             // 
             this.lblOrderDateLabel.AutoSize = true;
             this.lblOrderDateLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDateLabel.Location = new System.Drawing.Point(269, 204);
+            this.lblOrderDateLabel.Location = new System.Drawing.Point(266, 204);
             this.lblOrderDateLabel.Name = "lblOrderDateLabel";
             this.lblOrderDateLabel.Size = new System.Drawing.Size(95, 19);
             this.lblOrderDateLabel.TabIndex = 168;
@@ -541,9 +541,9 @@ namespace templatev1
             this.btnDIC.AutoSize = true;
             this.btnDIC.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDIC.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDIC.Location = new System.Drawing.Point(601, 815);
+            this.btnDIC.Location = new System.Drawing.Point(612, 895);
             this.btnDIC.Name = "btnDIC";
-            this.btnDIC.Size = new System.Drawing.Size(107, 45);
+            this.btnDIC.Size = new System.Drawing.Size(107, 37);
             this.btnDIC.TabIndex = 211;
             this.btnDIC.Text = "View DIC";
             this.btnDIC.UseVisualStyleBackColor = true;
@@ -554,9 +554,9 @@ namespace templatev1
             this.btnDID.AutoSize = true;
             this.btnDID.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDID.Location = new System.Drawing.Point(714, 815);
+            this.btnDID.Location = new System.Drawing.Point(725, 895);
             this.btnDID.Name = "btnDID";
-            this.btnDID.Size = new System.Drawing.Size(107, 45);
+            this.btnDID.Size = new System.Drawing.Size(107, 37);
             this.btnDID.TabIndex = 212;
             this.btnDID.Text = "View DID";
             this.btnDID.UseVisualStyleBackColor = true;
@@ -567,9 +567,9 @@ namespace templatev1
             this.btnReadyToShip.AutoSize = true;
             this.btnReadyToShip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReadyToShip.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReadyToShip.Location = new System.Drawing.Point(488, 815);
+            this.btnReadyToShip.Location = new System.Drawing.Point(499, 895);
             this.btnReadyToShip.Name = "btnReadyToShip";
-            this.btnReadyToShip.Size = new System.Drawing.Size(107, 45);
+            this.btnReadyToShip.Size = new System.Drawing.Size(107, 37);
             this.btnReadyToShip.TabIndex = 213;
             this.btnReadyToShip.Text = "Ready to Ship";
             this.btnReadyToShip.UseVisualStyleBackColor = true;
@@ -580,10 +580,10 @@ namespace templatev1
             this.btnConfirm.AutoSize = true;
             this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfirm.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfirm.Location = new System.Drawing.Point(1039, 815);
+            this.btnConfirm.Location = new System.Drawing.Point(1050, 895);
             this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(109, 45);
+            this.btnConfirm.Size = new System.Drawing.Size(109, 37);
             this.btnConfirm.TabIndex = 214;
             this.btnConfirm.Text = "Confirm Order";
             this.btnConfirm.UseVisualStyleBackColor = true;

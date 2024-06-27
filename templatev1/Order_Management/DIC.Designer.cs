@@ -297,7 +297,7 @@ namespace templatev1
             this.pnlDIC.Controls.Add(this.groupBox3);
             this.pnlDIC.Controls.Add(this.groupBox5);
             this.pnlDIC.Controls.Add(this.groupBox4);
-            this.pnlDIC.Location = new System.Drawing.Point(337, 188);
+            this.pnlDIC.Location = new System.Drawing.Point(331, 201);
             this.pnlDIC.Name = "pnlDIC";
             this.pnlDIC.Size = new System.Drawing.Size(685, 511);
             this.pnlDIC.TabIndex = 176;
@@ -307,9 +307,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(337, 746);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 196;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -320,9 +320,9 @@ namespace templatev1
             this.btnPrint.AutoSize = true;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(923, 746);
+            this.btnPrint.Location = new System.Drawing.Point(1064, 895);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(94, 45);
+            this.btnPrint.Size = new System.Drawing.Size(94, 37);
             this.btnPrint.TabIndex = 197;
             this.btnPrint.Text = "Print DIC";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -332,7 +332,7 @@ namespace templatev1
             // 
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading.Location = new System.Drawing.Point(331, 131);
+            this.lblHeading.Location = new System.Drawing.Point(251, 113);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(338, 31);
             this.lblHeading.TabIndex = 198;
@@ -343,9 +343,9 @@ namespace templatev1
             this.btnPDF.AutoSize = true;
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPDF.Location = new System.Drawing.Point(805, 746);
+            this.btnPDF.Location = new System.Drawing.Point(946, 895);
             this.btnPDF.Name = "btnPDF";
-            this.btnPDF.Size = new System.Drawing.Size(112, 45);
+            this.btnPDF.Size = new System.Drawing.Size(112, 37);
             this.btnPDF.TabIndex = 199;
             this.btnPDF.Text = "Save as PDF";
             this.btnPDF.UseVisualStyleBackColor = true;

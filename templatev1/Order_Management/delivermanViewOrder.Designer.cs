@@ -186,9 +186,9 @@ namespace templatev1
             this.btnJobFinished.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.btnJobFinished.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJobFinished.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJobFinished.Location = new System.Drawing.Point(1037, 811);
+            this.btnJobFinished.Location = new System.Drawing.Point(1050, 895);
             this.btnJobFinished.Name = "btnJobFinished";
-            this.btnJobFinished.Size = new System.Drawing.Size(109, 45);
+            this.btnJobFinished.Size = new System.Drawing.Size(109, 37);
             this.btnJobFinished.TabIndex = 121;
             this.btnJobFinished.Text = "Job Finished";
             this.btnJobFinished.UseVisualStyleBackColor = false;
@@ -199,9 +199,9 @@ namespace templatev1
             this.btnReturn.AutoSize = true;
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(939, 811);
+            this.btnReturn.Location = new System.Drawing.Point(952, 895);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(94, 45);
+            this.btnReturn.Size = new System.Drawing.Size(94, 37);
             this.btnReturn.TabIndex = 119;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -456,9 +456,9 @@ namespace templatev1
             this.btnRelayEdit.AutoSize = true;
             this.btnRelayEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRelayEdit.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRelayEdit.Location = new System.Drawing.Point(208, 811);
+            this.btnRelayEdit.Location = new System.Drawing.Point(208, 895);
             this.btnRelayEdit.Name = "btnRelayEdit";
-            this.btnRelayEdit.Size = new System.Drawing.Size(131, 45);
+            this.btnRelayEdit.Size = new System.Drawing.Size(116, 37);
             this.btnRelayEdit.TabIndex = 135;
             this.btnRelayEdit.Text = "Edit Relay Point";
             this.btnRelayEdit.UseVisualStyleBackColor = true;

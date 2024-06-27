@@ -114,7 +114,7 @@ namespace templatev1
             // 
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(270, 856);
+            this.btnReturn.Location = new System.Drawing.Point(208, 895);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 178;
@@ -490,7 +490,7 @@ namespace templatev1
             this.btnPDF.AutoSize = true;
             this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPDF.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPDF.Location = new System.Drawing.Point(827, 856);
+            this.btnPDF.Location = new System.Drawing.Point(938, 895);
             this.btnPDF.Name = "btnPDF";
             this.btnPDF.Size = new System.Drawing.Size(112, 37);
             this.btnPDF.TabIndex = 201;
@@ -503,7 +503,7 @@ namespace templatev1
             this.btnPrint.AutoSize = true;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(951, 856);
+            this.btnPrint.Location = new System.Drawing.Point(1056, 895);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(105, 37);
             this.btnPrint.TabIndex = 200;

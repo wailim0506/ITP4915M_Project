@@ -99,11 +99,11 @@ namespace templatev1
             // 
             // lblOrderID
             // 
-            this.lblOrderID.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.lblOrderID.BackColor = System.Drawing.SystemColors.ControlLight;
             this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(349, 138);
+            this.lblOrderID.Location = new System.Drawing.Point(349, 163);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(143, 19);
+            this.lblOrderID.Size = new System.Drawing.Size(143, 21);
             this.lblOrderID.TabIndex = 172;
             this.lblOrderID.Text = "xxx";
             this.lblOrderID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -112,7 +112,7 @@ namespace templatev1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(261, 138);
+            this.label3.Location = new System.Drawing.Point(261, 163);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 21);
             this.label3.TabIndex = 171;
@@ -122,7 +122,7 @@ namespace templatev1
             // 
             this.lblDayUntilDelivery.AutoSize = true;
             this.lblDayUntilDelivery.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDayUntilDelivery.Location = new System.Drawing.Point(432, 222);
+            this.lblDayUntilDelivery.Location = new System.Drawing.Point(432, 247);
             this.lblDayUntilDelivery.Name = "lblDayUntilDelivery";
             this.lblDayUntilDelivery.Size = new System.Drawing.Size(0, 21);
             this.lblDayUntilDelivery.TabIndex = 178;
@@ -131,7 +131,7 @@ namespace templatev1
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(261, 222);
+            this.label6.Location = new System.Drawing.Point(261, 247);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(163, 21);
             this.label6.TabIndex = 177;
@@ -141,7 +141,7 @@ namespace templatev1
             // 
             this.lblOrderStatus.AutoSize = true;
             this.lblOrderStatus.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderStatus.Location = new System.Drawing.Point(387, 268);
+            this.lblOrderStatus.Location = new System.Drawing.Point(387, 293);
             this.lblOrderStatus.Name = "lblOrderStatus";
             this.lblOrderStatus.Size = new System.Drawing.Size(0, 21);
             this.lblOrderStatus.TabIndex = 176;
@@ -150,7 +150,7 @@ namespace templatev1
             // 
             this.lblShippingDate.AutoSize = true;
             this.lblShippingDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShippingDate.Location = new System.Drawing.Point(397, 180);
+            this.lblShippingDate.Location = new System.Drawing.Point(397, 205);
             this.lblShippingDate.Name = "lblShippingDate";
             this.lblShippingDate.Size = new System.Drawing.Size(0, 21);
             this.lblShippingDate.TabIndex = 175;
@@ -159,7 +159,7 @@ namespace templatev1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(261, 268);
+            this.label4.Location = new System.Drawing.Point(261, 293);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 21);
             this.label4.TabIndex = 174;
@@ -169,7 +169,7 @@ namespace templatev1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(261, 180);
+            this.label9.Location = new System.Drawing.Point(261, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(119, 21);
             this.label9.TabIndex = 173;
@@ -179,7 +179,7 @@ namespace templatev1
             // 
             this.cmbSparePartSelection.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSparePartSelection.FormattingEnabled = true;
-            this.cmbSparePartSelection.Location = new System.Drawing.Point(409, 344);
+            this.cmbSparePartSelection.Location = new System.Drawing.Point(409, 369);
             this.cmbSparePartSelection.Name = "cmbSparePartSelection";
             this.cmbSparePartSelection.Size = new System.Drawing.Size(175, 29);
             this.cmbSparePartSelection.TabIndex = 180;
@@ -189,7 +189,7 @@ namespace templatev1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(261, 347);
+            this.label1.Location = new System.Drawing.Point(261, 372);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 21);
             this.label1.TabIndex = 179;
@@ -199,7 +199,7 @@ namespace templatev1
             // 
             this.lblCountry.AutoSize = true;
             this.lblCountry.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCountry.Location = new System.Drawing.Point(423, 522);
+            this.lblCountry.Location = new System.Drawing.Point(423, 547);
             this.lblCountry.Name = "lblCountry";
             this.lblCountry.Size = new System.Drawing.Size(0, 21);
             this.lblCountry.TabIndex = 190;
@@ -208,7 +208,7 @@ namespace templatev1
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(261, 522);
+            this.label10.Location = new System.Drawing.Point(261, 547);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(147, 21);
             this.label10.TabIndex = 189;
@@ -218,7 +218,7 @@ namespace templatev1
             // 
             this.lblOnSaleQty.AutoSize = true;
             this.lblOnSaleQty.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOnSaleQty.Location = new System.Drawing.Point(373, 603);
+            this.lblOnSaleQty.Location = new System.Drawing.Point(373, 628);
             this.lblOnSaleQty.Name = "lblOnSaleQty";
             this.lblOnSaleQty.Size = new System.Drawing.Size(0, 21);
             this.lblOnSaleQty.TabIndex = 188;
@@ -227,7 +227,7 @@ namespace templatev1
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(261, 603);
+            this.label7.Location = new System.Drawing.Point(261, 628);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 21);
             this.label7.TabIndex = 187;
@@ -237,7 +237,7 @@ namespace templatev1
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(331, 562);
+            this.lblPrice.Location = new System.Drawing.Point(331, 587);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(0, 21);
             this.lblPrice.TabIndex = 186;
@@ -246,7 +246,7 @@ namespace templatev1
             // 
             this.lblSupplier.AutoSize = true;
             this.lblSupplier.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupplier.Location = new System.Drawing.Point(340, 479);
+            this.lblSupplier.Location = new System.Drawing.Point(340, 504);
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(0, 21);
             this.lblSupplier.TabIndex = 185;
@@ -255,7 +255,7 @@ namespace templatev1
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(352, 434);
+            this.lblCategory.Location = new System.Drawing.Point(352, 459);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(0, 21);
             this.lblCategory.TabIndex = 184;
@@ -264,7 +264,7 @@ namespace templatev1
             // 
             this.lblTitPrice.AutoSize = true;
             this.lblTitPrice.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitPrice.Location = new System.Drawing.Point(261, 562);
+            this.lblTitPrice.Location = new System.Drawing.Point(261, 587);
             this.lblTitPrice.Name = "lblTitPrice";
             this.lblTitPrice.Size = new System.Drawing.Size(67, 21);
             this.lblTitPrice.TabIndex = 183;
@@ -274,7 +274,7 @@ namespace templatev1
             // 
             this.lblTitManu.AutoSize = true;
             this.lblTitManu.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitManu.Location = new System.Drawing.Point(261, 479);
+            this.lblTitManu.Location = new System.Drawing.Point(261, 504);
             this.lblTitManu.Name = "lblTitManu";
             this.lblTitManu.Size = new System.Drawing.Size(76, 21);
             this.lblTitManu.TabIndex = 182;
@@ -284,7 +284,7 @@ namespace templatev1
             // 
             this.lblTitCat.AutoSize = true;
             this.lblTitCat.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitCat.Location = new System.Drawing.Point(261, 434);
+            this.lblTitCat.Location = new System.Drawing.Point(261, 459);
             this.lblTitCat.Name = "lblTitCat";
             this.lblTitCat.Size = new System.Drawing.Size(82, 21);
             this.lblTitCat.TabIndex = 181;
@@ -294,7 +294,7 @@ namespace templatev1
             // 
             this.tbQty.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbQty.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbQty.Location = new System.Drawing.Point(441, 649);
+            this.tbQty.Location = new System.Drawing.Point(441, 674);
             this.tbQty.MaxLength = 4;
             this.tbQty.Name = "tbQty";
             this.tbQty.Size = new System.Drawing.Size(103, 30);
@@ -307,7 +307,7 @@ namespace templatev1
             // 
             this.btnMinusQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinusQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMinusQty.Location = new System.Drawing.Point(401, 644);
+            this.btnMinusQty.Location = new System.Drawing.Point(401, 669);
             this.btnMinusQty.Name = "btnMinusQty";
             this.btnMinusQty.Size = new System.Drawing.Size(34, 36);
             this.btnMinusQty.TabIndex = 194;
@@ -319,7 +319,7 @@ namespace templatev1
             // 
             this.btnAddQty.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddQty.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddQty.Location = new System.Drawing.Point(550, 644);
+            this.btnAddQty.Location = new System.Drawing.Point(550, 669);
             this.btnAddQty.Name = "btnAddQty";
             this.btnAddQty.Size = new System.Drawing.Size(34, 36);
             this.btnAddQty.TabIndex = 193;
@@ -331,7 +331,7 @@ namespace templatev1
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(261, 652);
+            this.label5.Location = new System.Drawing.Point(261, 677);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 21);
             this.label5.TabIndex = 191;
@@ -341,7 +341,7 @@ namespace templatev1
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(352, 398);
+            this.label2.Location = new System.Drawing.Point(352, 423);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(0, 21);
             this.label2.TabIndex = 196;
@@ -350,7 +350,7 @@ namespace templatev1
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(261, 393);
+            this.label8.Location = new System.Drawing.Point(261, 418);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(140, 21);
             this.label8.TabIndex = 195;
@@ -360,7 +360,7 @@ namespace templatev1
             // 
             this.lblPartName.AutoSize = true;
             this.lblPartName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPartName.Location = new System.Drawing.Point(407, 393);
+            this.lblPartName.Location = new System.Drawing.Point(407, 418);
             this.lblPartName.Name = "lblPartName";
             this.lblPartName.Size = new System.Drawing.Size(0, 21);
             this.lblPartName.TabIndex = 197;
@@ -369,7 +369,7 @@ namespace templatev1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(261, 305);
+            this.label11.Location = new System.Drawing.Point(261, 330);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(109, 21);
             this.label11.TabIndex = 198;
@@ -379,7 +379,7 @@ namespace templatev1
             // 
             this.lblIsLM.AutoSize = true;
             this.lblIsLM.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIsLM.Location = new System.Drawing.Point(373, 305);
+            this.lblIsLM.Location = new System.Drawing.Point(373, 330);
             this.lblIsLM.Name = "lblIsLM";
             this.lblIsLM.Size = new System.Drawing.Size(0, 21);
             this.lblIsLM.TabIndex = 199;
@@ -404,7 +404,7 @@ namespace templatev1
             this.lblAddToOrder.BackColor = System.Drawing.Color.Transparent;
             this.lblAddToOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAddToOrder.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddToOrder.Location = new System.Drawing.Point(961, 695);
+            this.lblAddToOrder.Location = new System.Drawing.Point(1005, 894);
             this.lblAddToOrder.Name = "lblAddToOrder";
             this.lblAddToOrder.Size = new System.Drawing.Size(153, 35);
             this.lblAddToOrder.TabIndex = 201;
@@ -414,7 +414,7 @@ namespace templatev1
             // 
             // picSpare
             // 
-            this.picSpare.Location = new System.Drawing.Point(754, 234);
+            this.picSpare.Location = new System.Drawing.Point(754, 259);
             this.picSpare.Name = "picSpare";
             this.picSpare.Size = new System.Drawing.Size(360, 249);
             this.picSpare.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
