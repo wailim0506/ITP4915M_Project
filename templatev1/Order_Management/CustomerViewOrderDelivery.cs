@@ -198,6 +198,7 @@ namespace templatev1
             Close();
         }
 
+
         private void btnFunction1_Click(object sender, EventArgs e)
         {
             getPage(btnFunction1.Text);
@@ -275,7 +276,6 @@ namespace templatev1
             about.ShowDialog();
             Close();
         }
-
 
         private void BWMode()
         {

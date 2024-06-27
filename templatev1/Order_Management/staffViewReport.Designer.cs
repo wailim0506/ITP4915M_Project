@@ -92,55 +92,60 @@ namespace templatev1
             this.palNav.Location = new System.Drawing.Point(0, 0);
             this.palNav.Margin = new System.Windows.Forms.Padding(2);
             this.palNav.Name = "palNav";
-            this.palNav.Size = new System.Drawing.Size(198, 941);
+            this.palNav.Size = new System.Drawing.Size(198, 869);
             this.palNav.TabIndex = 164;
             // 
             // palSelect5
             // 
             this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Location = new System.Drawing.Point(0, 342);
             this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.Size = new System.Drawing.Size(10, 51);
             this.palSelect5.TabIndex = 29;
+            this.palSelect5.Visible = false;
             // 
             // palSelect4
             // 
             this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Location = new System.Drawing.Point(0, 273);
             this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.Size = new System.Drawing.Size(10, 51);
             this.palSelect4.TabIndex = 30;
+            this.palSelect4.Visible = false;
             // 
             // palSelect2
             // 
             this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Location = new System.Drawing.Point(0, 138);
             this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.Size = new System.Drawing.Size(10, 51);
             this.palSelect2.TabIndex = 31;
+            this.palSelect2.Visible = false;
             // 
             // palSelect1
             // 
             this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Location = new System.Drawing.Point(0, 71);
             this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.Size = new System.Drawing.Size(10, 51);
             this.palSelect1.TabIndex = 32;
+            this.palSelect1.Visible = false;
             // 
             // palSelect3
             // 
             this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Location = new System.Drawing.Point(0, 206);
             this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.Size = new System.Drawing.Size(10, 51);
             this.palSelect3.TabIndex = 28;
+            this.palSelect3.Visible = false;
             // 
             // picBWMode
             // 
             this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Location = new System.Drawing.Point(143, 22);
             this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.Size = new System.Drawing.Size(49, 42);
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
@@ -151,10 +156,10 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(-5, 785);
+            this.btnProFile.Location = new System.Drawing.Point(-5, 725);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
-            this.btnProFile.Size = new System.Drawing.Size(198, 34);
+            this.btnProFile.Size = new System.Drawing.Size(198, 31);
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
@@ -165,10 +170,10 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(-5, 827);
+            this.btnLogOut.Location = new System.Drawing.Point(-5, 763);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
+            this.btnLogOut.Size = new System.Drawing.Size(198, 31);
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -178,10 +183,10 @@ namespace templatev1
             // 
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Location = new System.Drawing.Point(13, 12);
             this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.Size = new System.Drawing.Size(57, 52);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
@@ -191,10 +196,10 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(-4, 883);
+            this.lblCorpName.Location = new System.Drawing.Point(-4, 815);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
-            this.lblCorpName.Size = new System.Drawing.Size(163, 49);
+            this.lblCorpName.Size = new System.Drawing.Size(163, 45);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
             // 
@@ -204,10 +209,10 @@ namespace templatev1
             this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
+            this.btnFunction5.Location = new System.Drawing.Point(0, 342);
             this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction5.Name = "btnFunction5";
-            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.Size = new System.Drawing.Size(198, 51);
             this.btnFunction5.TabIndex = 15;
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -219,10 +224,10 @@ namespace templatev1
             this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
+            this.btnFunction4.Location = new System.Drawing.Point(0, 273);
             this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction4.Name = "btnFunction4";
-            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction4.Size = new System.Drawing.Size(198, 51);
             this.btnFunction4.TabIndex = 14;
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -235,10 +240,10 @@ namespace templatev1
             this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
+            this.btnFunction3.Location = new System.Drawing.Point(0, 206);
             this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction3.Name = "btnFunction3";
-            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction3.Size = new System.Drawing.Size(198, 51);
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.UseVisualStyleBackColor = false;
@@ -250,10 +255,10 @@ namespace templatev1
             this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Location = new System.Drawing.Point(0, 138);
             this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.Size = new System.Drawing.Size(198, 51);
             this.btnFunction2.TabIndex = 12;
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -266,10 +271,10 @@ namespace templatev1
             this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
+            this.btnFunction1.Location = new System.Drawing.Point(0, 71);
             this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction1.Name = "btnFunction1";
-            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction1.Size = new System.Drawing.Size(198, 51);
             this.btnFunction1.TabIndex = 11;
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -281,16 +286,16 @@ namespace templatev1
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
             this.palLoc.Controls.Add(this.lblLoc);
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Location = new System.Drawing.Point(198, 37);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.Size = new System.Drawing.Size(972, 35);
             this.palLoc.TabIndex = 168;
             // 
             // lblLoc
             // 
             this.lblLoc.AutoSize = true;
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Location = new System.Drawing.Point(6, 8);
             this.lblLoc.Name = "lblLoc";
             this.lblLoc.Size = new System.Drawing.Size(140, 22);
             this.lblLoc.TabIndex = 0;
@@ -306,14 +311,14 @@ namespace templatev1
             this.palTime.Location = new System.Drawing.Point(198, 0);
             this.palTime.Margin = new System.Windows.Forms.Padding(2);
             this.palTime.Name = "palTime";
-            this.palTime.Size = new System.Drawing.Size(972, 40);
+            this.palTime.Size = new System.Drawing.Size(972, 37);
             this.palTime.TabIndex = 167;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(777, 9);
+            this.lblUid.Location = new System.Drawing.Point(777, 8);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(134, 22);
@@ -324,7 +329,7 @@ namespace templatev1
             // 
             this.lblTimeDate.AutoSize = true;
             this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 8);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
             this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
@@ -335,9 +340,9 @@ namespace templatev1
             // 
             this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReturn.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturn.Location = new System.Drawing.Point(229, 889);
+            this.btnReturn.Location = new System.Drawing.Point(229, 821);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(95, 40);
+            this.btnReturn.Size = new System.Drawing.Size(95, 37);
             this.btnReturn.TabIndex = 178;
             this.btnReturn.Text = "Return";
             this.btnReturn.UseVisualStyleBackColor = true;
@@ -348,9 +353,9 @@ namespace templatev1
             this.btnSaveAsFile.AutoSize = true;
             this.btnSaveAsFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSaveAsFile.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveAsFile.Location = new System.Drawing.Point(886, 889);
+            this.btnSaveAsFile.Location = new System.Drawing.Point(886, 821);
             this.btnSaveAsFile.Name = "btnSaveAsFile";
-            this.btnSaveAsFile.Size = new System.Drawing.Size(112, 40);
+            this.btnSaveAsFile.Size = new System.Drawing.Size(112, 37);
             this.btnSaveAsFile.TabIndex = 201;
             this.btnSaveAsFile.Text = "Save as File";
             this.btnSaveAsFile.UseVisualStyleBackColor = true;
@@ -361,9 +366,9 @@ namespace templatev1
             this.btnPrint.AutoSize = true;
             this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrint.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(1010, 889);
+            this.btnPrint.Location = new System.Drawing.Point(1010, 821);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(105, 40);
+            this.btnPrint.Size = new System.Drawing.Size(105, 37);
             this.btnPrint.TabIndex = 200;
             this.btnPrint.Text = "Print Report";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -371,10 +376,10 @@ namespace templatev1
             // 
             // rvReport
             // 
-            this.rvReport.Location = new System.Drawing.Point(229, 276);
+            this.rvReport.Location = new System.Drawing.Point(229, 255);
             this.rvReport.Name = "rvReport";
             this.rvReport.ServerReport.BearerToken = null;
-            this.rvReport.Size = new System.Drawing.Size(880, 607);
+            this.rvReport.Size = new System.Drawing.Size(880, 560);
             this.rvReport.TabIndex = 202;
             // 
             // cbxperiod
@@ -385,7 +390,7 @@ namespace templatev1
             "yearly",
             "monthly",
             "daily"});
-            this.cbxperiod.Location = new System.Drawing.Point(77, 26);
+            this.cbxperiod.Location = new System.Drawing.Point(77, 24);
             this.cbxperiod.Name = "cbxperiod";
             this.cbxperiod.Size = new System.Drawing.Size(88, 31);
             this.cbxperiod.TabIndex = 205;
@@ -396,7 +401,7 @@ namespace templatev1
             // 
             this.lbPeriod.AutoSize = true;
             this.lbPeriod.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPeriod.Location = new System.Drawing.Point(6, 26);
+            this.lbPeriod.Location = new System.Drawing.Point(6, 24);
             this.lbPeriod.Name = "lbPeriod";
             this.lbPeriod.Size = new System.Drawing.Size(65, 23);
             this.lbPeriod.TabIndex = 209;
@@ -407,9 +412,9 @@ namespace templatev1
             this.gbxGenReport.Controls.Add(this.lbPeriod);
             this.gbxGenReport.Controls.Add(this.cbxperiod);
             this.gbxGenReport.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbxGenReport.Location = new System.Drawing.Point(229, 135);
+            this.gbxGenReport.Location = new System.Drawing.Point(229, 125);
             this.gbxGenReport.Name = "gbxGenReport";
-            this.gbxGenReport.Size = new System.Drawing.Size(891, 102);
+            this.gbxGenReport.Size = new System.Drawing.Size(891, 94);
             this.gbxGenReport.TabIndex = 210;
             this.gbxGenReport.TabStop = false;
             this.gbxGenReport.Text = "Generate Report";
@@ -422,9 +427,9 @@ namespace templatev1
             "pdf",
             "excel",
             "word"});
-            this.cbxFileFormat.Location = new System.Drawing.Point(792, 901);
+            this.cbxFileFormat.Location = new System.Drawing.Point(792, 832);
             this.cbxFileFormat.Name = "cbxFileFormat";
-            this.cbxFileFormat.Size = new System.Drawing.Size(88, 21);
+            this.cbxFileFormat.Size = new System.Drawing.Size(88, 20);
             this.cbxFileFormat.TabIndex = 211;
             this.cbxFileFormat.Text = "None";
             this.cbxFileFormat.SelectedIndexChanged += new System.EventHandler(this.cbxFileFormat_SelectedIndexChanged);
@@ -432,9 +437,9 @@ namespace templatev1
             // lblFormat
             // 
             this.lblFormat.AutoSize = true;
-            this.lblFormat.Location = new System.Drawing.Point(712, 904);
+            this.lblFormat.Location = new System.Drawing.Point(712, 834);
             this.lblFormat.Name = "lblFormat";
-            this.lblFormat.Size = new System.Drawing.Size(74, 13);
+            this.lblFormat.Size = new System.Drawing.Size(83, 12);
             this.lblFormat.TabIndex = 212;
             this.lblFormat.Text = "Report Format";
             // 
@@ -444,9 +449,9 @@ namespace templatev1
             // 
             // staffViewReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1170, 941);
+            this.ClientSize = new System.Drawing.Size(1170, 869);
             this.Controls.Add(this.lblFormat);
             this.Controls.Add(this.cbxFileFormat);
             this.Controls.Add(this.gbxGenReport);
