@@ -79,7 +79,7 @@ namespace templatev1
             chkNGDateOfBirth.Checked = info.NGDateOfBirth;
             dtpDateOfBirth.Value = DateTime.ParseExact((info.dateOfBirth).ToString("dd/MM/yyyy"), "dd/MM/yyyy", null);
             lblCreateDate.Text = (info.createDate).ToString("yyyy/MM/dd");
-            chkIsLM.Checked = info.IsLM.Equals("Y") ? true : false;
+            chkIsLM.Checked = string.IsNullOrEmpty(info.IsLM) ?false : info.IsLM.Equals("Y") ? true : false;
 
             placeholder = UserInfo.getUserInfo();
         }
