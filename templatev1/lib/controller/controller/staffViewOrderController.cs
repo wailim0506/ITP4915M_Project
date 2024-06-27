@@ -240,6 +240,8 @@ namespace controller
             {
                 Log.LogMessage(LogLevel.Error, "staff view order controller",
                     $"Error changing order status: {ex.Message}");
+                MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
                 return false;
             }
         }

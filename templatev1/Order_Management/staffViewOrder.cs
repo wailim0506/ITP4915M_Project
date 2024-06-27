@@ -485,13 +485,8 @@ namespace templatev1
         {
             if (controller.ReadyToShipANDDeductQty(orderID))
             {
-                MessageBox.Show("The status has now changed to Ready to ship.", "System error", MessageBoxButtons.OK,
+                MessageBox.Show("The status has now changed to Ready to ship.", "System message", MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
             }
         }
 
