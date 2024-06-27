@@ -68,14 +68,12 @@ namespace templatev1
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnViewInvoice = new System.Windows.Forms.Button();
             this.btnReturn = new System.Windows.Forms.Button();
-            this.lblExpressNum = new System.Windows.Forms.Label();
             this.lblShippingDate = new System.Windows.Forms.Label();
             this.lblDelivermanContact = new System.Windows.Forms.Label();
             this.lblDelivermanName = new System.Windows.Forms.Label();
             this.lblDelivermanID = new System.Windows.Forms.Label();
             this.lblShippingAddress = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -388,10 +386,10 @@ namespace templatev1
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(722, 315);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 19);
+            this.label14.Size = new System.Drawing.Size(150, 19);
             this.label14.TabIndex = 209;
             this.label14.Text = "Days Until Shipping :";
             // 
@@ -540,15 +538,6 @@ namespace templatev1
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
-            // lblExpressNum
-            // 
-            this.lblExpressNum.AutoSize = true;
-            this.lblExpressNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpressNum.Location = new System.Drawing.Point(883, 362);
-            this.lblExpressNum.Name = "lblExpressNum";
-            this.lblExpressNum.Size = new System.Drawing.Size(0, 19);
-            this.lblExpressNum.TabIndex = 194;
-            // 
             // lblShippingDate
             // 
             this.lblShippingDate.AutoSize = true;
@@ -588,7 +577,7 @@ namespace templatev1
             // lblShippingAddress
             // 
             this.lblShippingAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShippingAddress.Location = new System.Drawing.Point(883, 410);
+            this.lblShippingAddress.Location = new System.Drawing.Point(883, 359);
             this.lblShippingAddress.Name = "lblShippingAddress";
             this.lblShippingAddress.Size = new System.Drawing.Size(263, 67);
             this.lblShippingAddress.TabIndex = 189;
@@ -596,60 +585,50 @@ namespace templatev1
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(735, 410);
+            this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(735, 359);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(122, 19);
+            this.label12.Size = new System.Drawing.Size(133, 19);
             this.label12.TabIndex = 188;
             this.label12.Text = "Shipping Address :";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(743, 362);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 19);
-            this.label11.TabIndex = 187;
-            this.label11.Text = "Express Number :";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(725, 221);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(132, 19);
+            this.label10.Size = new System.Drawing.Size(148, 19);
             this.label10.TabIndex = 186;
             this.label10.Text = "Deliverman Contact:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(759, 267);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(101, 19);
+            this.label9.Size = new System.Drawing.Size(112, 19);
             this.label9.TabIndex = 185;
             this.label9.Text = "Shipping Date :";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(735, 174);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(125, 19);
+            this.label8.Size = new System.Drawing.Size(140, 19);
             this.label8.TabIndex = 184;
             this.label8.Text = "Deliverman Name :";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(760, 128);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(104, 19);
+            this.label7.Size = new System.Drawing.Size(118, 19);
             this.label7.TabIndex = 183;
             this.label7.Text = "Deliverman ID :";
             // 
@@ -736,50 +715,50 @@ namespace templatev1
             // lblOrderSerialNumLabel
             // 
             this.lblOrderSerialNumLabel.AutoSize = true;
-            this.lblOrderSerialNumLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderSerialNumLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderSerialNumLabel.Location = new System.Drawing.Point(204, 174);
             this.lblOrderSerialNumLabel.Name = "lblOrderSerialNumLabel";
-            this.lblOrderSerialNumLabel.Size = new System.Drawing.Size(145, 19);
+            this.lblOrderSerialNumLabel.Size = new System.Drawing.Size(159, 19);
             this.lblOrderSerialNumLabel.TabIndex = 174;
             this.lblOrderSerialNumLabel.Text = "Order Serial Number :";
             // 
             // lblStaffIDLabel
             // 
             this.lblStaffIDLabel.AutoSize = true;
-            this.lblStaffIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffIDLabel.Location = new System.Drawing.Point(296, 315);
             this.lblStaffIDLabel.Name = "lblStaffIDLabel";
-            this.lblStaffIDLabel.Size = new System.Drawing.Size(60, 19);
+            this.lblStaffIDLabel.Size = new System.Drawing.Size(68, 19);
             this.lblStaffIDLabel.TabIndex = 173;
             this.lblStaffIDLabel.Text = "StaffID :";
             // 
             // lblStatusLabel
             // 
             this.lblStatusLabel.AutoSize = true;
-            this.lblStatusLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStatusLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStatusLabel.Location = new System.Drawing.Point(301, 410);
             this.lblStatusLabel.Name = "lblStatusLabel";
-            this.lblStatusLabel.Size = new System.Drawing.Size(53, 19);
+            this.lblStatusLabel.Size = new System.Drawing.Size(60, 19);
             this.lblStatusLabel.TabIndex = 172;
             this.lblStatusLabel.Text = "Status :";
             // 
             // lblStaffContactLabel
             // 
             this.lblStaffContactLabel.AutoSize = true;
-            this.lblStaffContactLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffContactLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffContactLabel.Location = new System.Drawing.Point(253, 362);
             this.lblStaffContactLabel.Name = "lblStaffContactLabel";
-            this.lblStaffContactLabel.Size = new System.Drawing.Size(96, 19);
+            this.lblStaffContactLabel.Size = new System.Drawing.Size(106, 19);
             this.lblStaffContactLabel.TabIndex = 171;
             this.lblStaffContactLabel.Text = "Staff Contact :";
             // 
             // lblStaffLabel
             // 
             this.lblStaffLabel.AutoSize = true;
-            this.lblStaffLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStaffLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStaffLabel.Location = new System.Drawing.Point(246, 268);
             this.lblStaffLabel.Name = "lblStaffLabel";
-            this.lblStaffLabel.Size = new System.Drawing.Size(100, 19);
+            this.lblStaffLabel.Size = new System.Drawing.Size(113, 19);
             this.lblStaffLabel.TabIndex = 169;
             this.lblStaffLabel.Text = "Staff Incharge :";
             // 
@@ -803,20 +782,20 @@ namespace templatev1
             // lblOrderIDLabel
             // 
             this.lblOrderIDLabel.AutoSize = true;
-            this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderIDLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderIDLabel.Location = new System.Drawing.Point(287, 128);
             this.lblOrderIDLabel.Name = "lblOrderIDLabel";
-            this.lblOrderIDLabel.Size = new System.Drawing.Size(73, 19);
+            this.lblOrderIDLabel.Size = new System.Drawing.Size(80, 19);
             this.lblOrderIDLabel.TabIndex = 167;
             this.lblOrderIDLabel.Text = "Order ID :";
             // 
             // lblOrderDateLabel
             // 
             this.lblOrderDateLabel.AutoSize = true;
-            this.lblOrderDateLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderDateLabel.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOrderDateLabel.Location = new System.Drawing.Point(269, 221);
             this.lblOrderDateLabel.Name = "lblOrderDateLabel";
-            this.lblOrderDateLabel.Size = new System.Drawing.Size(86, 19);
+            this.lblOrderDateLabel.Size = new System.Drawing.Size(95, 19);
             this.lblOrderDateLabel.TabIndex = 168;
             this.lblOrderDateLabel.Text = "Order Date :";
             // 
@@ -897,14 +876,12 @@ namespace templatev1
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnViewInvoice);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.lblExpressNum);
             this.Controls.Add(this.lblShippingDate);
             this.Controls.Add(this.lblDelivermanContact);
             this.Controls.Add(this.lblDelivermanName);
             this.Controls.Add(this.lblDelivermanID);
             this.Controls.Add(this.lblShippingAddress);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -979,14 +956,12 @@ namespace templatev1
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnViewInvoice;
         private System.Windows.Forms.Button btnReturn;
-        private System.Windows.Forms.Label lblExpressNum;
         private System.Windows.Forms.Label lblShippingDate;
         private System.Windows.Forms.Label lblDelivermanContact;
         private System.Windows.Forms.Label lblDelivermanName;
         private System.Windows.Forms.Label lblDelivermanID;
         private System.Windows.Forms.Label lblShippingAddress;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;

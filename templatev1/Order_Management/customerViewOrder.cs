@@ -141,7 +141,6 @@ namespace templatev1
                 lblDelivermanContact.Text = "N/A";
                 lblShippingDate.Text = "N/A";
 
-                lblExpressNum.Text = "N/A";
             }
             else
             {
@@ -152,7 +151,6 @@ namespace templatev1
                     ? $"Scheduled on {shippingDate}"
                     : $"Delivered on {shippingDate}";
 
-                lblExpressNum.Text = dt.Rows[0][4].ToString();
             }
 
             lblShippingAddress.Text = dt.Rows[0][5].ToString();

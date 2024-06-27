@@ -147,6 +147,7 @@ namespace templatev1
             lblOrderQty.Text = dt.Rows[0][2].ToString();
             lblTotalToDespatch.Text = dt.Rows[0][2].ToString();
             lblPartName.Text = dt.Rows[0][3].ToString();
+            lblPartNum.Text = partNum;
             lblCategory.Text = $"{dt.Rows[0][4]} - {dt.Rows[0][5]}";
             lblCustomerID.Text = dt.Rows[0][6].ToString();
             lblDeliveryman.Text = $"{dt.Rows[0][7]} - {dt.Rows[0][8]} " +

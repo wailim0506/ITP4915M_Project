@@ -53,14 +53,12 @@ namespace templatev1
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.lblShippingAddress = new System.Windows.Forms.Label();
             this.lblDelivermanID = new System.Windows.Forms.Label();
             this.lblDelivermanName = new System.Windows.Forms.Label();
             this.lblDelivermanContact = new System.Windows.Forms.Label();
             this.lblShippingDate = new System.Windows.Forms.Label();
-            this.lblExpressNum = new System.Windows.Forms.Label();
             this.btnReturn = new System.Windows.Forms.Button();
             this.btnViewInvoice = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -318,21 +316,11 @@ namespace templatev1
             this.label10.TabIndex = 58;
             this.label10.Text = "Deliverman Contact :";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(752, 365);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(130, 19);
-            this.label11.TabIndex = 59;
-            this.label11.Text = "Express Number :";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(749, 413);
+            this.label12.Location = new System.Drawing.Point(742, 365);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(133, 19);
             this.label12.TabIndex = 60;
@@ -341,7 +329,7 @@ namespace templatev1
             // lblShippingAddress
             // 
             this.lblShippingAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblShippingAddress.Location = new System.Drawing.Point(890, 413);
+            this.lblShippingAddress.Location = new System.Drawing.Point(883, 365);
             this.lblShippingAddress.Name = "lblShippingAddress";
             this.lblShippingAddress.Size = new System.Drawing.Size(263, 67);
             this.lblShippingAddress.TabIndex = 61;
@@ -381,15 +369,6 @@ namespace templatev1
             this.lblShippingDate.Name = "lblShippingDate";
             this.lblShippingDate.Size = new System.Drawing.Size(0, 19);
             this.lblShippingDate.TabIndex = 65;
-            // 
-            // lblExpressNum
-            // 
-            this.lblExpressNum.AutoSize = true;
-            this.lblExpressNum.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpressNum.Location = new System.Drawing.Point(890, 365);
-            this.lblExpressNum.Name = "lblExpressNum";
-            this.lblExpressNum.Size = new System.Drawing.Size(0, 19);
-            this.lblExpressNum.TabIndex = 66;
             // 
             // btnReturn
             // 
@@ -876,14 +855,12 @@ namespace templatev1
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnViewInvoice);
             this.Controls.Add(this.btnReturn);
-            this.Controls.Add(this.lblExpressNum);
             this.Controls.Add(this.lblShippingDate);
             this.Controls.Add(this.lblDelivermanContact);
             this.Controls.Add(this.lblDelivermanName);
             this.Controls.Add(this.lblDelivermanID);
             this.Controls.Add(this.lblShippingAddress);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -947,14 +924,12 @@ namespace templatev1
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblShippingAddress;
         private System.Windows.Forms.Label lblDelivermanID;
         private System.Windows.Forms.Label lblDelivermanName;
         private System.Windows.Forms.Label lblDelivermanContact;
         private System.Windows.Forms.Label lblShippingDate;
-        private System.Windows.Forms.Label lblExpressNum;
         private System.Windows.Forms.Button btnReturn;
         private System.Windows.Forms.Button btnViewInvoice;
         private System.Windows.Forms.Button btnEdit;
