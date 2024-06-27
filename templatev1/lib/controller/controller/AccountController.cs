@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Data;
 using System.Windows.Forms;
-using controller.Utilities;
+using LMCIS.controller.Utilities;
 using Microsoft.Extensions.Logging;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class AccountController : abstractController
     {

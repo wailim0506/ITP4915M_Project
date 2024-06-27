@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Data;
-using controller.Utilities;
+using LMCIS.controller.Utilities;
 
-
-namespace controller
+namespace LMCIS.controller
 {
     public class productListController : abstractController
     {

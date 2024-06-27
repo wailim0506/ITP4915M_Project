@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public interface IDatabase
     {

@@ -4,7 +4,7 @@ using System.Data;
 using Microsoft.Extensions.Logging;
 using MySql.Data.MySqlClient;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class Database : IDisposable, IDatabase
     {

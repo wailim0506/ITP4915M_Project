@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using controller.Utilities; //must include in every controller file
+using LMCIS.controller.Utilities;
 
-namespace controller
+//must include in every controller file
+
+namespace LMCIS.controller
 {
     public class viewSparePartController : abstractController
     {

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Data;
-using controller.Utilities;
+using System.Threading.Tasks;
+using LMCIS.controller.Utilities;
 using Microsoft.Extensions.Logging;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class viewOrderController : abstractController
     {

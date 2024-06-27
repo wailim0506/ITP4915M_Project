@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class dateHandler
     {

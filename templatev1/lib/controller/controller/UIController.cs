@@ -1,7 +1,7 @@
 ﻿using System.Dynamic;
-using controller.Utilities;
+using LMCIS.controller.Utilities;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class UIController : abstractController
     {

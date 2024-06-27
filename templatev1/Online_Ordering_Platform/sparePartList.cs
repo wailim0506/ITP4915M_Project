@@ -4,7 +4,7 @@ using System.Data;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
-using controller;
+using LMCIS.controller;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Order_Management;
 using LMCIS.Profile;

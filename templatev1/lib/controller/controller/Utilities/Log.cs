@@ -2,7 +2,7 @@
 using System.IO;
 using Microsoft.Extensions.Logging;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class Log
     {

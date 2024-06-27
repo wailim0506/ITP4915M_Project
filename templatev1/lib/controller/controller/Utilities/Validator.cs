@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class Validator
     {

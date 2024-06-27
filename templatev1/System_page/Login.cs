@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using controller;
-using controller.Utilities;
+using LMCIS.controller;
+using LMCIS.controller.Utilities;
 
 namespace LMCIS.System_page
 {

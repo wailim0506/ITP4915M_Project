@@ -6,7 +6,7 @@ using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
-using controller;
+using LMCIS.controller;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Profile;
@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Reporting.WinForms;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-using static controller.Utilities.Log;
+using static LMCIS.controller.Utilities.Log;
 
 namespace LMCIS.Order_Management
 {

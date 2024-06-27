@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Data;
-using Microsoft.Extensions.Logging;
-using controller.Utilities;
+using System.Dynamic;
 using System.Linq;
+using LMCIS.controller.Utilities;
+using Microsoft.Extensions.Logging;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class stockController : abstractController
     {

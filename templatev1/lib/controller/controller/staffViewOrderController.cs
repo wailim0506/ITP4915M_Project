@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using controller.Utilities;
-using Microsoft.Extensions.Logging;
 using System.Windows.Forms;
+using LMCIS.controller.Utilities;
+using Microsoft.Extensions.Logging;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class staffViewOrderController : abstractController
     {

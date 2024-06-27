@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using controller.Utilities;
+using LMCIS.controller.Utilities;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class DeliveryController : abstractController
     {

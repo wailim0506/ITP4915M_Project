@@ -1,6 +1,6 @@
-﻿using controller.Utilities;
+﻿using LMCIS.controller.Utilities;
 
-namespace controller
+namespace LMCIS.controller
 {
     public abstract class abstractController //abstract class for controller
     {

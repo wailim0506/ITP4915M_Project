@@ -5,7 +5,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using controller;
+using LMCIS.controller;
 
 namespace LMCIS.System_page
 {

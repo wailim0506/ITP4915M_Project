@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using MySql.Data.MySqlClient;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class Configuration
     {

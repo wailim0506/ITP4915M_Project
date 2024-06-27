@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Data;
-using controller.Utilities;
+using System.Linq;
+using LMCIS.controller.Utilities;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class spareListController : abstractController
     {

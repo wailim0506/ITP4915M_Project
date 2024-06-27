@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace controller.Utilities
+namespace LMCIS.controller.Utilities
 {
     public class UrlSigner
     {

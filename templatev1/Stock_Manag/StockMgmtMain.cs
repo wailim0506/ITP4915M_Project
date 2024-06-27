@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Drawing.Printing;
 using System.Dynamic;
 using System.Windows.Forms;
-using controller;
+using LMCIS.controller;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;

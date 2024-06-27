@@ -1,7 +1,7 @@
 ﻿using System.Data;
+using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using Xunit;
-using controller;
-using controller.Utilities;
 
 namespace TestController
 {

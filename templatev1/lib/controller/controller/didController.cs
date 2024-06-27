@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Data;
-using controller.Utilities;
+using LMCIS.controller.Utilities;
 
-namespace controller
+namespace LMCIS.controller
 {
     public class didController : abstractController
     {
