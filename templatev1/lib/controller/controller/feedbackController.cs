@@ -6,7 +6,7 @@ using controller.Utilities;
 
 namespace controller
 {
-    public class feedbackController : abstractController
+    public class feedbackController
     {
         private readonly Database _db;
 
@@ -101,10 +101,10 @@ namespace controller
 
         public DataTable getAllFeedback(bool isManager, string staffID)
         {
-            string sqlCmd =
-                $"SELECT x.feedBackID, x.customerID, x.orderID, x.content, x.feedbackDate FROM feedback x, " +
-                $"staff_account y , order_ z WHERE x.orderID = z.orderID AND " +
-                $"y.staffAccountID = z.staffAccountID";
+            string sqlCmd = "SELECT x.feedbackID, x.customerID, x.orderID, x.content, x.feedbackDate " +
+                            "FROM feedback x LEFT JOIN order_ z ON x.orderID = z.orderID LEFT JOIN " +
+                            "staff_account y ON y.staffAccountID = z.staffAccountID";
+                
 
 
             if (!isManager)
