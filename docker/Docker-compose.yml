@@ -17,7 +17,7 @@
       - "8000:8000"
     volumes:
       - ./:/docs
-    command: serve -a 0.0.0.0:8000
+    # command: serve -a 0.0.0.0:8000
     networks:
       - itp4915m
 
