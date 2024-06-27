@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Windows.Forms;
 using controller;
+using System.Drawing;
 using System.Dynamic;
+using System.IO;
 
 namespace templatev1
 {
@@ -9,6 +11,8 @@ namespace templatev1
     {
         private string uName, UID;
         dynamic sparePartInfo, newItemInfo;
+        Bitmap IMG;
+        bool IMGUploaded;
         AccountController accountController;
         OnSaleProductController onSaleProductController;
         UIController UIController;
@@ -267,6 +271,48 @@ namespace templatev1
                 }
             }
         }
+
+        //For upload and remove IMG function.
+        private void btnUploadIMG_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp); *.PNG|*.jpg; *.jpeg; *.gif; *.bmp; *.PNG";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    if (new FileInfo(ofd.FileName).Length > 1000000) //File can't larger than 1MB
+                    {
+                        MessageBox.Show("File too large! Maximum 1MB.", "System message", MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+                        //MessageBox.Show("File too large! Maximum 1MB.");
+                        IMGUploaded = false;
+                    }
+                    else
+                    {
+                        IMG = new Bitmap(Image.FromFile(ofd.FileName));
+                        btnUploadIMG.Visible = false;
+                        btnRemoveIMG.Visible = true;
+                        picProductIMG.Image = IMG;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+                IMGUploaded = false;
+            }
+        }
+
+        private void btnRemoveIMG_Click(object sender, EventArgs e)
+        {
+            IMG = null;
+            btnUploadIMG.Visible = true;
+            btnRemoveIMG.Visible = false;
+            picProductIMG.Image = IMG;
+        }
+
 
         //Check the inputted data.
         private bool checkInfo()

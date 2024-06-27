@@ -62,7 +62,7 @@
             this.lblTitAccType = new System.Windows.Forms.Label();
             this.lblTitDept = new System.Windows.Forms.Label();
             this.lblTitJobTitle = new System.Windows.Forms.Label();
-            this.btnReomveIMG = new System.Windows.Forms.Button();
+            this.btnRemoveIMG = new System.Windows.Forms.Button();
             this.lblTitDateOfBirth = new System.Windows.Forms.Label();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
@@ -470,15 +470,16 @@
             this.lblTitJobTitle.TabIndex = 94;
             this.lblTitJobTitle.Text = "Job Title:";
             // 
-            // btnReomveIMG
+            // btnRemoveIMG
             // 
-            this.btnReomveIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnReomveIMG.Location = new System.Drawing.Point(1006, 383);
-            this.btnReomveIMG.Name = "btnReomveIMG";
-            this.btnReomveIMG.Size = new System.Drawing.Size(142, 29);
-            this.btnReomveIMG.TabIndex = 93;
-            this.btnReomveIMG.Text = "Remove Image";
-            this.btnReomveIMG.UseVisualStyleBackColor = true;
+            this.btnRemoveIMG.Font = new System.Drawing.Font("Times New Roman", 13F);
+            this.btnRemoveIMG.Location = new System.Drawing.Point(1006, 383);
+            this.btnRemoveIMG.Name = "btnRemoveIMG";
+            this.btnRemoveIMG.Size = new System.Drawing.Size(142, 29);
+            this.btnRemoveIMG.TabIndex = 93;
+            this.btnRemoveIMG.Text = "Remove Image";
+            this.btnRemoveIMG.UseVisualStyleBackColor = true;
+            this.btnRemoveIMG.Click += new System.EventHandler(this.btnReomveIMG_Click);
             // 
             // lblTitDateOfBirth
             // 
@@ -635,6 +636,7 @@
             this.btnUploadIMG.TabIndex = 148;
             this.btnUploadIMG.Text = "Upload Image";
             this.btnUploadIMG.UseVisualStyleBackColor = true;
+            this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
             // 
             // dtpDateOfBirth
             // 
@@ -755,7 +757,7 @@
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.btnUploadIMG);
             this.Controls.Add(this.picUserIMG);
-            this.Controls.Add(this.btnReomveIMG);
+            this.Controls.Add(this.btnRemoveIMG);
             this.Controls.Add(this.lblTitDateOfBirth);
             this.Controls.Add(this.tbLastName);
             this.Controls.Add(this.tbFirstName);
@@ -822,7 +824,7 @@
         private System.Windows.Forms.Label lblTitAccType;
         private System.Windows.Forms.Label lblTitDept;
         private System.Windows.Forms.Label lblTitJobTitle;
-        private System.Windows.Forms.Button btnReomveIMG;
+        private System.Windows.Forms.Button btnRemoveIMG;
         private System.Windows.Forms.Label lblTitDateOfBirth;
         private System.Windows.Forms.TextBox tbLastName;
         private System.Windows.Forms.TextBox tbFirstName;

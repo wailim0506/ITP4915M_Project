@@ -495,6 +495,7 @@ namespace templatev1
                     {
                         IMG = new Bitmap(Image.FromFile(ofd.FileName));
                         btnUploadIMG.Visible = false;
+                        btnRemoveIMG.Visible = true;
                         picUserIMG.Image = IMG;
                         IMGUploaded = proFileController.UploadUserAvatar(ofd.FileName, UID);
                     }
@@ -512,6 +513,7 @@ namespace templatev1
         {
             IMG = null;
             btnUploadIMG.Visible = true;
+            btnRemoveIMG.Visible = false;
             picUserIMG.Image = IMG;
             proFileController.DeleteUserAvatar(UID);
         }

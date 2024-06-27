@@ -558,7 +558,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnCancel.Location = new System.Drawing.Point(499, 880);
+            this.btnCancel.Location = new System.Drawing.Point(523, 880);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(301, 47);
             this.btnCancel.TabIndex = 68;

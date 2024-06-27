@@ -687,6 +687,7 @@
             this.btnRemoveIMG.TabIndex = 127;
             this.btnRemoveIMG.Text = "Remove Image";
             this.btnRemoveIMG.UseVisualStyleBackColor = true;
+            this.btnRemoveIMG.Click += new System.EventHandler(this.btnRemoveIMG_Click);
             // 
             // picUserIMG
             // 
@@ -707,6 +708,7 @@
             this.btnUploadIMG.TabIndex = 145;
             this.btnUploadIMG.Text = "Upload Image";
             this.btnUploadIMG.UseVisualStyleBackColor = true;
+            this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
             // 
             // dtpDateOfBirth
             // 

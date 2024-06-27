@@ -378,7 +378,7 @@
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnCancel.Location = new System.Drawing.Point(714, 877);
+            this.btnCancel.Location = new System.Drawing.Point(704, 880);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(108, 47);
             this.btnCancel.TabIndex = 30;
@@ -389,7 +389,7 @@
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Times New Roman", 13F);
-            this.btnModify.Location = new System.Drawing.Point(554, 877);
+            this.btnModify.Location = new System.Drawing.Point(544, 880);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(108, 47);
             this.btnModify.TabIndex = 29;
@@ -526,6 +526,7 @@
             this.btnRemoveIMG.TabIndex = 49;
             this.btnRemoveIMG.Text = "Remove Image";
             this.btnRemoveIMG.UseVisualStyleBackColor = true;
+            this.btnRemoveIMG.Click += new System.EventHandler(this.btnRemoveIMG_Click);
             // 
             // lblSuppilerID
             // 
@@ -703,6 +704,7 @@
             this.picProductIMG.Location = new System.Drawing.Point(965, 94);
             this.picProductIMG.Name = "picProductIMG";
             this.picProductIMG.Size = new System.Drawing.Size(192, 243);
+            this.picProductIMG.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picProductIMG.TabIndex = 99;
             this.picProductIMG.TabStop = false;
             // 
@@ -716,6 +718,7 @@
             this.btnUploadIMG.TabIndex = 101;
             this.btnUploadIMG.Text = "Upload Image";
             this.btnUploadIMG.UseVisualStyleBackColor = true;
+            this.btnUploadIMG.Click += new System.EventHandler(this.btnUploadIMG_Click);
             // 
             // chkStatus
             // 
