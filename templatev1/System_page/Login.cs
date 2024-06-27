@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using controller;
 using controller.Utilities;
 
-namespace templatev1
+namespace LMCIS.System_page
 {
     public partial class Login : Form
     {
@@ -90,20 +90,20 @@ namespace templatev1
             {
                 if (chkRememberMe.Checked == true) //Store to local
                 {
-                    Properties.Settings.Default.Usesrname = tbUsername.Text;
-                    Properties.Settings.Default.Password = tbPassword.Text;
-                    Properties.Settings.Default.Save();
+                    templatev1.Properties.Settings.Default.Usesrname = tbUsername.Text;
+                    templatev1.Properties.Settings.Default.Password = tbPassword.Text;
+                    templatev1.Properties.Settings.Default.Save();
                 }
                 else
-                    Properties.Settings.Default.Reset(); //Clean local data
+                    templatev1.Properties.Settings.Default.Reset(); //Clean local data
             }
             else //Read from local
             {
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.Usesrname))
+                if (!string.IsNullOrEmpty(templatev1.Properties.Settings.Default.Usesrname))
                 {
                     chkRememberMe.CheckState = CheckState.Checked;
-                    tbUsername.Text = Properties.Settings.Default.Usesrname;
-                    tbPassword.Text = Properties.Settings.Default.Password;
+                    tbUsername.Text = templatev1.Properties.Settings.Default.Usesrname;
+                    tbPassword.Text = templatev1.Properties.Settings.Default.Password;
                     btnLogin.Select();
                 }
             }

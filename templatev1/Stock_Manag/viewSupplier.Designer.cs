@@ -1,5 +1,5 @@
 ﻿
-namespace templatev1
+namespace LMCIS.Stock_Manag
 {
     partial class viewSupplier
     {
@@ -223,7 +223,7 @@ namespace templatev1
             // 
             // picBWMode
             // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Image = global::LMCIS.Properties.Resources.LB;
             this.picBWMode.Location = new System.Drawing.Point(143, 24);
             this.picBWMode.Name = "picBWMode";
             this.picBWMode.Size = new System.Drawing.Size(49, 46);
@@ -264,7 +264,7 @@ namespace templatev1
             // picHome
             // 
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Image = global::LMCIS.Properties.Resources.home;
             this.picHome.Location = new System.Drawing.Point(13, 13);
             this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";
@@ -454,7 +454,7 @@ namespace templatev1
             // 
             // picSearch
             // 
-            this.picSearch.Image = global::templatev1.Properties.Resources.Daco_367903;
+            this.picSearch.Image = global::LMCIS.Properties.Resources.Daco_367903;
             this.picSearch.Location = new System.Drawing.Point(504, 107);
             this.picSearch.Name = "picSearch";
             this.picSearch.Size = new System.Drawing.Size(31, 25);

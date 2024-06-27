@@ -1,25 +1,25 @@
 ﻿services:
-  nginx:
-    image: nginx:1.21.6
-    ports:
-      - "80:80"
-    volumes:
-      - ./nginx/:/etc/nginx/
-      - ./:/var/www/html
-    depends_on:
-      - mkdocs
-    networks:
-      - itp4915m
-
-  mkdocs:
-    image: squidfunk/mkdocs-material
-    ports:
-      - "8000:8000"
-    volumes:
-      - ./:/docs
-    # command: serve -a 0.0.0.0:8000
-    networks:
-      - itp4915m
+#  nginx:
+#    image: nginx:1.21.6
+#    ports:
+#      - "80:80"
+#    volumes:
+#      - ./nginx/:/etc/nginx/
+#      - ./:/var/www/html
+#    depends_on:
+#      - mkdocs
+#    networks:
+#      - itp4915m
+#
+#  mkdocs:
+#    image: squidfunk/mkdocs-material
+#    ports:
+#      - "8000:8000"
+#    volumes:
+#      - ./:/docs
+#    # command: serve -a 0.0.0.0:8000
+#    networks:
+#      - itp4915m
 
   mariadb:
     image: mariadb:10.5

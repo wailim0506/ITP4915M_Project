@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{593CA109-A5B5-4855-94E6-1A87E3A713C7}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>templatev1</RootNamespace>
-    <AssemblyName>templatev1</AssemblyName>
+    <RootNamespace>LMCIS</RootNamespace>
+    <AssemblyName>LMCIS</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -711,7 +711,9 @@
     <None Include="SLMC_Icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
@@ -761,6 +763,7 @@
     <None Include="Resources\D00004.png" />
     <None Include="Resources\D00005.png" />
     <Content Include=".gitignore" />
+    <Content Include="App.config.example" />
     <Content Include="READMDE.md" />
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,17 @@
 ﻿using System;
-using System.IO;
 using System.Drawing;
 using System.Dynamic;
+using System.IO;
 using System.Windows.Forms;
 using controller;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Order_Management;
+using LMCIS.Profile;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 
-namespace templatev1
+namespace LMCIS.On_Sale_Product_Manag
 {
     public partial class OnSaleModify : Form
     {

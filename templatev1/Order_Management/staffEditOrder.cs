@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Windows.Forms;
-using controller.Utilities;
-using controller;
 using System.Data;
 using System.Drawing;
-using templatev1.Properties;
+using System.Windows.Forms;
+using controller;
+using controller.Utilities;
+using LMCIS.On_Sale_Product_Manag;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Profile;
+using LMCIS.Properties;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 
-namespace templatev1
+namespace LMCIS.Order_Management
 {
     public partial class staffEditOrder : Form
     {

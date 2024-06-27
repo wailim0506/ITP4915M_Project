@@ -1,11 +1,18 @@
 ﻿using System;
-using System.Windows.Forms;
-using controller;
 using System.Drawing;
 using System.Dynamic;
 using System.IO;
+using System.Windows.Forms;
+using controller;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Order_Management;
+using LMCIS.Profile;
+using LMCIS.Properties;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 
-namespace templatev1
+namespace LMCIS.On_Sale_Product_Manag
 {
     public partial class OnSaleAdd : Form
     {
@@ -67,10 +74,10 @@ namespace templatev1
 
 
             //For icon color
-            if (Properties.Settings.Default.BWmode == true)
+            if (templatev1.Properties.Settings.Default.BWmode == true)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
         }
 

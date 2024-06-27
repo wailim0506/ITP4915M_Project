@@ -1,9 +1,16 @@
 ﻿using System;
-using System.Windows.Forms;
 using System.Dynamic;
+using System.Windows.Forms;
 using controller;
+using LMCIS.On_Sale_Product_Manag;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Order_Management;
+using LMCIS.Profile;
+using LMCIS.Properties;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 
-namespace templatev1
+namespace LMCIS.Stock_Manag
 {
     public partial class editSupplier : Form
     {
@@ -61,10 +68,10 @@ namespace templatev1
 
 
             //For icon color
-            if (Properties.Settings.Default.BWmode == true)
+            if (templatev1.Properties.Settings.Default.BWmode == true)
             {
-                picBWMode.Image = Properties.Resources.LBWhite;
-                picHome.Image = Properties.Resources.homeWhite;
+                picBWMode.Image = Resources.LBWhite;
+                picHome.Image = Resources.homeWhite;
             }
         }
 

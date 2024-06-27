@@ -1,5 +1,5 @@
 ﻿
-namespace templatev1
+namespace LMCIS
 {
     partial class DevTool
     {

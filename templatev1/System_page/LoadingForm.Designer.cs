@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace templatev1
+namespace LMCIS.System_page
 {
     partial class LoadingForm
     {

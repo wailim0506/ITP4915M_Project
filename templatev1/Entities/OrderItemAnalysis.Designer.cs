@@ -8,11 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+namespace LMCIS.Entities
+{
 #pragma warning disable 1591
 
-namespace templatev1.Entities {
-    
-    
     /// <summary>
     ///Represents a strongly typed in-memory cache of data.
     ///</summary>
@@ -44,7 +43,7 @@ namespace templatev1.Entities {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         protected OrderItemAnalysis(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                base(info, context, false) {
+            base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -279,7 +278,7 @@ namespace templatev1.Entities {
                             s1.Position = 0;
                             s2.Position = 0;
                             for (; ((s1.Position != s1.Length) 
-                                        && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    && (s1.ReadByte() == s2.ReadByte())); ) {
                                 ;
                             }
                             if ((s1.Position == s1.Length)) {
@@ -357,7 +356,7 @@ namespace templatev1.Entities {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected OrderTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
+                base(info, context) {
                 this.InitVars();
             }
             
@@ -457,13 +456,13 @@ namespace templatev1.Entities {
             public OrderTableRow AddOrderTableRow(string orderID, string CustomerAccountID, string CustomerID, string CustomerName, System.DateTime orderDate, string OrderStatus, decimal orderTotal) {
                 OrderTableRow rowOrderTableRow = ((OrderTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        orderID,
-                        CustomerAccountID,
-                        CustomerID,
-                        CustomerName,
-                        orderDate,
-                        OrderStatus,
-                        orderTotal};
+                    orderID,
+                    CustomerAccountID,
+                    CustomerID,
+                    CustomerName,
+                    orderDate,
+                    OrderStatus,
+                    orderTotal};
                 rowOrderTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowOrderTableRow);
                 return rowOrderTableRow;
@@ -473,9 +472,9 @@ namespace templatev1.Entities {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public OrderTableRow FindByorderIDCustomerAccountIDCustomerID(string orderID, string CustomerAccountID, string CustomerID) {
                 return ((OrderTableRow)(this.Rows.Find(new object[] {
-                            orderID,
-                            CustomerAccountID,
-                            CustomerID})));
+                    orderID,
+                    CustomerAccountID,
+                    CustomerID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -522,9 +521,9 @@ namespace templatev1.Entities {
                 this.columnorderTotal = new global::System.Data.DataColumn("orderTotal", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnorderTotal);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnorderID,
-                                this.columnCustomerAccountID,
-                                this.columnCustomerID}, true));
+                    this.columnorderID,
+                    this.columnCustomerAccountID,
+                    this.columnCustomerID}, true));
                 this.columnorderID.AllowDBNull = false;
                 this.columnorderID.MaxLength = 60;
                 this.columnCustomerAccountID.AllowDBNull = false;
@@ -639,7 +638,7 @@ namespace templatev1.Entities {
                                 s1.Position = 0;
                                 s2.Position = 0;
                                 for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                        && (s1.ReadByte() == s2.ReadByte())); ) {
                                     ;
                                 }
                                 if ((s1.Position == s1.Length)) {
@@ -708,7 +707,7 @@ namespace templatev1.Entities {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected itemTableDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
+                base(info, context) {
                 this.InitVars();
             }
             
@@ -792,11 +791,11 @@ namespace templatev1.Entities {
             public itemTableRow AdditemTableRow(string orderID, string partNumber, System.DateTime orderDate, long ItemCount, decimal TotalQuantity) {
                 itemTableRow rowitemTableRow = ((itemTableRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        orderID,
-                        partNumber,
-                        orderDate,
-                        ItemCount,
-                        TotalQuantity};
+                    orderID,
+                    partNumber,
+                    orderDate,
+                    ItemCount,
+                    TotalQuantity};
                 rowitemTableRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowitemTableRow);
                 return rowitemTableRow;
@@ -806,8 +805,8 @@ namespace templatev1.Entities {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public itemTableRow FindByorderIDpartNumber(string orderID, string partNumber) {
                 return ((itemTableRow)(this.Rows.Find(new object[] {
-                            orderID,
-                            partNumber})));
+                    orderID,
+                    partNumber})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -848,8 +847,8 @@ namespace templatev1.Entities {
                 this.columnTotalQuantity = new global::System.Data.DataColumn("TotalQuantity", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalQuantity);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnorderID,
-                                this.columnpartNumber}, true));
+                    this.columnorderID,
+                    this.columnpartNumber}, true));
                 this.columnorderID.AllowDBNull = false;
                 this.columnorderID.MaxLength = 60;
                 this.columnpartNumber.AllowDBNull = false;
@@ -959,7 +958,7 @@ namespace templatev1.Entities {
                                 s1.Position = 0;
                                 s2.Position = 0;
                                 for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                        && (s1.ReadByte() == s2.ReadByte())); ) {
                                     ;
                                 }
                                 if ((s1.Position == s1.Length)) {
@@ -992,7 +991,7 @@ namespace templatev1.Entities {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal OrderTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
+                base(rb) {
                 this.tableOrderTable = ((OrderTableDataTable)(this.Table));
             }
             
@@ -1101,7 +1100,7 @@ namespace templatev1.Entities {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal itemTableRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
+                base(rb) {
                 this.tableitemTable = ((itemTableDataTable)(this.Table));
             }
             
@@ -1246,10 +1245,7 @@ namespace templatev1.Entities {
             }
         }
     }
-}
-namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
-    
-    
+
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
@@ -1257,7 +1253,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+                                                     ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class OrderTableTableAdapter : global::System.ComponentModel.Component {
         
@@ -1328,15 +1324,15 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
+                     && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
+                     && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
+                     && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
@@ -1430,7 +1426,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DataObjectAttribute(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+                                                     ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class itemTableTableAdapter : global::System.ComponentModel.Component {
         
@@ -1501,15 +1497,15 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
                     this.CommandCollection[i].Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
+                     && (this.Adapter.DeleteCommand != null))) {
                     this.Adapter.DeleteCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
+                     && (this.Adapter.InsertCommand != null))) {
                     this.Adapter.InsertCommand.Transaction = this._transaction;
                 }
                 if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
+                     && (this.Adapter.UpdateCommand != null))) {
                     this.Adapter.UpdateCommand.Transaction = this._transaction;
                 }
             }
@@ -1600,7 +1596,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerDesigner, Microsoft.VSD" +
-        "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+                                                     "esigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapterManager")]
     public partial class TableAdapterManager : global::System.ComponentModel.Component {
         
@@ -1694,11 +1690,11 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private global::System.Data.DataRow[] GetRealUpdatedRows(global::System.Data.DataRow[] updatedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             if (((updatedRows == null) 
-                        || (updatedRows.Length < 1))) {
+                 || (updatedRows.Length < 1))) {
                 return updatedRows;
             }
             if (((allAddedRows == null) 
-                        || (allAddedRows.Count < 1))) {
+                 || (allAddedRows.Count < 1))) {
                 return updatedRows;
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> realUpdatedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -1726,11 +1722,11 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager contains no connection information. Set each TableAdapterMana" +
-                        "ger TableAdapter property to a valid TableAdapter instance.");
+                                                              "ger TableAdapter property to a valid TableAdapter instance.");
             }
             bool workConnOpened = false;
             if (((workConnection.State & global::System.Data.ConnectionState.Broken) 
-                        == global::System.Data.ConnectionState.Broken)) {
+                 == global::System.Data.ConnectionState.Broken)) {
                 workConnection.Close();
             }
             if ((workConnection.State == global::System.Data.ConnectionState.Closed)) {
@@ -1740,7 +1736,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
             global::System.Data.IDbTransaction workTransaction = workConnection.BeginTransaction();
             if ((workTransaction == null)) {
                 throw new global::System.ApplicationException("The transaction cannot begin. The current data connection does not support transa" +
-                        "ctions or the current state is not allowing the transaction to begin.");
+                                                              "ctions or the current state is not allowing the transaction to begin.");
             }
             global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
             global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows = new global::System.Collections.Generic.List<global::System.Data.DataRow>();
@@ -1838,7 +1834,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
                 return true;
             }
             if (((this.Connection == null) 
-                        || (inputConnection == null))) {
+                 || (inputConnection == null))) {
                 return true;
             }
             if (string.Equals(this.Connection.ConnectionString, inputConnection.ConnectionString, global::System.StringComparison.Ordinal)) {
@@ -1892,8 +1888,8 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
 
                 global::System.Data.DataRow parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Default);
                 for (
-                ; ((parent != null) 
-                            && (traversedRows.ContainsKey(parent) == false)); 
+                    ; ((parent != null) 
+                       && (traversedRows.ContainsKey(parent) == false)); 
                 ) {
                     distance = (distance + 1);
                     root = parent;
@@ -1906,8 +1902,8 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
                     traversedRows[row] = row;
                     parent = row.GetParentRow(this._relation, global::System.Data.DataRowVersion.Original);
                     for (
-                    ; ((parent != null) 
-                                && (traversedRows.ContainsKey(parent) == false)); 
+                        ; ((parent != null) 
+                           && (traversedRows.ContainsKey(parent) == false)); 
                     ) {
                         distance = (distance + 1);
                         root = parent;
@@ -1943,7 +1939,7 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
                 }
                 else {
                     global::System.Diagnostics.Debug.Assert(((root1.Table != null) 
-                                    && (root2.Table != null)));
+                                                             && (root2.Table != null)));
                     if ((root1.Table.Rows.IndexOf(root1) < root2.Table.Rows.IndexOf(root2))) {
                         return -1;
                     }
@@ -1954,6 +1950,6 @@ namespace templatev1.Entities.OrderItemAnalysisTableAdapters {
             }
         }
     }
-}
 
 #pragma warning restore 1591
+}

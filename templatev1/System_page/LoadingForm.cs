@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace templatev1
+namespace LMCIS.System_page
 {
     // PLEASE NOTE THAT DON"T USE SINCE IT IS BUGGED it will Crash the application
     public partial class LoadingForm : UserControl

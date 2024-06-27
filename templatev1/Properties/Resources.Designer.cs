@@ -7,10 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace templatev1.Properties {
-    using System;
-    
-    
+namespace LMCIS.Properties {
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>

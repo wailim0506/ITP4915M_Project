@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1
+namespace LMCIS.System_page
 {
     public partial class CreateCustomerAcc : Form
     {

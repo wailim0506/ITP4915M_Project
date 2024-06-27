@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
-using controller;
-using controller.Utilities;
-
-namespace templatev1.Entities
+﻿namespace LMCIS.Entities
 {
     partial class OrderItemAnalysis
     {
@@ -11,10 +6,7 @@ namespace templatev1.Entities
         {
         }
     }
-}
 
-namespace templatev1.Entities.OrderItemAnalysisTableAdapters
-{
     public partial class itemTableTableAdapter
     {
     }

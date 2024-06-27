@@ -2,9 +2,11 @@
 using System.Threading;
 using System.Windows.Forms;
 using controller.Utilities;
+using LMCIS.System_page;
 using Microsoft.Extensions.Logging;
+using templatev1;
 
-namespace templatev1
+namespace LMCIS
 {
     internal static class Program
     {

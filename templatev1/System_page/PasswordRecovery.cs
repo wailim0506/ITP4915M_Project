@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using controller;
 using controller.Utilities;
 
-namespace templatev1
+namespace LMCIS.System_page
 {
     public partial class PasswordRe : Form
     {

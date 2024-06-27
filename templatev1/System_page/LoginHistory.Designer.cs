@@ -1,4 +1,4 @@
-﻿namespace templatev1
+﻿namespace LMCIS.System_page
 {
     partial class LogHis
     {
@@ -81,7 +81,7 @@
             // 
             // picBWMode
             // 
-            this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
+            this.picBWMode.Image = global::LMCIS.Properties.Resources.LB;
             this.picBWMode.Location = new System.Drawing.Point(143, 24);
             this.picBWMode.Name = "picBWMode";
             this.picBWMode.Size = new System.Drawing.Size(49, 46);
@@ -130,7 +130,7 @@
             // 
             // picHome
             // 
-            this.picHome.Image = global::templatev1.Properties.Resources.home;
+            this.picHome.Image = global::LMCIS.Properties.Resources.home;
             this.picHome.Location = new System.Drawing.Point(13, 13);
             this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";

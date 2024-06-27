@@ -1,12 +1,18 @@
 ﻿using System;
-using System.IO;
-using System.Dynamic;
 using System.Drawing;
+using System.Dynamic;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using controller;
-using System.Text.RegularExpressions;
+using LMCIS.On_Sale_Product_Manag;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Order_Management;
+using LMCIS.Profile;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
 
-namespace templatev1
+namespace LMCIS.User_Manag
 {
     public partial class ScreateAccount : Form
     {

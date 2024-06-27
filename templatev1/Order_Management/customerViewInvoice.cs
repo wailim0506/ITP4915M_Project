@@ -5,11 +5,18 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using controller;
+using LMCIS.On_Sale_Product_Manag;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Profile;
+using LMCIS.Properties;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using templatev1.Properties;
 
-namespace templatev1
+namespace LMCIS.Order_Management
 {
     public partial class customerViewInvoice : Form
     {

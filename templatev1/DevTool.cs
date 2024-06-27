@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using controller;
 
-namespace templatev1
+namespace LMCIS
 {
     public partial class DevTool : Form
     {

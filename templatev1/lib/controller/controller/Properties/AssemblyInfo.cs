@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("controller")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This is class library for controller. it will be used by LMCI System for the purpose of data access. ")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("controller")]
+[assembly: AssemblyCompany("Legend Motor Limited Company")]
+[assembly: AssemblyProduct("System controller class library")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

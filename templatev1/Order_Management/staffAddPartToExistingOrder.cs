@@ -1,18 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using controller;
 using controller.Utilities;
-using templatev1.Properties;
+using LMCIS.On_Sale_Product_Manag;
+using LMCIS.Online_Ordering_Platform;
+using LMCIS.Profile;
+using LMCIS.Properties;
+using LMCIS.Stock_Manag;
+using LMCIS.System_page;
+using LMCIS.User_Manag;
 
-namespace templatev1
+namespace LMCIS.Order_Management
 {
     public partial class staffAddPartToExistingOrder : Form
     {
