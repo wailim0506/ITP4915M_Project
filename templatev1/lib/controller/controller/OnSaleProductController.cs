@@ -59,7 +59,7 @@ namespace controller
 
             sqlStr = $"SELECT * FROM product";
 
-            dt = _db.ExecuteDataTable(sqlStr);
+            dt = db.ExecuteDataTable(sqlStr);
 
             return dt.Rows.Count;
         }
@@ -77,7 +77,7 @@ namespace controller
                 $"WHERE P.category = C.categoryID AND P.partNumber = SP.partNumber " +
                 $"AND SP.supplierID = SUPP.supplierID AND itemID = \'{itemID}\'";
 
-            dt = _db.ExecuteDataTable(sqlStr);
+            dt = db.ExecuteDataTable(sqlStr);
 
             dynamic ProductInfo = new ExpandoObject();
             ProductInfo.itemID = dt.Rows[0]["itemID"].ToString();
@@ -111,7 +111,7 @@ namespace controller
             sqlStr =
                 $"UPDATE product SET status = 'Disable', lastModified = \'{accountController.GetUid()}\' WHERE itemID = \'{ItemID}\'";
 
-            _db.ExecuteNonQueryCommand(sqlStr, null);
+            db.ExecuteNonQueryCommand(sqlStr, null);
         }
 
         public void SetToModityItemID(string ItemID)
@@ -142,7 +142,7 @@ namespace controller
                     "UPDATE product SET onSaleQty = @onSaleQty, LM_onSaleQty = @LM_onSaleQty" +
                     ", description = @description, status = @status WHERE itemID = @itemID";
 
-                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+                db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 return true;
             }
@@ -159,7 +159,7 @@ namespace controller
 
             sqlStr = $"SELECT categoryID FROM category WHERE type = \'{Category}\'";
 
-            dt = _db.ExecuteDataTable(sqlStr);
+            dt = db.ExecuteDataTable(sqlStr);
 
             return dt.Rows[0]["categoryID"].ToString();
         }
@@ -186,7 +186,7 @@ namespace controller
                     "INSERT INTO product VALUES(@itemID, @categoryID, @partNumber, @onSaleQty, " +
                     "@LM_onSaleQty, @description, @price, NULL, @lastModified, @status, @onShelvesDate)";
 
-                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+                db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 return true;
             }
@@ -203,7 +203,7 @@ namespace controller
 
             sqlStr = $"SELECT * FROM discount";
 
-            dt = _db.ExecuteDataTable(sqlStr);
+            dt = db.ExecuteDataTable(sqlStr);
 
             return dt.Rows.Count;
         }
@@ -221,7 +221,7 @@ namespace controller
 
             sqlStr = $"SELECT * FROM discount WHERE discountID = \'{discountID}\'";
 
-            dt = _db.ExecuteDataTable(sqlStr);
+            dt = db.ExecuteDataTable(sqlStr);
 
             dynamic DiscountInfo = new ExpandoObject();
             DiscountInfo.discountID = dt.Rows[0]["discountID"].ToString();
@@ -260,7 +260,7 @@ namespace controller
                 sqlStr =
                     "INSERT INTO discount VALUES(@discountID, @percentage, @discountRange, @endDate, @createDate)";
 
-                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+                db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 return true;
             }
@@ -287,7 +287,7 @@ namespace controller
                     "UPDATE discount SET percentage = @percentage, discountRange = @discountRange, endDate = @endDate " +
                     "WHERE discountID = @discountID";
 
-                _db.ExecuteNonQueryCommand(sqlStr, parameters);
+                db.ExecuteNonQueryCommand(sqlStr, parameters);
 
                 return true;
             }
