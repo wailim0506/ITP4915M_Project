@@ -58,7 +58,7 @@ namespace templatev1
             if (!isStoreman)
             {
                 btnReadyToShip.Visible = false;
-                btnDelete.Location = new Point(488, 840);
+                btnDelete.Location = new Point(488, 883);
             }
         }
 

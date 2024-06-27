@@ -82,26 +82,26 @@ namespace templatev1
             // grpOrder
             // 
             this.grpOrder.Controls.Add(this.pnlOrder);
-            this.grpOrder.Location = new System.Drawing.Point(211, 159);
+            this.grpOrder.Location = new System.Drawing.Point(211, 172);
             this.grpOrder.Name = "grpOrder";
-            this.grpOrder.Size = new System.Drawing.Size(921, 692);
+            this.grpOrder.Size = new System.Drawing.Size(921, 737);
             this.grpOrder.TabIndex = 31;
             this.grpOrder.TabStop = false;
             // 
             // pnlOrder
             // 
             this.pnlOrder.AutoScroll = true;
-            this.pnlOrder.Location = new System.Drawing.Point(6, 9);
+            this.pnlOrder.Location = new System.Drawing.Point(6, 10);
             this.pnlOrder.Name = "pnlOrder";
-            this.pnlOrder.Size = new System.Drawing.Size(909, 678);
+            this.pnlOrder.Size = new System.Drawing.Size(909, 720);
             this.pnlOrder.TabIndex = 0;
             // 
             // lblOrderID
             // 
             this.lblOrderID.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderID.Location = new System.Drawing.Point(227, 142);
+            this.lblOrderID.Location = new System.Drawing.Point(227, 154);
             this.lblOrderID.Name = "lblOrderID";
-            this.lblOrderID.Size = new System.Drawing.Size(109, 18);
+            this.lblOrderID.Size = new System.Drawing.Size(109, 20);
             this.lblOrderID.TabIndex = 28;
             this.lblOrderID.Text = "Order ID";
             this.lblOrderID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,9 +109,9 @@ namespace templatev1
             // lblOrderDate
             // 
             this.lblOrderDate.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderDate.Location = new System.Drawing.Point(342, 142);
+            this.lblOrderDate.Location = new System.Drawing.Point(342, 154);
             this.lblOrderDate.Name = "lblOrderDate";
-            this.lblOrderDate.Size = new System.Drawing.Size(112, 18);
+            this.lblOrderDate.Size = new System.Drawing.Size(112, 20);
             this.lblOrderDate.TabIndex = 29;
             this.lblOrderDate.Text = "Order Date";
             this.lblOrderDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -119,9 +119,9 @@ namespace templatev1
             // lblStaff
             // 
             this.lblStaff.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaff.Location = new System.Drawing.Point(460, 142);
+            this.lblStaff.Location = new System.Drawing.Point(460, 154);
             this.lblStaff.Name = "lblStaff";
-            this.lblStaff.Size = new System.Drawing.Size(180, 20);
+            this.lblStaff.Size = new System.Drawing.Size(180, 22);
             this.lblStaff.TabIndex = 30;
             this.lblStaff.Text = "Staff Incharge";
             this.lblStaff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -129,9 +129,9 @@ namespace templatev1
             // lblStaffContact
             // 
             this.lblStaffContact.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStaffContact.Location = new System.Drawing.Point(646, 142);
+            this.lblStaffContact.Location = new System.Drawing.Point(646, 154);
             this.lblStaffContact.Name = "lblStaffContact";
-            this.lblStaffContact.Size = new System.Drawing.Size(219, 18);
+            this.lblStaffContact.Size = new System.Drawing.Size(219, 20);
             this.lblStaffContact.TabIndex = 32;
             this.lblStaffContact.Text = "Staff Contact";
             this.lblStaffContact.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -139,9 +139,9 @@ namespace templatev1
             // lblStatus
             // 
             this.lblStatus.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(871, 142);
+            this.lblStatus.Location = new System.Drawing.Point(871, 154);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(115, 18);
+            this.lblStatus.Size = new System.Drawing.Size(115, 20);
             this.lblStatus.TabIndex = 33;
             this.lblStatus.Text = "Status";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,7 +150,7 @@ namespace templatev1
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Times New Roman", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(966, 143);
+            this.label4.Location = new System.Drawing.Point(966, 155);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(47, 17);
@@ -170,7 +170,7 @@ namespace templatev1
             "Processing",
             "Pending",
             "Cancelled"});
-            this.cmbSortOrder.Location = new System.Drawing.Point(1023, 137);
+            this.cmbSortOrder.Location = new System.Drawing.Point(1023, 148);
             this.cmbSortOrder.Name = "cmbSortOrder";
             this.cmbSortOrder.Size = new System.Drawing.Size(109, 25);
             this.cmbSortOrder.TabIndex = 85;
@@ -180,7 +180,7 @@ namespace templatev1
             // 
             this.lblNumberOfOrderShown.AutoSize = true;
             this.lblNumberOfOrderShown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumberOfOrderShown.Location = new System.Drawing.Point(339, 863);
+            this.lblNumberOfOrderShown.Location = new System.Drawing.Point(342, 913);
             this.lblNumberOfOrderShown.Name = "lblNumberOfOrderShown";
             this.lblNumberOfOrderShown.Size = new System.Drawing.Size(0, 20);
             this.lblNumberOfOrderShown.TabIndex = 101;
@@ -189,7 +189,7 @@ namespace templatev1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(204, 862);
+            this.label1.Location = new System.Drawing.Point(207, 912);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(144, 20);
             this.label1.TabIndex = 100;
@@ -199,7 +199,7 @@ namespace templatev1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(301, 108);
+            this.label3.Location = new System.Drawing.Point(301, 117);
             this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(157, 21);
@@ -212,7 +212,7 @@ namespace templatev1
             this.tbKW.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tbKW.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbKW.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbKW.Location = new System.Drawing.Point(461, 106);
+            this.tbKW.Location = new System.Drawing.Point(461, 115);
             this.tbKW.Name = "tbKW";
             this.tbKW.Size = new System.Drawing.Size(463, 29);
             this.tbKW.TabIndex = 102;
@@ -221,9 +221,9 @@ namespace templatev1
             // btnClear
             // 
             this.btnClear.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Location = new System.Drawing.Point(932, 104);
+            this.btnClear.Location = new System.Drawing.Point(932, 113);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(81, 27);
+            this.btnClear.Size = new System.Drawing.Size(81, 29);
             this.btnClear.TabIndex = 104;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -234,16 +234,16 @@ namespace templatev1
             this.palLoc.BackColor = System.Drawing.SystemColors.ControlLight;
             this.palLoc.Controls.Add(this.lblLoc);
             this.palLoc.Dock = System.Windows.Forms.DockStyle.Top;
-            this.palLoc.Location = new System.Drawing.Point(198, 40);
+            this.palLoc.Location = new System.Drawing.Point(198, 43);
             this.palLoc.Name = "palLoc";
-            this.palLoc.Size = new System.Drawing.Size(972, 38);
+            this.palLoc.Size = new System.Drawing.Size(972, 41);
             this.palLoc.TabIndex = 107;
             // 
             // lblLoc
             // 
             this.lblLoc.AutoSize = true;
             this.lblLoc.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLoc.Location = new System.Drawing.Point(6, 9);
+            this.lblLoc.Location = new System.Drawing.Point(6, 10);
             this.lblLoc.Name = "lblLoc";
             this.lblLoc.Size = new System.Drawing.Size(271, 22);
             this.lblLoc.TabIndex = 0;
@@ -259,14 +259,14 @@ namespace templatev1
             this.palDate.Location = new System.Drawing.Point(198, 0);
             this.palDate.Margin = new System.Windows.Forms.Padding(2);
             this.palDate.Name = "palDate";
-            this.palDate.Size = new System.Drawing.Size(972, 40);
+            this.palDate.Size = new System.Drawing.Size(972, 43);
             this.palDate.TabIndex = 106;
             // 
             // lblUid
             // 
             this.lblUid.AutoSize = true;
             this.lblUid.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUid.Location = new System.Drawing.Point(814, 9);
+            this.lblUid.Location = new System.Drawing.Point(814, 10);
             this.lblUid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUid.Name = "lblUid";
             this.lblUid.Size = new System.Drawing.Size(134, 22);
@@ -277,7 +277,7 @@ namespace templatev1
             // 
             this.lblTimeDate.AutoSize = true;
             this.lblTimeDate.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeDate.Location = new System.Drawing.Point(6, 9);
+            this.lblTimeDate.Location = new System.Drawing.Point(6, 10);
             this.lblTimeDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTimeDate.Name = "lblTimeDate";
             this.lblTimeDate.Size = new System.Drawing.Size(57, 22);
@@ -312,45 +312,45 @@ namespace templatev1
             // palSelect5
             // 
             this.palSelect5.BackColor = System.Drawing.Color.Red;
-            this.palSelect5.Location = new System.Drawing.Point(0, 371);
+            this.palSelect5.Location = new System.Drawing.Point(0, 402);
             this.palSelect5.Name = "palSelect5";
-            this.palSelect5.Size = new System.Drawing.Size(10, 55);
+            this.palSelect5.Size = new System.Drawing.Size(10, 60);
             this.palSelect5.TabIndex = 4;
             this.palSelect5.Visible = false;
             // 
             // palSelect4
             // 
             this.palSelect4.BackColor = System.Drawing.Color.Red;
-            this.palSelect4.Location = new System.Drawing.Point(0, 296);
+            this.palSelect4.Location = new System.Drawing.Point(0, 321);
             this.palSelect4.Name = "palSelect4";
-            this.palSelect4.Size = new System.Drawing.Size(10, 55);
+            this.palSelect4.Size = new System.Drawing.Size(10, 60);
             this.palSelect4.TabIndex = 4;
             this.palSelect4.Visible = false;
             // 
             // palSelect2
             // 
             this.palSelect2.BackColor = System.Drawing.Color.Red;
-            this.palSelect2.Location = new System.Drawing.Point(0, 150);
+            this.palSelect2.Location = new System.Drawing.Point(0, 163);
             this.palSelect2.Name = "palSelect2";
-            this.palSelect2.Size = new System.Drawing.Size(10, 55);
+            this.palSelect2.Size = new System.Drawing.Size(10, 60);
             this.palSelect2.TabIndex = 4;
             this.palSelect2.Visible = false;
             // 
             // palSelect1
             // 
             this.palSelect1.BackColor = System.Drawing.Color.Red;
-            this.palSelect1.Location = new System.Drawing.Point(0, 77);
+            this.palSelect1.Location = new System.Drawing.Point(0, 83);
             this.palSelect1.Name = "palSelect1";
-            this.palSelect1.Size = new System.Drawing.Size(10, 55);
+            this.palSelect1.Size = new System.Drawing.Size(10, 60);
             this.palSelect1.TabIndex = 4;
             this.palSelect1.Visible = false;
             // 
             // picBWMode
             // 
             this.picBWMode.Image = global::templatev1.Properties.Resources.LB;
-            this.picBWMode.Location = new System.Drawing.Point(143, 24);
+            this.picBWMode.Location = new System.Drawing.Point(143, 26);
             this.picBWMode.Name = "picBWMode";
-            this.picBWMode.Size = new System.Drawing.Size(49, 46);
+            this.picBWMode.Size = new System.Drawing.Size(49, 50);
             this.picBWMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBWMode.TabIndex = 22;
             this.picBWMode.TabStop = false;
@@ -361,10 +361,10 @@ namespace templatev1
             this.btnProFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnProFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProFile.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProFile.Location = new System.Drawing.Point(0, 794);
+            this.btnProFile.Location = new System.Drawing.Point(0, 782);
             this.btnProFile.Margin = new System.Windows.Forms.Padding(4);
             this.btnProFile.Name = "btnProFile";
-            this.btnProFile.Size = new System.Drawing.Size(198, 34);
+            this.btnProFile.Size = new System.Drawing.Size(198, 37);
             this.btnProFile.TabIndex = 20;
             this.btnProFile.Text = "ProFile";
             this.btnProFile.UseVisualStyleBackColor = false;
@@ -373,9 +373,9 @@ namespace templatev1
             // palSelect3
             // 
             this.palSelect3.BackColor = System.Drawing.Color.Red;
-            this.palSelect3.Location = new System.Drawing.Point(0, 223);
+            this.palSelect3.Location = new System.Drawing.Point(0, 242);
             this.palSelect3.Name = "palSelect3";
-            this.palSelect3.Size = new System.Drawing.Size(10, 55);
+            this.palSelect3.Size = new System.Drawing.Size(10, 60);
             this.palSelect3.TabIndex = 3;
             this.palSelect3.Visible = false;
             // 
@@ -385,10 +385,10 @@ namespace templatev1
             this.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(0, 836);
+            this.btnLogOut.Location = new System.Drawing.Point(0, 828);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(198, 34);
+            this.btnLogOut.Size = new System.Drawing.Size(198, 37);
             this.btnLogOut.TabIndex = 19;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -398,10 +398,10 @@ namespace templatev1
             // 
             this.picHome.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.picHome.Image = global::templatev1.Properties.Resources.home;
-            this.picHome.Location = new System.Drawing.Point(13, 13);
+            this.picHome.Location = new System.Drawing.Point(13, 14);
             this.picHome.Margin = new System.Windows.Forms.Padding(4);
             this.picHome.Name = "picHome";
-            this.picHome.Size = new System.Drawing.Size(57, 56);
+            this.picHome.Size = new System.Drawing.Size(57, 61);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHome.TabIndex = 18;
             this.picHome.TabStop = false;
@@ -411,10 +411,10 @@ namespace templatev1
             // 
             this.lblCorpName.Font = new System.Drawing.Font("Times New Roman", 15F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCorpName.ForeColor = System.Drawing.Color.Red;
-            this.lblCorpName.Location = new System.Drawing.Point(1, 892);
+            this.lblCorpName.Location = new System.Drawing.Point(1, 888);
             this.lblCorpName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCorpName.Name = "lblCorpName";
-            this.lblCorpName.Size = new System.Drawing.Size(163, 49);
+            this.lblCorpName.Size = new System.Drawing.Size(163, 53);
             this.lblCorpName.TabIndex = 10;
             this.lblCorpName.Text = "Legend Motor Company";
             this.lblCorpName.Click += new System.EventHandler(this.lblCorpName_Click);
@@ -425,10 +425,10 @@ namespace templatev1
             this.btnFunction5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction5.Location = new System.Drawing.Point(0, 371);
+            this.btnFunction5.Location = new System.Drawing.Point(0, 402);
             this.btnFunction5.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction5.Name = "btnFunction5";
-            this.btnFunction5.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction5.Size = new System.Drawing.Size(198, 60);
             this.btnFunction5.TabIndex = 15;
             this.btnFunction5.Text = "User Management";
             this.btnFunction5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -441,10 +441,10 @@ namespace templatev1
             this.btnFunction4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction4.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction4.Location = new System.Drawing.Point(0, 296);
+            this.btnFunction4.Location = new System.Drawing.Point(0, 321);
             this.btnFunction4.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction4.Name = "btnFunction4";
-            this.btnFunction4.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction4.Size = new System.Drawing.Size(198, 60);
             this.btnFunction4.TabIndex = 14;
             this.btnFunction4.Text = "Stock Management";
             this.btnFunction4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -457,10 +457,10 @@ namespace templatev1
             this.btnFunction3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction3.Location = new System.Drawing.Point(0, 223);
+            this.btnFunction3.Location = new System.Drawing.Point(0, 242);
             this.btnFunction3.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction3.Name = "btnFunction3";
-            this.btnFunction3.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction3.Size = new System.Drawing.Size(198, 60);
             this.btnFunction3.TabIndex = 13;
             this.btnFunction3.Text = "On-Sale Product Management";
             this.btnFunction3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -473,10 +473,10 @@ namespace templatev1
             this.btnFunction2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction2.Location = new System.Drawing.Point(0, 150);
+            this.btnFunction2.Location = new System.Drawing.Point(0, 163);
             this.btnFunction2.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction2.Name = "btnFunction2";
-            this.btnFunction2.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction2.Size = new System.Drawing.Size(198, 60);
             this.btnFunction2.TabIndex = 12;
             this.btnFunction2.Text = "Invoice Management";
             this.btnFunction2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -489,10 +489,10 @@ namespace templatev1
             this.btnFunction1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(213)))), ((int)(((byte)(184)))));
             this.btnFunction1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFunction1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFunction1.Location = new System.Drawing.Point(0, 77);
+            this.btnFunction1.Location = new System.Drawing.Point(0, 83);
             this.btnFunction1.Margin = new System.Windows.Forms.Padding(4);
             this.btnFunction1.Name = "btnFunction1";
-            this.btnFunction1.Size = new System.Drawing.Size(198, 55);
+            this.btnFunction1.Size = new System.Drawing.Size(198, 60);
             this.btnFunction1.TabIndex = 11;
             this.btnFunction1.Text = "Order Management";
             this.btnFunction1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -501,7 +501,7 @@ namespace templatev1
             // 
             // customerOrderList
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1170, 941);
             this.Controls.Add(this.palLoc);
