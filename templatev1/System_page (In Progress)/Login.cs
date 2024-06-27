@@ -219,5 +219,11 @@ namespace templatev1
             // For example, you can remove the LoadingForm from the Form
             this.Controls.Remove(loadingForm);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tbUsername.Text = "LMS00012";
+            tbPassword.Text = "password123";
+        }
     }
 }

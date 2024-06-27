@@ -218,41 +218,146 @@ namespace controller
             ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = '{UserID}'").Rows[0][0].ToString() ==
             "Storeman";
 
-        public string GetMessage()
+        private string GetJobTit(string UID)
         {
-            string Message =
-                "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
-                "\nSpare part number: [SP]" +
-                "\nCurrent quantity: [Qty]";
-            string horizontialLine =
-                "\n----------------------------------------------------------------------------------------------------------------------------\n";
+            var dt = ExecuteSqlQuery($"SELECT jobTitle FROM staff WHERE staffID = \'{UID}\'");
 
+            return dt.Rows[0]["jobTitle"].ToString();
+        }
+
+        private string GetMessageFormat(string UID)
+        {
+            string MSGID = null;
+
+            //Select the correct message format.
+            if (UID.StartsWith("LMS"))
+            {
+                switch (GetJobTit(UID))
+                {
+                    case "Storeman":
+                        MSGID = "MSG01";
+                        break;
+                    case "Manager":
+                        MSGID = "MSG05";
+                        break;
+                    case "Order Processing Clerk":
+                        MSGID = "MSG03";
+                        break;
+                    case "Deliverman":
+                        MSGID = "MSG06";
+                        break;
+                    case "Sales Manager":
+                        MSGID = "MSG07";
+                        break;
+                    case "Goods Inward Staff":
+                        MSGID = "MSG04";
+                        break;
+
+                }
+            }
+            else
+                MSGID = "MSG02";
 
             DataTable dt = new DataTable();
 
-            sqlStr = "SELECT partNumber, quantity FROM spare_part WHERE quantity < dangerLevel";
-
+            sqlStr = $"SELECT content FROM message WHERE msgID = \'{MSGID}\'";
 
             dt = db.ExecuteDataTable(sqlStr);
 
+            return dt.Rows[0]["content"].ToString();
+        }
 
-            int index = dt.Rows.Count - 1;
+        public string GetMessage()
+        {   
+            DataTable dt = new DataTable();
+            string message = null;
+            string horizontialLine =
+                    "\n------------------------------------" +
+                    "--------------------------------------" +
+                    "--------------------------------------------------\n";
 
-            for (int i = 0; i <= index; i++)
+            //Select the correct date format.
+            if (UserID.StartsWith("LMS"))
             {
-                Message = Message.Replace("[SP]", dt.Rows[i]["partNumber"].ToString())
-                    .Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
+                switch (GetJobTit(UserID))
+                {
+                    case "Storeman":
+                        sqlStr = "SELECT partNumber, quantity FROM spare_part WHERE quantity < dangerLevel";
+                        break;
+                    case "Manager":
+                        sqlStr = "SELECT ( SELECT COUNT(*) FROM staff ) AS staff, ( SELECT COUNT(*) FROM customer ) AS customer FROM dual";
+                        break;
+                    case "Order Processing Clerk":
+                        sqlStr = "SELECT orderID, orderDate FROM order_ WHERE status = 'Pending'";
+                        break;
+                    case "Deliverman":
+                        sqlStr = "SELECT OD.orderID, SD.shippingAddress FROM order_ OD, shipping_detail SD WHERE OD.status = 'Ready to Ship' AND OD.orderID = SD.orderID";
+                        break;
+                    case "Sales Manager":
+                        sqlStr = "SELECT itemID FROM product WHERE onSaleQty = 0 OR LM_onSaleQty = 0";
+                        break;
+                    case "Goods Inward Staff":
+                        sqlStr = "SELECT reorderID, partNumber, quantity FROM reorder_request WHERE status = 'processing'";
+                        break;
 
-                Message += horizontialLine;
-
-                if (!(i + 1 > index))
-                    Message +=
-                        "There is a spare part that achieves the danger level. Please handle it as soon as possible." +
-                        "\nSpare part number: [SP]" +
-                        "\nCurrent quantity: [Qty]";
+                }
             }
+            else
+                sqlStr = $"SELECT O.orderID, O.status FROM order_ O, customer_account CA WHERE O.customerAccountID = CA.customerAccountID AND CA.customerID = \'{UserID}\'";
 
-            return Message;
+            dt = db.ExecuteDataTable(sqlStr);
+
+            if (dt.Rows.Count > 0)
+            {
+                //Get message format.
+                message = GetMessageFormat(UserID);
+
+                //Fill data.
+                int index = dt.Rows.Count - 1;
+                for (int i = 0; i <= index; i++)
+                {
+                    if (UserID.StartsWith("LMS"))
+                    {
+                        switch (GetJobTit(UserID))
+                        {
+                            case "Storeman":
+                                message = message.Replace("[SP]", dt.Rows[i]["partNumber"].ToString())
+                                    .Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
+                                break;
+                            case "Manager":
+                                message = message.Replace("[NS]", dt.Rows[i]["staff"].ToString())
+                                    .Replace("[NC]", dt.Rows[i]["customer"].ToString());
+                                break;
+                            case "Order Processing Clerk":
+                                message = message.Replace("[OID]", dt.Rows[i]["orderID"].ToString())
+                                    .Replace("[OD]", ((DateTime)dt.Rows[i]["orderDate"]).ToString("yyyy/MM/dd"));
+                                break;
+                            case "Deliverman":
+                                message = message.Replace("[OID]", dt.Rows[i]["orderID"].ToString())
+                                    .Replace("[SA]", dt.Rows[i]["shippingAddress"].ToString());
+                                break;
+                            case "Sales Manager":
+                                message = message.Replace("[IID]", dt.Rows[i]["itemID"].ToString());
+                                break;
+                            case "Goods Inward Staff":
+                                message = message.Replace("[OID]", dt.Rows[i]["reorderID"].ToString())
+                                    .Replace("[PN]", dt.Rows[i]["partNumber"].ToString())
+                                    .Replace("[Qty]", dt.Rows[i]["quantity"].ToString());
+                                break;
+
+                        }
+                    }
+                    else
+                        message = message.Replace("[OID]", dt.Rows[i]["orderID"].ToString())
+                                    .Replace("[S]", dt.Rows[i]["status"].ToString());
+
+                    message += horizontialLine;
+
+                    if (!(i + 1 > index))    //Add next if have.
+                        message += GetMessageFormat(UserID);
+                }
+            }
+            return message;
         }
     }
 }

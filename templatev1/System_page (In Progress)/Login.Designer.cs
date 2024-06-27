@@ -48,6 +48,7 @@
             this.lblUsernameMsg = new System.Windows.Forms.Label();
             this.lblPasswordMsg = new System.Windows.Forms.Label();
             this.grpDevTools = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnText7 = new System.Windows.Forms.Button();
             this.btnTest6 = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btnTest3 = new System.Windows.Forms.Button();
             this.btnTest2 = new System.Windows.Forms.Button();
             this.btnTest1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.palTime.SuspendLayout();
             this.palLoc.SuspendLayout();
             this.grpDevTools.SuspendLayout();
@@ -249,6 +249,17 @@
             this.grpDevTools.TabStop = false;
             this.grpDevTools.Text = "Development Tools";
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(42, 252);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(242, 34);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Login as Goods Inward Staff";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -336,16 +347,6 @@
             this.btnTest1.Text = "Login as non-LM customer";
             this.btnTest1.UseVisualStyleBackColor = true;
             this.btnTest1.Click += new System.EventHandler(this.btnTest1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(42, 252);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(242, 34);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Login as Goods Inward Staff";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Login
             // 

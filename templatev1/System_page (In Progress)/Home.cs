@@ -44,7 +44,9 @@ namespace templatev1
             lblWelUser.Text = "Welcome, " + uName + "!";
             lblLastPassChange.Text = accountController.GetPwdChange().ToString("yyyy/MM/dd");
             lblLastLogin.Text = accountController.GetLog();
-            tbMessage.Text = accountController.GetMessage().Replace("\n", Environment.NewLine);
+            tbMessage.Text = 
+                string.IsNullOrEmpty(accountController.GetMessage()) 
+                ? null : accountController.GetMessage().Replace("[NL]", Environment.NewLine);
 
             //For determine which button needs to be shown.
             dynamic btnFun = UIController.showFun();
