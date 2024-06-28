@@ -64,7 +64,7 @@ namespace LMCIS.Order_Management
             if (!isStoreman)
             {
                 btnReadyToShip.Visible = false;
-                btnDelete.Location = new Point(488, 883);
+                btnDelete.Location = new Point(499, 895);
             }
         }
 
