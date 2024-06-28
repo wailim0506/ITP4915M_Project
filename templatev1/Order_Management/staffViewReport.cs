@@ -83,21 +83,14 @@ namespace LMCIS.Order_Management
             }
 
             DataTable reportData = _ordereportController.GenerateReport(period, startDate, endDate);
-            DataTable reportData2 = _ordereportController.GenerateItemReport(period, startDate, endDate);
             var reportDataSource = new ReportDataSource
             {
                 Name = "OrderSet",
                 Value = reportData
             };
-            var reportDataSource2 = new ReportDataSource
-            {
-                Name = "OrderItemDataSet",
-                Value = reportData2
-            };
             rvReport.LocalReport.DataSources.Clear();
-            rvReport.LocalReport.ReportPath = "OrderAnalysisReport.rdlc"; // Set the path to your RDLC file here
+            rvReport.LocalReport.ReportPath = "OrderAnalysisReport.rdlc";
             rvReport.LocalReport.DataSources.Add(reportDataSource);
-            // rvReport.LocalReport.DataSources.Add(reportDataSource2);
             rvReport.RefreshReport();
             rvReport.Visible = true;
             lblFormat.Visible = true;
@@ -148,25 +141,36 @@ namespace LMCIS.Order_Management
 
         private void GenerateReportDocument(DataTable reportData, string reportFormat, string outputPath)
         {
-            Directory.CreateDirectory(outputPath);
-            LogMessage(LogLevel.Information, "OrderAnalysisReportController",
-                $"Output path created at {outputPath}");
+            try
+            {
+                Directory.CreateDirectory(outputPath);
+                LogMessage(LogLevel.Information, "OrderAnalysisReportController",
+                    $"Output path created at {outputPath}");
 
-            string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
-            ReportDataSource dataSource = new ReportDataSource("OrderSet", reportData); //reportData);
-            rvReport.LocalReport.DataSources.Clear();
-            rvReport.LocalReport.DataSources.Add(dataSource);
-            string reportPath = "OrderAnalysisReport.rdlc" ??
-                                throw new ArgumentException($"Report RDLC file not Exists at {reportPath}");
-            ReportViewer viewer = new ReportViewer();
-            viewer.LocalReport.ReportPath = reportPath;
+                string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+                ReportDataSource dataSource = new ReportDataSource("OrderSet", reportData); //reportData);
+                rvReport.LocalReport.DataSources.Clear();
+                rvReport.LocalReport.DataSources.Add(dataSource);
+                string reportPath = "OrderAnalysisReport.rdlc";
+                if (!File.Exists(reportPath))
+                {
+                    throw new ArgumentException($"Report RDLC file does not exist at {reportPath}");
+                }
+                
+                ReportViewer viewer = new ReportViewer();
+                viewer.LocalReport.ReportPath = reportPath;
 
-            var formatDetails = _ordereportController.GetFormatDetails(reportFormat.ToLower());
+                var formatDetails = _ordereportController.GetFormatDetails(reportFormat.ToLower());
 
-            string outputFile = $"{outputPath}\\OrderReport-{currentDate}{formatDetails.Extension}";
-            byte[] bytes = viewer.LocalReport.Render(formatDetails.Encoding, null, out string mimeTypeOut, out _, out _,
-                out _, out _);
-            File.WriteAllBytes(outputFile, bytes);
+                string outputFile = $"{outputPath}\\OrderReport-{currentDate}{formatDetails.Extension}";
+                byte[] bytes = viewer.LocalReport.Render(formatDetails.Encoding, null, out string mimeTypeOut, out _, out _,
+                    out _, out _);
+                File.WriteAllBytes(outputFile, bytes);
+            }catch(Exception ex)
+            {
+                LogMessage(LogLevel.Error, "staffViewReport", $"Could not generate report: {ex.Message}");
+                MessageBox.Show($"Could not generate report: {ex.Message}");
+            }
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -205,19 +209,55 @@ namespace LMCIS.Order_Management
 
         private void btnPDF_Click(object sender, EventArgs e)
         {
-            string fileFormat = cbxFileFormat.Text;
-            DateTime todayDate = DateTime.Now;
-
-            string outputPath =
-                $"{Directory.GetCurrentDirectory()}/report/report-{todayDate.ToString("yyyy-MM-dd")}.{fileFormat}";
-            if (!Directory.Exists(outputPath))
+            try
             {
-                Directory.CreateDirectory(outputPath);
-            }
+                // Create the output directory if it doesn't exist
+                string outputPath =
+                    $"{Directory.GetCurrentDirectory()}/report/report-{DateTime.Now.ToString("yyyy-MM-dd")}";
+                string reportFormat = cbxFileFormat.Text ?? throw new ArgumentNullException(nameof(cbxFileFormat));
+                string reportData  = _ordereportController.GenerateReport(period, startDate, endDate).ToString();
 
-            GenerateReportDocument(_ordereportController.GenerateReport(period, startDate, endDate), fileFormat,
-                outputPath);
-            // SaveInvoiceToPdf(pnlInvoice, filePath);
+                if (!Directory.Exists(outputPath))
+                {
+                    Directory.CreateDirectory(outputPath);
+                    LogMessage(LogLevel.Information, "OrderAnalysisReportController", $"Output path created at {outputPath}");
+                }
+                
+                
+                Directory.CreateDirectory(outputPath);
+                LogMessage(LogLevel.Information, "OrderAnalysisReportController", $"Output path created at {outputPath}");
+
+                string currentDate = DateTime.Now.ToString("yyyy-MM-dd");
+        
+                // Create the ReportDataSource
+                ReportDataSource dataSource = new ReportDataSource("OrderSet", reportData);
+        
+                // Initialize the ReportViewer only if the report path is valid
+                string reportPath = "OrderAnalysisReport.rdlc";
+                if (!File.Exists(reportPath))
+                {
+                    throw new ArgumentException($"Report RDLC file does not exist at {reportPath}");
+                }
+
+                ReportViewer viewer = new ReportViewer();
+                viewer.LocalReport.ReportPath = reportPath;
+                viewer.LocalReport.DataSources.Clear();
+                viewer.LocalReport.DataSources.Add(dataSource);
+
+                var formatDetails = _ordereportController.GetFormatDetails(reportFormat.ToLower());
+
+                string outputFile = $"{outputPath}\\OrderReport-{currentDate}{formatDetails.Extension}";
+        
+                byte[] bytes = viewer.LocalReport.Render(formatDetails.Encoding, null, out string mimeTypeOut, out _, out _, out _, out _);
+                File.WriteAllBytes(outputFile, bytes);
+        
+                LogMessage(LogLevel.Information, "OrderAnalysisReportController", $"Report successfully generated at {outputFile}");
+            }
+            catch (Exception ex)
+            {
+                LogMessage(LogLevel.Error, "OrderAnalysisReportController", $"Could not generate report: {ex.Message}");
+                MessageBox.Show($"Could not generate report: {ex.Message}");
+            }
         }
 
         private void PreviewInvoiceInBrowser(string filePath)
@@ -232,7 +272,6 @@ namespace LMCIS.Order_Management
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Could not open PDF: {ex.Message}");
             }
         }
 
