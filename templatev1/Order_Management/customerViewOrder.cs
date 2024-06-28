@@ -348,6 +348,7 @@ namespace LMCIS.Order_Management
                 }
                 else
                 {
+                    Log.LogMessage(LogLevel.Information, "[View] Invoice Management", $"User is going to the view invoice page.");
                     Form customerViewInvoice = new customerViewInvoice(_orderId, _accountController, _uiController);
                     Hide();
                     customerViewInvoice.StartPosition = FormStartPosition.Manual;
@@ -501,6 +502,7 @@ namespace LMCIS.Order_Management
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {_uid} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -551,6 +553,7 @@ namespace LMCIS.Order_Management
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {_uid} is going to the profile page.");
             proFileController proFileController = new proFileController(_accountController);
 
             proFileController.setType(_accountController.GetAccountType());
@@ -566,6 +569,7 @@ namespace LMCIS.Order_Management
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {_uid} is going to the home page.");
             Form home = new Home(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
@@ -577,6 +581,7 @@ namespace LMCIS.Order_Management
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {_uid} is going to the about page.");
             Form about = new About(_accountController, _uiController);
             Hide();
             //Swap the current form to another.
@@ -590,6 +595,7 @@ namespace LMCIS.Order_Management
 
         private void btnViewDelivery_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {_uid} is going to the view delivery page.");
             Form o = new CustomerViewOrderDelivery(_orderId, _accountController, _uiController, _controller);
             Hide();
             o.StartPosition = FormStartPosition.Manual;

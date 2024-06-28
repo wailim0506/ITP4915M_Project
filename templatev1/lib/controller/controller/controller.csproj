@@ -219,7 +219,6 @@
         <Compile Include="Utilities\dateHandler.cs"/>
         <Compile Include="Utilities\IDatabase.cs"/>
         <Compile Include="Utilities\Log.cs"/>
-        <Compile Include="Utilities\UrlSigner.cs"/>
         <Compile Include="Utilities\Validator.cs"/>
         <Compile Include="viewInvoiceController.cs"/>
         <Compile Include="viewOrderController.cs"/>

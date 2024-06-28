@@ -2,12 +2,14 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
 using LMCIS.Profile;
 using LMCIS.Stock_Manag;
 using LMCIS.System_page;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.User_Manag
 {
@@ -37,6 +39,7 @@ namespace LMCIS.User_Manag
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is loaded the form.");
             Initialization();
         }
 
@@ -163,6 +166,7 @@ namespace LMCIS.User_Manag
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -173,6 +177,7 @@ namespace LMCIS.User_Manag
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -186,6 +191,7 @@ namespace LMCIS.User_Manag
         //For Dark Color function
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -198,6 +204,7 @@ namespace LMCIS.User_Manag
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the profile page.");
             proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
@@ -215,6 +222,7 @@ namespace LMCIS.User_Manag
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -227,6 +235,7 @@ namespace LMCIS.User_Manag
 
         private void btnAddStaffAcc_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the create account page.");
             Form createAcc = new ScreateAccount(accountController, UIController, UserController);
             Hide();
             //Swap the current form to another.
@@ -247,8 +256,7 @@ namespace LMCIS.User_Manag
         {
             index = dgvUser.CurrentCell.RowIndex;
             selectedUid = dgvUser.Rows[index].Cells[0].Value.ToString();
-
-
+            
             if (selectedUid == UID)
                 MessageBox.Show("You cannot DISABLE your account.",
                     "System message", MessageBoxButtons.OK, MessageBoxIcon.Warning);

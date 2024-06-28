@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -9,6 +10,7 @@ using LMCIS.Profile;
 using LMCIS.Properties;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Stock_Manag
 {
@@ -33,6 +35,7 @@ namespace LMCIS.Stock_Manag
         private void viewSupplier_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is loaded the form.");
         }
 
         private void Initialization()
@@ -147,6 +150,7 @@ namespace LMCIS.Stock_Manag
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -179,6 +183,7 @@ namespace LMCIS.Stock_Manag
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the profile page.");
             proFileController proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
@@ -195,6 +200,7 @@ namespace LMCIS.Stock_Manag
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -207,6 +213,7 @@ namespace LMCIS.Stock_Manag
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -219,6 +226,7 @@ namespace LMCIS.Stock_Manag
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -336,6 +344,7 @@ namespace LMCIS.Stock_Manag
 
         private void btnAct_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the add supplier page.");
             Form addSupplier = new addSupplier(accountController, UIController, stockController);
             Hide();
             //Swap the current form to another.

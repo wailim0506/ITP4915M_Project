@@ -5,6 +5,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -12,7 +13,7 @@ using LMCIS.Properties;
 using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
-using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Profile
 {
@@ -46,6 +47,7 @@ namespace LMCIS.Profile
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] Profile", $"User: {UID} is loaded the form.");
             tbOldPass.PasswordChar = tbPass.PasswordChar = tbConfirmPass.PasswordChar = '*';
         }
 

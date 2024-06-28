@@ -10,6 +10,9 @@ using LMCIS.Order_Management;
 using LMCIS.Profile;
 using LMCIS.Stock_Manag;
 using LMCIS.System_page;
+using Microsoft.Extensions.Logging;
+using Microsoft.VisualBasic.Logging;
+using Log = LMCIS.controller.Utilities.Log;
 
 namespace LMCIS.User_Manag
 {
@@ -44,6 +47,7 @@ namespace LMCIS.User_Manag
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is loaded the form.");
         }
 
         private void Initialization()
@@ -185,7 +189,7 @@ namespace LMCIS.User_Manag
                     next = new staffInvoiceList(accountController, UIController);
                     break;
             }
-
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -196,6 +200,7 @@ namespace LMCIS.User_Manag
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -379,8 +384,8 @@ namespace LMCIS.User_Manag
 
             //Check and update isLM account.
             update.IsLM = chkIsLM.Checked == true ? "Y" : "N";
-
-
+            
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is updating the user info.");
             return true;
         }
 
@@ -390,16 +395,19 @@ namespace LMCIS.User_Manag
 
             if (trimmedEmail.EndsWith("."))
             {
+                Log.LogMessage(LogLevel.Error, "[View] User Modify", $"User: {UID} entered an invalid email : {email}.");
                 return false;
             }
 
             try
             {
+                Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} entered an valid email : {email}.");
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == trimmedEmail;
             }
             catch
             {
+                Log.LogMessage(LogLevel.Warning, "[View] User Modify", $"User: {UID} entered an invalid email : {email}.");
                 return false;
             }
         }
@@ -415,6 +423,7 @@ namespace LMCIS.User_Manag
                 {
                     if (new FileInfo(ofd.FileName).Length > 1000000) //File can't larger than 1MB
                     {
+                        Log.LogMessage(LogLevel.Warning, "[View] User Modify", $"User: {UID} uploaded an image larger than 1MB.");
                         MessageBox.Show("File too large! Maximum 1MB.", "System message", MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
                         //MessageBox.Show("File too large! Maximum 1MB.");
@@ -431,6 +440,7 @@ namespace LMCIS.User_Manag
             }
             catch
             {
+                Log.LogMessage(LogLevel.Critical, "[View] User Modify", $"User: {UID} tried to upload an image, but failed.");
                 MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 IMGUploaded = false;
@@ -443,6 +453,7 @@ namespace LMCIS.User_Manag
             btnUploadIMG.Visible = true;
             btnRemoveIMG.Visible = false;
             picUserIMG.Image = IMG;
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} removed the image.");
         }
 
         private void tbEmail_Enter(object sender, EventArgs e)
@@ -477,6 +488,7 @@ namespace LMCIS.User_Manag
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the profile page.");
             proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());

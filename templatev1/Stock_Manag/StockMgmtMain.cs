@@ -4,6 +4,7 @@ using System.Drawing.Printing;
 using System.Dynamic;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -11,6 +12,7 @@ using LMCIS.Profile;
 using LMCIS.Properties;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
+using Microsoft.Extensions.Logging;
 using Microsoft.VisualBasic;
 
 namespace LMCIS.Stock_Manag
@@ -201,6 +203,7 @@ namespace LMCIS.Stock_Manag
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Spare Part Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -317,6 +320,7 @@ namespace LMCIS.Stock_Manag
             {
                 stockController.SetModifyPartID(selectedPartID); //Set the part number that to be modify.
                 Form StockModify = new SMStockModify(accountController, UIController, stockController);
+                Log.LogMessage(LogLevel.Information, "[View] Spare Part Management", $"User: {UID} is going to the modify spare part page.");
                 Hide();
                 //Swap the current form to another.
                 StockModify.StartPosition = FormStartPosition.Manual;
@@ -332,6 +336,7 @@ namespace LMCIS.Stock_Manag
 
         private void btnAddSpare_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Spare Part Management", $"User: {UID} is going to the add spare part page.");
             Form StockAdd = new StockAdd(accountController, UIController, stockController);
             Hide();
             //Swap the current form to another.
@@ -615,6 +620,7 @@ namespace LMCIS.Stock_Manag
         //For print stock card function.
         public void GetPrintArea(Panel pnl)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Spare Part Management", $"User: {UID} is going to the print stock card page.");
             MemoryImage = new Bitmap(pnl.Width, pnl.Height);
             pnl.DrawToBitmap(MemoryImage, new Rectangle(0, 0, pnl.Width, pnl.Height));
         }
@@ -622,6 +628,7 @@ namespace LMCIS.Stock_Manag
         //View, edit, add supplier.
         private void btnViewSupp_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Spare Part Management", $"User: {UID} is going to the view supplier page.");
             Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
             Hide();
             //Swap the current form to another.

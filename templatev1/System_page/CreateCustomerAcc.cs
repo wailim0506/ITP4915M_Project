@@ -6,6 +6,8 @@ using System.Net.Mail;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.System_page
 {
@@ -30,6 +32,7 @@ namespace LMCIS.System_page
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Create Customer Account", $"Guest user is loaded the form.");
             IMG = null;
             IMGUploaded = false;
             timer1.Enabled = true;
@@ -52,7 +55,7 @@ namespace LMCIS.System_page
                         "Create account success! Your UID is LMC" + (recoveryController.getLMCID() - 1).ToString("D5") +
                         ".\nThe system will redirect to the login page.", "System message", MessageBoxButtons.OK,
                         MessageBoxIcon.Information);
-
+                    Log.LogMessage(LogLevel.Information, "[View] Create Customer Account", $"Guest user is creating an account.");
                     Form Login = new Login();
                     Hide();
                     //Swap the current form to another.
@@ -66,7 +69,7 @@ namespace LMCIS.System_page
                 {
                     MessageBox.Show("System Error! Please Contact The Help Desk.", "System error", MessageBoxButtons.OK,
                         MessageBoxIcon.Warning);
-
+                    Log.LogMessage(LogLevel.Critical, "[View] Create Customer Account", $"Guest user is creating an account, but failed.");
                     Form Login = new Login();
                     Hide();
                     //Swap the current form to another.
@@ -111,10 +114,12 @@ namespace LMCIS.System_page
                     {
                         MessageBox.Show("File too large! Maximum 1MB.");
                         IMGUploaded = false;
+                        Log.LogMessage(LogLevel.Warning, "[View] Create Customer Account", $"Guest user uploaded an image larger than 1MB.");
                     }
                     else
                     {
                         UploadImage(ofd);
+                        Log.LogMessage(LogLevel.Information, "[View] Create Customer Account", $"Guest user uploaded an image.");
                     }
                 }
             }
@@ -123,6 +128,7 @@ namespace LMCIS.System_page
                 MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
                 IMGUploaded = false;
+                Log.LogMessage(LogLevel.Critical, "[View] Create Customer Account", $"Guest user tried to upload an image, but failed.");
             }
         }
 
@@ -335,7 +341,6 @@ namespace LMCIS.System_page
                 tbConfirmPass.Select();
                 return false;
             }
-
             return true;
         }
 
@@ -346,16 +351,19 @@ namespace LMCIS.System_page
 
             if (trimmedEmail.EndsWith("."))
             {
+                Log.LogMessage(LogLevel.Error, "[View] Create Customer Account", $"Guest user entered an invalid email : {email}.");
                 return false;
             }
 
             try
             {
                 var addr = new MailAddress(email);
+                Log.LogMessage(LogLevel.Information, "[View] Create Customer Account", $"Guest user entered an valid email : {email}.");
                 return addr.Address == trimmedEmail;
             }
             catch
             {
+                Log.LogMessage(LogLevel.Warning, "[View] Create Customer Account", $"Guest user entered an invalid email : {email}.");
                 return false;
             }
         }

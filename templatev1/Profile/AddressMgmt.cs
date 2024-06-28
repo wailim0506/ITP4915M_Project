@@ -2,6 +2,7 @@
 using System.Dynamic;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -10,6 +11,7 @@ using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Profile
 {
@@ -29,6 +31,7 @@ namespace LMCIS.Profile
         public AddressMgmt(AccountController accountController, UIController UIController,
             proFileController proFileController)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is loaded the form.");
             InitializeComponent();
             this.accountController = accountController;
             this.UIController = UIController;
@@ -156,6 +159,7 @@ namespace LMCIS.Profile
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -166,6 +170,7 @@ namespace LMCIS.Profile
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Management", $"User: {UID} is going to the profile page.");
             proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());

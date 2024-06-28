@@ -5,6 +5,7 @@ using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Profile;
@@ -15,6 +16,7 @@ using LMCIS.User_Manag;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Order_Management
 {
@@ -95,6 +97,7 @@ namespace LMCIS.Order_Management
             }
 
             lblDeliveryDate.Text += controller.GetDeliveryDate(orderID);
+            Log.LogMessage(LogLevel.Information, "[View] Invoice Management", $"User: {UID} is loaded the form.");
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)

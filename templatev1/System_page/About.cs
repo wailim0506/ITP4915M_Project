@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -10,6 +11,7 @@ using LMCIS.Properties;
 using LMCIS.Stock_Manag;
 using LMCIS.User_Manag;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.System_page
 {
@@ -35,7 +37,7 @@ namespace LMCIS.System_page
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
-
+            Log.LogMessage(LogLevel.Information, "[View] About", $"User: {UID} is loaded the form.");
             lblPlatform.Text = Environment.OSVersion.ToString();
             lblInsDate.Text = Login.getInsDate();
             TimeSpan span = (DateTime.Now - DateTime.Parse(Login.getInsDate()));
@@ -154,7 +156,7 @@ namespace LMCIS.System_page
         private void btnProFile_Click(object sender, EventArgs e)
         {
             proFileController = new proFileController(accountController);
-
+            Log.LogMessage(LogLevel.Information, "[View] About", $"User: {UID} is going to the profile page.");
             proFileController.setType(accountController.GetAccountType());
 
             Form proFile = new proFileMain(accountController, UIController, proFileController);
@@ -182,6 +184,7 @@ namespace LMCIS.System_page
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Form login = new Login();
+            Log.LogMessage(LogLevel.Information, "[View] About", $"User: {UID} is logging out.");
             Hide();
             //Swap the current form to another.
             login.StartPosition = FormStartPosition.Manual;
@@ -194,6 +197,7 @@ namespace LMCIS.System_page
         private void picHome_Click(object sender, EventArgs e)
         {
             Form home = new Home(accountController, UIController);
+            Log.LogMessage(LogLevel.Information, "[View] About", $"User: {UID} is going to the home page.");
             Hide();
             //Swap the current form to another.
             home.StartPosition = FormStartPosition.Manual;

@@ -1,7 +1,7 @@
-﻿site_name: Documentation of SMCIS
+﻿site_name: Documentation of LMCIS
 site_author: wailim0506, mythic3011, Hwhstudent
 site_description: >-
-  Documentation of Legend Motor Company Integrated System (SMCIS)
+  Documentation of Legend Motor Company Integrated System (LMCIS)
 
 repo_name: Integrated System
 repo_url: https://github.com/wailim0506/ITP4915M_Project
@@ -70,14 +70,12 @@ nav:
       - Installation/stopping-application.md
       - Installation/troubleshooting.md
   - User Guide:
-      - User Guide/index.md
-      - User Guide/user-management.md
-      - User Guide/stock-management.md
-      - User Guide/on-sale-product-management.md
-      - User Guide/invoice-management.md
-      - User Guide/order-management.md
-  - Developer Guide:
-      - Developer Guide/index.md
+      - UserGuide/index.md
+      - UserGuide/stock-management.md
+      - UserGuide/on-sale-product-management.md
+      - UserGuide/invoice-management.md
+      - UserGuide/order-management.md
+      - UserGuide/feedback-management.md
 
 plugins:
   - search:

@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using LMCIS.controller.Utilities;
 
 namespace LMCIS.controller
@@ -116,17 +112,6 @@ namespace LMCIS.controller
                    "&maptype=roadmap" +
                    $"&markers=color:red%7Clabel:{relayName}%7C{location}" +
                    $"&key={GetApiKey()}";
-        }
-
-        public async Task LoadImageAsync(string url, PictureBox pictureBox)
-        {
-            using (HttpClient client = new HttpClient())
-            {
-                using (Stream stream = await client.GetStreamAsync(url))
-                {
-                    pictureBox.Image = new Bitmap(stream);
-                }
-            }
         }
 
         public string GetRelayLocation(string relayName)

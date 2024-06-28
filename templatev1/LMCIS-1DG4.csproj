@@ -381,12 +381,6 @@
     <Compile Include="Stock_Manag\addSupplier.Designer.cs">
       <DependentUpon>addSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="System_page\LoadingForm.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="System_page\LoadingForm.Designer.cs">
-      <DependentUpon>LoadingForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Stock_Manag\editSupplier.cs">
       <SubType>Form</SubType>
     </Compile>

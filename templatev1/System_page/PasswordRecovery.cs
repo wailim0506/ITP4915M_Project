@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using LMCIS.controller;
 using LMCIS.controller.Utilities;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.System_page
 {
@@ -26,6 +27,7 @@ namespace LMCIS.System_page
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Password Recovery", $"Guest user is loaded the form.");
             timer1.Enabled = true;
             tbPassword.PasswordChar = tbConfirmPass.PasswordChar = '*';
         }
@@ -83,6 +85,7 @@ namespace LMCIS.System_page
                     {
                         lblChangePassMsg.Text = "Passwords do NOT match.";
                         tbConfirmPass.Select();
+                        Log.LogMessage(LogLevel.Warning, "[View] Password Recovery", $"Guest user entered a different password.");
                     }
                 }
             }

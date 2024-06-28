@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Profile;
@@ -11,6 +12,7 @@ using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Order_Management
 {
@@ -53,6 +55,7 @@ namespace LMCIS.Order_Management
             timer1.Enabled = true;
             cmbSortOrder.SelectedIndex = 0;
             load_data(cmbSortOrder.Text);
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is loaded the form.");
         }
 
         public void load_data(string sortBy)
@@ -212,6 +215,7 @@ namespace LMCIS.Order_Management
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -268,6 +272,7 @@ namespace LMCIS.Order_Management
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -308,6 +313,7 @@ namespace LMCIS.Order_Management
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is logging out.");
             Form o = new Login();
             Hide();
             o.StartPosition = FormStartPosition.Manual;
@@ -334,6 +340,7 @@ namespace LMCIS.Order_Management
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -347,6 +354,7 @@ namespace LMCIS.Order_Management
 
         private void picHome_Click_1(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.

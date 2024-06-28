@@ -56,7 +56,7 @@ namespace LMCIS.Order_Management
         {
             timer1.Enabled = true;
             lblLoc.Text += $" {orderID}";
-
+            
             load_data();
         }
 
@@ -197,6 +197,7 @@ namespace LMCIS.Order_Management
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -248,6 +249,7 @@ namespace LMCIS.Order_Management
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the profile page.");
             proFileController proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
@@ -263,6 +265,7 @@ namespace LMCIS.Order_Management
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -274,6 +277,7 @@ namespace LMCIS.Order_Management
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.

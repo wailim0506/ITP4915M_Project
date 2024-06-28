@@ -5,12 +5,14 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
 using LMCIS.Profile;
 using LMCIS.Stock_Manag;
 using LMCIS.System_page;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.User_Manag
 {
@@ -39,6 +41,7 @@ namespace LMCIS.User_Manag
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is loaded the form.");
         }
 
         private void Initialization()
@@ -92,6 +95,7 @@ namespace LMCIS.User_Manag
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the user management page.");
             Form UserMgmt = new SAccManage(accountController, UIController);
             Hide();
             UserMgmt.StartPosition = FormStartPosition.Manual;
@@ -174,6 +178,7 @@ namespace LMCIS.User_Manag
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -368,16 +373,19 @@ namespace LMCIS.User_Manag
 
             if (trimmedEmail.EndsWith("."))
             {
+                Log.LogMessage(LogLevel.Error, "[View] User Modify", $"User: {UID} entered an invalid email : {email}.");
                 return false;
             }
 
             try
             {
+                Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} entered an valid email : {email}.");
                 var addr = new System.Net.Mail.MailAddress(email);
                 return addr.Address == trimmedEmail;
             }
             catch
             {
+                Log.LogMessage(LogLevel.Warning, "[View] User Modify", $"User: {UID} entered an invalid email : {email}.");
                 return false;
             }
         }
@@ -409,6 +417,7 @@ namespace LMCIS.User_Manag
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the profile page.");
             proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
@@ -425,6 +434,7 @@ namespace LMCIS.User_Manag
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -437,6 +447,7 @@ namespace LMCIS.User_Manag
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -449,6 +460,7 @@ namespace LMCIS.User_Manag
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -482,6 +494,7 @@ namespace LMCIS.User_Manag
                             MessageBoxIcon.Warning);
                         //MessageBox.Show("File too large! Maximum 1MB.");
                         IMGUploaded = false;
+                        Log.LogMessage(LogLevel.Warning, "[View] User Modify", $"User: {UID} uploaded an image larger than 1MB.");
                     }
                     else
                     {
@@ -489,6 +502,7 @@ namespace LMCIS.User_Manag
                         btnUploadIMG.Visible = false;
                         btnRemoveIMG.Visible = true;
                         picUserIMG.Image = IMG;
+                        Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} uploaded an image.");
                     }
                 }
             }
@@ -496,6 +510,7 @@ namespace LMCIS.User_Manag
             {
                 MessageBox.Show("Illegal operation, please retry.", "System error", MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
+                Log.LogMessage(LogLevel.Critical, "[View] User Modify", $"User: {UID} tried to upload an image, but failed.");
                 IMGUploaded = false;
             }
         }
@@ -506,6 +521,7 @@ namespace LMCIS.User_Manag
             btnUploadIMG.Visible = true;
             btnRemoveIMG.Visible = false;
             picUserIMG.Image = IMG;
+            Log.LogMessage(LogLevel.Information, "[View] User Modify", $"User: {UID} removed the image.");
         }
 
         private void timer1_Tick(object sender, EventArgs e)

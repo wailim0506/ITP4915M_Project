@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Profile;
@@ -11,6 +12,7 @@ using LMCIS.Stock_Manag;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Order_Management
 {
@@ -46,6 +48,7 @@ namespace LMCIS.Order_Management
 
         private void customerEditOrder_Load(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Order Management", $"User: {UID} is loaded the form.");
             palSelect1.Visible =
                 palSelect2.Visible = palSelect3.Visible = palSelect4.Visible = palSelect5.Visible = false;
             hideButton();

@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -10,6 +11,7 @@ using LMCIS.Properties;
 using LMCIS.Stock_Manag;
 using LMCIS.User_Manag;
 using LMCIS.Properties;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.System_page
 {
@@ -35,6 +37,7 @@ namespace LMCIS.System_page
         private void Form1_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] Log History", $"User: {UID} is loaded the form.");
         }
 
         private void Initialization()
@@ -141,6 +144,7 @@ namespace LMCIS.System_page
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Log History", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -163,6 +167,7 @@ namespace LMCIS.System_page
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Log History", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -175,6 +180,7 @@ namespace LMCIS.System_page
 
         private void btnProFile_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Log History", $"User: {UID} is going to the profile page.");
             proFileController = new proFileController(accountController);
 
             proFileController.setType(accountController.GetAccountType());
@@ -191,6 +197,7 @@ namespace LMCIS.System_page
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Log History", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.

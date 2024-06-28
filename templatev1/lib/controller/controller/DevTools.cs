@@ -1,4 +1,4 @@
-﻿//each function need one controller
+﻿
 
 using System;
 using System.Collections.Generic;
@@ -8,21 +8,11 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using LMCIS.controller.Utilities;
 
-//must include in every controller file
-
-//must include in every controller file  
-//need to download 'MySqlConnector' in NuGet Package Manager first if can't run
-
 namespace LMCIS.controller
 {
-    public /*<--add here*/ class DevTools : abstractController
+    public class DevTools : abstractController
     {
-        private Database _db;
-
-        public DevTools() //constructor, useless
-        {
-            _db = new Database();
-        }
+        private Database _db = new Database();
 
         public bool UpdatePassword(Dictionary<string, string> usersToUpdate)
         {

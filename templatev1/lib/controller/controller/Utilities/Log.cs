@@ -40,10 +40,17 @@ namespace LMCIS.controller.Utilities
 
         private void CreateLogFile()
         {
-            Directory.CreateDirectory(LogDirectory);
-            if (!File.Exists(LogFileName))
+            try
             {
-                File.WriteAllText(LogFileName, string.Empty);
+                Directory.CreateDirectory(LogDirectory);
+                if (!File.Exists(LogFileName))
+                {
+                    File.WriteAllText(LogFileName, string.Empty);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 

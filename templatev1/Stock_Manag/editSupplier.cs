@@ -2,6 +2,7 @@
 using System.Dynamic;
 using System.Windows.Forms;
 using LMCIS.controller;
+using LMCIS.controller.Utilities;
 using LMCIS.On_Sale_Product_Manag;
 using LMCIS.Online_Ordering_Platform;
 using LMCIS.Order_Management;
@@ -9,6 +10,7 @@ using LMCIS.Profile;
 using LMCIS.Properties;
 using LMCIS.System_page;
 using LMCIS.User_Manag;
+using Microsoft.Extensions.Logging;
 
 namespace LMCIS.Stock_Manag
 {
@@ -33,6 +35,7 @@ namespace LMCIS.Stock_Manag
         private void editSupplier_Load(object sender, EventArgs e)
         {
             Initialization();
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is loaded the form.");
         }
 
         private void Initialization()
@@ -171,6 +174,7 @@ namespace LMCIS.Stock_Manag
                     break;
             }
 
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the {Function} page.");
             Hide();
             next.StartPosition = FormStartPosition.Manual;
             next.Location = Location;
@@ -197,6 +201,7 @@ namespace LMCIS.Stock_Manag
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is logging out.");
             Form login = new Login();
             Hide();
             //Swap the current form to another.
@@ -209,6 +214,7 @@ namespace LMCIS.Stock_Manag
 
         private void picHome_Click_1(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the home page.");
             Form home = new Home(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -221,6 +227,7 @@ namespace LMCIS.Stock_Manag
 
         private void lblCorpName_Click(object sender, EventArgs e)
         {
+            Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the about page.");
             Form about = new About(accountController, UIController);
             Hide();
             //Swap the current form to another.
@@ -289,7 +296,7 @@ namespace LMCIS.Stock_Manag
                     {
                         MessageBox.Show("Modify successful!", "System message", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
-
+                        Log.LogMessage(LogLevel.Information, "[View] Stock Management", $"User: {UID} is going to the edit supplier page.");
                         Form viewSupplier = new viewSupplier(accountController, UIController, stockController);
                         Hide();
                         //Swap the current form to another.
